@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1145
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COLM SYSTEM", "COLM SYSTEM\COLM SYSTEM.csproj", "{FCD29585-C0CC-4156-8C0F-8504F24DDD87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COLM SYSTEM LIBRARY", "COLM SYSTEM LIBRARY\COLM SYSTEM LIBRARY.csproj", "{18018D8A-2A0D-4600-BA0F-A5CD73410D58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCD29585-C0CC-4156-8C0F-8504F24DDD87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD29585-C0CC-4156-8C0F-8504F24DDD87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD29585-C0CC-4156-8C0F-8504F24DDD87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD29585-C0CC-4156-8C0F-8504F24DDD87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18018D8A-2A0D-4600-BA0F-A5CD73410D58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18018D8A-2A0D-4600-BA0F-A5CD73410D58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18018D8A-2A0D-4600-BA0F-A5CD73410D58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18018D8A-2A0D-4600-BA0F-A5CD73410D58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56FFB256-151F-458F-9BF2-38428163E44E}
+	EndGlobalSection
+EndGlobal
