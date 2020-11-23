@@ -61,7 +61,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
             curriculum.Description = txtDescription.Text;
             curriculum.EducationLevel = cmbEducationLevel.Text;
 
-            MessageBox.Show(Curriculum.IsCurriculumExists(curriculum.Code).ToString());
+            //MessageBox.Show(Curriculum.IsCurriculumExists(curriculum.Code).ToString());
         }
     }
 }
