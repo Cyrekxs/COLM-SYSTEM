@@ -66,7 +66,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
         {
             foreach (DataGridViewRow item in _dg.Rows)
             {
-                if (Convert.ToInt16(item.Cells[1].Value) == SubjectID)
+                if (Convert.ToInt16(item.Cells["clmSubjectID"].Value) == SubjectID)
                 {
                     return true;
                 }

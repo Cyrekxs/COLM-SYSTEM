@@ -48,7 +48,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int GetCurriculumID(string CurriculumCode)
         {
-            var CurriculumID = SQLHelper.ExecuteScalar_Int("fn_get_curriculum_id", CurriculumCode);
+            var CurriculumID = SQLHelper.ExecuteScalar_Int("dbo.fn_get_curriculum_id", CurriculumCode);
             return CurriculumID;
         }
 

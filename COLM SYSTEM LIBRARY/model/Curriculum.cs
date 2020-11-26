@@ -24,9 +24,17 @@ namespace COLM_SYSTEM_LIBRARY.model
             }
             else
             {
+                bool CurriculumResult = Curriculum_DS.CreateCurriculum(curriculum);
+                int CurriculumID = Curriculum_DS.GetCurriculumID(curriculum.Code);
+                foreach (var subject in subjects)
+                {
+                    subject.CurriculumID = CurriculumID;
+                }
 
+                int CurriculumSubjectResult = Curriculum_DS.InsertCurriculumSubjects(subjects);
+                return true;
             }
-            return Curriculum_DS.CreateCurriculum(curriculum);
+            
         }
 
     }

@@ -61,7 +61,23 @@ namespace COLM_SYSTEM.Curriculum_Folder
             curriculum.Description = txtDescription.Text;
             curriculum.EducationLevel = cmbEducationLevel.Text;
 
-            //MessageBox.Show(Curriculum.IsCurriculumExists(curriculum.Code).ToString());
+
+            List<CurriculumSubject> curriculumSubjects = new List<CurriculumSubject>();
+
+            foreach (DataGridViewRow item in dataGridView1.Rows)
+            {
+                CurriculumSubject subject = new CurriculumSubject()
+                {
+                    SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
+                    IsActive = true,
+                    IsBridging = Convert.ToBoolean(item.Cells["clmBridging"].Value),
+                    YearLevelID = YearLevel.GetYearLevel(cmbEducationLevel.Text, item.Cells["clmYearLevel"].Value.ToString()).YearLevelID,
+                };
+                curriculumSubjects.Add(subject);
+            }
+
+
+            MessageBox.Show(Curriculum.CreateCurriculum(curriculum, curriculumSubjects).ToString());
         }
     }
 }
