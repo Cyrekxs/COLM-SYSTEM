@@ -15,6 +15,8 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string Status { get; set; }
         public string EducationLevel { get; set; }
         public int SchoolYearID { get; set; }
+        public DateTime DateCreated { get; set; }
+
 
         public static bool CreateCurriculum(Curriculum curriculum,List<CurriculumSubject> subjects)
         {

@@ -1,4 +1,5 @@
-﻿using COLM_SYSTEM.Discounts;
+﻿using COLM_SYSTEM.Curriculum_Folder;
+using COLM_SYSTEM.Discounts;
 using COLM_SYSTEM.fees;
 using COLM_SYSTEM.subject;
 using System;
@@ -47,5 +48,11 @@ namespace COLM_SYSTEM
             DisplayControl(new uc_fee_list());
         }
 
+        private void cURRICULUMBUILDERToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_curriculum_entry frm = new frm_curriculum_entry();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }
