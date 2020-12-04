@@ -69,16 +69,43 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return subject;
         }
 
+        public static List<SubjectComponent> GetSubjectComponents(int SubjID)
+        {
+            List<SubjectComponent> subjectComponents = new List<SubjectComponent>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.subjects_component WHERE SubjID = @SubjID", conn))
+                {
+                    comm.Parameters.AddWithValue("@SubjID", SubjID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            SubjectComponent sc = new SubjectComponent()
+                            {
+                                ComponentID = Convert.ToInt32(reader["ComponentID"]),
+                                SubjID = SubjID,
+                                ComponentSubject = Convert.ToString(reader["ComponentSubject"])
+                            };
+                            subjectComponents.Add(sc);
+                        }
+                    }
+                }
+            }
+            return subjectComponents;
+        }
+
         public static bool InsertUpdateSubject(Subject model)
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using(SqlCommand comm = new SqlCommand("EXECUTE sp_set_subject @SubjID,@SubjCode,@SubjDesc,@LecUnit,@LabUnit", conn))
+                using (SqlCommand comm = new SqlCommand("EXECUTE sp_set_subject @SubjID,@SubjCode,@SubjDesc,@LecUnit,@LabUnit", conn))
                 {
                     comm.Parameters.AddWithValue("@SubjID", model.SubjID);
                     comm.Parameters.AddWithValue("@SubjCode", model.SubjCode);
-                    comm.Parameters.AddWithValue("@SubjDesc",model.SubjDesc);
+                    comm.Parameters.AddWithValue("@SubjDesc", model.SubjDesc);
                     comm.Parameters.AddWithValue("@LecUnit", model.LecUnit);
                     comm.Parameters.AddWithValue("@LabUnit", model.LabUnit);
 

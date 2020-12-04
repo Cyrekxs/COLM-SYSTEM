@@ -1,6 +1,8 @@
 ﻿using COLM_SYSTEM.Curriculum_Folder;
 using COLM_SYSTEM.Discounts;
 using COLM_SYSTEM.fees;
+using COLM_SYSTEM.registration;
+using COLM_SYSTEM.student_information;
 using COLM_SYSTEM.subject;
 using System;
 using System.Windows.Forms;
@@ -51,6 +53,20 @@ namespace COLM_SYSTEM
         private void cURRICULUMBUILDERToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_curriculum_entry frm = new frm_curriculum_entry();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void rEGISTRATIONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_registered_student_list frm = new frm_registered_student_list();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void iNFORMATIONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_student_information_list frm = new frm_student_information_list();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

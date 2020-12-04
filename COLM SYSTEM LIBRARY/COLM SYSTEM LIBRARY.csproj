@@ -72,6 +72,7 @@
     <Compile Include="model\StudentInfo.cs" />
     <Compile Include="model\StudentRegistrationInfo.cs" />
     <Compile Include="model\Subject.cs" />
+    <Compile Include="model\SubjectComponent.cs" />
     <Compile Include="model\YearLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

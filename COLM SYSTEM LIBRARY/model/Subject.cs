@@ -30,5 +30,10 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return Subject_DS.GetSubject(SubjID);
         }
+
+        public static List<SubjectComponent> GetSubjectComponents(int SubjID)
+        {
+            return Subject_DS.GetSubjectComponents(SubjID);
+        }
     }
 }
