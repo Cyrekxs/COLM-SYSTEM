@@ -41,13 +41,13 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCurriculumID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCurriculumCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmYearLevelID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSectionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmChangeSection = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.clmAssessment = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmSchoolYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,13 +92,13 @@
             this.Column3,
             this.Column5,
             this.Column6,
+            this.clmYearLevel,
+            this.clmCurriculumID,
+            this.clmCurriculumCode,
             this.clmYearLevelID,
-            this.Column1,
             this.Column7,
-            this.clmSectionID,
-            this.Column4,
-            this.clmChangeSection,
-            this.clmAssessment});
+            this.clmSchoolYear,
+            this.Column1});
             this.dataGridView1.Location = new System.Drawing.Point(15, 47);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -160,15 +160,42 @@
             // 
             // Column5
             // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column5.HeaderText = "GENDER";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.Width = 78;
             // 
             // Column6
             // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column6.HeaderText = "MOBILE NO";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.Width = 95;
+            // 
+            // clmYearLevel
+            // 
+            this.clmYearLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmYearLevel.HeaderText = "LEVEL";
+            this.clmYearLevel.Name = "clmYearLevel";
+            this.clmYearLevel.ReadOnly = true;
+            this.clmYearLevel.Width = 66;
+            // 
+            // clmCurriculumID
+            // 
+            this.clmCurriculumID.HeaderText = "CURRICULUM ID";
+            this.clmCurriculumID.Name = "clmCurriculumID";
+            this.clmCurriculumID.ReadOnly = true;
+            this.clmCurriculumID.Visible = false;
+            // 
+            // clmCurriculumCode
+            // 
+            this.clmCurriculumCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmCurriculumCode.HeaderText = "CURRICULUM";
+            this.clmCurriculumCode.Name = "clmCurriculumCode";
+            this.clmCurriculumCode.ReadOnly = true;
+            this.clmCurriculumCode.Width = 103;
             // 
             // clmYearLevelID
             // 
@@ -177,56 +204,33 @@
             this.clmYearLevelID.ReadOnly = true;
             this.clmYearLevelID.Visible = false;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "LEVEL";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // Column7
             // 
-            this.Column7.HeaderText = "YEAR";
+            this.Column7.HeaderText = "YEAR LEVEL";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
-            // clmSectionID
+            // clmSchoolYear
             // 
-            this.clmSectionID.HeaderText = "SECTION ID";
-            this.clmSectionID.Name = "clmSectionID";
-            this.clmSectionID.ReadOnly = true;
-            this.clmSectionID.Visible = false;
+            this.clmSchoolYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmSchoolYear.HeaderText = "SCHOOL YEAR";
+            this.clmSchoolYear.Name = "clmSchoolYear";
+            this.clmSchoolYear.ReadOnly = true;
+            this.clmSchoolYear.Width = 109;
             // 
-            // Column4
+            // Column1
             // 
-            this.Column4.HeaderText = "SECTION";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // clmChangeSection
-            // 
-            this.clmChangeSection.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.clmChangeSection.HeaderText = "SECTION";
-            this.clmChangeSection.Name = "clmChangeSection";
-            this.clmChangeSection.ReadOnly = true;
-            this.clmChangeSection.Text = "CHANGE";
-            this.clmChangeSection.UseColumnTextForButtonValue = true;
-            this.clmChangeSection.Width = 62;
-            // 
-            // clmAssessment
-            // 
-            this.clmAssessment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.clmAssessment.HeaderText = "ASSESSMENT";
-            this.clmAssessment.Name = "clmAssessment";
-            this.clmAssessment.ReadOnly = true;
-            this.clmAssessment.Text = "ASSESSMENT";
-            this.clmAssessment.UseColumnTextForButtonValue = true;
-            this.clmAssessment.Width = 87;
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "DATE REGISTERED";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 121;
             // 
             // frm_registered_student_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 586);
+            this.ClientSize = new System.Drawing.Size(1030, 586);
             this.Controls.Add(this.txtRecords);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
@@ -262,12 +266,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevelID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmSectionID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewButtonColumn clmChangeSection;
-        private System.Windows.Forms.DataGridViewButtonColumn clmAssessment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSchoolYear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

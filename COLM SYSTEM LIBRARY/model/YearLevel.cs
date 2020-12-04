@@ -104,6 +104,14 @@ namespace COLM_SYSTEM_LIBRARY.model
                     select r.YearLevelID).FirstOrDefault();
         }
 
+        public static int GetYearLevelID(string YearLevel,List<YearLevel> LocalYearLevels)
+        {
+            int ID = (from r in LocalYearLevels
+                      where YearLevel == r.YearLvl
+                      select r.YearLevelID).FirstOrDefault();
+            return ID;
+        }
+
         /// <summary>
         /// Get available sections of a specific yearlevel id
         /// </summary>

@@ -70,7 +70,7 @@
     <Compile Include="model\StudentRegistered.cs" />
     <Compile Include="model\StudentGuardian.cs" />
     <Compile Include="model\StudentInfo.cs" />
-    <Compile Include="model\StudentRegistrationInfo.cs" />
+    <Compile Include="model\StudentRegistration.cs" />
     <Compile Include="model\Subject.cs" />
     <Compile Include="model\SubjectComponent.cs" />
     <Compile Include="model\YearLevel.cs" />

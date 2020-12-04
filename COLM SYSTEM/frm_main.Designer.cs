@@ -61,10 +61,10 @@
             this.sUBJECTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.PanelMain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -315,11 +315,10 @@
             // 
             // PanelMain
             // 
-            this.PanelMain.Controls.Add(this.menuStrip1);
             this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelMain.Location = new System.Drawing.Point(0, 59);
+            this.PanelMain.Location = new System.Drawing.Point(0, 83);
             this.PanelMain.Name = "PanelMain";
-            this.PanelMain.Size = new System.Drawing.Size(1060, 715);
+            this.PanelMain.Size = new System.Drawing.Size(1060, 691);
             this.PanelMain.TabIndex = 9;
             // 
             // menuStrip1
@@ -327,8 +326,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tRANSACTIONToolStripMenuItem,
             this.sETTINGSToolStripMenuItem,
-            this.rEPORTSToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.rEPORTSToolStripMenuItem,
+            this.cLOSEALLFORMSToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 59);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1060, 24);
             this.menuStrip1.TabIndex = 0;
@@ -342,7 +342,7 @@
             this.aSSESSMENTToolStripMenuItem,
             this.cURRICULUMBUILDERToolStripMenuItem});
             this.tRANSACTIONToolStripMenuItem.Name = "tRANSACTIONToolStripMenuItem";
-            this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.tRANSACTIONToolStripMenuItem.Text = "TRANSACTION";
             // 
             // iNFORMATIONToolStripMenuItem
@@ -379,27 +379,27 @@
             this.fEESToolStripMenuItem,
             this.sUBJECTSToolStripMenuItem});
             this.sETTINGSToolStripMenuItem.Name = "sETTINGSToolStripMenuItem";
-            this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.sETTINGSToolStripMenuItem.Text = "SETTINGS";
             // 
             // dISCOUNTToolStripMenuItem
             // 
             this.dISCOUNTToolStripMenuItem.Name = "dISCOUNTToolStripMenuItem";
-            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.dISCOUNTToolStripMenuItem.Text = "DISCOUNTS";
             this.dISCOUNTToolStripMenuItem.Click += new System.EventHandler(this.dISCOUNTToolStripMenuItem_Click);
             // 
             // fEESToolStripMenuItem
             // 
             this.fEESToolStripMenuItem.Name = "fEESToolStripMenuItem";
-            this.fEESToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.fEESToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.fEESToolStripMenuItem.Text = "FEES";
             this.fEESToolStripMenuItem.Click += new System.EventHandler(this.fEESToolStripMenuItem_Click);
             // 
             // sUBJECTSToolStripMenuItem
             // 
             this.sUBJECTSToolStripMenuItem.Name = "sUBJECTSToolStripMenuItem";
-            this.sUBJECTSToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.sUBJECTSToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.sUBJECTSToolStripMenuItem.Text = "SUBJECTS";
             this.sUBJECTSToolStripMenuItem.Click += new System.EventHandler(this.sUBJECTSToolStripMenuItem_Click);
             // 
@@ -408,14 +408,21 @@
             this.rEPORTSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mASTERLISTToolStripMenuItem});
             this.rEPORTSToolStripMenuItem.Name = "rEPORTSToolStripMenuItem";
-            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.rEPORTSToolStripMenuItem.Text = "REPORTS";
             // 
             // mASTERLISTToolStripMenuItem
             // 
             this.mASTERLISTToolStripMenuItem.Name = "mASTERLISTToolStripMenuItem";
-            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.mASTERLISTToolStripMenuItem.Text = "MASTER LIST";
+            // 
+            // cLOSEALLFORMSToolStripMenuItem
+            // 
+            this.cLOSEALLFORMSToolStripMenuItem.Name = "cLOSEALLFORMSToolStripMenuItem";
+            this.cLOSEALLFORMSToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
+            this.cLOSEALLFORMSToolStripMenuItem.Text = "CLOSE ALL FORMS";
+            this.cLOSEALLFORMSToolStripMenuItem.Click += new System.EventHandler(this.cLOSEALLFORMSToolStripMenuItem_Click);
             // 
             // frm_main
             // 
@@ -424,6 +431,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1060, 825);
             this.Controls.Add(this.PanelMain);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -440,11 +448,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.PanelMain.ResumeLayout(false);
-            this.PanelMain.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -483,5 +490,6 @@
         private System.Windows.Forms.ToolStripMenuItem rEPORTSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mASTERLISTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cURRICULUMBUILDERToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cLOSEALLFORMSToolStripMenuItem;
     }
 }

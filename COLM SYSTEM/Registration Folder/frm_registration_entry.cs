@@ -1,6 +1,7 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using static COLM_SYSTEM_LIBRARY.helper.Enums;
 
@@ -8,64 +9,58 @@ namespace COLM_SYSTEM.registration
 {
     public partial class frm_registration_entry : Form
     {
-        List<YearLevel> _YearLevels = YearLevel.GetYearLevels();
         StudentInfo _StudentInfo = new StudentInfo();
-
+        List<Curriculum> _Curriculums = new List<Curriculum>();
+        List<YearLevel> _YearLevels = new List<YearLevel>();
         public frm_registration_entry()
         {
             InitializeComponent();
         }
 
-        private void LoadYearLevels()
+        private void LoadCurriculums(string EducationLevel)
         {
-            List<string> yearlevels = YearLevel.GetYearLevelsByEducationLevel(_YearLevels, cmbEducationLevel.Text);
-            cmbYearLevel.Items.Clear();
-            foreach (var item in yearlevels)
+            _Curriculums = Curriculum.GetCurriculums(EducationLevel);
+            cmbCurriculum.Items.Clear();
+            foreach (var item in _Curriculums)
             {
-                cmbYearLevel.Items.Add(item);
+                cmbCurriculum.Items.Add(item.Code);
             }
         }
 
-        private void LoadSections()
+        private void LoadCurriculumYearLevel(int CurriculumID)
         {
-            List<Section> sections = YearLevel.GetYearLevelSections(YearLevel.GetYearLevelID(_YearLevels, cmbEducationLevel.Text, cmbYearLevel.Text));
-            cmbSections.Tag = sections;
-            cmbSections.Items.Clear();
-            foreach (var item in sections)
+            _YearLevels = Curriculum.GetCurriculumYearLevels(CurriculumID); 
+            cmbYearLevel.Items.Clear();
+            foreach (var item in _YearLevels)
             {
-                cmbSections.Items.Add(item.SectionName);
+                cmbYearLevel.Items.Add(item.YearLvl);
             }
         }
 
         private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadYearLevels();
+            LoadCurriculums(cmbEducationLevel.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int YearLevelID = YearLevel.GetYearLevelID(_YearLevels, cmbEducationLevel.Text, cmbYearLevel.Text);
-            List<Section> sections = cmbSections.Tag as List<Section>;
-            int SelectedSection = sections[cmbSections.SelectedIndex].SectionID;
-
-            StudentRegistrationInfo model = new StudentRegistrationInfo()
+            int YearLevelID = YearLevel.GetYearLevelID(cmbYearLevel.Text,_YearLevels);
+            int CurriculumID = Curriculum.GetCurriculumID(cmbCurriculum.Text, _Curriculums);
+            StudentRegistration model = new StudentRegistration()
             {
-                RegisteredStudentID = 0,
+                RegistrationID = 0,
                 StudentID = _StudentInfo.StudentID,
+                CurriculumID = CurriculumID,
                 YearLevelID = YearLevelID,
-                SectionID = SelectedSection,
                 SchoolYearID = 1,
+                RegistrationStatus = cmbRegistrationStatus.Text
+
             };
 
-            if (StudentRegistrationInfo.RegisterStudent(model) == true)
+            if (StudentRegistration.RegisterStudent(model) == true)
                 MessageBox.Show("Student information has been successfully registered!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Error occured while registration!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void cmbYearLevel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadSections();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -80,6 +75,12 @@ namespace COLM_SYSTEM.registration
                     txtStudentName.Text = _StudentInfo.StudentName;
                 }
             }
+        }
+
+        private void cmbCurriculum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int CurriculumID = Curriculum.GetCurriculumID(cmbCurriculum.Text, _Curriculums);
+            LoadCurriculumYearLevel(CurriculumID);
         }
     }
 }

@@ -15,14 +15,18 @@ namespace COLM_SYSTEM
 
         private void DisplayControl(UserControl uc)
         {
+            ClearUserControls();
+            uc.Dock = DockStyle.Fill;
+            PanelMain.Controls.Add(uc);
+        }
+
+        private void ClearUserControls()
+        {
             //remove all user controls in panel main first before display new user control
             foreach (UserControl item in PanelMain.Controls)
             {
                 PanelMain.Controls.Remove(item);
             }
-
-            uc.Dock = DockStyle.Fill;
-            PanelMain.Controls.Add(uc);
         }
 
         public frm_main()
@@ -69,6 +73,11 @@ namespace COLM_SYSTEM
             frm_student_information_list frm = new frm_student_information_list();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+        }
+
+        private void cLOSEALLFORMSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClearUserControls();
         }
     }
 }

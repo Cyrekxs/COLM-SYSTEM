@@ -7,28 +7,29 @@ using System.Threading.Tasks;
 
 namespace COLM_SYSTEM_LIBRARY.model
 {
-    public class StudentRegistrationInfo
+    public class StudentRegistration
     {
-        public int RegisteredStudentID { get; set; }
+        public int RegistrationID { get; set; }
         public int StudentID { get; set; }
+        public int CurriculumID { get; set; }
         public int YearLevelID { get; set; }
-        public int SectionID { get; set; }
         public int SchoolYearID { get; set; }
+        public string RegistrationStatus { get; set; }
         public DateTime DateRegistered { get; set; }
 
-        public static bool RegisterStudent(StudentRegistrationInfo student)
+        public static bool RegisterStudent(StudentRegistration student)
         {
             return StudentRegistration_DS.RegisterStudent(student);
         }
 
-        public static bool UpdateStudentRegistration(StudentRegistrationInfo student)
+        public static bool UpdateStudentRegistration(StudentRegistration student)
         {
             return StudentRegistration_DS.UpdateStudentRegistration(student);
         }
 
-        public static StudentRegistrationInfo GetStudentRegistrationInfo(int RegisteredStudentID)
+        public static StudentRegistration GetStudentRegistrationInfo(int RegistrationID)
         {
-            return StudentRegistration_DS.GetStudentRegistrationInfo(RegisteredStudentID);
+            return StudentRegistration_DS.GetStudentRegistrationInfo(RegistrationID);
         }
     }
 }

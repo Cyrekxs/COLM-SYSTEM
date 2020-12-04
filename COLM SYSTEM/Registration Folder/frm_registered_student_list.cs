@@ -1,12 +1,6 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.registration
@@ -26,16 +20,19 @@ namespace COLM_SYSTEM.registration
             {
                 dataGridView1.Rows.Add(
                     item.RegisteredStudentID,
-                    item.StudentID, 
-                    item.LRN, 
-                    item.StudentName, 
-                    item.Gender, 
-                    item.MobileNo, 
-                    item.YearLevelID, 
-                    item.EducationLevel, 
-                    item.YearLevel, 
-                    item.SectionID, 
-                    item.Section);
+                    item.StudentID,
+                    item.LRN,
+                    item.StudentName,
+                    item.Gender,
+                    item.MobileNo,
+                    item.EducationLevel,
+                    item.CurriculumID,
+                    item.CurriculumCode,
+                    item.YearLevelID,
+                    item.YearLevel,
+                    item.SchoolYear,
+                    item.DateRegistered
+                    );
             }
         }
 

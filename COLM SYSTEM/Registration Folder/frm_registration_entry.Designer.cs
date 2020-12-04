@@ -35,8 +35,10 @@
             this.txtLRN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmbSections = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.cmbRegistrationStatus = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbCurriculum = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cmbYearLevel = new System.Windows.Forms.ComboBox();
@@ -107,8 +109,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cmbSections);
-            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.cmbRegistrationStatus);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.cmbCurriculum);
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.cmbYearLevel);
@@ -117,37 +121,55 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(12, 112);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(553, 207);
+            this.groupBox2.Size = new System.Drawing.Size(553, 293);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "REGISTRATION INFO";
             // 
-            // cmbSections
+            // cmbRegistrationStatus
             // 
-            this.cmbSections.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSections.FormattingEnabled = true;
-            this.cmbSections.Items.AddRange(new object[] {
-            "PRE ELEMENTARY",
-            "ELEMENTARY",
-            "JUNIOR HIGH",
-            "SENIOR HIGH"});
-            this.cmbSections.Location = new System.Drawing.Point(151, 107);
-            this.cmbSections.Name = "cmbSections";
-            this.cmbSections.Size = new System.Drawing.Size(126, 25);
-            this.cmbSections.TabIndex = 8;
+            this.cmbRegistrationStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRegistrationStatus.FormattingEnabled = true;
+            this.cmbRegistrationStatus.Items.AddRange(new object[] {
+            "OLD STUDENT",
+            "NEW STUDENT",
+            "TRANSFEREE"});
+            this.cmbRegistrationStatus.Location = new System.Drawing.Point(19, 155);
+            this.cmbRegistrationStatus.Name = "cmbRegistrationStatus";
+            this.cmbRegistrationStatus.Size = new System.Drawing.Size(258, 25);
+            this.cmbRegistrationStatus.TabIndex = 12;
             // 
-            // label5
+            // label7
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(148, 87);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 17);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "SECTION";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 135);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(131, 17);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "REGISTRATION STATUS";
+            // 
+            // cmbCurriculum
+            // 
+            this.cmbCurriculum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCurriculum.FormattingEnabled = true;
+            this.cmbCurriculum.Location = new System.Drawing.Point(19, 107);
+            this.cmbCurriculum.Name = "cmbCurriculum";
+            this.cmbCurriculum.Size = new System.Drawing.Size(258, 25);
+            this.cmbCurriculum.TabIndex = 10;
+            this.cmbCurriculum.SelectedIndexChanged += new System.EventHandler(this.cmbCurriculum_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 87);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 17);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "CURRICULUM";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(351, 162);
+            this.button2.Location = new System.Drawing.Point(351, 248);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 30);
             this.button2.TabIndex = 6;
@@ -156,7 +178,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(437, 162);
+            this.button1.Location = new System.Drawing.Point(437, 248);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 30);
             this.button1.TabIndex = 2;
@@ -168,21 +190,15 @@
             // 
             this.cmbYearLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbYearLevel.FormattingEnabled = true;
-            this.cmbYearLevel.Items.AddRange(new object[] {
-            "PRE ELEMENTARY",
-            "ELEMENTARY",
-            "JUNIOR HIGH",
-            "SENIOR HIGH"});
-            this.cmbYearLevel.Location = new System.Drawing.Point(19, 107);
+            this.cmbYearLevel.Location = new System.Drawing.Point(19, 203);
             this.cmbYearLevel.Name = "cmbYearLevel";
-            this.cmbYearLevel.Size = new System.Drawing.Size(126, 25);
+            this.cmbYearLevel.Size = new System.Drawing.Size(258, 25);
             this.cmbYearLevel.TabIndex = 5;
-            this.cmbYearLevel.SelectedIndexChanged += new System.EventHandler(this.cmbYearLevel_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 87);
+            this.label4.Location = new System.Drawing.Point(16, 183);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 17);
             this.label4.TabIndex = 4;
@@ -216,7 +232,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 335);
+            this.ClientSize = new System.Drawing.Size(582, 420);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -248,8 +264,10 @@
         private System.Windows.Forms.ComboBox cmbYearLevel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox cmbSections;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox cmbCurriculum;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbRegistrationStatus;
     }
 }

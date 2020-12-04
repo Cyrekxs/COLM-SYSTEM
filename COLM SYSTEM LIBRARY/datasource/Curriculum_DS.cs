@@ -52,6 +52,59 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return CurriculumID;
         }
 
+        public static List<Curriculum> GetCurriculums(string EducationLevel)
+        {
+            List<Curriculum> Curriculums = new List<Curriculum>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum WHERE EducationLevel = @EducationLevel", conn))
+                {
+                    comm.Parameters.AddWithValue("@EducationLevel", EducationLevel);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Curriculum c = new Curriculum()
+                            {
+                                CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
+                                Code = Convert.ToString(reader["Code"]),
+                                Description = Convert.ToString(reader["Description"]),
+                                EducationLevel = EducationLevel,
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                Status = Convert.ToString(reader["Status"]),
+                                DateCreated = Convert.ToDateTime(reader["DateCreated"])
+                            };
+                            Curriculums.Add(c);
+                        }
+                    }
+                }
+            }
+            return Curriculums;
+        }
+
+        public static List<YearLevel> GetCurriculumYearLevels(int CurriculumID)
+        {
+            List<YearLevel> yearLevels = new List<YearLevel>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT DISTINCT YearLevelID FROM settings.curriculum_subjects WHERE CurriculumID = @CurriculumID ORDER BY YearLevelID ASC",conn))
+                {
+                    comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            YearLevel yl = YearLevel.GetYearLevel(Convert.ToInt32(reader["YearLevelID"]));
+                            yearLevels.Add(yl);
+                        }
+                    }
+                }
+            }
+            return yearLevels;
+        }
+
         public static int InsertCurriculumSubjects(List<CurriculumSubject> subjects)
         {
             int result = 0;
