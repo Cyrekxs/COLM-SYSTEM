@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,8 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtYearLevel = new System.Windows.Forms.TextBox();
-            this.txtSection = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbpSubjects = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -56,6 +54,7 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.panel11 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
@@ -91,9 +90,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtMFee = new System.Windows.Forms.TextBox();
             this.tbpAssessmentInfo = new System.Windows.Forms.TabPage();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.btnAddDiscount = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -223,33 +219,15 @@
             this.txtYearLevel.Text = "Grade 7";
             this.txtYearLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtSection
-            // 
-            this.txtSection.Location = new System.Drawing.Point(848, 26);
-            this.txtSection.Name = "txtSection";
-            this.txtSection.Size = new System.Drawing.Size(74, 24);
-            this.txtSection.TabIndex = 8;
-            this.txtSection.Text = "A";
-            this.txtSection.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(845, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 17);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "SECTION";
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tbpSubjects);
             this.tabControl1.Controls.Add(this.tbpFees);
             this.tabControl1.Controls.Add(this.tbpAssessmentInfo);
-            this.tabControl1.Location = new System.Drawing.Point(13, 113);
+            this.tabControl1.Location = new System.Drawing.Point(13, 225);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(936, 475);
+            this.tabControl1.Size = new System.Drawing.Size(936, 482);
             this.tabControl1.TabIndex = 0;
             // 
             // tbpSubjects
@@ -258,7 +236,7 @@
             this.tbpSubjects.Location = new System.Drawing.Point(4, 26);
             this.tbpSubjects.Name = "tbpSubjects";
             this.tbpSubjects.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpSubjects.Size = new System.Drawing.Size(928, 454);
+            this.tbpSubjects.Size = new System.Drawing.Size(928, 452);
             this.tbpSubjects.TabIndex = 5;
             this.tbpSubjects.Text = "SUBJECTS";
             this.tbpSubjects.UseVisualStyleBackColor = true;
@@ -270,7 +248,7 @@
             this.panel10.Location = new System.Drawing.Point(6, 6);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(1);
-            this.panel10.Size = new System.Drawing.Size(914, 442);
+            this.panel10.Size = new System.Drawing.Size(914, 433);
             this.panel10.TabIndex = 10;
             // 
             // dataGridView5
@@ -288,6 +266,7 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn13,
             this.Column3,
+            this.Column7,
             this.Column6});
             this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView5.Location = new System.Drawing.Point(1, 35);
@@ -295,7 +274,7 @@
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.RowHeadersVisible = false;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(912, 406);
+            this.dataGridView5.Size = new System.Drawing.Size(912, 397);
             this.dataGridView5.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn3
@@ -317,8 +296,8 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle64;
             this.dataGridViewTextBoxColumn13.HeaderText = "SUBJECT";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
@@ -327,12 +306,20 @@
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle65;
             this.Column3.HeaderText = "AMOUNT";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Width = 81;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column7.HeaderText = "TYPE";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 60;
             // 
             // Column6
             // 
@@ -393,7 +380,7 @@
             this.tbpFees.Location = new System.Drawing.Point(4, 26);
             this.tbpFees.Name = "tbpFees";
             this.tbpFees.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpFees.Size = new System.Drawing.Size(928, 445);
+            this.tbpFees.Size = new System.Drawing.Size(928, 452);
             this.tbpFees.TabIndex = 0;
             this.tbpFees.Text = "FEES";
             // 
@@ -448,8 +435,8 @@
             // 
             // clmOFeeAmount
             // 
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmOFeeAmount.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmOFeeAmount.DefaultCellStyle = dataGridViewCellStyle66;
             this.clmOFeeAmount.HeaderText = "AMOUNT";
             this.clmOFeeAmount.Name = "clmOFeeAmount";
             this.clmOFeeAmount.ReadOnly = true;
@@ -552,8 +539,8 @@
             // clmMFeeAmount
             // 
             this.clmMFeeAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmMFeeAmount.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmMFeeAmount.DefaultCellStyle = dataGridViewCellStyle67;
             this.clmMFeeAmount.HeaderText = "AMOUNT";
             this.clmMFeeAmount.Name = "clmMFeeAmount";
             this.clmMFeeAmount.ReadOnly = true;
@@ -656,8 +643,8 @@
             // 
             // clmTFeeAmount
             // 
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmTFeeAmount.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmTFeeAmount.DefaultCellStyle = dataGridViewCellStyle68;
             this.clmTFeeAmount.HeaderText = "AMOUNT";
             this.clmTFeeAmount.Name = "clmTFeeAmount";
             this.clmTFeeAmount.ReadOnly = true;
@@ -722,9 +709,6 @@
             // 
             // tbpAssessmentInfo
             // 
-            this.tbpAssessmentInfo.Controls.Add(this.textBox5);
-            this.tbpAssessmentInfo.Controls.Add(this.textBox4);
-            this.tbpAssessmentInfo.Controls.Add(this.textBox3);
             this.tbpAssessmentInfo.Controls.Add(this.button3);
             this.tbpAssessmentInfo.Controls.Add(this.btnAddDiscount);
             this.tbpAssessmentInfo.Controls.Add(this.button2);
@@ -750,34 +734,10 @@
             this.tbpAssessmentInfo.Location = new System.Drawing.Point(4, 26);
             this.tbpAssessmentInfo.Name = "tbpAssessmentInfo";
             this.tbpAssessmentInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpAssessmentInfo.Size = new System.Drawing.Size(928, 454);
+            this.tbpAssessmentInfo.Size = new System.Drawing.Size(928, 452);
             this.tbpAssessmentInfo.TabIndex = 4;
-            this.tbpAssessmentInfo.Text = "ASSESSMENT INFORMATION";
+            this.tbpAssessmentInfo.Text = "SUMMARY";
             this.tbpAssessmentInfo.UseVisualStyleBackColor = true;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(369, 144);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(71, 24);
-            this.textBox5.TabIndex = 24;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(369, 114);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(71, 24);
-            this.textBox4.TabIndex = 23;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(369, 84);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(71, 24);
-            this.textBox3.TabIndex = 22;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button3
             // 
@@ -830,7 +790,6 @@
             this.button1.TabIndex = 19;
             this.button1.Text = "SAVE ASSESSMENT";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtSurcharge
             // 
@@ -887,8 +846,8 @@
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle69;
             this.Column4.HeaderText = "TYPE";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -898,8 +857,8 @@
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle70;
             this.Column5.HeaderText = "VALUE";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -963,8 +922,8 @@
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle71;
             this.dataGridViewTextBoxColumn11.HeaderText = "AMOUNT";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
@@ -974,8 +933,8 @@
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle72;
             this.dataGridViewTextBoxColumn12.HeaderText = "DUE DATE";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -1032,7 +991,7 @@
             // 
             this.txtTotalOFee.Location = new System.Drawing.Point(144, 143);
             this.txtTotalOFee.Name = "txtTotalOFee";
-            this.txtTotalOFee.Size = new System.Drawing.Size(219, 24);
+            this.txtTotalOFee.Size = new System.Drawing.Size(296, 24);
             this.txtTotalOFee.TabIndex = 5;
             this.txtTotalOFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -1049,7 +1008,7 @@
             // 
             this.txtTotalMFee.Location = new System.Drawing.Point(144, 113);
             this.txtTotalMFee.Name = "txtTotalMFee";
-            this.txtTotalMFee.Size = new System.Drawing.Size(219, 24);
+            this.txtTotalMFee.Size = new System.Drawing.Size(296, 24);
             this.txtTotalMFee.TabIndex = 4;
             this.txtTotalMFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -1057,7 +1016,7 @@
             // 
             this.txtTotalTFee.Location = new System.Drawing.Point(144, 84);
             this.txtTotalTFee.Name = "txtTotalTFee";
-            this.txtTotalTFee.Size = new System.Drawing.Size(219, 24);
+            this.txtTotalTFee.Size = new System.Drawing.Size(296, 24);
             this.txtTotalTFee.TabIndex = 3;
             this.txtTotalTFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -1100,7 +1059,7 @@
             this.panel7.Location = new System.Drawing.Point(12, 12);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(1);
-            this.panel7.Size = new System.Drawing.Size(936, 95);
+            this.panel7.Size = new System.Drawing.Size(936, 94);
             this.panel7.TabIndex = 11;
             // 
             // panel9
@@ -1108,9 +1067,7 @@
             this.panel9.BackColor = System.Drawing.Color.White;
             this.panel9.Controls.Add(this.label1);
             this.panel9.Controls.Add(this.textBox2);
-            this.panel9.Controls.Add(this.txtSection);
             this.panel9.Controls.Add(this.label2);
-            this.panel9.Controls.Add(this.label5);
             this.panel9.Controls.Add(this.textBox1);
             this.panel9.Controls.Add(this.txtYearLevel);
             this.panel9.Controls.Add(this.label3);
@@ -1119,7 +1076,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(1, 35);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(934, 59);
+            this.panel9.Size = new System.Drawing.Size(934, 58);
             this.panel9.TabIndex = 4;
             // 
             // panel8
@@ -1139,15 +1096,15 @@
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(9, 9);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(253, 16);
+            this.label19.Size = new System.Drawing.Size(157, 16);
             this.label19.TabIndex = 3;
-            this.label19.Text = "STUDENT REGISTRATION INFORMATION";
+            this.label19.Text = "STUDENT INFORMATION";
             // 
             // frm_assessment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 596);
+            this.ClientSize = new System.Drawing.Size(959, 709);
             this.ControlBox = false;
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.tabControl1);
@@ -1199,8 +1156,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEducationLevel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtSection;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tbpFees;
         private System.Windows.Forms.TabPage tbpAssessmentInfo;
@@ -1266,21 +1221,19 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TabPage tbpSubjects;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.DataGridView dataGridView5;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewLinkColumn Column6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
     }
 }

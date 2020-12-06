@@ -14,6 +14,14 @@ namespace COLM_SYSTEM.assessment
 
         private List<Discount> AddedDiscounts = new List<Discount>();
 
+        public frm_assessment()
+        {
+            InitializeComponent();
+            LoadFees();
+            LoadDiscounts();
+            LoadAssessmentTypes();
+        }
+
         private int GetStudentYearLevelID()
         {
             _educationLevel = txtEducationLevel.Text;
@@ -80,15 +88,7 @@ namespace COLM_SYSTEM.assessment
             
         }
 
-        public frm_assessment()
-        {
-            InitializeComponent();
-            LoadFees();
-            LoadDiscounts();
-            LoadAssessmentTypes();
 
-            
-        }
 
         private void btnAddDiscount_Click(object sender, System.EventArgs e)
         {
@@ -131,11 +131,6 @@ namespace COLM_SYSTEM.assessment
             txtTotalTFee.Text = TotalTFee.ToString("n");
             txtTotalMFee.Text = TotalMFee.ToString("n");
             txtTotalOFee.Text = TotalOFee.ToString("n");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

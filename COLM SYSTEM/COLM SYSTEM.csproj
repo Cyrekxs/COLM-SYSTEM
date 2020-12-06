@@ -53,6 +53,12 @@
     <Compile Include="Assessment Folder\frm_assessment.Designer.cs">
       <DependentUpon>frm_assessment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_browse_student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_browse_student.Designer.cs">
+      <DependentUpon>frm_assessment_browse_student.cs</DependentUpon>
+    </Compile>
     <Compile Include="Curriculum Folder\frm_curriculum_entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </Compile>
     <EmbeddedResource Include="Assessment Folder\frm_assessment.resx">
       <DependentUpon>frm_assessment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assessment Folder\frm_assessment_browse_student.resx">
+      <DependentUpon>frm_assessment_browse_student.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Curriculum Folder\frm_curriculum_entry.resx">
       <DependentUpon>frm_curriculum_entry.cs</DependentUpon>
