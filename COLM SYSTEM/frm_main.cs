@@ -2,6 +2,7 @@
 using COLM_SYSTEM.Discounts;
 using COLM_SYSTEM.fees;
 using COLM_SYSTEM.registration;
+using COLM_SYSTEM.Section_Folder;
 using COLM_SYSTEM.student_information;
 using COLM_SYSTEM.subject;
 using System;
@@ -78,6 +79,13 @@ namespace COLM_SYSTEM
         private void cLOSEALLFORMSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClearUserControls();
+        }
+
+        private void sECTIONSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_section_lists frm = new frm_section_lists();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

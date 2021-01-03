@@ -84,10 +84,9 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<YearLevel> GetYearLevelsByEducationLevel(string EducationLevel)
         {
             return (from r in YearLevel_DS.GetYearLevels()
-                    where r.EducationLevel == EducationLevel
+                    where r.EducationLevel.ToLower() == EducationLevel.ToLower()
                     select r).Distinct().ToList();
         }
-
 
         /// <summary>
         /// Get the yearlevel id by supplying a list of yearlevels a specific education level and specific yearlevel
