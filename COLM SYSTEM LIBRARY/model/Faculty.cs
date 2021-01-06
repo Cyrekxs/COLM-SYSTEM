@@ -16,5 +16,10 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return Faculty_DS.GetFaculties();
         }
+
+        public static Faculty GetFaculty(int FacultyID)
+        {
+            return Faculty_DS.GetFaculty(FacultyID);
+        }
     }
 }

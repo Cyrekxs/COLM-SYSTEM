@@ -47,6 +47,7 @@
     <Compile Include="datasource\Discount_DS.cs" />
     <Compile Include="datasource\Faculty_DS.cs" />
     <Compile Include="datasource\Fee_DS.cs" />
+    <Compile Include="datasource\Schedule_DS.cs" />
     <Compile Include="datasource\SchoolYearSemester_DS.cs" />
     <Compile Include="datasource\Section_DS.cs" />
     <Compile Include="datasource\StudentInfo_DS.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="model\Faculty.cs" />
     <Compile Include="model\Fee.cs" />
     <Compile Include="model\FeeSummary.cs" />
+    <Compile Include="model\Schedule.cs" />
     <Compile Include="model\SchoolYear.cs" />
     <Compile Include="model\Section.cs" />
     <Compile Include="model\SchoolSemester.cs" />

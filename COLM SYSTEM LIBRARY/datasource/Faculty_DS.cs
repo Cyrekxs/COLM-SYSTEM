@@ -37,5 +37,32 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return faculties;
         }
+
+        public static Faculty GetFaculty(int FacultyID)
+        {
+            Faculty faculty = new Faculty();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.faculties WHERE FacultyID = @FacultyID", conn))
+                {
+                    comm.Parameters.AddWithValue("@FacultyID", FacultyID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                           faculty = new Faculty()
+                            {
+                                FacultyID = Convert.ToInt32(reader["FacultyID"]),
+                                Title = Convert.ToString(reader["Title"]),
+                                Lastname = Convert.ToString(reader["Lastname"]),
+                                Firstname = Convert.ToString(reader["Firstname"])
+                            };
+                        }
+                    }
+                }
+            }
+            return faculty;
+        }
     }
 }

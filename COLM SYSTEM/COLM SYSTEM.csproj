@@ -173,6 +173,12 @@
     <Compile Include="uc_assessment_lists.Designer.cs">
       <DependentUpon>uc_assessment_lists.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Interfaces\Cards.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interfaces\Cards.Designer.cs">
+      <DependentUpon>Cards.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -311,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="uc_assessment_lists.resx">
       <DependentUpon>uc_assessment_lists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interfaces\Cards.resx">
+      <DependentUpon>Cards.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
