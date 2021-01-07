@@ -9,9 +9,13 @@ namespace COLM_SYSTEM_LIBRARY.model
 {
     public class SubjectSetted
     {
+        public int SubjPriceID { get; set; }
         public int CurriculumSubjID { get; set; }
         public string SubjCode { get; set; }
         public string SubjDesc { get; set; }
+        public int LecUnit { get; set; }
+        public int LabUnit { get; set; }
+        public bool Bridging { get; set; }
         public double SubjPrice { get; set; }
         public string SubjType { get; set; }
 

@@ -20,14 +20,9 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int FacultyID { get; set; }
 
 
-        public static bool InsertSchedule(Schedule schedule)
+        public static bool InsertUpdateSchedule(Schedule schedule)
         {
-            return Schedule_DS.InsertSchedule(schedule);
-        }
-
-        public static bool UpdateSchedule(Schedule schedule)
-        {
-            return Schedule_DS.UpdateSchedule(schedule);
+            return Schedule_DS.InsertUpdateSchedule(schedule);
         }
 
         public static List<Schedule> GetSchedules(int SectionID, int SchoolYearID)
