@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace COLM_SYSTEM
+namespace COLM_SYSTEM.fees_folder
 {
     public partial class frm_settings_fee_entry : Form
     {

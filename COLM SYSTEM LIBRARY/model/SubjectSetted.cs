@@ -11,6 +11,7 @@ namespace COLM_SYSTEM_LIBRARY.model
     {
         public int SubjPriceID { get; set; }
         public int CurriculumSubjID { get; set; }
+        public int SchoolYearID { get; set; }
         public string SubjCode { get; set; }
         public string SubjDesc { get; set; }
         public int LecUnit { get; set; }

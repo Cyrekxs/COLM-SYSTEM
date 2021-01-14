@@ -11,6 +11,7 @@ namespace COLM_SYSTEM_LIBRARY.model
     {
         public int YearLevelID { get; set; }
         public string EducationLevel { get; set; }
+        public string Course_Code { get; set; }
         public string YearLvl { get; set; }
         public int NextYearLvlID { get; set; }
 

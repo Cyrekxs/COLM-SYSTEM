@@ -1,4 +1,4 @@
-﻿namespace COLM_SYSTEM
+﻿namespace COLM_SYSTEM.fees_folder
 {
     partial class frm_settings_fee_entry
     {
