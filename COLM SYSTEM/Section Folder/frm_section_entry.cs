@@ -21,11 +21,11 @@ namespace COLM_SYSTEM.Section_Folder
 
         private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            YearLevels = YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text);
-            cmbYearLevel.Items.Clear();
-            foreach (var item in YearLevels)
+            List<string> CourseStrands = YearLevel.GetCourseStrandByEducationLevel(cmbEducationLevel.Text);
+            cmbCourseStrand.Items.Clear();
+            foreach (var item in CourseStrands)
             {
-                cmbYearLevel.Items.Add(item.YearLvl);
+                cmbCourseStrand.Items.Add(item);
             }
         }
 
@@ -46,6 +46,16 @@ namespace COLM_SYSTEM.Section_Folder
 
             Close();
             Dispose();
+        }
+
+        private void cmbCourseStrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            YearLevels = YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text,cmbCourseStrand.Text);
+            cmbYearLevel.Items.Clear();
+            foreach (var item in YearLevels)
+            {
+                cmbYearLevel.Items.Add(item.YearLvl);
+            }
         }
     }
 }

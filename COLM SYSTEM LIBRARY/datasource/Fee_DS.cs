@@ -115,6 +115,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             FeeSummary feeSummary = new FeeSummary()
                             {
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 YearLevel = Convert.ToString(reader["YearLevel"]),
                                 TotalTFee = Convert.ToDouble(reader["Total_TFee"]),
                                 TotalMFee = Convert.ToDouble(reader["Total_MFee"]),

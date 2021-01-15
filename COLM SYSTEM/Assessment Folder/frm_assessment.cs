@@ -11,6 +11,7 @@ namespace COLM_SYSTEM.assessment
         string _educationLevel = "";
         string _yearLevel = "";
         string _section = "";
+        string _coursestrand = "";
 
         private List<Discount> AddedDiscounts = new List<Discount>();
 
@@ -28,7 +29,7 @@ namespace COLM_SYSTEM.assessment
             _yearLevel = txtYearLevel.Text;
             _section = txtSection.Text;
 
-            int yearLevelID = YearLevel.GetYearLevel(_educationLevel, _yearLevel).YearLevelID;
+            int yearLevelID = YearLevel.GetYearLevel(_educationLevel,_coursestrand, _yearLevel).YearLevelID;
             return yearLevelID;
         }
 
@@ -82,12 +83,6 @@ namespace COLM_SYSTEM.assessment
                 cmbAssessmentType.Items.Add(item.AssessmentCode);
             }
         }
-
-        private void CalculateAssessment()
-        {
-            
-        }
-
 
 
         private void btnAddDiscount_Click(object sender, System.EventArgs e)

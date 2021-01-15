@@ -42,9 +42,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.cm_actions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cm_discount = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -52,11 +55,10 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.aMOUNTDISCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmYearlevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,8 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.cm_actions.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.cm_discount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.cm_discount.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -96,7 +98,9 @@
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column5,
+            this.clmEducationLevel,
+            this.clmCourseStrand,
+            this.clmYearlevel,
             this.Column2,
             this.Column3,
             this.Column4,
@@ -139,10 +143,30 @@
             this.cm_actions.Name = "cm_discount";
             this.cm_actions.Size = new System.Drawing.Size(108, 54);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.toolStripMenuItem1.Image = global::COLM_SYSTEM.Properties.Resources.Data_Edit;
+            this.toolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.toolStripMenuItem1.Text = "Edit";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(104, 6);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.IndianRed;
+            this.toolStripMenuItem2.Image = global::COLM_SYSTEM.Properties.Resources.Garbage;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
+            this.toolStripMenuItem2.Text = "Delete";
             // 
             // panel3
             // 
@@ -172,6 +196,17 @@
             this.button1.Text = "+ CREATE NEW";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.Search;
+            this.pictureBox1.Location = new System.Drawing.Point(537, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 19);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // textBox1
             // 
@@ -241,38 +276,6 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 45;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.Search;
-            this.pictureBox1.Location = new System.Drawing.Point(537, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 19);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.toolStripMenuItem1.Image = global::COLM_SYSTEM.Properties.Resources.Data_Edit;
-            this.toolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
-            this.toolStripMenuItem1.Text = "Edit";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.IndianRed;
-            this.toolStripMenuItem2.Image = global::COLM_SYSTEM.Properties.Resources.Garbage;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
-            this.toolStripMenuItem2.Text = "Delete";
             // 
             // Column1
             // 
@@ -281,11 +284,28 @@
             this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             // 
-            // Column5
+            // clmEducationLevel
             // 
-            this.Column5.HeaderText = "Level";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.clmEducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmEducationLevel.HeaderText = "Education Level";
+            this.clmEducationLevel.Name = "clmEducationLevel";
+            this.clmEducationLevel.ReadOnly = true;
+            // 
+            // clmCourseStrand
+            // 
+            this.clmCourseStrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmCourseStrand.HeaderText = "Course / Strand";
+            this.clmCourseStrand.Name = "clmCourseStrand";
+            this.clmCourseStrand.ReadOnly = true;
+            this.clmCourseStrand.Width = 98;
+            // 
+            // clmYearlevel
+            // 
+            this.clmYearlevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmYearlevel.HeaderText = "Year Level";
+            this.clmYearlevel.Name = "clmYearlevel";
+            this.clmYearlevel.ReadOnly = true;
+            this.clmYearlevel.Width = 77;
             // 
             // Column2
             // 
@@ -322,7 +342,7 @@
             this.Column6.HeaderText = "Tuition (%)";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 81;
+            this.Column6.Width = 75;
             // 
             // Column7
             // 
@@ -332,7 +352,7 @@
             this.Column7.HeaderText = "Miscellaneous (%)";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
-            this.Column7.Width = 116;
+            this.Column7.Width = 106;
             // 
             // Column8
             // 
@@ -342,7 +362,7 @@
             this.Column8.HeaderText = "Other Fees(%)";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
-            this.Column8.Width = 98;
+            this.Column8.Width = 90;
             // 
             // Column9
             // 
@@ -380,8 +400,8 @@
             this.cm_actions.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.cm_discount.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.cm_discount.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -405,7 +425,9 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCourseStrand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmYearlevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;

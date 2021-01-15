@@ -95,7 +95,7 @@ namespace COLM_SYSTEM.fees_folder
             fee.FeeID = _Fee.FeeID;
             fee.FeeDesc = txtFee.Text;
             fee.FeeType = cmbFeeType.Text;
-            fee.YearLeveLID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbYearLevel.Text).YearLevelID;
+            fee.YearLeveLID = YearLevel.GetYearLevel(cmbEducationLevel.Text,cmbCourseStrand.Text, cmbYearLevel.Text).YearLevelID;
             fee.Amount = Convert.ToDouble(txtFeeAmount.Text);
             fee.SchoolYearID = Utilties.GetActiveSchoolYear();
             fee.SemesterID = Utilties.GetActiveSemester();
@@ -111,11 +111,11 @@ namespace COLM_SYSTEM.fees_folder
 
         private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<YearLevel> YearLevels = YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text);
-            cmbYearLevel.Items.Clear();
-            foreach (var item in YearLevels)
+            List<string> CourseStrands = YearLevel.GetCourseStrandByEducationLevel(cmbEducationLevel.Text);
+            cmbCourseStrand.Items.Clear();
+            foreach (var item in CourseStrands)
             {
-                cmbYearLevel.Items.Add(item.YearLvl);
+                cmbCourseStrand.Items.Add(item);
             }
         }
 
@@ -123,6 +123,16 @@ namespace COLM_SYSTEM.fees_folder
         {
             Close();
             Dispose();
+        }
+
+        private void cmbCourseStrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<YearLevel> YearLevels = YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text,cmbCourseStrand.Text);
+            cmbYearLevel.Items.Clear();
+            foreach (var item in YearLevels)
+            {
+                cmbYearLevel.Items.Add(item.YearLvl);
+            }
         }
     }
 }

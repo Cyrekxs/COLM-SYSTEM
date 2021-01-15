@@ -129,6 +129,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtCourseStrand = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tbpSubjects.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -157,9 +159,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "STUDENT NO";
+            this.label1.Text = "Student No";
             // 
             // textBox1
             // 
@@ -174,22 +176,22 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(145, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 17);
+            this.label2.Size = new System.Drawing.Size(85, 17);
             this.label2.TabIndex = 1;
-            this.label2.Text = "STUDENT NAME";
+            this.label2.Text = "Student Name";
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(148, 26);
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(472, 24);
+            this.textBox2.Size = new System.Drawing.Size(362, 24);
             this.textBox2.TabIndex = 2;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtEducationLevel
             // 
-            this.txtEducationLevel.Location = new System.Drawing.Point(626, 26);
+            this.txtEducationLevel.Location = new System.Drawing.Point(516, 26);
             this.txtEducationLevel.Name = "txtEducationLevel";
             this.txtEducationLevel.Size = new System.Drawing.Size(105, 24);
             this.txtEducationLevel.TabIndex = 3;
@@ -199,20 +201,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(623, 6);
+            this.label3.Location = new System.Drawing.Point(513, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 17);
+            this.label3.Size = new System.Drawing.Size(93, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "EDUCATION LEVEL";
+            this.label3.Text = "Education Level";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(734, 6);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 17);
+            this.label4.Size = new System.Drawing.Size(61, 17);
             this.label4.TabIndex = 5;
-            this.label4.Text = "YEAR LEVEL";
+            this.label4.Text = "Year Level";
             // 
             // txtYearLevel
             // 
@@ -1085,6 +1087,8 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.Controls.Add(this.label21);
+            this.panel9.Controls.Add(this.txtCourseStrand);
             this.panel9.Controls.Add(this.txtSection);
             this.panel9.Controls.Add(this.label5);
             this.panel9.Controls.Add(this.label1);
@@ -1114,9 +1118,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(830, 6);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 17);
+            this.label5.Size = new System.Drawing.Size(48, 17);
             this.label5.TabIndex = 7;
-            this.label5.Text = "SECTION";
+            this.label5.Text = "Section";
             // 
             // panel8
             // 
@@ -1138,6 +1142,24 @@
             this.label19.Size = new System.Drawing.Size(157, 16);
             this.label19.TabIndex = 3;
             this.label19.Text = "STUDENT INFORMATION";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(623, 6);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(93, 17);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "Course / Strand";
+            // 
+            // txtCourseStrand
+            // 
+            this.txtCourseStrand.Location = new System.Drawing.Point(626, 26);
+            this.txtCourseStrand.Name = "txtCourseStrand";
+            this.txtCourseStrand.Size = new System.Drawing.Size(105, 24);
+            this.txtCourseStrand.TabIndex = 9;
+            this.txtCourseStrand.Text = "Junior High";
+            this.txtCourseStrand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frm_assessment
             // 
@@ -1278,5 +1300,7 @@
         private System.Windows.Forms.DataGridViewLinkColumn Column6;
         private System.Windows.Forms.TextBox txtSection;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtCourseStrand;
     }
 }

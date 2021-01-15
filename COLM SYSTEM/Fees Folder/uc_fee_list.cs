@@ -1,4 +1,5 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM.fees_folder;
+using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -20,6 +21,7 @@ namespace COLM_SYSTEM.fees
             foreach (var item in feeSummaries)
             {
                 dgSummary.Rows.Add(item.EducationLevel,
+                    item.CourseStrand,
                     item.YearLevel,
                     item.TotalTFee.ToString("n"),
                     item.TotalMFee.ToString("n"),
@@ -30,10 +32,11 @@ namespace COLM_SYSTEM.fees
 
         private void dgSummary_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            YearLevel yearLevel = YearLevel.GetYearLevel(dgSummary.Rows[e.RowIndex].Cells[0].Value.ToString(), dgSummary.Rows[e.RowIndex].Cells[1].Value.ToString());
+            YearLevel yearLevel = YearLevel.GetYearLevel(dgSummary.Rows[e.RowIndex].Cells["clmEducationLevel"].Value.ToString(), dgSummary.Rows[e.RowIndex].Cells["clmCourseStrand"].Value.ToString(), dgSummary.Rows[e.RowIndex].Cells["clmYearLevel"].Value.ToString());
             List<Fee> fees = Fee.GetFees(yearLevel.YearLevelID);
 
             txtEducationLevel.Text = yearLevel.EducationLevel;
+            txtCourseStrand.Text = yearLevel.CourseStrand;
             txtYearLevel.Text = yearLevel.YearLvl;
 
             dgBreakdown.Tag = fees;

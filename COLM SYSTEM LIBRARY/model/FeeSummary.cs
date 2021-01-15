@@ -9,6 +9,7 @@ namespace COLM_SYSTEM_LIBRARY.model
     public class FeeSummary
     {
         public string EducationLevel { get; set; }
+        public string CourseStrand { get; set; }
         public string YearLevel { get; set; }
         public double TotalTFee { get; set; }
         public double TotalMFee { get; set; }

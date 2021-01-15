@@ -38,13 +38,12 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            clmYearLevel.Items.Clear();
-            List<string> yearLevels = (from r in YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text) select r.YearLvl).ToList();
-            foreach (var item in yearLevels)
+            cmbCourseStrand.Items.Clear();
+            List<string> CourseStrands = YearLevel.GetCourseStrandByEducationLevel(cmbEducationLevel.Text);
+            foreach (var item in CourseStrands)
             {
-                clmYearLevel.Items.Add(item);
+                cmbCourseStrand.Items.Add(item);
             }
-
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -71,13 +70,23 @@ namespace COLM_SYSTEM.Curriculum_Folder
                     SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
                     IsActive = true,
                     IsBridging = Convert.ToBoolean(item.Cells["clmBridging"].Value),
-                    YearLevelID = YearLevel.GetYearLevel(cmbEducationLevel.Text, item.Cells["clmYearLevel"].Value.ToString()).YearLevelID,
+                    YearLevelID = YearLevel.GetYearLevel(cmbEducationLevel.Text,cmbCourseStrand.Text, item.Cells["clmYearLevel"].Value.ToString()).YearLevelID,
                 };
                 curriculumSubjects.Add(subject);
             }
 
 
             MessageBox.Show(Curriculum.CreateCurriculum(curriculum, curriculumSubjects).ToString());
+        }
+
+        private void cmbCourseStrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            clmYearLevel.Items.Clear();
+            List<YearLevel> yearLevels = YearLevel.GetYearLevels(cmbEducationLevel.Text, cmbCourseStrand.Text);
+            foreach (var item in yearLevels)
+            {
+                clmYearLevel.Items.Add(item.YearLvl);
+            }
         }
     }
 }

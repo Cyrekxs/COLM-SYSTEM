@@ -22,6 +22,7 @@ namespace COLM_SYSTEM.Discounts
 
             txtDiscountCode.Text = discount.DiscountCode;
             cmbEducationLevel.Text = yearLevel.EducationLevel;
+            cmbCourseStrand.Text = yearLevel.CourseStrand;
             cmbYearLevel.Text = yearLevel.YearLvl;
 
             txtTFee.Text = discount.TFee.ToString();
@@ -29,14 +30,14 @@ namespace COLM_SYSTEM.Discounts
             txtOFee.Text = discount.OFee.ToString();
         }
 
-        private void LoadYearLevels()
-        {
-            List<YearLevel> yearLevels = YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text);
 
-            cmbYearLevel.Items.Clear();
-            foreach (var item in yearLevels)
+        private void LoadCourseStrands()
+        {
+            List<string> CourseStrands = YearLevel.GetCourseStrandByEducationLevel(cmbEducationLevel.Text);
+            cmbCourseStrand.Items.Clear();
+            foreach (var item in CourseStrands)
             {
-                cmbYearLevel.Items.Add(item.YearLvl);
+                cmbCourseStrand.Items.Add(item);
             }
         }
 
@@ -88,7 +89,7 @@ namespace COLM_SYSTEM.Discounts
             {
                 DiscountID = _Discount.DiscountID,
                 DiscountCode = txtDiscountCode.Text,
-                YearLeveLID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbYearLevel.Text).YearLevelID,
+                YearLeveLID = YearLevel.GetYearLevel(cmbEducationLevel.Text,cmbCourseStrand.Text, cmbYearLevel.Text).YearLevelID,
                 Type = "PERCENTAGE",
                 TotalValue = Convert.ToDouble(txtTFee.Text) + Convert.ToDouble(txtMFee.Text) + Convert.ToDouble(txtOFee.Text),
                 TFee = Convert.ToDouble(txtTFee.Text),
@@ -116,12 +117,23 @@ namespace COLM_SYSTEM.Discounts
 
         private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadYearLevels();
+            List<string> CourseStrands = YearLevel.GetCourseStrandByEducationLevel(cmbEducationLevel.Text);
+            cmbCourseStrand.Items.Clear();
+            foreach (var item in CourseStrands)
+            {
+                cmbCourseStrand.Items.Add(item);
+            }
         }
 
-        private void frm_discount_entry_percentage_Load(object sender, EventArgs e)
+        private void cmbCourseStrand_SelectedIndexChanged(object sender, EventArgs e)
         {
+            List<YearLevel> yearLevels = YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text, cmbCourseStrand.Text);
 
+            cmbYearLevel.Items.Clear();
+            foreach (var item in yearLevels)
+            {
+                cmbYearLevel.Items.Add(item.YearLvl);
+            }
         }
     }
 }

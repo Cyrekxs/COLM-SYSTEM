@@ -11,7 +11,7 @@ namespace COLM_SYSTEM_LIBRARY.model
     {
         public int YearLevelID { get; set; }
         public string EducationLevel { get; set; }
-        public string Course_Code { get; set; }
+        public string CourseStrand { get; set; }
         public string YearLvl { get; set; }
         public int NextYearLvlID { get; set; }
 
@@ -22,6 +22,19 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<YearLevel> GetYearLevels()
         {
             return YearLevel_DS.GetYearLevels();
+        }
+
+        /// <summary>
+        /// Get available yearlevels in specific education level and course strand
+        /// </summary>
+        /// <param name="EducationLevel"></param>
+        /// <param name="CourseStrand"></param>
+        /// <returns></returns>
+        public static List<YearLevel> GetYearLevels(string EducationLevel, string CourseStrand)
+        {
+            return (from r in GetYearLevels()
+                    where r.EducationLevel.ToLower() == EducationLevel.ToLower() && CourseStrand.ToLower() == CourseStrand.ToLower()
+                    select r).ToList();
         }
 
         public static List<string> GetEducationLevels()
@@ -35,9 +48,9 @@ namespace COLM_SYSTEM_LIBRARY.model
         /// <param name="EducationLevel"></param>
         /// <param name="YearLevel"></param>
         /// <returns></returns>
-        public static YearLevel GetYearLevel(string EducationLevel, string YearLevel)
+        public static YearLevel GetYearLevel(string EducationLevel,string CourseStrand, string YearLevel)
         {
-            return YearLevel_DS.GetYearLevel(EducationLevel, YearLevel);
+            return YearLevel_DS.GetYearLevel(EducationLevel,CourseStrand, YearLevel);
         }
 
         /// <summary>
@@ -63,29 +76,15 @@ namespace COLM_SYSTEM_LIBRARY.model
         }
 
         /// <summary>
-        /// Getting the yearlevels by education level by supplying a list of year level and a specific education level
-        /// Disconnected from the database
-        /// </summary>
-        /// <param name="yearLevels"></param>
-        /// <param name="EducationLevel"></param>
-        /// <returns></returns>
-        public static List<string> GetYearLevelsByEducationLevel(List<YearLevel> yearLevels, string EducationLevel)
-        {
-            return (from r in yearLevels
-                    where r.EducationLevel == EducationLevel
-                    select r.YearLvl).Distinct().ToList();
-        }
-
-        /// <summary>
         /// Getting the yearlevels by education level by supplying education level only
         /// Connected to the database
         /// </summary>
         /// <param name="EducationLevel"></param>
         /// <returns></returns>
-        public static List<YearLevel> GetYearLevelsByEducationLevel(string EducationLevel)
+        public static List<YearLevel> GetYearLevelsByEducationLevel(string EducationLevel,string CourseStrand)
         {
             return (from r in YearLevel_DS.GetYearLevels()
-                    where r.EducationLevel.ToLower() == EducationLevel.ToLower()
+                    where r.EducationLevel.ToLower() == EducationLevel.ToLower() && r.CourseStrand.ToLower() == CourseStrand.ToLower()
                     select r).Distinct().ToList();
         }
 
@@ -122,5 +121,18 @@ namespace COLM_SYSTEM_LIBRARY.model
             return YearLevel_DS.GetYearLevelSections(YearLevelID);
         }
 
+        /// <summary>
+        /// Getting the yearlevels by education level by supplying a list of year level and a specific education level
+        /// Disconnected from the database
+        /// </summary>
+        /// <param name="yearLevels"></param>
+        /// <param name="EducationLevel"></param>
+        /// <returns></returns>
+        public static List<string> GetCourseStrandByEducationLevel(string EducationLevel)
+        {
+            return (from r in GetYearLevels()
+                    where r.EducationLevel == EducationLevel
+                    select r.CourseStrand).Distinct().ToList();
+        }
     }
 }

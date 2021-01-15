@@ -27,6 +27,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 YearLvl = Convert.ToString(reader["YearLevel"]),
                                 NextYearLvlID = Convert.ToInt32(reader["NextYearLevelID"])
                             };
@@ -58,15 +59,16 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return EducationLevels;
         }
 
-        public static YearLevel GetYearLevel(string EducationLevel,string YearLevel)
+        public static YearLevel GetYearLevel(string EducationLevel,string CourseStrand,string YearLevel)
         {
             YearLevel yearLevel = new YearLevel();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.yearlevels WHERE EducationLevel = @EducationLevel AND Yearlevel = @YearLevel", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.yearlevels WHERE EducationLevel = @EducationLevel AND CourseStrand = @CourseStrand AND Yearlevel = @YearLevel", conn))
                 {
                     comm.Parameters.AddWithValue("@EducationLevel", EducationLevel);
+                    comm.Parameters.AddWithValue("@CourseStrand", CourseStrand);
                     comm.Parameters.AddWithValue("@YearLevel", YearLevel);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -76,6 +78,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 YearLvl = Convert.ToString(reader["YearLevel"]),
                                 NextYearLvlID = Convert.ToInt32(reader["NextYearLevelID"])
                             };
@@ -103,6 +106,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 YearLvl = Convert.ToString(reader["YearLevel"]),
                                 NextYearLvlID = Convert.ToInt32(reader["NextYearLevelID"])
                             };

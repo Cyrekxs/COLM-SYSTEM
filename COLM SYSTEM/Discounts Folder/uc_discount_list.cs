@@ -20,12 +20,14 @@ namespace COLM_SYSTEM.Discounts
         {
             _Discounts = Discount.GetDiscounts();
             dataGridView3.Rows.Clear();
+
             foreach (var item in _Discounts)
             {
+                YearLevel yearLevel = YearLevel.GetYearLevel(item.YearLeveLID);
                 if (item.Type == "PERCENTAGE")
-                    dataGridView3.Rows.Add(item.DiscountID, YearLevel.GetYearLevel(item.YearLeveLID).YearLvl, item.DiscountCode, item.Type, item.TotalValue, item.TFee, item.MFee, item.OFee, item.DateCreated);                    
+                    dataGridView3.Rows.Add(item.DiscountID, yearLevel.EducationLevel,yearLevel.CourseStrand,yearLevel.YearLvl, item.DiscountCode, item.Type, item.TotalValue, item.TFee, item.MFee, item.OFee, item.DateCreated);                    
                 else
-                    dataGridView3.Rows.Add(item.DiscountID,YearLevel.GetYearLevel(item.YearLeveLID).YearLvl, item.DiscountCode, item.Type, item.TotalValue.ToString("n"), item.TFee * 100, item.MFee * 100, item.OFee * 100, item.DateCreated);
+                    dataGridView3.Rows.Add(item.DiscountID, yearLevel.EducationLevel, yearLevel.CourseStrand, yearLevel.YearLvl, item.DiscountCode, item.Type, item.TotalValue.ToString("n"), item.TFee * 100, item.MFee * 100, item.OFee * 100, item.DateCreated);
             }
         }
 

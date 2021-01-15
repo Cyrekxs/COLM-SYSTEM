@@ -27,6 +27,7 @@ namespace COLM_SYSTEM.Discounts
 
             txtDiscountCode.Text = discount.DiscountCode;
             cmbEducationLevel.Text = yearLevel.EducationLevel;
+            cmbCourseStrand.Text = yearLevel.CourseStrand;
             cmbYearLevel.Text = yearLevel.YearLvl;
             txtAmountValue.Text = discount.TotalValue.ToString("n");
 
@@ -46,10 +47,19 @@ namespace COLM_SYSTEM.Discounts
                 ch_OFee.Checked = false;
         }
 
+        private void LoadCourseStrand()
+        {
+            List<string> CourseStrands = YearLevel.GetCourseStrandByEducationLevel(cmbEducationLevel.Text);
+            cmbCourseStrand.Items.Clear();
+            foreach (var item in CourseStrands)
+            {
+                cmbCourseStrand.Items.Add(item);
+            }
+        }
 
         private void LoadYearLevels()
         {
-            List<YearLevel> yearLevels = YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text);
+            List<YearLevel> yearLevels = YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text, cmbCourseStrand.Text);
 
             cmbYearLevel.Items.Clear();
             foreach (var item in yearLevels)
@@ -107,7 +117,7 @@ namespace COLM_SYSTEM.Discounts
             {
                 DiscountID = _Discount.DiscountID,
                 DiscountCode = txtDiscountCode.Text,
-                YearLeveLID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbYearLevel.Text).YearLevelID,
+                YearLeveLID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbCourseStrand.Text, cmbYearLevel.Text).YearLevelID,
                 Type = "AMOUNT",
                 TotalValue = Convert.ToDouble(txtAmountValue.Text),
                 TFee = Convert.ToInt16(ch_TFee.Checked),
@@ -133,6 +143,11 @@ namespace COLM_SYSTEM.Discounts
         }
 
         private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadCourseStrand();
+        }
+
+        private void cmbCourseStrand_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadYearLevels();
         }

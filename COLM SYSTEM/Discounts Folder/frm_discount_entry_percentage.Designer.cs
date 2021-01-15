@@ -51,6 +51,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbCourseStrand = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.er)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,20 +60,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 89);
+            this.label1.Location = new System.Drawing.Point(28, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 17);
+            this.label1.Size = new System.Drawing.Size(93, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "EDUCATION LEVEL";
+            this.label1.Text = "Education Level";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 120);
+            this.label2.Location = new System.Drawing.Point(60, 151);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 17);
+            this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 1;
-            this.label2.Text = "YEAR LEVEL";
+            this.label2.Text = "Year Level";
             // 
             // cmbEducationLevel
             // 
@@ -94,7 +96,7 @@
             this.cmbYearLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbYearLevel.FormattingEnabled = true;
             this.er.SetIconPadding(this.cmbYearLevel, -20);
-            this.cmbYearLevel.Location = new System.Drawing.Point(127, 117);
+            this.cmbYearLevel.Location = new System.Drawing.Point(127, 148);
             this.cmbYearLevel.Name = "cmbYearLevel";
             this.cmbYearLevel.Size = new System.Drawing.Size(292, 25);
             this.cmbYearLevel.TabIndex = 3;
@@ -102,11 +104,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 24);
+            this.label3.Location = new System.Drawing.Point(36, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 17);
+            this.label3.Size = new System.Drawing.Size(85, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "DISCOUNT CODE";
+            this.label3.Text = "Discount Code";
             // 
             // txtDiscountCode
             // 
@@ -125,7 +127,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.Location = new System.Drawing.Point(191, 297);
+            this.button3.Location = new System.Drawing.Point(191, 328);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(111, 31);
             this.button3.TabIndex = 8;
@@ -139,7 +141,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(308, 297);
+            this.button1.Location = new System.Drawing.Point(308, 328);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 31);
             this.button1.TabIndex = 7;
@@ -179,9 +181,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(179, 8);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 17);
+            this.label7.Size = new System.Drawing.Size(69, 17);
             this.label7.TabIndex = 27;
-            this.label7.Text = "PERCENTAGE";
+            this.label7.Text = "Percentage";
             // 
             // label9
             // 
@@ -220,45 +222,45 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(19, 32);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 17);
+            this.label4.Size = new System.Drawing.Size(66, 17);
             this.label4.TabIndex = 33;
-            this.label4.Text = "TUITION";
+            this.label4.Text = "Tuition Fee";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(19, 62);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 17);
+            this.label5.Size = new System.Drawing.Size(103, 17);
             this.label5.TabIndex = 34;
-            this.label5.Text = "MISCELLANEOUS";
+            this.label5.Text = "Miscellaneous Fee";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(19, 92);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 17);
+            this.label8.Size = new System.Drawing.Size(65, 17);
             this.label8.TabIndex = 35;
-            this.label8.Text = "OTHER";
+            this.label8.Text = "Other Fees";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(34, 148);
+            this.label12.Location = new System.Drawing.Point(42, 179);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(87, 17);
+            this.label12.Size = new System.Drawing.Size(79, 17);
             this.label12.TabIndex = 35;
-            this.label12.Text = "COMPUTATION";
+            this.label12.Text = "Computation";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(19, 8);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 17);
+            this.label6.Size = new System.Drawing.Size(78, 17);
             this.label6.TabIndex = 11;
-            this.label6.Text = "AFFECTED FEES";
+            this.label6.Text = "Affected Fees";
             // 
             // panel1
             // 
@@ -274,16 +276,43 @@
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(127, 148);
+            this.panel1.Location = new System.Drawing.Point(127, 179);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(292, 129);
             this.panel1.TabIndex = 36;
+            // 
+            // cmbCourseStrand
+            // 
+            this.cmbCourseStrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCourseStrand.FormattingEnabled = true;
+            this.er.SetIconPadding(this.cmbCourseStrand, -20);
+            this.cmbCourseStrand.Items.AddRange(new object[] {
+            "PRE ELEMENTARY",
+            "ELEMENTARY",
+            "JUNIOR HIGH",
+            "SENIOR HIGH"});
+            this.cmbCourseStrand.Location = new System.Drawing.Point(127, 117);
+            this.cmbCourseStrand.Name = "cmbCourseStrand";
+            this.cmbCourseStrand.Size = new System.Drawing.Size(292, 25);
+            this.cmbCourseStrand.TabIndex = 38;
+            this.cmbCourseStrand.SelectedIndexChanged += new System.EventHandler(this.cmbCourseStrand_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(28, 120);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(93, 17);
+            this.label13.TabIndex = 37;
+            this.label13.Text = "Course / Strand";
             // 
             // frm_discount_entry_percentage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 346);
+            this.ClientSize = new System.Drawing.Size(437, 379);
+            this.Controls.Add(this.cmbCourseStrand);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.button3);
@@ -300,7 +329,6 @@
             this.MinimizeBox = false;
             this.Name = "frm_discount_entry_percentage";
             this.Text = "DISCOUNT ENTRY / UDPATE";
-            this.Load += new System.EventHandler(this.frm_discount_entry_percentage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.er)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -333,5 +361,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cmbCourseStrand;
+        private System.Windows.Forms.Label label13;
     }
 }
