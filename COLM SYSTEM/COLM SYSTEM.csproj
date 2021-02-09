@@ -107,6 +107,12 @@
     <Compile Include="Faculty Folder\frm_faculty_browser.Designer.cs">
       <DependentUpon>frm_faculty_browser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fees Folder\frm_tuition_entry_additional_fee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fees Folder\frm_tuition_entry_additional_fee.Designer.cs">
+      <DependentUpon>frm_tuition_entry_additional_fee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fees Folder\uc_fee_list.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Faculty Folder\frm_faculty_browser.resx">
       <DependentUpon>frm_faculty_browser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fees Folder\frm_tuition_entry_additional_fee.resx">
+      <DependentUpon>frm_tuition_entry_additional_fee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\uc_fee_list.resx">
       <DependentUpon>uc_fee_list.cs</DependentUpon>

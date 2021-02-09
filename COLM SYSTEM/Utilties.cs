@@ -19,6 +19,12 @@ namespace COLM_SYSTEM
             return 1;
         }
 
+        public static bool IsNumber(double val)
+        {
+            string input = val.ToString();
+            bool result = double.TryParse(input, out val);
+            return result;                
+        }
 
     }
 }

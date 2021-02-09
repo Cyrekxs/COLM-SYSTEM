@@ -36,12 +36,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -56,17 +59,16 @@
             this.dISCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sUBJECTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sECTIONSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sECTIONSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.mISCELLANEOUSFEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mISCELLANEOUSFEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -168,6 +170,23 @@
             this.label12.Text = "50";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.User_Settings;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2.Location = new System.Drawing.Point(1006, 6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(48, 46);
+            this.button2.TabIndex = 11;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // label14
             // 
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -209,6 +228,16 @@
             this.label9.Text = "ANTHONY QUIJANO";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.colm_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(41, 36);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -230,6 +259,24 @@
             this.label7.Size = new System.Drawing.Size(290, 25);
             this.label7.TabIndex = 7;
             this.label7.Text = "COLM ENROLLMENT SYSTEM";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.Bell;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(959, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(48, 46);
+            this.button1.TabIndex = 9;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -298,7 +345,7 @@
             this.aSSESSMENTToolStripMenuItem,
             this.cURRICULUMBUILDERToolStripMenuItem});
             this.tRANSACTIONToolStripMenuItem.Name = "tRANSACTIONToolStripMenuItem";
-            this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
             this.tRANSACTIONToolStripMenuItem.Text = "TRANSACTION";
             // 
             // iNFORMATIONToolStripMenuItem
@@ -336,7 +383,7 @@
             this.sUBJECTSToolStripMenuItem,
             this.sECTIONSToolStripMenuItem});
             this.sETTINGSToolStripMenuItem.Name = "sETTINGSToolStripMenuItem";
-            this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.sETTINGSToolStripMenuItem.Text = "SETTINGS";
             // 
             // dISCOUNTToolStripMenuItem
@@ -348,6 +395,9 @@
             // 
             // fEESToolStripMenuItem
             // 
+            this.fEESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mISCELLANEOUSFEESToolStripMenuItem,
+            this.mISCELLANEOUSFEEToolStripMenuItem});
             this.fEESToolStripMenuItem.Name = "fEESToolStripMenuItem";
             this.fEESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fEESToolStripMenuItem.Text = "FEES";
@@ -360,18 +410,25 @@
             this.sUBJECTSToolStripMenuItem.Text = "SUBJECTS";
             this.sUBJECTSToolStripMenuItem.Click += new System.EventHandler(this.sUBJECTSToolStripMenuItem_Click);
             // 
+            // sECTIONSToolStripMenuItem
+            // 
+            this.sECTIONSToolStripMenuItem.Name = "sECTIONSToolStripMenuItem";
+            this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sECTIONSToolStripMenuItem.Text = "SECTIONS";
+            this.sECTIONSToolStripMenuItem.Click += new System.EventHandler(this.sECTIONSToolStripMenuItem_Click);
+            // 
             // rEPORTSToolStripMenuItem
             // 
             this.rEPORTSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mASTERLISTToolStripMenuItem});
             this.rEPORTSToolStripMenuItem.Name = "rEPORTSToolStripMenuItem";
-            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.rEPORTSToolStripMenuItem.Text = "REPORTS";
             // 
             // mASTERLISTToolStripMenuItem
             // 
             this.mASTERLISTToolStripMenuItem.Name = "mASTERLISTToolStripMenuItem";
-            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.mASTERLISTToolStripMenuItem.Text = "MASTER LIST";
             // 
             // cLOSEALLFORMSToolStripMenuItem
@@ -381,57 +438,19 @@
             this.cLOSEALLFORMSToolStripMenuItem.Text = "CLOSE ALL FORMS";
             this.cLOSEALLFORMSToolStripMenuItem.Click += new System.EventHandler(this.cLOSEALLFORMSToolStripMenuItem_Click);
             // 
-            // sECTIONSToolStripMenuItem
+            // mISCELLANEOUSFEESToolStripMenuItem
             // 
-            this.sECTIONSToolStripMenuItem.Name = "sECTIONSToolStripMenuItem";
-            this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sECTIONSToolStripMenuItem.Text = "SECTIONS";
-            this.sECTIONSToolStripMenuItem.Click += new System.EventHandler(this.sECTIONSToolStripMenuItem_Click);
+            this.mISCELLANEOUSFEESToolStripMenuItem.Name = "mISCELLANEOUSFEESToolStripMenuItem";
+            this.mISCELLANEOUSFEESToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.mISCELLANEOUSFEESToolStripMenuItem.Text = "TUITION FEE";
+            this.mISCELLANEOUSFEESToolStripMenuItem.Click += new System.EventHandler(this.mISCELLANEOUSFEESToolStripMenuItem_Click);
             // 
-            // button2
+            // mISCELLANEOUSFEEToolStripMenuItem
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.User_Settings;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(1006, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(48, 46);
-            this.button2.TabIndex = 11;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.colm_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(41, 36);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.Bell;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(959, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 46);
-            this.button1.TabIndex = 9;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = false;
+            this.mISCELLANEOUSFEEToolStripMenuItem.Name = "mISCELLANEOUSFEEToolStripMenuItem";
+            this.mISCELLANEOUSFEEToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.mISCELLANEOUSFEEToolStripMenuItem.Text = "MISCELLANEOUS FEE";
+            this.mISCELLANEOUSFEEToolStripMenuItem.Click += new System.EventHandler(this.mISCELLANEOUSFEEToolStripMenuItem_Click);
             // 
             // frm_main
             // 
@@ -454,11 +473,11 @@
             this.Load += new System.EventHandler(this.frm_main_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -501,5 +520,7 @@
         private System.Windows.Forms.ToolStripMenuItem cURRICULUMBUILDERToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLOSEALLFORMSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sECTIONSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mISCELLANEOUSFEESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mISCELLANEOUSFEEToolStripMenuItem;
     }
 }

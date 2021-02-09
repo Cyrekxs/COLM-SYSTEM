@@ -80,6 +80,7 @@
     <Compile Include="model\Subject.cs" />
     <Compile Include="model\SubjectComponent.cs" />
     <Compile Include="model\SubjectSetted.cs" />
+    <Compile Include="model\SubjectSettedAddtionalFee.cs" />
     <Compile Include="model\YearLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
