@@ -57,9 +57,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return result;
         }
-
-
-
+    
         //Returns a list of subjects that is not setted
         public static List<SubjectSetted> GetCurriculumSubjects(int YearLevelID,int? SemesterID = 0)
         {
@@ -100,5 +98,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return subjects;
         }
+        
     }
 }

@@ -49,7 +49,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             SchoolSemester sem = new SchoolSemester()
                             {
                                 SemesterID = Convert.ToInt32(reader["SemesterID"]),
-                                Name = Convert.ToString(reader["Name"])
+                                Semester = Convert.ToString(reader["Semester"])
                             };
                             sem_list.Add(sem);
                         }

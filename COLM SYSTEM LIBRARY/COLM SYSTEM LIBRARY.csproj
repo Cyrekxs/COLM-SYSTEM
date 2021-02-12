@@ -52,6 +52,7 @@
     <Compile Include="datasource\Section_DS.cs" />
     <Compile Include="datasource\StudentInfo_DS.cs" />
     <Compile Include="datasource\StudentRegistration_DS.cs" />
+    <Compile Include="datasource\SubjectSettedAdditionalFee_DS.cs" />
     <Compile Include="datasource\SubjectSetted_DS.cs" />
     <Compile Include="datasource\Subject_DS.cs" />
     <Compile Include="datasource\YearLevel_DS.cs" />

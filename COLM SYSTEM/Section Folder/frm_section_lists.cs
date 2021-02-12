@@ -45,9 +45,9 @@ namespace COLM_SYSTEM.Section_Folder
                 string YearLevel = dataGridView1.Rows[e.RowIndex].Cells["clmYearLevel"].Value.ToString();
                 string Section = dataGridView1.Rows[e.RowIndex].Cells["clmSection"].Value.ToString();
 
-                frm_schedule_entry frm = new frm_schedule_entry(YearlevelID,SectionID,EducationLevel,YearLevel,Section);
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
+                //frm_schedule_entry frm = new frm_schedule_entry(YearlevelID,SectionID,EducationLevel,YearLevel,Section);
+                //frm.StartPosition = FormStartPosition.CenterParent;
+                //frm.ShowDialog();
             }
         }
     }

@@ -137,12 +137,6 @@
     <Compile Include="frm_practice.Designer.cs">
       <DependentUpon>frm_practice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Section Folder\frm_schedule_entry.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Section Folder\frm_schedule_entry.Designer.cs">
-      <DependentUpon>frm_schedule_entry.cs</DependentUpon>
-    </Compile>
     <Compile Include="Section Folder\frm_section_entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,12 +178,6 @@
     </Compile>
     <Compile Include="uc_assessment_lists.Designer.cs">
       <DependentUpon>uc_assessment_lists.cs</DependentUpon>
-    </Compile>
-    <Compile Include="User Interfaces\Cards.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User Interfaces\Cards.Designer.cs">
-      <DependentUpon>Cards.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilties.cs" />
     <Compile Include="Program.cs" />
@@ -303,9 +291,6 @@
     <EmbeddedResource Include="Registration Folder\frm_student_browse.resx">
       <DependentUpon>frm_student_browse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Section Folder\frm_schedule_entry.resx">
-      <DependentUpon>frm_schedule_entry.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Section Folder\frm_section_entry.resx">
       <DependentUpon>frm_section_entry.cs</DependentUpon>
     </EmbeddedResource>
@@ -335,9 +320,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="uc_assessment_lists.resx">
       <DependentUpon>uc_assessment_lists.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Interfaces\Cards.resx">
-      <DependentUpon>Cards.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -417,6 +399,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Programmers Info\What I Did.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="User Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

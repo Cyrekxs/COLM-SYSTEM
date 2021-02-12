@@ -27,7 +27,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
         {
             foreach (var item in semesters)
             {
-                clmSemester.Items.Add(item.Name);
+                clmSemester.Items.Add(item.Semester);
             }
         }
 
@@ -59,14 +59,16 @@ namespace COLM_SYSTEM.Curriculum_Folder
             curriculum.Code = txtCurriculumCode.Text;
             curriculum.Description = txtDescription.Text;
             curriculum.EducationLevel = cmbEducationLevel.Text;
-
+            curriculum.CourseStrand = cmbCourseStrand.Text;
 
             List<CurriculumSubject> curriculumSubjects = new List<CurriculumSubject>();
 
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
+                string setted_semester = item.Cells["clmSemester"].Value.ToString();
                 CurriculumSubject subject = new CurriculumSubject()
                 {
+                    SemesterID = SchoolSemester.GetSchoolSemester(setted_semester).SemesterID,
                     SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
                     IsActive = true,
                     IsBridging = Convert.ToBoolean(item.Cells["clmBridging"].Value),
@@ -75,8 +77,11 @@ namespace COLM_SYSTEM.Curriculum_Folder
                 curriculumSubjects.Add(subject);
             }
 
+            bool result = Curriculum.CreateCurriculum(curriculum, curriculumSubjects);
 
-            MessageBox.Show(Curriculum.CreateCurriculum(curriculum, curriculumSubjects).ToString());
+            if (result == true)
+                MessageBox.Show("Curriculum has been successfully saved!", "Curriculum Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void cmbCourseStrand_SelectedIndexChanged(object sender, EventArgs e)

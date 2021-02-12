@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
             this.cmbCourseStrand = new System.Windows.Forms.ComboBox();
@@ -40,9 +40,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmbYearLevel = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.clmSubjPriceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCurriculumSubjID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubjCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,13 +49,18 @@
             this.clmSubjPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAdditionalFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAdditionalSettings = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 24);
+            this.label1.Location = new System.Drawing.Point(370, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 17);
             this.label1.TabIndex = 0;
@@ -74,7 +76,7 @@
             "JUNIOR HIGH",
             "SENIOR HIGH",
             "COLLEGE"});
-            this.cmbEducationLevel.Location = new System.Drawing.Point(15, 44);
+            this.cmbEducationLevel.Location = new System.Drawing.Point(373, 44);
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(121, 25);
             this.cmbEducationLevel.TabIndex = 1;
@@ -90,7 +92,7 @@
             "JUNIOR HIGH",
             "SENIOR HIGH",
             "COLLEGE"});
-            this.cmbCourseStrand.Location = new System.Drawing.Point(142, 44);
+            this.cmbCourseStrand.Location = new System.Drawing.Point(500, 44);
             this.cmbCourseStrand.Name = "cmbCourseStrand";
             this.cmbCourseStrand.Size = new System.Drawing.Size(121, 25);
             this.cmbCourseStrand.TabIndex = 3;
@@ -99,7 +101,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(139, 24);
+            this.label2.Location = new System.Drawing.Point(497, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 17);
             this.label2.TabIndex = 2;
@@ -108,7 +110,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(266, 24);
+            this.label3.Location = new System.Drawing.Point(624, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 17);
             this.label3.TabIndex = 4;
@@ -124,7 +126,7 @@
             "JUNIOR HIGH",
             "SENIOR HIGH",
             "COLLEGE"});
-            this.cmbYearLevel.Location = new System.Drawing.Point(269, 44);
+            this.cmbYearLevel.Location = new System.Drawing.Point(627, 44);
             this.cmbYearLevel.Name = "cmbYearLevel";
             this.cmbYearLevel.Size = new System.Drawing.Size(121, 25);
             this.cmbYearLevel.TabIndex = 5;
@@ -152,6 +154,83 @@
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            // 
+            // clmSubjPriceID
+            // 
+            this.clmSubjPriceID.HeaderText = "Subject Price ID";
+            this.clmSubjPriceID.Name = "clmSubjPriceID";
+            this.clmSubjPriceID.ReadOnly = true;
+            this.clmSubjPriceID.Visible = false;
+            // 
+            // clmCurriculumSubjID
+            // 
+            this.clmCurriculumSubjID.HeaderText = "Curriculum Subject ID";
+            this.clmCurriculumSubjID.Name = "clmCurriculumSubjID";
+            this.clmCurriculumSubjID.ReadOnly = true;
+            this.clmCurriculumSubjID.Visible = false;
+            // 
+            // clmSubjCode
+            // 
+            this.clmSubjCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmSubjCode.HeaderText = "Subject Code";
+            this.clmSubjCode.Name = "clmSubjCode";
+            this.clmSubjCode.ReadOnly = true;
+            this.clmSubjCode.Width = 103;
+            // 
+            // clmSubjDesc
+            // 
+            this.clmSubjDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmSubjDesc.HeaderText = "Description";
+            this.clmSubjDesc.Name = "clmSubjDesc";
+            this.clmSubjDesc.ReadOnly = true;
+            // 
+            // clmLecUnits
+            // 
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmLecUnits.DefaultCellStyle = dataGridViewCellStyle21;
+            this.clmLecUnits.HeaderText = "Lec Units";
+            this.clmLecUnits.Name = "clmLecUnits";
+            this.clmLecUnits.ReadOnly = true;
+            this.clmLecUnits.Width = 81;
+            // 
+            // clmLabUnits
+            // 
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmLabUnits.DefaultCellStyle = dataGridViewCellStyle22;
+            this.clmLabUnits.HeaderText = "Lab Units";
+            this.clmLabUnits.Name = "clmLabUnits";
+            this.clmLabUnits.ReadOnly = true;
+            this.clmLabUnits.Width = 83;
+            // 
+            // clmSubjPrice
+            // 
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.clmSubjPrice.DefaultCellStyle = dataGridViewCellStyle23;
+            this.clmSubjPrice.HeaderText = "Subject Price";
+            this.clmSubjPrice.Name = "clmSubjPrice";
+            this.clmSubjPrice.Width = 103;
+            // 
+            // clmAdditionalFee
+            // 
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmAdditionalFee.DefaultCellStyle = dataGridViewCellStyle24;
+            this.clmAdditionalFee.HeaderText = "Additional Fee";
+            this.clmAdditionalFee.Name = "clmAdditionalFee";
+            this.clmAdditionalFee.ReadOnly = true;
+            this.clmAdditionalFee.Width = 110;
+            // 
+            // clmAdditionalSettings
+            // 
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmAdditionalSettings.DefaultCellStyle = dataGridViewCellStyle25;
+            this.clmAdditionalSettings.HeaderText = "View / Set";
+            this.clmAdditionalSettings.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(113)))), ((int)(((byte)(110)))));
+            this.clmAdditionalSettings.Name = "clmAdditionalSettings";
+            this.clmAdditionalSettings.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmAdditionalSettings.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmAdditionalSettings.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(113)))), ((int)(((byte)(110)))));
+            this.clmAdditionalSettings.Width = 86;
             // 
             // button3
             // 
@@ -193,88 +272,30 @@
             this.button2.Text = "ADD SUBJECT";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // clmSubjPriceID
+            // label4
             // 
-            this.clmSubjPriceID.HeaderText = "Subject Price ID";
-            this.clmSubjPriceID.Name = "clmSubjPriceID";
-            this.clmSubjPriceID.ReadOnly = true;
-            this.clmSubjPriceID.Visible = false;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 17);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Curriculum Code";
             // 
-            // clmCurriculumSubjID
+            // textBox1
             // 
-            this.clmCurriculumSubjID.HeaderText = "Curriculum Subject ID";
-            this.clmCurriculumSubjID.Name = "clmCurriculumSubjID";
-            this.clmCurriculumSubjID.ReadOnly = true;
-            this.clmCurriculumSubjID.Visible = false;
-            // 
-            // clmSubjCode
-            // 
-            this.clmSubjCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmSubjCode.HeaderText = "Subject Code";
-            this.clmSubjCode.Name = "clmSubjCode";
-            this.clmSubjCode.ReadOnly = true;
-            this.clmSubjCode.Width = 103;
-            // 
-            // clmSubjDesc
-            // 
-            this.clmSubjDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmSubjDesc.HeaderText = "Description";
-            this.clmSubjDesc.Name = "clmSubjDesc";
-            this.clmSubjDesc.ReadOnly = true;
-            // 
-            // clmLecUnits
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmLecUnits.DefaultCellStyle = dataGridViewCellStyle11;
-            this.clmLecUnits.HeaderText = "Lec Units";
-            this.clmLecUnits.Name = "clmLecUnits";
-            this.clmLecUnits.ReadOnly = true;
-            this.clmLecUnits.Width = 81;
-            // 
-            // clmLabUnits
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmLabUnits.DefaultCellStyle = dataGridViewCellStyle12;
-            this.clmLabUnits.HeaderText = "Lab Units";
-            this.clmLabUnits.Name = "clmLabUnits";
-            this.clmLabUnits.ReadOnly = true;
-            this.clmLabUnits.Width = 83;
-            // 
-            // clmSubjPrice
-            // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.clmSubjPrice.DefaultCellStyle = dataGridViewCellStyle13;
-            this.clmSubjPrice.HeaderText = "Subject Price";
-            this.clmSubjPrice.Name = "clmSubjPrice";
-            this.clmSubjPrice.Width = 103;
-            // 
-            // clmAdditionalFee
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmAdditionalFee.DefaultCellStyle = dataGridViewCellStyle14;
-            this.clmAdditionalFee.HeaderText = "Additional Fee";
-            this.clmAdditionalFee.Name = "clmAdditionalFee";
-            this.clmAdditionalFee.ReadOnly = true;
-            this.clmAdditionalFee.Width = 110;
-            // 
-            // clmAdditionalSettings
-            // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmAdditionalSettings.DefaultCellStyle = dataGridViewCellStyle15;
-            this.clmAdditionalSettings.HeaderText = "View / Set";
-            this.clmAdditionalSettings.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(113)))), ((int)(((byte)(110)))));
-            this.clmAdditionalSettings.Name = "clmAdditionalSettings";
-            this.clmAdditionalSettings.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmAdditionalSettings.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmAdditionalSettings.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(113)))), ((int)(((byte)(110)))));
-            this.clmAdditionalSettings.Width = 86;
+            this.textBox1.Location = new System.Drawing.Point(15, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(257, 24);
+            this.textBox1.TabIndex = 16;
+            this.textBox1.Text = "Hindi ka pa tappos";
             // 
             // frm_tuition_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1085, 459);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
@@ -319,5 +340,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAdditionalFee;
         private System.Windows.Forms.DataGridViewLinkColumn clmAdditionalSettings;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

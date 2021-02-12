@@ -31,11 +31,12 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum @Code,@Desc,@EducationLevel,@SchoolYearID", conn))
+                using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum @Code,@Desc,@EducationLevel,@CourseStrand,@SchoolYearID", conn))
                 {
                     comm.Parameters.AddWithValue("@code", curriculum.Code);
                     comm.Parameters.AddWithValue("@desc", curriculum.Description);
                     comm.Parameters.AddWithValue("@educationlevel", curriculum.EducationLevel);
+                    comm.Parameters.AddWithValue("@CourseStrand", curriculum.CourseStrand);
                     comm.Parameters.AddWithValue("@SchoolYearID", curriculum.SchoolYearID);
                     if (comm.ExecuteNonQuery() > 0)
                         result = true;
@@ -71,6 +72,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 Code = Convert.ToString(reader["Code"]),
                                 Description = Convert.ToString(reader["Description"]),
                                 EducationLevel = EducationLevel,
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 Status = Convert.ToString(reader["Status"]),
                                 DateCreated = Convert.ToDateTime(reader["DateCreated"])
@@ -113,8 +115,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 conn.Open();
                 foreach (var subject in subjects)
                 {
-                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum_subjects @CurriculumID,@YearLevelID,@SubjectID,@IsBridging,@IsActive", conn))
+                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum_subjects @SemesterID,@CurriculumID,@YearLevelID,@SubjectID,@IsBridging,@IsActive", conn))
                     {
+                        comm.Parameters.AddWithValue("@SemesterID", subject.SemesterID);
                         comm.Parameters.AddWithValue("@CurriculumID", subject.CurriculumID);
                         comm.Parameters.AddWithValue("@YearLevelID", subject.YearLevelID);
                         comm.Parameters.AddWithValue("@SubjectID", subject.SubjectID);

@@ -2,12 +2,7 @@
 using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.fees_folder
@@ -74,6 +69,7 @@ namespace COLM_SYSTEM.fees_folder
 
         private void button4_Click(object sender, EventArgs e)
         {
+            //List of subjects to be saved
             List<SubjectSetted> subjectsToSave = new List<SubjectSetted>();
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
@@ -87,7 +83,11 @@ namespace COLM_SYSTEM.fees_folder
                 subjectsToSave.Add(subject);
             }
 
+            //Execute command to save the list of subjects into database
             int result = SubjectSetted.InsertSubject(subjectsToSave);
+
+
+
             if (result == dataGridView1.Rows.Count)
             {
                 MessageBox.Show("Subjects has been successfully set!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -104,17 +104,16 @@ namespace COLM_SYSTEM.fees_folder
             if (e.ColumnIndex == clmAdditionalSettings.Index)
             {
                 //get subject price id
-                int SubjPriceID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["clmSubjPriceID"].Value);
+                int CurriculumSubjectID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["clmCurriculumSubjID"].Value);
                 //get the tag
                 List<SubjectSettedAddtionalFee> settedAdditionalFees = (List<SubjectSettedAddtionalFee>)dataGridView1.Rows[e.RowIndex].Tag;
 
-                using (frm_tuition_entry_additional_fee frm = new frm_tuition_entry_additional_fee(SubjPriceID, settedAdditionalFees))
+                using (frm_tuition_entry_additional_fee frm = new frm_tuition_entry_additional_fee(CurriculumSubjectID))
                 {
                     frm.StartPosition = FormStartPosition.CenterParent;
                     frm.txtSubjDesc.Text = string.Concat(dataGridView1.Rows[e.RowIndex].Cells["clmSubjCode"].Value.ToString(), " | ", dataGridView1.Rows[e.RowIndex].Cells["clmSubjDesc"].Value.ToString());
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
-                        dataGridView1.Rows[e.RowIndex].Tag = frm.additionalFees;
                         dataGridView1.Rows[e.RowIndex].Cells["clmAdditionalFee"].Value = frm.additionalFees.Sum(r => r.Amount).ToString("n");
                     }
                 }
