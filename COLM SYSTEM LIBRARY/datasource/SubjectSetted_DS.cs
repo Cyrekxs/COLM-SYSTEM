@@ -18,8 +18,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO settings.curriculum_subjects_setted VALUES (@CurriculumSubjectID,@SchoolYearID,@SubjectPrice,@SubjectType)", conn))
+                using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum_subject_setted @CurriculumID,@CurriculumSubjectID,@SchoolYearID,@SubjectPrice,@SubjectType", conn))
                 {
+                    comm.Parameters.AddWithValue("@CurriculumID", subject.CurriculumID);
                     comm.Parameters.AddWithValue("@CurriculumSUbjectID", subject.CurriculumSubjID);
                     comm.Parameters.AddWithValue("@SchoolYearID", subject.SchoolYearID);
                     comm.Parameters.AddWithValue("@SubjectPrice", subject.SubjPrice);
@@ -43,8 +44,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 conn.Open();
                 foreach (var item in subjects)
                 {
-                    using (SqlCommand comm = new SqlCommand("INSERT INTO settings.curriculum_subjects_setted VALUES (@CurriculumSubjectID,@SchoolYearID,@SubjectPrice,@SubjectType)", conn))
+                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum_subject_setted @CurriculumID,@CurriculumSubjectID,@SchoolYearID,@SubjectPrice,@SubjectType", conn))
                     {
+                        comm.Parameters.AddWithValue("@CurriculumID", item.CurriculumID);
                         comm.Parameters.AddWithValue("@CurriculumSUbjectID", item.CurriculumSubjID);
                         comm.Parameters.AddWithValue("@SchoolYearID", item.SchoolYearID);
                         comm.Parameters.AddWithValue("@SubjectPrice", item.SubjPrice);
@@ -59,14 +61,14 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         }
     
         //Returns a list of subjects that is not setted
-        public static List<SubjectSetted> GetCurriculumSubjects(int YearLevelID,int? SemesterID = 0)
+        public static List<SubjectSetted> GetCurriculumSubjects(int CurriculumID,int YearLevelID,int SemesterID = 0)
         {
             List<SubjectSetted> subjects = new List<SubjectSetted>();
             string sql;
             if (SemesterID == 0)
-                sql = "SELECT * FROM fn_list_CurriculumSubjects() WHERE YearLevelID = @YearLevelID";
+                sql = "SELECT * FROM fn_list_CurriculumSubjects() WHERE CurriculumID = @CurriculumID AND YearLevelID = @YearLevelID";
             else
-                sql = "SELECT * FROM fn_list_CurriculumSubjects() WHERE YearLevelID = @YearLevelID AND SemesterID = @SemesterID";
+                sql = "SELECT * FROM fn_list_CurriculumSubjects() WHERE CurriculumID = @CurriculumID AND YearLevelID = @YearLevelID AND SemesterID = @SemesterID";
             
 
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
@@ -74,6 +76,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand(sql, conn))
                 {
+                    comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
                     comm.Parameters.AddWithValue("@YearLevelID", YearLevelID);
                     comm.Parameters.AddWithValue("@SemesterID", SemesterID);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -98,6 +101,35 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return subjects;
         }
-        
+
+        public static List<SubjectSetted> GetSubjectSetted(int YearLevelID)
+        {
+            List<SubjectSetted> subjects = new List<SubjectSetted>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_subjects_setted_summary() WHERE YearLevelID = @YearLevelID", conn))
+                {
+                    comm.Parameters.AddWithValue("@YearLevelID", YearLevelID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            SubjectSetted subject = new SubjectSetted()
+                            {
+                                CurriculumSubjID = Convert.ToInt32(reader["CurriculumSubjectID"]),
+                                SubjCode = Convert.ToString(reader["SubjCode"]),
+                                SubjDesc = Convert.ToString(reader["SubjDesc"]),
+                                SubjPrice = Convert.ToDouble(reader["SubjectPrice"]),
+                                SubjType = Convert.ToString(reader["SubjectType"])
+                            };
+                            subjects.Add(subject);
+                        }
+                    }
+                }
+            }
+            return subjects;
+        }
+
     }
 }

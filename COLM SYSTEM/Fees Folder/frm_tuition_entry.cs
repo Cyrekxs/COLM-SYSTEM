@@ -16,11 +16,12 @@ namespace COLM_SYSTEM.fees_folder
 
         private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> CourseStrands = YearLevel.GetCourseStrandByEducationLevel(cmbEducationLevel.Text);
-            cmbCourseStrand.Items.Clear();
-            foreach (var item in CourseStrands)
+            cmbCurriculumCode.Items.Clear();
+
+            List<Curriculum> curriculums = Curriculum.GetCurriculums(cmbEducationLevel.Text);
+            foreach (var item in curriculums)
             {
-                cmbCourseStrand.Items.Add(item);
+                cmbCurriculumCode.Items.Add(item.Code);
             }
         }
 
@@ -37,7 +38,7 @@ namespace COLM_SYSTEM.fees_folder
         private void cmbYearLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
             YearLevel yearLevel = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbCourseStrand.Text, cmbYearLevel.Text);
-            List<SubjectSetted> subjects = SubjectSetted.GetCurriculumSubjects(yearLevel.YearLevelID, Utilties.GetActiveSemester());
+            List<SubjectSetted> subjects = SubjectSetted.GetCurriculumSubjects(Curriculum.GetCurriculumID(cmbCurriculumCode.Text), yearLevel.YearLevelID, Utilties.GetActiveSemester());
 
             dataGridView1.Rows.Clear();
             foreach (var item in subjects)
@@ -71,10 +72,12 @@ namespace COLM_SYSTEM.fees_folder
         {
             //List of subjects to be saved
             List<SubjectSetted> subjectsToSave = new List<SubjectSetted>();
+            int CurriculumID = Curriculum.GetCurriculumID(cmbCurriculumCode.Text);
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
                 SubjectSetted subject = new SubjectSetted()
                 {
+                    CurriculumID = CurriculumID,
                     CurriculumSubjID = Convert.ToInt32(item.Cells["clmCurriculumSubjID"].Value),
                     SchoolYearID = Utilties.GetActiveSchoolYear(),
                     SubjPrice = Convert.ToDouble(item.Cells["clmSubjPrice"].Value),
@@ -112,12 +115,24 @@ namespace COLM_SYSTEM.fees_folder
                 {
                     frm.StartPosition = FormStartPosition.CenterParent;
                     frm.txtSubjDesc.Text = string.Concat(dataGridView1.Rows[e.RowIndex].Cells["clmSubjCode"].Value.ToString(), " | ", dataGridView1.Rows[e.RowIndex].Cells["clmSubjDesc"].Value.ToString());
-                    if (frm.ShowDialog() == DialogResult.OK)
-                    {
-                        dataGridView1.Rows[e.RowIndex].Cells["clmAdditionalFee"].Value = frm.additionalFees.Sum(r => r.Amount).ToString("n");
-                    }
+                    frm.ShowDialog();
+                    dataGridView1.Rows[e.RowIndex].Cells["clmAdditionalFee"].Value = frm.additionalFees.Sum(r => r.Amount).ToString("n");
+                    //if (frm.ShowDialog() == DialogResult.OK)
+                    //{
+
+                    //}
                 }
 
+            }
+        }
+
+        private void cmbCurriculumCode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<string> CourseStrands = YearLevel.GetCourseStrandByEducationLevel(cmbEducationLevel.Text);
+            cmbCourseStrand.Items.Clear();
+            foreach (var item in CourseStrands)
+            {
+                cmbCourseStrand.Items.Add(item);
             }
         }
     }

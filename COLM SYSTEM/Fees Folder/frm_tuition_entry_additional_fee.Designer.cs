@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSubjDesc = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.clmAdditionalFeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFeeType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.clmDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +46,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 37);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 0;
@@ -54,10 +54,10 @@
             // 
             // txtSubjDesc
             // 
-            this.txtSubjDesc.Location = new System.Drawing.Point(15, 57);
+            this.txtSubjDesc.Location = new System.Drawing.Point(15, 29);
             this.txtSubjDesc.Name = "txtSubjDesc";
             this.txtSubjDesc.ReadOnly = true;
-            this.txtSubjDesc.Size = new System.Drawing.Size(380, 24);
+            this.txtSubjDesc.Size = new System.Drawing.Size(438, 24);
             this.txtSubjDesc.TabIndex = 1;
             // 
             // dataGridView1
@@ -69,17 +69,18 @@
             this.clmAdditionalFeeID,
             this.clmFee,
             this.clmAmount,
+            this.clmFeeType,
             this.clmDelete});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 104);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 76);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(380, 262);
+            this.dataGridView1.Size = new System.Drawing.Size(438, 262);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 84);
+            this.label2.Location = new System.Drawing.Point(12, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(195, 17);
             this.label2.TabIndex = 3;
@@ -91,7 +92,7 @@
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(320, 372);
+            this.button4.Location = new System.Drawing.Point(378, 344);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 30);
             this.button4.TabIndex = 13;
@@ -105,23 +106,13 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.Location = new System.Drawing.Point(239, 372);
+            this.button3.Location = new System.Drawing.Point(297, 344);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 30);
             this.button3.TabIndex = 14;
             this.button3.Text = "CANCEL";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(12, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(385, 17);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Note* all additional fees here will be considered as a miscellaneous fee";
             // 
             // clmAdditionalFeeID
             // 
@@ -137,11 +128,20 @@
             // 
             // clmAmount
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.clmAmount.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.clmAmount.DefaultCellStyle = dataGridViewCellStyle1;
             this.clmAmount.HeaderText = "Amount";
             this.clmAmount.Name = "clmAmount";
+            // 
+            // clmFeeType
+            // 
+            this.clmFeeType.HeaderText = "Type";
+            this.clmFeeType.Items.AddRange(new object[] {
+            "Miscellaneous Fee",
+            "Other Fee",
+            "Additional Fee"});
+            this.clmFeeType.Name = "clmFeeType";
             // 
             // clmDelete
             // 
@@ -156,8 +156,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 418);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(470, 389);
+            this.ControlBox = false;
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label2);
@@ -183,11 +183,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txtSubjDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAdditionalFeeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFee;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAmount;
+        private System.Windows.Forms.DataGridViewComboBoxColumn clmFeeType;
         private System.Windows.Forms.DataGridViewButtonColumn clmDelete;
     }
 }

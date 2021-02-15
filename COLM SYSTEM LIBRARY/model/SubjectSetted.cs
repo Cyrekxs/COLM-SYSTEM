@@ -23,19 +23,14 @@ namespace COLM_SYSTEM_LIBRARY.model
         public double SubjPrice { get; set; }
         public string SubjType { get; set; }
 
-        public static List<SubjectSetted> GetSubjectSetted(int YearLevelID)
-        {
-            return Subject_DS.GetSubjectSetted(YearLevelID);
-        }
-
         public static int InsertSubject(List<SubjectSetted> subjects)
         {
             return SubjectSetted_DS.InsertSubject(subjects);
         }
 
-        public static List<SubjectSetted> GetCurriculumSubjects(int YearLevelID, int? SemesterID = 0)
+        public static List<SubjectSetted> GetCurriculumSubjects(int CurriculumID, int YearLevelID, int SemesterID = 0)
         {
-            return SubjectSetted_DS.GetCurriculumSubjects(YearLevelID, SemesterID);
+            return SubjectSetted_DS.GetCurriculumSubjects(CurriculumID, YearLevelID, SemesterID);
         }
     }
 }

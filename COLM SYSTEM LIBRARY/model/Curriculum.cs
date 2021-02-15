@@ -45,9 +45,19 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Curriculum_DS.GetCurriculums(EducationLevel);
         }
 
+        public static List<Curriculum> GetCurriculums()
+        {
+            return Curriculum_DS.GetCurriculums();
+        }
+
         public static List<YearLevel> GetCurriculumYearLevels(int CurriculumID)
         {
             return Curriculum_DS.GetCurriculumYearLevels(CurriculumID);
+        }
+
+        public static int GetCurriculumID(string CurriculumCode)
+        {
+            return (from r in GetCurriculums() where r.Code == CurriculumCode select r.CurriculumID).FirstOrDefault();
         }
 
         public static int GetCurriculumID(string Code,List<Curriculum> LocalCurriculums)

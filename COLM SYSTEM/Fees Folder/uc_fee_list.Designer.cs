@@ -478,11 +478,10 @@
             // 
             // clmCourseStrand
             // 
-            this.clmCourseStrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.clmCourseStrand.HeaderText = "Course / Strand";
             this.clmCourseStrand.Name = "clmCourseStrand";
             this.clmCourseStrand.ReadOnly = true;
-            this.clmCourseStrand.Width = 118;
+            this.clmCourseStrand.Width = 120;
             // 
             // clmYearLevel
             // 

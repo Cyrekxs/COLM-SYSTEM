@@ -26,7 +26,7 @@ namespace COLM_SYSTEM.Fees_Folder
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        public void SetAdditionalFees()
         {
             additionalFees.Clear();
 
@@ -41,11 +41,18 @@ namespace COLM_SYSTEM.Fees_Folder
                         SchoolYearID = Utilties.GetActiveSchoolYear(),
                         SemesterID = Utilties.GetActiveSemester(),
                         FeeDescription = Convert.ToString(item.Cells["clmFee"].Value),
-                        Amount = Convert.ToDouble(item.Cells["clmAmount"].Value)
+                        Amount = Convert.ToDouble(item.Cells["clmAmount"].Value),
+                        FeeType = Convert.ToString(item.Cells["clmFeeType"].Value)
                     };
                     additionalFees.Add(additionalFee);
                 }
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            SetAdditionalFees();
 
             //command to save subject setted additional fee
             int result = SubjectSettedAddtionalFee.InsertUpdateSubjectSettedAdditionalFee(additionalFees);
@@ -56,6 +63,7 @@ namespace COLM_SYSTEM.Fees_Folder
 
         private void button3_Click(object sender, EventArgs e)
         {
+            SetAdditionalFees();
             DialogResult = DialogResult.Cancel;
         }
 
@@ -78,7 +86,6 @@ namespace COLM_SYSTEM.Fees_Folder
                     }
                 }
             }
-
         }
     }
 }

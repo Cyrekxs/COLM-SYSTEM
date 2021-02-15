@@ -85,6 +85,37 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return Curriculums;
         }
 
+        public static List<Curriculum> GetCurriculums()
+        {
+            List<Curriculum> Curriculums = new List<Curriculum>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum ORDER BY EducationLevel,Code ASC", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Curriculum c = new Curriculum()
+                            {
+                                CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
+                                Code = Convert.ToString(reader["Code"]),
+                                Description = Convert.ToString(reader["Description"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                Status = Convert.ToString(reader["Status"]),
+                                DateCreated = Convert.ToDateTime(reader["DateCreated"])
+                            };
+                            Curriculums.Add(c);
+                        }
+                    }
+                }
+            }
+            return Curriculums;
+        }
+
         public static List<YearLevel> GetCurriculumYearLevels(int CurriculumID)
         {
             List<YearLevel> yearLevels = new List<YearLevel>();

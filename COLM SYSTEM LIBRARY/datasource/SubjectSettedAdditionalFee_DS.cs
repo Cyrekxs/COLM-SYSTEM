@@ -31,7 +31,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 SchoolYearID = SchoolYearID,
                                 SemesterID = SemesterID,
                                 FeeDescription = Convert.ToString(reader["FeeDescription"]),
-                                Amount = Convert.ToDouble(reader["FeeAmount"])
+                                Amount = Convert.ToDouble(reader["FeeAmount"]),
+                                FeeType = Convert.ToString(reader["FeeType"])
                             };
                             additionalFees.Add(addtionalFee);
                         }
@@ -49,7 +50,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 conn.Open();
                 foreach (var item in settedAddtionalFees)
                 {
-                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_additional_subject_fee @AdditionalFeeID,@CurriculumSubjectID,@SchoolYearID,@SemesterID,@FeeDescription,@FeeAmount", conn))
+                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_additional_subject_fee @AdditionalFeeID,@CurriculumSubjectID,@SchoolYearID,@SemesterID,@FeeDescription,@FeeAmount,@FeeType", conn))
                     {
                         comm.Parameters.AddWithValue("@AdditionalFeeID", item.AdditionalFeeID);
                         comm.Parameters.AddWithValue("@CurriculumSubjectID", item.CurriculumSubjectID);
@@ -57,6 +58,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         comm.Parameters.AddWithValue("@SemesterID", item.SemesterID);
                         comm.Parameters.AddWithValue("@FeeDescription", item.FeeDescription);
                         comm.Parameters.AddWithValue("@FeeAmount", item.Amount);
+                        comm.Parameters.AddWithValue("@FeeType", item.FeeType);
                         result += comm.ExecuteNonQuery();
                     }
                 }

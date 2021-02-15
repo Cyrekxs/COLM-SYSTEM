@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
             this.cmbCourseStrand = new System.Windows.Forms.ComboBox();
@@ -53,14 +53,14 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmbCurriculumCode = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(370, 24);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 17);
             this.label1.TabIndex = 0;
@@ -76,7 +76,7 @@
             "JUNIOR HIGH",
             "SENIOR HIGH",
             "COLLEGE"});
-            this.cmbEducationLevel.Location = new System.Drawing.Point(373, 44);
+            this.cmbEducationLevel.Location = new System.Drawing.Point(15, 29);
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(121, 25);
             this.cmbEducationLevel.TabIndex = 1;
@@ -92,7 +92,7 @@
             "JUNIOR HIGH",
             "SENIOR HIGH",
             "COLLEGE"});
-            this.cmbCourseStrand.Location = new System.Drawing.Point(500, 44);
+            this.cmbCourseStrand.Location = new System.Drawing.Point(399, 29);
             this.cmbCourseStrand.Name = "cmbCourseStrand";
             this.cmbCourseStrand.Size = new System.Drawing.Size(121, 25);
             this.cmbCourseStrand.TabIndex = 3;
@@ -101,7 +101,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(497, 24);
+            this.label2.Location = new System.Drawing.Point(396, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 17);
             this.label2.TabIndex = 2;
@@ -110,7 +110,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(624, 24);
+            this.label3.Location = new System.Drawing.Point(523, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 17);
             this.label3.TabIndex = 4;
@@ -126,7 +126,7 @@
             "JUNIOR HIGH",
             "SENIOR HIGH",
             "COLLEGE"});
-            this.cmbYearLevel.Location = new System.Drawing.Point(627, 44);
+            this.cmbYearLevel.Location = new System.Drawing.Point(526, 29);
             this.cmbYearLevel.Name = "cmbYearLevel";
             this.cmbYearLevel.Size = new System.Drawing.Size(121, 25);
             this.cmbYearLevel.TabIndex = 5;
@@ -148,7 +148,7 @@
             this.clmSubjPrice,
             this.clmAdditionalFee,
             this.clmAdditionalSettings});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 75);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 60);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1054, 337);
             this.dataGridView1.TabIndex = 6;
@@ -186,8 +186,8 @@
             // 
             // clmLecUnits
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmLecUnits.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmLecUnits.DefaultCellStyle = dataGridViewCellStyle31;
             this.clmLecUnits.HeaderText = "Lec Units";
             this.clmLecUnits.Name = "clmLecUnits";
             this.clmLecUnits.ReadOnly = true;
@@ -195,8 +195,8 @@
             // 
             // clmLabUnits
             // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmLabUnits.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmLabUnits.DefaultCellStyle = dataGridViewCellStyle32;
             this.clmLabUnits.HeaderText = "Lab Units";
             this.clmLabUnits.Name = "clmLabUnits";
             this.clmLabUnits.ReadOnly = true;
@@ -204,17 +204,17 @@
             // 
             // clmSubjPrice
             // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.clmSubjPrice.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.clmSubjPrice.DefaultCellStyle = dataGridViewCellStyle33;
             this.clmSubjPrice.HeaderText = "Subject Price";
             this.clmSubjPrice.Name = "clmSubjPrice";
             this.clmSubjPrice.Width = 103;
             // 
             // clmAdditionalFee
             // 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmAdditionalFee.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmAdditionalFee.DefaultCellStyle = dataGridViewCellStyle34;
             this.clmAdditionalFee.HeaderText = "Additional Fee";
             this.clmAdditionalFee.Name = "clmAdditionalFee";
             this.clmAdditionalFee.ReadOnly = true;
@@ -222,8 +222,8 @@
             // 
             // clmAdditionalSettings
             // 
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmAdditionalSettings.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmAdditionalSettings.DefaultCellStyle = dataGridViewCellStyle35;
             this.clmAdditionalSettings.HeaderText = "View / Set";
             this.clmAdditionalSettings.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(113)))), ((int)(((byte)(110)))));
             this.clmAdditionalSettings.Name = "clmAdditionalSettings";
@@ -238,7 +238,7 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.Location = new System.Drawing.Point(913, 418);
+            this.button3.Location = new System.Drawing.Point(913, 403);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 30);
             this.button3.TabIndex = 13;
@@ -251,7 +251,7 @@
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(994, 418);
+            this.button4.Location = new System.Drawing.Point(994, 403);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 30);
             this.button4.TabIndex = 12;
@@ -265,7 +265,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(15, 418);
+            this.button2.Location = new System.Drawing.Point(15, 403);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 30);
             this.button2.TabIndex = 14;
@@ -275,26 +275,34 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 24);
+            this.label4.Location = new System.Drawing.Point(139, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 17);
             this.label4.TabIndex = 15;
             this.label4.Text = "Curriculum Code";
             // 
-            // textBox1
+            // cmbCurriculumCode
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(257, 24);
-            this.textBox1.TabIndex = 16;
-            this.textBox1.Text = "Hindi ka pa tappos";
+            this.cmbCurriculumCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCurriculumCode.FormattingEnabled = true;
+            this.cmbCurriculumCode.Items.AddRange(new object[] {
+            "PRE ELEMENTARY",
+            "ELEMENTARY",
+            "JUNIOR HIGH",
+            "SENIOR HIGH",
+            "COLLEGE"});
+            this.cmbCurriculumCode.Location = new System.Drawing.Point(142, 29);
+            this.cmbCurriculumCode.Name = "cmbCurriculumCode";
+            this.cmbCurriculumCode.Size = new System.Drawing.Size(251, 25);
+            this.cmbCurriculumCode.TabIndex = 16;
+            this.cmbCurriculumCode.SelectedIndexChanged += new System.EventHandler(this.cmbCurriculumCode_SelectedIndexChanged);
             // 
             // frm_tuition_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 459);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1085, 445);
+            this.Controls.Add(this.cmbCurriculumCode);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
@@ -341,6 +349,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAdditionalFee;
         private System.Windows.Forms.DataGridViewLinkColumn clmAdditionalSettings;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmbCurriculumCode;
     }
 }

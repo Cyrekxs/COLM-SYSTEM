@@ -58,13 +58,13 @@
             this.sETTINGSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dISCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mISCELLANEOUSFEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mISCELLANEOUSFEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sUBJECTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sECTIONSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mISCELLANEOUSFEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mISCELLANEOUSFEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -247,7 +247,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(82, 17);
             this.label8.TabIndex = 8;
-            this.label8.Text = "version 1.0.0.0";
+            this.label8.Text = "version 3.0.0.0";
             // 
             // label7
             // 
@@ -389,7 +389,7 @@
             // dISCOUNTToolStripMenuItem
             // 
             this.dISCOUNTToolStripMenuItem.Name = "dISCOUNTToolStripMenuItem";
-            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.dISCOUNTToolStripMenuItem.Text = "DISCOUNTS";
             this.dISCOUNTToolStripMenuItem.Click += new System.EventHandler(this.dISCOUNTToolStripMenuItem_Click);
             // 
@@ -399,21 +399,35 @@
             this.mISCELLANEOUSFEESToolStripMenuItem,
             this.mISCELLANEOUSFEEToolStripMenuItem});
             this.fEESToolStripMenuItem.Name = "fEESToolStripMenuItem";
-            this.fEESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fEESToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.fEESToolStripMenuItem.Text = "FEES";
             this.fEESToolStripMenuItem.Click += new System.EventHandler(this.fEESToolStripMenuItem_Click);
+            // 
+            // mISCELLANEOUSFEESToolStripMenuItem
+            // 
+            this.mISCELLANEOUSFEESToolStripMenuItem.Name = "mISCELLANEOUSFEESToolStripMenuItem";
+            this.mISCELLANEOUSFEESToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.mISCELLANEOUSFEESToolStripMenuItem.Text = "TUITION FEE";
+            this.mISCELLANEOUSFEESToolStripMenuItem.Click += new System.EventHandler(this.mISCELLANEOUSFEESToolStripMenuItem_Click);
+            // 
+            // mISCELLANEOUSFEEToolStripMenuItem
+            // 
+            this.mISCELLANEOUSFEEToolStripMenuItem.Name = "mISCELLANEOUSFEEToolStripMenuItem";
+            this.mISCELLANEOUSFEEToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.mISCELLANEOUSFEEToolStripMenuItem.Text = "MISCELLANEOUS FEE";
+            this.mISCELLANEOUSFEEToolStripMenuItem.Click += new System.EventHandler(this.mISCELLANEOUSFEEToolStripMenuItem_Click);
             // 
             // sUBJECTSToolStripMenuItem
             // 
             this.sUBJECTSToolStripMenuItem.Name = "sUBJECTSToolStripMenuItem";
-            this.sUBJECTSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sUBJECTSToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.sUBJECTSToolStripMenuItem.Text = "SUBJECTS";
             this.sUBJECTSToolStripMenuItem.Click += new System.EventHandler(this.sUBJECTSToolStripMenuItem_Click);
             // 
             // sECTIONSToolStripMenuItem
             // 
             this.sECTIONSToolStripMenuItem.Name = "sECTIONSToolStripMenuItem";
-            this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.sECTIONSToolStripMenuItem.Text = "SECTIONS";
             this.sECTIONSToolStripMenuItem.Click += new System.EventHandler(this.sECTIONSToolStripMenuItem_Click);
             // 
@@ -437,20 +451,6 @@
             this.cLOSEALLFORMSToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
             this.cLOSEALLFORMSToolStripMenuItem.Text = "CLOSE ALL FORMS";
             this.cLOSEALLFORMSToolStripMenuItem.Click += new System.EventHandler(this.cLOSEALLFORMSToolStripMenuItem_Click);
-            // 
-            // mISCELLANEOUSFEESToolStripMenuItem
-            // 
-            this.mISCELLANEOUSFEESToolStripMenuItem.Name = "mISCELLANEOUSFEESToolStripMenuItem";
-            this.mISCELLANEOUSFEESToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.mISCELLANEOUSFEESToolStripMenuItem.Text = "TUITION FEE";
-            this.mISCELLANEOUSFEESToolStripMenuItem.Click += new System.EventHandler(this.mISCELLANEOUSFEESToolStripMenuItem_Click);
-            // 
-            // mISCELLANEOUSFEEToolStripMenuItem
-            // 
-            this.mISCELLANEOUSFEEToolStripMenuItem.Name = "mISCELLANEOUSFEEToolStripMenuItem";
-            this.mISCELLANEOUSFEEToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.mISCELLANEOUSFEEToolStripMenuItem.Text = "MISCELLANEOUS FEE";
-            this.mISCELLANEOUSFEEToolStripMenuItem.Click += new System.EventHandler(this.mISCELLANEOUSFEEToolStripMenuItem_Click);
             // 
             // frm_main
             // 

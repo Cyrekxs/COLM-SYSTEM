@@ -15,6 +15,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int SemesterID { get; set; }
         public string FeeDescription { get; set; }
         public double Amount { get; set; }
+        public string FeeType { get; set; }
 
         public static List<SubjectSettedAddtionalFee> GetSubjectSettedAddtionalFees(int CurriculumSubjectID, int SchoolYearID, int SemesterID)
         {

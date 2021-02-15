@@ -115,36 +115,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         return false;
                 }
             }
-        }
-
-        public static List<SubjectSetted> GetSubjectSetted(int YearLevelID)
-        {
-            List<SubjectSetted> subjects = new List<SubjectSetted>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
-            {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_subjects_setted_summary() WHERE YearLevelID = @YearLevelID", conn))
-                {
-                    comm.Parameters.AddWithValue("@YearLevelID", YearLevelID);
-                    using (SqlDataReader reader = comm.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            SubjectSetted subject = new SubjectSetted()
-                            {
-                                CurriculumSubjID = Convert.ToInt32(reader["CurriculumSubjectID"]),
-                                SubjCode = Convert.ToString(reader["SubjCode"]),
-                                SubjDesc = Convert.ToString(reader["SubjDesc"]),
-                                SubjPrice = Convert.ToDouble(reader["SubjectPrice"]),
-                                SubjType = Convert.ToString(reader["SubjectType"])
-                            };
-                            subjects.Add(subject);
-                        }
-                    }
-                }
-            }
-            return subjects;
-        }
+        }        
 
     }
 }
