@@ -14,13 +14,17 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int CurriculumSubjID { get; set; }
         public int YearLevelID { get; set; }
         public int SchoolYearID { get; set; }
+        public int SemesterID { get; set; }
         public int SubjID { get; set; }
         public string SubjCode { get; set; }
         public string SubjDesc { get; set; }
         public int LecUnit { get; set; }
         public int LabUnit { get; set; }
+        public int Unit { get; set; }
+
         public bool Bridging { get; set; }
         public double SubjPrice { get; set; }
+        public double AdditionalFee { get; set; } // for display purposes only
         public string SubjType { get; set; }
 
         public static int InsertSubject(List<SubjectSetted> subjects)
@@ -31,6 +35,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<SubjectSetted> GetCurriculumSubjects(int CurriculumID, int YearLevelID, int SemesterID = 0)
         {
             return SubjectSetted_DS.GetCurriculumSubjects(CurriculumID, YearLevelID, SemesterID);
+        }
+
+        public static List<SubjectSetted> GetSubjectSetteds(int CurriculumID, int YearLevelID, int SchoolYearID, int SemesterID)
+        {
+            return SubjectSetted_DS.GetSubjectSetted(CurriculumID, YearLevelID, SchoolYearID, SemesterID);
         }
     }
 }

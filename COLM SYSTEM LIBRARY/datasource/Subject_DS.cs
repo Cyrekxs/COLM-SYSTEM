@@ -30,6 +30,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 SubjDesc = Convert.ToString(reader["SubjDesc"]),
                                 LecUnit = Convert.ToDouble(reader["LecUnit"]),
                                 LabUnit = Convert.ToDouble(reader["LabUnit"]),
+                                Unit = Convert.ToInt16(reader["Unit"]),
                                 IsActive = Convert.ToBoolean(reader["IsActive"])
                             };
                             subjects.Add(subject);
@@ -60,6 +61,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 SubjDesc = Convert.ToString(reader["SubjDesc"]),
                                 LecUnit = Convert.ToDouble(reader["LecUnit"]),
                                 LabUnit = Convert.ToDouble(reader["LabUnit"]),
+                                Unit = Convert.ToInt16(reader["Unit"]),
                                 IsActive = Convert.ToBoolean(reader["IsActive"])
                             };
                         }
@@ -101,7 +103,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("EXECUTE sp_set_subject @SubjID,@SubjCode,@SubjDesc,@LecUnit,@LabUnit", conn))
+                using (SqlCommand comm = new SqlCommand("EXECUTE sp_set_subject @SubjID,@SubjCode,@SubjDesc,@LecUnit,@LabUnit,@Unit", conn))
                 {
                     comm.Parameters.AddWithValue("@SubjID", model.SubjID);
                     comm.Parameters.AddWithValue("@SubjCode", model.SubjCode);

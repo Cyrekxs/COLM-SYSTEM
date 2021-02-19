@@ -119,6 +119,12 @@
     <Compile Include="Fees Folder\uc_fee_list.Designer.cs">
       <DependentUpon>uc_fee_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fees Folder\uc_tuition_list.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fees Folder\uc_tuition_list.Designer.cs">
+      <DependentUpon>uc_tuition_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\uc_fee_list.resx">
       <DependentUpon>uc_fee_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fees Folder\uc_tuition_list.resx">
+      <DependentUpon>uc_tuition_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_main.resx">
       <DependentUpon>frm_main.cs</DependentUpon>

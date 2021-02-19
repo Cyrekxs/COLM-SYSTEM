@@ -21,7 +21,7 @@ namespace COLM_SYSTEM.Fees_Folder
 
             foreach (var item in additionalFees)
             {
-                dataGridView1.Rows.Add(item.AdditionalFeeID, item.FeeDescription, item.Amount.ToString("n"));
+                dataGridView1.Rows.Add(item.AdditionalFeeID, item.FeeDescription, item.Amount.ToString("n"),item.FeeType);
             }
 
         }

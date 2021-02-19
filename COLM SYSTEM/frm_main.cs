@@ -2,6 +2,7 @@
 using COLM_SYSTEM.Discounts;
 using COLM_SYSTEM.fees;
 using COLM_SYSTEM.fees_folder;
+using COLM_SYSTEM.Fees_Folder;
 using COLM_SYSTEM.registration;
 using COLM_SYSTEM.Section_Folder;
 using COLM_SYSTEM.student_information;
@@ -96,9 +97,7 @@ namespace COLM_SYSTEM
 
         private void mISCELLANEOUSFEESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_tuition_entry frm = new frm_tuition_entry();
-            frm.ShowDialog();
-            frm.StartPosition = FormStartPosition.CenterParent;
+            DisplayControl(new uc_tuition_list());
         }
     }
 }

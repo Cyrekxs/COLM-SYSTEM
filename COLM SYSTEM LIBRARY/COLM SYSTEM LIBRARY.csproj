@@ -66,6 +66,7 @@
     <Compile Include="model\AssessmentTypeItem.cs" />
     <Compile Include="model\Curriculum.cs" />
     <Compile Include="model\CurriculumSubject.cs" />
+    <Compile Include="model\DefaultFee.cs" />
     <Compile Include="model\Discount.cs" />
     <Compile Include="model\Faculty.cs" />
     <Compile Include="model\Fee.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="model\SubjectComponent.cs" />
     <Compile Include="model\SubjectSetted.cs" />
     <Compile Include="model\SubjectSettedAddtionalFee.cs" />
+    <Compile Include="model\SubjectSettedSummary.cs" />
     <Compile Include="model\YearLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

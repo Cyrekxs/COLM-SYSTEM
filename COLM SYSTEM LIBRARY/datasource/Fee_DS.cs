@@ -170,6 +170,41 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return fees;
         }
 
+        public static List<Fee> GetSettedFees(int CurriculumID, int YearLevelID,int SchoolYearID,int SemesterID)
+        {
+            List<Fee> SettedFees = new List<Fee>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_get_setted_fees(@CurriculumID,@YearLevelID,@SchoolYearID,@SemesterID)", conn))
+                {
+                    comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
+                    comm.Parameters.AddWithValue("@YearLevelID", YearLevelID);
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Fee fee = new Fee()
+                            {
+                                FeeID = Convert.ToInt32(reader["FeeID"]),
+                                CurriculumID = CurriculumID,
+                                YearLeveLID = YearLevelID,
+                                SchoolYearID = SchoolYearID,
+                                SemesterID = SemesterID,
+                                FeeDesc = Convert.ToString(reader["Fee"]),
+                                FeeType = Convert.ToString(reader["FeeType"]),
+                                Amount = Convert.ToDouble(reader["Amount"])
+                            };
+                            SettedFees.Add(fee);
+                        }
+                    }
+                }
+            }
+            return SettedFees;
+        }
+
 
         public static bool InsertUpdateFee(Fee model)
         {
