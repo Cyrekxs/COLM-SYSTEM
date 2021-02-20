@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
             this.clmCurriculumID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCurriculumCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +66,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1126, 541);
             this.panel1.TabIndex = 0;
+            // 
+            // cmbEducationLevel
+            // 
+            this.cmbEducationLevel.FormattingEnabled = true;
+            this.cmbEducationLevel.Items.AddRange(new object[] {
+            "PRE ELEMENTARY",
+            "ELEMENTARY",
+            "JUNIOR HIGH",
+            "SENIOR HIGH",
+            "COLLEGE"});
+            this.cmbEducationLevel.Location = new System.Drawing.Point(59, 54);
+            this.cmbEducationLevel.Name = "cmbEducationLevel";
+            this.cmbEducationLevel.Size = new System.Drawing.Size(205, 25);
+            this.cmbEducationLevel.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "FILTER";
             // 
             // label1
             // 
@@ -112,29 +135,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "FILTER";
-            // 
-            // cmbEducationLevel
-            // 
-            this.cmbEducationLevel.FormattingEnabled = true;
-            this.cmbEducationLevel.Items.AddRange(new object[] {
-            "PRE ELEMENTARY",
-            "ELEMENTARY",
-            "JUNIOR HIGH",
-            "SENIOR HIGH",
-            "COLLEGE"});
-            this.cmbEducationLevel.Location = new System.Drawing.Point(59, 54);
-            this.cmbEducationLevel.Name = "cmbEducationLevel";
-            this.cmbEducationLevel.Size = new System.Drawing.Size(205, 25);
-            this.cmbEducationLevel.TabIndex = 4;
-            // 
             // clmCurriculumID
             // 
             this.clmCurriculumID.HeaderText = "CurriculumID";
@@ -180,8 +180,8 @@
             // clmSubjects
             // 
             this.clmSubjects.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmSubjects.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmSubjects.DefaultCellStyle = dataGridViewCellStyle1;
             this.clmSubjects.HeaderText = "Subjects";
             this.clmSubjects.Name = "clmSubjects";
             this.clmSubjects.ReadOnly = true;
@@ -190,8 +190,8 @@
             // clmTuition
             // 
             this.clmTuition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmTuition.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmTuition.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmTuition.HeaderText = "Tuition";
             this.clmTuition.Name = "clmTuition";
             this.clmTuition.ReadOnly = true;
@@ -200,8 +200,8 @@
             // clmMiscellaneous
             // 
             this.clmMiscellaneous.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmMiscellaneous.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmMiscellaneous.DefaultCellStyle = dataGridViewCellStyle3;
             this.clmMiscellaneous.HeaderText = "Miscellaneous";
             this.clmMiscellaneous.Name = "clmMiscellaneous";
             this.clmMiscellaneous.ReadOnly = true;
@@ -210,8 +210,8 @@
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column1.HeaderText = "Other Fees";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -221,8 +221,8 @@
             // 
             this.clmEdit.ActiveLinkColor = System.Drawing.Color.SeaGreen;
             this.clmEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmEdit.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmEdit.DefaultCellStyle = dataGridViewCellStyle5;
             this.clmEdit.HeaderText = "View / Edit";
             this.clmEdit.LinkColor = System.Drawing.Color.SeaGreen;
             this.clmEdit.Name = "clmEdit";

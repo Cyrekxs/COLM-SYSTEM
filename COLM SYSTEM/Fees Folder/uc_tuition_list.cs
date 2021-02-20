@@ -26,7 +26,18 @@ namespace COLM_SYSTEM.Fees_Folder
             dataGridView1.Rows.Clear();
             foreach (var item in TuitionSummaries)
             {
-                dataGridView1.Rows.Add(item.CurriculumID, item.Code, item.EducationLevel, item.CourseStrand, item.YearLevelID, item.YearLevel, item.Subjects, item.Tuition.ToString("n"));
+                dataGridView1.Rows.Add(
+                    item.CurriculumID,
+                    item.Code, 
+                    item.EducationLevel,
+                    item.CourseStrand,
+                    item.YearLevelID, 
+                    item.YearLevel,
+                    item.Subjects,
+                    item.Tuition.ToString("n"),
+                    item.Miscellaneous.ToString("n"),
+                    item.OtherFees.ToString("n"));
+
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item; // set the item as a row tag
             }
         }

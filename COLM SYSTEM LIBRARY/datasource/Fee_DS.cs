@@ -194,7 +194,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 SchoolYearID = SchoolYearID,
                                 SemesterID = SemesterID,
                                 FeeDesc = Convert.ToString(reader["Fee"]),
-                                FeeType = Convert.ToString(reader["FeeType"]),
+                                FeeType = Convert.ToString(reader["Type"]),
                                 Amount = Convert.ToDouble(reader["Amount"])
                             };
                             SettedFees.Add(fee);
@@ -206,29 +206,43 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         }
 
 
-        public static bool InsertUpdateFee(Fee model)
+        public static int InsertUpdateFee(Fee model)
         {
             int result = 0;
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("EXECUTE sp_set_fee @FeeID,@Fee,@Type,@Amount,@YearLevelID,@SchoolYearID,@SemesterID", conn))
+                using (SqlCommand comm = new SqlCommand("EXECUTE sp_set_fee @FeeID,@CurriculumID,@YearLevelID,@SchoolYearID,@SemesterID,@Fee,@Type,@Amount", conn))
                 {
                     comm.Parameters.AddWithValue("@FeeID", model.FeeID);
-                    comm.Parameters.AddWithValue("@Fee", model.FeeDesc);
-                    comm.Parameters.AddWithValue("@Type", model.FeeType);
-                    comm.Parameters.AddWithValue("@amount", model.Amount);
+                    comm.Parameters.AddWithValue("@CurriculumID", model.CurriculumID);
                     comm.Parameters.AddWithValue("@YearLevelID", model.YearLeveLID);
                     comm.Parameters.AddWithValue("@SchoolYearID", model.SchoolYearID);
                     comm.Parameters.AddWithValue("@SemesterID", model.SemesterID);
+                    comm.Parameters.AddWithValue("@Fee", model.FeeDesc);
+                    comm.Parameters.AddWithValue("@Type", model.FeeType);
+                    comm.Parameters.AddWithValue("@amount", model.Amount);
 
                     result = comm.ExecuteNonQuery();
-                    if (result > 0)
-                        return true;
-                    else
-                        return false;
                 }
             }
+
+            return result;
+        }
+
+        public static int RemoveSettedFee(int FeeID)
+        {
+            int result = 0;
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("DELETE FROM settings.fees WHERE FeeID = @FeeID", conn))
+                {
+                    comm.Parameters.AddWithValue("@FeeID", FeeID);
+                    result = comm.ExecuteNonQuery();
+                }
+            }
+            return result;
         }
 
     }

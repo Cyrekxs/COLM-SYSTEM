@@ -50,7 +50,7 @@ namespace COLM_SYSTEM.fees_folder
                 }
             }
         }
-      
+
         //get the default fees || add
         private void LoadDefaultFees()
         {
@@ -102,15 +102,15 @@ namespace COLM_SYSTEM.fees_folder
             List<Fee> setted_miscfees = (from r in setted_fees where r.FeeType.ToLower() == "miscellaneous" select r).ToList();
             foreach (var item in setted_miscfees)
             {
-                dgMiscellaneous.Rows.Add(0, item.FeeDesc, item.Amount.ToString("n"));
+                dgMiscellaneous.Rows.Add(item.FeeID, item.FeeDesc, item.Amount.ToString("n"));
             }
 
             //other fees datagrid
-            dgMiscellaneous.Rows.Clear();
+            dgOtherFees.Rows.Clear();
             List<Fee> setted_otherfees = (from r in setted_fees where r.FeeType.ToLower() == "other" select r).ToList();
             foreach (var item in setted_otherfees)
             {
-                dgMiscellaneous.Rows.Add(0, item.FeeDesc, item.Amount.ToString("n"));
+                dgOtherFees.Rows.Add(item.FeeID, item.FeeDesc, item.Amount.ToString("n"));
             }
         }
 
@@ -166,9 +166,13 @@ namespace COLM_SYSTEM.fees_folder
 
         private void button4_Click(object sender, EventArgs e)
         {
+
+            int CurriculumID = Curriculum.GetCurriculumID(cmbCurriculumCode.Text);
+            YearLevel yearLevel = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbCourseStrand.Text, cmbYearLevel.Text);
+
+
             //List of subjects to be saved
             List<SubjectSetted> subjectsToSave = new List<SubjectSetted>();
-            int CurriculumID = Curriculum.GetCurriculumID(cmbCurriculumCode.Text);
             foreach (DataGridViewRow item in dgTuition.Rows)
             {
                 SubjectSetted subject = new SubjectSetted()
@@ -183,19 +187,65 @@ namespace COLM_SYSTEM.fees_folder
                 subjectsToSave.Add(subject);
             }
 
-            //Execute command to save the list of subjects into database
-            int result = SubjectSetted.InsertSubject(subjectsToSave);
+            //List of fees to be saved
+            List<Fee> feesToSave = new List<Fee>();
 
-
-
-            if (result == dgTuition.Rows.Count)
+            foreach (DataGridViewRow item in dgMiscellaneous.Rows)
             {
-                MessageBox.Show("Subjects has been successfully set!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Fee fee = new Fee()
+                {
+                    FeeID = Convert.ToInt16(item.Cells["clmMiscFeeID"].Value),
+                    CurriculumID = CurriculumID,
+                    YearLeveLID = yearLevel.YearLevelID,
+                    SchoolYearID = Utilties.GetActiveSchoolYear(),
+                    SemesterID = Utilties.GetActiveSemester(),
+                    FeeDesc = Convert.ToString(item.Cells["clmMiscFee"].Value),
+                    FeeType = "miscellaneous",
+                    Amount = Convert.ToDouble(item.Cells["clmMiscAmount"].Value)
+                };
+                feesToSave.Add(fee);
+            }
+
+            foreach (DataGridViewRow item in dgOtherFees.Rows)
+            {
+                Fee fee = new Fee()
+                {
+                    FeeID = Convert.ToInt16(item.Cells["clmOtherFeeID"].Value),
+                    CurriculumID = CurriculumID,
+                    YearLeveLID = yearLevel.YearLevelID,
+                    SchoolYearID = Utilties.GetActiveSchoolYear(),
+                    SemesterID = Utilties.GetActiveSemester(),
+                    FeeDesc = Convert.ToString(item.Cells["clmOtherFee"].Value),
+                    FeeType = "other",
+                    Amount = Convert.ToDouble(item.Cells["clmOtherAmount"].Value)
+                };
+                feesToSave.Add(fee);
+            }
+
+            //Execute command to save the list of subjects into database
+            int tuition_result = SubjectSetted.InsertSubject(subjectsToSave);
+            int fee_result = Fee.InsertUpdateFee(feesToSave);
+
+
+            if (tuition_result == dgTuition.Rows.Count && (dgOtherFees.Rows.Count + dgMiscellaneous.Rows.Count) == fee_result)
+            {
+                MessageBox.Show("Subjects, Tuition and fees has been successfully set!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+                Dispose();
             }
             else
             {
-                int error = dgTuition.Rows.Count - result;
-                MessageBox.Show($"{error} out of {dgTuition.Rows.Count} subject(s) encounter error in saving", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                int tuition_error = dgTuition.Rows.Count - tuition_result;
+                int fee_error = ((dgOtherFees.Rows.Count + dgMiscellaneous.Rows.Count) - fee_result);
+
+                if (tuition_error > 0)
+                {
+                    MessageBox.Show($"{tuition_error} out of {dgTuition.Rows.Count} subject(s) encounter error in saving", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (fee_error > 0)
+                {
+                    MessageBox.Show($"{fee_error} out of {dgTuition.Rows.Count} subject(s) encounter error in saving", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -226,6 +276,126 @@ namespace COLM_SYSTEM.fees_folder
             foreach (var item in CourseStrands)
             {
                 cmbCourseStrand.Items.Add(item);
+            }
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frm_miscother_fees_entry frm;
+            using (frm = new frm_miscother_fees_entry())
+            {
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    dgMiscellaneous.Rows.Add
+                        (
+                        frm.fee.DefaultFeeID,
+                        frm.fee.Fee,
+                        frm.fee.FeeAmount.ToString("n")
+                        );
+                }
+            }
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frm_miscother_fees_entry frm;
+            using (frm = new frm_miscother_fees_entry())
+            {
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    frm.StartPosition = FormStartPosition.CenterParent;
+
+                    dgOtherFees.Rows.Add
+                        (
+                        frm.fee.DefaultFeeID,
+                        frm.fee.Fee,
+                        frm.fee.FeeAmount.ToString("n")
+                        );
+                }
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int TotalSubjects = dgTuition.Rows.Count;
+            double TotalTuition = 0;
+            double TotalAdditional = 0;
+            double TotalMiscellaneous = 0;
+            double TotalOther = 0;
+
+            foreach (DataGridViewRow item in dgTuition.Rows)
+            {
+                TotalTuition += Convert.ToDouble(item.Cells["clmSubjPrice"].Value);
+                TotalAdditional += Convert.ToDouble(item.Cells["clmAdditionalFee"].Value);
+            }
+
+            foreach (DataGridViewRow item in dgMiscellaneous.Rows)
+            {
+                TotalMiscellaneous += Convert.ToDouble(item.Cells["clmMiscAmount"].Value);
+            }
+
+            foreach (DataGridViewRow item in dgOtherFees.Rows)
+            {
+                TotalOther += Convert.ToDouble(item.Cells["clmOtherAmount"].Value);
+            }
+
+            txtSubjects.Text = TotalSubjects.ToString();
+            txtTotalTuition.Text = TotalTuition.ToString("n");
+            txtTotalAdditional.Text = TotalAdditional.ToString("n");
+            txtTotalMiscellaneous.Text = TotalMiscellaneous.ToString("n");
+            txtTotalOtherFees.Text = TotalOther.ToString("n");
+
+        }
+
+        private void dgMiscellaneous_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int FeeID = Convert.ToInt16(dgMiscellaneous.Rows[e.RowIndex].Cells["clmMiscFeeID"].Value);
+
+
+            if (e.ColumnIndex == clmMiscRemove.Index)
+            {
+                if (MessageBox.Show("Are you sure you want to remove this fee?", "Remove Fee", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (FeeID == 0)
+                        dgMiscellaneous.Rows.Remove(dgMiscellaneous.Rows[e.RowIndex]);
+                    else
+                    {
+                        int result = Fee.RemoveSettedFee(FeeID);
+                        if (result > 0)
+                        {
+                            dgMiscellaneous.Rows.Remove(dgMiscellaneous.Rows[e.RowIndex]);
+                            MessageBox.Show("Miscellaneous Fee has been successfully remove in the database!", "Fee Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show("Error removing fee!", "Removing Fee Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+        }
+
+        private void dgOtherFees_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int FeeID = Convert.ToInt16(dgOtherFees.Rows[e.RowIndex].Cells["clmOtherFeeID"].Value);
+
+            if (e.ColumnIndex == clmOtherRemove.Index)
+            {
+                if (MessageBox.Show("Are you sure you want to remove this fee?", "Remove Fee", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (FeeID == 0)
+                        dgOtherFees.Rows.Remove(dgOtherFees.Rows[e.RowIndex]);
+                    else
+                    {
+                        int result = Fee.RemoveSettedFee(FeeID);
+                        if (result > 0)
+                        {
+                            dgOtherFees.Rows.Remove(dgOtherFees.Rows[e.RowIndex]);
+                            MessageBox.Show("Miscellaneous Fee has been successfully remove in the database!", "Fee Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show("Error removing fee!", "Removing Fee Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
     }

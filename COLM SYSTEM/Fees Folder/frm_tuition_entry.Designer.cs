@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
             this.cmbCourseStrand = new System.Windows.Forms.ComboBox();
@@ -56,15 +57,26 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.clmFeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.dgOtherFees = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewLinkColumn2 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtTotalTuition = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtSubjects = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtTotalAdditional = new System.Windows.Forms.TextBox();
+            this.txtTotalMiscellaneous = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtTotalOtherFees = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.clmMiscFeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmMiscFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmMiscAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmMiscRemove = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.clmOtherFeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmOtherFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmOtherAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmOtherRemove = new System.Windows.Forms.DataGridViewLinkColumn();
             this.clmSubjPriceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCurriculumSubjID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubjCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -174,7 +186,7 @@
             this.clmAdditionalSettings});
             this.dgTuition.Location = new System.Drawing.Point(15, 91);
             this.dgTuition.Name = "dgTuition";
-            this.dgTuition.Size = new System.Drawing.Size(876, 271);
+            this.dgTuition.Size = new System.Drawing.Size(876, 231);
             this.dgTuition.TabIndex = 6;
             this.dgTuition.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgTuition.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
@@ -185,7 +197,7 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.Location = new System.Drawing.Point(735, 619);
+            this.button3.Location = new System.Drawing.Point(735, 659);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 30);
             this.button3.TabIndex = 13;
@@ -198,7 +210,7 @@
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(816, 619);
+            this.button4.Location = new System.Drawing.Point(816, 659);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 30);
             this.button4.TabIndex = 12;
@@ -238,14 +250,15 @@
             this.dgMiscellaneous.BackgroundColor = System.Drawing.Color.White;
             this.dgMiscellaneous.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgMiscellaneous.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmFeeID,
-            this.clmFee,
-            this.clmAmount,
-            this.dataGridViewLinkColumn1});
+            this.clmMiscFeeID,
+            this.clmMiscFee,
+            this.clmMiscAmount,
+            this.clmMiscRemove});
             this.dgMiscellaneous.Location = new System.Drawing.Point(15, 388);
             this.dgMiscellaneous.Name = "dgMiscellaneous";
             this.dgMiscellaneous.Size = new System.Drawing.Size(427, 224);
             this.dgMiscellaneous.TabIndex = 17;
+            this.dgMiscellaneous.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgMiscellaneous_CellContentClick);
             // 
             // label5
             // 
@@ -301,6 +314,7 @@
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "+ Add Miscellaneous";
             this.linkLabel2.VisitedLinkColor = System.Drawing.Color.SeaGreen;
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // linkLabel3
             // 
@@ -315,43 +329,7 @@
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "+ Add Other Fees";
             this.linkLabel3.VisitedLinkColor = System.Drawing.Color.SeaGreen;
-            // 
-            // clmFeeID
-            // 
-            this.clmFeeID.HeaderText = "FeeID";
-            this.clmFeeID.Name = "clmFeeID";
-            this.clmFeeID.Visible = false;
-            // 
-            // clmFee
-            // 
-            this.clmFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmFee.HeaderText = "Fee";
-            this.clmFee.Name = "clmFee";
-            // 
-            // clmAmount
-            // 
-            this.clmAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.clmAmount.DefaultCellStyle = dataGridViewCellStyle17;
-            this.clmAmount.HeaderText = "Amount";
-            this.clmAmount.Name = "clmAmount";
-            this.clmAmount.Width = 76;
-            // 
-            // dataGridViewLinkColumn1
-            // 
-            this.dataGridViewLinkColumn1.ActiveLinkColor = System.Drawing.Color.Firebrick;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewLinkColumn1.DefaultCellStyle = dataGridViewCellStyle18;
-            this.dataGridViewLinkColumn1.HeaderText = "Remove";
-            this.dataGridViewLinkColumn1.LinkColor = System.Drawing.Color.Firebrick;
-            this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
-            this.dataGridViewLinkColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewLinkColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewLinkColumn1.Text = "Remove";
-            this.dataGridViewLinkColumn1.UseColumnTextForLinkValue = true;
-            this.dataGridViewLinkColumn1.VisitedLinkColor = System.Drawing.Color.Firebrick;
-            this.dataGridViewLinkColumn1.Width = 65;
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // dgOtherFees
             // 
@@ -360,51 +338,191 @@
             this.dgOtherFees.BackgroundColor = System.Drawing.Color.White;
             this.dgOtherFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgOtherFees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewLinkColumn2});
+            this.clmOtherFeeID,
+            this.clmOtherFee,
+            this.clmOtherAmount,
+            this.clmOtherRemove});
             this.dgOtherFees.Location = new System.Drawing.Point(464, 389);
             this.dgOtherFees.Name = "dgOtherFees";
             this.dgOtherFees.Size = new System.Drawing.Size(427, 224);
             this.dgOtherFees.TabIndex = 25;
+            this.dgOtherFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOtherFees_CellContentClick);
             // 
-            // dataGridViewTextBoxColumn1
+            // label8
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "FeeID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(463, 331);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 17);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Total Tuition Fee";
             // 
-            // dataGridViewTextBoxColumn2
+            // txtTotalTuition
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Fee";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.txtTotalTuition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtTotalTuition.Location = new System.Drawing.Point(565, 328);
+            this.txtTotalTuition.Name = "txtTotalTuition";
+            this.txtTotalTuition.ReadOnly = true;
+            this.txtTotalTuition.Size = new System.Drawing.Size(100, 24);
+            this.txtTotalTuition.TabIndex = 27;
+            this.txtTotalTuition.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // dataGridViewTextBoxColumn3
+            // label9
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle19;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Amount";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 76;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 331);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(85, 17);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "No of Subjects";
             // 
-            // dataGridViewLinkColumn2
+            // txtSubjects
             // 
-            this.dataGridViewLinkColumn2.ActiveLinkColor = System.Drawing.Color.Firebrick;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewLinkColumn2.DefaultCellStyle = dataGridViewCellStyle20;
-            this.dataGridViewLinkColumn2.HeaderText = "Remove";
-            this.dataGridViewLinkColumn2.LinkColor = System.Drawing.Color.Firebrick;
-            this.dataGridViewLinkColumn2.Name = "dataGridViewLinkColumn2";
-            this.dataGridViewLinkColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewLinkColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewLinkColumn2.Text = "Remove";
-            this.dataGridViewLinkColumn2.UseColumnTextForLinkValue = true;
-            this.dataGridViewLinkColumn2.VisitedLinkColor = System.Drawing.Color.Firebrick;
-            this.dataGridViewLinkColumn2.Width = 65;
+            this.txtSubjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtSubjects.Location = new System.Drawing.Point(103, 328);
+            this.txtSubjects.Name = "txtSubjects";
+            this.txtSubjects.ReadOnly = true;
+            this.txtSubjects.Size = new System.Drawing.Size(38, 24);
+            this.txtSubjects.TabIndex = 29;
+            this.txtSubjects.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(671, 332);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(114, 17);
+            this.label10.TabIndex = 30;
+            this.label10.Text = "Total Additional Fee";
+            // 
+            // txtTotalAdditional
+            // 
+            this.txtTotalAdditional.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtTotalAdditional.Location = new System.Drawing.Point(791, 328);
+            this.txtTotalAdditional.Name = "txtTotalAdditional";
+            this.txtTotalAdditional.ReadOnly = true;
+            this.txtTotalAdditional.Size = new System.Drawing.Size(100, 24);
+            this.txtTotalAdditional.TabIndex = 31;
+            this.txtTotalAdditional.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtTotalMiscellaneous
+            // 
+            this.txtTotalMiscellaneous.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtTotalMiscellaneous.Location = new System.Drawing.Point(342, 618);
+            this.txtTotalMiscellaneous.Name = "txtTotalMiscellaneous";
+            this.txtTotalMiscellaneous.ReadOnly = true;
+            this.txtTotalMiscellaneous.Size = new System.Drawing.Size(100, 24);
+            this.txtTotalMiscellaneous.TabIndex = 33;
+            this.txtTotalMiscellaneous.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(203, 621);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(133, 17);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Total Miscellaneous Fee";
+            // 
+            // txtTotalOtherFees
+            // 
+            this.txtTotalOtherFees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtTotalOtherFees.Location = new System.Drawing.Point(791, 619);
+            this.txtTotalOtherFees.Name = "txtTotalOtherFees";
+            this.txtTotalOtherFees.ReadOnly = true;
+            this.txtTotalOtherFees.Size = new System.Drawing.Size(100, 24);
+            this.txtTotalOtherFees.TabIndex = 35;
+            this.txtTotalOtherFees.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(695, 623);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(90, 17);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "Total Other Fee";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // clmMiscFeeID
+            // 
+            this.clmMiscFeeID.HeaderText = "FeeID";
+            this.clmMiscFeeID.Name = "clmMiscFeeID";
+            this.clmMiscFeeID.Visible = false;
+            // 
+            // clmMiscFee
+            // 
+            this.clmMiscFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmMiscFee.HeaderText = "Fee";
+            this.clmMiscFee.Name = "clmMiscFee";
+            this.clmMiscFee.ReadOnly = true;
+            // 
+            // clmMiscAmount
+            // 
+            this.clmMiscAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.clmMiscAmount.DefaultCellStyle = dataGridViewCellStyle7;
+            this.clmMiscAmount.HeaderText = "Amount";
+            this.clmMiscAmount.Name = "clmMiscAmount";
+            this.clmMiscAmount.Width = 76;
+            // 
+            // clmMiscRemove
+            // 
+            this.clmMiscRemove.ActiveLinkColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmMiscRemove.DefaultCellStyle = dataGridViewCellStyle8;
+            this.clmMiscRemove.HeaderText = "Remove";
+            this.clmMiscRemove.LinkColor = System.Drawing.Color.Firebrick;
+            this.clmMiscRemove.Name = "clmMiscRemove";
+            this.clmMiscRemove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmMiscRemove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmMiscRemove.Text = "Remove";
+            this.clmMiscRemove.UseColumnTextForLinkValue = true;
+            this.clmMiscRemove.VisitedLinkColor = System.Drawing.Color.Firebrick;
+            this.clmMiscRemove.Width = 65;
+            // 
+            // clmOtherFeeID
+            // 
+            this.clmOtherFeeID.HeaderText = "FeeID";
+            this.clmOtherFeeID.Name = "clmOtherFeeID";
+            this.clmOtherFeeID.Visible = false;
+            // 
+            // clmOtherFee
+            // 
+            this.clmOtherFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmOtherFee.HeaderText = "Fee";
+            this.clmOtherFee.Name = "clmOtherFee";
+            this.clmOtherFee.ReadOnly = true;
+            // 
+            // clmOtherAmount
+            // 
+            this.clmOtherAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.clmOtherAmount.DefaultCellStyle = dataGridViewCellStyle9;
+            this.clmOtherAmount.HeaderText = "Amount";
+            this.clmOtherAmount.Name = "clmOtherAmount";
+            this.clmOtherAmount.Width = 76;
+            // 
+            // clmOtherRemove
+            // 
+            this.clmOtherRemove.ActiveLinkColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmOtherRemove.DefaultCellStyle = dataGridViewCellStyle10;
+            this.clmOtherRemove.HeaderText = "Remove";
+            this.clmOtherRemove.LinkColor = System.Drawing.Color.Firebrick;
+            this.clmOtherRemove.Name = "clmOtherRemove";
+            this.clmOtherRemove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmOtherRemove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmOtherRemove.Text = "Remove";
+            this.clmOtherRemove.UseColumnTextForLinkValue = true;
+            this.clmOtherRemove.VisitedLinkColor = System.Drawing.Color.Firebrick;
+            this.clmOtherRemove.Width = 65;
             // 
             // clmSubjPriceID
             // 
@@ -437,8 +555,8 @@
             // 
             // clmLecUnits
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmLecUnits.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmLecUnits.DefaultCellStyle = dataGridViewCellStyle1;
             this.clmLecUnits.HeaderText = "Lec Units";
             this.clmLecUnits.Name = "clmLecUnits";
             this.clmLecUnits.ReadOnly = true;
@@ -446,8 +564,8 @@
             // 
             // clmLabUnits
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmLabUnits.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmLabUnits.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmLabUnits.HeaderText = "Lab Units";
             this.clmLabUnits.Name = "clmLabUnits";
             this.clmLabUnits.ReadOnly = true;
@@ -456,25 +574,26 @@
             // clmUnit
             // 
             this.clmUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmUnit.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmUnit.DefaultCellStyle = dataGridViewCellStyle3;
             this.clmUnit.HeaderText = "Unit";
             this.clmUnit.Name = "clmUnit";
+            this.clmUnit.ReadOnly = true;
             this.clmUnit.Width = 55;
             // 
             // clmSubjPrice
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.clmSubjPrice.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.clmSubjPrice.DefaultCellStyle = dataGridViewCellStyle4;
             this.clmSubjPrice.HeaderText = "Amount";
             this.clmSubjPrice.Name = "clmSubjPrice";
             this.clmSubjPrice.Width = 76;
             // 
             // clmAdditionalFee
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmAdditionalFee.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmAdditionalFee.DefaultCellStyle = dataGridViewCellStyle5;
             this.clmAdditionalFee.HeaderText = "Additional Fee";
             this.clmAdditionalFee.Name = "clmAdditionalFee";
             this.clmAdditionalFee.ReadOnly = true;
@@ -482,8 +601,8 @@
             // 
             // clmAdditionalSettings
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmAdditionalSettings.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmAdditionalSettings.DefaultCellStyle = dataGridViewCellStyle6;
             this.clmAdditionalSettings.HeaderText = "View / Set";
             this.clmAdditionalSettings.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(113)))), ((int)(((byte)(110)))));
             this.clmAdditionalSettings.Name = "clmAdditionalSettings";
@@ -498,7 +617,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 661);
+            this.ClientSize = new System.Drawing.Size(909, 701);
+            this.Controls.Add(this.txtTotalOtherFees);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtTotalMiscellaneous);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txtTotalAdditional);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtSubjects);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtTotalTuition);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.dgOtherFees);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
@@ -553,15 +682,26 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmFee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmAmount;
-        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
         private System.Windows.Forms.DataGridView dgOtherFees;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtTotalTuition;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtSubjects;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtTotalAdditional;
+        private System.Windows.Forms.TextBox txtTotalMiscellaneous;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtTotalOtherFees;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmMiscFeeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmMiscFee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmMiscAmount;
+        private System.Windows.Forms.DataGridViewLinkColumn clmMiscRemove;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmOtherFeeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmOtherFee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmOtherAmount;
+        private System.Windows.Forms.DataGridViewLinkColumn clmOtherRemove;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjPriceID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumSubjID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjCode;

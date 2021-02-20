@@ -17,9 +17,24 @@ namespace COLM_SYSTEM_LIBRARY.model
         public double Amount { get; set; }
 
 
-        public static bool InsertUpdateFee(Fee model)
+        public static int InsertUpdateFee(Fee model)
         {
             return (Fee_DS.InsertUpdateFee(model));
+        }
+
+        public static int InsertUpdateFee(List<Fee> fees)
+        {
+            int result = 0;
+            foreach (var item in fees)
+            {
+                result += Fee_DS.InsertUpdateFee(item);
+            }
+            return result;
+        }
+
+        public static int RemoveSettedFee(int FeeID)
+        {
+            return Fee_DS.RemoveSettedFee(FeeID);
         }
 
         public static List<Fee> GetFees()

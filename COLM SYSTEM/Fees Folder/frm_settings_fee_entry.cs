@@ -100,10 +100,10 @@ namespace COLM_SYSTEM.fees_folder
             fee.SchoolYearID = Utilties.GetActiveSchoolYear();
             fee.SemesterID = Utilties.GetActiveSemester();
 
-            bool result = false;
+            int result = 0;
             result = Fee.InsertUpdateFee(fee);
 
-            if (result == true)
+            if (result > 0)
                 MessageBox.Show("Fee has been successfully saved!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Fee saving failed!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);

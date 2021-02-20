@@ -107,6 +107,12 @@
     <Compile Include="Faculty Folder\frm_faculty_browser.Designer.cs">
       <DependentUpon>frm_faculty_browser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fees Folder\frm_miscother_fees_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fees Folder\frm_miscother_fees_entry.Designer.cs">
+      <DependentUpon>frm_miscother_fees_entry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fees Folder\frm_tuition_entry_additional_fee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,18 @@
     </Compile>
     <Compile Include="frm_practice.Designer.cs">
       <DependentUpon>frm_practice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule Folder\frm_schedule_encoding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schedule Folder\frm_schedule_encoding.Designer.cs">
+      <DependentUpon>frm_schedule_encoding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule Folder\frm_schedule_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schedule Folder\frm_schedule_entry.Designer.cs">
+      <DependentUpon>frm_schedule_entry.cs</DependentUpon>
     </Compile>
     <Compile Include="Section Folder\frm_section_entry.cs">
       <SubType>Form</SubType>
@@ -260,6 +278,9 @@
     <EmbeddedResource Include="Faculty Folder\frm_faculty_browser.resx">
       <DependentUpon>frm_faculty_browser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fees Folder\frm_miscother_fees_entry.resx">
+      <DependentUpon>frm_miscother_fees_entry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\frm_tuition_entry_additional_fee.resx">
       <DependentUpon>frm_tuition_entry_additional_fee.cs</DependentUpon>
     </EmbeddedResource>
@@ -299,6 +320,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registration Folder\frm_student_browse.resx">
       <DependentUpon>frm_student_browse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule Folder\frm_schedule_encoding.resx">
+      <DependentUpon>frm_schedule_encoding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule Folder\frm_schedule_entry.resx">
+      <DependentUpon>frm_schedule_entry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Section Folder\frm_section_entry.resx">
       <DependentUpon>frm_section_entry.cs</DependentUpon>

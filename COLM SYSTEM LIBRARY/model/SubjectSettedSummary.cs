@@ -22,6 +22,9 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string YearLevel { get; set; }
         public int Subjects { get; set; }
         public double Tuition { get; set; }
+        public double Miscellaneous { get; set; }
+        public double OtherFees { get; set; }
+
 
         public static List<SubjectSettedSummary> GetSubjectSettedSummaries()
         {
@@ -47,7 +50,9 @@ namespace COLM_SYSTEM_LIBRARY.model
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 YearLevel = Convert.ToString(reader["YearLevel"]),
                                 Subjects = Convert.ToInt32(reader["Subjects"]),
-                                Tuition = Convert.ToDouble(reader["Tuition"])
+                                Tuition = Convert.ToDouble(reader["Tuition"]),
+                                Miscellaneous = Convert.ToDouble(reader["MiscellaneousFees"]),
+                                OtherFees = Convert.ToDouble(reader["OtherFees"])
                             };
                             settedSummaries.Add(summary);
                         }
