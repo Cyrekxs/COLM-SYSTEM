@@ -21,13 +21,16 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
-                        SchoolYear sy = new SchoolYear()
+                        while (reader.Read())
                         {
-                            SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
-                            Name = Convert.ToString(reader["Name"]),
-                            Status = Convert.ToString(reader["Status"])
-                        };
-                        sy_list.Add(sy);
+                            SchoolYear sy = new SchoolYear()
+                            {
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                Name = Convert.ToString(reader["SchoolYear"]),
+                                Status = Convert.ToString(reader["Status"])
+                            };
+                            sy_list.Add(sy);
+                        }
                     }
                 }
             }

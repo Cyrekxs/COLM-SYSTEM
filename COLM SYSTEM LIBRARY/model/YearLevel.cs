@@ -32,9 +32,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         /// <returns></returns>
         public static List<YearLevel> GetYearLevels(string EducationLevel, string CourseStrand)
         {
-            return (from r in GetYearLevels()
-                    where r.EducationLevel.ToLower() == EducationLevel.ToLower() && CourseStrand.ToLower() == CourseStrand.ToLower()
+            List<YearLevel> yearLevels = (from r in GetYearLevels()
+                    where r.EducationLevel.ToLower() == EducationLevel.ToLower() && r.CourseStrand.ToLower() == CourseStrand.ToLower()
                     select r).ToList();
+
+            return yearLevels;
         }
 
         public static List<string> GetEducationLevels()

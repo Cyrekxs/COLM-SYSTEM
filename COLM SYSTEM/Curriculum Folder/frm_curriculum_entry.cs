@@ -14,6 +14,38 @@ namespace COLM_SYSTEM.Curriculum_Folder
     public partial class frm_curriculum_entry : Form
     {
         List<SchoolSemester> semesters = SchoolSemester.GetSchoolSemesters();
+
+        public frm_curriculum_entry(Curriculum c, List<CurriculumSubject> subjects)
+        {
+            InitializeComponent();
+            DisplaySemestersOnCombobox();
+
+            //Handle Data Error Event
+            dataGridView1.DataError += DataGridview_DataError;
+
+            cmbEducationLevel.Text = c.EducationLevel;
+            cmbCourseStrand.Text = c.CourseStrand;
+            txtCurriculumCode.Text = c.Code;
+            txtDescription.Text = c.Description;
+
+            foreach (var item in subjects)
+            {
+                Subject subject = Subject.GetSubject(item.SubjectID);
+                dataGridView1.Rows.Add(item.SubjectID, 
+                    subject.SubjCode, 
+                    subject.SubjDesc, 
+                    subject.SubjDesc,
+                    subject.LecUnit, 
+                    subject.LabUnit, 
+                    subject.Unit, 
+                    item.IsBridging, 
+                    YearLevel.GetYearLevel(item.YearLevelID).YearLvl, 
+                    SchoolSemester.GetSchoolSemester(item.SemesterID).Semester);
+            }
+
+        }
+
+
         public frm_curriculum_entry()
         {
             InitializeComponent();
@@ -53,35 +85,75 @@ namespace COLM_SYSTEM.Curriculum_Folder
             frm.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private bool IsValidInformation()
         {
-            Curriculum curriculum = new Curriculum();
-            curriculum.Code = txtCurriculumCode.Text;
-            curriculum.Description = txtDescription.Text;
-            curriculum.EducationLevel = cmbEducationLevel.Text;
-            curriculum.CourseStrand = cmbCourseStrand.Text;
+            bool status = true;
 
-            List<CurriculumSubject> curriculumSubjects = new List<CurriculumSubject>();
+            if (cmbEducationLevel.Text == string.Empty)
+                return false;
+
+            if (cmbCourseStrand.Text == string.Empty)
+                return false;
+
+            if (txtCurriculumCode.Text == string.Empty)
+                return false;
+
+            if (txtDescription.Text == string.Empty)
+                return false;
 
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
-                string setted_semester = item.Cells["clmSemester"].Value.ToString();
-                CurriculumSubject subject = new CurriculumSubject()
+                if (item.Cells["clmYearLevel"].Value == null)
                 {
-                    SemesterID = SchoolSemester.GetSchoolSemester(setted_semester).SemesterID,
-                    SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
-                    IsActive = true,
-                    IsBridging = Convert.ToBoolean(item.Cells["clmBridging"].Value),
-                    YearLevelID = YearLevel.GetYearLevel(cmbEducationLevel.Text,cmbCourseStrand.Text, item.Cells["clmYearLevel"].Value.ToString()).YearLevelID,
-                };
-                curriculumSubjects.Add(subject);
+                    MessageBox.Show("Please check the year level column on each subject","",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    status = false;
+                    break;
+                }
+
+                if (item.Cells["clmSemester"].Value == null)
+                {
+                    MessageBox.Show("Please check the semester column on each subject", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    status = false;
+                    break;
+                }
+
             }
 
-            bool result = Curriculum.CreateCurriculum(curriculum, curriculumSubjects);
+            return status;
+        }
 
-            if (result == true)
-                MessageBox.Show("Curriculum has been successfully saved!", "Curriculum Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (IsValidInformation() == true)
+            {
+                Curriculum curriculum = new Curriculum();
+                curriculum.Code = txtCurriculumCode.Text;
+                curriculum.Description = txtDescription.Text;
+                curriculum.EducationLevel = cmbEducationLevel.Text;
+                curriculum.CourseStrand = cmbCourseStrand.Text;
+                curriculum.SchoolYearID = SchoolYear.GetActiveSchoolYear().SchoolYearID;
 
+                List<CurriculumSubject> curriculumSubjects = new List<CurriculumSubject>();
+
+                foreach (DataGridViewRow item in dataGridView1.Rows)
+                {
+                    string setted_semester = item.Cells["clmSemester"].Value.ToString();
+                    CurriculumSubject subject = new CurriculumSubject()
+                    {
+                        SemesterID = SchoolSemester.GetSchoolSemester(setted_semester).SemesterID,
+                        SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
+                        IsActive = true,
+                        IsBridging = Convert.ToBoolean(item.Cells["clmBridging"].Value),
+                        YearLevelID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbCourseStrand.Text, item.Cells["clmYearLevel"].Value.ToString()).YearLevelID,
+                    };
+                    curriculumSubjects.Add(subject);
+                }
+
+                bool result = Curriculum.CreateCurriculum(curriculum, curriculumSubjects);
+
+                if (result == true)
+                    MessageBox.Show("Curriculum has been successfully saved!", "Curriculum Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void cmbCourseStrand_SelectedIndexChanged(object sender, EventArgs e)

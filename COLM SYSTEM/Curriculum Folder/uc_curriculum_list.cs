@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using COLM_SYSTEM_LIBRARY.model;
 
 namespace COLM_SYSTEM.Curriculum_Folder
 {
@@ -15,6 +16,18 @@ namespace COLM_SYSTEM.Curriculum_Folder
         public uc_curriculum_list()
         {
             InitializeComponent();
+            LoadCurriculums();
+        }
+
+        private void LoadCurriculums()
+        {
+            List<Curriculum> Curriculums = Curriculum.GetCurriculums();
+            SchoolYear sy = new SchoolYear();
+            foreach (var item in Curriculums)
+            {
+                dataGridView3.Rows.Add(item.CurriculumID, item.Code, item.Description, item.EducationLevel, item.CourseStrand, SchoolYear.GetSchoolYear(item.SchoolYearID).Name, item.Status,item.DateCreated.ToString("MM-dd-yyyy hh:mm tt"));
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -22,6 +35,16 @@ namespace COLM_SYSTEM.Curriculum_Folder
             frm_curriculum_entry frm = new frm_curriculum_entry();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == clmEdit.Index)
+            {
+                frm_curriculum_entry frm = new frm_curriculum_entry();
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
         }
     }
 }

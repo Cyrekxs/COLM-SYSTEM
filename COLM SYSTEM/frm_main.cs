@@ -59,9 +59,7 @@ namespace COLM_SYSTEM
 
         private void cURRICULUMBUILDERToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_curriculum_entry frm = new frm_curriculum_entry();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
+            DisplayControl(new uc_curriculum_list());
         }
 
         private void rEGISTRATIONToolStripMenuItem_Click(object sender, EventArgs e)
