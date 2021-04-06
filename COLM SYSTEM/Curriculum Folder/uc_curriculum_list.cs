@@ -41,7 +41,9 @@ namespace COLM_SYSTEM.Curriculum_Folder
         {
             if (e.ColumnIndex == clmEdit.Index)
             {
-                frm_curriculum_entry frm = new frm_curriculum_entry();
+                Curriculum c = Curriculum.GetCurriculum((int) dataGridView3.Rows[e.RowIndex].Cells["clmCurriculumID"].Value);
+                List<CurriculumSubject> curriculumSubjects = Curriculum.GetCurriculumSubjects(c.CurriculumID);
+                frm_curriculum_entry frm = new frm_curriculum_entry(c,curriculumSubjects);
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
             }

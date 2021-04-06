@@ -19,6 +19,16 @@ namespace COLM_SYSTEM_LIBRARY.model
         public DateTime DateCreated { get; set; }
 
 
+        public static Curriculum GetCurriculum(int CurriculumID)
+        {
+            return Curriculum_DS.GetCurriculum(CurriculumID);
+        }
+
+        public static List<CurriculumSubject> GetCurriculumSubjects(int CurriculumID)
+        {
+            return Curriculum_DS.GetCurriculumSubjects(CurriculumID);
+        }
+
         public static bool CreateCurriculum(Curriculum curriculum,List<CurriculumSubject> subjects)
         {
             if (Curriculum_DS.IsCurriculumExists(curriculum) == true)

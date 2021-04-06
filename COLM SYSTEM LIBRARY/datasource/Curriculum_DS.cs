@@ -85,6 +85,37 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return Curriculums;
         }
 
+        public static Curriculum GetCurriculum(int CurriculumID)
+        {
+            Curriculum curriculum = new Curriculum();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum WHERE CurriculumID = @CurriculumID", conn))
+                {
+                    comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            curriculum = new Curriculum()
+                            {
+                                CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
+                                Code = Convert.ToString(reader["Code"]),
+                                Description = Convert.ToString(reader["Description"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                Status = Convert.ToString(reader["Status"]),
+                                DateCreated = Convert.ToDateTime(reader["DateCreated"])
+                            };
+                        }
+                    }
+                }
+            }
+            return curriculum;   
+        }
+
         public static List<Curriculum> GetCurriculums()
         {
             List<Curriculum> Curriculums = new List<Curriculum>();
@@ -162,6 +193,35 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return result;
         }
 
+        public static List<CurriculumSubject> GetCurriculumSubjects(int CurriculumID)
+        {
+            List<CurriculumSubject> subjects = new List<CurriculumSubject>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum_subjects WHERE CurriculumID = @CurriculumID", conn))
+                {
+                    comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            CurriculumSubject subject = new CurriculumSubject()
+                            {
+                                CurriculumSubjectID = Convert.ToInt32(reader["CurriculumSubjectID"]),
+                                SemesterID = Convert.ToInt32(reader["SemesterID"]),
+                                YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
+                                SubjectID = Convert.ToInt32(reader["SubjID"]),
+                                IsBridging = Convert.ToBoolean(reader["IsBridging"]),
+                                IsActive = Convert.ToBoolean(reader["IsActive"])
+                            };
+                            subjects.Add(subject);
+                        }
+                    }
+                }
+            }
+            return subjects;
+        }
 
     }
 }

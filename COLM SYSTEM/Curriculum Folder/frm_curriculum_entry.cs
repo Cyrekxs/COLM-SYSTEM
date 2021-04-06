@@ -13,13 +13,15 @@ namespace COLM_SYSTEM.Curriculum_Folder
 {
     public partial class frm_curriculum_entry : Form
     {
+        string savingoption = "";
         List<SchoolSemester> semesters = SchoolSemester.GetSchoolSemesters();
 
+        //EDIT
         public frm_curriculum_entry(Curriculum c, List<CurriculumSubject> subjects)
         {
+            savingoption = "EDIT";
             InitializeComponent();
             DisplaySemestersOnCombobox();
-
             //Handle Data Error Event
             dataGridView1.DataError += DataGridview_DataError;
 
@@ -34,7 +36,6 @@ namespace COLM_SYSTEM.Curriculum_Folder
                 dataGridView1.Rows.Add(item.SubjectID, 
                     subject.SubjCode, 
                     subject.SubjDesc, 
-                    subject.SubjDesc,
                     subject.LecUnit, 
                     subject.LabUnit, 
                     subject.Unit, 
@@ -45,11 +46,13 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
         }
 
-
+        //ADD
         public frm_curriculum_entry()
         {
+            savingoption = "ADD";
             InitializeComponent();
             DisplaySemestersOnCombobox();
+
 
             //Handle Data Error Event
             dataGridView1.DataError += DataGridview_DataError;
