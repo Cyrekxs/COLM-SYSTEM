@@ -14,6 +14,9 @@ namespace COLM_SYSTEM.Curriculum_Folder
     public partial class frm_curriculum_entry : Form
     {
         string savingoption = "";
+        Curriculum _curriculum = new Curriculum();
+        List<CurriculumSubject> _curriculumSubjects = new List<CurriculumSubject>();
+
         List<SchoolSemester> semesters = SchoolSemester.GetSchoolSemesters();
 
         //EDIT
@@ -24,6 +27,9 @@ namespace COLM_SYSTEM.Curriculum_Folder
             DisplaySemestersOnCombobox();
             //Handle Data Error Event
             dataGridView1.DataError += DataGridview_DataError;
+
+            _curriculum = c;
+            _curriculumSubjects = subjects;
 
             cmbEducationLevel.Text = c.EducationLevel;
             cmbCourseStrand.Text = c.CourseStrand;
@@ -129,33 +135,67 @@ namespace COLM_SYSTEM.Curriculum_Folder
         {
             if (IsValidInformation() == true)
             {
-                Curriculum curriculum = new Curriculum();
-                curriculum.Code = txtCurriculumCode.Text;
-                curriculum.Description = txtDescription.Text;
-                curriculum.EducationLevel = cmbEducationLevel.Text;
-                curriculum.CourseStrand = cmbCourseStrand.Text;
-                curriculum.SchoolYearID = SchoolYear.GetActiveSchoolYear().SchoolYearID;
-
-                List<CurriculumSubject> curriculumSubjects = new List<CurriculumSubject>();
-
-                foreach (DataGridViewRow item in dataGridView1.Rows)
+                if (savingoption == "ADD")
                 {
-                    string setted_semester = item.Cells["clmSemester"].Value.ToString();
-                    CurriculumSubject subject = new CurriculumSubject()
+                    Curriculum curriculum = new Curriculum();
+                    curriculum.Code = txtCurriculumCode.Text;
+                    curriculum.Description = txtDescription.Text;
+                    curriculum.EducationLevel = cmbEducationLevel.Text;
+                    curriculum.CourseStrand = cmbCourseStrand.Text;
+                    curriculum.SchoolYearID = SchoolYear.GetActiveSchoolYear().SchoolYearID;
+
+                    List<CurriculumSubject> curriculumSubjects = new List<CurriculumSubject>();
+
+                    foreach (DataGridViewRow item in dataGridView1.Rows)
                     {
-                        SemesterID = SchoolSemester.GetSchoolSemester(setted_semester).SemesterID,
-                        SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
-                        IsActive = true,
-                        IsBridging = Convert.ToBoolean(item.Cells["clmBridging"].Value),
-                        YearLevelID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbCourseStrand.Text, item.Cells["clmYearLevel"].Value.ToString()).YearLevelID,
-                    };
-                    curriculumSubjects.Add(subject);
+                        string setted_semester = item.Cells["clmSemester"].Value.ToString();
+                        CurriculumSubject subject = new CurriculumSubject()
+                        {
+                            SemesterID = SchoolSemester.GetSchoolSemester(setted_semester).SemesterID,
+                            SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
+                            IsActive = true,
+                            IsBridging = Convert.ToBoolean(item.Cells["clmBridging"].Value),
+                            YearLevelID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbCourseStrand.Text, item.Cells["clmYearLevel"].Value.ToString()).YearLevelID,
+                        };
+                        curriculumSubjects.Add(subject);
+                    }
+
+                    bool result = Curriculum.CreateCurriculum(curriculum, curriculumSubjects);
+
+                    if (result == true)
+                        MessageBox.Show("Curriculum has been successfully saved!", "Curriculum Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else if (savingoption == "EDIT")
+                {
+                    Curriculum curriculum = _curriculum;
+                    List<CurriculumSubject> curriculumSubjects = new List<CurriculumSubject>();
 
-                bool result = Curriculum.CreateCurriculum(curriculum, curriculumSubjects);
+                    foreach (DataGridViewRow item in dataGridView1.Rows)
+                    {
+                        string setted_semester = item.Cells["clmSemester"].Value.ToString();
+                        CurriculumSubject subject = new CurriculumSubject()
+                        {
+                            CurriculumID = _curriculum.CurriculumID,
+                            SemesterID = SchoolSemester.GetSchoolSemester(setted_semester).SemesterID,
+                            SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
+                            IsActive = true,
+                            IsBridging = Convert.ToBoolean(item.Cells["clmBridging"].Value),
+                            YearLevelID = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbCourseStrand.Text, item.Cells["clmYearLevel"].Value.ToString()).YearLevelID,
+                        };
+                        curriculumSubjects.Add(subject);
+                    }
 
-                if (result == true)
-                    MessageBox.Show("Curriculum has been successfully saved!", "Curriculum Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    foreach (var item in curriculumSubjects)
+                    {
+                        item.CurriculumSubjectID = (from r in _curriculumSubjects
+                                                    where r.CurriculumID == item.CurriculumID && r.SubjectID == item.SubjectID
+                                                    select r.CurriculumSubjectID).FirstOrDefault();
+                    }
+
+                    // _curriculumSubjects.Find(result => result.CurriculumID == item.CurriculumID && result.SubjectID == item.SubjectID).CurriculumSubjectID;
+
+
+                }
             }
         }
 

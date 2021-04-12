@@ -32,9 +32,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static bool CreateCurriculum(Curriculum curriculum,List<CurriculumSubject> subjects)
         {
             if (Curriculum_DS.IsCurriculumExists(curriculum) == true)
+
             {
                 return false;
             }
+
             else
             {
                 bool CurriculumResult = Curriculum_DS.CreateCurriculum(curriculum);
