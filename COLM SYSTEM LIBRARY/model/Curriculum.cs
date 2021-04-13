@@ -32,24 +32,32 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static bool CreateCurriculum(Curriculum curriculum,List<CurriculumSubject> subjects)
         {
             if (Curriculum_DS.IsCurriculumExists(curriculum) == true)
-
             {
                 return false;
             }
-
             else
             {
-                bool CurriculumResult = Curriculum_DS.CreateCurriculum(curriculum);
+                bool CurriculumResult = Curriculum_DS.SetCurriculum(curriculum);
                 int CurriculumID = Curriculum_DS.GetCurriculumID(curriculum.Code);
                 foreach (var subject in subjects)
                 {
                     subject.CurriculumID = CurriculumID;
                 }
 
-                int CurriculumSubjectResult = Curriculum_DS.InsertCurriculumSubjects(subjects);
+                int CurriculumSubjectResult = Curriculum_DS.SetCurriculumSubjects(subjects);
                 return true;
-            }
-            
+            }            
+        }
+
+        public static bool UpdateCurriculum(Curriculum curriculum, List<CurriculumSubject> subjects)
+        {
+                bool CurriculumResult = Curriculum_DS.SetCurriculum(curriculum);               
+                foreach (var subject in subjects)
+                {
+                    subject.CurriculumID = curriculum.CurriculumID;
+                }
+                int CurriculumSubjectResult = Curriculum_DS.SetCurriculumSubjects(subjects);
+                return true;
         }
 
         public static List<Curriculum> GetCurriculums(string EducationLevel)

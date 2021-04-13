@@ -25,14 +25,15 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return result;
         }
 
-        public static bool CreateCurriculum(Curriculum curriculum)
+        public static bool SetCurriculum(Curriculum curriculum)
         {
             bool result = false;
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum @Code,@Desc,@EducationLevel,@CourseStrand,@SchoolYearID", conn))
+                using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum @CurriculumID,@Code,@Desc,@EducationLevel,@CourseStrand,@SchoolYearID", conn))
                 {
+                    comm.Parameters.AddWithValue("@CurriculumID", curriculum.CurriculumID);
                     comm.Parameters.AddWithValue("@code", curriculum.Code);
                     comm.Parameters.AddWithValue("@desc", curriculum.Description);
                     comm.Parameters.AddWithValue("@educationlevel", curriculum.EducationLevel);
@@ -169,7 +170,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return yearLevels;
         }
 
-        public static int InsertCurriculumSubjects(List<CurriculumSubject> subjects)
+        public static int SetCurriculumSubjects(List<CurriculumSubject> subjects)
         {
             int result = 0;
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
@@ -177,8 +178,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 conn.Open();
                 foreach (var subject in subjects)
                 {
-                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum_subjects @SemesterID,@CurriculumID,@YearLevelID,@SubjectID,@IsBridging,@IsActive", conn))
+                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum_subjects @CurriculumSubjectID,@SemesterID,@CurriculumID,@YearLevelID,@SubjectID,@IsBridging,@IsActive", conn))
                     {
+                        comm.Parameters.AddWithValue("@CurriculumSubjectID", subject.CurriculumSubjectID);
                         comm.Parameters.AddWithValue("@SemesterID", subject.SemesterID);
                         comm.Parameters.AddWithValue("@CurriculumID", subject.CurriculumID);
                         comm.Parameters.AddWithValue("@YearLevelID", subject.YearLevelID);
@@ -209,6 +211,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             CurriculumSubject subject = new CurriculumSubject()
                             {
                                 CurriculumSubjectID = Convert.ToInt32(reader["CurriculumSubjectID"]),
+                                CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
                                 SemesterID = Convert.ToInt32(reader["SemesterID"]),
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 SubjectID = Convert.ToInt32(reader["SubjID"]),

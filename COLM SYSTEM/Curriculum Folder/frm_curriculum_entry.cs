@@ -99,16 +99,23 @@ namespace COLM_SYSTEM.Curriculum_Folder
             bool status = true;
 
             if (cmbEducationLevel.Text == string.Empty)
+            {
+                MessageBox.Show("Please select education level", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+
 
             if (cmbCourseStrand.Text == string.Empty)
+            {
+                MessageBox.Show("Please select course or strand", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
 
             if (txtCurriculumCode.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter curriculum code", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-
-            if (txtDescription.Text == string.Empty)
-                return false;
+            }
 
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
@@ -125,7 +132,6 @@ namespace COLM_SYSTEM.Curriculum_Folder
                     status = false;
                     break;
                 }
-
             }
 
             return status;
@@ -164,10 +170,18 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
                     if (result == true)
                         MessageBox.Show("Curriculum has been successfully saved!", "Curriculum Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                    Dispose();
                 }
                 else if (savingoption == "EDIT")
                 {
+                    //set curriculum
                     Curriculum curriculum = _curriculum;
+                    curriculum.Code = txtCurriculumCode.Text;
+                    curriculum.Description = txtDescription.Text;
+                    curriculum.EducationLevel = cmbEducationLevel.Text;
+                    curriculum.CourseStrand = cmbCourseStrand.Text;
+
                     List<CurriculumSubject> curriculumSubjects = new List<CurriculumSubject>();
 
                     foreach (DataGridViewRow item in dataGridView1.Rows)
@@ -175,7 +189,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
                         string setted_semester = item.Cells["clmSemester"].Value.ToString();
                         CurriculumSubject subject = new CurriculumSubject()
                         {
-                            CurriculumID = _curriculum.CurriculumID,
+                            CurriculumID = curriculum.CurriculumID,
                             SemesterID = SchoolSemester.GetSchoolSemester(setted_semester).SemesterID,
                             SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
                             IsActive = true,
@@ -192,9 +206,13 @@ namespace COLM_SYSTEM.Curriculum_Folder
                                                     select r.CurriculumSubjectID).FirstOrDefault();
                     }
 
-                    // _curriculumSubjects.Find(result => result.CurriculumID == item.CurriculumID && result.SubjectID == item.SubjectID).CurriculumSubjectID;
 
+                    bool result = Curriculum.UpdateCurriculum(curriculum, curriculumSubjects);
 
+                    if (result == true)
+                        MessageBox.Show("Curriculum has been successfully saved!", "Curriculum Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                    Dispose();
                 }
             }
         }

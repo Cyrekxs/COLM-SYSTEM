@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbCourseStrand = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCurriculumCode = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -51,8 +53,6 @@
             this.clmYearLevel = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.clmSemester = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
-            this.cmbCourseStrand = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,6 +73,31 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(836, 67);
             this.panel1.TabIndex = 0;
+            // 
+            // cmbCourseStrand
+            // 
+            this.cmbCourseStrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCourseStrand.FormattingEnabled = true;
+            this.cmbCourseStrand.Items.AddRange(new object[] {
+            "PRE ELEMENTARY",
+            "ELEMENTARY",
+            "JUNIOR HIGH",
+            "SENIOR HIGH",
+            "COLLEGE"});
+            this.cmbCourseStrand.Location = new System.Drawing.Point(161, 28);
+            this.cmbCourseStrand.Name = "cmbCourseStrand";
+            this.cmbCourseStrand.Size = new System.Drawing.Size(142, 25);
+            this.cmbCourseStrand.TabIndex = 7;
+            this.cmbCourseStrand.SelectedIndexChanged += new System.EventHandler(this.cmbCourseStrand_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(158, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Course / Strand";
             // 
             // label2
             // 
@@ -135,7 +160,7 @@
             // 
             this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(12, 97);
+            this.panel2.Location = new System.Drawing.Point(12, 87);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(836, 485);
             this.panel2.TabIndex = 1;
@@ -204,8 +229,8 @@
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column3.HeaderText = "Lec Unit";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -214,8 +239,8 @@
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column4.HeaderText = "Lab Unit";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -224,8 +249,8 @@
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column5.HeaderText = "Total";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -256,7 +281,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(696, 588);
+            this.button1.Location = new System.Drawing.Point(696, 578);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 36);
             this.button1.TabIndex = 2;
@@ -264,36 +289,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // cmbCourseStrand
-            // 
-            this.cmbCourseStrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCourseStrand.FormattingEnabled = true;
-            this.cmbCourseStrand.Items.AddRange(new object[] {
-            "PRE ELEMENTARY",
-            "ELEMENTARY",
-            "JUNIOR HIGH",
-            "SENIOR HIGH",
-            "COLLEGE"});
-            this.cmbCourseStrand.Location = new System.Drawing.Point(161, 28);
-            this.cmbCourseStrand.Name = "cmbCourseStrand";
-            this.cmbCourseStrand.Size = new System.Drawing.Size(142, 25);
-            this.cmbCourseStrand.TabIndex = 7;
-            this.cmbCourseStrand.SelectedIndexChanged += new System.EventHandler(this.cmbCourseStrand_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(158, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 17);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Course / Strand";
-            // 
             // frm_curriculum_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 637);
+            this.ClientSize = new System.Drawing.Size(862, 637);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
