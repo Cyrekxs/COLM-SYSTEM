@@ -56,5 +56,36 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return sections;
         }
+
+        public static Section GetSection(int SectionID)
+        {
+            Section section = new Section();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_section_summary() WHERE SectionID = @SectionID", conn))
+                {
+                    comm.Parameters.AddWithValue("@SectionID", SectionID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            section = new Section()
+                            {
+                                SectionID = Convert.ToInt32(reader["SectionID"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
+                                YearLevel = Convert.ToString(reader["YearLevel"]),
+                                SectionName = Convert.ToString(reader["Section"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                DateCreated = Convert.ToDateTime(reader["DateCreated"])
+                            };
+                        }
+                    }
+                      
+                }
+            }
+            return section;
+        }
     }
 }

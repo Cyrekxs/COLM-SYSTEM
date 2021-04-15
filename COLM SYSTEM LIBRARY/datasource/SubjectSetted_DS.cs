@@ -81,6 +81,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return subjects;
         }
 
+        //Returns a list of subjects setted via curriculum id , yearlevel and semester id
         public static List<SubjectSetted> GetSubjectSetted(int CurriculumID,int YearLevelID, int SchoolYearID, int SemesterID)
         {
             List<SubjectSetted> subjects = new List<SubjectSetted>();

@@ -427,8 +427,8 @@
             // sECTIONSToolStripMenuItem
             // 
             this.sECTIONSToolStripMenuItem.Name = "sECTIONSToolStripMenuItem";
-            this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.sECTIONSToolStripMenuItem.Text = "SECTIONS";
+            this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.sECTIONSToolStripMenuItem.Text = "SECTIONS AND SCHEDULE";
             this.sECTIONSToolStripMenuItem.Click += new System.EventHandler(this.sECTIONSToolStripMenuItem_Click);
             // 
             // rEPORTSToolStripMenuItem

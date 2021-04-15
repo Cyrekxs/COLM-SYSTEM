@@ -14,6 +14,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int SchoolYearID { get; set; }
         public DateTime DateCreated { get; set; }
 
+        public static Section GetSection(int SectionID)
+        {
+            return Section_DS.GetSection(SectionID);
+        }
+
         public static List<Section> GetSections(int SchoolYearID)
         {
             return Section_DS.GetSections(SchoolYearID);

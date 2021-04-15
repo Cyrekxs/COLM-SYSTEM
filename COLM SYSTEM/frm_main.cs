@@ -97,5 +97,10 @@ namespace COLM_SYSTEM
         {
             DisplayControl(new uc_tuition_list());
         }
+
+        private void sECTIONSCHEDULEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

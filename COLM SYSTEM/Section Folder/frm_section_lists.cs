@@ -24,7 +24,9 @@ namespace COLM_SYSTEM.Section_Folder
             List<Section> sections = Section.GetSections(Utilties.GetActiveSchoolYear());
             foreach (var item in sections)
             {
-                dataGridView1.Rows.Add(item.SectionID, item.EducationLevel, item.YearLevelID, item.YearLevel, item.SectionName, item.DateCreated.ToString("MM-dd-yyyy"));
+                YearLevel level = YearLevel.GetYearLevel(item.YearLevelID); // get year level info to show course or strand
+
+                dataGridView1.Rows.Add(item.SectionID, item.EducationLevel, level.CourseStrand, item.YearLevelID, item.YearLevel, item.SectionName, item.DateCreated.ToString("MM-dd-yyyy"));
             }
         }
 
@@ -39,11 +41,13 @@ namespace COLM_SYSTEM.Section_Folder
         {
             if (e.ColumnIndex == clmSchedule.Index)
             {
-                int YearlevelID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmYearLevelID"].Value);
-                int SectionID = Convert.ToInt16( dataGridView1.Rows[e.RowIndex].Cells["clmSectionID"].Value);
-                string EducationLevel = dataGridView1.Rows[e.RowIndex].Cells["clmEducationLevel"].Value.ToString();
-                string YearLevel = dataGridView1.Rows[e.RowIndex].Cells["clmYearLevel"].Value.ToString();
-                string Section = dataGridView1.Rows[e.RowIndex].Cells["clmSection"].Value.ToString();
+                int SectionID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmSectionID"].Value);
+                Section section = Section.GetSection(SectionID);
+                frm_section_schedule_entry frm = new frm_section_schedule_entry(section);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+
+
 
                 //frm_schedule_entry frm = new frm_schedule_entry(YearlevelID,SectionID,EducationLevel,YearLevel,Section);
                 //frm.StartPosition = FormStartPosition.CenterParent;

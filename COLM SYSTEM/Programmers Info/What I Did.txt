@@ -1,4 +1,9 @@
-﻿
+﻿*Curriculum builder finished : april 25, 2021
+*Tuition Setter finished : april 25, 2021
+*Discount Settings finished : april 25, 2021
+*Fees settings finished including miscellaneous, other fees and additional fees : april 25, 2021
+*Working on section settings and schedule : started
+
 
 
 

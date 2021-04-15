@@ -34,6 +34,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.clmSectionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmYearLevelID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSection = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +76,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmSectionID,
             this.clmEducationLevel,
+            this.Column1,
             this.clmYearLevelID,
             this.clmYearLevel,
             this.clmSection,
@@ -115,6 +117,14 @@
             this.clmEducationLevel.HeaderText = "Education Level";
             this.clmEducationLevel.Name = "clmEducationLevel";
             this.clmEducationLevel.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "Course/Strand";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
             // 
             // clmYearLevelID
             // 
@@ -165,7 +175,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_section_lists";
@@ -184,6 +194,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSectionID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevelID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSection;
