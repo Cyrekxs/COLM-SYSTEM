@@ -149,18 +149,6 @@
     <Compile Include="frm_practice.Designer.cs">
       <DependentUpon>frm_practice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Schedule Folder\frm_schedule_encoding.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Schedule Folder\frm_schedule_encoding.Designer.cs">
-      <DependentUpon>frm_schedule_encoding.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Schedule Folder\frm_schedule_entry.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Schedule Folder\frm_schedule_entry.Designer.cs">
-      <DependentUpon>frm_schedule_entry.cs</DependentUpon>
-    </Compile>
     <Compile Include="Section Folder\frm_section_entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,12 +308,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registration Folder\frm_student_browse.resx">
       <DependentUpon>frm_student_browse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Schedule Folder\frm_schedule_encoding.resx">
-      <DependentUpon>frm_schedule_encoding.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Schedule Folder\frm_schedule_entry.resx">
-      <DependentUpon>frm_schedule_entry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Section Folder\frm_section_entry.resx">
       <DependentUpon>frm_section_entry.cs</DependentUpon>
