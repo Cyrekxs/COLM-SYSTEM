@@ -89,7 +89,8 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frm_curriculum_subject_setter frm = new frm_curriculum_subject_setter(dataGridView1);
+            frm_curriculum_subject_browser frm = new frm_curriculum_subject_browser(dataGridView1);
+
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

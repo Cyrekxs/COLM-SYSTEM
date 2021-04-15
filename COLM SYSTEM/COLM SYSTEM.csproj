@@ -65,11 +65,11 @@
     <Compile Include="Curriculum Folder\frm_curriculum_entry.Designer.cs">
       <DependentUpon>frm_curriculum_entry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Curriculum Folder\frm_curriculum_subject_setter.cs">
+    <Compile Include="Curriculum Folder\frm_curriculum_subject_browser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Curriculum Folder\frm_curriculum_subject_setter.Designer.cs">
-      <DependentUpon>frm_curriculum_subject_setter.cs</DependentUpon>
+    <Compile Include="Curriculum Folder\frm_curriculum_subject_browser.Designer.cs">
+      <DependentUpon>frm_curriculum_subject_browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Curriculum Folder\uc_curriculum_list.cs">
       <SubType>UserControl</SubType>
@@ -257,8 +257,8 @@
     <EmbeddedResource Include="Curriculum Folder\frm_curriculum_entry.resx">
       <DependentUpon>frm_curriculum_entry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Curriculum Folder\frm_curriculum_subject_setter.resx">
-      <DependentUpon>frm_curriculum_subject_setter.cs</DependentUpon>
+    <EmbeddedResource Include="Curriculum Folder\frm_curriculum_subject_browser.resx">
+      <DependentUpon>frm_curriculum_subject_browser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Curriculum Folder\uc_curriculum_list.resx">
       <DependentUpon>uc_curriculum_list.cs</DependentUpon>
