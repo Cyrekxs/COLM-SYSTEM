@@ -34,6 +34,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.clmSectionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmYearLevelID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +77,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmSectionID,
             this.clmEducationLevel,
+            this.Column2,
             this.Column1,
             this.clmYearLevelID,
             this.clmYearLevel,
@@ -85,7 +87,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(15, 56);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(772, 516);
+            this.dataGridView1.Size = new System.Drawing.Size(986, 516);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -96,7 +98,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(639, 21);
+            this.button1.Location = new System.Drawing.Point(853, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 30);
             this.button1.TabIndex = 22;
@@ -117,6 +119,14 @@
             this.clmEducationLevel.HeaderText = "Education Level";
             this.clmEducationLevel.Name = "clmEducationLevel";
             this.clmEducationLevel.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.HeaderText = "Curriculum";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 103;
             // 
             // Column1
             // 
@@ -168,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 584);
+            this.ClientSize = new System.Drawing.Size(1013, 584);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox1);
@@ -194,6 +204,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSectionID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevelID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevel;

@@ -117,6 +117,37 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return curriculum;   
         }
 
+        public static Curriculum GetCurriculum(string CurriculumCode)
+        {
+            Curriculum curriculum = new Curriculum();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum WHERE Code = @CurriculumCode", conn))
+                {
+                    comm.Parameters.AddWithValue("@CurriculumCode", CurriculumCode);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            curriculum = new Curriculum()
+                            {
+                                CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
+                                Code = Convert.ToString(reader["Code"]),
+                                Description = Convert.ToString(reader["Description"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                Status = Convert.ToString(reader["Status"]),
+                                DateCreated = Convert.ToDateTime(reader["DateCreated"])
+                            };
+                        }
+                    }
+                }
+            }
+            return curriculum;
+        }
+
         public static List<Curriculum> GetCurriculums()
         {
             List<Curriculum> Curriculums = new List<Curriculum>();
@@ -224,6 +255,36 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
             }
             return subjects;
+        }
+
+        public static List<CurriculumCourseStrandYearLevel> GetCurriculumCourseStrandYearLevels(string CurriculumCode)
+        {
+            List<CurriculumCourseStrandYearLevel> ccsy_list = new List<CurriculumCourseStrandYearLevel>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_Curriculum_CourseStrandYearLevel() WHERE Code = @Code", conn))
+                {
+                    comm.Parameters.AddWithValue("@Code", CurriculumCode);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            CurriculumCourseStrandYearLevel ccsy = new CurriculumCourseStrandYearLevel()
+                            {
+                                CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
+                                CurriculumCode = Convert.ToString(reader["Code"]),
+                                YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
+                                YearLevel = Convert.ToString(reader["YearLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"])
+                            };
+
+                            ccsy_list.Add(ccsy);
+                        }
+                    }
+                }
+            }
+            return ccsy_list;
         }
 
     }

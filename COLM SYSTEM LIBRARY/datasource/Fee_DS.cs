@@ -105,7 +105,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_Fee_Summary(@SchoolYearID)", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_get_Fee_Summary(@SchoolYearID)", conn))
                 {
                     comm.Parameters.AddWithValue("@SchoolYearID", Utilities.GetActiveSchoolYear());
                     using (SqlDataReader reader = comm.ExecuteReader())

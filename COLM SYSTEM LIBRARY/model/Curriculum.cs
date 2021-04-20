@@ -24,6 +24,11 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Curriculum_DS.GetCurriculum(CurriculumID);
         }
 
+        public static Curriculum GetCurriculum(string CurriculumCode)
+        {
+            return Curriculum_DS.GetCurriculum(CurriculumCode);
+        }
+
         public static List<CurriculumSubject> GetCurriculumSubjects(int CurriculumID)
         {
             return Curriculum_DS.GetCurriculumSubjects(CurriculumID);
@@ -86,6 +91,11 @@ namespace COLM_SYSTEM_LIBRARY.model
                       where Code == r.Code
                       select r.CurriculumID).FirstOrDefault();
             return ID;
+        }
+
+        public static List<CurriculumCourseStrandYearLevel> GetCurriculumCourseStrandYearLevels(string CurriculumCode)
+        {
+            return Curriculum_DS.GetCurriculumCourseStrandYearLevels(CurriculumCode);
         }
 
     }

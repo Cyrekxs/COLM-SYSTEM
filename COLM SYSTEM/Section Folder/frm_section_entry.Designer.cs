@@ -36,10 +36,10 @@
             this.txtSection = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.cmbCourseStrand = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbCurriculum = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtCourseStrand = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -54,7 +54,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 171);
+            this.label2.Location = new System.Drawing.Point(25, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 1;
@@ -89,16 +89,11 @@
             // 
             this.cmbYearLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbYearLevel.FormattingEnabled = true;
-            this.cmbYearLevel.Items.AddRange(new object[] {
-            "Pre Elementary",
-            "Elementary",
-            "Junior High",
-            "Senior High",
-            "College"});
-            this.cmbYearLevel.Location = new System.Drawing.Point(28, 191);
+            this.cmbYearLevel.Location = new System.Drawing.Point(28, 144);
             this.cmbYearLevel.Name = "cmbYearLevel";
             this.cmbYearLevel.Size = new System.Drawing.Size(212, 25);
             this.cmbYearLevel.TabIndex = 4;
+            this.cmbYearLevel.SelectedIndexChanged += new System.EventHandler(this.cmbYearLevel_SelectedIndexChanged);
             // 
             // txtSection
             // 
@@ -136,45 +131,24 @@
             this.button3.Text = "CANCEL";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // cmbCourseStrand
-            // 
-            this.cmbCourseStrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCourseStrand.FormattingEnabled = true;
-            this.cmbCourseStrand.Items.AddRange(new object[] {
-            "Pre Elementary",
-            "Elementary",
-            "Junior High",
-            "Senior High",
-            "College"});
-            this.cmbCourseStrand.Location = new System.Drawing.Point(28, 144);
-            this.cmbCourseStrand.Name = "cmbCourseStrand";
-            this.cmbCourseStrand.Size = new System.Drawing.Size(212, 25);
-            this.cmbCourseStrand.TabIndex = 24;
-            this.cmbCourseStrand.SelectedIndexChanged += new System.EventHandler(this.cmbCourseStrand_SelectedIndexChanged);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 124);
+            this.label4.Location = new System.Drawing.Point(25, 172);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 17);
             this.label4.TabIndex = 23;
             this.label4.Text = "Course Strand";
             // 
-            // comboBox1
+            // cmbCurriculum
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Pre Elementary",
-            "Elementary",
-            "Junior High",
-            "Senior High",
-            "College"});
-            this.comboBox1.Location = new System.Drawing.Point(28, 96);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(212, 25);
-            this.comboBox1.TabIndex = 26;
+            this.cmbCurriculum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCurriculum.FormattingEnabled = true;
+            this.cmbCurriculum.Location = new System.Drawing.Point(28, 96);
+            this.cmbCurriculum.Name = "cmbCurriculum";
+            this.cmbCurriculum.Size = new System.Drawing.Size(212, 25);
+            this.cmbCurriculum.TabIndex = 26;
+            this.cmbCurriculum.SelectedIndexChanged += new System.EventHandler(this.cmbCurriculum_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -185,14 +159,22 @@
             this.label5.TabIndex = 25;
             this.label5.Text = "Curriculum Code";
             // 
+            // txtCourseStrand
+            // 
+            this.txtCourseStrand.Location = new System.Drawing.Point(28, 192);
+            this.txtCourseStrand.Name = "txtCourseStrand";
+            this.txtCourseStrand.ReadOnly = true;
+            this.txtCourseStrand.Size = new System.Drawing.Size(212, 23);
+            this.txtCourseStrand.TabIndex = 27;
+            // 
             // frm_section_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 368);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(276, 340);
+            this.Controls.Add(this.txtCourseStrand);
+            this.Controls.Add(this.cmbCurriculum);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmbCourseStrand);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
@@ -224,9 +206,9 @@
         private System.Windows.Forms.TextBox txtSection;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox cmbCourseStrand;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbCurriculum;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtCourseStrand;
     }
 }

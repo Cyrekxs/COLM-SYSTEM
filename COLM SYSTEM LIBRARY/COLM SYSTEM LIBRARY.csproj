@@ -65,6 +65,7 @@
     <Compile Include="model\AssessmentType.cs" />
     <Compile Include="model\AssessmentTypeItem.cs" />
     <Compile Include="model\Curriculum.cs" />
+    <Compile Include="model\CurriculumCourseStrandYearLevel.cs" />
     <Compile Include="model\CurriculumSubject.cs" />
     <Compile Include="model\DefaultFee.cs" />
     <Compile Include="model\Discount.cs" />

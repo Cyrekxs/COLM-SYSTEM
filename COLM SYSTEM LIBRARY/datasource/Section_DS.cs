@@ -13,11 +13,13 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO settings.yearlevel_sections VALUES (@YearLevelID,@Section,@SchoolYearID,GETDATE())", conn))
+                using (SqlCommand comm = new SqlCommand("INSERT INTO settings.yearlevel_sections VALUES (@CurriculumID,@YearLevelID,@Section,@SchoolYearID,@SemesterID,GETDATE())", conn))
                 {
+                    comm.Parameters.AddWithValue("@CurriculumID", section.CurriculumID);
                     comm.Parameters.AddWithValue("@YearLevelID", section.YearLevelID);
                     comm.Parameters.AddWithValue("@Section", section.SectionName);
                     comm.Parameters.AddWithValue("@SchoolYearID", section.SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", section.SemesterID);
                     if (comm.ExecuteNonQuery() >= 1)
                         return true;
                     else
@@ -86,6 +88,29 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
             }
             return section;
+        }
+
+        public static bool IsSectionExists(Section section)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.yearlevel_sections WHERE CurriculumID = @CurriculumID AND YearLevelID = @YearLevelID AND Section = @Section AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
+                {
+                    comm.Parameters.AddWithValue("@Section", section.SectionName);
+                    comm.Parameters.AddWithValue("@CurriculumID", section.CurriculumID);
+                    comm.Parameters.AddWithValue("@YearLevelID", section.YearLevelID);
+                    comm.Parameters.AddWithValue("@SchoolYearID", section.SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", section.SemesterID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        if (reader.HasRows == true)
+                            return true;
+                        else
+                            return false;   
+                    }
+                }
+            }
         }
     }
 }
