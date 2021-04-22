@@ -22,9 +22,9 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Section_DS.GetSection(SectionID);
         }
 
-        public static List<Section> GetSections(int SchoolYearID)
+        public static List<Section> GetSections(int SchoolYearID,int SemesterID)
         {
-            return Section_DS.GetSections(SchoolYearID);
+            return Section_DS.GetSections(SchoolYearID,SemesterID);
         }
 
         public static bool InsertSection(Section section)

@@ -12,17 +12,15 @@ namespace COLM_SYSTEM_LIBRARY.datasource
     class Schedule_DS
     {
 
-        public static bool IsScheduleExists(Schedule schedule)
+        public static bool IsScheduleExists(int SectionID)
         {
             bool IsExists = false;
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
-                conn.Open();               
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum_subjects_schedule WHERE SectionID = @SectionID AND CurriculumSubjectID = @CurriculumSubjectID AND SchoolYearID = @SchoolYearID", conn))
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum_subjects_schedule WHERE SectionID = @SectionID", conn))
                 {
-                    comm.Parameters.AddWithValue("@SectionID", schedule.SectionID);
-                    comm.Parameters.AddWithValue("@CurriculumSubjectID", schedule.CurriculumSubjectID);
-                    comm.Parameters.AddWithValue("@SchoolYearID", schedule.SchoolYearID);
+                    comm.Parameters.AddWithValue("@SectionID", SectionID);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         if (reader.HasRows == true)
@@ -38,36 +36,34 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_subject_schedule @ScheduleID,@SectionID,@CurriculumSubjectID,@SchoolYearID,@Day,@TimeIn,@TimeOut,@Room,@FacultyID", conn))
-                    {
-                        comm.Parameters.AddWithValue("@ScheduleID", schedule.ScheduleID);
-                        comm.Parameters.AddWithValue("@SectionID", schedule.SectionID);
-                        comm.Parameters.AddWithValue("@CurriculumSubjectID", schedule.CurriculumSubjectID);
-                        comm.Parameters.AddWithValue("@SchoolYearID", schedule.SchoolYearID);
-                        comm.Parameters.AddWithValue("@Day", schedule.Day);
-                        comm.Parameters.AddWithValue("@TimeIn", schedule.TimeIn);
-                        comm.Parameters.AddWithValue("@TimeOut", schedule.TimeOut);
-                        comm.Parameters.AddWithValue("@Room", schedule.Room);
-                        comm.Parameters.AddWithValue("@FacultyID", schedule.FacultyID);
-                        if (comm.ExecuteNonQuery() >= 1)
-                            return true;
-                        else
-                            return false;
-                    }
+                using (SqlCommand comm = new SqlCommand("EXEC sp_set_subject_schedule @ScheduleID,@SubjectPriceID,@SectionID,@Day,@TimeIn,@TimeOut,@Room,@FacultyID", conn))
+                {
+                    comm.Parameters.AddWithValue("@ScheduleID", schedule.ScheduleID);
+                    comm.Parameters.AddWithValue("@SubjectPriceID", schedule.SubjectPriceID);
+                    comm.Parameters.AddWithValue("@SectionID", schedule.SectionID);
+                    comm.Parameters.AddWithValue("@Day", schedule.Day);
+                    comm.Parameters.AddWithValue("@TimeIn", schedule.TimeIn);
+                    comm.Parameters.AddWithValue("@TimeOut", schedule.TimeOut);
+                    comm.Parameters.AddWithValue("@Room", schedule.Room);
+                    comm.Parameters.AddWithValue("@FacultyID", schedule.FacultyID);
+                    if (comm.ExecuteNonQuery() >= 1)
+                        return true;
+                    else
+                        return false;
+                }
             }
         }
 
 
-        public static List<Schedule> GetSchedules(int SectionID,int SchoolYearID)
+        public static List<Schedule> GetSchedules(int SectionID)
         {
             List<Schedule> schedules = new List<Schedule>();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum_subjects_schedule WHERE SectionID = @SectionID AND SchoolYearID = @SchoolYearID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_Section_Schedule() WHERE SectionID = @SectionID", conn))
                 {
                     comm.Parameters.AddWithValue("@SectionID", SectionID);
-                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         while (reader.Read())
@@ -76,8 +72,10 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 ScheduleID = Convert.ToInt32(reader["ScheduleID"]),
                                 SectionID = Convert.ToInt32(reader["SectionID"]),
-                                CurriculumSubjectID = Convert.ToInt32(reader["CurriculumSubjectID"]),
-                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                SubjectPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
+                                SubjCode = Convert.ToString(reader["SubjCode"]),
+                                SubjDesc = Convert.ToString(reader["SubjDesc"]),
+                                SubjUnit = Convert.ToString(reader["Unit"]),
                                 Day = Convert.ToString(reader["Day"]),
                                 TimeIn = Convert.ToString(reader["TimeIn"]),
                                 TimeOut = Convert.ToString(reader["TimeOut"]),

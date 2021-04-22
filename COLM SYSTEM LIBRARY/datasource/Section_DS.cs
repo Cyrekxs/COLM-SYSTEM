@@ -28,15 +28,16 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
         }
 
-        public static List<Section> GetSections(int SchoolYearID)
+        public static List<Section> GetSections(int SchoolYearID,int SemesterID)
         {
             List<Section> sections = new List<Section>();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_section_summary() WHERE SchoolYearID = @SchoolYearID ORDER BY YearLevelID,Section ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_section_summary() WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID ORDER BY YearLevelID,Section ASC", conn))
                 {
                     comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         while (reader.Read())
@@ -45,6 +46,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 SectionID = Convert.ToInt32(reader["SectionID"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 YearLevel = Convert.ToString(reader["YearLevel"]),
                                 SectionName = Convert.ToString(reader["Section"]),
@@ -74,12 +76,14 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         {
                             section = new Section()
                             {
+                                CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
                                 SectionID = Convert.ToInt32(reader["SectionID"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 YearLevel = Convert.ToString(reader["YearLevel"]),
                                 SectionName = Convert.ToString(reader["Section"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                SemesterID = Convert.ToInt32(reader["SemesterID"]),
                                 DateCreated = Convert.ToDateTime(reader["DateCreated"])
                             };
                         }

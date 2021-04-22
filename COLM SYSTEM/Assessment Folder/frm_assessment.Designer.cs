@@ -42,7 +42,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.txtEducationLevel = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtYearLevel = new System.Windows.Forms.TextBox();
@@ -125,12 +124,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtCourseStrand = new System.Windows.Forms.TextBox();
             this.txtSection = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtCourseStrand = new System.Windows.Forms.TextBox();
+            this.txtEducationLevel = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tbpSubjects.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -189,15 +189,6 @@
             this.textBox2.TabIndex = 2;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtEducationLevel
-            // 
-            this.txtEducationLevel.Location = new System.Drawing.Point(516, 26);
-            this.txtEducationLevel.Name = "txtEducationLevel";
-            this.txtEducationLevel.Size = new System.Drawing.Size(105, 24);
-            this.txtEducationLevel.TabIndex = 3;
-            this.txtEducationLevel.Text = "Junior High";
-            this.txtEducationLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -222,7 +213,6 @@
             this.txtYearLevel.Name = "txtYearLevel";
             this.txtYearLevel.Size = new System.Drawing.Size(90, 24);
             this.txtYearLevel.TabIndex = 6;
-            this.txtYearLevel.Text = "Grade 7";
             this.txtYearLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabControl1
@@ -1105,6 +1095,23 @@
             this.panel9.Size = new System.Drawing.Size(934, 58);
             this.panel9.TabIndex = 4;
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(623, 6);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(93, 17);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "Course / Strand";
+            // 
+            // txtCourseStrand
+            // 
+            this.txtCourseStrand.Location = new System.Drawing.Point(626, 26);
+            this.txtCourseStrand.Name = "txtCourseStrand";
+            this.txtCourseStrand.Size = new System.Drawing.Size(105, 24);
+            this.txtCourseStrand.TabIndex = 9;
+            this.txtCourseStrand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // txtSection
             // 
             this.txtSection.Location = new System.Drawing.Point(833, 26);
@@ -1143,23 +1150,13 @@
             this.label19.TabIndex = 3;
             this.label19.Text = "STUDENT INFORMATION";
             // 
-            // label21
+            // txtEducationLevel
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(623, 6);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(93, 17);
-            this.label21.TabIndex = 10;
-            this.label21.Text = "Course / Strand";
-            // 
-            // txtCourseStrand
-            // 
-            this.txtCourseStrand.Location = new System.Drawing.Point(626, 26);
-            this.txtCourseStrand.Name = "txtCourseStrand";
-            this.txtCourseStrand.Size = new System.Drawing.Size(105, 24);
-            this.txtCourseStrand.TabIndex = 9;
-            this.txtCourseStrand.Text = "Junior High";
-            this.txtCourseStrand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEducationLevel.Location = new System.Drawing.Point(516, 26);
+            this.txtEducationLevel.Name = "txtEducationLevel";
+            this.txtEducationLevel.Size = new System.Drawing.Size(105, 24);
+            this.txtEducationLevel.TabIndex = 3;
+            this.txtEducationLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frm_assessment
             // 
@@ -1215,7 +1212,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtYearLevel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtEducationLevel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tbpFees;
@@ -1302,5 +1298,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtCourseStrand;
+        private System.Windows.Forms.TextBox txtEducationLevel;
     }
 }

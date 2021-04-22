@@ -36,7 +36,6 @@
             this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmYearLevelID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSection = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,7 +78,6 @@
             this.clmEducationLevel,
             this.Column2,
             this.Column1,
-            this.clmYearLevelID,
             this.clmYearLevel,
             this.clmSection,
             this.Column5,
@@ -135,13 +133,6 @@
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 125;
-            // 
-            // clmYearLevelID
-            // 
-            this.clmYearLevelID.HeaderText = "YearLevelID";
-            this.clmYearLevelID.Name = "clmYearLevelID";
-            this.clmYearLevelID.ReadOnly = true;
-            this.clmYearLevelID.Visible = false;
             // 
             // clmYearLevel
             // 
@@ -206,7 +197,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevelID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSection;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;

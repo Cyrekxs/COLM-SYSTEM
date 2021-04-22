@@ -21,12 +21,12 @@ namespace COLM_SYSTEM.Section_Folder
 
         private void LoadSections()
         {
-            List<Section> sections = Section.GetSections(Utilties.GetActiveSchoolYear());
+            List<Section> sections = Section.GetSections(Utilties.GetActiveSchoolYear(),Utilties.GetActiveSemester());
             foreach (var item in sections)
             {
                 YearLevel level = YearLevel.GetYearLevel(item.YearLevelID); // get year level info to show course or strand
 
-                dataGridView1.Rows.Add(item.SectionID, item.EducationLevel, level.CourseStrand, item.YearLevelID, item.YearLevel, item.SectionName, item.DateCreated.ToString("MM-dd-yyyy"));
+                dataGridView1.Rows.Add(item.SectionID, item.EducationLevel,Curriculum.GetCurriculum(item.CurriculumID).Code, level.CourseStrand, item.YearLevel, item.SectionName, item.DateCreated.ToString("MM-dd-yyyy"));
             }
         }
 

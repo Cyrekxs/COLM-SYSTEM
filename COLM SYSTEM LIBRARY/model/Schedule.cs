@@ -11,8 +11,10 @@ namespace COLM_SYSTEM_LIBRARY.model
     {
         public int ScheduleID { get; set; }
         public int SectionID { get; set; }
-        public int CurriculumSubjectID { get; set; }
-        public int SchoolYearID { get; set; }
+        public int SubjectPriceID { get; set; }
+        public string SubjCode { get; set; } // for displaying purposes
+        public string SubjDesc { get; set; } // for displaying purposes
+        public string SubjUnit { get; set; } // for displaying purposes
         public string Day { get; set; }
         public string TimeIn { get; set; }
         public string TimeOut { get; set; }
@@ -25,9 +27,14 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Schedule_DS.InsertUpdateSchedule(schedule);
         }
 
-        public static List<Schedule> GetSchedules(int SectionID, int SchoolYearID)
+        public static List<Schedule> GetSchedules(int SectionID)
         {
-            return Schedule_DS.GetSchedules(SectionID, SchoolYearID);
+            return Schedule_DS.GetSchedules(SectionID);
+        }
+
+        public static bool IsSectionScheduleExists(int SectionID)
+        {
+            return Schedule_DS.IsScheduleExists(SectionID);
         }
     }
 }
