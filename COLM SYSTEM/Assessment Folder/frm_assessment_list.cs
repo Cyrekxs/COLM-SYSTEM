@@ -16,5 +16,12 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frm_assessment_browser frm = new frm_assessment_browser();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

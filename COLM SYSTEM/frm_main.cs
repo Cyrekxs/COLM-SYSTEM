@@ -1,7 +1,7 @@
-﻿using COLM_SYSTEM.Curriculum_Folder;
+﻿using COLM_SYSTEM.Assessment_Folder;
+using COLM_SYSTEM.Curriculum_Folder;
 using COLM_SYSTEM.Discounts;
 using COLM_SYSTEM.fees;
-using COLM_SYSTEM.fees_folder;
 using COLM_SYSTEM.Fees_Folder;
 using COLM_SYSTEM.registration;
 using COLM_SYSTEM.Section_Folder;
@@ -101,6 +101,13 @@ namespace COLM_SYSTEM
         private void sECTIONSCHEDULEToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void aSSESSMENTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_assessment_list frm = new frm_assessment_list();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

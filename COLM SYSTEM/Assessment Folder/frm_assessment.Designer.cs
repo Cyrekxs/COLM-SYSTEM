@@ -1,4 +1,4 @@
-﻿namespace COLM_SYSTEM.assessment
+﻿namespace COLM_SYSTEM.Assessment_Folder
 {
     partial class frm_assessment
     {
@@ -128,9 +128,11 @@
             this.txtCourseStrand = new System.Windows.Forms.TextBox();
             this.txtSection = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtEducationLevel = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
-            this.txtEducationLevel = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtCurriculumCode = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tbpSubjects.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -185,7 +187,7 @@
             this.textBox2.Location = new System.Drawing.Point(148, 26);
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(362, 24);
+            this.textBox2.Size = new System.Drawing.Size(251, 24);
             this.textBox2.TabIndex = 2;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1077,6 +1079,8 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.Controls.Add(this.label22);
+            this.panel9.Controls.Add(this.txtCurriculumCode);
             this.panel9.Controls.Add(this.label21);
             this.panel9.Controls.Add(this.txtCourseStrand);
             this.panel9.Controls.Add(this.txtSection);
@@ -1129,6 +1133,14 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Section";
             // 
+            // txtEducationLevel
+            // 
+            this.txtEducationLevel.Location = new System.Drawing.Point(516, 26);
+            this.txtEducationLevel.Name = "txtEducationLevel";
+            this.txtEducationLevel.Size = new System.Drawing.Size(105, 24);
+            this.txtEducationLevel.TabIndex = 3;
+            this.txtEducationLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -1150,13 +1162,22 @@
             this.label19.TabIndex = 3;
             this.label19.Text = "STUDENT INFORMATION";
             // 
-            // txtEducationLevel
+            // label22
             // 
-            this.txtEducationLevel.Location = new System.Drawing.Point(516, 26);
-            this.txtEducationLevel.Name = "txtEducationLevel";
-            this.txtEducationLevel.Size = new System.Drawing.Size(105, 24);
-            this.txtEducationLevel.TabIndex = 3;
-            this.txtEducationLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(402, 6);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(69, 17);
+            this.label22.TabIndex = 12;
+            this.label22.Text = "Curriculum";
+            // 
+            // txtCurriculumCode
+            // 
+            this.txtCurriculumCode.Location = new System.Drawing.Point(405, 26);
+            this.txtCurriculumCode.Name = "txtCurriculumCode";
+            this.txtCurriculumCode.Size = new System.Drawing.Size(105, 24);
+            this.txtCurriculumCode.TabIndex = 11;
+            this.txtCurriculumCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frm_assessment
             // 
@@ -1299,5 +1320,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtCourseStrand;
         private System.Windows.Forms.TextBox txtEducationLevel;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtCurriculumCode;
     }
 }

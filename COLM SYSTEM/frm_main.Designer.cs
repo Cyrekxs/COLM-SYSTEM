@@ -345,7 +345,7 @@
             this.aSSESSMENTToolStripMenuItem,
             this.cURRICULUMBUILDERToolStripMenuItem});
             this.tRANSACTIONToolStripMenuItem.Name = "tRANSACTIONToolStripMenuItem";
-            this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.tRANSACTIONToolStripMenuItem.Text = "TRANSACTION";
             // 
             // iNFORMATIONToolStripMenuItem
@@ -367,6 +367,7 @@
             this.aSSESSMENTToolStripMenuItem.Name = "aSSESSMENTToolStripMenuItem";
             this.aSSESSMENTToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.aSSESSMENTToolStripMenuItem.Text = "ASSESSMENT";
+            this.aSSESSMENTToolStripMenuItem.Click += new System.EventHandler(this.aSSESSMENTToolStripMenuItem_Click);
             // 
             // cURRICULUMBUILDERToolStripMenuItem
             // 
@@ -383,13 +384,13 @@
             this.sUBJECTSToolStripMenuItem,
             this.sECTIONSToolStripMenuItem});
             this.sETTINGSToolStripMenuItem.Name = "sETTINGSToolStripMenuItem";
-            this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.sETTINGSToolStripMenuItem.Text = "SETTINGS";
             // 
             // dISCOUNTToolStripMenuItem
             // 
             this.dISCOUNTToolStripMenuItem.Name = "dISCOUNTToolStripMenuItem";
-            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.dISCOUNTToolStripMenuItem.Text = "DISCOUNTS";
             this.dISCOUNTToolStripMenuItem.Click += new System.EventHandler(this.dISCOUNTToolStripMenuItem_Click);
             // 
@@ -399,7 +400,7 @@
             this.mISCELLANEOUSFEESToolStripMenuItem,
             this.mISCELLANEOUSFEEToolStripMenuItem});
             this.fEESToolStripMenuItem.Name = "fEESToolStripMenuItem";
-            this.fEESToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.fEESToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.fEESToolStripMenuItem.Text = "FEES";
             this.fEESToolStripMenuItem.Click += new System.EventHandler(this.fEESToolStripMenuItem_Click);
             // 
@@ -420,14 +421,14 @@
             // sUBJECTSToolStripMenuItem
             // 
             this.sUBJECTSToolStripMenuItem.Name = "sUBJECTSToolStripMenuItem";
-            this.sUBJECTSToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.sUBJECTSToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.sUBJECTSToolStripMenuItem.Text = "SUBJECTS";
             this.sUBJECTSToolStripMenuItem.Click += new System.EventHandler(this.sUBJECTSToolStripMenuItem_Click);
             // 
             // sECTIONSToolStripMenuItem
             // 
             this.sECTIONSToolStripMenuItem.Name = "sECTIONSToolStripMenuItem";
-            this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.sECTIONSToolStripMenuItem.Text = "SECTIONS AND SCHEDULE";
             this.sECTIONSToolStripMenuItem.Click += new System.EventHandler(this.sECTIONSToolStripMenuItem_Click);
             // 
@@ -436,13 +437,13 @@
             this.rEPORTSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mASTERLISTToolStripMenuItem});
             this.rEPORTSToolStripMenuItem.Name = "rEPORTSToolStripMenuItem";
-            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.rEPORTSToolStripMenuItem.Text = "REPORTS";
             // 
             // mASTERLISTToolStripMenuItem
             // 
             this.mASTERLISTToolStripMenuItem.Name = "mASTERLISTToolStripMenuItem";
-            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.mASTERLISTToolStripMenuItem.Text = "MASTER LIST";
             // 
             // cLOSEALLFORMSToolStripMenuItem

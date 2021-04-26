@@ -181,6 +181,7 @@ namespace COLM_SYSTEM.fees_folder
                     CurriculumID = CurriculumID,
                     CurriculumSubjID = Convert.ToInt32(item.Cells["clmCurriculumSubjID"].Value),
                     SchoolYearID = Utilties.GetActiveSchoolYear(),
+                    SemesterID = Utilties.GetActiveSemester(),
                     SubjPrice = Convert.ToDouble(item.Cells["clmSubjPrice"].Value),
                     SubjType = "REGULAR"
                 };

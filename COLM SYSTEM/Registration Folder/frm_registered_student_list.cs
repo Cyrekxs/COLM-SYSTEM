@@ -19,7 +19,7 @@ namespace COLM_SYSTEM.registration
             foreach (var item in _RegisteredStudents)
             {
                 dataGridView1.Rows.Add(
-                    item.RegisteredStudentID,
+                    item.RegisteredID,
                     item.StudentID,
                     item.LRN,
                     item.StudentName,

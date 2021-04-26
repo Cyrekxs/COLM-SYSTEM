@@ -32,6 +32,9 @@
             this.clmRegisteredID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmLRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCurriculumID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCurriculumCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssess = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -46,11 +49,14 @@
             this.clmRegisteredID,
             this.clmLRN,
             this.clmStudentName,
+            this.clmEducationLevel,
+            this.clmCurriculumID,
+            this.clmCurriculumCode,
             this.clmAssess});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 46);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 58);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(597, 226);
+            this.dataGridView1.Size = new System.Drawing.Size(829, 226);
             this.dataGridView1.TabIndex = 0;
             // 
             // clmRegisteredID
@@ -75,6 +81,28 @@
             this.clmStudentName.Name = "clmStudentName";
             this.clmStudentName.ReadOnly = true;
             // 
+            // clmEducationLevel
+            // 
+            this.clmEducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmEducationLevel.HeaderText = "Education Level";
+            this.clmEducationLevel.Name = "clmEducationLevel";
+            this.clmEducationLevel.ReadOnly = true;
+            // 
+            // clmCurriculumID
+            // 
+            this.clmCurriculumID.HeaderText = "CurriculumID";
+            this.clmCurriculumID.Name = "clmCurriculumID";
+            this.clmCurriculumID.ReadOnly = true;
+            this.clmCurriculumID.Visible = false;
+            // 
+            // clmCurriculumCode
+            // 
+            this.clmCurriculumCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmCurriculumCode.HeaderText = "Curriculum";
+            this.clmCurriculumCode.Name = "clmCurriculumCode";
+            this.clmCurriculumCode.ReadOnly = true;
+            this.clmCurriculumCode.Width = 81;
+            // 
             // clmAssess
             // 
             this.clmAssess.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -91,8 +119,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(987, 450);
             this.Controls.Add(this.dataGridView1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frm_assessment_browser";
             this.Text = "frm_assessment_browser";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -106,6 +136,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRegisteredID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmLRN;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmStudentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumCode;
         private System.Windows.Forms.DataGridViewButtonColumn clmAssess;
     }
 }

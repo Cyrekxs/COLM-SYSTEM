@@ -14,6 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int CurriculumID { get; set; }
         public int YearLevelID { get; set; }
         public int SchoolYearID { get; set; }
+        public int SemesterID { get; set; }
         public string RegistrationStatus { get; set; }
         public DateTime DateRegistered { get; set; }
 

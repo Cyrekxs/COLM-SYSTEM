@@ -53,11 +53,17 @@
     <Compile Include="Assessment Folder\frm_assessment.Designer.cs">
       <DependentUpon>frm_assessment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Assessment Folder\frm_assessment_browse_student.cs">
+    <Compile Include="Assessment Folder\frm_assessment_browser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Assessment Folder\frm_assessment_browse_student.Designer.cs">
-      <DependentUpon>frm_assessment_browse_student.cs</DependentUpon>
+    <Compile Include="Assessment Folder\frm_assessment_browser.Designer.cs">
+      <DependentUpon>frm_assessment_browser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_list.Designer.cs">
+      <DependentUpon>frm_assessment_list.cs</DependentUpon>
     </Compile>
     <Compile Include="Curriculum Folder\frm_curriculum_entry.cs">
       <SubType>Form</SubType>
@@ -245,8 +251,11 @@
     <EmbeddedResource Include="Assessment Folder\frm_assessment.resx">
       <DependentUpon>frm_assessment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assessment Folder\frm_assessment_browse_student.resx">
-      <DependentUpon>frm_assessment_browse_student.cs</DependentUpon>
+    <EmbeddedResource Include="Assessment Folder\frm_assessment_browser.resx">
+      <DependentUpon>frm_assessment_browser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assessment Folder\frm_assessment_list.resx">
+      <DependentUpon>frm_assessment_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Curriculum Folder\frm_curriculum_entry.resx">
       <DependentUpon>frm_curriculum_entry.cs</DependentUpon>

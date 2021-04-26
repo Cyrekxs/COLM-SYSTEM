@@ -9,7 +9,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 {
     public class StudentRegistered
     {
-        public int RegisteredStudentID { get; set; }
+        public int RegisteredID { get; set; }
         public int StudentID { get; set; }
         public string LRN { get; set; }
         public string StudentName { get; set; }
@@ -19,16 +19,27 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string CurriculumCode { get; set; }
         public int YearLevelID { get; set; }
         public string EducationLevel { get; set; }
+        public string CourseStrand { get; set; }
+
         public string YearLevel { get; set; }
         public int SectionID { get; set; }
         public string Section { get; set; }
         public int SchoolYearID { get; set; }
         public string SchoolYear { get; set; }
+        public int SemesterID { get; set; }
+        public string Semester { get; set; }
+
         public DateTime DateRegistered { get; set; }
 
         public static List<StudentRegistered> GetRegisteredStudents()
         {
             return StudentRegistration_DS.GetRegisteredStudents();
+        }
+
+        //This function will return a list of students without assessment on the specific education level, schoool year and semester
+        public  static List<StudentRegistered> GetStudentsWithNoAssessment(int SchoolYearID,int SemesterID)
+        {
+            return StudentRegistration_DS.GetStudentsWithNoAssessment(SchoolYearID, SemesterID);
         }
     }
 }

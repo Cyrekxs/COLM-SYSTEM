@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COLM_SYSTEM_LIBRARY.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,20 @@ namespace COLM_SYSTEM.Assessment_Folder
 {
     public partial class frm_assessment_browser : Form
     {
+        List<StudentRegistered> StudentsWithoutAssessment = new List<StudentRegistered>();
         public frm_assessment_browser()
         {
             InitializeComponent();
+            StudentsWithoutAssessment = StudentRegistered.GetStudentsWithNoAssessment(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+            LoadStudents();
+        }
+
+        private void LoadStudents()
+        {
+            foreach (var item in StudentsWithoutAssessment)
+            {
+                dataGridView1.Rows.Add(item.RegisteredID, item.LRN, item.StudentName, item.EducationLevel, item.CurriculumID,item.CurriculumCode);
+            }
         }
     }
 }

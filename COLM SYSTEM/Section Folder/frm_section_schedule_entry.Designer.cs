@@ -50,11 +50,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtCount = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmScheduleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjPriceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTimeIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTimeOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,11 +70,11 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column8,
-            this.Column9,
-            this.Column1,
-            this.Column2,
-            this.Column3,
+            this.clmScheduleID,
+            this.clmSubjPriceID,
+            this.clmSubjCode,
+            this.clmSubjDesc,
+            this.clmSubjUnit,
             this.clmDay,
             this.clmTimeIn,
             this.clmTimeOut,
@@ -109,7 +109,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "EDUCATION LEVEL";
             // 
@@ -119,7 +119,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(147, 53);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 13);
+            this.label3.Size = new System.Drawing.Size(102, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "COURSE / STRAND";
             // 
@@ -155,7 +155,7 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(355, 53);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 13);
+            this.label5.Size = new System.Drawing.Size(85, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "SECTION CODE";
             // 
@@ -193,7 +193,7 @@
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(630, 387);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 13);
+            this.label7.Size = new System.Drawing.Size(97, 13);
             this.label7.TabIndex = 13;
             this.label7.Text = "LIST OF SUBJECTS";
             // 
@@ -211,43 +211,43 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Column8
+            // clmScheduleID
             // 
-            this.Column8.HeaderText = "SCHEDULE ID";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Visible = false;
+            this.clmScheduleID.HeaderText = "SCHEDULE ID";
+            this.clmScheduleID.Name = "clmScheduleID";
+            this.clmScheduleID.ReadOnly = true;
+            this.clmScheduleID.Visible = false;
             // 
-            // Column9
+            // clmSubjPriceID
             // 
-            this.Column9.HeaderText = "SUBJECT PRICE ID";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
+            this.clmSubjPriceID.HeaderText = "SUBJECT PRICE ID";
+            this.clmSubjPriceID.Name = "clmSubjPriceID";
+            this.clmSubjPriceID.ReadOnly = true;
+            this.clmSubjPriceID.Visible = false;
             // 
-            // Column1
+            // clmSubjCode
             // 
-            this.Column1.HeaderText = "SUBJECT CODE";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 130;
+            this.clmSubjCode.HeaderText = "SUBJECT CODE";
+            this.clmSubjCode.Name = "clmSubjCode";
+            this.clmSubjCode.ReadOnly = true;
+            this.clmSubjCode.Width = 130;
             // 
-            // Column2
+            // clmSubjDesc
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "DESCRIPTION";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.clmSubjDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmSubjDesc.HeaderText = "DESCRIPTION";
+            this.clmSubjDesc.Name = "clmSubjDesc";
+            this.clmSubjDesc.ReadOnly = true;
             // 
-            // Column3
+            // clmSubjUnit
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmSubjUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column3.HeaderText = "UNIT";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 62;
+            this.clmSubjUnit.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clmSubjUnit.HeaderText = "UNIT";
+            this.clmSubjUnit.Name = "clmSubjUnit";
+            this.clmSubjUnit.ReadOnly = true;
+            this.clmSubjUnit.Width = 62;
             // 
             // clmDay
             // 
@@ -341,11 +341,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCount;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmScheduleID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjPriceID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDay;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeOut;

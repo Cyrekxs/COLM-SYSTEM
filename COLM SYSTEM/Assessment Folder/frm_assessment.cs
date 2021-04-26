@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace COLM_SYSTEM.assessment
+namespace COLM_SYSTEM.Assessment_Folder
 {
     public partial class frm_assessment : Form
     {
