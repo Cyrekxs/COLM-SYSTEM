@@ -21,7 +21,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         {
                             StudentRegistered student = new StudentRegistered()
                             {
-                                RegisteredID = Convert.ToInt32(reader["RegistrationID"]),
+                                RegisteredID = Convert.ToInt32(reader["RegisteredID"]),
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
                                 LRN = Convert.ToString(reader["LRN"]),
                                 StudentName = Convert.ToString(reader["StudentName"]),
@@ -30,9 +30,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
                                 CurriculumCode = Convert.ToString(reader["Code"]),
-                                YearLevelID = Convert.ToInt16(reader["YearLevelID"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
-                                YearLevel = Convert.ToString(reader["YearLevel"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 SchoolYear = Convert.ToString(reader["SchoolYear"]),
                                 SemesterID = Convert.ToInt16(reader["SemesterID"]),
@@ -47,34 +45,42 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return registeredStudents;
         }
 
-        public static StudentRegistration GetStudentRegistrationInfo(int RegisteredStudentID)
+        public static StudentRegistered GetRegisteredStudent(int RegisteredID)
         {
-            StudentRegistration registrationInfo = new StudentRegistration();
+            StudentRegistered registeredInfo = new StudentRegistered();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.registered WHERE RegistrationID = @RegistrationID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_RegisteredStudents() WHERE RegisteredID = @RegisteredID", conn))
                 {
-                    comm.Parameters.AddWithValue("@RegistrationID", RegisteredStudentID);
+                    comm.Parameters.AddWithValue("@RegisteredID", RegisteredID);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            registrationInfo = new StudentRegistration()
+                            registeredInfo = new StudentRegistered()
                             {
-                                RegistrationID = Convert.ToInt32(reader["RegistrationID"]),
+                                RegisteredID = Convert.ToInt32(reader["RegisteredID"]),
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
+                                LRN = Convert.ToString(reader["LRN"]),
+                                StudentName = Convert.ToString(reader["StudentName"]),
+                                Gender = Convert.ToString(reader["Gender"]),
+                                MobileNo = Convert.ToString(reader["MobileNo"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
+                                CurriculumCode = Convert.ToString(reader["Code"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
-                                SemesterID = Convert.ToInt32(reader["SemesterID"]),
-                                RegistrationStatus = Convert.ToString(reader["RegistrationStatus"]),
+                                SchoolYear = Convert.ToString(reader["SchoolYear"]),
+                                SemesterID = Convert.ToInt16(reader["SemesterID"]),
+                                Semester = Convert.ToString(reader["Semester"]),
                                 DateRegistered = Convert.ToDateTime(reader["DateRegistered"])
                             };
                         }
                     }
                 }
             }
-            return registrationInfo;
+            return registeredInfo;
         }
 
         public static bool RegisterStudent(StudentRegistration model)
@@ -102,11 +108,10 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
                 if (HasRecord == false)
                 {
-                    using (SqlCommand comm = new SqlCommand("INSERT INTO student.registered VALUES (@StudentID,@CurriculumID,@YearLevelID,@SchoolYearID,@SemesterID,@RegistrationStatus,GETDATE())", conn))
+                    using (SqlCommand comm = new SqlCommand("INSERT INTO student.registered VALUES (@StudentID,@CurriculumID,@SchoolYearID,@SemesterID,@RegistrationStatus,GETDATE())", conn))
                     {
                         comm.Parameters.AddWithValue("@StudentID", model.StudentID);
                         comm.Parameters.AddWithValue("@CurriculumID", model.CurriculumID);
-                        comm.Parameters.AddWithValue("@YearLevelID", model.YearLevelID);
                         comm.Parameters.AddWithValue("@SchoolYearID", model.SchoolYearID);
                         comm.Parameters.AddWithValue("@SemesterID", model.SemesterID);
                         comm.Parameters.AddWithValue("@RegistrationStatus", model.RegistrationStatus);
@@ -126,12 +131,11 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE student.registered SET CurriculumID = @CurriculumID, YearLevelID = @YearLevelID, RegistrationStatus = @RegistrationStatus, WHERE RegisteredStudentID = @RegisteredStudentID", conn))
+                using (SqlCommand comm = new SqlCommand("UPDATE student.registered SET CurriculumID = @CurriculumID, RegistrationStatus = @RegistrationStatus, WHERE RegisteredStudentID = @RegisteredStudentID", conn))
                 {
                     comm.Parameters.AddWithValue("@RegisteredStudentID", model.RegistrationID);
                     comm.Parameters.AddWithValue("@StudentID", model.StudentID);
                     comm.Parameters.AddWithValue("@CurriculumID", model.CurriculumID);
-                    comm.Parameters.AddWithValue("@YearLevelID", model.YearLevelID);
                     comm.Parameters.AddWithValue("@RegistrationStatus", model.RegistrationStatus);
                     if (comm.ExecuteNonQuery() > 0)
                         return true;
@@ -157,7 +161,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         {
                             StudentRegistered student = new StudentRegistered()
                             {
-                                RegisteredID = Convert.ToInt32(reader["RegistrationID"]),
+                                RegisteredID = Convert.ToInt32(reader["RegisteredID"]),
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
                                 LRN = Convert.ToString(reader["LRN"]),
                                 StudentName = Convert.ToString(reader["StudentName"]),
@@ -166,9 +170,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
                                 CurriculumCode = Convert.ToString(reader["Code"]),
-                                YearLevelID = Convert.ToInt16(reader["YearLevelID"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
-                                YearLevel = Convert.ToString(reader["YearLevel"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 SchoolYear = Convert.ToString(reader["SchoolYear"]),
                                 SemesterID = Convert.ToInt16(reader["SemesterID"]),

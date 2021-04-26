@@ -25,8 +25,19 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             foreach (var item in StudentsWithoutAssessment)
             {
-                dataGridView1.Rows.Add(item.RegisteredID, item.LRN, item.StudentName, item.EducationLevel, item.CurriculumID,item.CurriculumCode);
+                dataGridView1.Rows.Add(item.RegisteredID, item.LRN, item.StudentName, item.CurriculumID,item.CurriculumCode,item.EducationLevel,item.CourseStrand);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int RegisteredID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmRegisteredID"].Value);
+            StudentRegistered registeredStudent = StudentRegistered.GetRegisteredStudent(RegisteredID);
+            frm_assessment_entry frm = new frm_assessment_entry(registeredStudent);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            Close();
+            Dispose();           
         }
     }
 }

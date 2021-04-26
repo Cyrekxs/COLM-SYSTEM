@@ -25,11 +25,10 @@ namespace COLM_SYSTEM.registration
                     item.StudentName,
                     item.Gender,
                     item.MobileNo,
-                    item.EducationLevel,
                     item.CurriculumID,
                     item.CurriculumCode,
-                    item.YearLevelID,
-                    item.YearLevel,
+                    item.EducationLevel,
+                    item.CourseStrand,
                     item.SchoolYear,
                     item.DateRegistered
                     );

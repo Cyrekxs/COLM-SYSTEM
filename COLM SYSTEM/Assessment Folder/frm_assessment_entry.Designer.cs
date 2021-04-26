@@ -1,6 +1,6 @@
 ﻿namespace COLM_SYSTEM.Assessment_Folder
 {
-    partial class frm_assessment
+    partial class frm_assessment_entry
     {
         /// <summary>
         /// Required designer variable.
@@ -29,34 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtLRN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtStudentName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtYearLevel = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbpSubjects = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.dgSubjects = new System.Windows.Forms.DataGridView();
             this.panel11 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
@@ -124,19 +115,28 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.cmbSection = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cmbYearLevel = new System.Windows.Forms.ComboBox();
+            this.txtCurriculumCode = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txtCourseStrand = new System.Windows.Forms.TextBox();
-            this.txtSection = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtEducationLevel = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtCurriculumCode = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjectPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tabControl1.SuspendLayout();
             this.tbpSubjects.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSubjects)).BeginInit();
             this.panel11.SuspendLayout();
             this.tbpFees.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -161,40 +161,42 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.Size = new System.Drawing.Size(29, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Student No";
+            this.label1.Text = "LRN";
             // 
-            // textBox1
+            // txtLRN
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 24);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtLRN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtLRN.Location = new System.Drawing.Point(12, 26);
+            this.txtLRN.Name = "txtLRN";
+            this.txtLRN.Size = new System.Drawing.Size(123, 24);
+            this.txtLRN.TabIndex = 0;
+            this.txtLRN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(145, 6);
+            this.label2.Location = new System.Drawing.Point(138, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Student Name";
             // 
-            // textBox2
+            // txtStudentName
             // 
-            this.textBox2.Location = new System.Drawing.Point(148, 26);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(251, 24);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtStudentName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtStudentName.Location = new System.Drawing.Point(141, 26);
+            this.txtStudentName.Name = "txtStudentName";
+            this.txtStudentName.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtStudentName.Size = new System.Drawing.Size(234, 24);
+            this.txtStudentName.TabIndex = 2;
+            this.txtStudentName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(513, 6);
+            this.label3.Location = new System.Drawing.Point(489, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 17);
             this.label3.TabIndex = 4;
@@ -203,19 +205,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(734, 6);
+            this.label4.Location = new System.Drawing.Point(696, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 17);
             this.label4.TabIndex = 5;
             this.label4.Text = "Year Level";
-            // 
-            // txtYearLevel
-            // 
-            this.txtYearLevel.Location = new System.Drawing.Point(737, 26);
-            this.txtYearLevel.Name = "txtYearLevel";
-            this.txtYearLevel.Size = new System.Drawing.Size(90, 24);
-            this.txtYearLevel.TabIndex = 6;
-            this.txtYearLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabControl1
             // 
@@ -241,7 +235,7 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.dataGridView5);
+            this.panel10.Controls.Add(this.dgSubjects);
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Location = new System.Drawing.Point(6, 6);
             this.panel10.Name = "panel10";
@@ -249,102 +243,33 @@
             this.panel10.Size = new System.Drawing.Size(914, 433);
             this.panel10.TabIndex = 10;
             // 
-            // dataGridView5
+            // dgSubjects
             // 
-            this.dataGridView5.AllowUserToAddRows = false;
-            this.dataGridView5.AllowUserToDeleteRows = false;
-            this.dataGridView5.AllowUserToResizeColumns = false;
-            this.dataGridView5.AllowUserToResizeRows = false;
-            this.dataGridView5.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView5.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgSubjects.AllowUserToAddRows = false;
+            this.dgSubjects.AllowUserToDeleteRows = false;
+            this.dgSubjects.AllowUserToResizeColumns = false;
+            this.dgSubjects.AllowUserToResizeRows = false;
+            this.dgSubjects.BackgroundColor = System.Drawing.Color.White;
+            this.dgSubjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgSubjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSubjects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn13,
-            this.Column3,
+            this.clmSubjectPrice,
             this.Column7,
             this.Column8,
             this.Column9,
             this.Column6});
-            this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView5.Location = new System.Drawing.Point(1, 35);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.ReadOnly = true;
-            this.dataGridView5.RowHeadersVisible = false;
-            this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(912, 397);
-            this.dataGridView5.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "CURRICULUM SUBJECT ID";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn6.HeaderText = "CODE";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn6.Width = 45;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTextBoxColumn13.HeaderText = "SUBJECT";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column3.HeaderText = "AMOUNT";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 81;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column7.HeaderText = "TYPE";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 60;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "SCHEDULE ID";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Visible = false;
-            // 
-            // Column9
-            // 
-            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column9.HeaderText = "SCHEDULE";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.ActiveLinkColor = System.Drawing.Color.Firebrick;
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column6.HeaderText = "REMOVE";
-            this.Column6.LinkColor = System.Drawing.Color.Firebrick;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.VisitedLinkColor = System.Drawing.Color.Firebrick;
-            this.Column6.Width = 60;
+            this.dgSubjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgSubjects.Location = new System.Drawing.Point(1, 35);
+            this.dgSubjects.Name = "dgSubjects";
+            this.dgSubjects.ReadOnly = true;
+            this.dgSubjects.RowHeadersVisible = false;
+            this.dgSubjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgSubjects.Size = new System.Drawing.Size(912, 397);
+            this.dgSubjects.TabIndex = 1;
             // 
             // panel11
             // 
@@ -449,8 +374,8 @@
             // 
             // clmOFeeAmount
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmOFeeAmount.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmOFeeAmount.DefaultCellStyle = dataGridViewCellStyle12;
             this.clmOFeeAmount.HeaderText = "AMOUNT";
             this.clmOFeeAmount.Name = "clmOFeeAmount";
             this.clmOFeeAmount.ReadOnly = true;
@@ -553,8 +478,8 @@
             // clmMFeeAmount
             // 
             this.clmMFeeAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmMFeeAmount.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmMFeeAmount.DefaultCellStyle = dataGridViewCellStyle13;
             this.clmMFeeAmount.HeaderText = "AMOUNT";
             this.clmMFeeAmount.Name = "clmMFeeAmount";
             this.clmMFeeAmount.ReadOnly = true;
@@ -657,8 +582,8 @@
             // 
             // clmTFeeAmount
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmTFeeAmount.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmTFeeAmount.DefaultCellStyle = dataGridViewCellStyle14;
             this.clmTFeeAmount.HeaderText = "AMOUNT";
             this.clmTFeeAmount.Name = "clmTFeeAmount";
             this.clmTFeeAmount.ReadOnly = true;
@@ -860,8 +785,8 @@
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle15;
             this.Column4.HeaderText = "TYPE";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -871,8 +796,8 @@
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle16;
             this.Column5.HeaderText = "VALUE";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -936,8 +861,8 @@
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewTextBoxColumn11.HeaderText = "AMOUNT";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
@@ -947,8 +872,8 @@
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewTextBoxColumn12.HeaderText = "DUE DATE";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -1073,36 +998,73 @@
             this.panel7.Location = new System.Drawing.Point(12, 12);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(1);
-            this.panel7.Size = new System.Drawing.Size(936, 94);
+            this.panel7.Size = new System.Drawing.Size(933, 94);
             this.panel7.TabIndex = 11;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.Controls.Add(this.cmbSection);
             this.panel9.Controls.Add(this.label22);
+            this.panel9.Controls.Add(this.cmbYearLevel);
             this.panel9.Controls.Add(this.txtCurriculumCode);
             this.panel9.Controls.Add(this.label21);
             this.panel9.Controls.Add(this.txtCourseStrand);
-            this.panel9.Controls.Add(this.txtSection);
             this.panel9.Controls.Add(this.label5);
             this.panel9.Controls.Add(this.label1);
-            this.panel9.Controls.Add(this.textBox2);
+            this.panel9.Controls.Add(this.txtStudentName);
             this.panel9.Controls.Add(this.label2);
-            this.panel9.Controls.Add(this.textBox1);
-            this.panel9.Controls.Add(this.txtYearLevel);
+            this.panel9.Controls.Add(this.txtLRN);
             this.panel9.Controls.Add(this.label3);
             this.panel9.Controls.Add(this.label4);
             this.panel9.Controls.Add(this.txtEducationLevel);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(1, 35);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(934, 58);
+            this.panel9.Size = new System.Drawing.Size(931, 58);
             this.panel9.TabIndex = 4;
+            // 
+            // cmbSection
+            // 
+            this.cmbSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cmbSection.FormattingEnabled = true;
+            this.cmbSection.Location = new System.Drawing.Point(809, 25);
+            this.cmbSection.Name = "cmbSection";
+            this.cmbSection.Size = new System.Drawing.Size(114, 25);
+            this.cmbSection.TabIndex = 13;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(378, 5);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(69, 17);
+            this.label22.TabIndex = 12;
+            this.label22.Text = "Curriculum";
+            // 
+            // cmbYearLevel
+            // 
+            this.cmbYearLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cmbYearLevel.FormattingEnabled = true;
+            this.cmbYearLevel.Location = new System.Drawing.Point(699, 25);
+            this.cmbYearLevel.Name = "cmbYearLevel";
+            this.cmbYearLevel.Size = new System.Drawing.Size(104, 25);
+            this.cmbYearLevel.TabIndex = 12;
+            this.cmbYearLevel.SelectedIndexChanged += new System.EventHandler(this.cmbYearLevel_SelectedIndexChanged);
+            // 
+            // txtCurriculumCode
+            // 
+            this.txtCurriculumCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtCurriculumCode.Location = new System.Drawing.Point(381, 25);
+            this.txtCurriculumCode.Name = "txtCurriculumCode";
+            this.txtCurriculumCode.Size = new System.Drawing.Size(105, 24);
+            this.txtCurriculumCode.TabIndex = 11;
+            this.txtCurriculumCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(623, 6);
+            this.label21.Location = new System.Drawing.Point(600, 6);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(93, 17);
             this.label21.TabIndex = 10;
@@ -1110,24 +1072,17 @@
             // 
             // txtCourseStrand
             // 
-            this.txtCourseStrand.Location = new System.Drawing.Point(626, 26);
+            this.txtCourseStrand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtCourseStrand.Location = new System.Drawing.Point(603, 26);
             this.txtCourseStrand.Name = "txtCourseStrand";
-            this.txtCourseStrand.Size = new System.Drawing.Size(105, 24);
+            this.txtCourseStrand.Size = new System.Drawing.Size(90, 24);
             this.txtCourseStrand.TabIndex = 9;
             this.txtCourseStrand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtSection
-            // 
-            this.txtSection.Location = new System.Drawing.Point(833, 26);
-            this.txtSection.Name = "txtSection";
-            this.txtSection.Size = new System.Drawing.Size(90, 24);
-            this.txtSection.TabIndex = 8;
-            this.txtSection.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(830, 6);
+            this.label5.Location = new System.Drawing.Point(806, 5);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 17);
             this.label5.TabIndex = 7;
@@ -1135,7 +1090,8 @@
             // 
             // txtEducationLevel
             // 
-            this.txtEducationLevel.Location = new System.Drawing.Point(516, 26);
+            this.txtEducationLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtEducationLevel.Location = new System.Drawing.Point(492, 26);
             this.txtEducationLevel.Name = "txtEducationLevel";
             this.txtEducationLevel.Size = new System.Drawing.Size(105, 24);
             this.txtEducationLevel.TabIndex = 3;
@@ -1148,7 +1104,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(1, 1);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(934, 34);
+            this.panel8.Size = new System.Drawing.Size(931, 34);
             this.panel8.TabIndex = 3;
             // 
             // label19
@@ -1162,28 +1118,80 @@
             this.label19.TabIndex = 3;
             this.label19.Text = "STUDENT INFORMATION";
             // 
-            // label22
+            // dataGridViewTextBoxColumn3
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(402, 6);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(69, 17);
-            this.label22.TabIndex = 12;
-            this.label22.Text = "Curriculum";
+            this.dataGridViewTextBoxColumn3.HeaderText = "CURRICULUM SUBJECT ID";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
             // 
-            // txtCurriculumCode
+            // dataGridViewTextBoxColumn6
             // 
-            this.txtCurriculumCode.Location = new System.Drawing.Point(405, 26);
-            this.txtCurriculumCode.Name = "txtCurriculumCode";
-            this.txtCurriculumCode.Size = new System.Drawing.Size(105, 24);
-            this.txtCurriculumCode.TabIndex = 11;
-            this.txtCurriculumCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn6.HeaderText = "CODE";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn6.Width = 45;
             // 
-            // frm_assessment
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewTextBoxColumn13.HeaderText = "SUBJECT";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clmSubjectPrice
+            // 
+            this.clmSubjectPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmSubjectPrice.DefaultCellStyle = dataGridViewCellStyle11;
+            this.clmSubjectPrice.HeaderText = "AMOUNT";
+            this.clmSubjectPrice.Name = "clmSubjectPrice";
+            this.clmSubjectPrice.ReadOnly = true;
+            this.clmSubjectPrice.Width = 81;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column7.HeaderText = "TYPE";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 60;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "SCHEDULE ID";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column9.HeaderText = "SCHEDULE";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.ActiveLinkColor = System.Drawing.Color.Firebrick;
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column6.HeaderText = "REMOVE";
+            this.Column6.LinkColor = System.Drawing.Color.Firebrick;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.VisitedLinkColor = System.Drawing.Color.Firebrick;
+            this.Column6.Width = 60;
+            // 
+            // frm_assessment_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 611);
+            this.ClientSize = new System.Drawing.Size(960, 606);
             this.ControlBox = false;
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.tabControl1);
@@ -1192,11 +1200,11 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frm_assessment";
+            this.Name = "frm_assessment_entry";
             this.tabControl1.ResumeLayout(false);
             this.tbpSubjects.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSubjects)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.tbpFees.ResumeLayout(false);
@@ -1227,11 +1235,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLRN;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtStudentName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtYearLevel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl1;
@@ -1301,26 +1308,27 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.TabPage tbpSubjects;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridView dgSubjects;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewLinkColumn Column6;
-        private System.Windows.Forms.TextBox txtSection;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtCourseStrand;
         private System.Windows.Forms.TextBox txtEducationLevel;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtCurriculumCode;
+        private System.Windows.Forms.ComboBox cmbYearLevel;
+        private System.Windows.Forms.ComboBox cmbSection;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjectPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewLinkColumn Column6;
     }
 }

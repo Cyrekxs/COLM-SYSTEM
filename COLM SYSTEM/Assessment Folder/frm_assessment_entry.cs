@@ -2,50 +2,60 @@
 using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Assessment_Folder
 {
-    public partial class frm_assessment : Form
+    public partial class frm_assessment_entry : Form
     {
-        string _educationLevel = "";
-        string _yearLevel = "";
-        string _section = "";
-        string _coursestrand = "";
+        StudentRegistered registeredStudent = new StudentRegistered();
 
         private List<Discount> AddedDiscounts = new List<Discount>();
 
-        public frm_assessment()
+        public frm_assessment_entry(StudentRegistered student)
         {
             InitializeComponent();
-            LoadFees();
-            LoadDiscounts();
-            LoadAssessmentTypes();
+
+            registeredStudent = student;
+
+            txtLRN.Text = student.LRN;
+            txtStudentName.Text = student.StudentName;
+            txtCurriculumCode.Text = student.CurriculumCode;
+            txtEducationLevel.Text = student.EducationLevel;
+            txtCourseStrand.Text = student.CourseStrand;
+
+            LoadYearLevels();
         }
 
         private int GetStudentYearLevelID()
         {
-            _educationLevel = txtEducationLevel.Text;
-            _yearLevel = txtYearLevel.Text;
-            _section = txtSection.Text;
-
-            int yearLevelID = YearLevel.GetYearLevel(_educationLevel,_coursestrand, _yearLevel).YearLevelID;
+            int yearLevelID = (from r in Curriculum.GetCurriculumYearLevels(registeredStudent.CurriculumID)
+                               where r.YearLvl.ToLower() == cmbYearLevel.Text.ToLower()
+                               select r.YearLevelID).First();
             return yearLevelID;
+        }
+
+        private void LoadYearLevels()
+        {
+            cmbYearLevel.Items.Clear();
+
+            List<YearLevel> yearLevels = Curriculum.GetCurriculumYearLevels(registeredStudent.CurriculumID);
+            foreach (var item in yearLevels)
+            {
+                cmbYearLevel.Items.Add(item.YearLvl);
+            }
         }
 
         private void LoadFees()
         {
             int yearLevelID = GetStudentYearLevelID();
 
-            List<Fee> tfee_list = Fee.GetFeesByType(Enums.FeeTypes.TFee);
-            List<Fee> mfee_list = Fee.GetFeesByType(Enums.FeeTypes.MFee);
-            List<Fee> ofee_list = Fee.GetFeesByType(Enums.FeeTypes.OFee);
+            List<Fee> fees = Fee.GetSettedFees(registeredStudent.CurriculumID, yearLevelID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
 
-            foreach (var item in tfee_list)
-            {
-                if (item.YearLeveLID == yearLevelID)
-                    dataGridView1.Rows.Add(item.FeeID, item.FeeDesc, item.Amount.ToString("n"));
-            }
+
+            List<Fee> mfee_list = (from r in fees where r.FeeType.ToLower() == "miscellaneous" select r).ToList();
+            List<Fee> ofee_list = (from r in fees where r.FeeType.ToLower() == "other" select r).ToList();
 
             foreach (var item in mfee_list)
             {
@@ -77,7 +87,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             List<AssessmentType> assessmentTypes = AssessmentType.GetAssessmentTypes();
 
             cmbAssessmentType.Items.Clear();
-            cmbAssessmentType.Tag = assessmentTypes;            
+            cmbAssessmentType.Tag = assessmentTypes;
             foreach (var item in assessmentTypes)
             {
                 cmbAssessmentType.Items.Add(item.AssessmentCode);
@@ -103,9 +113,10 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void timer1_Tick(object sender, System.EventArgs e)
         {
             double TotalTFee = 0;
-            foreach (DataGridViewRow item in dataGridView1.Rows)
+
+            foreach (DataGridViewRow item in dgSubjects.Rows)
             {
-                TotalTFee += Convert.ToDouble(item.Cells["clmTFeeAmount"].Value);
+                TotalTFee = Convert.ToInt32(item.Cells["clmSubjectPrice"].Value);
             }
 
             double TotalMFee = 0;
@@ -126,6 +137,13 @@ namespace COLM_SYSTEM.Assessment_Folder
             txtTotalTFee.Text = TotalTFee.ToString("n");
             txtTotalMFee.Text = TotalMFee.ToString("n");
             txtTotalOFee.Text = TotalOFee.ToString("n");
+        }
+
+        private void cmbYearLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadFees();
+            LoadDiscounts();
+            LoadAssessmentTypes();
         }
     }
 }

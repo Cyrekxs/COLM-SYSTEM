@@ -32,9 +32,10 @@
             this.clmRegisteredID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmLRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCurriculumID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCurriculumCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssess = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -49,15 +50,17 @@
             this.clmRegisteredID,
             this.clmLRN,
             this.clmStudentName,
-            this.clmEducationLevel,
             this.clmCurriculumID,
             this.clmCurriculumCode,
+            this.clmEducationLevel,
+            this.Column1,
             this.clmAssess});
             this.dataGridView1.Location = new System.Drawing.Point(12, 58);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(829, 226);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // clmRegisteredID
             // 
@@ -81,13 +84,6 @@
             this.clmStudentName.Name = "clmStudentName";
             this.clmStudentName.ReadOnly = true;
             // 
-            // clmEducationLevel
-            // 
-            this.clmEducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmEducationLevel.HeaderText = "Education Level";
-            this.clmEducationLevel.Name = "clmEducationLevel";
-            this.clmEducationLevel.ReadOnly = true;
-            // 
             // clmCurriculumID
             // 
             this.clmCurriculumID.HeaderText = "CurriculumID";
@@ -102,6 +98,21 @@
             this.clmCurriculumCode.Name = "clmCurriculumCode";
             this.clmCurriculumCode.ReadOnly = true;
             this.clmCurriculumCode.Width = 81;
+            // 
+            // clmEducationLevel
+            // 
+            this.clmEducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmEducationLevel.HeaderText = "Education Level";
+            this.clmEducationLevel.Name = "clmEducationLevel";
+            this.clmEducationLevel.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "Course / Strand";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 98;
             // 
             // clmAssess
             // 
@@ -136,9 +147,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRegisteredID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmLRN;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmStudentName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewButtonColumn clmAssess;
     }
 }

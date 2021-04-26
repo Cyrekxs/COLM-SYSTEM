@@ -17,11 +17,8 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string MobileNo { get; set; }
         public int CurriculumID { get; set; }
         public string CurriculumCode { get; set; }
-        public int YearLevelID { get; set; }
         public string EducationLevel { get; set; }
         public string CourseStrand { get; set; }
-
-        public string YearLevel { get; set; }
         public int SectionID { get; set; }
         public string Section { get; set; }
         public int SchoolYearID { get; set; }
@@ -40,6 +37,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public  static List<StudentRegistered> GetStudentsWithNoAssessment(int SchoolYearID,int SemesterID)
         {
             return StudentRegistration_DS.GetStudentsWithNoAssessment(SchoolYearID, SemesterID);
+        }
+
+        public static StudentRegistered GetRegisteredStudent(int RegisteredID)
+        {
+            return StudentRegistration_DS.GetRegisteredStudent(RegisteredID);
         }
     }
 }

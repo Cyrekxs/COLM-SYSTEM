@@ -27,16 +27,6 @@ namespace COLM_SYSTEM.registration
             }
         }
 
-        private void LoadCurriculumYearLevel(int CurriculumID)
-        {
-            _YearLevels = Curriculum.GetCurriculumYearLevels(CurriculumID); 
-            cmbYearLevel.Items.Clear();
-            foreach (var item in _YearLevels)
-            {
-                cmbYearLevel.Items.Add(item.YearLvl);
-            }
-        }
-
         private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadCurriculums(cmbEducationLevel.Text);
@@ -44,14 +34,12 @@ namespace COLM_SYSTEM.registration
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int YearLevelID = YearLevel.GetYearLevelID(cmbYearLevel.Text,_YearLevels);
             int CurriculumID = Curriculum.GetCurriculumID(cmbCurriculum.Text, _Curriculums);
             StudentRegistration model = new StudentRegistration()
             {
                 RegistrationID = 0,
                 StudentID = _StudentInfo.StudentID,
                 CurriculumID = CurriculumID,
-                YearLevelID = YearLevelID,
                 SchoolYearID = Utilties.GetActiveSchoolYear(),
                 SemesterID = Utilties.GetActiveSemester(),
                 RegistrationStatus = cmbRegistrationStatus.Text
@@ -80,8 +68,7 @@ namespace COLM_SYSTEM.registration
 
         private void cmbCurriculum_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int CurriculumID = Curriculum.GetCurriculumID(cmbCurriculum.Text, _Curriculums);
-            LoadCurriculumYearLevel(CurriculumID);
+
         }
     }
 }
