@@ -201,7 +201,7 @@ namespace COLM_SYSTEM.fees_folder
                     SchoolYearID = Utilties.GetActiveSchoolYear(),
                     SemesterID = Utilties.GetActiveSemester(),
                     FeeDesc = Convert.ToString(item.Cells["clmMiscFee"].Value),
-                    FeeType = "miscellaneous",
+                    FeeType = "Miscellaneous",
                     Amount = Convert.ToDouble(item.Cells["clmMiscAmount"].Value)
                 };
                 feesToSave.Add(fee);
@@ -217,7 +217,7 @@ namespace COLM_SYSTEM.fees_folder
                     SchoolYearID = Utilties.GetActiveSchoolYear(),
                     SemesterID = Utilties.GetActiveSemester(),
                     FeeDesc = Convert.ToString(item.Cells["clmOtherFee"].Value),
-                    FeeType = "other",
+                    FeeType = "Other",
                     Amount = Convert.ToDouble(item.Cells["clmOtherAmount"].Value)
                 };
                 feesToSave.Add(fee);

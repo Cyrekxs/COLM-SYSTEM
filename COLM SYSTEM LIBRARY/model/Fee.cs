@@ -57,11 +57,6 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Fee_DS.GetFeeSummaries();
         }
 
-        public static List<Fee> GetFeesByType(Enums.FeeTypes type)
-        {
-            return (Fee_DS.GetFeesByType(type));
-        }
-
         public static List<Fee> GetSettedFees(int CurriculumID, int YearLevelID, int SchoolYearID, int SemesterID)
         {
             return Fee_DS.GetSettedFees(CurriculumID, YearLevelID, SchoolYearID, SemesterID);

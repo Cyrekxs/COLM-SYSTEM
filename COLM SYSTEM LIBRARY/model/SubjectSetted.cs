@@ -37,6 +37,7 @@ namespace COLM_SYSTEM_LIBRARY.model
             return SubjectSetted_DS.GetCurriculumSubjects(CurriculumID, YearLevelID, SemesterID);
         }
 
+        //Getting the list of subject setted and fees according to curriculum, yearlevel, school year and semester
         public static List<SubjectSetted> GetSubjectSetteds(int CurriculumID, int YearLevelID, int SchoolYearID, int SemesterID)
         {
             return SubjectSetted_DS.GetSubjectSetted(CurriculumID, YearLevelID, SchoolYearID, SemesterID);

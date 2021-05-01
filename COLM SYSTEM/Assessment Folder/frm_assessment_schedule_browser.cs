@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COLM_SYSTEM_LIBRARY.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,20 @@ namespace COLM_SYSTEM.Assessment_Folder
 {
     public partial class frm_assessment_schedule_browser : Form
     {
-        public frm_assessment_schedule_browser()
+        List<Schedule> schedules = new List<Schedule>();
+        public frm_assessment_schedule_browser(int SubjectPriceID)
         {
             InitializeComponent();
+            schedules = Schedule.GetSchedulesBySubject(SubjectPriceID);
+            DisplayAvailableSchedules();
+        }
+
+        private void DisplayAvailableSchedules()
+        {
+            foreach (var item in schedules)
+            {
+                dataGridView1.Rows.Add(item.ScheduleID, item.Day, item.TimeIn, item.TimeOut, item.Room, item.FacultyName);
+            }
         }
     }
 }

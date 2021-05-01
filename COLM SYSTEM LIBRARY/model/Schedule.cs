@@ -20,6 +20,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string TimeOut { get; set; }
         public string Room { get; set; }
         public int FacultyID { get; set; }
+        public string FacultyName { get; set; } // for displaying purposes
 
 
         public static bool InsertUpdateSchedule(Schedule schedule)
@@ -30,6 +31,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<Schedule> GetSchedules(int SectionID)
         {
             return Schedule_DS.GetSchedules(SectionID);
+        }
+
+        public static List<Schedule> GetSchedulesBySubject(int SubjectPriceID)
+        {
+            return Schedule_DS.GetSchedulesBySubject(SubjectPriceID);
         }
 
         public static bool IsSectionScheduleExists(int SectionID)

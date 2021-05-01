@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assessment Folder\frm_assessment_additional_fee_viewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_additional_fee_viewer.Designer.cs">
+      <DependentUpon>frm_assessment_additional_fee_viewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Assessment Folder\frm_assessment_entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,12 @@
     </Compile>
     <Compile Include="Assessment Folder\frm_assessment_list.Designer.cs">
       <DependentUpon>frm_assessment_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_subject_browser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_subject_browser.Designer.cs">
+      <DependentUpon>frm_assessment_subject_browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Curriculum Folder\frm_curriculum_entry.cs">
       <SubType>Form</SubType>
@@ -118,6 +130,12 @@
     </Compile>
     <Compile Include="Fees Folder\frm_miscother_fees_entry.Designer.cs">
       <DependentUpon>frm_miscother_fees_entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_schedule_browser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_schedule_browser.Designer.cs">
+      <DependentUpon>frm_assessment_schedule_browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Fees Folder\frm_tuition_entry_additional_fee.cs">
       <SubType>Form</SubType>
@@ -248,6 +266,9 @@
     <Compile Include="Student Information Folder\frm_student_information_list.Designer.cs">
       <DependentUpon>frm_student_information_list.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Assessment Folder\frm_assessment_additional_fee_viewer.resx">
+      <DependentUpon>frm_assessment_additional_fee_viewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assessment Folder\frm_assessment_entry.resx">
       <DependentUpon>frm_assessment_entry.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\frm_miscother_fees_entry.resx">
       <DependentUpon>frm_miscother_fees_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assessment Folder\frm_assessment_schedule_browser.resx">
+      <DependentUpon>frm_assessment_schedule_browser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\frm_tuition_entry_additional_fee.resx">
       <DependentUpon>frm_tuition_entry_additional_fee.cs</DependentUpon>

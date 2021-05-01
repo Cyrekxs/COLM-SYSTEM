@@ -128,20 +128,23 @@
             // 
             // clmAmount
             // 
+            this.clmAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.clmAmount.DefaultCellStyle = dataGridViewCellStyle1;
             this.clmAmount.HeaderText = "Amount";
             this.clmAmount.Name = "clmAmount";
+            this.clmAmount.Width = 76;
             // 
             // clmFeeType
             // 
+            this.clmFeeType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.clmFeeType.HeaderText = "Type";
             this.clmFeeType.Items.AddRange(new object[] {
-            "Miscellaneous Fee",
-            "Other Fee",
-            "Additional Fee"});
+            "Miscellaneous",
+            "Other"});
             this.clmFeeType.Name = "clmFeeType";
+            this.clmFeeType.Width = 40;
             // 
             // clmDelete
             // 

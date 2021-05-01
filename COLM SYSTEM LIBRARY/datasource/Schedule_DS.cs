@@ -80,7 +80,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 TimeIn = Convert.ToString(reader["TimeIn"]),
                                 TimeOut = Convert.ToString(reader["TimeOut"]),
                                 Room = Convert.ToString(reader["Room"]),
-                                FacultyID = Convert.ToInt32(reader["FacultyID"])
+                                FacultyID = Convert.ToInt32(reader["FacultyID"]),
+                                FacultyName = Convert.ToString(reader["FacultyName"])
                             };
                             schedules.Add(schedule);
                         }
@@ -89,5 +90,44 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return schedules;
         }
+
+
+        public static List<Schedule> GetSchedulesBySubject(int SubjectPriceID)
+        {
+            List<Schedule> schedules = new List<Schedule>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_Section_Schedule() WHERE SubjectPriceID = @SubjectPriceID", conn))
+                {
+                    comm.Parameters.AddWithValue("@SubjectPriceID", SubjectPriceID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Schedule schedule = new Schedule()
+                            {
+                                ScheduleID = Convert.ToInt32(reader["ScheduleID"]),
+                                SectionID = Convert.ToInt32(reader["SectionID"]),
+                                SubjectPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
+                                SubjCode = Convert.ToString(reader["SubjCode"]),
+                                SubjDesc = Convert.ToString(reader["SubjDesc"]),
+                                SubjUnit = Convert.ToString(reader["Unit"]),
+                                Day = Convert.ToString(reader["Day"]),
+                                TimeIn = Convert.ToString(reader["TimeIn"]),
+                                TimeOut = Convert.ToString(reader["TimeOut"]),
+                                Room = Convert.ToString(reader["Room"]),
+                                FacultyID = Convert.ToInt32(reader["FacultyID"]),
+                                FacultyName = Convert.ToString(reader["FacultyName"])
+                            };
+                            schedules.Add(schedule);
+                        }
+                    }
+                }
+            }
+            return schedules;
+        }
+
+
     }
 }
