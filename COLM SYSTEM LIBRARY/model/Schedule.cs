@@ -1,9 +1,5 @@
 ﻿using COLM_SYSTEM_LIBRARY.datasource;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace COLM_SYSTEM_LIBRARY.model
 {
@@ -22,7 +18,13 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int FacultyID { get; set; }
         public string FacultyName { get; set; } // for displaying purposes
 
-
+        public string ScheduleInfo
+        {
+            get
+            {
+                return string.Concat("Day: ", Day, " In: ", TimeIn, " Out: ", TimeOut, " Room: ", Room, " | ", FacultyName);
+            }
+        }
         public static bool InsertUpdateSchedule(Schedule schedule)
         {
             return Schedule_DS.InsertUpdateSchedule(schedule);

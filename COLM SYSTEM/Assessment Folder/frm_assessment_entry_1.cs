@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COLM_SYSTEM_LIBRARY.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,48 @@ namespace COLM_SYSTEM.Assessment_Folder
 {
     public partial class frm_assessment_entry_1 : Form
     {
-        public frm_assessment_entry_1()
+        StudentRegistered registeredStudent = new StudentRegistered();
+        public frm_assessment_entry_1(StudentRegistered student)
         {
             InitializeComponent();
+            registeredStudent = student;
+
+            //display data
+            txtLRN.Text = student.LRN;
+            txtStudentName.Text = student.StudentName;
+            txtCurriculumCode.Text = student.CurriculumCode;
+            txtEducationLevel.Text = student.EducationLevel;
+            txtCourseStrand.Text = student.CourseStrand;
+
+            LoadYearLevels();
+        }
+
+        private void LoadYearLevels()
+        {
+            cmbYearLevel.Items.Clear();
+
+            List<YearLevel> yearLevels = Curriculum.GetCurriculumYearLevels(registeredStudent.CurriculumID);
+            foreach (var item in yearLevels)
+            {
+                cmbYearLevel.Items.Add(item.YearLvl);
+            }
+        }
+
+        private YearLevel GetStudentYearLevel()
+        {
+            YearLevel yearLevel = (from r in Curriculum.GetCurriculumYearLevels(registeredStudent.CurriculumID)
+                               where r.YearLvl.ToLower() == cmbYearLevel.Text.ToLower()
+                               select r).First();
+            return yearLevel;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frm_assessment_entry_2 frm = new frm_assessment_entry_2(registeredStudent,GetStudentYearLevel());
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            Close();
+            Dispose();
         }
     }
 }

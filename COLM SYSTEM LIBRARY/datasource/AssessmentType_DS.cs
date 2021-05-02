@@ -28,8 +28,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 AssessmentTypeID = Convert.ToInt32(reader["AssessmentTypeID"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 AssessmentCode = Convert.ToString(reader["AssessmentType"]),
-                                Surcharge = Convert.ToDouble(reader["Surcharge"]),
-                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"])
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                SemesterID = Convert.ToInt32(reader["SemesterID"])
                             };
                             assessmentTypes.Add(type);
                         }
@@ -60,6 +60,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 TFee = Convert.ToDouble(reader["TFee"]),
                                 MFee = Convert.ToDouble(reader["MFee"]),
                                 OFee = Convert.ToDouble(reader["OFee"]),
+                                Surcharge = Convert.ToDouble(reader["Surcharge"]),
                                 DueDate = Convert.ToString(reader["DueDate"])
                             };
                             assessmentTypeItems.Add(item);

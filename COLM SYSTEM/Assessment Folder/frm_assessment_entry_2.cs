@@ -1,4 +1,5 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.model.Assessment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,90 +10,39 @@ namespace COLM_SYSTEM.Assessment_Folder
     public partial class frm_assessment_entry_2 : Form
     {
         StudentRegistered registeredStudent = new StudentRegistered();
+        YearLevel studentYearLevel = new YearLevel();
         private List<Discount> AddedDiscounts = new List<Discount>();
 
-        public frm_assessment_entry_2(StudentRegistered student)
+        public frm_assessment_entry_2(StudentRegistered student, YearLevel yearLevel)
         {
             InitializeComponent();
 
             registeredStudent = student;
+            studentYearLevel = yearLevel;
 
+            //display data
             txtLRN.Text = student.LRN;
             txtStudentName.Text = student.StudentName;
             txtCurriculumCode.Text = student.CurriculumCode;
             txtEducationLevel.Text = student.EducationLevel;
             txtCourseStrand.Text = student.CourseStrand;
+            txtYearLevel.Text = yearLevel.YearLvl;
 
-            LoadYearLevels();
+            //load data
+            LoadFees();
             LoadAssessmentTypes();
+            LoadSections();
+            TagAdditionalFees();
+            LoadDiscounts();
+            CalculateFeeSummary();
         }
 
-        private int GetStudentYearLevelID()
-        {
-            int yearLevelID = (from r in Curriculum.GetCurriculumYearLevels(registeredStudent.CurriculumID)
-                               where r.YearLvl.ToLower() == cmbYearLevel.Text.ToLower()
-                               select r.YearLevelID).First();
-            return yearLevelID;
-        }
-        private void LoadAssessmentTypes()
-        {
-            //get assessment type list according to education level, school year and semester
-            List<AssessmentType> assessmentTypes = (from r in AssessmentType.GetAssessmentTypes()
-                                                    where r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester() && r.EducationLevel.ToLower() == txtEducationLevel.Text.ToLower()
-                                                    select r).ToList();
-
-            cmbAssessmentType.Items.Clear();
-            cmbAssessmentType.Tag = assessmentTypes;
-            foreach (var item in assessmentTypes)
-            {
-                cmbAssessmentType.Items.Add(item.AssessmentCode);
-            }
-        }
-        private void LoadYearLevels()
-        {
-            cmbYearLevel.Items.Clear();
-
-            List<YearLevel> yearLevels = Curriculum.GetCurriculumYearLevels(registeredStudent.CurriculumID);
-            foreach (var item in yearLevels)
-            {
-                cmbYearLevel.Items.Add(item.YearLvl);
-            }
-        }
-        private void LoadSections()
-        {
-            List<Section> sections = (from r in Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester())
-                                      where r.CurriculumID == registeredStudent.CurriculumID && r.YearLevel == cmbYearLevel.Text
-                                      select r).ToList();
-
-            cmbSection.Items.Clear();
-            foreach (var item in sections)
-            {
-                cmbSection.Items.Add(item.SectionName);
-            }
-        }
-        private void LoadSectionSchedule()
-        {
-            //get the section id first
-            int SectionID = (from r in Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester())
-                             where r.CurriculumID == registeredStudent.CurriculumID && r.YearLevel == cmbYearLevel.Text && r.SectionName == cmbSection.Text
-                             select r.SectionID).FirstOrDefault();
-
-            List<Schedule> schedules = Schedule.GetSchedules(SectionID);
-
-            foreach (DataGridViewRow item in dgSubjects.Rows)
-            {
-                Schedule schedule = schedules.Where(r => r.SubjectPriceID == (int)item.Cells["clmSubjPriceID"].Value).FirstOrDefault();
-                item.Cells["clmScheduleID"].Value = schedule.ScheduleID;
-                item.Cells["clmSchedule"].Value = schedule.ScheduleInfo;
-            }
-        }
-
-        private void LoadFees()
+        private void LoadFees() // this function will trigger upon initialization
         {
             dgSubjects.Rows.Clear();
             dgFees.Rows.Clear();
 
-            int yearLevelID = GetStudentYearLevelID();            
+            int yearLevelID = studentYearLevel.YearLevelID;
             //Store Tuition Fee
             List<SubjectSetted> subjects = SubjectSetted.GetSubjectSetteds(registeredStudent.CurriculumID, yearLevelID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
             //Store Miscellaneous and Other Fees
@@ -110,7 +60,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             foreach (var item in mfee_list)
             {
                 if (item.YearLeveLID == yearLevelID)
-                    dgFees.Rows.Add(0,item.FeeID, item.FeeDesc,item.FeeType, item.Amount.ToString("n"));
+                    dgFees.Rows.Add(0, item.FeeID, item.FeeDesc, item.FeeType, item.Amount.ToString("n"));
             }
 
             //Display Other Fees
@@ -118,22 +68,63 @@ namespace COLM_SYSTEM.Assessment_Folder
             foreach (var item in ofee_list)
             {
                 if (item.YearLeveLID == yearLevelID)
-                    dgFees.Rows.Add(0,item.FeeID, item.FeeDesc, item.FeeType, item.Amount.ToString("n"));
+                    dgFees.Rows.Add(0, item.FeeID, item.FeeDesc, item.FeeType, item.Amount.ToString("n"));
             }
         }
-
-        private void TagAdditionalFees()
+        private void TagAdditionalFees() // this function will trigger upon initialization
         {
+            //this method will tag additional fees of specific subject
             foreach (DataGridViewRow item in dgSubjects.Rows)
             {
                 List<SubjectSettedAddtionalFee> additionalfees = SubjectSettedAddtionalFee.GetSubjectSettedAddtionalFees((int)item.Cells["clmCurriculumSubjectID"].Value, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
                 item.Tag = additionalfees;
             }
         }
-
-        private void LoadDiscounts()
+        private void LoadAssessmentTypes() // this function will trigger upon initialization
         {
-            int yearLevelID = GetStudentYearLevelID();
+            //get assessment type list according to education level, school year and semester and tag it into cmbassessment type
+            List<AssessmentType> assessmentTypes = (from r in AssessmentType.GetAssessmentTypes()
+                                                    where r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester() && r.EducationLevel.ToLower() == txtEducationLevel.Text.ToLower()
+                                                    select r).ToList();
+
+            cmbAssessmentType.Items.Clear();
+            cmbAssessmentType.Tag = assessmentTypes;
+            foreach (var item in assessmentTypes)
+            {
+                cmbAssessmentType.Items.Add(item.AssessmentCode);
+            }
+        }
+        private void LoadSections() // this function will trigger upon initialization
+        {
+            List<Section> sections = (from r in Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester())
+                                      where r.CurriculumID == registeredStudent.CurriculumID && r.YearLevel == txtYearLevel.Text
+                                      select r).ToList();
+
+            cmbSection.Items.Clear();
+            foreach (var item in sections)
+            {
+                cmbSection.Items.Add(item.SectionName);
+            }
+        }
+        private void LoadSectionSchedule() //this function will trigger if the cmbsection change
+        {
+            //get the section id first
+            int SectionID = (from r in Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester())
+                             where r.CurriculumID == registeredStudent.CurriculumID && r.YearLevel == txtYearLevel.Text && r.SectionName == cmbSection.Text
+                             select r.SectionID).FirstOrDefault();
+
+            List<Schedule> schedules = Schedule.GetSchedules(SectionID);
+
+            foreach (DataGridViewRow item in dgSubjects.Rows)
+            {
+                Schedule schedule = schedules.Where(r => r.SubjectPriceID == (int)item.Cells["clmSubjPriceID"].Value).FirstOrDefault();
+                item.Cells["clmScheduleID"].Value = schedule.ScheduleID;
+                item.Cells["clmSchedule"].Value = schedule.ScheduleInfo;
+            }
+        }
+        private void LoadDiscounts() // this function will trigger upon initialization
+        {
+            int yearLevelID = studentYearLevel.YearLevelID;
             //get the list of discounts according to yearlevel, school year and semester
             List<Discount> discounts = Discount.GetDiscounts().Where(item => item.YearLeveLID == yearLevelID && item.SchoolYearID == Utilties.GetActiveSchoolYear() && item.SemesterID == Utilties.GetActiveSemester()).ToList();
             cmbDiscount.Tag = discounts;
@@ -144,8 +135,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
         }
 
-        //this method will tag additional fees of specific subject        
-        private void CalculateFees()
+        private void CalculateFeeSummary() // all summary calculations will do here.
         {
             double totalTFee = 0;
             double totalMFee = 0;
@@ -165,7 +155,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                     fees.Add(fee);
                 }
             }
-            
+
             var AdditionalMFee = fees.Where(item => item.FeeType.ToLower() == "miscellaneous").Sum(item => item.Amount);
             var AdditionalOFee = fees.Where(item => item.FeeType.ToLower() == "other").Sum(item => item.Amount);
 
@@ -186,7 +176,7 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             //Add additional fees;
             dgFees.Rows.Add(0, 0, "Add'l Miscellaneous", "Miscellaneous", AdditionalMFee.ToString("n"));
-            dgFees.Rows.Add(0, 0, "Add'l Other","Other", AdditionalOFee.ToString("n"));
+            dgFees.Rows.Add(0, 0, "Add'l Other", "Other", AdditionalOFee.ToString("n"));
 
             //loop on each fee to get the total of both fee types
             foreach (DataGridViewRow item in dgFees.Rows)
@@ -221,9 +211,14 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             txtTotalDue.Text = totalAmountDue.ToString("n");
 
+            //breakdown computation
+            CalculateFeeBreakdown();
+
         }
-        private void CalculateDiscounts()
+
+        private object CalculateDiscounts() //this function will only be called in calculatefeesummary() function
         {
+            // all discount calculations will do here..
             double TFee = Convert.ToDouble(txtTotalTFee.Text);
             double MFee = Convert.ToDouble(txtTotalMFee.Text);
             double OFee = Convert.ToDouble(txtTotalOFee.Text);
@@ -265,6 +260,37 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
 
             txtTotalDiscount.Text = totalDiscount.ToString("n");
+
+            return new { tfee = TFee, mfee = MFee, ofee = OFee };
+        }
+
+        private void CalculateFeeBreakdown()
+        {
+            if (cmbAssessmentType.Text != string.Empty)
+            {
+                //First we need to know what is the assessment type selected
+                List<AssessmentType> assessmentTypes = cmbAssessmentType.Tag as List<AssessmentType>;
+                AssessmentType assessmentType = assessmentTypes[cmbAssessmentType.SelectedIndex];
+
+                //Get the calculated discounts
+                dynamic calculatedDiscounts = CalculateDiscounts();
+                double TFee = calculatedDiscounts.tfee;
+                double MFee = calculatedDiscounts.mfee;
+                double OFee = calculatedDiscounts.ofee;
+
+                //Get AssessmentTypeItems
+                List<AssessmentTypeItem> TypeItems = AssessmentType.GetAssessmentTypeItems(assessmentType.AssessmentTypeID);
+
+                //calculate and display breakdown computation
+                dgBreakdown.Rows.Clear();
+                foreach (var item in TypeItems)
+                {
+                    double breakdownAmount = (((item.TFee / 100) * TFee) + ((item.MFee / 100) * MFee) + ((item.OFee / 100) * OFee) + item.Surcharge);
+                    dgBreakdown.Rows.Add(0,item.ItemCode,breakdownAmount,item.DueDate);
+                }
+            }
+
+
         }
 
         private void btnAddDiscount_Click(object sender, System.EventArgs e)
@@ -273,7 +299,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 List<Discount> discounts = cmbDiscount.Tag as List<Discount>;
                 Discount discount = discounts[cmbDiscount.SelectedIndex];
-                AddedDiscounts.Add(discount);      
+                AddedDiscounts.Add(discount);
                 if (discount.Type.ToLower() == "percentage")
                 {
                     dgDiscounts.Rows.Add(discount.DiscountID, discount.DiscountCode, discount.Type, discount.TFee, discount.MFee, discount.OFee);
@@ -283,7 +309,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                     dgDiscounts.Rows.Add(discount.DiscountID, discount.DiscountCode, discount.Type, discount.TFee.ToString("n"), discount.MFee.ToString("n"), discount.OFee.ToString("n"));
                 }
             }
-            CalculateFees();
+            CalculateFeeSummary();
         }
 
         private void cmbAssessmentType_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -294,15 +320,8 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             double surcharge = items.Sum(r => r.Surcharge);
             txtSurcharge.Text = surcharge.ToString("n");
-        }
 
-        private void cmbYearLevel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadSections();
-            LoadFees();
-            TagAdditionalFees();
-            LoadDiscounts();
-            CalculateFees();
+            CalculateFeeSummary();
         }
 
         private void dgSubjects_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -333,10 +352,10 @@ namespace COLM_SYSTEM.Assessment_Folder
             else if (e.ColumnIndex == clmSubjectRemove.Index)
             {
                 //other code here..
-                if (MessageBox.Show("Are you sure you want to remove this subject?","",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to remove this subject?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     dgSubjects.Rows.Remove(dgSubjects.Rows[e.RowIndex]);
-                    CalculateFees();
+                    CalculateFeeSummary();
                 }
             }
         }
@@ -344,7 +363,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void button4_Click(object sender, EventArgs e)
         {
             //code here..
-            CalculateFees();
+            CalculateFeeSummary();
         }
 
         private void dgFees_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -352,13 +371,142 @@ namespace COLM_SYSTEM.Assessment_Folder
             if (e.ColumnIndex == clmFeeRemove.Index)
             {
                 //code here..
-                CalculateFees();
+                CalculateFeeSummary();
             }
         }
 
         private void cmbSection_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadSectionSchedule();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to cancel this assessment entry?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+                Dispose();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //get assessment type id
+            List<AssessmentType> assessmentTypes = cmbAssessmentType.Tag as List<AssessmentType>;
+            AssessmentType assessmentType = assessmentTypes[cmbAssessmentType.SelectedIndex];
+
+            //calculate total amount
+            double TFee = Convert.ToDouble(txtTotalTFee.Text);
+            double MFee = Convert.ToDouble(txtTotalMFee.Text);
+            double OFee = Convert.ToDouble(txtTotalOFee.Text);
+            double Surcharge = Convert.ToDouble(txtSurcharge.Text);
+            double TotalAmount = TFee + MFee + OFee + Surcharge;
+
+            //put data into summary
+            AssessmentSummary assessmentSummary = new AssessmentSummary()
+            {
+                AssessmentTypeID = assessmentType.AssessmentTypeID,
+                RegisteredStudentID = registeredStudent.RegisteredID,
+                YearLevelID = studentYearLevel.YearLevelID,
+                TotalAmount = TotalAmount,
+                DiscountAmount = Convert.ToDouble(txtTotalDiscount.Text),
+                TotalDue = TotalAmount - Convert.ToDouble(txtTotalDiscount.Text),
+                SchoolYearID = Utilties.GetActiveSchoolYear(),
+                SemesterID = Utilties.GetActiveSemester(),
+            };
+
+            //put data into subjects
+            List<AssessmentSubject> assessmentSubjects = new List<AssessmentSubject>();
+            foreach (DataGridViewRow item in dgSubjects.Rows)
+            {
+                AssessmentSubject subject = new AssessmentSubject()
+                {
+                    SubjectPriceID = Convert.ToInt16(item.Cells["clmSubjPriceID"].Value),
+                    SubjectFee = Convert.ToDouble(item.Cells["clmSubjectPrice"].Value),
+                    ScheduleID = Convert.ToInt16(item.Cells["clmScheduleID"].Value)
+                };
+                assessmentSubjects.Add(subject);
+            }
+
+            //put data into additional subject fees           
+            List<SubjectSettedAddtionalFee> subjectSettedAdditionalFees = new List<SubjectSettedAddtionalFee>();
+            foreach (DataGridViewRow item in dgSubjects.Rows)
+            {
+                //Each subject will have a list of additional fee
+                //loop on it then store it into fees
+                foreach (SubjectSettedAddtionalFee fee in (List<SubjectSettedAddtionalFee>)item.Tag)
+                {
+                    subjectSettedAdditionalFees.Add(fee);
+                }
+            }
+
+            List<AssessmentAdditionalFee> assessmentAdditionalFees = new List<AssessmentAdditionalFee>();
+            foreach (var item in subjectSettedAdditionalFees)
+            {
+                AssessmentAdditionalFee additionalFee = new AssessmentAdditionalFee()
+                {
+                    AdditionalFeeID = item.AdditionalFeeID,
+                    FeeDscription = item.FeeDescription,
+                    FeeAmount = item.Amount
+                };
+                assessmentAdditionalFees.Add(additionalFee);
+            }
+
+            //put data into fees
+            List<AssessmentFee> assessmentfees = new List<AssessmentFee>();
+            foreach (DataGridViewRow item in dgFees.Rows)
+            {
+                AssessmentFee fee = new AssessmentFee()
+                {
+                    FeeID = Convert.ToInt16(item.Cells["clmFeeID"].Value),
+                    FeeDescription = Convert.ToString(item.Cells["clmFee"].Value),
+                    FeeType = Convert.ToString(item.Cells["clmFeeType"].Value),
+                    FeeAmount = Convert.ToDouble(item.Cells["clmFeeAmount"].Value)                   
+                };
+                assessmentfees.Add(fee);
+            }
+
+            //put data into discounts
+            List<AssessmentDiscount> assessmentDiscounts = new List<AssessmentDiscount>();
+            foreach (var item in AddedDiscounts)
+            {
+                AssessmentDiscount discount = new AssessmentDiscount()
+                {
+                    DiscountID = item.DiscountID,
+                    DiscountType = item.Type,
+                    TFee = item.TFee,
+                    MFee = item.MFee,
+                    OFee = item.OFee
+                };
+                assessmentDiscounts.Add(discount);
+            }
+
+            //put data into breakdown
+            List<AssessmentBreakdown> assessmentBreakDowns = new List<AssessmentBreakdown>();
+            foreach (DataGridViewRow item in dgBreakdown.Rows)
+            {
+                AssessmentBreakdown breakdown = new AssessmentBreakdown()
+                {
+                    ItemCode = Convert.ToString(item.Cells["clmBreakDownCode"].Value),
+                    Amount = Convert.ToDouble(item.Cells["clmBreakDownAmount"].Value),
+                    DueDate = Convert.ToString(item.Cells["clmBreakDownDueDate"].Value)
+                };
+                assessmentBreakDowns.Add(breakdown);
+            }
+
+            //put all data into assessment entry
+
+            AssessmentEntry entry = new AssessmentEntry()
+            {
+                Summary = assessmentSummary,
+                Subjects = assessmentSubjects,
+                AdditionalFees = assessmentAdditionalFees,
+                Fees = assessmentfees,
+                Discounts = assessmentDiscounts,
+                Breakdown = assessmentBreakDowns
+            };
+
+            int result = AssessmentEntry.InsertAssessment(entry);
         }
     }
 }

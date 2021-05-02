@@ -1,12 +1,7 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM.Faculty_Folder;
+using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Section_Folder
@@ -58,7 +53,8 @@ namespace COLM_SYSTEM.Section_Folder
         {
             foreach (var item in Schedules)
             {
-                dataGridView1.Rows.Add(item.ScheduleID, item.SubjectPriceID, item.SubjCode, item.SubjDesc, item.SubjUnit,item.Day,item.TimeIn,item.TimeOut,item.Room,item.FacultyID);
+                dataGridView1.Rows.Add(item.ScheduleID, item.SubjectPriceID, item.SubjCode, item.SubjDesc, item.SubjUnit, item.Day, item.TimeIn, item.TimeOut, item.Room, item.FacultyName);
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["clmFaculty"].Tag = item.FacultyID;
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
             }
         }
@@ -68,16 +64,16 @@ namespace COLM_SYSTEM.Section_Folder
             List<Schedule> schedule_to_save = new List<Schedule>();
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
-                SubjectSetted subjectsched = (SubjectSetted)item.Tag;
+                Schedule subjectsched = (Schedule)item.Tag;
                 Schedule schedule = new Schedule()
                 {
                     ScheduleID = Convert.ToInt16(item.Cells["clmScheduleID"].Value),
                     SectionID = _section.SectionID,
-                    SubjectPriceID = subjectsched.SubjPriceID,
+                    SubjectPriceID = subjectsched.SubjectPriceID,
                     Day = item.Cells["clmDay"].Value.ToString(),
                     TimeIn = item.Cells["clmTimeIn"].Value.ToString(),
                     TimeOut = item.Cells["clmTimeOut"].Value.ToString(),
-                    FacultyID = Faculty.GetFaculty(item.Cells["clmFaculty"].Value.ToString()).FacultyID,
+                    FacultyID = Convert.ToInt16(item.Cells["clmFaculty"].Tag),
                     Room = item.Cells["clmRoom"].Value.ToString()
                 };
                 schedule_to_save.Add(schedule);
@@ -108,6 +104,24 @@ namespace COLM_SYSTEM.Section_Folder
         private void timer1_Tick(object sender, EventArgs e)
         {
             txtCount.Text = dataGridView1.Rows.Count.ToString();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == clmPick.Index)
+            {
+                Faculty faculty = new Faculty();
+                using (frm_faculty_browser frm = new frm_faculty_browser())
+                {
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        faculty = frm.faculty;
+                        dataGridView1.Rows[e.RowIndex].Cells["clmFaculty"].Value = faculty.Fullname;
+                        dataGridView1.Rows[e.RowIndex].Cells["clmFaculty"].Tag = faculty.FacultyID;
+                    }
+                }
+            }
         }
     }
 }

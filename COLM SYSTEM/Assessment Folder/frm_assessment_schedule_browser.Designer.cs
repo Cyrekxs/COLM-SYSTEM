@@ -30,11 +30,11 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clmScheduleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTimeIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTimeOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFaculty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPick = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -47,17 +47,19 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmScheduleID,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
+            this.clmDay,
+            this.clmTimeIn,
+            this.clmTimeOut,
+            this.clmRoom,
+            this.clmFaculty,
             this.clmPick});
             this.dataGridView1.Location = new System.Drawing.Point(16, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(768, 414);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // clmScheduleID
             // 
@@ -66,45 +68,45 @@
             this.clmScheduleID.ReadOnly = true;
             this.clmScheduleID.Visible = false;
             // 
-            // Column1
+            // clmDay
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "DAY";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 56;
+            this.clmDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmDay.HeaderText = "DAY";
+            this.clmDay.Name = "clmDay";
+            this.clmDay.ReadOnly = true;
+            this.clmDay.Width = 56;
             // 
-            // Column2
+            // clmTimeIn
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column2.HeaderText = "TIME IN";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 79;
+            this.clmTimeIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmTimeIn.HeaderText = "TIME IN";
+            this.clmTimeIn.Name = "clmTimeIn";
+            this.clmTimeIn.ReadOnly = true;
+            this.clmTimeIn.Width = 79;
             // 
-            // Column3
+            // clmTimeOut
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column3.HeaderText = "TIME OUT";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 92;
+            this.clmTimeOut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmTimeOut.HeaderText = "TIME OUT";
+            this.clmTimeOut.Name = "clmTimeOut";
+            this.clmTimeOut.ReadOnly = true;
+            this.clmTimeOut.Width = 92;
             // 
-            // Column4
+            // clmRoom
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column4.HeaderText = "ROOM";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 73;
+            this.clmRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmRoom.HeaderText = "ROOM";
+            this.clmRoom.Name = "clmRoom";
+            this.clmRoom.ReadOnly = true;
+            this.clmRoom.Width = 73;
             // 
-            // Column5
+            // clmFaculty
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column5.HeaderText = "FACULTY";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 82;
+            this.clmFaculty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmFaculty.HeaderText = "FACULTY";
+            this.clmFaculty.Name = "clmFaculty";
+            this.clmFaculty.ReadOnly = true;
+            this.clmFaculty.Width = 82;
             // 
             // clmPick
             // 
@@ -140,11 +142,11 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmScheduleID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeOut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmRoom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmFaculty;
         private System.Windows.Forms.DataGridViewLinkColumn clmPick;
     }
 }

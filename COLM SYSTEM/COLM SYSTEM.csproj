@@ -53,17 +53,23 @@
     <Compile Include="Assessment Folder\frm_assessment_additional_fee_viewer.Designer.cs">
       <DependentUpon>frm_assessment_additional_fee_viewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Assessment Folder\frm_assessment_entry.cs">
+    <Compile Include="Assessment Folder\frm_assessment_entry_2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Assessment Folder\frm_assessment_entry.Designer.cs">
-      <DependentUpon>frm_assessment_entry.cs</DependentUpon>
+    <Compile Include="Assessment Folder\frm_assessment_entry_2.Designer.cs">
+      <DependentUpon>frm_assessment_entry_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Assessment Folder\frm_assessment_browser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Assessment Folder\frm_assessment_browser.Designer.cs">
       <DependentUpon>frm_assessment_browser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_entry_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_entry_1.Designer.cs">
+      <DependentUpon>frm_assessment_entry_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Assessment Folder\frm_assessment_list.cs">
       <SubType>Form</SubType>
@@ -269,11 +275,14 @@
     <EmbeddedResource Include="Assessment Folder\frm_assessment_additional_fee_viewer.resx">
       <DependentUpon>frm_assessment_additional_fee_viewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assessment Folder\frm_assessment_entry.resx">
-      <DependentUpon>frm_assessment_entry.cs</DependentUpon>
+    <EmbeddedResource Include="Assessment Folder\frm_assessment_entry_2.resx">
+      <DependentUpon>frm_assessment_entry_2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Assessment Folder\frm_assessment_browser.resx">
       <DependentUpon>frm_assessment_browser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assessment Folder\frm_assessment_entry_1.resx">
+      <DependentUpon>frm_assessment_entry_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Assessment Folder\frm_assessment_list.resx">
       <DependentUpon>frm_assessment_list.cs</DependentUpon>

@@ -18,6 +18,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public double MFee { get; set; }
         public double OFee { get; set; }
         public int SchoolYearID { get; set; }
+        public int SemesterID { get; set; }
         public DateTime DateCreated { get; set; }
 
         public static List<Discount> GetDiscounts()

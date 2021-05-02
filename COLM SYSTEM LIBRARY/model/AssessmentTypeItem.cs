@@ -14,6 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public double TFee { get; set; }
         public double MFee { get; set; }
         public double OFee { get; set; }
+        public double Surcharge { get; set; }
         public string DueDate { get; set; }
 
     }

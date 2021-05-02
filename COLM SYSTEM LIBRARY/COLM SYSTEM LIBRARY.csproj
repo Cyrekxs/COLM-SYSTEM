@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="datasource\Address_DS.cs" />
     <Compile Include="datasource\AssessmentType_DS.cs" />
+    <Compile Include="datasource\Assessment_DS.cs" />
     <Compile Include="datasource\Curriculum_DS.cs" />
     <Compile Include="datasource\Discount_DS.cs" />
     <Compile Include="datasource\Faculty_DS.cs" />
@@ -64,6 +65,13 @@
     <Compile Include="model\Address.cs" />
     <Compile Include="model\AssessmentType.cs" />
     <Compile Include="model\AssessmentTypeItem.cs" />
+    <Compile Include="model\Assessment\AssessmentAdditionalFee.cs" />
+    <Compile Include="model\Assessment\AssessmentBreakdown.cs" />
+    <Compile Include="model\Assessment\AssessmentDiscount.cs" />
+    <Compile Include="model\Assessment\AssessmentEntry.cs" />
+    <Compile Include="model\Assessment\AssessmentFee.cs" />
+    <Compile Include="model\Assessment\AssessmentSubject.cs" />
+    <Compile Include="model\Assessment\AssessmentSummary.cs" />
     <Compile Include="model\Curriculum.cs" />
     <Compile Include="model\CurriculumCourseStrandYearLevel.cs" />
     <Compile Include="model\CurriculumSubject.cs" />

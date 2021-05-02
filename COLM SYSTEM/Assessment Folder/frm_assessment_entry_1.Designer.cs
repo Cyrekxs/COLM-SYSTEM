@@ -44,6 +44,8 @@
             this.txtEducationLevel = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -57,12 +59,14 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(1);
-            this.panel7.Size = new System.Drawing.Size(342, 436);
+            this.panel7.Size = new System.Drawing.Size(342, 426);
             this.panel7.TabIndex = 12;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.Controls.Add(this.button3);
+            this.panel9.Controls.Add(this.button1);
             this.panel9.Controls.Add(this.label22);
             this.panel9.Controls.Add(this.cmbYearLevel);
             this.panel9.Controls.Add(this.txtCurriculumCode);
@@ -79,7 +83,7 @@
             this.panel9.Location = new System.Drawing.Point(1, 45);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(340, 390);
+            this.panel9.Size = new System.Drawing.Size(340, 380);
             this.panel9.TabIndex = 4;
             // 
             // label22
@@ -110,7 +114,6 @@
             this.txtCurriculumCode.Name = "txtCurriculumCode";
             this.txtCurriculumCode.Size = new System.Drawing.Size(313, 25);
             this.txtCurriculumCode.TabIndex = 11;
-            this.txtCurriculumCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label21
             // 
@@ -129,7 +132,6 @@
             this.txtCourseStrand.Name = "txtCourseStrand";
             this.txtCourseStrand.Size = new System.Drawing.Size(312, 25);
             this.txtCourseStrand.TabIndex = 9;
-            this.txtCourseStrand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -149,7 +151,6 @@
             this.txtStudentName.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtStudentName.Size = new System.Drawing.Size(312, 25);
             this.txtStudentName.TabIndex = 2;
-            this.txtStudentName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -168,7 +169,6 @@
             this.txtLRN.Name = "txtLRN";
             this.txtLRN.Size = new System.Drawing.Size(312, 25);
             this.txtLRN.TabIndex = 0;
-            this.txtLRN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -182,6 +182,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(11, 258);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 17);
@@ -196,7 +197,6 @@
             this.txtEducationLevel.Name = "txtEducationLevel";
             this.txtEducationLevel.Size = new System.Drawing.Size(312, 25);
             this.txtEducationLevel.TabIndex = 3;
-            this.txtEducationLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel8
             // 
@@ -220,11 +220,40 @@
             this.label19.TabIndex = 3;
             this.label19.Text = "ASSESSMENT INFORMATION ENTRY | STEP 1";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(209, 334);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 30);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "PROCEED STEP 2";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button3.Location = new System.Drawing.Point(86, 334);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(117, 30);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "CANCEL";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // frm_assessment_entry_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 471);
+            this.ClientSize = new System.Drawing.Size(372, 453);
             this.Controls.Add(this.panel7);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -259,5 +288,7 @@
         private System.Windows.Forms.TextBox txtEducationLevel;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
     }
 }

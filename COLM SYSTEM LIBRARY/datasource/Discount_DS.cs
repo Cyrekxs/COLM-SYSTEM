@@ -33,6 +33,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 MFee = Convert.ToDouble(reader["MFee"]),
                                 OFee = Convert.ToDouble(reader["OFee"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                SemesterID = Convert.ToInt32(reader["SemesterID"]),
                                 DateCreated = Convert.ToDateTime(reader["DateCreated"])
                             };
                             discounts.Add(discount);
@@ -67,6 +68,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 MFee = Convert.ToDouble(reader["MFee"]),
                                 OFee = Convert.ToDouble(reader["OFee"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                SemesterID = Convert.ToInt32(reader["SemesterID"]),
                                 DateCreated = Convert.ToDateTime(reader["DateCreated"])
                             };
                         }
@@ -81,7 +83,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("EXECUTE dbo.sp_set_discount @DiscountID,@YearLevelID,@DiscountCode,@Type,@Value,@TFee,@MFee,@OFee,@SchoolYearID", conn))
+                using (SqlCommand comm = new SqlCommand("EXECUTE dbo.sp_set_discount @DiscountID,@YearLevelID,@DiscountCode,@Type,@Value,@TFee,@MFee,@OFee,@SchoolYearID,@SemesterID", conn))
                 {
                     comm.Parameters.AddWithValue("@DiscountID", model.DiscountID);
                     comm.Parameters.AddWithValue("@YearLevelID", model.YearLeveLID);
@@ -92,6 +94,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@MFee", model.MFee);
                     comm.Parameters.AddWithValue("@OFee", model.OFee);
                     comm.Parameters.AddWithValue("@SchoolYearID", model.SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", model.SemesterID);
                     if (comm.ExecuteNonQuery() > 0)
                         return true;
                     else

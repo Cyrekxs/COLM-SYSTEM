@@ -33,11 +33,11 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             int RegisteredID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmRegisteredID"].Value);
             StudentRegistered registeredStudent = StudentRegistered.GetRegisteredStudent(RegisteredID);
-            frm_assessment_entry frm = new frm_assessment_entry(registeredStudent);
+            frm_assessment_entry_1 frm = new frm_assessment_entry_1(registeredStudent);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             Close();
-            Dispose();           
+            Dispose();
         }
     }
 }

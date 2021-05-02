@@ -14,6 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string EducationLevel { get; set; }
         public double Surcharge { get; set; }
         public int SchoolYearID { get; set; }
+        public int SemesterID { get; set; }
 
         public static List<AssessmentType> GetAssessmentTypes()
         {

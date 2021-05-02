@@ -60,6 +60,7 @@
             this.clmTimeOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFaculty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPick = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,11 +80,13 @@
             this.clmTimeIn,
             this.clmTimeOut,
             this.clmRoom,
-            this.clmFaculty});
+            this.clmFaculty,
+            this.clmPick});
             this.dataGridView1.Location = new System.Drawing.Point(15, 106);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(799, 269);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
@@ -227,10 +230,11 @@
             // 
             // clmSubjCode
             // 
-            this.clmSubjCode.HeaderText = "SUBJECT CODE";
+            this.clmSubjCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmSubjCode.HeaderText = "SUBJECT";
             this.clmSubjCode.Name = "clmSubjCode";
             this.clmSubjCode.ReadOnly = true;
-            this.clmSubjCode.Width = 130;
+            this.clmSubjCode.Width = 83;
             // 
             // clmSubjDesc
             // 
@@ -241,7 +245,7 @@
             // 
             // clmSubjUnit
             // 
-            this.clmSubjUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmSubjUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.clmSubjUnit.DefaultCellStyle = dataGridViewCellStyle1;
             this.clmSubjUnit.HeaderText = "UNIT";
@@ -278,10 +282,12 @@
             // 
             // clmRoom
             // 
+            this.clmRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.clmRoom.DefaultCellStyle = dataGridViewCellStyle5;
             this.clmRoom.HeaderText = "ROOM";
             this.clmRoom.Name = "clmRoom";
+            this.clmRoom.Width = 73;
             // 
             // clmFaculty
             // 
@@ -291,6 +297,20 @@
             this.clmFaculty.HeaderText = "FACULTY";
             this.clmFaculty.Name = "clmFaculty";
             this.clmFaculty.Width = 82;
+            // 
+            // clmPick
+            // 
+            this.clmPick.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.clmPick.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmPick.HeaderText = "PICK";
+            this.clmPick.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.clmPick.Name = "clmPick";
+            this.clmPick.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmPick.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmPick.Text = "PICK";
+            this.clmPick.UseColumnTextForLinkValue = true;
+            this.clmPick.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.clmPick.Width = 59;
             // 
             // frm_section_schedule_entry
             // 
@@ -351,5 +371,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeOut;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRoom;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFaculty;
+        private System.Windows.Forms.DataGridViewLinkColumn clmPick;
     }
 }
