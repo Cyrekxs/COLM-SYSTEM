@@ -1,0 +1,1 @@
+﻿#FFCC00 forecolor for gold
