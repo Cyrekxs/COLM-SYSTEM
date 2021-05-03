@@ -35,9 +35,14 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Schedule_DS.GetSchedules(SectionID);
         }
 
-        public static List<Schedule> GetSchedulesBySubject(int SubjectPriceID)
+        public static List<Schedule> GetScheduleBySubjectPriceID(int SubjectPriceID)
         {
-            return Schedule_DS.GetSchedulesBySubject(SubjectPriceID);
+            return Schedule_DS.GetSchedulesBySubjectPriceID(SubjectPriceID);
+        }
+
+        public static Schedule GetScheduleByScheduleID(int ScheduleID)
+        {
+            return Schedule_DS.GetSchedulesByScheduleID(ScheduleID);
         }
 
         public static bool IsSectionScheduleExists(int SectionID)

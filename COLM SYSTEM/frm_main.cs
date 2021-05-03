@@ -105,9 +105,7 @@ namespace COLM_SYSTEM
 
         private void aSSESSMENTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_assessment_list frm = new frm_assessment_list();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
+            DisplayControl(new uc_assessment_list());
         }
     }
 }

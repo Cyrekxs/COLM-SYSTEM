@@ -33,6 +33,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.clmAssessmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmRegisteredStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmLRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,8 +43,9 @@
             this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTotalDue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssessmentType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAssessBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAssessor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssessmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPrint = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,13 +65,16 @@
             this.clmYearLevel,
             this.clmTotalDue,
             this.clmAssessmentType,
-            this.clmAssessBy,
-            this.clmAssessmentDate});
+            this.clmAssessor,
+            this.clmAssessmentDate,
+            this.clmPrint});
             this.dataGridView1.Location = new System.Drawing.Point(21, 83);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(953, 397);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
@@ -110,6 +115,21 @@
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(145, 25);
             this.cmbEducationLevel.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(795, 486);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(179, 30);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "NEW ASSESSMENT ENTRY";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // clmAssessmentID
             // 
@@ -180,13 +200,13 @@
             this.clmAssessmentType.ReadOnly = true;
             this.clmAssessmentType.Width = 101;
             // 
-            // clmAssessBy
+            // clmAssessor
             // 
-            this.clmAssessBy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmAssessBy.HeaderText = "Assessor";
-            this.clmAssessBy.Name = "clmAssessBy";
-            this.clmAssessBy.ReadOnly = true;
-            this.clmAssessBy.Width = 85;
+            this.clmAssessor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmAssessor.HeaderText = "Assessor";
+            this.clmAssessor.Name = "clmAssessor";
+            this.clmAssessor.ReadOnly = true;
+            this.clmAssessor.Width = 85;
             // 
             // clmAssessmentDate
             // 
@@ -196,10 +216,21 @@
             this.clmAssessmentDate.ReadOnly = true;
             this.clmAssessmentDate.Width = 60;
             // 
+            // clmPrint
+            // 
+            this.clmPrint.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmPrint.HeaderText = "Report";
+            this.clmPrint.Name = "clmPrint";
+            this.clmPrint.ReadOnly = true;
+            this.clmPrint.Text = "Print";
+            this.clmPrint.UseColumnTextForButtonValue = true;
+            this.clmPrint.Width = 54;
+            // 
             // uc_assessment_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbEducationLevel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
@@ -208,7 +239,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "uc_assessment_list";
-            this.Size = new System.Drawing.Size(992, 528);
+            this.Size = new System.Drawing.Size(997, 562);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -222,6 +253,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbEducationLevel;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRegisteredStudentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmLRN;
@@ -231,7 +263,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTotalDue;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessor;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentDate;
+        private System.Windows.Forms.DataGridViewButtonColumn clmPrint;
     }
 }

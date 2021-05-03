@@ -36,14 +36,14 @@
             this.reportViewer1.Location = new System.Drawing.Point(12, 12);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1235, 721);
+            this.reportViewer1.Size = new System.Drawing.Size(964, 721);
             this.reportViewer1.TabIndex = 0;
             // 
             // frm_print_preview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1259, 745);
+            this.ClientSize = new System.Drawing.Size(984, 745);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frm_print_preview";
             this.Text = "frm_print_preview";
@@ -54,6 +54,6 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        public Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

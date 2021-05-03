@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace COLM_SYSTEM_LIBRARY.model.Assessment
+namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
 {
-    public class AssessmentEntry
+    public class Assessment
     {
         public AssessmentSummary Summary { get; set; }
         public List<AssessmentSubject> Subjects { get; set; }
@@ -16,10 +16,20 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment
         public List<AssessmentDiscount> Discounts { get; set; }
         public List<AssessmentBreakdown> Breakdown { get; set; }
 
+        public static List<AssessmentList> GetAssessments()
+        {
+            return Assessment_DS.GetAssessmentLists();
+        }
 
-        public static int InsertAssessment(AssessmentEntry entry)
+        public static Assessment GetAssessment(int AssessmentID)
+        {
+            return Assessment_DS.GetAssessment(AssessmentID);
+        }
+
+        public static int InsertAssessment(Assessment entry)
         {
             return Assessment_DS.InsertAssessment(entry.Summary, entry.Subjects, entry.AdditionalFees, entry.Fees, entry.Discounts, entry.Breakdown);
         }
+
     }
 }

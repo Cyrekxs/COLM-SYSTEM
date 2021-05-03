@@ -19,7 +19,7 @@ namespace COLM_SYSTEM
 
         private void frm_print_preview_Load(object sender, EventArgs e)
         {
-
+            this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
         }
     }

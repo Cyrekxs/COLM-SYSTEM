@@ -12,7 +12,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         public frm_assessment_schedule_browser(int SubjectPriceID)
         {
             InitializeComponent();
-            schedules = Schedule.GetSchedulesBySubject(SubjectPriceID);
+            schedules = Schedule.GetScheduleBySubjectPriceID(SubjectPriceID);
             DisplayAvailableSchedules();
         }
 

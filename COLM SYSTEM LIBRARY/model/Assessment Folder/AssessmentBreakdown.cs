@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace COLM_SYSTEM_LIBRARY.model.Assessment
+namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
 {
     public class AssessmentBreakdown
     {

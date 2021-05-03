@@ -1,5 +1,5 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
-using COLM_SYSTEM_LIBRARY.model.Assessment;
+using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -496,7 +496,7 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             //put all data into assessment entry
 
-            AssessmentEntry entry = new AssessmentEntry()
+            Assessment entry = new Assessment()
             {
                 Summary = assessmentSummary,
                 Subjects = assessmentSubjects,
@@ -506,7 +506,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 Breakdown = assessmentBreakDowns
             };
 
-            int result = AssessmentEntry.InsertAssessment(entry);
+            int result = Assessment.InsertAssessment(entry);
         }
     }
 }

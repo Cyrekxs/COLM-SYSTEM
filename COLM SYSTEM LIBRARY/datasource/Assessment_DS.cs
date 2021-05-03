@@ -1,5 +1,5 @@
 ﻿using COLM_SYSTEM_LIBRARY.helper;
-using COLM_SYSTEM_LIBRARY.model.Assessment;
+using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -8,6 +8,40 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 {
     class Assessment_DS
     {
+
+        public static List<AssessmentList> GetAssessmentLists()
+        {
+            List<AssessmentList> assessmentLists = new List<AssessmentList>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_student_assessment()", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            AssessmentList assessment = new AssessmentList()
+                            {
+                                AssessmentID = Convert.ToInt32(reader["AssessmentID"]),
+                                RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
+                                LRN = Convert.ToString(reader["LRN"]),
+                                StudentName = Convert.ToString(reader["StudentName"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
+                                YearLevel = Convert.ToString(reader["YearLevel"]),
+                                TotalDue = Convert.ToDouble(reader["TotalDue"]),
+                                AssessmentType = Convert.ToString(reader["AssessmentType"]),
+                                AssessmentDate = Convert.ToDateTime(reader["AssessmentDate"]),
+                                Assessor = "Nonita Nabong"
+                            };
+                            assessmentLists.Add(assessment);
+                        }
+                    }
+                }
+            }
+            return assessmentLists;
+        }
         public static int InsertAssessment(AssessmentSummary summary, List<AssessmentSubject> subjects, List<AssessmentAdditionalFee> additionalFees, List<AssessmentFee> fees, List<AssessmentDiscount> discounts, List<AssessmentBreakdown> breakdown)
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
@@ -129,5 +163,158 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         }
 
+        public static Assessment GetAssessment(int AssessmentID)
+        {
+            Assessment assessment = new Assessment();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                //get assessment summary
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.summary WHERE AssessmentID = @AssessmentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            AssessmentSummary summary = new AssessmentSummary()
+                            {
+                                AssessmentID = AssessmentID,
+                                RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
+                                AssessmentTypeID = Convert.ToInt32(reader["AssessmentTypeID"]),
+                                YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
+                                TotalAmount = Convert.ToDouble(reader["TotalAmount"]),
+                                DiscountAmount = Convert.ToDouble(reader["DiscountAmount"]),
+                                TotalDue = Convert.ToDouble(reader["TotalDue"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                SemesterID = Convert.ToInt32(reader["SemesterID"])
+                            };
+                            assessment.Summary = summary;
+                        }
+                    }
+                }
+
+                //get assessment subjects
+                List<AssessmentSubject> subjects = new List<AssessmentSubject>();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.subjects WHERE AssessmentID = @AssessmentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            AssessmentSubject subject = new AssessmentSubject()
+                            {
+                                AssessmentSubjectID = Convert.ToInt32(reader["AssessmentSubjectID"]),
+                                AssessmentID = AssessmentID,
+                                SubjectPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
+                                SubjectFee = Convert.ToInt32(reader["SubjectFee"]),
+                                ScheduleID = Convert.ToInt32(reader["ScheduleID"]),
+                            };
+                            subjects.Add(subject);
+                        }
+                    }
+                }
+                assessment.Subjects = subjects;
+
+                //get assessment additional fees
+                List<AssessmentAdditionalFee> additionalFees = new List<AssessmentAdditionalFee>();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.additional_fees WHERE AssessmentID = @AssessmentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            AssessmentAdditionalFee additionalFee = new AssessmentAdditionalFee()
+                            {
+                                AssessmentAdditionalFeeID = Convert.ToInt32(reader["AssessmentAdditionalFeeID"]),
+                                AssessmentID = AssessmentID,
+                                AdditionalFeeID = Convert.ToInt32(reader["AdditionalFeeID"]),
+                                FeeDscription = Convert.ToString(reader["FeeDescription"]),
+                                FeeAmount = Convert.ToDouble(reader["FeeAmount"])
+                            };
+                            additionalFees.Add(additionalFee);
+                        }
+                    }
+                }
+                assessment.AdditionalFees = additionalFees;
+
+                //get assessment fees
+                List<AssessmentFee> fees = new List<AssessmentFee>();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.fees WHERE AssessmentID = @AssessmentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            AssessmentFee fee = new AssessmentFee()
+                            {
+                                AsssessmentFeeID = Convert.ToInt32(reader["AssessmentFeeID"]),
+                                AssessmentID = AssessmentID,
+                                FeeID = Convert.ToInt32(reader["FeeID"]),
+                                FeeDescription = Convert.ToString(reader["FeeDescription"]),
+                                FeeType = Convert.ToString(reader["FeeType"]),
+                                FeeAmount = Convert.ToDouble(reader["FeeAmount"])
+                            };
+                            fees.Add(fee);
+                        }
+                    }
+                }
+                assessment.Fees = fees;
+
+                //get assessment discounts
+                List<AssessmentDiscount> discounts = new List<AssessmentDiscount>();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.discounts WHERE AssessmentID = @AssessmentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            AssessmentDiscount discount = new AssessmentDiscount()
+                            {
+                                AssessmentDiscountID = Convert.ToInt32(reader["AssessmentDiscountID"]),
+                                AssessmentID = AssessmentID,
+                                DiscountID = Convert.ToInt32(reader["DiscountID"]),
+                                DiscountType = Convert.ToString(reader["Type"]),
+                                TFee = Convert.ToDouble(reader["TFee"]),
+                                MFee = Convert.ToDouble(reader["MFee"]),
+                                OFee = Convert.ToDouble(reader["OFee"])
+                            };
+                            discounts.Add(discount);
+                        }
+                    }
+                }
+                assessment.Discounts = discounts;
+
+                //get assessment breakdown
+                List<AssessmentBreakdown> breakdowns = new List<AssessmentBreakdown>();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.breakdown WHERE AssessmentID = @AssessmentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            AssessmentBreakdown breakdown = new AssessmentBreakdown()
+                            {
+                                AssessmentBreakdownID = Convert.ToInt32(reader["AssessmentBreakDownID"]),
+                                AssessmentID = AssessmentID,
+                                ItemCode = Convert.ToString(reader["ItemCode"]),
+                                Amount = Convert.ToDouble(reader["Amount"]),
+                                DueDate = Convert.ToString(reader["DueDate"])
+                            };
+                            breakdowns.Add(breakdown);
+                        }
+                    }
+                }
+                assessment.Breakdown = breakdowns;
+
+
+                return assessment;
+            }
+        }
     }
 }
