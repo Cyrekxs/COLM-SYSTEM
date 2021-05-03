@@ -36,13 +36,12 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int AssessmentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["clmAssessmentID"].Value);
             if (e.ColumnIndex == clmPrint.Index)
             {
-                int AssessmentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["clmAssessmentID"].Value);
 
                 ReportParameter param_LRN = new ReportParameter("LRN", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmLRN"].Value));
                 ReportParameter param_StudentName = new ReportParameter("studentname", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmStudentName"].Value));
-                ReportParameter param_Level = new ReportParameter("level", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmEducationLevel"].Value));
                 ReportParameter param_CourseStrand = new ReportParameter("coursestrand", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmCourseStrand"].Value));
                 ReportParameter param_YearLevel = new ReportParameter("yearlevel", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmYearLevel"].Value));
                 ReportParameter param_Section = new ReportParameter("section", "A");
@@ -62,7 +61,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                     Schedule schedule = Schedule.GetScheduleByScheduleID(item.ScheduleID);
 
                     dr = tbl.NewRow();
-                    dr["Subject"] = schedule.SubjDesc;
+                    dr["Subject"] = string.Concat(schedule.SubjCode, "|", schedule.SubjDesc);
                     dr["Unit"] = schedule.SubjUnit;
                     dr["Day"] = schedule.Day;
                     dr["Start"] = schedule.TimeIn;
@@ -83,24 +82,24 @@ namespace COLM_SYSTEM.Assessment_Folder
                     ds.Tables["DTPaymentSchedule"].Rows.Add(dr);
                 }
 
-
-
                 frm_print_preview frm = new frm_print_preview();
-
                 ReportDataSource dsPaymentSchedule = new ReportDataSource("dsPaymentSchedule", ds.Tables["DTPaymentSchedule"]);
                 ReportDataSource dsSubjects = new ReportDataSource("dsSubjects", ds.Tables["DTSubjects"]);
-
                 frm.reportViewer1.LocalReport.DataSources.Clear();
                 frm.reportViewer1.LocalReport.DataSources.Add(dsPaymentSchedule);
                 frm.reportViewer1.LocalReport.DataSources.Add(dsSubjects);
                 string AssemblyNameSpaces = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
                 frm.reportViewer1.LocalReport.ReportEmbeddedResource = "COLM_SYSTEM.Assessment_Folder.rpt_assessment.rdlc";
-                frm.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { param_LRN, param_StudentName, param_Level, param_CourseStrand, param_YearLevel, param_Section, param_AssessmentType, param_Assessor, param_AssessmentDate });
+                frm.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { param_LRN, param_StudentName, param_CourseStrand, param_YearLevel, param_Section, param_AssessmentType, param_Assessor, param_AssessmentDate });
                 frm.reportViewer1.RefreshReport();
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-
-
+            }
+            else if (e.ColumnIndex == clmReAssess.Index)
+            {
+                frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
             }
         }
     }

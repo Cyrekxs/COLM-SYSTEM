@@ -98,10 +98,11 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         //insert additional fees
                         foreach (var item in additionalFees)
                         {
-                            using (SqlCommand comm = new SqlCommand("EXEC sp_set_assessment_additional_fee @AssessmentID,@AdditionalFeeID,@FeeDescription,@FeeAmount", conn, t))
+                            using (SqlCommand comm = new SqlCommand("EXEC sp_set_assessment_additional_fee @AssessmentID,@AdditionalFeeID,@CurriculumSubjectID,@FeeDescription,@FeeAmount", conn, t))
                             {
                                 comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
                                 comm.Parameters.AddWithValue("@AdditionalFeeID", item.AdditionalFeeID);
+                                comm.Parameters.AddWithValue("@CurriculumSubjectID", item.CurriculumSubjectID);
                                 comm.Parameters.AddWithValue("@FeeDescription", item.FeeDscription);
                                 comm.Parameters.AddWithValue("@FeeAmount", item.FeeAmount);
                                 comm.ExecuteNonQuery();
@@ -231,6 +232,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 AssessmentAdditionalFeeID = Convert.ToInt32(reader["AssessmentAdditionalFeeID"]),
                                 AssessmentID = AssessmentID,
                                 AdditionalFeeID = Convert.ToInt32(reader["AdditionalFeeID"]),
+                                CurriculumSubjectID = Convert.ToInt16(reader["CurriculumSubjectID"]),
                                 FeeDscription = Convert.ToString(reader["FeeDescription"]),
                                 FeeAmount = Convert.ToDouble(reader["FeeAmount"])
                             };

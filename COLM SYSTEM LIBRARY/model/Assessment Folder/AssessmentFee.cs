@@ -10,6 +10,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
     {
         public int AsssessmentFeeID { get; set; }
         public int AssessmentID { get; set; }
+
         public int FeeID { get; set; }
         public string FeeDescription { get; set; }
         public string FeeType { get; set; }
