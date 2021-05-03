@@ -11,6 +11,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
         public int AssessmentID { get; set; }
         public int RegisteredStudentID { get; set; }
         public int YearLevelID { get; set; }
+        public int SectionID { get; set; }
         public int AssessmentTypeID { get; set; }
         public double TotalAmount { get; set; }
         public double DiscountAmount { get; set; }

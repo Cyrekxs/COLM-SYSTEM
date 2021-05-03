@@ -121,5 +121,40 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return subjects;
         }
 
+        //Get subject setted via subject price id
+        public static SubjectSetted GetSubjectSetted(int SubjectPriceID)
+        {
+            SubjectSetted subject = new SubjectSetted();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM [dbo].[fn_subjects_setted_breakdown]() WHERE SubjectPriceID = @SubjectPriceID", conn))
+                {
+                    comm.Parameters.AddWithValue("@SubjectPriceID", SubjectPriceID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            subject = new SubjectSetted()
+                            {
+                                SubjPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
+
+                                CurriculumSubjID = Convert.ToInt32(reader["CurriculumSubjectID"]),
+                                SubjCode = Convert.ToString(reader["SubjCode"]),
+                                SubjDesc = Convert.ToString(reader["SubjDesc"]),
+                                LecUnit = Convert.ToInt32(reader["LecUnit"]),
+                                LabUnit = Convert.ToInt32(reader["LabUnit"]),
+                                Unit = Convert.ToInt32(reader["Unit"]),
+                                SubjPrice = Convert.ToDouble(reader["SubjectPrice"]),
+                                AdditionalFee = Convert.ToDouble(reader["AdditionalFee"]),
+                                SubjType = Convert.ToString(reader["SubjectType"])
+                            };                           
+                        }
+                    }
+                }
+            }
+            return subject;
+        }
+
     }
 }

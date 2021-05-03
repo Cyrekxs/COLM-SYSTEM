@@ -22,6 +22,11 @@ namespace COLM_SYSTEM_LIBRARY.model
             return SubjectSettedAdditionalFee_DS.GetSubjectSettedAddtionalFees(CurriculumSubjectID, SchoolYearID, SemesterID);
         }
 
+        public static SubjectSettedAddtionalFee GetSubjectSettedAddtionalFee(int AdditionalFeeID)
+        {
+            return SubjectSettedAdditionalFee_DS.GetSubjectSettedAddtionalFee(AdditionalFeeID);
+        }
+
         public static int InsertUpdateSubjectSettedAdditionalFee(List<SubjectSettedAddtionalFee> additionalFees)
         {
             return SubjectSettedAdditionalFee_DS.InsertUpdateSubjectSettedAdditionalFee(additionalFees);

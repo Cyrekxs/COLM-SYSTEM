@@ -24,9 +24,9 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class DataSet1 : global::System.Data.DataSet {
         
-        private DTPaymentScheduleDataTable tableDTPaymentSchedule;
+        private dtPaymentScheduleDataTable tabledtPaymentSchedule;
         
-        private DTSubjectsDataTable tableDTSubjects;
+        private dtSubjectsDataTable tabledtSubjects;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -56,11 +56,11 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["DTPaymentSchedule"] != null)) {
-                    base.Tables.Add(new DTPaymentScheduleDataTable(ds.Tables["DTPaymentSchedule"]));
+                if ((ds.Tables["dtPaymentSchedule"] != null)) {
+                    base.Tables.Add(new dtPaymentScheduleDataTable(ds.Tables["dtPaymentSchedule"]));
                 }
-                if ((ds.Tables["DTSubjects"] != null)) {
-                    base.Tables.Add(new DTSubjectsDataTable(ds.Tables["DTSubjects"]));
+                if ((ds.Tables["dtSubjects"] != null)) {
+                    base.Tables.Add(new dtSubjectsDataTable(ds.Tables["dtSubjects"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -84,9 +84,9 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DTPaymentScheduleDataTable DTPaymentSchedule {
+        public dtPaymentScheduleDataTable dtPaymentSchedule {
             get {
-                return this.tableDTPaymentSchedule;
+                return this.tabledtPaymentSchedule;
             }
         }
         
@@ -94,9 +94,9 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DTSubjectsDataTable DTSubjects {
+        public dtSubjectsDataTable dtSubjects {
             get {
-                return this.tableDTSubjects;
+                return this.tabledtSubjects;
             }
         }
         
@@ -167,11 +167,11 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["DTPaymentSchedule"] != null)) {
-                    base.Tables.Add(new DTPaymentScheduleDataTable(ds.Tables["DTPaymentSchedule"]));
+                if ((ds.Tables["dtPaymentSchedule"] != null)) {
+                    base.Tables.Add(new dtPaymentScheduleDataTable(ds.Tables["dtPaymentSchedule"]));
                 }
-                if ((ds.Tables["DTSubjects"] != null)) {
-                    base.Tables.Add(new DTSubjectsDataTable(ds.Tables["DTSubjects"]));
+                if ((ds.Tables["dtSubjects"] != null)) {
+                    base.Tables.Add(new dtSubjectsDataTable(ds.Tables["dtSubjects"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -206,16 +206,16 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableDTPaymentSchedule = ((DTPaymentScheduleDataTable)(base.Tables["DTPaymentSchedule"]));
+            this.tabledtPaymentSchedule = ((dtPaymentScheduleDataTable)(base.Tables["dtPaymentSchedule"]));
             if ((initTable == true)) {
-                if ((this.tableDTPaymentSchedule != null)) {
-                    this.tableDTPaymentSchedule.InitVars();
+                if ((this.tabledtPaymentSchedule != null)) {
+                    this.tabledtPaymentSchedule.InitVars();
                 }
             }
-            this.tableDTSubjects = ((DTSubjectsDataTable)(base.Tables["DTSubjects"]));
+            this.tabledtSubjects = ((dtSubjectsDataTable)(base.Tables["dtSubjects"]));
             if ((initTable == true)) {
-                if ((this.tableDTSubjects != null)) {
-                    this.tableDTSubjects.InitVars();
+                if ((this.tabledtSubjects != null)) {
+                    this.tabledtSubjects.InitVars();
                 }
             }
         }
@@ -228,21 +228,21 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             this.Namespace = "http://tempuri.org/DataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableDTPaymentSchedule = new DTPaymentScheduleDataTable();
-            base.Tables.Add(this.tableDTPaymentSchedule);
-            this.tableDTSubjects = new DTSubjectsDataTable();
-            base.Tables.Add(this.tableDTSubjects);
+            this.tabledtPaymentSchedule = new dtPaymentScheduleDataTable();
+            base.Tables.Add(this.tabledtPaymentSchedule);
+            this.tabledtSubjects = new dtSubjectsDataTable();
+            base.Tables.Add(this.tabledtSubjects);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeDTPaymentSchedule() {
+        private bool ShouldSerializedtPaymentSchedule() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeDTSubjects() {
+        private bool ShouldSerializedtSubjects() {
             return false;
         }
         
@@ -302,17 +302,17 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void DTPaymentScheduleRowChangeEventHandler(object sender, DTPaymentScheduleRowChangeEvent e);
+        public delegate void dtPaymentScheduleRowChangeEventHandler(object sender, dtPaymentScheduleRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void DTSubjectsRowChangeEventHandler(object sender, DTSubjectsRowChangeEvent e);
+        public delegate void dtSubjectsRowChangeEventHandler(object sender, dtSubjectsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DTPaymentScheduleDataTable : global::System.Data.TypedTableBase<DTPaymentScheduleRow> {
+        public partial class dtPaymentScheduleDataTable : global::System.Data.TypedTableBase<dtPaymentScheduleRow> {
             
             private global::System.Data.DataColumn columnItemCode;
             
@@ -322,8 +322,8 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTPaymentScheduleDataTable() {
-                this.TableName = "DTPaymentSchedule";
+            public dtPaymentScheduleDataTable() {
+                this.TableName = "dtPaymentSchedule";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -331,7 +331,7 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal DTPaymentScheduleDataTable(global::System.Data.DataTable table) {
+            internal dtPaymentScheduleDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -348,7 +348,7 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected DTPaymentScheduleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected dtPaymentScheduleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -388,47 +388,47 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTPaymentScheduleRow this[int index] {
+            public dtPaymentScheduleRow this[int index] {
                 get {
-                    return ((DTPaymentScheduleRow)(this.Rows[index]));
+                    return ((dtPaymentScheduleRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DTPaymentScheduleRowChangeEventHandler DTPaymentScheduleRowChanging;
+            public event dtPaymentScheduleRowChangeEventHandler dtPaymentScheduleRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DTPaymentScheduleRowChangeEventHandler DTPaymentScheduleRowChanged;
+            public event dtPaymentScheduleRowChangeEventHandler dtPaymentScheduleRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DTPaymentScheduleRowChangeEventHandler DTPaymentScheduleRowDeleting;
+            public event dtPaymentScheduleRowChangeEventHandler dtPaymentScheduleRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DTPaymentScheduleRowChangeEventHandler DTPaymentScheduleRowDeleted;
+            public event dtPaymentScheduleRowChangeEventHandler dtPaymentScheduleRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddDTPaymentScheduleRow(DTPaymentScheduleRow row) {
+            public void AdddtPaymentScheduleRow(dtPaymentScheduleRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTPaymentScheduleRow AddDTPaymentScheduleRow(string ItemCode, string Amount, string DueDate) {
-                DTPaymentScheduleRow rowDTPaymentScheduleRow = ((DTPaymentScheduleRow)(this.NewRow()));
+            public dtPaymentScheduleRow AdddtPaymentScheduleRow(string ItemCode, string Amount, string DueDate) {
+                dtPaymentScheduleRow rowdtPaymentScheduleRow = ((dtPaymentScheduleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ItemCode,
                         Amount,
                         DueDate};
-                rowDTPaymentScheduleRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDTPaymentScheduleRow);
-                return rowDTPaymentScheduleRow;
+                rowdtPaymentScheduleRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdtPaymentScheduleRow);
+                return rowdtPaymentScheduleRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                DTPaymentScheduleDataTable cln = ((DTPaymentScheduleDataTable)(base.Clone()));
+                dtPaymentScheduleDataTable cln = ((dtPaymentScheduleDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -436,7 +436,7 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new DTPaymentScheduleDataTable();
+                return new dtPaymentScheduleDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -460,28 +460,28 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTPaymentScheduleRow NewDTPaymentScheduleRow() {
-                return ((DTPaymentScheduleRow)(this.NewRow()));
+            public dtPaymentScheduleRow NewdtPaymentScheduleRow() {
+                return ((dtPaymentScheduleRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DTPaymentScheduleRow(builder);
+                return new dtPaymentScheduleRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(DTPaymentScheduleRow);
+                return typeof(dtPaymentScheduleRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.DTPaymentScheduleRowChanged != null)) {
-                    this.DTPaymentScheduleRowChanged(this, new DTPaymentScheduleRowChangeEvent(((DTPaymentScheduleRow)(e.Row)), e.Action));
+                if ((this.dtPaymentScheduleRowChanged != null)) {
+                    this.dtPaymentScheduleRowChanged(this, new dtPaymentScheduleRowChangeEvent(((dtPaymentScheduleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -489,8 +489,8 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.DTPaymentScheduleRowChanging != null)) {
-                    this.DTPaymentScheduleRowChanging(this, new DTPaymentScheduleRowChangeEvent(((DTPaymentScheduleRow)(e.Row)), e.Action));
+                if ((this.dtPaymentScheduleRowChanging != null)) {
+                    this.dtPaymentScheduleRowChanging(this, new dtPaymentScheduleRowChangeEvent(((dtPaymentScheduleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -498,8 +498,8 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.DTPaymentScheduleRowDeleted != null)) {
-                    this.DTPaymentScheduleRowDeleted(this, new DTPaymentScheduleRowChangeEvent(((DTPaymentScheduleRow)(e.Row)), e.Action));
+                if ((this.dtPaymentScheduleRowDeleted != null)) {
+                    this.dtPaymentScheduleRowDeleted(this, new dtPaymentScheduleRowChangeEvent(((dtPaymentScheduleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -507,14 +507,14 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.DTPaymentScheduleRowDeleting != null)) {
-                    this.DTPaymentScheduleRowDeleting(this, new DTPaymentScheduleRowChangeEvent(((DTPaymentScheduleRow)(e.Row)), e.Action));
+                if ((this.dtPaymentScheduleRowDeleting != null)) {
+                    this.dtPaymentScheduleRowDeleting(this, new dtPaymentScheduleRowChangeEvent(((dtPaymentScheduleRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveDTPaymentScheduleRow(DTPaymentScheduleRow row) {
+            public void RemovedtPaymentScheduleRow(dtPaymentScheduleRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -541,7 +541,7 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DTPaymentScheduleDataTable";
+                attribute2.FixedValue = "dtPaymentScheduleDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -587,7 +587,7 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DTSubjectsDataTable : global::System.Data.TypedTableBase<DTSubjectsRow> {
+        public partial class dtSubjectsDataTable : global::System.Data.TypedTableBase<dtSubjectsRow> {
             
             private global::System.Data.DataColumn columnSubject;
             
@@ -605,8 +605,8 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTSubjectsDataTable() {
-                this.TableName = "DTSubjects";
+            public dtSubjectsDataTable() {
+                this.TableName = "dtSubjects";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -614,7 +614,7 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal DTSubjectsDataTable(global::System.Data.DataTable table) {
+            internal dtSubjectsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -631,7 +631,7 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected DTSubjectsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected dtSubjectsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -703,34 +703,34 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTSubjectsRow this[int index] {
+            public dtSubjectsRow this[int index] {
                 get {
-                    return ((DTSubjectsRow)(this.Rows[index]));
+                    return ((dtSubjectsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DTSubjectsRowChangeEventHandler DTSubjectsRowChanging;
+            public event dtSubjectsRowChangeEventHandler dtSubjectsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DTSubjectsRowChangeEventHandler DTSubjectsRowChanged;
+            public event dtSubjectsRowChangeEventHandler dtSubjectsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DTSubjectsRowChangeEventHandler DTSubjectsRowDeleting;
+            public event dtSubjectsRowChangeEventHandler dtSubjectsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DTSubjectsRowChangeEventHandler DTSubjectsRowDeleted;
+            public event dtSubjectsRowChangeEventHandler dtSubjectsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddDTSubjectsRow(DTSubjectsRow row) {
+            public void AdddtSubjectsRow(dtSubjectsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTSubjectsRow AddDTSubjectsRow(string Subject, string Unit, string Day, string Start, string End, string Room, string Faculty) {
-                DTSubjectsRow rowDTSubjectsRow = ((DTSubjectsRow)(this.NewRow()));
+            public dtSubjectsRow AdddtSubjectsRow(string Subject, string Unit, string Day, string Start, string End, string Room, string Faculty) {
+                dtSubjectsRow rowdtSubjectsRow = ((dtSubjectsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Subject,
                         Unit,
@@ -739,15 +739,15 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
                         End,
                         Room,
                         Faculty};
-                rowDTSubjectsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDTSubjectsRow);
-                return rowDTSubjectsRow;
+                rowdtSubjectsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdtSubjectsRow);
+                return rowdtSubjectsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                DTSubjectsDataTable cln = ((DTSubjectsDataTable)(base.Clone()));
+                dtSubjectsDataTable cln = ((dtSubjectsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -755,7 +755,7 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new DTSubjectsDataTable();
+                return new dtSubjectsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -791,28 +791,28 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTSubjectsRow NewDTSubjectsRow() {
-                return ((DTSubjectsRow)(this.NewRow()));
+            public dtSubjectsRow NewdtSubjectsRow() {
+                return ((dtSubjectsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DTSubjectsRow(builder);
+                return new dtSubjectsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(DTSubjectsRow);
+                return typeof(dtSubjectsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.DTSubjectsRowChanged != null)) {
-                    this.DTSubjectsRowChanged(this, new DTSubjectsRowChangeEvent(((DTSubjectsRow)(e.Row)), e.Action));
+                if ((this.dtSubjectsRowChanged != null)) {
+                    this.dtSubjectsRowChanged(this, new dtSubjectsRowChangeEvent(((dtSubjectsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -820,8 +820,8 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.DTSubjectsRowChanging != null)) {
-                    this.DTSubjectsRowChanging(this, new DTSubjectsRowChangeEvent(((DTSubjectsRow)(e.Row)), e.Action));
+                if ((this.dtSubjectsRowChanging != null)) {
+                    this.dtSubjectsRowChanging(this, new dtSubjectsRowChangeEvent(((dtSubjectsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -829,8 +829,8 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.DTSubjectsRowDeleted != null)) {
-                    this.DTSubjectsRowDeleted(this, new DTSubjectsRowChangeEvent(((DTSubjectsRow)(e.Row)), e.Action));
+                if ((this.dtSubjectsRowDeleted != null)) {
+                    this.dtSubjectsRowDeleted(this, new dtSubjectsRowChangeEvent(((dtSubjectsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -838,14 +838,14 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.DTSubjectsRowDeleting != null)) {
-                    this.DTSubjectsRowDeleting(this, new DTSubjectsRowChangeEvent(((DTSubjectsRow)(e.Row)), e.Action));
+                if ((this.dtSubjectsRowDeleting != null)) {
+                    this.dtSubjectsRowDeleting(this, new dtSubjectsRowChangeEvent(((dtSubjectsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveDTSubjectsRow(DTSubjectsRow row) {
+            public void RemovedtSubjectsRow(dtSubjectsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -872,7 +872,7 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DTSubjectsDataTable";
+                attribute2.FixedValue = "dtSubjectsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -916,15 +916,15 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DTPaymentScheduleRow : global::System.Data.DataRow {
+        public partial class dtPaymentScheduleRow : global::System.Data.DataRow {
             
-            private DTPaymentScheduleDataTable tableDTPaymentSchedule;
+            private dtPaymentScheduleDataTable tabledtPaymentSchedule;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal DTPaymentScheduleRow(global::System.Data.DataRowBuilder rb) : 
+            internal dtPaymentScheduleRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableDTPaymentSchedule = ((DTPaymentScheduleDataTable)(this.Table));
+                this.tabledtPaymentSchedule = ((dtPaymentScheduleDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -932,14 +932,14 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             public string ItemCode {
                 get {
                     try {
-                        return ((string)(this[this.tableDTPaymentSchedule.ItemCodeColumn]));
+                        return ((string)(this[this.tabledtPaymentSchedule.ItemCodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ItemCode\' in table \'DTPaymentSchedule\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemCode\' in table \'dtPaymentSchedule\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTPaymentSchedule.ItemCodeColumn] = value;
+                    this[this.tabledtPaymentSchedule.ItemCodeColumn] = value;
                 }
             }
             
@@ -948,14 +948,14 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             public string Amount {
                 get {
                     try {
-                        return ((string)(this[this.tableDTPaymentSchedule.AmountColumn]));
+                        return ((string)(this[this.tabledtPaymentSchedule.AmountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'DTPaymentSchedule\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'dtPaymentSchedule\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTPaymentSchedule.AmountColumn] = value;
+                    this[this.tabledtPaymentSchedule.AmountColumn] = value;
                 }
             }
             
@@ -964,66 +964,66 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             public string DueDate {
                 get {
                     try {
-                        return ((string)(this[this.tableDTPaymentSchedule.DueDateColumn]));
+                        return ((string)(this[this.tabledtPaymentSchedule.DueDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DueDate\' in table \'DTPaymentSchedule\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DueDate\' in table \'dtPaymentSchedule\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTPaymentSchedule.DueDateColumn] = value;
+                    this[this.tabledtPaymentSchedule.DueDateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsItemCodeNull() {
-                return this.IsNull(this.tableDTPaymentSchedule.ItemCodeColumn);
+                return this.IsNull(this.tabledtPaymentSchedule.ItemCodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetItemCodeNull() {
-                this[this.tableDTPaymentSchedule.ItemCodeColumn] = global::System.Convert.DBNull;
+                this[this.tabledtPaymentSchedule.ItemCodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsAmountNull() {
-                return this.IsNull(this.tableDTPaymentSchedule.AmountColumn);
+                return this.IsNull(this.tabledtPaymentSchedule.AmountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetAmountNull() {
-                this[this.tableDTPaymentSchedule.AmountColumn] = global::System.Convert.DBNull;
+                this[this.tabledtPaymentSchedule.AmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsDueDateNull() {
-                return this.IsNull(this.tableDTPaymentSchedule.DueDateColumn);
+                return this.IsNull(this.tabledtPaymentSchedule.DueDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetDueDateNull() {
-                this[this.tableDTPaymentSchedule.DueDateColumn] = global::System.Convert.DBNull;
+                this[this.tabledtPaymentSchedule.DueDateColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DTSubjectsRow : global::System.Data.DataRow {
+        public partial class dtSubjectsRow : global::System.Data.DataRow {
             
-            private DTSubjectsDataTable tableDTSubjects;
+            private dtSubjectsDataTable tabledtSubjects;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal DTSubjectsRow(global::System.Data.DataRowBuilder rb) : 
+            internal dtSubjectsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableDTSubjects = ((DTSubjectsDataTable)(this.Table));
+                this.tabledtSubjects = ((dtSubjectsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1031,14 +1031,14 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             public string Subject {
                 get {
                     try {
-                        return ((string)(this[this.tableDTSubjects.SubjectColumn]));
+                        return ((string)(this[this.tabledtSubjects.SubjectColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Subject\' in table \'DTSubjects\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Subject\' in table \'dtSubjects\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTSubjects.SubjectColumn] = value;
+                    this[this.tabledtSubjects.SubjectColumn] = value;
                 }
             }
             
@@ -1047,14 +1047,14 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             public string Unit {
                 get {
                     try {
-                        return ((string)(this[this.tableDTSubjects.UnitColumn]));
+                        return ((string)(this[this.tabledtSubjects.UnitColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Unit\' in table \'DTSubjects\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Unit\' in table \'dtSubjects\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTSubjects.UnitColumn] = value;
+                    this[this.tabledtSubjects.UnitColumn] = value;
                 }
             }
             
@@ -1063,14 +1063,14 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             public string Day {
                 get {
                     try {
-                        return ((string)(this[this.tableDTSubjects.DayColumn]));
+                        return ((string)(this[this.tabledtSubjects.DayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Day\' in table \'DTSubjects\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Day\' in table \'dtSubjects\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTSubjects.DayColumn] = value;
+                    this[this.tabledtSubjects.DayColumn] = value;
                 }
             }
             
@@ -1079,14 +1079,14 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             public string Start {
                 get {
                     try {
-                        return ((string)(this[this.tableDTSubjects.StartColumn]));
+                        return ((string)(this[this.tabledtSubjects.StartColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Start\' in table \'DTSubjects\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Start\' in table \'dtSubjects\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTSubjects.StartColumn] = value;
+                    this[this.tabledtSubjects.StartColumn] = value;
                 }
             }
             
@@ -1095,14 +1095,14 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             public string End {
                 get {
                     try {
-                        return ((string)(this[this.tableDTSubjects.EndColumn]));
+                        return ((string)(this[this.tabledtSubjects.EndColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'End\' in table \'DTSubjects\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'End\' in table \'dtSubjects\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTSubjects.EndColumn] = value;
+                    this[this.tabledtSubjects.EndColumn] = value;
                 }
             }
             
@@ -1111,14 +1111,14 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             public string Room {
                 get {
                     try {
-                        return ((string)(this[this.tableDTSubjects.RoomColumn]));
+                        return ((string)(this[this.tabledtSubjects.RoomColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Room\' in table \'DTSubjects\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Room\' in table \'dtSubjects\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTSubjects.RoomColumn] = value;
+                    this[this.tabledtSubjects.RoomColumn] = value;
                 }
             }
             
@@ -1127,99 +1127,99 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
             public string Faculty {
                 get {
                     try {
-                        return ((string)(this[this.tableDTSubjects.FacultyColumn]));
+                        return ((string)(this[this.tabledtSubjects.FacultyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Faculty\' in table \'DTSubjects\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Faculty\' in table \'dtSubjects\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTSubjects.FacultyColumn] = value;
+                    this[this.tabledtSubjects.FacultyColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsSubjectNull() {
-                return this.IsNull(this.tableDTSubjects.SubjectColumn);
+                return this.IsNull(this.tabledtSubjects.SubjectColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetSubjectNull() {
-                this[this.tableDTSubjects.SubjectColumn] = global::System.Convert.DBNull;
+                this[this.tabledtSubjects.SubjectColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsUnitNull() {
-                return this.IsNull(this.tableDTSubjects.UnitColumn);
+                return this.IsNull(this.tabledtSubjects.UnitColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetUnitNull() {
-                this[this.tableDTSubjects.UnitColumn] = global::System.Convert.DBNull;
+                this[this.tabledtSubjects.UnitColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsDayNull() {
-                return this.IsNull(this.tableDTSubjects.DayColumn);
+                return this.IsNull(this.tabledtSubjects.DayColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetDayNull() {
-                this[this.tableDTSubjects.DayColumn] = global::System.Convert.DBNull;
+                this[this.tabledtSubjects.DayColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsStartNull() {
-                return this.IsNull(this.tableDTSubjects.StartColumn);
+                return this.IsNull(this.tabledtSubjects.StartColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetStartNull() {
-                this[this.tableDTSubjects.StartColumn] = global::System.Convert.DBNull;
+                this[this.tabledtSubjects.StartColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsEndNull() {
-                return this.IsNull(this.tableDTSubjects.EndColumn);
+                return this.IsNull(this.tabledtSubjects.EndColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEndNull() {
-                this[this.tableDTSubjects.EndColumn] = global::System.Convert.DBNull;
+                this[this.tabledtSubjects.EndColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsRoomNull() {
-                return this.IsNull(this.tableDTSubjects.RoomColumn);
+                return this.IsNull(this.tabledtSubjects.RoomColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetRoomNull() {
-                this[this.tableDTSubjects.RoomColumn] = global::System.Convert.DBNull;
+                this[this.tabledtSubjects.RoomColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsFacultyNull() {
-                return this.IsNull(this.tableDTSubjects.FacultyColumn);
+                return this.IsNull(this.tabledtSubjects.FacultyColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetFacultyNull() {
-                this[this.tableDTSubjects.FacultyColumn] = global::System.Convert.DBNull;
+                this[this.tabledtSubjects.FacultyColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1227,22 +1227,22 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class DTPaymentScheduleRowChangeEvent : global::System.EventArgs {
+        public class dtPaymentScheduleRowChangeEvent : global::System.EventArgs {
             
-            private DTPaymentScheduleRow eventRow;
+            private dtPaymentScheduleRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTPaymentScheduleRowChangeEvent(DTPaymentScheduleRow row, global::System.Data.DataRowAction action) {
+            public dtPaymentScheduleRowChangeEvent(dtPaymentScheduleRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTPaymentScheduleRow Row {
+            public dtPaymentScheduleRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1261,22 +1261,22 @@ namespace COLM_SYSTEM.Assessment_Folder.DataSets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class DTSubjectsRowChangeEvent : global::System.EventArgs {
+        public class dtSubjectsRowChangeEvent : global::System.EventArgs {
             
-            private DTSubjectsRow eventRow;
+            private dtSubjectsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTSubjectsRowChangeEvent(DTSubjectsRow row, global::System.Data.DataRowAction action) {
+            public dtSubjectsRowChangeEvent(dtSubjectsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTSubjectsRow Row {
+            public dtSubjectsRow Row {
                 get {
                     return this.eventRow;
                 }

@@ -12,6 +12,8 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
         public int AssessmentID { get; set; }
         public int DiscountID { get; set; }
         public string DiscountType { get; set; }
+        public double Value { get; set; }
+
         public double TFee { get; set; }
         public double MFee { get; set; }
         public double OFee { get; set; }

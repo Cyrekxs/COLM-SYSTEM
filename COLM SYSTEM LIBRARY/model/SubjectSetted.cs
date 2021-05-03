@@ -42,5 +42,10 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return SubjectSetted_DS.GetSubjectSetted(CurriculumID, YearLevelID, SchoolYearID, SemesterID);
         }
+
+        public static SubjectSetted GetSubjectSetted(int SubjectPriceID)
+        {
+            return SubjectSetted_DS.GetSubjectSetted(SubjectPriceID);
+        }
     }
 }

@@ -123,7 +123,8 @@ namespace COLM_SYSTEM.Discounts
                 TFee = Convert.ToInt16(ch_TFee.Checked),
                 MFee = Convert.ToInt16(ch_MFee.Checked),
                 OFee = Convert.ToInt16(ch_OFee.Checked),
-                SchoolYearID = Utilties.GetActiveSchoolYear()
+                SchoolYearID = Utilties.GetActiveSchoolYear(),
+                SemesterID = Utilties.GetActiveSemester()
             };
 
 

@@ -33,13 +33,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLRN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,6 +74,11 @@
             this.txtTFee = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgFees = new System.Windows.Forms.DataGridView();
+            this.clmFeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFeeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFeeAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFeeRemove = new System.Windows.Forms.DataGridViewLinkColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -88,6 +94,10 @@
             this.cmbAssessmentType = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.dgBreakdown = new System.Windows.Forms.DataGridView();
+            this.clmAssessmentBreakDownID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBreakDownCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBreakDownAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBreakDownDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTotalDue = new System.Windows.Forms.TextBox();
             this.cmbDiscount = new System.Windows.Forms.ComboBox();
@@ -103,6 +113,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.txtYearLevel = new System.Windows.Forms.TextBox();
             this.cmbSection = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtCurriculumCode = new System.Windows.Forms.TextBox();
@@ -112,24 +123,14 @@
             this.txtEducationLevel = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
-            this.txtYearLevel = new System.Windows.Forms.TextBox();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDiscountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDiscountValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmMFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmOFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmRemoveDiscount = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.clmAssessmentFeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFeeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFeeAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFeeRemove = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.clmAssessmentBreakDownID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmBreakDownCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmBreakDownAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmBreakDownDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tbpSubjects.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -501,7 +502,6 @@
             this.dgFees.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgFees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmAssessmentFeeID,
             this.clmFeeID,
             this.clmFee,
             this.clmFeeType,
@@ -516,6 +516,49 @@
             this.dgFees.Size = new System.Drawing.Size(939, 367);
             this.dgFees.TabIndex = 1;
             this.dgFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgFees_CellContentClick);
+            // 
+            // clmFeeID
+            // 
+            this.clmFeeID.HeaderText = "FEE ID";
+            this.clmFeeID.Name = "clmFeeID";
+            this.clmFeeID.ReadOnly = true;
+            this.clmFeeID.Visible = false;
+            // 
+            // clmFee
+            // 
+            this.clmFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmFee.HeaderText = "FEE";
+            this.clmFee.Name = "clmFee";
+            this.clmFee.ReadOnly = true;
+            this.clmFee.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clmFeeType
+            // 
+            this.clmFeeType.HeaderText = "TYPE";
+            this.clmFeeType.Name = "clmFeeType";
+            this.clmFeeType.ReadOnly = true;
+            // 
+            // clmFeeAmount
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmFeeAmount.DefaultCellStyle = dataGridViewCellStyle5;
+            this.clmFeeAmount.HeaderText = "AMOUNT";
+            this.clmFeeAmount.Name = "clmFeeAmount";
+            this.clmFeeAmount.ReadOnly = true;
+            this.clmFeeAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clmFeeRemove
+            // 
+            this.clmFeeRemove.ActiveLinkColor = System.Drawing.Color.Firebrick;
+            this.clmFeeRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmFeeRemove.HeaderText = "REMOVE";
+            this.clmFeeRemove.LinkColor = System.Drawing.Color.Firebrick;
+            this.clmFeeRemove.Name = "clmFeeRemove";
+            this.clmFeeRemove.ReadOnly = true;
+            this.clmFeeRemove.Text = "REMOVE";
+            this.clmFeeRemove.UseColumnTextForLinkValue = true;
+            this.clmFeeRemove.VisitedLinkColor = System.Drawing.Color.Firebrick;
+            this.clmFeeRemove.Width = 60;
             // 
             // panel3
             // 
@@ -677,9 +720,10 @@
             this.dgDiscounts.BackgroundColor = System.Drawing.Color.White;
             this.dgDiscounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgDiscounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn7,
+            this.clmDiscountID,
             this.dataGridViewTextBoxColumn8,
             this.Column4,
+            this.clmDiscountValue,
             this.clmTFee,
             this.clmMFee,
             this.clmOFee,
@@ -691,6 +735,7 @@
             this.dgDiscounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgDiscounts.Size = new System.Drawing.Size(479, 184);
             this.dgDiscounts.TabIndex = 13;
+            this.dgDiscounts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDiscounts_CellContentClick);
             // 
             // cmbAssessmentType
             // 
@@ -730,6 +775,43 @@
             this.dgBreakdown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgBreakdown.Size = new System.Drawing.Size(453, 382);
             this.dgBreakdown.TabIndex = 14;
+            // 
+            // clmAssessmentBreakDownID
+            // 
+            this.clmAssessmentBreakDownID.HeaderText = "AssessmentBreakdownID";
+            this.clmAssessmentBreakDownID.Name = "clmAssessmentBreakDownID";
+            this.clmAssessmentBreakDownID.ReadOnly = true;
+            this.clmAssessmentBreakDownID.Visible = false;
+            // 
+            // clmBreakDownCode
+            // 
+            this.clmBreakDownCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmBreakDownCode.HeaderText = "BREAKDOWN";
+            this.clmBreakDownCode.Name = "clmBreakDownCode";
+            this.clmBreakDownCode.ReadOnly = true;
+            this.clmBreakDownCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clmBreakDownAmount
+            // 
+            this.clmBreakDownAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBreakDownAmount.DefaultCellStyle = dataGridViewCellStyle11;
+            this.clmBreakDownAmount.HeaderText = "AMOUNT";
+            this.clmBreakDownAmount.Name = "clmBreakDownAmount";
+            this.clmBreakDownAmount.ReadOnly = true;
+            this.clmBreakDownAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmBreakDownAmount.Width = 62;
+            // 
+            // clmBreakDownDueDate
+            // 
+            this.clmBreakDownDueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBreakDownDueDate.DefaultCellStyle = dataGridViewCellStyle12;
+            this.clmBreakDownDueDate.HeaderText = "DUE DATE";
+            this.clmBreakDownDueDate.Name = "clmBreakDownDueDate";
+            this.clmBreakDownDueDate.ReadOnly = true;
+            this.clmBreakDownDueDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmBreakDownDueDate.Width = 68;
             // 
             // label10
             // 
@@ -879,6 +961,15 @@
             this.panel9.Size = new System.Drawing.Size(962, 58);
             this.panel9.TabIndex = 4;
             // 
+            // txtYearLevel
+            // 
+            this.txtYearLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtYearLevel.Location = new System.Drawing.Point(716, 25);
+            this.txtYearLevel.Name = "txtYearLevel";
+            this.txtYearLevel.Size = new System.Drawing.Size(114, 24);
+            this.txtYearLevel.TabIndex = 14;
+            this.txtYearLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // cmbSection
             // 
             this.cmbSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -965,21 +1056,12 @@
             this.label19.TabIndex = 3;
             this.label19.Text = "STUDENT INFORMATION";
             // 
-            // txtYearLevel
+            // clmDiscountID
             // 
-            this.txtYearLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtYearLevel.Location = new System.Drawing.Point(716, 25);
-            this.txtYearLevel.Name = "txtYearLevel";
-            this.txtYearLevel.Size = new System.Drawing.Size(114, 24);
-            this.txtYearLevel.TabIndex = 14;
-            this.txtYearLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "DISCOUNT ID";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Visible = false;
+            this.clmDiscountID.HeaderText = "DISCOUNT ID";
+            this.clmDiscountID.Name = "clmDiscountID";
+            this.clmDiscountID.ReadOnly = true;
+            this.clmDiscountID.Visible = false;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -1000,11 +1082,21 @@
             this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column4.Width = 41;
             // 
+            // clmDiscountValue
+            // 
+            this.clmDiscountValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmDiscountValue.DefaultCellStyle = dataGridViewCellStyle7;
+            this.clmDiscountValue.HeaderText = "VALUE";
+            this.clmDiscountValue.Name = "clmDiscountValue";
+            this.clmDiscountValue.ReadOnly = true;
+            this.clmDiscountValue.Width = 68;
+            // 
             // clmTFee
             // 
             this.clmTFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmTFee.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmTFee.DefaultCellStyle = dataGridViewCellStyle8;
             this.clmTFee.HeaderText = "TF";
             this.clmTFee.Name = "clmTFee";
             this.clmTFee.ReadOnly = true;
@@ -1013,8 +1105,8 @@
             // clmMFee
             // 
             this.clmMFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmMFee.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmMFee.DefaultCellStyle = dataGridViewCellStyle9;
             this.clmMFee.HeaderText = "MF";
             this.clmMFee.Name = "clmMFee";
             this.clmMFee.ReadOnly = true;
@@ -1023,8 +1115,8 @@
             // clmOFee
             // 
             this.clmOFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmOFee.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmOFee.DefaultCellStyle = dataGridViewCellStyle10;
             this.clmOFee.HeaderText = "OF";
             this.clmOFee.Name = "clmOFee";
             this.clmOFee.ReadOnly = true;
@@ -1041,93 +1133,6 @@
             this.clmRemoveDiscount.UseColumnTextForLinkValue = true;
             this.clmRemoveDiscount.VisitedLinkColor = System.Drawing.Color.Red;
             this.clmRemoveDiscount.Width = 60;
-            // 
-            // clmAssessmentFeeID
-            // 
-            this.clmAssessmentFeeID.HeaderText = "AssessmentFeeID";
-            this.clmAssessmentFeeID.Name = "clmAssessmentFeeID";
-            this.clmAssessmentFeeID.ReadOnly = true;
-            this.clmAssessmentFeeID.Visible = false;
-            // 
-            // clmFeeID
-            // 
-            this.clmFeeID.HeaderText = "FEE ID";
-            this.clmFeeID.Name = "clmFeeID";
-            this.clmFeeID.ReadOnly = true;
-            this.clmFeeID.Visible = false;
-            // 
-            // clmFee
-            // 
-            this.clmFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmFee.HeaderText = "FEE";
-            this.clmFee.Name = "clmFee";
-            this.clmFee.ReadOnly = true;
-            this.clmFee.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // clmFeeType
-            // 
-            this.clmFeeType.HeaderText = "TYPE";
-            this.clmFeeType.Name = "clmFeeType";
-            this.clmFeeType.ReadOnly = true;
-            // 
-            // clmFeeAmount
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmFeeAmount.DefaultCellStyle = dataGridViewCellStyle5;
-            this.clmFeeAmount.HeaderText = "AMOUNT";
-            this.clmFeeAmount.Name = "clmFeeAmount";
-            this.clmFeeAmount.ReadOnly = true;
-            this.clmFeeAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // clmFeeRemove
-            // 
-            this.clmFeeRemove.ActiveLinkColor = System.Drawing.Color.Firebrick;
-            this.clmFeeRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.clmFeeRemove.HeaderText = "REMOVE";
-            this.clmFeeRemove.LinkColor = System.Drawing.Color.Firebrick;
-            this.clmFeeRemove.Name = "clmFeeRemove";
-            this.clmFeeRemove.ReadOnly = true;
-            this.clmFeeRemove.Text = "REMOVE";
-            this.clmFeeRemove.UseColumnTextForLinkValue = true;
-            this.clmFeeRemove.VisitedLinkColor = System.Drawing.Color.Firebrick;
-            this.clmFeeRemove.Width = 60;
-            // 
-            // clmAssessmentBreakDownID
-            // 
-            this.clmAssessmentBreakDownID.HeaderText = "AssessmentBreakdownID";
-            this.clmAssessmentBreakDownID.Name = "clmAssessmentBreakDownID";
-            this.clmAssessmentBreakDownID.ReadOnly = true;
-            this.clmAssessmentBreakDownID.Visible = false;
-            // 
-            // clmBreakDownCode
-            // 
-            this.clmBreakDownCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmBreakDownCode.HeaderText = "BREAKDOWN";
-            this.clmBreakDownCode.Name = "clmBreakDownCode";
-            this.clmBreakDownCode.ReadOnly = true;
-            this.clmBreakDownCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // clmBreakDownAmount
-            // 
-            this.clmBreakDownAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBreakDownAmount.DefaultCellStyle = dataGridViewCellStyle10;
-            this.clmBreakDownAmount.HeaderText = "AMOUNT";
-            this.clmBreakDownAmount.Name = "clmBreakDownAmount";
-            this.clmBreakDownAmount.ReadOnly = true;
-            this.clmBreakDownAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clmBreakDownAmount.Width = 62;
-            // 
-            // clmBreakDownDueDate
-            // 
-            this.clmBreakDownDueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBreakDownDueDate.DefaultCellStyle = dataGridViewCellStyle11;
-            this.clmBreakDownDueDate.HeaderText = "DUE DATE";
-            this.clmBreakDownDueDate.Name = "clmBreakDownDueDate";
-            this.clmBreakDownDueDate.ReadOnly = true;
-            this.clmBreakDownDueDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clmBreakDownDueDate.Width = 68;
             // 
             // frm_assessment_entry_2
             // 
@@ -1242,22 +1247,22 @@
         private System.Windows.Forms.DataGridViewLinkColumn clmPickSched;
         private System.Windows.Forms.DataGridViewLinkColumn clmSubjectRemove;
         private System.Windows.Forms.TextBox txtYearLevel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmTFee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmMFee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmOFee;
-        private System.Windows.Forms.DataGridViewLinkColumn clmRemoveDiscount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentFeeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentBreakDownID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmBreakDownCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmBreakDownAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmBreakDownDueDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFee;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeType;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeAmount;
         private System.Windows.Forms.DataGridViewLinkColumn clmFeeRemove;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentBreakDownID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmBreakDownCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmBreakDownAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmBreakDownDueDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDiscountID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDiscountValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTFee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmMFee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmOFee;
+        private System.Windows.Forms.DataGridViewLinkColumn clmRemoveDiscount;
     }
 }

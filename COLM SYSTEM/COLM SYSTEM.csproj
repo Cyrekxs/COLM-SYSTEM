@@ -80,9 +80,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assessment Folder\DataSets\DataSet1.cs">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Assessment Folder\DataSets\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -111,6 +108,12 @@
     </Compile>
     <Compile Include="Assessment Folder\frm_assessment_entry_1.Designer.cs">
       <DependentUpon>frm_assessment_entry_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_schedule_browser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_schedule_browser.designer.cs">
+      <DependentUpon>frm_assessment_schedule_browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Assessment Folder\frm_assessment_subject_browser.cs">
       <SubType>Form</SubType>
@@ -177,12 +180,6 @@
     </Compile>
     <Compile Include="Fees Folder\frm_miscother_fees_entry.Designer.cs">
       <DependentUpon>frm_miscother_fees_entry.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Assessment Folder\frm_assessment_schedule_browser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assessment Folder\frm_assessment_schedule_browser.Designer.cs">
-      <DependentUpon>frm_assessment_schedule_browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Fees Folder\frm_tuition_entry_additional_fee.cs">
       <SubType>Form</SubType>
@@ -332,6 +329,9 @@
     <EmbeddedResource Include="Assessment Folder\frm_assessment_entry_1.resx">
       <DependentUpon>frm_assessment_entry_1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assessment Folder\frm_assessment_schedule_browser.resx">
+      <DependentUpon>frm_assessment_schedule_browser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assessment Folder\rpt_assessment.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -364,9 +364,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\frm_miscother_fees_entry.resx">
       <DependentUpon>frm_miscother_fees_entry.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assessment Folder\frm_assessment_schedule_browser.resx">
-      <DependentUpon>frm_assessment_schedule_browser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\frm_tuition_entry_additional_fee.resx">
       <DependentUpon>frm_tuition_entry_additional_fee.cs</DependentUpon>
@@ -533,22 +530,12 @@
     <None Include="Resources\Garbage.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Programmers Info\Notes.txt" />
     <Content Include="Programmers Info\What I Did.txt" />
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="SqlServerTypes\x64\" />
+    <Folder Include="SqlServerTypes\x86\" />
     <Folder Include="User Interfaces\" />
   </ItemGroup>
   <ItemGroup>
