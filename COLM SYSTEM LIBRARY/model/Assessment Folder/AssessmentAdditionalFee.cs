@@ -13,7 +13,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
         public int AdditionalFeeID { get; set; }
         public int CurriculumSubjectID { get; set; }
         public string FeeDscription { get; set; }
+        public string FeeType { get; set; }
         public double FeeAmount { get; set; }
-
     }
 }

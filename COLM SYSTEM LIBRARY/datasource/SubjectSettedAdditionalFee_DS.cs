@@ -42,6 +42,36 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return additionalFees;
         }
 
+        public static SubjectSettedAddtionalFee GetSubjectSettedAddtionalFee(int AdditionalFeeID)
+        {
+            SubjectSettedAddtionalFee additionalFee = new SubjectSettedAddtionalFee();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM [settings].[curriculum_subjects_setted_additionalfee] WHERE AdditionalFeeID = @AdditionalFeeID", conn))
+                {
+                    comm.Parameters.AddWithValue("@AdditionalFeeID", AdditionalFeeID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            additionalFee = new SubjectSettedAddtionalFee()
+                            {
+                                AdditionalFeeID = Convert.ToInt32(reader["AdditionalFeeID"]),
+                                CurriculumSubjectID = Convert.ToInt32(reader["CurriculumSubjectID"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                SemesterID = Convert.ToInt32(reader["SemesterID"]),
+                                FeeDescription = Convert.ToString(reader["FeeDescription"]),
+                                Amount = Convert.ToDouble(reader["FeeAmount"]),
+                                FeeType = Convert.ToString(reader["FeeType"])
+                            };
+                        }
+                    }
+                }
+            }
+            return additionalFee;
+        }
+
         public static int InsertUpdateSubjectSettedAdditionalFee(List<SubjectSettedAddtionalFee> settedAddtionalFees)
         {
             int result = 0;

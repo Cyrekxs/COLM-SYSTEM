@@ -52,10 +52,11 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     try
                     {
                         //insert assessment summary
-                        using (SqlCommand comm = new SqlCommand("EXEC sp_set_assessment_summary @RegisteredStudentID,@YearLevelID,@AssessmentTypeID,@TotalAmount,@DiscountAmount,@TotalDue,@SchoolYearID,@SemesterID", conn, t))
+                        using (SqlCommand comm = new SqlCommand("EXEC sp_set_assessment_summary @RegisteredStudentID,@YearLevelID,@SectionID,@AssessmentTypeID,@TotalAmount,@DiscountAmount,@TotalDue,@SchoolYearID,@SemesterID", conn, t))
                         {
                             comm.Parameters.AddWithValue("@RegisteredStudentID", summary.RegisteredStudentID);
                             comm.Parameters.AddWithValue("@YearLevelID", summary.YearLevelID);
+                            comm.Parameters.AddWithValue("@SectionID", summary.SectionID);
                             comm.Parameters.AddWithValue("@AssessmentTypeID", summary.AssessmentTypeID);
                             comm.Parameters.AddWithValue("@TotalAmount", summary.TotalAmount);
                             comm.Parameters.AddWithValue("@DiscountAmount", summary.DiscountAmount);
@@ -184,6 +185,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
                                 AssessmentTypeID = Convert.ToInt32(reader["AssessmentTypeID"]),
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
+                                SectionID = Convert.ToInt16(reader["SectionID"]),
                                 TotalAmount = Convert.ToDouble(reader["TotalAmount"]),
                                 DiscountAmount = Convert.ToDouble(reader["DiscountAmount"]),
                                 TotalDue = Convert.ToDouble(reader["TotalDue"]),
@@ -234,7 +236,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 AdditionalFeeID = Convert.ToInt32(reader["AdditionalFeeID"]),
                                 CurriculumSubjectID = Convert.ToInt16(reader["CurriculumSubjectID"]),
                                 FeeDscription = Convert.ToString(reader["FeeDescription"]),
-                                FeeAmount = Convert.ToDouble(reader["FeeAmount"])
+                                FeeAmount = Convert.ToDouble(reader["FeeAmount"])                               
                             };
                             additionalFees.Add(additionalFee);
                         }
