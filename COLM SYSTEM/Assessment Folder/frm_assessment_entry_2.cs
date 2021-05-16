@@ -560,11 +560,13 @@ namespace COLM_SYSTEM.Assessment_Folder
             double TotalAmount = TFee + MFee + OFee + Surcharge;
 
             //put data into summary
+            List<Section> sections = cmbSection.Tag as List<Section>;
             AssessmentSummary assessmentSummary = new AssessmentSummary()
             {
                 AssessmentTypeID = assessmentType.AssessmentTypeID,
                 RegisteredStudentID = registeredStudent.RegisteredID,
                 YearLevelID = studentYearLevel.YearLevelID,
+                SectionID = sections.Where(item => item.SectionName == cmbSection.Text).Select(item => item.SectionID).First(),
                 TotalAmount = TotalAmount,
                 DiscountAmount = Convert.ToDouble(txtTotalDiscount.Text),
                 TotalDue = TotalAmount - Convert.ToDouble(txtTotalDiscount.Text),
@@ -654,7 +656,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
 
             //put all data into assessment entry
-
             Assessment entry = new Assessment()
             {
                 Summary = assessmentSummary,

@@ -92,7 +92,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO tbl_student_information VALUES (@LRN,@Lastname,@Firstname,@Middlename,@ExtensionName,@BirthDate,@BirthPlace,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,GETDATE())", conn))
+                using (SqlCommand comm = new SqlCommand("INSERT INTO student.information VALUES (@LRN,@Lastname,@Firstname,@Middlename,@ExtensionName,@BirthDate,@BirthPlace,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,GETDATE())", conn))
                 {
                     comm.Parameters.AddWithValue("@LRN", model.LRN);
                     comm.Parameters.AddWithValue("@Lastname", model.Lastname);

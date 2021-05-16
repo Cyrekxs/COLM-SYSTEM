@@ -223,6 +223,12 @@
     <Compile Include="frm_print_preview.Designer.cs">
       <DependentUpon>frm_print_preview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Payment Folder\frm_payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment Folder\frm_payment.Designer.cs">
+      <DependentUpon>frm_payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Section Folder\frm_section_entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -385,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_print_preview.resx">
       <DependentUpon>frm_print_preview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment Folder\frm_payment.resx">
+      <DependentUpon>frm_payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
