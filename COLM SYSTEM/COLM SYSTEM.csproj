@@ -238,6 +238,12 @@
     <Compile Include="Payment Folder\frm_payment.Designer.cs">
       <DependentUpon>frm_payment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Payment Folder\frm_payment_cash_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment Folder\frm_payment_cash_entry.Designer.cs">
+      <DependentUpon>frm_payment_cash_entry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payment Folder\uc_payers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -415,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\frm_payment.resx">
       <DependentUpon>frm_payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment Folder\frm_payment_cash_entry.resx">
+      <DependentUpon>frm_payment_cash_entry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\uc_payers.resx">
       <DependentUpon>uc_payers.cs</DependentUpon>
