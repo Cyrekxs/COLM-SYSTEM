@@ -13,12 +13,12 @@ namespace COLM_SYSTEM
 
         public static int GetActiveSchoolYear()
         {
-            return 1;
+            return user.SchoolYearID;
         }
 
         public static int GetActiveSemester()
         {
-            return 1;
+            return user.SemesterID;
         }
 
         public static string GetAssessor()

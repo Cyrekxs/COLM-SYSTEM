@@ -148,12 +148,6 @@
     <Compile Include="Custom Controls\ButtonRounded.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Dashboard Folder\UC_DashBoard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Dashboard Folder\UC_DashBoard.Designer.cs">
-      <DependentUpon>UC_DashBoard.cs</DependentUpon>
-    </Compile>
     <Compile Include="Discounts Folder\frm_discount_entry_amount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,9 +370,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Curriculum Folder\uc_curriculum_list.resx">
       <DependentUpon>uc_curriculum_list.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard Folder\UC_DashBoard.resx">
-      <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Discounts Folder\frm_discount_entry_amount.resx">
       <DependentUpon>frm_discount_entry_amount.cs</DependentUpon>

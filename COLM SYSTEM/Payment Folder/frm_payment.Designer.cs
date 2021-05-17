@@ -66,18 +66,11 @@
             this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
-            this.dbPaymentHistory = new System.Windows.Forms.DataGridView();
+            this.dgPaymentHistory = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTotalBalanceTuition = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtTotalPaymentTuition = new System.Windows.Forms.TextBox();
-            this.clmPaymentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmORNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPaymentCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFeeCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPaymentAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCancel = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -85,6 +78,15 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.clmPaymentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmORNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPaymentCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFeeCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPaymentAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPaymentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -94,7 +96,7 @@
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbPaymentHistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPaymentHistory)).BeginInit();
             this.SuspendLayout();
             // 
             // panel7
@@ -246,6 +248,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel8.Controls.Add(this.button6);
             this.panel8.Controls.Add(this.label19);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(1, 1);
@@ -349,7 +352,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.dbPaymentHistory);
+            this.tabPage3.Controls.Add(this.dgPaymentHistory);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -447,29 +450,30 @@
             this.button1.Text = "CHECK PAYMENT";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // dbPaymentHistory
+            // dgPaymentHistory
             // 
-            this.dbPaymentHistory.AllowUserToAddRows = false;
-            this.dbPaymentHistory.AllowUserToDeleteRows = false;
-            this.dbPaymentHistory.AllowUserToResizeColumns = false;
-            this.dbPaymentHistory.AllowUserToResizeRows = false;
-            this.dbPaymentHistory.BackgroundColor = System.Drawing.Color.White;
-            this.dbPaymentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dbPaymentHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgPaymentHistory.AllowUserToAddRows = false;
+            this.dgPaymentHistory.AllowUserToDeleteRows = false;
+            this.dgPaymentHistory.AllowUserToResizeColumns = false;
+            this.dgPaymentHistory.AllowUserToResizeRows = false;
+            this.dgPaymentHistory.BackgroundColor = System.Drawing.Color.White;
+            this.dgPaymentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPaymentHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmPaymentID,
             this.clmORNumber,
             this.clmPaymentCategory,
             this.clmFeeCategory,
             this.clmPaymentAmount,
+            this.clmPaymentStatus,
             this.clmPaymentDate,
-            this.clmCancel});
-            this.dbPaymentHistory.Location = new System.Drawing.Point(6, 6);
-            this.dbPaymentHistory.Name = "dbPaymentHistory";
-            this.dbPaymentHistory.ReadOnly = true;
-            this.dbPaymentHistory.RowHeadersVisible = false;
-            this.dbPaymentHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dbPaymentHistory.Size = new System.Drawing.Size(825, 330);
-            this.dbPaymentHistory.TabIndex = 1;
+            this.clmAction});
+            this.dgPaymentHistory.Location = new System.Drawing.Point(6, 6);
+            this.dgPaymentHistory.Name = "dgPaymentHistory";
+            this.dgPaymentHistory.ReadOnly = true;
+            this.dgPaymentHistory.RowHeadersVisible = false;
+            this.dgPaymentHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgPaymentHistory.Size = new System.Drawing.Size(825, 330);
+            this.dgPaymentHistory.TabIndex = 1;
             // 
             // label6
             // 
@@ -508,63 +512,6 @@
             this.txtTotalPaymentTuition.Size = new System.Drawing.Size(123, 23);
             this.txtTotalPaymentTuition.TabIndex = 26;
             this.txtTotalPaymentTuition.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // clmPaymentID
-            // 
-            this.clmPaymentID.HeaderText = "PaymentID";
-            this.clmPaymentID.Name = "clmPaymentID";
-            this.clmPaymentID.ReadOnly = true;
-            this.clmPaymentID.Visible = false;
-            // 
-            // clmORNumber
-            // 
-            this.clmORNumber.HeaderText = "OR Number";
-            this.clmORNumber.Name = "clmORNumber";
-            this.clmORNumber.ReadOnly = true;
-            // 
-            // clmPaymentCategory
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmPaymentCategory.DefaultCellStyle = dataGridViewCellStyle5;
-            this.clmPaymentCategory.HeaderText = "Payment Category";
-            this.clmPaymentCategory.Name = "clmPaymentCategory";
-            this.clmPaymentCategory.ReadOnly = true;
-            this.clmPaymentCategory.Width = 140;
-            // 
-            // clmFeeCategory
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmFeeCategory.DefaultCellStyle = dataGridViewCellStyle6;
-            this.clmFeeCategory.HeaderText = "Fee Category";
-            this.clmFeeCategory.Name = "clmFeeCategory";
-            this.clmFeeCategory.ReadOnly = true;
-            this.clmFeeCategory.Width = 120;
-            // 
-            // clmPaymentAmount
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmPaymentAmount.DefaultCellStyle = dataGridViewCellStyle7;
-            this.clmPaymentAmount.HeaderText = "Amount";
-            this.clmPaymentAmount.Name = "clmPaymentAmount";
-            this.clmPaymentAmount.ReadOnly = true;
-            // 
-            // clmPaymentDate
-            // 
-            this.clmPaymentDate.HeaderText = "Payment Date";
-            this.clmPaymentDate.Name = "clmPaymentDate";
-            this.clmPaymentDate.ReadOnly = true;
-            this.clmPaymentDate.Width = 120;
-            // 
-            // clmCancel
-            // 
-            this.clmCancel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmCancel.HeaderText = "Cancel";
-            this.clmCancel.Name = "clmCancel";
-            this.clmCancel.ReadOnly = true;
-            this.clmCancel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmCancel.Text = "Cancel";
-            this.clmCancel.UseColumnTextForButtonValue = true;
-            this.clmCancel.Width = 48;
             // 
             // label8
             // 
@@ -646,6 +593,85 @@
             this.button5.Text = "ADD FEE";
             this.button5.UseVisualStyleBackColor = false;
             // 
+            // button6
+            // 
+            this.button6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.Silver;
+            this.button6.Location = new System.Drawing.Point(802, 0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(46, 34);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "X";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // clmPaymentID
+            // 
+            this.clmPaymentID.HeaderText = "PaymentID";
+            this.clmPaymentID.Name = "clmPaymentID";
+            this.clmPaymentID.ReadOnly = true;
+            this.clmPaymentID.Visible = false;
+            // 
+            // clmORNumber
+            // 
+            this.clmORNumber.HeaderText = "OR Number";
+            this.clmORNumber.Name = "clmORNumber";
+            this.clmORNumber.ReadOnly = true;
+            // 
+            // clmPaymentCategory
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmPaymentCategory.DefaultCellStyle = dataGridViewCellStyle5;
+            this.clmPaymentCategory.HeaderText = "Payment Category";
+            this.clmPaymentCategory.Name = "clmPaymentCategory";
+            this.clmPaymentCategory.ReadOnly = true;
+            this.clmPaymentCategory.Width = 140;
+            // 
+            // clmFeeCategory
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmFeeCategory.DefaultCellStyle = dataGridViewCellStyle6;
+            this.clmFeeCategory.HeaderText = "Fee Category";
+            this.clmFeeCategory.Name = "clmFeeCategory";
+            this.clmFeeCategory.ReadOnly = true;
+            this.clmFeeCategory.Width = 120;
+            // 
+            // clmPaymentAmount
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmPaymentAmount.DefaultCellStyle = dataGridViewCellStyle7;
+            this.clmPaymentAmount.HeaderText = "Amount";
+            this.clmPaymentAmount.Name = "clmPaymentAmount";
+            this.clmPaymentAmount.ReadOnly = true;
+            // 
+            // clmPaymentStatus
+            // 
+            this.clmPaymentStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmPaymentStatus.HeaderText = "Status";
+            this.clmPaymentStatus.Name = "clmPaymentStatus";
+            this.clmPaymentStatus.ReadOnly = true;
+            this.clmPaymentStatus.Width = 66;
+            // 
+            // clmPaymentDate
+            // 
+            this.clmPaymentDate.HeaderText = "Payment Date";
+            this.clmPaymentDate.Name = "clmPaymentDate";
+            this.clmPaymentDate.ReadOnly = true;
+            this.clmPaymentDate.Width = 150;
+            // 
+            // clmAction
+            // 
+            this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmAction.HeaderText = "Action";
+            this.clmAction.Name = "clmAction";
+            this.clmAction.ReadOnly = true;
+            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmAction.Text = "Cancel";
+            this.clmAction.Width = 48;
+            // 
             // frm_payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -672,7 +698,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbPaymentHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPaymentHistory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -710,18 +736,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBalance;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmCheck;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dbPaymentHistory;
+        private System.Windows.Forms.DataGridView dgPaymentHistory;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTotalBalanceTuition;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtTotalPaymentTuition;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmORNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentDate;
-        private System.Windows.Forms.DataGridViewButtonColumn clmCancel;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label8;
@@ -729,5 +748,14 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmORNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentDate;
+        private System.Windows.Forms.DataGridViewButtonColumn clmAction;
     }
 }

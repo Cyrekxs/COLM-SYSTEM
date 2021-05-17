@@ -15,6 +15,22 @@ namespace COLM_SYSTEM
         public UC_DashBoard()
         {
             InitializeComponent();
+            LoadCharts();
+        }
+
+        private void LoadCharts()
+        {
+            chartEnrolled.Series["Series1"].Points.AddXY("Pre Elementary", btnEnrolledPreElementary.Text);
+            chartEnrolled.Series["Series1"].Points.AddXY("Elementary", btnEnrolledElementary.Text);
+            chartEnrolled.Series["Series1"].Points.AddXY("Junior High", btnEnrolledJuniorHigh.Text);
+            chartEnrolled.Series["Series1"].Points.AddXY("Senior High", btnEnrolledSeniorHigh.Text);
+            chartEnrolled.Series["Series1"].Points.AddXY("College", btnEnrolledCollege.Text);
+
+        }
+
+        private void chartEnrolled_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -50,6 +50,7 @@
             this.iNFORMATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEGISTRATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aSSESSMENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pAYMENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sETTINGSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dISCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,10 +62,11 @@
             this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pAYMENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uC_DashBoard1 = new COLM_SYSTEM.UC_DashBoard();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.PanelMain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +76,7 @@
             this.lblSchoolYear.AutoSize = true;
             this.lblSchoolYear.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSchoolYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblSchoolYear.Location = new System.Drawing.Point(818, 8);
+            this.lblSchoolYear.Location = new System.Drawing.Point(819, 10);
             this.lblSchoolYear.Name = "lblSchoolYear";
             this.lblSchoolYear.Size = new System.Drawing.Size(115, 20);
             this.lblSchoolYear.TabIndex = 0;
@@ -222,15 +224,15 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.panel2.Controls.Add(this.lblSemester);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.lblSchoolYear);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 774);
+            this.panel2.Location = new System.Drawing.Point(0, 786);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1060, 51);
+            this.panel2.Size = new System.Drawing.Size(1060, 39);
             this.panel2.TabIndex = 7;
             // 
             // lblSemester
@@ -239,7 +241,7 @@
             this.lblSemester.AutoSize = true;
             this.lblSemester.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSemester.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblSemester.Location = new System.Drawing.Point(939, 8);
+            this.lblSemester.Location = new System.Drawing.Point(940, 10);
             this.lblSemester.Name = "lblSemester";
             this.lblSemester.Size = new System.Drawing.Size(114, 20);
             this.lblSemester.TabIndex = 12;
@@ -260,7 +262,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label11.Location = new System.Drawing.Point(494, 8);
+            this.label11.Location = new System.Drawing.Point(495, 10);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(152, 20);
             this.label11.TabIndex = 8;
@@ -268,10 +270,11 @@
             // 
             // PanelMain
             // 
+            this.PanelMain.Controls.Add(this.uC_DashBoard1);
             this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMain.Location = new System.Drawing.Point(0, 83);
             this.PanelMain.Name = "PanelMain";
-            this.PanelMain.Size = new System.Drawing.Size(1060, 691);
+            this.PanelMain.Size = new System.Drawing.Size(1060, 703);
             this.PanelMain.TabIndex = 9;
             // 
             // menuStrip1
@@ -301,23 +304,30 @@
             // iNFORMATIONToolStripMenuItem
             // 
             this.iNFORMATIONToolStripMenuItem.Name = "iNFORMATIONToolStripMenuItem";
-            this.iNFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iNFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.iNFORMATIONToolStripMenuItem.Text = "INFORMATION";
             this.iNFORMATIONToolStripMenuItem.Click += new System.EventHandler(this.iNFORMATIONToolStripMenuItem_Click);
             // 
             // rEGISTRATIONToolStripMenuItem
             // 
             this.rEGISTRATIONToolStripMenuItem.Name = "rEGISTRATIONToolStripMenuItem";
-            this.rEGISTRATIONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rEGISTRATIONToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.rEGISTRATIONToolStripMenuItem.Text = "REGISTRATION";
             this.rEGISTRATIONToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRATIONToolStripMenuItem_Click);
             // 
             // aSSESSMENTToolStripMenuItem
             // 
             this.aSSESSMENTToolStripMenuItem.Name = "aSSESSMENTToolStripMenuItem";
-            this.aSSESSMENTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aSSESSMENTToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.aSSESSMENTToolStripMenuItem.Text = "ASSESSMENT";
             this.aSSESSMENTToolStripMenuItem.Click += new System.EventHandler(this.aSSESSMENTToolStripMenuItem_Click);
+            // 
+            // pAYMENTToolStripMenuItem
+            // 
+            this.pAYMENTToolStripMenuItem.Name = "pAYMENTToolStripMenuItem";
+            this.pAYMENTToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.pAYMENTToolStripMenuItem.Text = "PAYMENT";
+            this.pAYMENTToolStripMenuItem.Click += new System.EventHandler(this.pAYMENTToolStripMenuItem_Click);
             // 
             // sETTINGSToolStripMenuItem
             // 
@@ -405,12 +415,13 @@
             this.cLOSEALLFORMSToolStripMenuItem.Text = "CLOSE ALL FORMS";
             this.cLOSEALLFORMSToolStripMenuItem.Click += new System.EventHandler(this.cLOSEALLFORMSToolStripMenuItem_Click);
             // 
-            // pAYMENTToolStripMenuItem
+            // uC_DashBoard1
             // 
-            this.pAYMENTToolStripMenuItem.Name = "pAYMENTToolStripMenuItem";
-            this.pAYMENTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pAYMENTToolStripMenuItem.Text = "PAYMENT";
-            this.pAYMENTToolStripMenuItem.Click += new System.EventHandler(this.pAYMENTToolStripMenuItem_Click);
+            this.uC_DashBoard1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_DashBoard1.Location = new System.Drawing.Point(12, 3);
+            this.uC_DashBoard1.Name = "uC_DashBoard1";
+            this.uC_DashBoard1.Size = new System.Drawing.Size(1036, 664);
+            this.uC_DashBoard1.TabIndex = 0;
             // 
             // frm_main
             // 
@@ -435,6 +446,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.PanelMain.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -478,5 +490,6 @@
         private System.Windows.Forms.Label lblSemester;
         private System.Windows.Forms.ToolStripMenuItem cURRICULUMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pAYMENTToolStripMenuItem;
+        private UC_DashBoard uC_DashBoard1;
     }
 }

@@ -1,6 +1,9 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
+using COLM_SYSTEM_LIBRARY.model.Payment_Folder;
 using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Payment_Folder
@@ -13,7 +16,8 @@ namespace COLM_SYSTEM.Payment_Folder
         public frm_payment(int AssessmentID)
         {
             InitializeComponent();
-            GetAssessmentInformation(AssessmentID);
+
+            LoadAssessmentInformation(AssessmentID);
 
             //get registration information
             studentRegistered = StudentRegistered.GetRegisteredStudent(assessment.Summary.RegisteredStudentID);
@@ -29,21 +33,56 @@ namespace COLM_SYSTEM.Payment_Folder
             txtYearLevel.Text = studentYearLevel.YearLvl;
             txtSection.Text = assessment.Summary.Section;
 
-            LoadAssessmentBreakdown();
+            LoadPaymentHistory();
         }
 
-        private void GetAssessmentInformation(int AssessmentID)
+        //default load
+        private void LoadAssessmentInformation(int AssessmentID)
         {
             assessment = Assessment.GetAssessment(AssessmentID);
+            LoadAssessmentBreakdown();
+            LoadPaymentHistory();
+        }
+
+        //reload or refresh
+        private void LoadAssessmentInformation()
+        {
+            assessment = Assessment.GetAssessment(assessment.Summary.AssessmentID);
+            LoadAssessmentBreakdown();
+            LoadPaymentHistory();
         }
 
         private void LoadPaymentHistory()
         {
+            dgPaymentHistory.Rows.Clear();
+            List<Payment> payments = Payment.GetPayments(studentRegistered.RegisteredID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+            foreach (var item in payments)
+            {
+                dgPaymentHistory.Rows.Add(item.PaymentID, item.ORNumber, item.PaymentCategory, item.FeeCategory, item.AmountPaid.ToString("n"),item.PaymentStatus, item.PaymentDate.ToString("MM-dd-yyyy hh:mm tt"));
+                if (item.PaymentStatus.ToLower() == "cancelled")
+                    dgPaymentHistory.Rows[dgPaymentHistory.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.Red;
+                else
+                    dgPaymentHistory.Rows[dgPaymentHistory.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.Black;
+            }
 
+
+            //verify if payment status is active or cancel and mark the clm action in datagridview
+            foreach (DataGridViewRow item in dgPaymentHistory.Rows)
+            {
+                if (item.Cells["clmPaymentStatus"].Value.ToString().ToLower() == "cancelled")
+                {
+                    item.Cells["clmAction"].Value = "Activate";
+                }
+                else
+                {
+                    item.Cells["clmAction"].Value = "Cancel";
+                }
+            }
         }
 
         private void LoadAssessmentBreakdown()
         {
+
             dgBreakdown.Rows.Clear();
             double TotalPaidTuition = assessment.Summary.TotalPaidTuition;
             double balance = 0;
@@ -94,9 +133,17 @@ namespace COLM_SYSTEM.Payment_Folder
                 }
             }
 
-            frm_payment_entry frm = new frm_payment_entry(AmountToPay);
+            frm_payment_cash_entry frm = new frm_payment_cash_entry(studentRegistered,AmountToPay);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+
+            LoadAssessmentInformation();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
         }
     }
 }
