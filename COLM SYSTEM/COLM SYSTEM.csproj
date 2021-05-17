@@ -284,6 +284,12 @@
     <Compile Include="Subject Folder\uc_subject_list.Designer.cs">
       <DependentUpon>uc_subject_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_DashBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DashBoard.Designer.cs">
+      <DependentUpon>UC_DashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -461,6 +467,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Subject Folder\uc_subject_list.resx">
       <DependentUpon>uc_subject_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DashBoard.resx">
+      <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Assessment Folder\DataSets\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
