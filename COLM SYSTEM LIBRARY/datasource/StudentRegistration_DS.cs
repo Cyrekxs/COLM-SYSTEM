@@ -13,7 +13,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_RegisteredStudents()", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_StudentsRegistered()", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -45,13 +45,51 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return registeredStudents;
         }
 
+        public static List<StudentInfo> GetUnregisteredStudents()
+        {
+            List<StudentInfo> students = new List<StudentInfo>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_StudentsUnregistered() ORDER BY Lastname,Firstname ASC", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            StudentInfo student = new StudentInfo()
+                            {
+                                StudentID = Convert.ToInt32(reader["StudentID"]),
+                                LRN = Convert.ToString(reader["LRN"]),
+                                Lastname = Convert.ToString(reader["Lastname"]),
+                                Firstname = Convert.ToString(reader["Firstname"]),
+                                Middlename = Convert.ToString(reader["Middlename"]),
+                                ExtensionName = Convert.ToString(reader["ExtensionName"]),
+                                BirthDate = Convert.ToDateTime(reader["BirthDate"]),
+                                BirthPlace = Convert.ToString(reader["BirthPlace"]),
+                                Gender = Convert.ToString(reader["Gender"]),
+                                Street = Convert.ToString(reader["Street"]),
+                                Barangay = Convert.ToString(reader["Barangay"]),
+                                City = Convert.ToString(reader["City"]),
+                                Province = Convert.ToString(reader["Province"]),
+                                EmailAddress = Convert.ToString(reader["EmailAddress"]),
+                                MobileNo = Convert.ToString(reader["MobileNo"])
+                            };
+                            students.Add(student);
+                        }
+                    }
+                }
+            }
+            return students;
+        }
+
         public static StudentRegistered GetRegisteredStudent(int RegisteredID)
         {
             StudentRegistered registeredInfo = new StudentRegistered();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_RegisteredStudents() WHERE RegisteredID = @RegisteredID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_StudentsRegistered() WHERE RegisteredID = @RegisteredID", conn))
                 {
                     comm.Parameters.AddWithValue("@RegisteredID", RegisteredID);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -145,7 +183,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
         }
 
-        public static List<StudentRegistered> GetStudentsWithNoAssessment( int SchoolYearID, int SemesterID)
+        public static List<StudentRegistered> GetStudentsWithNoAssessment(int SchoolYearID, int SemesterID)
         {
             List<StudentRegistered> registeredStudents = new List<StudentRegistered>();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))

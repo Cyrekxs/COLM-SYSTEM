@@ -35,6 +35,8 @@ namespace COLM_SYSTEM
         public frm_main()
         {
             InitializeComponent();
+            lblAccountName.Text = Utilties.user.AccountName;
+            lblPosition.Text = Utilties.user.AccountPosition;
         }
 
         private void frm_main_Load(object sender, EventArgs e)
@@ -59,7 +61,7 @@ namespace COLM_SYSTEM
 
         private void cURRICULUMBUILDERToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DisplayControl(new uc_curriculum_list());
+            
         }
 
         private void rEGISTRATIONToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,6 +108,11 @@ namespace COLM_SYSTEM
         private void aSSESSMENTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_assessment_list());
+        }
+
+        private void cURRICULUMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_curriculum_list());
         }
     }
 }

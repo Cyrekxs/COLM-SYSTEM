@@ -44,11 +44,7 @@ namespace COLM_SYSTEM.Fees_Folder
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frm_tuition_entry frm = new frm_tuition_entry();
-            frm.ShowDialog();
-            frm.StartPosition = FormStartPosition.CenterParent;
 
-            LoadTuitionSummary();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -64,6 +60,14 @@ namespace COLM_SYSTEM.Fees_Folder
 
                 LoadTuitionSummary();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frm_tuition_entry frm = new frm_tuition_entry();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            LoadTuitionSummary();
         }
     }
 }

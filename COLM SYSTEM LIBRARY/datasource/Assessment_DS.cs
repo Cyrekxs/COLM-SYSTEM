@@ -15,7 +15,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             {
                 conn.Open();
                 //get assessment summary
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.summary WHERE AssessmentID = @AssessmentID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_student_assessment() WHERE AssessmentID = @AssessmentID", conn))
                 {
                     comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -29,9 +29,14 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 AssessmentTypeID = Convert.ToInt32(reader["AssessmentTypeID"]),
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 SectionID = Convert.ToInt16(reader["SectionID"]),
+                                TFee = Convert.ToDouble(reader["TFee"]),
+                                MFee = Convert.ToDouble(reader["MFee"]),
+                                OFee = Convert.ToDouble(reader["OFee"]),
+                                Surcharge = Convert.ToDouble(reader["Surcharge"]),
                                 TotalAmount = Convert.ToDouble(reader["TotalAmount"]),
                                 DiscountAmount = Convert.ToDouble(reader["DiscountAmount"]),
                                 TotalDue = Convert.ToDouble(reader["TotalDue"]),
+                                TotalPaidTuition = Convert.ToDouble(reader["TotalPaidTuition"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 SemesterID = Convert.ToInt32(reader["SemesterID"])
                             };
@@ -307,7 +312,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             }
                         }
                         t.Commit();
-                        return 1;
+                        return AssessmentID;
                     }
                     catch (Exception)
                     {
@@ -320,5 +325,17 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         }
 
+        public static int DeactivateAssessment(int AssessmentID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("UPDATE assessment.summary SET AssessmentStatus = 'INACTIVE' WHERE AssessmentID = @AssessmentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
+                    return comm.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

@@ -110,7 +110,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@SubjDesc", model.SubjDesc);
                     comm.Parameters.AddWithValue("@LecUnit", model.LecUnit);
                     comm.Parameters.AddWithValue("@LabUnit", model.LabUnit);
-
+                    comm.Parameters.AddWithValue("@Unit", model.Unit);
                     if (comm.ExecuteNonQuery() > 0)
                         return true;
                     else

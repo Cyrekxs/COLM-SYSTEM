@@ -13,9 +13,14 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
         public int YearLevelID { get; set; }
         public int SectionID { get; set; }
         public int AssessmentTypeID { get; set; }
+        public double TFee { get; set; } //for printing purposes only
+        public double MFee { get; set; } //for printing purposes only
+        public double OFee { get; set; } //for printing purposes only
+        public double Surcharge { get; set; } //for printing purposes only
         public double TotalAmount { get; set; }
         public double DiscountAmount { get; set; }
         public double TotalDue { get; set; }
+        public double TotalPaidTuition { get; set; } //for displaying purposes on payment
         public int SchoolYearID { get; set; }
         public int SemesterID { get; set; }
 

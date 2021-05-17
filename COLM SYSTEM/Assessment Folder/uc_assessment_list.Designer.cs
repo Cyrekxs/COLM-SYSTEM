@@ -51,6 +51,7 @@
             this.clmAssessmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmReAssess = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clmPrint = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +60,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -77,7 +80,8 @@
             this.clmAssessor,
             this.clmAssessmentDate,
             this.clmReAssess,
-            this.clmPrint});
+            this.clmPrint,
+            this.clmRemove});
             this.dataGridView1.Location = new System.Drawing.Point(9, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -107,6 +111,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(189, 23);
             this.textBox1.TabIndex = 2;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label2
             // 
@@ -285,6 +290,18 @@
             this.clmPrint.UseColumnTextForButtonValue = true;
             this.clmPrint.Width = 49;
             // 
+            // clmRemove
+            // 
+            this.clmRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmRemove.HeaderText = "Remove";
+            this.clmRemove.Name = "clmRemove";
+            this.clmRemove.ReadOnly = true;
+            this.clmRemove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmRemove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmRemove.Text = "Remove";
+            this.clmRemove.UseColumnTextForButtonValue = true;
+            this.clmRemove.Width = 74;
+            // 
             // uc_assessment_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -326,5 +343,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentDate;
         private System.Windows.Forms.DataGridViewButtonColumn clmReAssess;
         private System.Windows.Forms.DataGridViewButtonColumn clmPrint;
+        private System.Windows.Forms.DataGridViewButtonColumn clmRemove;
     }
 }

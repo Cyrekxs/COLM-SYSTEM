@@ -199,6 +199,12 @@
     <Compile Include="Fees Folder\uc_tuition_list.Designer.cs">
       <DependentUpon>uc_tuition_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_login.Designer.cs">
+      <DependentUpon>frm_login.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,12 @@
     </Compile>
     <Compile Include="Payment Folder\frm_payment.Designer.cs">
       <DependentUpon>frm_payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment Folder\uc_payers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Payment Folder\uc_payers.Designer.cs">
+      <DependentUpon>uc_payers.cs</DependentUpon>
     </Compile>
     <Compile Include="Section Folder\frm_section_entry.cs">
       <SubType>Form</SubType>
@@ -271,12 +283,6 @@
     </Compile>
     <Compile Include="Subject Folder\uc_subject_list.Designer.cs">
       <DependentUpon>uc_subject_list.cs</DependentUpon>
-    </Compile>
-    <Compile Include="uc_assessment_lists.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="uc_assessment_lists.Designer.cs">
-      <DependentUpon>uc_assessment_lists.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilties.cs" />
     <Compile Include="Program.cs" />
@@ -338,6 +344,9 @@
     <EmbeddedResource Include="Assessment Folder\frm_assessment_schedule_browser.resx">
       <DependentUpon>frm_assessment_schedule_browser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assessment Folder\frm_assessment_subject_browser.resx">
+      <DependentUpon>frm_assessment_subject_browser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assessment Folder\rpt_assessment.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -380,6 +389,9 @@
     <EmbeddedResource Include="Fees Folder\uc_tuition_list.resx">
       <DependentUpon>uc_tuition_list.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_login.resx">
+      <DependentUpon>frm_login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_main.resx">
       <DependentUpon>frm_main.cs</DependentUpon>
     </EmbeddedResource>
@@ -394,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\frm_payment.resx">
       <DependentUpon>frm_payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment Folder\uc_payers.resx">
+      <DependentUpon>uc_payers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -446,9 +461,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Subject Folder\uc_subject_list.resx">
       <DependentUpon>uc_subject_list.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="uc_assessment_lists.resx">
-      <DependentUpon>uc_assessment_lists.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Assessment Folder\DataSets\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -541,6 +553,7 @@
   <ItemGroup>
     <Content Include="Programmers Info\Notes.txt" />
     <Content Include="Programmers Info\What I Did.txt" />
+    <None Include="Resources\colm wallpaper.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SqlServerTypes\x64\" />

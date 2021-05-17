@@ -28,24 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblSchoolYear = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblAccountName = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblPosition = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblSemester = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.PanelMain = new System.Windows.Forms.Panel();
@@ -54,7 +50,6 @@
             this.iNFORMATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEGISTRATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aSSESSMENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cURRICULUMBUILDERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sETTINGSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dISCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,88 +60,34 @@
             this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cURRICULUMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblSchoolYear
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(939, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "S.Y : 2020 - 2021";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(708, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "JHS 1ST SEM";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(792, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "SHS 1ST SEM";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(495, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "PRE ELEM 1ST SEM ";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(613, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 17);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "ELEM 1ST SEM ";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(877, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(177, 17);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "COLLEGE SETTINGS : 2ND SEM";
+            this.lblSchoolYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSchoolYear.AutoSize = true;
+            this.lblSchoolYear.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSchoolYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblSchoolYear.Location = new System.Drawing.Point(818, 8);
+            this.lblSchoolYear.Name = "lblSchoolYear";
+            this.lblSchoolYear.Size = new System.Drawing.Size(115, 20);
+            this.lblSchoolYear.TabIndex = 0;
+            this.lblSchoolYear.Text = "S.Y : 2020 - 2021";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lblAccountName);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.lblPosition);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
@@ -156,6 +97,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1060, 59);
             this.panel1.TabIndex = 6;
+            // 
+            // lblAccountName
+            // 
+            this.lblAccountName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAccountName.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccountName.Location = new System.Drawing.Point(750, 11);
+            this.lblAccountName.Name = "lblAccountName";
+            this.lblAccountName.Size = new System.Drawing.Size(203, 17);
+            this.lblAccountName.TabIndex = 7;
+            this.lblAccountName.Text = "ANTHONY QUIJANO";
+            this.lblAccountName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label12
             // 
@@ -205,28 +157,17 @@
             this.label13.Size = new System.Drawing.Size(2, 55);
             this.label13.TabIndex = 9;
             // 
-            // label10
+            // lblPosition
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label10.Location = new System.Drawing.Point(750, 26);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(200, 25);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "SYSTEM ADMINISTRATOR";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(750, 13);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(203, 17);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "ANTHONY QUIJANO";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPosition.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblPosition.Location = new System.Drawing.Point(750, 29);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(200, 25);
+            this.lblPosition.TabIndex = 9;
+            this.lblPosition.Text = "SYSTEM ADMINISTRATOR";
+            this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pictureBox1
             // 
@@ -281,19 +222,27 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel2.Controls.Add(this.lblSemester);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.lblSchoolYear);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 774);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1060, 51);
             this.panel2.TabIndex = 7;
+            // 
+            // lblSemester
+            // 
+            this.lblSemester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSemester.AutoSize = true;
+            this.lblSemester.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSemester.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblSemester.Location = new System.Drawing.Point(939, 8);
+            this.lblSemester.Name = "lblSemester";
+            this.lblSemester.Size = new System.Drawing.Size(114, 20);
+            this.lblSemester.TabIndex = 12;
+            this.lblSemester.Text = "1ST SEMESTER";
             // 
             // label15
             // 
@@ -312,9 +261,9 @@
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label11.Location = new System.Drawing.Point(494, 8);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(129, 20);
+            this.label11.Size = new System.Drawing.Size(152, 20);
             this.label11.TabIndex = 8;
-            this.label11.Text = "QUICK SETTINGS";
+            this.label11.Text = "CURRENT SETTINGS";
             // 
             // PanelMain
             // 
@@ -342,8 +291,7 @@
             this.tRANSACTIONToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iNFORMATIONToolStripMenuItem,
             this.rEGISTRATIONToolStripMenuItem,
-            this.aSSESSMENTToolStripMenuItem,
-            this.cURRICULUMBUILDERToolStripMenuItem});
+            this.aSSESSMENTToolStripMenuItem});
             this.tRANSACTIONToolStripMenuItem.Name = "tRANSACTIONToolStripMenuItem";
             this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.tRANSACTIONToolStripMenuItem.Text = "TRANSACTION";
@@ -351,30 +299,23 @@
             // iNFORMATIONToolStripMenuItem
             // 
             this.iNFORMATIONToolStripMenuItem.Name = "iNFORMATIONToolStripMenuItem";
-            this.iNFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.iNFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.iNFORMATIONToolStripMenuItem.Text = "INFORMATION";
             this.iNFORMATIONToolStripMenuItem.Click += new System.EventHandler(this.iNFORMATIONToolStripMenuItem_Click);
             // 
             // rEGISTRATIONToolStripMenuItem
             // 
             this.rEGISTRATIONToolStripMenuItem.Name = "rEGISTRATIONToolStripMenuItem";
-            this.rEGISTRATIONToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.rEGISTRATIONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rEGISTRATIONToolStripMenuItem.Text = "REGISTRATION";
             this.rEGISTRATIONToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRATIONToolStripMenuItem_Click);
             // 
             // aSSESSMENTToolStripMenuItem
             // 
             this.aSSESSMENTToolStripMenuItem.Name = "aSSESSMENTToolStripMenuItem";
-            this.aSSESSMENTToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.aSSESSMENTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aSSESSMENTToolStripMenuItem.Text = "ASSESSMENT";
             this.aSSESSMENTToolStripMenuItem.Click += new System.EventHandler(this.aSSESSMENTToolStripMenuItem_Click);
-            // 
-            // cURRICULUMBUILDERToolStripMenuItem
-            // 
-            this.cURRICULUMBUILDERToolStripMenuItem.Name = "cURRICULUMBUILDERToolStripMenuItem";
-            this.cURRICULUMBUILDERToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.cURRICULUMBUILDERToolStripMenuItem.Text = "CURRICULUM BUILDER";
-            this.cURRICULUMBUILDERToolStripMenuItem.Click += new System.EventHandler(this.cURRICULUMBUILDERToolStripMenuItem_Click);
             // 
             // sETTINGSToolStripMenuItem
             // 
@@ -382,7 +323,8 @@
             this.dISCOUNTToolStripMenuItem,
             this.fEESToolStripMenuItem,
             this.sUBJECTSToolStripMenuItem,
-            this.sECTIONSToolStripMenuItem});
+            this.sECTIONSToolStripMenuItem,
+            this.cURRICULUMToolStripMenuItem});
             this.sETTINGSToolStripMenuItem.Name = "sETTINGSToolStripMenuItem";
             this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.sETTINGSToolStripMenuItem.Text = "SETTINGS";
@@ -416,6 +358,7 @@
             this.mISCELLANEOUSFEEToolStripMenuItem.Name = "mISCELLANEOUSFEEToolStripMenuItem";
             this.mISCELLANEOUSFEEToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.mISCELLANEOUSFEEToolStripMenuItem.Text = "MISCELLANEOUS FEE";
+            this.mISCELLANEOUSFEEToolStripMenuItem.Visible = false;
             this.mISCELLANEOUSFEEToolStripMenuItem.Click += new System.EventHandler(this.mISCELLANEOUSFEEToolStripMenuItem_Click);
             // 
             // sUBJECTSToolStripMenuItem
@@ -453,6 +396,13 @@
             this.cLOSEALLFORMSToolStripMenuItem.Text = "CLOSE ALL FORMS";
             this.cLOSEALLFORMSToolStripMenuItem.Click += new System.EventHandler(this.cLOSEALLFORMSToolStripMenuItem_Click);
             // 
+            // cURRICULUMToolStripMenuItem
+            // 
+            this.cURRICULUMToolStripMenuItem.Name = "cURRICULUMToolStripMenuItem";
+            this.cURRICULUMToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.cURRICULUMToolStripMenuItem.Text = "CURRICULUM";
+            this.cURRICULUMToolStripMenuItem.Click += new System.EventHandler(this.cURRICULUMToolStripMenuItem_Click);
+            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -471,7 +421,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "DASHBOARD";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frm_main_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -486,18 +435,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblSchoolYear;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblPosition;
+        private System.Windows.Forms.Label lblAccountName;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
@@ -518,10 +462,11 @@
         private System.Windows.Forms.ToolStripMenuItem sUBJECTSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEPORTSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mASTERLISTToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cURRICULUMBUILDERToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLOSEALLFORMSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sECTIONSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mISCELLANEOUSFEESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mISCELLANEOUSFEEToolStripMenuItem;
+        private System.Windows.Forms.Label lblSemester;
+        private System.Windows.Forms.ToolStripMenuItem cURRICULUMToolStripMenuItem;
     }
 }

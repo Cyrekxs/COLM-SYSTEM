@@ -31,5 +31,10 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
             return Assessment_DS.InsertAssessment(entry.Summary, entry.Subjects, entry.AdditionalFees, entry.Fees, entry.Discounts, entry.Breakdown);
         }
 
+        public static int DeactivateAssessment(int AssessmentID)
+        {
+            return Assessment_DS.DeactivateAssessment(AssessmentID);
+        }
+
     }
 }

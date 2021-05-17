@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace COLM_SYSTEM.Assessment_Folder
 {
@@ -19,6 +20,13 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void LoadAssessments()
         {
             List<AssessmentList> assessmentLists = Assessment.GetAssessments();
+
+            if (textBox1.Text != string.Empty)
+            {
+                assessmentLists = (from r in assessmentLists
+                                   where r.StudentName.ToLower().Contains(textBox1.Text.ToLower())
+                                   select r).ToList();
+            }
 
             dataGridView1.Rows.Clear();
             foreach (var item in assessmentLists)
@@ -39,6 +47,8 @@ namespace COLM_SYSTEM.Assessment_Folder
             int AssessmentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["clmAssessmentID"].Value);
             if (e.ColumnIndex == clmPrint.Index)
             {
+                Assessment assessment = Assessment.GetAssessment(AssessmentID);
+
 
                 ReportParameter param_LRN = new ReportParameter("LRN", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmLRN"].Value));
                 ReportParameter param_StudentName = new ReportParameter("studentname", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmStudentName"].Value));
@@ -49,10 +59,35 @@ namespace COLM_SYSTEM.Assessment_Folder
                 ReportParameter param_Assessor = new ReportParameter("assessor", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmAssessor"].Value));
                 ReportParameter param_AssessmentDate = new ReportParameter("assessmentdate", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmAssessmentDate"].Value));
 
+                ReportParameter param_TFee = new ReportParameter("TFee", assessment.Summary.TFee.ToString("n"));
+                ReportParameter param_MFee = new ReportParameter("MFee", assessment.Summary.MFee.ToString("n"));
+                ReportParameter param_OFee = new ReportParameter("OFee", assessment.Summary.OFee.ToString("n"));
+                ReportParameter param_Discount = new ReportParameter("Discount", assessment.Summary.DiscountAmount.ToString("n"));
+                ReportParameter param_Surcharge = new ReportParameter("Surcharge", assessment.Summary.Surcharge.ToString("n"));
+                ReportParameter param_TotalDue = new ReportParameter("TotalDue", assessment.Summary.TotalDue.ToString("n"));
+
+
+                List<ReportParameter> reportParameters = new List<ReportParameter>();
+                reportParameters.Add(param_LRN);
+                reportParameters.Add(param_StudentName);
+                reportParameters.Add(param_CourseStrand);
+                reportParameters.Add(param_YearLevel);
+                reportParameters.Add(param_Section);
+                reportParameters.Add(param_AssessmentType);
+                reportParameters.Add(param_Assessor);
+                reportParameters.Add(param_AssessmentDate);
+                reportParameters.Add(param_TFee);
+                reportParameters.Add(param_MFee);
+                reportParameters.Add(param_OFee);
+                reportParameters.Add(param_Discount);
+                reportParameters.Add(param_Surcharge);
+                reportParameters.Add(param_TotalDue);
+
+
                 DataSets.DataSet1 ds = new DataSets.DataSet1();
                 DataRow dr;
 
-                Assessment assessment = Assessment.GetAssessment(AssessmentID);
+                
 
                 var tbl = ds.Tables["DTSubjects"];
                 tbl.Rows.Clear();
@@ -90,7 +125,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 frm.reportViewer1.LocalReport.DataSources.Add(dsSubjects);
                 string AssemblyNameSpaces = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
                 frm.reportViewer1.LocalReport.ReportEmbeddedResource = "COLM_SYSTEM.Assessment_Folder.rpt_assessment.rdlc";
-                frm.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { param_LRN, param_StudentName, param_CourseStrand, param_YearLevel, param_Section, param_AssessmentType, param_Assessor, param_AssessmentDate });
+                frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());
                 frm.reportViewer1.RefreshReport();
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
@@ -100,6 +135,26 @@ namespace COLM_SYSTEM.Assessment_Folder
                 frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID);
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
+            }
+            else if (e.ColumnIndex == clmRemove.Index)
+            {
+                if (MessageBox.Show("Are you sure you want to remove this assessment?","",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int result = Assessment.DeactivateAssessment(AssessmentID);
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Assessment has been successfully removed!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadAssessments();
+                    }
+                }
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoadAssessments();
             }
         }
     }

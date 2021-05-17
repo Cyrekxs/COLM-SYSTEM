@@ -38,7 +38,16 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 City = Convert.ToString(reader["City"]),
                                 Province = Convert.ToString(reader["Province"]),
                                 EmailAddress = Convert.ToString(reader["EmailAddress"]),
-                                MobileNo = Convert.ToString(reader["MobileNo"])
+                                MobileNo = Convert.ToString(reader["MobileNo"]),
+                                MotherName = Convert.ToString(reader["MotherName"]),
+                                MotherMobile = Convert.ToString(reader["MotherMobile"]),
+                                FatherName = Convert.ToString(reader["FatherName"]),
+                                FatherMobile = Convert.ToString(reader["FatherMobile"]),
+                                GuardianName = Convert.ToString(reader["GuardianName"]),
+                                GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
+                                SchoolName = Convert.ToString(reader["SchoolName"]),
+                                SchoolAddress = Convert.ToString(reader["SchoolAddress"]),
+                                Strand = Convert.ToString(reader["Strand"])
                             };
                             students.Add(student);
                         }
@@ -77,7 +86,16 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 City = Convert.ToString(reader["City"]),
                                 Province = Convert.ToString(reader["Province"]),
                                 EmailAddress = Convert.ToString(reader["EmailAddress"]),
-                                MobileNo = Convert.ToString(reader["MobileNo"])
+                                MobileNo = Convert.ToString(reader["MobileNo"]),
+                                MotherName = Convert.ToString(reader["MotherName"]),
+                                MotherMobile = Convert.ToString(reader["MotherMobile"]),
+                                FatherName = Convert.ToString(reader["FatherName"]),
+                                FatherMobile = Convert.ToString(reader["FatherMobile"]),
+                                GuardianName = Convert.ToString(reader["GuardianName"]),
+                                GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
+                                SchoolName = Convert.ToString(reader["SchoolName"]),
+                                SchoolAddress = Convert.ToString(reader["SchoolAddress"]),
+                                Strand = Convert.ToString(reader["Strand"])
                             };
                         }
                     }
@@ -87,41 +105,12 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         }
 
 
-        public static bool InsertStudentInfo(StudentInfo model)
+        public static bool InsertUpdateStudentInformation(StudentInfo model)
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO student.information VALUES (@LRN,@Lastname,@Firstname,@Middlename,@ExtensionName,@BirthDate,@BirthPlace,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,GETDATE())", conn))
-                {
-                    comm.Parameters.AddWithValue("@LRN", model.LRN);
-                    comm.Parameters.AddWithValue("@Lastname", model.Lastname);
-                    comm.Parameters.AddWithValue("@Firstname", model.Firstname);
-                    comm.Parameters.AddWithValue("@Middlename", model.Middlename);
-                    comm.Parameters.AddWithValue("@ExtensionName", model.ExtensionName);
-                    comm.Parameters.AddWithValue("@BirthDate", model.BirthDate);
-                    comm.Parameters.AddWithValue("@BirthPlace", model.BirthPlace);
-                    comm.Parameters.AddWithValue("@Gender", model.Gender);
-                    comm.Parameters.AddWithValue("@Street", model.Street);
-                    comm.Parameters.AddWithValue("@Barangay", model.Barangay);
-                    comm.Parameters.AddWithValue("@City", model.City);
-                    comm.Parameters.AddWithValue("@Province", model.Province);
-                    comm.Parameters.AddWithValue("@MobileNo", model.MobileNo);
-                    comm.Parameters.AddWithValue("@EmailAddress", model.EmailAddress);
-                    if (comm.ExecuteNonQuery() > 0)
-                        return true;
-                    else
-                        return false;
-                }
-            }
-        }
-
-        public static bool UpdateStudentInfo(StudentInfo model)
-        {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
-            {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE student.information SET LRN =  @LRN, Lastname = @Lastname, Firstname = @Firstname, Middlename = @Middlename, Extensionname = @ExtensionName, BirthDate = @BirthDate, BirthPlace = @BirthPlace, Gender = @Gender, Street = @Street, Barangay = @Barangay, City = @City, Province = @Province, MobileNo = @MobileNo, EmailAddress = @EmailAddress WHERE StudentID = @StudentID", conn))
+                using (SqlCommand comm = new SqlCommand("EXEC sp_set_student_information @StudentID,@LRN,@Lastname,@Firstname,@Middlename,@ExtensionName,@BirthDate,@BirthPlace,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@SchoolName,@SchoolAddress,@Strand", conn))
                 {
                     comm.Parameters.AddWithValue("@StudentID", model.StudentID);
                     comm.Parameters.AddWithValue("@LRN", model.LRN);
@@ -138,6 +127,15 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@Province", model.Province);
                     comm.Parameters.AddWithValue("@MobileNo", model.MobileNo);
                     comm.Parameters.AddWithValue("@EmailAddress", model.EmailAddress);
+                    comm.Parameters.AddWithValue("@MotherName",model.MotherName);
+                    comm.Parameters.AddWithValue("@MotherMobile",model.MotherMobile);
+                    comm.Parameters.AddWithValue("@FatherName",model.FatherName);
+                    comm.Parameters.AddWithValue("@FatherMobile",model.FatherMobile);
+                    comm.Parameters.AddWithValue("@GuardianName",model.GuardianName);
+                    comm.Parameters.AddWithValue("@GuardianMobile",model.GuardianMobile);
+                    comm.Parameters.AddWithValue("@SchoolName",model.SchoolName);
+                    comm.Parameters.AddWithValue("@SchoolAddress",model.SchoolAddress);
+                    comm.Parameters.AddWithValue("@Strand",model.Strand);
                     if (comm.ExecuteNonQuery() > 0)
                         return true;
                     else

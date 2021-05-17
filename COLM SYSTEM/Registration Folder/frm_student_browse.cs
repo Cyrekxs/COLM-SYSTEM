@@ -15,7 +15,7 @@ namespace COLM_SYSTEM.registration
     {
         public StudentInfo SelectedStudent { get; set; }
 
-        List<StudentInfo> _students = StudentInfo.GetStudents();    
+        List<StudentInfo> _students = StudentRegistered.GetUnregisteredStudents();    
         public frm_student_browse()
         {
             InitializeComponent();

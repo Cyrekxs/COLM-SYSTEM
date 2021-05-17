@@ -43,5 +43,10 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return StudentRegistration_DS.GetRegisteredStudent(RegisteredID);
         }
+
+        public static List<StudentInfo> GetUnregisteredStudents()
+        {
+            return StudentRegistration_DS.GetUnregisteredStudents();
+        }
     }
 }

@@ -40,6 +40,15 @@ namespace COLM_SYSTEM.student_information
             cmbBarangay.Text = student.Barangay;
             txtMobileNo.Text = student.MobileNo;
             txtEmailAddress.Text = student.EmailAddress;
+            txtMotherName.Text = student.MotherName;
+            txtMotherMobile.Text = student.MotherMobile;
+            txtFatherName.Text = student.FatherName;
+            txtFatherMobile.Text = student.FatherMobile;
+            txtGuardianName.Text = student.GuardianName;
+            txtGuardianMobile.Text = student.GuardianMobile;
+            txtSchoolName.Text = student.SchoolName;
+            txtSchoolAddress.Text = student.SchoolAddress;
+            cmbStrand.Text = student.Strand;
         }
 
         public frm_student_information_entry()
@@ -171,16 +180,25 @@ namespace COLM_SYSTEM.student_information
                     City = cmbCity.Text,
                     Province = cmbProvince.Text,
                     MobileNo = txtMobileNo.Text,
-                    EmailAddress = txtEmailAddress.Text
+                    EmailAddress = txtEmailAddress.Text,
+                    MotherName = txtMotherName.Text,
+                    MotherMobile = txtMotherMobile.Text,
+                    FatherName = txtFatherName.Text,
+                    FatherMobile = txtFatherMobile.Text,
+                    GuardianName = txtGuardianName.Text,
+                    GuardianMobile = txtGuardianMobile.Text,
+                    SchoolName = txtSchoolName.Text,
+                    SchoolAddress = txtSchoolAddress.Text,
+                    Strand = cmbStrand.Text
                 };
 
                 if (saving == SavingOptions.INSERT)
                 {
-                    StudentInfo.InsertStudent(student);
+                    StudentInfo.InsertUpdateStudentInformation(student);
                 }
                 else
                 {
-                    StudentInfo.UpdateStudent(student);
+                    StudentInfo.InsertUpdateStudentInformation(student);
                 }
 
                 MessageBox.Show("Student information has been successfully saved!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -197,6 +215,35 @@ namespace COLM_SYSTEM.student_information
         private void cmbCity_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadBarangays();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                checkBox2.Checked = false;
+                txtGuardianName.Text = txtMotherName.Text;
+                txtGuardianMobile.Text = txtMotherMobile.Text;
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked == true)
+            {
+                checkBox1.Checked = false;
+                txtGuardianName.Text = txtFatherName.Text;
+                txtGuardianMobile.Text = txtFatherMobile.Text;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to cancel encoding information?","Cancel",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+                Dispose();
+            }
         }
     }
 }

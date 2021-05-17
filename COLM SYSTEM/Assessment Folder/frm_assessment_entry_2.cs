@@ -1,7 +1,9 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -9,6 +11,7 @@ namespace COLM_SYSTEM.Assessment_Folder
 {
     public partial class frm_assessment_entry_2 : Form
     {
+        private int _AssessmentID = 0;
         StudentRegistered registeredStudent = new StudentRegistered();
         YearLevel studentYearLevel = new YearLevel();
         private List<Discount> AddedDiscounts = new List<Discount>();
@@ -41,6 +44,8 @@ namespace COLM_SYSTEM.Assessment_Folder
         public frm_assessment_entry_2(int AssessmentID)
         {
             InitializeComponent();
+            //Put assessment into private AssessmentID;
+            _AssessmentID = AssessmentID;
             //get assessment information
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
 
@@ -349,6 +354,8 @@ namespace COLM_SYSTEM.Assessment_Folder
             double DiscountedOFee = 0;
             double totalDiscount = 0;
 
+            dgDiscounts.Rows.Clear();
+
             foreach (var item in AddedDiscounts)
             {
                 if (item.Type.ToLower() == "percentage")
@@ -360,6 +367,9 @@ namespace COLM_SYSTEM.Assessment_Folder
 
                     //sum the total discounted amount
                     totalDiscount += DiscountedTFee + DiscountedMFee + DiscountedOFee;
+
+                    //display discount int datagrid
+                    dgDiscounts.Rows.Add(item.DiscountID, item.DiscountCode, item.Type, (DiscountedTFee + DiscountedMFee + DiscountedOFee).ToString("n"));
 
                     //deduct discounted amount for next computation of discount
                     TFee -= DiscountedTFee;
@@ -410,9 +420,11 @@ namespace COLM_SYSTEM.Assessment_Folder
                         }
                     }
 
-
                     //sum the total discounted amount
                     totalDiscount += DiscountedTFee + DiscountedMFee + DiscountedOFee;
+
+                    //display discount int datagrid
+                    dgDiscounts.Rows.Add(item.DiscountID, item.DiscountCode, item.Type, (DiscountedTFee + DiscountedMFee + DiscountedOFee).ToString("n"));
 
                     //deduct discounted amount for next computation of discount
                     TFee -= DiscountedTFee;
@@ -453,6 +465,91 @@ namespace COLM_SYSTEM.Assessment_Folder
 
 
         }
+
+        private void PrintAssessment(int AssessmentID)
+        {
+            ReportParameter param_LRN = new ReportParameter("LRN", Convert.ToString(txtLRN.Text));
+            ReportParameter param_StudentName = new ReportParameter("studentname", Convert.ToString(txtStudentName.Text));
+            ReportParameter param_CourseStrand = new ReportParameter("coursestrand", Convert.ToString(txtCourseStrand.Text));
+            ReportParameter param_YearLevel = new ReportParameter("yearlevel", Convert.ToString(txtYearLevel.Text));
+            ReportParameter param_Section = new ReportParameter("section", cmbSection.Text);
+            ReportParameter param_AssessmentType = new ReportParameter("assessmenttype", Convert.ToString(cmbAssessmentType.Text));
+            ReportParameter param_Assessor = new ReportParameter("assessor", Convert.ToString(Utilties.GetAssessor()));
+            ReportParameter param_AssessmentDate = new ReportParameter("assessmentdate", Convert.ToString(DateTime.Now));
+
+            ReportParameter param_TFee = new ReportParameter("TFee", txtTotalTFee.Text);
+            ReportParameter param_MFee = new ReportParameter("MFee", txtTotalMFee.Text);
+            ReportParameter param_OFee = new ReportParameter("OFee", txtTotalOFee.Text);
+            ReportParameter param_Discount = new ReportParameter("Discount", txtTotalDiscount.Text);
+            ReportParameter param_Surcharge = new ReportParameter("Surcharge", txtSurcharge.Text);
+            ReportParameter param_TotalDue = new ReportParameter("TotalDue", txtTotalDue.Text);
+
+
+            List<ReportParameter> reportParameters = new List<ReportParameter>();
+            reportParameters.Add(param_LRN);
+            reportParameters.Add(param_StudentName);
+            reportParameters.Add(param_CourseStrand);
+            reportParameters.Add(param_YearLevel);
+            reportParameters.Add(param_Section);
+            reportParameters.Add(param_AssessmentType);
+            reportParameters.Add(param_Assessor);
+            reportParameters.Add(param_AssessmentDate);
+            reportParameters.Add(param_TFee);
+            reportParameters.Add(param_MFee);
+            reportParameters.Add(param_OFee);
+            reportParameters.Add(param_Discount);
+            reportParameters.Add(param_Surcharge);
+            reportParameters.Add(param_TotalDue);
+
+
+
+            DataSets.DataSet1 ds = new DataSets.DataSet1();
+            DataRow dr;
+
+            Assessment assessment = Assessment.GetAssessment(AssessmentID);
+
+            var tbl = ds.Tables["DTSubjects"];
+            tbl.Rows.Clear();
+            foreach (var item in assessment.Subjects)
+            {
+                Schedule schedule = Schedule.GetScheduleByScheduleID(item.ScheduleID);
+
+                dr = tbl.NewRow();
+                dr["Subject"] = string.Concat(schedule.SubjCode, "|", schedule.SubjDesc);
+                dr["Unit"] = schedule.SubjUnit;
+                dr["Day"] = schedule.Day;
+                dr["Start"] = schedule.TimeIn;
+                dr["End"] = schedule.TimeOut;
+                dr["Room"] = schedule.Room;
+                dr["Faculty"] = schedule.FacultyName;
+                tbl.Rows.Add(dr);
+            }
+
+
+            ds.Tables["DTPaymentSchedule"].Rows.Clear();
+            foreach (var item in assessment.Breakdown)
+            {
+                dr = ds.Tables["DTPaymentSchedule"].NewRow();
+                dr["ItemCode"] = item.ItemCode;
+                dr["Amount"] = item.Amount.ToString("n");
+                dr["DueDate"] = item.DueDate;
+                ds.Tables["DTPaymentSchedule"].Rows.Add(dr);
+            }
+
+            frm_print_preview frm = new frm_print_preview();
+            ReportDataSource dsPaymentSchedule = new ReportDataSource("dsPaymentSchedule", ds.Tables["DTPaymentSchedule"]);
+            ReportDataSource dsSubjects = new ReportDataSource("dsSubjects", ds.Tables["DTSubjects"]);
+            frm.reportViewer1.LocalReport.DataSources.Clear();
+            frm.reportViewer1.LocalReport.DataSources.Add(dsPaymentSchedule);
+            frm.reportViewer1.LocalReport.DataSources.Add(dsSubjects);
+            string AssemblyNameSpaces = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+            frm.reportViewer1.LocalReport.ReportEmbeddedResource = "COLM_SYSTEM.Assessment_Folder.rpt_assessment.rdlc";
+
+            frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());
+            frm.reportViewer1.RefreshReport();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
         private void btnAddDiscount_Click(object sender, System.EventArgs e)
         {
             if (cmbDiscount.Text != string.Empty)
@@ -460,17 +557,10 @@ namespace COLM_SYSTEM.Assessment_Folder
                 List<Discount> discounts = cmbDiscount.Tag as List<Discount>;
                 Discount discount = discounts[cmbDiscount.SelectedIndex];
                 AddedDiscounts.Add(discount);
-                if (discount.Type.ToLower() == "percentage")
-                {
-                    dgDiscounts.Rows.Add(discount.DiscountID, discount.DiscountCode, discount.Type, discount.TotalValue, discount.TFee, discount.MFee, discount.OFee);
-                }
-                else
-                {
-                    dgDiscounts.Rows.Add(discount.DiscountID, discount.DiscountCode, discount.Type, discount.TotalValue.ToString("n"), Convert.ToBoolean(discount.TFee).ToString(), Convert.ToBoolean(discount.MFee).ToString(), Convert.ToBoolean(discount.OFee).ToString());
-                }
             }
             CalculateFeeSummary();
         }
+
         private void cmbAssessmentType_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             List<AssessmentType> assessmentTypes = cmbAssessmentType.Tag as List<AssessmentType>;
@@ -520,6 +610,8 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void button4_Click(object sender, EventArgs e)
         {
             //code here..
+            //frm_assessment_subject_browser frm = new frm_assessment_subject_browser();
+
             CalculateFeeSummary();
         }
 
@@ -667,6 +759,20 @@ namespace COLM_SYSTEM.Assessment_Folder
             };
 
             int result = Assessment.InsertAssessment(entry);
+
+            if (result > 0)
+            {
+                MessageBox.Show("Assessment Successfully saved!", "Student Assessment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                PrintAssessment(result);
+                Close();
+                Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Assessment Unsuccessfull!", "Student Assessment Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+                Dispose();
+            }
         }
 
         private void dgDiscounts_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -682,6 +788,11 @@ namespace COLM_SYSTEM.Assessment_Folder
                     CalculateFeeSummary();
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PrintAssessment(_AssessmentID);
         }
     }
 }

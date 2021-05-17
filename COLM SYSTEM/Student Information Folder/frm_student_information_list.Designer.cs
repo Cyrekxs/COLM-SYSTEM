@@ -42,7 +42,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUpdateStudentInfo = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.clmGuardianInfo = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,8 +83,7 @@
             this.Column4,
             this.Column5,
             this.Column6,
-            this.clmUpdateStudentInfo,
-            this.clmGuardianInfo});
+            this.clmUpdateStudentInfo});
             this.dataGridView1.Location = new System.Drawing.Point(15, 48);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -170,16 +168,6 @@
             this.clmUpdateStudentInfo.UseColumnTextForButtonValue = true;
             this.clmUpdateStudentInfo.Width = 86;
             // 
-            // clmGuardianInfo
-            // 
-            this.clmGuardianInfo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.clmGuardianInfo.HeaderText = "GUARDIAN INFO";
-            this.clmGuardianInfo.Name = "clmGuardianInfo";
-            this.clmGuardianInfo.ReadOnly = true;
-            this.clmGuardianInfo.Text = "GUARDIAN INFO";
-            this.clmGuardianInfo.UseColumnTextForButtonValue = true;
-            this.clmGuardianInfo.Width = 99;
-            // 
             // frm_student_information_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -220,6 +208,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewButtonColumn clmUpdateStudentInfo;
-        private System.Windows.Forms.DataGridViewButtonColumn clmGuardianInfo;
     }
 }

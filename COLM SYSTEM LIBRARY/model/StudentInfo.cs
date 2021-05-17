@@ -24,8 +24,18 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string Province { get; set; }
         public string MobileNo { get; set; }
         public string EmailAddress { get; set; }
+        public string StudentName { get { return string.Concat(Lastname, " ", Firstname); } } //for displaying purposes only
 
-        public string StudentName { get { return string.Concat(Lastname, " ", Firstname); } }
+        public string MotherName { get; set; }
+        public string MotherMobile { get; set; }
+        public string FatherName { get; set; }
+        public string FatherMobile { get; set; }
+        public string GuardianName { get; set; }
+        public string GuardianMobile { get; set; }
+
+        public string SchoolName { get; set; }
+        public string SchoolAddress { get; set; }
+        public string Strand { get; set; }
 
         public static List<StudentInfo> GetStudents()
         {
@@ -36,14 +46,9 @@ namespace COLM_SYSTEM_LIBRARY.model
             return StudentInfo_DS.GetStudent(StudentID);
         }
 
-        public static bool InsertStudent(StudentInfo model)
+        public static bool InsertUpdateStudentInformation(StudentInfo model)
         {
-            return StudentInfo_DS.InsertStudentInfo(model);
-        }
-
-        public static bool UpdateStudent(StudentInfo model)
-        {
-            return StudentInfo_DS.UpdateStudentInfo(model);
+            return StudentInfo_DS.InsertUpdateStudentInformation(model);
         }
 
         public static StudentGuardian GetStudentGuardian(int StudentID)

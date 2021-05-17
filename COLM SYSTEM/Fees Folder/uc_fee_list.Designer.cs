@@ -469,27 +469,31 @@
             // 
             // clmEducationLevel
             // 
+            this.clmEducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.clmEducationLevel.DefaultCellStyle = dataGridViewCellStyle1;
             this.clmEducationLevel.HeaderText = "Education Level";
             this.clmEducationLevel.Name = "clmEducationLevel";
             this.clmEducationLevel.ReadOnly = true;
-            this.clmEducationLevel.Width = 130;
+            this.clmEducationLevel.Width = 118;
             // 
             // clmCourseStrand
             // 
+            this.clmCourseStrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.clmCourseStrand.HeaderText = "Course / Strand";
             this.clmCourseStrand.Name = "clmCourseStrand";
             this.clmCourseStrand.ReadOnly = true;
-            this.clmCourseStrand.Width = 120;
+            this.clmCourseStrand.Width = 118;
             // 
             // clmYearLevel
             // 
+            this.clmYearLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.clmYearLevel.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmYearLevel.HeaderText = "Year Level";
             this.clmYearLevel.Name = "clmYearLevel";
             this.clmYearLevel.ReadOnly = true;
+            this.clmYearLevel.Width = 86;
             // 
             // Column6
             // 

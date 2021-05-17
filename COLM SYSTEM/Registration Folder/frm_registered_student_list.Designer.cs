@@ -205,7 +205,7 @@
             // 
             // clmSchoolYear
             // 
-            this.clmSchoolYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmSchoolYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.clmSchoolYear.HeaderText = "SCHOOL YEAR";
             this.clmSchoolYear.Name = "clmSchoolYear";
             this.clmSchoolYear.ReadOnly = true;
@@ -214,10 +214,10 @@
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "DATE REGISTERED";
+            this.Column1.HeaderText = "DATE";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 121;
+            this.Column1.Width = 61;
             // 
             // frm_registered_student_list
             // 

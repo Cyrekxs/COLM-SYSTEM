@@ -31,13 +31,31 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int RegisteredID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmRegisteredID"].Value);
-            StudentRegistered registeredStudent = StudentRegistered.GetRegisteredStudent(RegisteredID);
-            frm_assessment_entry_1 frm = new frm_assessment_entry_1(registeredStudent);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            Close();
-            Dispose();
+            if (e.ColumnIndex == clmAssess.Index)
+            {
+                int RegisteredID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmRegisteredID"].Value);
+                StudentRegistered registeredStudent = StudentRegistered.GetRegisteredStudent(RegisteredID);
+                frm_assessment_entry_1 frm = new frm_assessment_entry_1(registeredStudent);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                Close();
+                Dispose();
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (textBox1.Text == string.Empty)
+                    LoadStudents();
+                else
+                {
+                    List<StudentRegistered> searchList = (from r in StudentsWithoutAssessment
+                                                          where r.StudentName.ToLower().Contains(textBox1.Text.ToLower())
+                                                          select r).ToList();
+                }
+            }
         }
     }
 }

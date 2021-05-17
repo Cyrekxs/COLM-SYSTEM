@@ -94,6 +94,7 @@
     <Compile Include="model\SubjectSetted.cs" />
     <Compile Include="model\SubjectSettedAddtionalFee.cs" />
     <Compile Include="model\SubjectSettedSummary.cs" />
+    <Compile Include="model\User.cs" />
     <Compile Include="model\YearLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

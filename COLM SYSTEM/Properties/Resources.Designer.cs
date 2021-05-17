@@ -93,6 +93,16 @@ namespace COLM_SYSTEM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap colm_wallpaper {
+            get {
+                object obj = ResourceManager.GetObject("colm_wallpaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap DashBoard {
             get {
                 object obj = ResourceManager.GetObject("DashBoard", resourceCulture);

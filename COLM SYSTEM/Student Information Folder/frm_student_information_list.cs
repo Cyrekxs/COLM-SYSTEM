@@ -53,14 +53,6 @@ namespace COLM_SYSTEM.student_information
                     LoadStudents();
                 }
             }
-            else if (e.ColumnIndex == clmGuardianInfo.Index)
-            {
-                using (frm_student_information_entry_guardian frm = new frm_student_information_entry_guardian(SelectStudentID))
-                {
-                    frm.StartPosition = FormStartPosition.CenterParent;
-                    frm.ShowDialog();
-                }
-            }
         }
     }
 }
