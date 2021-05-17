@@ -70,7 +70,6 @@
     <Compile Include="model\Assessment Folder\AssessmentDiscount.cs" />
     <Compile Include="model\Assessment Folder\Assessment.cs" />
     <Compile Include="model\Assessment Folder\AssessmentFee.cs" />
-    <Compile Include="model\Assessment Folder\AssessmentList.cs" />
     <Compile Include="model\Assessment Folder\AssessmentSubject.cs" />
     <Compile Include="model\Assessment Folder\AssessmentSummary.cs" />
     <Compile Include="model\Curriculum.cs" />

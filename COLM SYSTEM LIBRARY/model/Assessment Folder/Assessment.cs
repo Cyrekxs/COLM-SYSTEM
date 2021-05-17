@@ -16,7 +16,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
         public List<AssessmentDiscount> Discounts { get; set; }
         public List<AssessmentBreakdown> Breakdown { get; set; }
 
-        public static List<AssessmentList> GetAssessments()
+        public static List<AssessmentSummary> GetAssessments()
         {
             return Assessment_DS.GetAssessmentLists();
         }

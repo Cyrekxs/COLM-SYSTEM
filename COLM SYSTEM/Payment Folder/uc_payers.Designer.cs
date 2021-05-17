@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
@@ -48,6 +48,7 @@
             this.clmTotalDue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAssessor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssessmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPayment = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
@@ -152,6 +153,7 @@
             this.clmTotalDue,
             this.clmPaid,
             this.clmBalance,
+            this.clmAssessor,
             this.clmAssessmentDate,
             this.clmPayment});
             this.dataGridView1.Location = new System.Drawing.Point(7, 50);
@@ -161,6 +163,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1103, 613);
             this.dataGridView1.TabIndex = 24;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // clmAssessmentID
             // 
@@ -215,8 +218,8 @@
             // 
             // clmTotalDue
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmTotalDue.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmTotalDue.DefaultCellStyle = dataGridViewCellStyle4;
             this.clmTotalDue.HeaderText = "Total Due";
             this.clmTotalDue.Name = "clmTotalDue";
             this.clmTotalDue.ReadOnly = true;
@@ -224,19 +227,27 @@
             // 
             // clmPaid
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmPaid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmPaid.DefaultCellStyle = dataGridViewCellStyle5;
             this.clmPaid.HeaderText = "Total Paid";
             this.clmPaid.Name = "clmPaid";
             this.clmPaid.ReadOnly = true;
             // 
             // clmBalance
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBalance.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBalance.DefaultCellStyle = dataGridViewCellStyle6;
             this.clmBalance.HeaderText = "Balance";
             this.clmBalance.Name = "clmBalance";
             this.clmBalance.ReadOnly = true;
+            // 
+            // clmAssessor
+            // 
+            this.clmAssessor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmAssessor.HeaderText = "Assesor";
+            this.clmAssessor.Name = "clmAssessor";
+            this.clmAssessor.ReadOnly = true;
+            this.clmAssessor.Width = 75;
             // 
             // clmAssessmentDate
             // 
@@ -252,7 +263,7 @@
             this.clmPayment.HeaderText = "Payment";
             this.clmPayment.Name = "clmPayment";
             this.clmPayment.ReadOnly = true;
-            this.clmPayment.Text = "View";
+            this.clmPayment.Text = "Enter";
             this.clmPayment.UseColumnTextForButtonValue = true;
             this.clmPayment.Width = 60;
             // 
@@ -291,6 +302,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTotalDue;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBalance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessor;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentDate;
         private System.Windows.Forms.DataGridViewButtonColumn clmPayment;
     }

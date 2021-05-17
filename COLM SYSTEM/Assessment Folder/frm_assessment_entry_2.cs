@@ -53,7 +53,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             registeredStudent = StudentRegistered.GetRegisteredStudent(assessment.Summary.RegisteredStudentID);
             //get yearlevel information
             studentYearLevel = YearLevel.GetYearLevel(assessment.Summary.YearLevelID);
-            //get curriculum information
 
             //Display Student Information
             StudentInfo student = StudentInfo.GetStudent(registeredStudent.StudentID);
@@ -226,6 +225,14 @@ namespace COLM_SYSTEM.Assessment_Folder
                                       where r.CurriculumID == registeredStudent.CurriculumID && r.YearLevel == txtYearLevel.Text
                                       select r).ToList();
 
+            Section irreg_section = new Section()
+            {
+                SectionID = 0,
+                SectionName = "Irregular"
+            };
+
+            sections.Add(irreg_section);
+
             cmbSection.Items.Clear();
 
             cmbSection.Tag = sections; //tag sections into cmbsection
@@ -233,22 +240,25 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 cmbSection.Items.Add(item.SectionName);
             }
-
         }
+
         private void LoadSectionSchedule() //this function will trigger if the cmbsection change
         {
-            //get the section id first
-            int SectionID = (from r in Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester())
-                             where r.CurriculumID == registeredStudent.CurriculumID && r.YearLevel == txtYearLevel.Text && r.SectionName == cmbSection.Text
-                             select r.SectionID).FirstOrDefault();
-
-            List<Schedule> schedules = Schedule.GetSchedules(SectionID);
-
-            foreach (DataGridViewRow item in dgSubjects.Rows)
+            if (cmbSection.Text != "Irregular")
             {
-                Schedule schedule = schedules.Where(r => r.SubjectPriceID == (int)item.Cells["clmSubjPriceID"].Value).FirstOrDefault();
-                item.Cells["clmScheduleID"].Value = schedule.ScheduleID;
-                item.Cells["clmSchedule"].Value = schedule.ScheduleInfo;
+                //get the section id first
+                int SectionID = (from r in Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester())
+                                 where r.CurriculumID == registeredStudent.CurriculumID && r.YearLevel == txtYearLevel.Text && r.SectionName == cmbSection.Text
+                                 select r.SectionID).FirstOrDefault();
+
+                List<Schedule> schedules = Schedule.GetSchedules(SectionID);
+
+                foreach (DataGridViewRow item in dgSubjects.Rows)
+                {
+                    Schedule schedule = schedules.Where(r => r.SubjectPriceID == (int)item.Cells["clmSubjPriceID"].Value).FirstOrDefault();
+                    item.Cells["clmScheduleID"].Value = schedule.ScheduleID;
+                    item.Cells["clmSchedule"].Value = schedule.ScheduleInfo;
+                }
             }
         }
         private void LoadDiscounts() // this function will trigger upon initialization
@@ -638,8 +648,49 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
         }
 
+        //validations
+        private bool IsValidEntry()
+        {
+            if (cmbSection.Text == string.Empty)
+            {
+                MessageBox.Show("Please select student section!", "Select Section", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (dgSubjects.Rows.Count == 0)
+            {
+                MessageBox.Show("Please enter subject to assess!", "Enter Subject", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            foreach (DataGridViewRow item in dgSubjects.Rows)
+            {
+                if (item.Cells["clmScheduleID"].Value == null)
+                {
+                    MessageBox.Show("Please pick schedue on each subjects!", "Pick Subject Schedule", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+
+            if (cmbAssessmentType.Text == string.Empty)
+            {
+                MessageBox.Show("Please select assessment type!", "Select Assessment Type", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+
+            //verify validations
+            if (IsValidEntry() == false)
+            {
+                return;
+            }
+
+
             //get assessment type id
             List<AssessmentType> assessmentTypes = cmbAssessmentType.Tag as List<AssessmentType>;
             AssessmentType assessmentType = assessmentTypes[cmbAssessmentType.SelectedIndex];
@@ -664,6 +715,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 TotalDue = TotalAmount - Convert.ToDouble(txtTotalDiscount.Text),
                 SchoolYearID = Utilties.GetActiveSchoolYear(),
                 SemesterID = Utilties.GetActiveSemester(),
+                UserID = Utilties.user.UserID
             };
 
             //put data into subjects

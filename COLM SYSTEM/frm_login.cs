@@ -47,7 +47,7 @@ namespace COLM_SYSTEM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            VerifyCredentials(txtUsername.Text, txtPassword.Text);
+           
         }
 
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)
@@ -69,6 +69,11 @@ namespace COLM_SYSTEM
         private void frm_login_Load(object sender, EventArgs e)
         {
             txtUsername.Focus();
+        }
+
+        private void buttonRounded1_Click(object sender, EventArgs e)
+        {
+             VerifyCredentials(txtUsername.Text, txtPassword.Text);
         }
     }
 }

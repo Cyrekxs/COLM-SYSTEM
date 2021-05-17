@@ -292,10 +292,11 @@
             // clmFaculty
             // 
             this.clmFaculty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.clmFaculty.DefaultCellStyle = dataGridViewCellStyle6;
             this.clmFaculty.HeaderText = "FACULTY";
             this.clmFaculty.Name = "clmFaculty";
+            this.clmFaculty.ReadOnly = true;
             this.clmFaculty.Width = 82;
             // 
             // clmPick

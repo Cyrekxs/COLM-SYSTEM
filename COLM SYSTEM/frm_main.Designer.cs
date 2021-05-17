@@ -57,10 +57,11 @@
             this.mISCELLANEOUSFEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sUBJECTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sECTIONSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cURRICULUMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cURRICULUMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pAYMENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -291,7 +292,8 @@
             this.tRANSACTIONToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iNFORMATIONToolStripMenuItem,
             this.rEGISTRATIONToolStripMenuItem,
-            this.aSSESSMENTToolStripMenuItem});
+            this.aSSESSMENTToolStripMenuItem,
+            this.pAYMENTToolStripMenuItem});
             this.tRANSACTIONToolStripMenuItem.Name = "tRANSACTIONToolStripMenuItem";
             this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.tRANSACTIONToolStripMenuItem.Text = "TRANSACTION";
@@ -375,6 +377,13 @@
             this.sECTIONSToolStripMenuItem.Text = "SECTIONS AND SCHEDULE";
             this.sECTIONSToolStripMenuItem.Click += new System.EventHandler(this.sECTIONSToolStripMenuItem_Click);
             // 
+            // cURRICULUMToolStripMenuItem
+            // 
+            this.cURRICULUMToolStripMenuItem.Name = "cURRICULUMToolStripMenuItem";
+            this.cURRICULUMToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.cURRICULUMToolStripMenuItem.Text = "CURRICULUM";
+            this.cURRICULUMToolStripMenuItem.Click += new System.EventHandler(this.cURRICULUMToolStripMenuItem_Click);
+            // 
             // rEPORTSToolStripMenuItem
             // 
             this.rEPORTSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -396,12 +405,12 @@
             this.cLOSEALLFORMSToolStripMenuItem.Text = "CLOSE ALL FORMS";
             this.cLOSEALLFORMSToolStripMenuItem.Click += new System.EventHandler(this.cLOSEALLFORMSToolStripMenuItem_Click);
             // 
-            // cURRICULUMToolStripMenuItem
+            // pAYMENTToolStripMenuItem
             // 
-            this.cURRICULUMToolStripMenuItem.Name = "cURRICULUMToolStripMenuItem";
-            this.cURRICULUMToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.cURRICULUMToolStripMenuItem.Text = "CURRICULUM";
-            this.cURRICULUMToolStripMenuItem.Click += new System.EventHandler(this.cURRICULUMToolStripMenuItem_Click);
+            this.pAYMENTToolStripMenuItem.Name = "pAYMENTToolStripMenuItem";
+            this.pAYMENTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pAYMENTToolStripMenuItem.Text = "PAYMENT";
+            this.pAYMENTToolStripMenuItem.Click += new System.EventHandler(this.pAYMENTToolStripMenuItem_Click);
             // 
             // frm_main
             // 
@@ -468,5 +477,6 @@
         private System.Windows.Forms.ToolStripMenuItem mISCELLANEOUSFEEToolStripMenuItem;
         private System.Windows.Forms.Label lblSemester;
         private System.Windows.Forms.ToolStripMenuItem cURRICULUMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pAYMENTToolStripMenuItem;
     }
 }

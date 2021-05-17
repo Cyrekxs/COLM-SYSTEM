@@ -9,30 +9,34 @@ namespace COLM_SYSTEM.Section_Folder
     public partial class frm_section_schedule_entry : Form
     {
         Section _section = new Section();
-        List<SubjectSetted> DefaultSubjects = new List<SubjectSetted>();
-        List<Schedule> Schedules = new List<Schedule>();
+
+        List<SubjectSetted> DefaultSubjects = new List<SubjectSetted>(); //initialize list of default subjects
+        List<Schedule> Schedules = new List<Schedule>(); //initialize list of schedules
         public frm_section_schedule_entry(Section section)
         {
             InitializeComponent();
 
             _section = section;
-            YearLevel level = YearLevel.GetYearLevel(section.YearLevelID);
 
+            YearLevel level = YearLevel.GetYearLevel(section.YearLevelID); //get year level information
+
+            //display year level information
             txtEducationLevel.Text = level.EducationLevel;
             txtCourseStrand.Text = level.CourseStrand;
             txtYearLevel.Text = section.YearLevel;
             txtSectionCode.Text = section.SectionName;
 
 
-            bool IsSectionExists_result = Schedule.IsSectionScheduleExists(section.SectionID);
+            bool IsSectionExists_result = Schedule.IsSectionScheduleExists(section.SectionID); //verify if the section is already existing
             if (IsSectionExists_result == false)
             {
+                //put the default subjects if the result is false
                 DefaultSubjects = SubjectSetted.GetSubjectSetteds(section.CurriculumID, section.YearLevelID, section.SchoolYearID, section.SemesterID);
                 LoadDefaultSettedSubjects();
             }
             else
             {
-                //get schedules
+                //get the existing schedules if the result is true
                 Schedules = Schedule.GetSchedules(section.SectionID);
                 LoadSubjectSchedules();
             }
@@ -44,7 +48,7 @@ namespace COLM_SYSTEM.Section_Folder
         {
             foreach (var item in DefaultSubjects)
             {
-                dataGridView1.Rows.Add(0, item.SubjPriceID, item.SubjCode, item.SubjDesc, item.Unit);
+                dataGridView1.Rows.Add(0, item.SubjPriceID, item.SubjCode, item.SubjDesc, item.Unit,"-", "-", "-", "-");
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
             }
         }
@@ -64,12 +68,11 @@ namespace COLM_SYSTEM.Section_Folder
             List<Schedule> schedule_to_save = new List<Schedule>();
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
-                Schedule subjectsched = (Schedule)item.Tag;
                 Schedule schedule = new Schedule()
                 {
                     ScheduleID = Convert.ToInt16(item.Cells["clmScheduleID"].Value),
                     SectionID = _section.SectionID,
-                    SubjectPriceID = subjectsched.SubjectPriceID,
+                    SubjectPriceID = Convert.ToInt16(item.Cells["clmSubjPriceID"].Value),
                     Day = item.Cells["clmDay"].Value.ToString(),
                     TimeIn = item.Cells["clmTimeIn"].Value.ToString(),
                     TimeOut = item.Cells["clmTimeOut"].Value.ToString(),
@@ -96,9 +99,6 @@ namespace COLM_SYSTEM.Section_Folder
             }
             Close();
             Dispose();
-
-
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -30,18 +30,17 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.buttonRounded1 = new COLM_SYSTEM.Custom_Controls.ButtonRounded();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,9 +49,8 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(379, 0);
             this.panel1.Name = "panel1";
@@ -75,22 +73,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(9, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(303, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "WELCOME TO COLM ENROLLMENT SYSTEM";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label1.Location = new System.Drawing.Point(10, 277);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 15);
@@ -125,7 +112,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label2.Location = new System.Drawing.Point(12, 336);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 15);
@@ -134,8 +121,8 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel2.Controls.Add(this.buttonRounded1);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.pictureBox1);
@@ -149,21 +136,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(379, 724);
             this.panel2.TabIndex = 28;
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(139, 444);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 44);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "LOGIN";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label6
             // 
@@ -187,16 +159,6 @@
             this.label5.Text = "VERSION";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.colm_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(139, 33);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 71);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -208,24 +170,49 @@
             this.label4.TabIndex = 28;
             this.label4.Text = "SIGN IN";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.colm_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(139, 33);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 71);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::COLM_SYSTEM.Properties.Resources.colm_wallpaper;
-            this.pictureBox2.Location = new System.Drawing.Point(306, -250);
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::COLM_SYSTEM.Properties.Resources.colm_logo;
+            this.pictureBox2.Location = new System.Drawing.Point(379, 44);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1108, 1163);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.Size = new System.Drawing.Size(904, 680);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 29;
             this.pictureBox2.TabStop = false;
+            // 
+            // buttonRounded1
+            // 
+            this.buttonRounded1.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.login;
+            this.buttonRounded1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonRounded1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.buttonRounded1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRounded1.Location = new System.Drawing.Point(139, 431);
+            this.buttonRounded1.Name = "buttonRounded1";
+            this.buttonRounded1.Size = new System.Drawing.Size(100, 71);
+            this.buttonRounded1.TabIndex = 33;
+            this.buttonRounded1.UseVisualStyleBackColor = true;
+            this.buttonRounded1.Click += new System.EventHandler(this.buttonRounded1_Click);
             // 
             // frm_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 724);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.pictureBox2);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -235,7 +222,6 @@
             this.Text = "COLM SYSTEM";
             this.Load += new System.EventHandler(this.frm_login_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -247,7 +233,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
@@ -259,6 +244,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button2;
+        private Custom_Controls.ButtonRounded buttonRounded1;
     }
 }

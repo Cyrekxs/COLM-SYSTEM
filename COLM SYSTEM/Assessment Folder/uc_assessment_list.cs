@@ -19,7 +19,7 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private void LoadAssessments()
         {
-            List<AssessmentList> assessmentLists = Assessment.GetAssessments();
+            List<AssessmentSummary> assessmentLists = Assessment.GetAssessments();
 
             if (textBox1.Text != string.Empty)
             {

@@ -3,6 +3,7 @@ using COLM_SYSTEM.Curriculum_Folder;
 using COLM_SYSTEM.Discounts;
 using COLM_SYSTEM.fees;
 using COLM_SYSTEM.Fees_Folder;
+using COLM_SYSTEM.Payment_Folder;
 using COLM_SYSTEM.registration;
 using COLM_SYSTEM.Section_Folder;
 using COLM_SYSTEM.student_information;
@@ -100,11 +101,6 @@ namespace COLM_SYSTEM
             DisplayControl(new uc_tuition_list());
         }
 
-        private void sECTIONSCHEDULEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void aSSESSMENTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_assessment_list());
@@ -113,6 +109,11 @@ namespace COLM_SYSTEM
         private void cURRICULUMToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_curriculum_list());
+        }
+
+        private void pAYMENTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_payers());
         }
     }
 }

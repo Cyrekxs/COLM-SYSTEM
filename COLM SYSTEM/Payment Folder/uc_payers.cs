@@ -1,13 +1,9 @@
-﻿using System;
+﻿using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 
 namespace COLM_SYSTEM.Payment_Folder
 {
@@ -16,11 +12,12 @@ namespace COLM_SYSTEM.Payment_Folder
         public uc_payers()
         {
             InitializeComponent();
+            LoadAssessments();
         }
 
         private void LoadAssessments()
         {
-            List<AssessmentList> assessmentLists = Assessment.GetAssessments();
+            List<AssessmentSummary> assessmentLists = Assessment.GetAssessments();
 
             if (textBox1.Text != string.Empty)
             {
@@ -32,7 +29,19 @@ namespace COLM_SYSTEM.Payment_Folder
             dataGridView1.Rows.Clear();
             foreach (var item in assessmentLists)
             {
-                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.AssessmentType, item.Assessor, item.AssessmentDate);
+                double balance = item.TotalDue - item.TotalPaidTuition;
+                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.TotalPaidTuition.ToString("n"), balance.ToString("n"), item.Assessor, item.AssessmentDate);
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int AssessmentID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmAssessmentID"].Value);
+            if (e.ColumnIndex == clmPayment.Index)
+            {
+                frm_payment frm = new frm_payment(AssessmentID);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
             }
         }
     }

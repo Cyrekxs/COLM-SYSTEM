@@ -24,11 +24,16 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         {
                             AssessmentSummary summary = new AssessmentSummary()
                             {
-                                AssessmentID = AssessmentID,
+                                AssessmentID = Convert.ToInt32(reader["AssessmentID"]),
                                 RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
-                                AssessmentTypeID = Convert.ToInt32(reader["AssessmentTypeID"]),
+                                LRN = Convert.ToString(reader["LRN"]),
+                                StudentName = Convert.ToString(reader["StudentName"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
+                                YearLevel = Convert.ToString(reader["YearLevel"]),
                                 SectionID = Convert.ToInt16(reader["SectionID"]),
+                                Section = Convert.ToString(reader["Section"]),
                                 TFee = Convert.ToDouble(reader["TFee"]),
                                 MFee = Convert.ToDouble(reader["MFee"]),
                                 OFee = Convert.ToDouble(reader["OFee"]),
@@ -38,7 +43,12 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 TotalDue = Convert.ToDouble(reader["TotalDue"]),
                                 TotalPaidTuition = Convert.ToDouble(reader["TotalPaidTuition"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
-                                SemesterID = Convert.ToInt32(reader["SemesterID"])
+                                SemesterID = Convert.ToInt32(reader["SemesterID"]),
+                                AssessmentTypeID = Convert.ToInt32(reader["AssessmentTypeID"]),
+                                AssessmentType = Convert.ToString(reader["AssessmentType"]),
+                                AssessmentDate = Convert.ToDateTime(reader["AssessmentDate"]),
+                                UserID = Convert.ToInt32(reader["UserID"]),
+                                Assessor = Convert.ToString(reader["Assessor"])
                             };
                             assessment.Summary = summary;
                         }
@@ -168,9 +178,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 return assessment;
             }
         }
-        public static List<AssessmentList> GetAssessmentLists()
+        public static List<AssessmentSummary> GetAssessmentLists()
         {
-            List<AssessmentList> assessmentLists = new List<AssessmentList>();
+            List<AssessmentSummary> assessmentLists = new List<AssessmentSummary>();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
@@ -180,7 +190,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     {
                         while (reader.Read())
                         {
-                            AssessmentList assessment = new AssessmentList()
+                            AssessmentSummary assessment = new AssessmentSummary()
                             {
                                 AssessmentID = Convert.ToInt32(reader["AssessmentID"]),
                                 RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
@@ -188,11 +198,25 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 StudentName = Convert.ToString(reader["StudentName"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
+                                YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 YearLevel = Convert.ToString(reader["YearLevel"]),
+                                SectionID = Convert.ToInt16(reader["SectionID"]),
+                                Section = Convert.ToString(reader["Section"]),
+                                TFee = Convert.ToDouble(reader["TFee"]),
+                                MFee = Convert.ToDouble(reader["MFee"]),
+                                OFee = Convert.ToDouble(reader["OFee"]),
+                                Surcharge = Convert.ToDouble(reader["Surcharge"]),
+                                TotalAmount = Convert.ToDouble(reader["TotalAmount"]),
+                                DiscountAmount = Convert.ToDouble(reader["DiscountAmount"]),
                                 TotalDue = Convert.ToDouble(reader["TotalDue"]),
+                                TotalPaidTuition = Convert.ToDouble(reader["TotalPaidTuition"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                SemesterID = Convert.ToInt32(reader["SemesterID"]),
+                                AssessmentTypeID = Convert.ToInt32(reader["AssessmentTypeID"]),
                                 AssessmentType = Convert.ToString(reader["AssessmentType"]),
                                 AssessmentDate = Convert.ToDateTime(reader["AssessmentDate"]),
-                                Assessor = "Nonita Nabong"
+                                UserID = Convert.ToInt32(reader["UserID"]),
+                                Assessor = Convert.ToString(reader["Assessor"])
                             };
                             assessmentLists.Add(assessment);
                         }
@@ -211,7 +235,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     try
                     {
                         //insert assessment summary
-                        using (SqlCommand comm = new SqlCommand("EXEC sp_set_assessment_summary @RegisteredStudentID,@YearLevelID,@SectionID,@AssessmentTypeID,@TotalAmount,@DiscountAmount,@TotalDue,@SchoolYearID,@SemesterID", conn, t))
+                        using (SqlCommand comm = new SqlCommand("EXEC sp_set_assessment_summary @RegisteredStudentID,@YearLevelID,@SectionID,@AssessmentTypeID,@TotalAmount,@DiscountAmount,@TotalDue,@SchoolYearID,@SemesterID,@UserID", conn, t))
                         {
                             comm.Parameters.AddWithValue("@RegisteredStudentID", summary.RegisteredStudentID);
                             comm.Parameters.AddWithValue("@YearLevelID", summary.YearLevelID);
@@ -222,6 +246,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             comm.Parameters.AddWithValue("@TotalDue", summary.TotalDue);
                             comm.Parameters.AddWithValue("@SchoolYearID", summary.SchoolYearID);
                             comm.Parameters.AddWithValue("@SemesterID", summary.SemesterID);
+                            comm.Parameters.AddWithValue("@UserID", summary.UserID);
                             comm.ExecuteNonQuery();
                         }
 
