@@ -124,5 +124,10 @@ namespace COLM_SYSTEM
         {
             DisplayControl(new UC_DashBoard());
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDateTime.Text = DateTime.Now.ToString("mmm MM-dd-yyyy hh:mm tt");
+        }
     }
 }

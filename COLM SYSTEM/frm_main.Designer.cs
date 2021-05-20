@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblSchoolYear = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.lblAccountName = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -44,26 +46,32 @@
             this.lblSemester = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.PanelMain = new System.Windows.Forms.Panel();
-            this.uC_DashBoard1 = new COLM_SYSTEM.UC_DashBoard();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.dASHBOARDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tRANSACTIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFORMATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEGISTRATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aSSESSMENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pAYMENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sETTINGSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dISCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sUBJECTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cURRICULUMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mISCELLANEOUSFEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mISCELLANEOUSFEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aDDITIONALFEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sUBJECTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dISCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sECTIONSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cURRICULUMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dASHBOARDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblDateTime = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.uC_DashBoard1 = new COLM_SYSTEM.UC_DashBoard();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -77,7 +85,7 @@
             this.lblSchoolYear.AutoSize = true;
             this.lblSchoolYear.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSchoolYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblSchoolYear.Location = new System.Drawing.Point(819, 10);
+            this.lblSchoolYear.Location = new System.Drawing.Point(638, 14);
             this.lblSchoolYear.Name = "lblSchoolYear";
             this.lblSchoolYear.Size = new System.Drawing.Size(115, 20);
             this.lblSchoolYear.TabIndex = 0;
@@ -86,12 +94,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.lblAccountName);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.lblPosition);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
@@ -99,19 +110,35 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1060, 59);
+            this.panel1.Size = new System.Drawing.Size(1060, 72);
             this.panel1.TabIndex = 6;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.Logout;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.Red;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button3.Location = new System.Drawing.Point(1003, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(48, 43);
+            this.button3.TabIndex = 12;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // lblAccountName
             // 
-            this.lblAccountName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAccountName.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountName.Location = new System.Drawing.Point(750, 11);
+            this.lblAccountName.Location = new System.Drawing.Point(12, 9);
             this.lblAccountName.Name = "lblAccountName";
-            this.lblAccountName.Size = new System.Drawing.Size(203, 17);
+            this.lblAccountName.Size = new System.Drawing.Size(200, 17);
             this.lblAccountName.TabIndex = 7;
             this.lblAccountName.Text = "ANTHONY QUIJANO";
-            this.lblAccountName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblAccountName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
             // 
@@ -119,9 +146,9 @@
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label12.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(982, 8);
+            this.label12.Location = new System.Drawing.Point(875, 4);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(23, 21);
+            this.label12.Size = new System.Drawing.Size(27, 21);
             this.label12.TabIndex = 9;
             this.label12.Text = "50";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -135,7 +162,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Red;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(1006, 6);
+            this.button2.Location = new System.Drawing.Point(933, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(48, 46);
             this.button2.TabIndex = 11;
@@ -147,7 +174,7 @@
             // 
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label14.Location = new System.Drawing.Point(0, 54);
+            this.label14.Location = new System.Drawing.Point(0, 67);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(1060, 5);
             this.label14.TabIndex = 10;
@@ -156,29 +183,28 @@
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.BackColor = System.Drawing.Color.LightGray;
-            this.label13.Location = new System.Drawing.Point(956, 0);
+            this.label13.Location = new System.Drawing.Point(847, 1);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(2, 55);
+            this.label13.Size = new System.Drawing.Size(2, 62);
             this.label13.TabIndex = 9;
             // 
             // lblPosition
             // 
-            this.lblPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPosition.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblPosition.Location = new System.Drawing.Point(750, 29);
+            this.lblPosition.Location = new System.Drawing.Point(12, 18);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(200, 25);
             this.lblPosition.TabIndex = 9;
             this.lblPosition.Text = "SYSTEM ADMINISTRATOR";
-            this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.colm_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(41, 36);
+            this.pictureBox1.Size = new System.Drawing.Size(54, 42);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -186,11 +212,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Source Sans Pro Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Calibri Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label8.Location = new System.Drawing.Point(60, 32);
+            this.label8.Location = new System.Drawing.Point(71, 39);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 17);
+            this.label8.Size = new System.Drawing.Size(85, 15);
             this.label8.TabIndex = 8;
             this.label8.Text = "version 3.0.0.0";
             // 
@@ -199,11 +225,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label7.Location = new System.Drawing.Point(58, 11);
+            this.label7.Location = new System.Drawing.Point(69, 14);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(290, 25);
+            this.label7.Size = new System.Drawing.Size(74, 25);
             this.label7.TabIndex = 7;
-            this.label7.Text = "COLM ENROLLMENT SYSTEM";
+            this.label7.Text = "COLM";
             // 
             // button1
             // 
@@ -215,7 +241,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Red;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(959, 5);
+            this.button1.Location = new System.Drawing.Point(859, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(48, 46);
             this.button1.TabIndex = 9;
@@ -226,13 +252,16 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.panel2.Controls.Add(this.lblDateTime);
+            this.panel2.Controls.Add(this.lblAccountName);
             this.panel2.Controls.Add(this.lblSemester);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.lblSchoolYear);
+            this.panel2.Controls.Add(this.lblPosition);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 786);
+            this.panel2.Location = new System.Drawing.Point(0, 781);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1060, 39);
+            this.panel2.Size = new System.Drawing.Size(1060, 44);
             this.panel2.TabIndex = 7;
             // 
             // lblSemester
@@ -241,7 +270,7 @@
             this.lblSemester.AutoSize = true;
             this.lblSemester.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSemester.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblSemester.Location = new System.Drawing.Point(940, 10);
+            this.lblSemester.Location = new System.Drawing.Point(759, 14);
             this.lblSemester.Name = "lblSemester";
             this.lblSemester.Size = new System.Drawing.Size(114, 20);
             this.lblSemester.TabIndex = 12;
@@ -260,19 +289,10 @@
             // 
             this.PanelMain.Controls.Add(this.uC_DashBoard1);
             this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelMain.Location = new System.Drawing.Point(0, 83);
+            this.PanelMain.Location = new System.Drawing.Point(0, 96);
             this.PanelMain.Name = "PanelMain";
-            this.PanelMain.Size = new System.Drawing.Size(1060, 703);
+            this.PanelMain.Size = new System.Drawing.Size(1060, 685);
             this.PanelMain.TabIndex = 9;
-            // 
-            // uC_DashBoard1
-            // 
-            this.uC_DashBoard1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_DashBoard1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_DashBoard1.Location = new System.Drawing.Point(0, 0);
-            this.uC_DashBoard1.Name = "uC_DashBoard1";
-            this.uC_DashBoard1.Size = new System.Drawing.Size(1060, 703);
-            this.uC_DashBoard1.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -282,11 +302,18 @@
             this.sETTINGSToolStripMenuItem,
             this.rEPORTSToolStripMenuItem,
             this.cLOSEALLFORMSToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 59);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 72);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1060, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // dASHBOARDToolStripMenuItem
+            // 
+            this.dASHBOARDToolStripMenuItem.Name = "dASHBOARDToolStripMenuItem";
+            this.dASHBOARDToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.dASHBOARDToolStripMenuItem.Text = "DASHBOARD";
+            this.dASHBOARDToolStripMenuItem.Click += new System.EventHandler(this.dASHBOARDToolStripMenuItem_Click);
             // 
             // tRANSACTIONToolStripMenuItem
             // 
@@ -339,12 +366,19 @@
             this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.sETTINGSToolStripMenuItem.Text = "SETTINGS";
             // 
-            // dISCOUNTToolStripMenuItem
+            // sUBJECTSToolStripMenuItem
             // 
-            this.dISCOUNTToolStripMenuItem.Name = "dISCOUNTToolStripMenuItem";
-            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.dISCOUNTToolStripMenuItem.Text = "DISCOUNTS";
-            this.dISCOUNTToolStripMenuItem.Click += new System.EventHandler(this.dISCOUNTToolStripMenuItem_Click);
+            this.sUBJECTSToolStripMenuItem.Name = "sUBJECTSToolStripMenuItem";
+            this.sUBJECTSToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.sUBJECTSToolStripMenuItem.Text = "SUBJECTS";
+            this.sUBJECTSToolStripMenuItem.Click += new System.EventHandler(this.sUBJECTSToolStripMenuItem_Click);
+            // 
+            // cURRICULUMToolStripMenuItem
+            // 
+            this.cURRICULUMToolStripMenuItem.Name = "cURRICULUMToolStripMenuItem";
+            this.cURRICULUMToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.cURRICULUMToolStripMenuItem.Text = "CURRICULUM";
+            this.cURRICULUMToolStripMenuItem.Click += new System.EventHandler(this.cURRICULUMToolStripMenuItem_Click);
             // 
             // fEESToolStripMenuItem
             // 
@@ -379,12 +413,12 @@
             this.aDDITIONALFEEToolStripMenuItem.Text = "ADDITIONAL FEE";
             this.aDDITIONALFEEToolStripMenuItem.Click += new System.EventHandler(this.aDDITIONALFEEToolStripMenuItem_Click);
             // 
-            // sUBJECTSToolStripMenuItem
+            // dISCOUNTToolStripMenuItem
             // 
-            this.sUBJECTSToolStripMenuItem.Name = "sUBJECTSToolStripMenuItem";
-            this.sUBJECTSToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.sUBJECTSToolStripMenuItem.Text = "SUBJECTS";
-            this.sUBJECTSToolStripMenuItem.Click += new System.EventHandler(this.sUBJECTSToolStripMenuItem_Click);
+            this.dISCOUNTToolStripMenuItem.Name = "dISCOUNTToolStripMenuItem";
+            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.dISCOUNTToolStripMenuItem.Text = "DISCOUNTS";
+            this.dISCOUNTToolStripMenuItem.Click += new System.EventHandler(this.dISCOUNTToolStripMenuItem_Click);
             // 
             // sECTIONSToolStripMenuItem
             // 
@@ -392,13 +426,6 @@
             this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.sECTIONSToolStripMenuItem.Text = "SECTIONS AND SCHEDULE";
             this.sECTIONSToolStripMenuItem.Click += new System.EventHandler(this.sECTIONSToolStripMenuItem_Click);
-            // 
-            // cURRICULUMToolStripMenuItem
-            // 
-            this.cURRICULUMToolStripMenuItem.Name = "cURRICULUMToolStripMenuItem";
-            this.cURRICULUMToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.cURRICULUMToolStripMenuItem.Text = "CURRICULUM";
-            this.cURRICULUMToolStripMenuItem.Click += new System.EventHandler(this.cURRICULUMToolStripMenuItem_Click);
             // 
             // rEPORTSToolStripMenuItem
             // 
@@ -421,12 +448,78 @@
             this.cLOSEALLFORMSToolStripMenuItem.Text = "CLOSE ALL FORMS";
             this.cLOSEALLFORMSToolStripMenuItem.Click += new System.EventHandler(this.cLOSEALLFORMSToolStripMenuItem_Click);
             // 
-            // dASHBOARDToolStripMenuItem
+            // lblDateTime
             // 
-            this.dASHBOARDToolStripMenuItem.Name = "dASHBOARDToolStripMenuItem";
-            this.dASHBOARDToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
-            this.dASHBOARDToolStripMenuItem.Text = "DASHBOARD";
-            this.dASHBOARDToolStripMenuItem.Click += new System.EventHandler(this.dASHBOARDToolStripMenuItem_Click);
+            this.lblDateTime.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblDateTime.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblDateTime.Location = new System.Drawing.Point(879, 5);
+            this.lblDateTime.Name = "lblDateTime";
+            this.lblDateTime.Size = new System.Drawing.Size(181, 39);
+            this.lblDateTime.TabIndex = 13;
+            this.lblDateTime.Text = "Thu 05/20/2021 8:22 am";
+            this.lblDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(856, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 11);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "NOTIFICATIONS";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(938, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 11);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "ACCOUNT";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(1009, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 11);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "LOGOUT";
+            // 
+            // uC_DashBoard1
+            // 
+            this.uC_DashBoard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_DashBoard1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_DashBoard1.Location = new System.Drawing.Point(0, 0);
+            this.uC_DashBoard1.Name = "uC_DashBoard1";
+            this.uC_DashBoard1.Size = new System.Drawing.Size(1060, 685);
+            this.uC_DashBoard1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.label4.Location = new System.Drawing.Point(135, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(222, 25);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "ENROLLMENT SYSTEM";
             // 
             // frm_main
             // 
@@ -497,5 +590,12 @@
         private UC_DashBoard uC_DashBoard1;
         private System.Windows.Forms.ToolStripMenuItem aDDITIONALFEEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dASHBOARDToolStripMenuItem;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblDateTime;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
     }
 }

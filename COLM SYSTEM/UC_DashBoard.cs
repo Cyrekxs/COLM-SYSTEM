@@ -14,6 +14,15 @@ namespace COLM_SYSTEM
         public UC_DashBoard()
         {
             InitializeComponent();
+            //this.ClientSize.Height / 4 - panelEnrolled.Size.Height / 4
+            panelEnrolled.Location = new Point(this.ClientSize.Width / 2 - panelEnrolled.Size.Width / 2, 15);
+            panelEnrolled.Anchor = AnchorStyles.None;
+
+            //this.ClientSize.Height / 2 - panelGender.Size.Height / 2
+            panelGender.Location = new Point(this.ClientSize.Width / 2 - panelGender.Size.Width / 2, 435);
+            panelGender.Anchor = AnchorStyles.None;
+
+
             LoadCharts();
         }
 
@@ -40,7 +49,7 @@ namespace COLM_SYSTEM
             int PendingCollege = 0;
             int TotalPending = 0;
 
-            //enrolled
+            //enrolled charts
             EnrolledPreElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Pre Elementary" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
             EnrolledElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Elementary" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
             EnrolledJHS = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Junior High" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
@@ -48,7 +57,7 @@ namespace COLM_SYSTEM
             EnrolledCollege = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "College" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
             TotalEnrolled = EnrolledPreElem + EnrolledElem + EnrolledJHS + EnrolledSHS + EnrolledCollege;
 
-            //pendings
+            //pendings charts
             PendingPreElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Pre Elementary" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
             PendingElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Elementary" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
             PendingJHS = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Junior High" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
@@ -57,7 +66,7 @@ namespace COLM_SYSTEM
             TotalPending = PendingPreElem + PendingElem + PendingJHS + PendingSHS + PendingCollege;
 
 
-            //display enrolled
+            //display enrolled charts
             lblEnrolledPreElementary.Text = EnrolledPreElem.ToString();
             lblEnrolledElementary.Text = EnrolledElem.ToString();
             lblEnrolledJHS.Text = EnrolledJHS.ToString();
@@ -66,7 +75,7 @@ namespace COLM_SYSTEM
             lblTotalEnrolled.Text = TotalEnrolled.ToString();
 
 
-            //dispaly pendings
+            //dispaly pendings charts
             lblPendingPreElementary.Text = PendingPreElem.ToString();
             lblPendingElementary.Text = PendingElem.ToString();
             lblPendingJHS.Text = PendingJHS.ToString();
@@ -98,11 +107,28 @@ namespace COLM_SYSTEM
                 chartEnrolled.Series["Series1"].Points[chartpoint].LabelForeColor = Color.White;
                 chartEnrolled.Series["Series1"].Points[chartpoint].Color = Color.DarkSlateGray;
             }
+
             lblTotalEnrolled.Text = TotalEnrolled.ToString();
+
+
+            chartGender.Series["Series1"].Points.AddXY("Male", 1);
+            chartGender.Series["Series1"].Points[0].LabelForeColor = Color.White;
+            chartGender.Series["Series1"].Points[0].Color = Color.RoyalBlue;
+
+
+            chartGender.Series["Series1"].Points.AddXY("Female", 1);
+            chartGender.Series["Series1"].Points[1].LabelForeColor = Color.White;
+            chartGender.Series["Series1"].Points[1].Color = Color.HotPink;
+
 
         }
 
         private void chartEnrolled_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UC_DashBoard_Load(object sender, EventArgs e)
         {
 
         }

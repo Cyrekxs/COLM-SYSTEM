@@ -619,6 +619,7 @@
   <ItemGroup>
     <Content Include="Programmers Info\Notes.txt" />
     <Content Include="Programmers Info\What I Did.txt" />
+    <None Include="Resources\Logout.png" />
     <None Include="Resources\login.png" />
     <None Include="Resources\colm wallpaper.jpg" />
   </ItemGroup>

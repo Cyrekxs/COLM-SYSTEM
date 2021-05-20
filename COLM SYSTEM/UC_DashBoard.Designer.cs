@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.panelEnrolled = new System.Windows.Forms.Panel();
             this.chartEnrolled = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -67,7 +67,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelGender = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblTotalFemale = new System.Windows.Forms.Label();
             this.lblTotalMale = new System.Windows.Forms.Label();
@@ -98,7 +98,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.chartGender = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel1.SuspendLayout();
+            this.panelEnrolled.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartEnrolled)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -107,7 +107,7 @@
             this.panel19.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel21.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelGender.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -118,37 +118,37 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartGender)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelEnrolled
             // 
-            this.panel1.Controls.Add(this.panel21);
-            this.panel1.Controls.Add(this.panel20);
-            this.panel1.Controls.Add(this.panel19);
-            this.panel1.Controls.Add(this.panel18);
-            this.panel1.Controls.Add(this.panel17);
-            this.panel1.Controls.Add(this.panel16);
-            this.panel1.Controls.Add(this.panel9);
-            this.panel1.Controls.Add(this.chartEnrolled);
-            this.panel1.Location = new System.Drawing.Point(15, 14);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1259, 413);
-            this.panel1.TabIndex = 10;
+            this.panelEnrolled.Controls.Add(this.panel21);
+            this.panelEnrolled.Controls.Add(this.panel20);
+            this.panelEnrolled.Controls.Add(this.panel19);
+            this.panelEnrolled.Controls.Add(this.panel18);
+            this.panelEnrolled.Controls.Add(this.panel17);
+            this.panelEnrolled.Controls.Add(this.panel16);
+            this.panelEnrolled.Controls.Add(this.panel9);
+            this.panelEnrolled.Controls.Add(this.chartEnrolled);
+            this.panelEnrolled.Location = new System.Drawing.Point(15, 14);
+            this.panelEnrolled.Name = "panelEnrolled";
+            this.panelEnrolled.Size = new System.Drawing.Size(1259, 413);
+            this.panelEnrolled.TabIndex = 10;
             // 
             // chartEnrolled
             // 
             this.chartEnrolled.BackColor = System.Drawing.Color.Empty;
             this.chartEnrolled.BorderlineColor = System.Drawing.Color.Black;
-            chartArea5.Name = "ChartArea1";
-            this.chartEnrolled.ChartAreas.Add(chartArea5);
+            chartArea7.Name = "ChartArea1";
+            this.chartEnrolled.ChartAreas.Add(chartArea7);
             this.chartEnrolled.Dock = System.Windows.Forms.DockStyle.Left;
             this.chartEnrolled.Location = new System.Drawing.Point(0, 0);
             this.chartEnrolled.Name = "chartEnrolled";
             this.chartEnrolled.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series5.Name = "Series1";
-            series5.YValuesPerPoint = 6;
-            this.chartEnrolled.Series.Add(series5);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series7.Name = "Series1";
+            series7.YValuesPerPoint = 6;
+            this.chartEnrolled.Series.Add(series7);
             this.chartEnrolled.Size = new System.Drawing.Size(407, 413);
             this.chartEnrolled.TabIndex = 7;
             this.chartEnrolled.Text = "chart1";
@@ -572,21 +572,21 @@
             this.button5.Text = "VIEW";
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // panel2
+            // panelGender
             // 
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel7);
-            this.panel2.Controls.Add(this.panel8);
-            this.panel2.Controls.Add(this.panel10);
-            this.panel2.Controls.Add(this.label30);
-            this.panel2.Controls.Add(this.chartGender);
-            this.panel2.Location = new System.Drawing.Point(15, 433);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1259, 253);
-            this.panel2.TabIndex = 11;
+            this.panelGender.Controls.Add(this.panel3);
+            this.panelGender.Controls.Add(this.panel4);
+            this.panelGender.Controls.Add(this.panel5);
+            this.panelGender.Controls.Add(this.panel6);
+            this.panelGender.Controls.Add(this.panel7);
+            this.panelGender.Controls.Add(this.panel8);
+            this.panelGender.Controls.Add(this.panel10);
+            this.panelGender.Controls.Add(this.label30);
+            this.panelGender.Controls.Add(this.chartGender);
+            this.panelGender.Location = new System.Drawing.Point(15, 433);
+            this.panelGender.Name = "panelGender";
+            this.panelGender.Size = new System.Drawing.Size(1259, 253);
+            this.panelGender.TabIndex = 11;
             // 
             // panel3
             // 
@@ -946,18 +946,18 @@
             // 
             this.chartGender.BackColor = System.Drawing.Color.Empty;
             this.chartGender.BorderlineColor = System.Drawing.Color.Black;
-            chartArea6.Name = "ChartArea1";
-            this.chartGender.ChartAreas.Add(chartArea6);
+            chartArea8.Name = "ChartArea1";
+            this.chartGender.ChartAreas.Add(chartArea8);
             this.chartGender.Dock = System.Windows.Forms.DockStyle.Left;
             this.chartGender.Location = new System.Drawing.Point(0, 0);
             this.chartGender.Name = "chartGender";
             this.chartGender.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series6.Name = "Series1";
-            series6.YValuesPerPoint = 6;
-            this.chartGender.Series.Add(series6);
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
+            series8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series8.Name = "Series1";
+            series8.YValuesPerPoint = 6;
+            this.chartGender.Series.Add(series8);
             this.chartGender.Size = new System.Drawing.Size(407, 253);
             this.chartGender.TabIndex = 19;
             this.chartGender.Text = "chart1";
@@ -966,12 +966,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelGender);
+            this.Controls.Add(this.panelEnrolled);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_DashBoard";
-            this.Size = new System.Drawing.Size(1618, 737);
-            this.panel1.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(1292, 702);
+            this.Load += new System.EventHandler(this.UC_DashBoard_Load);
+            this.panelEnrolled.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartEnrolled)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
@@ -980,7 +981,7 @@
             this.panel19.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.panelGender.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -994,7 +995,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelEnrolled;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -1029,7 +1030,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelGender;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblTotalFemale;
         private System.Windows.Forms.Label lblTotalMale;
