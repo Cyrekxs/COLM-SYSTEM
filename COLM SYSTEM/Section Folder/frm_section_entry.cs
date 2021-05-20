@@ -25,9 +25,12 @@ namespace COLM_SYSTEM.Section_Folder
                                                           where r.EducationLevel.ToLower() == cmbEducationLevel.Text.ToLower()
                                                           select r).ToList();
 
-            foreach (var item in settedSummaries)
+
+            List<string> curriculums = settedSummaries.Select(item => item.Code).Distinct().ToList();
+
+            foreach (var item in curriculums)
             {
-                cmbCurriculum.Items.Add(item.Code);
+                cmbCurriculum.Items.Add(item);
             }
         }
 

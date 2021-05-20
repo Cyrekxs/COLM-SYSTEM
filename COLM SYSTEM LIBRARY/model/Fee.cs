@@ -41,6 +41,12 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return (Fee_DS.GetFees(YearLevelID));
         }
+
+        public static List<Fee> GetAdditionalFees()
+        {
+            return Fee_DS.GetAdditionalFees();
+        }
+
         public static Fee GetFee(int FeeID)
         {
             return Fee_DS.GetFee(FeeID);

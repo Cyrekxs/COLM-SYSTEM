@@ -36,6 +36,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.clmScheduleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjPriceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTimeIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTimeOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFaculty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPick = new System.Windows.Forms.DataGridViewLinkColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEducationLevel = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,17 +61,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtCount = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.clmScheduleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSubjPriceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSubjCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSubjDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSubjUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTimeIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTimeOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFaculty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPick = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,137 +82,11 @@
             this.clmRoom,
             this.clmFaculty,
             this.clmPick});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 106);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 94);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(799, 269);
+            this.dataGridView1.Size = new System.Drawing.Size(799, 237);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "SECTION INFORMATION";
-            // 
-            // txtEducationLevel
-            // 
-            this.txtEducationLevel.Location = new System.Drawing.Point(15, 25);
-            this.txtEducationLevel.Name = "txtEducationLevel";
-            this.txtEducationLevel.ReadOnly = true;
-            this.txtEducationLevel.Size = new System.Drawing.Size(129, 25);
-            this.txtEducationLevel.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "EDUCATION LEVEL";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(147, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "COURSE / STRAND";
-            // 
-            // txtCourseStrand
-            // 
-            this.txtCourseStrand.Location = new System.Drawing.Point(150, 25);
-            this.txtCourseStrand.Name = "txtCourseStrand";
-            this.txtCourseStrand.ReadOnly = true;
-            this.txtCourseStrand.Size = new System.Drawing.Size(98, 25);
-            this.txtCourseStrand.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(251, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "YEAR LEVEL";
-            // 
-            // txtYearLevel
-            // 
-            this.txtYearLevel.Location = new System.Drawing.Point(254, 25);
-            this.txtYearLevel.Name = "txtYearLevel";
-            this.txtYearLevel.ReadOnly = true;
-            this.txtYearLevel.Size = new System.Drawing.Size(98, 25);
-            this.txtYearLevel.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(355, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "SECTION CODE";
-            // 
-            // txtSectionCode
-            // 
-            this.txtSectionCode.Location = new System.Drawing.Point(358, 25);
-            this.txtSectionCode.Name = "txtSectionCode";
-            this.txtSectionCode.ReadOnly = true;
-            this.txtSectionCode.Size = new System.Drawing.Size(238, 25);
-            this.txtSectionCode.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 90);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "SUBJECT LISTS";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(698, 424);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 30);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "SAVE / UPDATE";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(630, 387);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "LIST OF SUBJECTS";
-            // 
-            // txtCount
-            // 
-            this.txtCount.Location = new System.Drawing.Point(732, 381);
-            this.txtCount.Name = "txtCount";
-            this.txtCount.ReadOnly = true;
-            this.txtCount.Size = new System.Drawing.Size(82, 25);
-            this.txtCount.TabIndex = 12;
-            this.txtCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // clmScheduleID
             // 
@@ -234,7 +108,7 @@
             this.clmSubjCode.HeaderText = "SUBJECT";
             this.clmSubjCode.Name = "clmSubjCode";
             this.clmSubjCode.ReadOnly = true;
-            this.clmSubjCode.Width = 83;
+            this.clmSubjCode.Width = 76;
             // 
             // clmSubjDesc
             // 
@@ -251,7 +125,7 @@
             this.clmSubjUnit.HeaderText = "UNIT";
             this.clmSubjUnit.Name = "clmSubjUnit";
             this.clmSubjUnit.ReadOnly = true;
-            this.clmSubjUnit.Width = 62;
+            this.clmSubjUnit.Width = 58;
             // 
             // clmDay
             // 
@@ -260,7 +134,7 @@
             this.clmDay.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmDay.HeaderText = "DAY";
             this.clmDay.Name = "clmDay";
-            this.clmDay.Width = 56;
+            this.clmDay.Width = 52;
             // 
             // clmTimeIn
             // 
@@ -269,7 +143,7 @@
             this.clmTimeIn.DefaultCellStyle = dataGridViewCellStyle3;
             this.clmTimeIn.HeaderText = "TIME IN";
             this.clmTimeIn.Name = "clmTimeIn";
-            this.clmTimeIn.Width = 79;
+            this.clmTimeIn.Width = 74;
             // 
             // clmTimeOut
             // 
@@ -278,7 +152,7 @@
             this.clmTimeOut.DefaultCellStyle = dataGridViewCellStyle4;
             this.clmTimeOut.HeaderText = "TIME OUT";
             this.clmTimeOut.Name = "clmTimeOut";
-            this.clmTimeOut.Width = 92;
+            this.clmTimeOut.Width = 85;
             // 
             // clmRoom
             // 
@@ -287,7 +161,7 @@
             this.clmRoom.DefaultCellStyle = dataGridViewCellStyle5;
             this.clmRoom.HeaderText = "ROOM";
             this.clmRoom.Name = "clmRoom";
-            this.clmRoom.Width = 73;
+            this.clmRoom.Width = 68;
             // 
             // clmFaculty
             // 
@@ -297,7 +171,7 @@
             this.clmFaculty.HeaderText = "FACULTY";
             this.clmFaculty.Name = "clmFaculty";
             this.clmFaculty.ReadOnly = true;
-            this.clmFaculty.Width = 82;
+            this.clmFaculty.Width = 75;
             // 
             // clmPick
             // 
@@ -311,13 +185,139 @@
             this.clmPick.Text = "PICK";
             this.clmPick.UseColumnTextForLinkValue = true;
             this.clmPick.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.clmPick.Width = 59;
+            this.clmPick.Width = 57;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "SECTION INFORMATION";
+            // 
+            // txtEducationLevel
+            // 
+            this.txtEducationLevel.Location = new System.Drawing.Point(15, 22);
+            this.txtEducationLevel.Name = "txtEducationLevel";
+            this.txtEducationLevel.ReadOnly = true;
+            this.txtEducationLevel.Size = new System.Drawing.Size(129, 23);
+            this.txtEducationLevel.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "EDUCATION LEVEL";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(147, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "COURSE / STRAND";
+            // 
+            // txtCourseStrand
+            // 
+            this.txtCourseStrand.Location = new System.Drawing.Point(150, 22);
+            this.txtCourseStrand.Name = "txtCourseStrand";
+            this.txtCourseStrand.ReadOnly = true;
+            this.txtCourseStrand.Size = new System.Drawing.Size(98, 23);
+            this.txtCourseStrand.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(251, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "YEAR LEVEL";
+            // 
+            // txtYearLevel
+            // 
+            this.txtYearLevel.Location = new System.Drawing.Point(254, 22);
+            this.txtYearLevel.Name = "txtYearLevel";
+            this.txtYearLevel.ReadOnly = true;
+            this.txtYearLevel.Size = new System.Drawing.Size(98, 23);
+            this.txtYearLevel.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(355, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "SECTION CODE";
+            // 
+            // txtSectionCode
+            // 
+            this.txtSectionCode.Location = new System.Drawing.Point(358, 22);
+            this.txtSectionCode.Name = "txtSectionCode";
+            this.txtSectionCode.ReadOnly = true;
+            this.txtSectionCode.Size = new System.Drawing.Size(238, 23);
+            this.txtSectionCode.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 79);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "SUBJECT LISTS";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(698, 374);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 26);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "SAVE / UPDATE";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(630, 341);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(97, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "LIST OF SUBJECTS";
+            // 
+            // txtCount
+            // 
+            this.txtCount.Location = new System.Drawing.Point(732, 336);
+            this.txtCount.Name = "txtCount";
+            this.txtCount.ReadOnly = true;
+            this.txtCount.Size = new System.Drawing.Size(82, 23);
+            this.txtCount.TabIndex = 12;
+            this.txtCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frm_section_schedule_entry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 464);
+            this.ClientSize = new System.Drawing.Size(829, 409);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtCount);
             this.Controls.Add(this.button1);
@@ -332,7 +332,7 @@
             this.Controls.Add(this.txtEducationLevel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;

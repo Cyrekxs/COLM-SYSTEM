@@ -133,7 +133,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<string> GetCourseStrandByEducationLevel(string EducationLevel)
         {
             return (from r in GetYearLevels()
-                    where r.EducationLevel == EducationLevel
+                    where r.EducationLevel.ToLower() == EducationLevel.ToLower()
                     select r.CourseStrand).Distinct().ToList();
         }
     }

@@ -47,9 +47,15 @@ namespace COLM_SYSTEM.registration
             };
 
             if (StudentRegistration.RegisterStudent(model) == true)
+            {
                 MessageBox.Show("Student information has been successfully registered!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+                Dispose();
+            }
             else
+            {
                 MessageBox.Show("Error occured while registration!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -67,6 +73,11 @@ namespace COLM_SYSTEM.registration
         }
 
         private void cmbCurriculum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
 {
-    public class AssessmentAdditionalFee
+    public class AssessmentSubjectAdditionalFee
     {
-        public int AssessmentAdditionalFeeID { get; set; }
+        public int SubjectAdditionalFeeID { get; set; }
         public int AssessmentID { get; set; }
         public int AdditionalFeeID { get; set; }
         public int CurriculumSubjectID { get; set; }

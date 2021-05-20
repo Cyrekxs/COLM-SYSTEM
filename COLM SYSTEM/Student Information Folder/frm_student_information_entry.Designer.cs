@@ -47,8 +47,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtExtensionName = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtBirthPlace = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.txtBirthDate = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -271,25 +269,6 @@
             this.label12.TabIndex = 22;
             this.label12.Text = "BIRTH";
             // 
-            // txtBirthPlace
-            // 
-            this.txtBirthPlace.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.err.SetIconPadding(this.txtBirthPlace, -20);
-            this.txtBirthPlace.Location = new System.Drawing.Point(157, 178);
-            this.txtBirthPlace.Name = "txtBirthPlace";
-            this.txtBirthPlace.Size = new System.Drawing.Size(206, 23);
-            this.txtBirthPlace.TabIndex = 7;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(154, 202);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(66, 14);
-            this.label13.TabIndex = 23;
-            this.label13.Text = "BIRTH PLACE";
-            // 
             // txtBirthDate
             // 
             this.txtBirthDate.CustomFormat = " MM - dd - yyyy";
@@ -425,9 +404,9 @@
             this.cmbGender.Items.AddRange(new object[] {
             "MALE",
             "FEMALE"});
-            this.cmbGender.Location = new System.Drawing.Point(370, 178);
+            this.cmbGender.Location = new System.Drawing.Point(157, 178);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(77, 23);
+            this.cmbGender.Size = new System.Drawing.Size(142, 23);
             this.cmbGender.TabIndex = 8;
             // 
             // txtMotherName
@@ -506,7 +485,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Source Sans Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(367, 202);
+            this.label19.Location = new System.Drawing.Point(156, 202);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(46, 14);
             this.label19.TabIndex = 35;
@@ -552,10 +531,8 @@
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.txtBirthDate);
             this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.txtExtensionName);
             this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.txtBirthPlace);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -814,8 +791,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtExtensionName;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtBirthPlace;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker txtBirthDate;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;

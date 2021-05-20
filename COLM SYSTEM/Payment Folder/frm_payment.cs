@@ -33,6 +33,7 @@ namespace COLM_SYSTEM.Payment_Folder
             txtYearLevel.Text = studentYearLevel.YearLvl;
             txtSection.Text = assessment.Summary.Section;
 
+            LoadAdditionalFees();
             LoadPaymentHistory();
         }
 
@@ -41,7 +42,6 @@ namespace COLM_SYSTEM.Payment_Folder
         {
             assessment = Assessment.GetAssessment(AssessmentID);
             LoadAssessmentBreakdown();
-            LoadPaymentHistory();
         }
 
         //reload or refresh
@@ -49,7 +49,21 @@ namespace COLM_SYSTEM.Payment_Folder
         {
             assessment = Assessment.GetAssessment(assessment.Summary.AssessmentID);
             LoadAssessmentBreakdown();
+            LoadAdditionalFees();
             LoadPaymentHistory();
+        }
+
+        private void LoadAdditionalFees()
+        {
+            dgAdditionalFees.Rows.Clear();
+            List<AdditionalFee> additionalFees = Payment.GetAdditionalFees(studentRegistered.RegisteredID,Utilties.GetActiveSchoolYear(),Utilties.GetActiveSemester());
+            foreach (var item in additionalFees)
+            {
+                double balance = item.TotalAmount - item.TotalPayment;
+                dgAdditionalFees.Rows.Add(item.AssessmentAdditionalFeeID, item.Fee, item.TotalAmount.ToString("n"),item.TotalPayment.ToString("n"),balance.ToString("n"));
+                dgAdditionalFees.Rows[dgAdditionalFees.Rows.Count - 1].Tag = item;
+            }
+
         }
 
         private void LoadPaymentHistory()
@@ -111,13 +125,13 @@ namespace COLM_SYSTEM.Payment_Folder
             //disable enable checkbox for payment
             foreach (DataGridViewRow item in dgBreakdown.Rows)
             {
-                if (Convert.ToDouble(item.Cells["clmBalance"].Value) <= 0)
+                if (Convert.ToDouble(item.Cells["clmBalanceTuition"].Value) <= 0)
                 {
-                    item.Cells["clmCheck"].ReadOnly = true;
+                    item.Cells["clmCheckToAddTuition"].ReadOnly = true;
                 }
                 else
                 {
-                    item.Cells["clmCheck"].ReadOnly = false;
+                    item.Cells["clmCheckToAddTuition"].ReadOnly = false;
                 }
             }
         }
@@ -127,9 +141,9 @@ namespace COLM_SYSTEM.Payment_Folder
             double AmountToPay = 0;
             foreach (DataGridViewRow item in dgBreakdown.Rows)
             {
-                if (Convert.ToBoolean( item.Cells["clmCheck"].Value) == true)
+                if (Convert.ToBoolean( item.Cells["clmCheckToAddTuition"].Value) == true)
                 {
-                    AmountToPay += Convert.ToDouble(item.Cells["clmBalance"].Value);
+                    AmountToPay += Convert.ToDouble(item.Cells["clmBalanceTuition"].Value);
                 }
             }
 
@@ -144,6 +158,44 @@ namespace COLM_SYSTEM.Payment_Folder
         {
             Close();
             Dispose();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            frm_browse_fees frm = new frm_browse_fees(studentRegistered);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            LoadAssessmentInformation();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            double AmountToPay = 0;
+            List<AdditionalFee> additionalFeesToPay = new List<AdditionalFee>();
+            foreach (DataGridViewRow item in dgAdditionalFees.Rows)
+            {
+                if (Convert.ToBoolean(item.Cells["clmCheckToAddAdditional"].Value) == true)
+                {
+
+                    AdditionalFee fee = item.Tag as AdditionalFee;
+                    additionalFeesToPay.Add(fee);
+                    AmountToPay += Convert.ToDouble(item.Cells["clmBalanceAdditional"].Value);
+                }
+            }
+
+            if (additionalFeesToPay.Count != 0)
+            {
+                frm_payment_cash_additional_fee_entry frm = new frm_payment_cash_additional_fee_entry(studentRegistered, additionalFeesToPay, AmountToPay);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+
+                LoadAssessmentInformation();
+            }
+            else
+            {
+                MessageBox.Show("Please select check fee to pay!", "Check Fee", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }

@@ -70,6 +70,36 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return fees;
         }
 
+        public static List<Fee> GetAdditionalFees()
+        {
+            List<Fee> fees = new List<Fee>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.fees WHERE Type = 'Additional' ORDER BY Fee ASC", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Fee fee = new Fee()
+                            {
+                                FeeID = Convert.ToInt32(reader["FeeID"]),
+                                FeeDesc = Convert.ToString(reader["Fee"]),
+                                FeeType = Convert.ToString(reader["Type"]),
+                                YearLeveLID = Convert.ToInt16(reader["YearLevelID"]),
+                                Amount = Convert.ToDouble(reader["Amount"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                SemesterID = Convert.ToInt32(reader["SemesterID"]),
+                            };
+                            fees.Add(fee);
+                        }
+                    }
+                }
+            }
+            return fees;
+        }
+
         public static Fee GetFee(int FeeID)
         {
             Fee fee = new Fee();

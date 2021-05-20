@@ -35,6 +35,7 @@ namespace COLM_SYSTEM.Section_Folder
             frm_section_entry frm = new frm_section_entry();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+            LoadSections();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -30,7 +30,11 @@ namespace COLM_SYSTEM.Payment_Folder
             foreach (var item in assessmentLists)
             {
                 double balance = item.TotalDue - item.TotalPaidTuition;
-                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.TotalPaidTuition.ToString("n"), balance.ToString("n"), item.Assessor, item.AssessmentDate);
+                string EnrollmentLinkText = "";
+                if (item.EnrollmentStatus != "Enrolled")
+                    EnrollmentLinkText = "Mark as Enrolled";
+
+                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.TotalPaidTuition.ToString("n"), balance.ToString("n"), item.Assessor, item.AssessmentDate, "Enter", EnrollmentLinkText);
             }
         }
 
@@ -42,6 +46,7 @@ namespace COLM_SYSTEM.Payment_Folder
                 frm_payment frm = new frm_payment(AssessmentID);
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
+                LoadAssessments();
             }
         }
     }

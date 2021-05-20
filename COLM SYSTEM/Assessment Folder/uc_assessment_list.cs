@@ -29,9 +29,10 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
 
             dataGridView1.Rows.Clear();
+
             foreach (var item in assessmentLists)
             {
-                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.AssessmentType, item.Assessor, item.AssessmentDate);
+                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.AssessmentType, item.Assessor, item.AssessmentDate,item.EnrollmentStatus);
             }
         }
 
@@ -40,6 +41,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm_assessment_browser frm = new frm_assessment_browser();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+            LoadAssessments();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

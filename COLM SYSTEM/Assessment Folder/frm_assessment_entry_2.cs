@@ -95,7 +95,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 List<SubjectSettedAddtionalFee> additionalfees = new List<SubjectSettedAddtionalFee>();
 
-                List<AssessmentAdditionalFee> assessmentAdditionalFees = assessment.AdditionalFees.Where(r => r.CurriculumSubjectID == Convert.ToInt16(item.Cells["clmCurriculumSubjectID"].Value)).ToList();
+                List<AssessmentSubjectAdditionalFee> assessmentAdditionalFees = assessment.AdditionalFees.Where(r => r.CurriculumSubjectID == Convert.ToInt16(item.Cells["clmCurriculumSubjectID"].Value)).ToList();
                 foreach (var fee in assessmentAdditionalFees)
                 {
                     SubjectSettedAddtionalFee additionalFee = SubjectSettedAddtionalFee.GetSubjectSettedAddtionalFee(fee.AdditionalFeeID);
@@ -743,10 +743,10 @@ namespace COLM_SYSTEM.Assessment_Folder
                 }
             }
 
-            List<AssessmentAdditionalFee> assessmentAdditionalFees = new List<AssessmentAdditionalFee>();
+            List<AssessmentSubjectAdditionalFee> assessmentAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
             foreach (var item in subjectSettedAdditionalFees)
             {
-                AssessmentAdditionalFee additionalFee = new AssessmentAdditionalFee()
+                AssessmentSubjectAdditionalFee additionalFee = new AssessmentSubjectAdditionalFee()
                 {
                     AdditionalFeeID = item.AdditionalFeeID,
                     CurriculumSubjectID = item.CurriculumSubjectID,

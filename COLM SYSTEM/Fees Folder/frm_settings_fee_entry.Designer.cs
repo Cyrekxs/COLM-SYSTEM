@@ -113,8 +113,6 @@
             this.cmbFeeType.FormattingEnabled = true;
             this.er.SetIconPadding(this.cmbFeeType, -20);
             this.cmbFeeType.Items.AddRange(new object[] {
-            "Miscellaneous",
-            "Other",
             "Additional"});
             this.cmbFeeType.Location = new System.Drawing.Point(125, 122);
             this.cmbFeeType.Name = "cmbFeeType";
@@ -233,7 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 380);
+            this.ClientSize = new System.Drawing.Size(445, 344);
             this.Controls.Add(this.cmbCourseStrand);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);

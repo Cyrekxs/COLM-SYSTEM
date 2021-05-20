@@ -69,6 +69,15 @@ namespace COLM_SYSTEM.Payment_Folder
 
             if (result > 0)
             {
+                EnrolledStudent student = new EnrolledStudent()
+                {
+                    RegisteredStudentID = studentRegistered.RegisteredID,
+                    SchoolYearID = Utilties.GetActiveSchoolYear(),
+                    SemesterID = Utilties.GetActiveSemester()
+                };
+                EnrolledStudent.EnrollStudent(student);
+
+
                 MessageBox.Show("Payment Successfull", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
                 Dispose();

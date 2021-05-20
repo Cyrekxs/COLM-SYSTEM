@@ -34,5 +34,20 @@ namespace COLM_SYSTEM_LIBRARY.model.Payment_Folder
         {
             return Payment_DS.IsValidORnumber(ORNumber);
         }
+
+        public static int ChargeFee(StudentRegistered student, Fee fee, int Quantity)
+        {
+            return Payment_DS.ChargeFee(student, fee, Quantity);
+        }
+
+        public static List<AdditionalFee> GetAdditionalFees(int RegisteredStudentID, int SchoolYearID, int SemesterID)
+        {
+            return Payment_DS.GetAdditionalFees(RegisteredStudentID, SchoolYearID, SemesterID);
+        }
+
+        public static int InsertAdditionalFeePayment(int AssessmentAdditionalFeeID,double Payment)
+        {
+            return Payment_DS.InsertAdditionalFeePayment(AssessmentAdditionalFeeID, Payment);
+        }
     }
 }

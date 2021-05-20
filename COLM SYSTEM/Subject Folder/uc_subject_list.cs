@@ -57,5 +57,10 @@ namespace COLM_SYSTEM.subject
             frm.ShowDialog();
             DisplaySubjects();
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

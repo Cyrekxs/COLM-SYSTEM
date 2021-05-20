@@ -172,6 +172,18 @@
     <Compile Include="Faculty Folder\frm_faculty_browser.Designer.cs">
       <DependentUpon>frm_faculty_browser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fees Folder\frm_addtional_fee_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fees Folder\frm_addtional_fee_entry.Designer.cs">
+      <DependentUpon>frm_addtional_fee_entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fees Folder\frm_default_fees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fees Folder\frm_default_fees.Designer.cs">
+      <DependentUpon>frm_default_fees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fees Folder\frm_miscother_fees_entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +238,18 @@
     <Compile Include="frm_print_preview.Designer.cs">
       <DependentUpon>frm_print_preview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Payment Folder\frm_browse_fees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment Folder\frm_browse_fees.Designer.cs">
+      <DependentUpon>frm_browse_fees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment Folder\frm_payment_cash_additional_fee_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment Folder\frm_payment_cash_additional_fee_entry.Designer.cs">
+      <DependentUpon>frm_payment_cash_additional_fee_entry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payment Folder\frm_payment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +268,18 @@
     <Compile Include="Payment Folder\uc_payers.Designer.cs">
       <DependentUpon>uc_payers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registration Folder\uc_registered_students_list.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Registration Folder\uc_registered_students_list.Designer.cs">
+      <DependentUpon>uc_registered_students_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports Folder\frm_enrollees_masterlist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports Folder\frm_enrollees_masterlist.Designer.cs">
+      <DependentUpon>frm_enrollees_masterlist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Section Folder\frm_section_entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +297,12 @@
     </Compile>
     <Compile Include="Section Folder\frm_section_schedule_entry.Designer.cs">
       <DependentUpon>frm_section_schedule_entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings Folder\frm_settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\frm_settings.Designer.cs">
+      <DependentUpon>frm_settings.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Student Information Folder\uc_student_information_list.cs">
@@ -296,12 +338,6 @@
     <Compile Include="Utilties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration Folder\frm_registered_student_list.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Registration Folder\frm_registered_student_list.Designer.cs">
-      <DependentUpon>frm_registered_student_list.cs</DependentUpon>
-    </Compile>
     <Compile Include="Registration Folder\frm_registration_edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +419,12 @@
     <EmbeddedResource Include="Faculty Folder\frm_faculty_browser.resx">
       <DependentUpon>frm_faculty_browser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fees Folder\frm_addtional_fee_entry.resx">
+      <DependentUpon>frm_addtional_fee_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fees Folder\frm_default_fees.resx">
+      <DependentUpon>frm_default_fees.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\frm_miscother_fees_entry.resx">
       <DependentUpon>frm_miscother_fees_entry.cs</DependentUpon>
     </EmbeddedResource>
@@ -410,8 +452,14 @@
     <EmbeddedResource Include="frm_print_preview.resx">
       <DependentUpon>frm_print_preview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Payment Folder\frm_browse_fees.resx">
+      <DependentUpon>frm_browse_fees.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\frm_payment.resx">
       <DependentUpon>frm_payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment Folder\frm_payment_cash_additional_fee_entry.resx">
+      <DependentUpon>frm_payment_cash_additional_fee_entry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\frm_payment_cash_entry.resx">
       <DependentUpon>frm_payment_cash_entry.cs</DependentUpon>
@@ -429,9 +477,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Registration Folder\frm_registered_student_list.resx">
-      <DependentUpon>frm_registered_student_list.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Registration Folder\frm_registration_edit.resx">
       <DependentUpon>frm_registration_edit.cs</DependentUpon>
     </EmbeddedResource>
@@ -441,6 +486,12 @@
     <EmbeddedResource Include="Registration Folder\frm_student_browse.resx">
       <DependentUpon>frm_student_browse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registration Folder\uc_registered_students_list.resx">
+      <DependentUpon>uc_registered_students_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports Folder\frm_enrollees_masterlist.resx">
+      <DependentUpon>frm_enrollees_masterlist.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Section Folder\frm_section_entry.resx">
       <DependentUpon>frm_section_entry.cs</DependentUpon>
     </EmbeddedResource>
@@ -449,6 +500,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Section Folder\frm_section_schedule_entry.resx">
       <DependentUpon>frm_section_schedule_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\frm_settings.resx">
+      <DependentUpon>frm_settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\frm_student_information_entry.resx">
       <DependentUpon>frm_student_information_entry.cs</DependentUpon>

@@ -227,5 +227,16 @@ namespace COLM_SYSTEM.Curriculum_Folder
                 clmYearLevel.Items.Add(item.YearLvl);
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == clmRemove.Index)
+            {
+                if (MessageBox.Show("Are you sure you want to remove this subject on this curriculum?","Remove Subject",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    dataGridView1.Rows.Remove(dataGridView1.Rows[e.RowIndex]);
+                }
+            }
+        }
     }
 }

@@ -42,6 +42,10 @@ namespace COLM_SYSTEM
                     frm.Show();
                     this.Hide();
                 }
+                else
+                {
+                    MessageBox.Show("Invalid Username / Password", "Invalid Credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -73,7 +77,20 @@ namespace COLM_SYSTEM
 
         private void buttonRounded1_Click(object sender, EventArgs e)
         {
-             VerifyCredentials(txtUsername.Text, txtPassword.Text);
+             
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            VerifyCredentials(txtUsername.Text, txtPassword.Text);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+                txtPassword.UseSystemPasswordChar = false;
+            else
+                txtPassword.UseSystemPasswordChar = true;
         }
     }
 }

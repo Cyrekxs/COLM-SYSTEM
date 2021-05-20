@@ -55,8 +55,8 @@ namespace COLM_SYSTEM.Fees_Folder
                 SubjectSettedSummary dgrowtag = (SubjectSettedSummary)dataGridView1.Rows[e.RowIndex].Tag;
 
                 frm_tuition_entry frm = new frm_tuition_entry(dgrowtag);
-                frm.ShowDialog();
                 frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
 
                 LoadTuitionSummary();
             }

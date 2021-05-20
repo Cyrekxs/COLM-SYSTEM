@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtSection = new System.Windows.Forms.TextBox();
@@ -50,35 +51,28 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtEducationLevel = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dgBreakdown = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFeeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dgPaymentHistory = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtTotalBalanceTuition = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtTotalPaymentTuition = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTotalBalanceTuition = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dgBreakdown = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.dgAdditionalFees = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgPaymentHistory = new System.Windows.Forms.DataGridView();
             this.clmPaymentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmORNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPaymentCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +81,16 @@
             this.clmPaymentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmFeeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBalanceTuition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCheckToAddTuition = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clmAssessmentAdditionalFeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBalanceAdditional = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCheckToAddAdditional = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -94,8 +98,8 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBreakdown)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAdditionalFees)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPaymentHistory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -256,6 +260,21 @@
             this.panel8.Size = new System.Drawing.Size(848, 34);
             this.panel8.TabIndex = 3;
             // 
+            // button6
+            // 
+            this.button6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.Silver;
+            this.button6.Location = new System.Drawing.Point(802, 0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(46, 34);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "X";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -296,184 +315,24 @@
             this.tabPage1.Text = "FEES";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dgBreakdown
+            // label7
             // 
-            this.dgBreakdown.AllowUserToAddRows = false;
-            this.dgBreakdown.AllowUserToDeleteRows = false;
-            this.dgBreakdown.AllowUserToResizeColumns = false;
-            this.dgBreakdown.AllowUserToResizeRows = false;
-            this.dgBreakdown.BackgroundColor = System.Drawing.Color.White;
-            this.dgBreakdown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgBreakdown.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmFeeCode,
-            this.clmAmount,
-            this.clmBalance,
-            this.clmCheck});
-            this.dgBreakdown.Location = new System.Drawing.Point(9, 6);
-            this.dgBreakdown.Name = "dgBreakdown";
-            this.dgBreakdown.RowHeadersVisible = false;
-            this.dgBreakdown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgBreakdown.Size = new System.Drawing.Size(825, 283);
-            this.dgBreakdown.TabIndex = 0;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(579, 295);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 15);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "TUITION PAYMENT";
             // 
-            // tabPage2
+            // txtTotalPaymentTuition
             // 
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.button3);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(841, 348);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "ADDITIONAL FEES";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(9, 295);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 44);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "CASH PAYMENT";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dgPaymentHistory);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(841, 348);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "PAYMENT HISTORY";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.dataGridView1.Location = new System.Drawing.Point(8, 6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(825, 283);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Fee";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Amount";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Balance";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // clmFeeCode
-            // 
-            this.clmFeeCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmFeeCode.HeaderText = "Fee";
-            this.clmFeeCode.Name = "clmFeeCode";
-            this.clmFeeCode.ReadOnly = true;
-            this.clmFeeCode.Width = 50;
-            // 
-            // clmAmount
-            // 
-            this.clmAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmAmount.DefaultCellStyle = dataGridViewCellStyle1;
-            this.clmAmount.HeaderText = "Amount";
-            this.clmAmount.Name = "clmAmount";
-            this.clmAmount.ReadOnly = true;
-            this.clmAmount.Width = 74;
-            // 
-            // clmBalance
-            // 
-            this.clmBalance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBalance.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmBalance.HeaderText = "Balance";
-            this.clmBalance.Name = "clmBalance";
-            this.clmBalance.ReadOnly = true;
-            this.clmBalance.Width = 76;
-            // 
-            // clmCheck
-            // 
-            this.clmCheck.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmCheck.HeaderText = "Check to add";
-            this.clmCheck.Name = "clmCheck";
-            this.clmCheck.Width = 83;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(168, 295);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 44);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "CHECK PAYMENT";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // dgPaymentHistory
-            // 
-            this.dgPaymentHistory.AllowUserToAddRows = false;
-            this.dgPaymentHistory.AllowUserToDeleteRows = false;
-            this.dgPaymentHistory.AllowUserToResizeColumns = false;
-            this.dgPaymentHistory.AllowUserToResizeRows = false;
-            this.dgPaymentHistory.BackgroundColor = System.Drawing.Color.White;
-            this.dgPaymentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPaymentHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmPaymentID,
-            this.clmORNumber,
-            this.clmPaymentCategory,
-            this.clmFeeCategory,
-            this.clmPaymentAmount,
-            this.clmPaymentStatus,
-            this.clmPaymentDate,
-            this.clmAction});
-            this.dgPaymentHistory.Location = new System.Drawing.Point(6, 6);
-            this.dgPaymentHistory.Name = "dgPaymentHistory";
-            this.dgPaymentHistory.ReadOnly = true;
-            this.dgPaymentHistory.RowHeadersVisible = false;
-            this.dgPaymentHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPaymentHistory.Size = new System.Drawing.Size(825, 330);
-            this.dgPaymentHistory.TabIndex = 1;
+            this.txtTotalPaymentTuition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtTotalPaymentTuition.Location = new System.Drawing.Point(582, 313);
+            this.txtTotalPaymentTuition.Name = "txtTotalPaymentTuition";
+            this.txtTotalPaymentTuition.Size = new System.Drawing.Size(123, 23);
+            this.txtTotalPaymentTuition.TabIndex = 26;
+            this.txtTotalPaymentTuition.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label6
             // 
@@ -494,24 +353,117 @@
             this.txtTotalBalanceTuition.TabIndex = 24;
             this.txtTotalBalanceTuition.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label7
+            // button1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(579, 295);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 15);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "TUITION PAYMENT";
+            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.button1.Location = new System.Drawing.Point(168, 295);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 44);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "CHECK PAYMENT";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // txtTotalPaymentTuition
+            // button2
             // 
-            this.txtTotalPaymentTuition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtTotalPaymentTuition.Location = new System.Drawing.Point(582, 313);
-            this.txtTotalPaymentTuition.Name = "txtTotalPaymentTuition";
-            this.txtTotalPaymentTuition.Size = new System.Drawing.Size(123, 23);
-            this.txtTotalPaymentTuition.TabIndex = 26;
-            this.txtTotalPaymentTuition.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.button2.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.button2.Location = new System.Drawing.Point(9, 295);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(153, 44);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "CASH PAYMENT";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dgBreakdown
+            // 
+            this.dgBreakdown.AllowUserToAddRows = false;
+            this.dgBreakdown.AllowUserToDeleteRows = false;
+            this.dgBreakdown.AllowUserToResizeColumns = false;
+            this.dgBreakdown.AllowUserToResizeRows = false;
+            this.dgBreakdown.BackgroundColor = System.Drawing.Color.White;
+            this.dgBreakdown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgBreakdown.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmFeeCode,
+            this.clmAmount,
+            this.clmBalanceTuition,
+            this.clmCheckToAddTuition});
+            this.dgBreakdown.Location = new System.Drawing.Point(9, 6);
+            this.dgBreakdown.Name = "dgBreakdown";
+            this.dgBreakdown.RowHeadersVisible = false;
+            this.dgBreakdown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgBreakdown.Size = new System.Drawing.Size(825, 283);
+            this.dgBreakdown.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.button5);
+            this.tabPage2.Controls.Add(this.button3);
+            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.dgAdditionalFees);
+            this.tabPage2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(841, 348);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "ADDITIONAL FEES";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button5.Location = new System.Drawing.Point(8, 295);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(153, 44);
+            this.button5.TabIndex = 33;
+            this.button5.Text = "ADD FEE";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.button3.Location = new System.Drawing.Point(326, 295);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(153, 44);
+            this.button3.TabIndex = 32;
+            this.button3.Text = "CHECK PAYMENT";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.button4.Location = new System.Drawing.Point(167, 295);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(153, 44);
+            this.button4.TabIndex = 31;
+            this.button4.Text = "CASH PAYMENT";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label8
             // 
@@ -551,62 +503,63 @@
             this.textBox2.TabIndex = 28;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // button3
+            // dgAdditionalFees
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.button3.Location = new System.Drawing.Point(326, 295);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(153, 44);
-            this.button3.TabIndex = 32;
-            this.button3.Text = "CHECK PAYMENT";
-            this.button3.UseVisualStyleBackColor = false;
+            this.dgAdditionalFees.AllowUserToAddRows = false;
+            this.dgAdditionalFees.AllowUserToDeleteRows = false;
+            this.dgAdditionalFees.AllowUserToResizeColumns = false;
+            this.dgAdditionalFees.AllowUserToResizeRows = false;
+            this.dgAdditionalFees.BackgroundColor = System.Drawing.Color.White;
+            this.dgAdditionalFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAdditionalFees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmAssessmentAdditionalFeeID,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.Column1,
+            this.clmBalanceAdditional,
+            this.clmCheckToAddAdditional});
+            this.dgAdditionalFees.Location = new System.Drawing.Point(8, 6);
+            this.dgAdditionalFees.Name = "dgAdditionalFees";
+            this.dgAdditionalFees.RowHeadersVisible = false;
+            this.dgAdditionalFees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgAdditionalFees.Size = new System.Drawing.Size(825, 283);
+            this.dgAdditionalFees.TabIndex = 1;
             // 
-            // button4
+            // tabPage3
             // 
-            this.button4.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.button4.Location = new System.Drawing.Point(167, 295);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 44);
-            this.button4.TabIndex = 31;
-            this.button4.Text = "CASH PAYMENT";
-            this.button4.UseVisualStyleBackColor = false;
+            this.tabPage3.Controls.Add(this.dgPaymentHistory);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(841, 348);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "PAYMENT HISTORY";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // dgPaymentHistory
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button5.Location = new System.Drawing.Point(8, 295);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(153, 44);
-            this.button5.TabIndex = 33;
-            this.button5.Text = "ADD FEE";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.Silver;
-            this.button6.Location = new System.Drawing.Point(802, 0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(46, 34);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "X";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.dgPaymentHistory.AllowUserToAddRows = false;
+            this.dgPaymentHistory.AllowUserToDeleteRows = false;
+            this.dgPaymentHistory.AllowUserToResizeColumns = false;
+            this.dgPaymentHistory.AllowUserToResizeRows = false;
+            this.dgPaymentHistory.BackgroundColor = System.Drawing.Color.White;
+            this.dgPaymentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPaymentHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmPaymentID,
+            this.clmORNumber,
+            this.clmPaymentCategory,
+            this.clmFeeCategory,
+            this.clmPaymentAmount,
+            this.clmPaymentStatus,
+            this.clmPaymentDate,
+            this.clmAction});
+            this.dgPaymentHistory.Location = new System.Drawing.Point(6, 6);
+            this.dgPaymentHistory.Name = "dgPaymentHistory";
+            this.dgPaymentHistory.ReadOnly = true;
+            this.dgPaymentHistory.RowHeadersVisible = false;
+            this.dgPaymentHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgPaymentHistory.Size = new System.Drawing.Size(825, 330);
+            this.dgPaymentHistory.TabIndex = 1;
             // 
             // clmPaymentID
             // 
@@ -623,8 +576,8 @@
             // 
             // clmPaymentCategory
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmPaymentCategory.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmPaymentCategory.DefaultCellStyle = dataGridViewCellStyle6;
             this.clmPaymentCategory.HeaderText = "Payment Category";
             this.clmPaymentCategory.Name = "clmPaymentCategory";
             this.clmPaymentCategory.ReadOnly = true;
@@ -632,8 +585,8 @@
             // 
             // clmFeeCategory
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmFeeCategory.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmFeeCategory.DefaultCellStyle = dataGridViewCellStyle7;
             this.clmFeeCategory.HeaderText = "Fee Category";
             this.clmFeeCategory.Name = "clmFeeCategory";
             this.clmFeeCategory.ReadOnly = true;
@@ -641,8 +594,8 @@
             // 
             // clmPaymentAmount
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmPaymentAmount.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmPaymentAmount.DefaultCellStyle = dataGridViewCellStyle8;
             this.clmPaymentAmount.HeaderText = "Amount";
             this.clmPaymentAmount.Name = "clmPaymentAmount";
             this.clmPaymentAmount.ReadOnly = true;
@@ -672,6 +625,94 @@
             this.clmAction.Text = "Cancel";
             this.clmAction.Width = 48;
             // 
+            // clmFeeCode
+            // 
+            this.clmFeeCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmFeeCode.HeaderText = "Fee";
+            this.clmFeeCode.Name = "clmFeeCode";
+            this.clmFeeCode.ReadOnly = true;
+            this.clmFeeCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmFeeCode.Width = 31;
+            // 
+            // clmAmount
+            // 
+            this.clmAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmAmount.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clmAmount.HeaderText = "Amount";
+            this.clmAmount.Name = "clmAmount";
+            this.clmAmount.ReadOnly = true;
+            this.clmAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmAmount.Width = 55;
+            // 
+            // clmBalanceTuition
+            // 
+            this.clmBalanceTuition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBalanceTuition.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmBalanceTuition.HeaderText = "Balance";
+            this.clmBalanceTuition.Name = "clmBalanceTuition";
+            this.clmBalanceTuition.ReadOnly = true;
+            this.clmBalanceTuition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmBalanceTuition.Width = 57;
+            // 
+            // clmCheckToAddTuition
+            // 
+            this.clmCheckToAddTuition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmCheckToAddTuition.HeaderText = "Check to add";
+            this.clmCheckToAddTuition.Name = "clmCheckToAddTuition";
+            this.clmCheckToAddTuition.Width = 83;
+            // 
+            // clmAssessmentAdditionalFeeID
+            // 
+            this.clmAssessmentAdditionalFeeID.HeaderText = "AssessmentAdditionalFeeID";
+            this.clmAssessmentAdditionalFeeID.Name = "clmAssessmentAdditionalFeeID";
+            this.clmAssessmentAdditionalFeeID.ReadOnly = true;
+            this.clmAssessmentAdditionalFeeID.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Fee";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn1.Width = 31;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Amount";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column1.HeaderText = "Payment";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clmBalanceAdditional
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBalanceAdditional.DefaultCellStyle = dataGridViewCellStyle5;
+            this.clmBalanceAdditional.HeaderText = "Balance";
+            this.clmBalanceAdditional.Name = "clmBalanceAdditional";
+            this.clmBalanceAdditional.ReadOnly = true;
+            this.clmBalanceAdditional.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clmCheckToAddAdditional
+            // 
+            this.clmCheckToAddAdditional.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmCheckToAddAdditional.HeaderText = "Check to Add";
+            this.clmCheckToAddAdditional.Name = "clmCheckToAddAdditional";
+            this.clmCheckToAddAdditional.Width = 83;
+            // 
             // frm_payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -696,8 +737,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgBreakdown)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAdditionalFees)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPaymentHistory)).EndInit();
             this.ResumeLayout(false);
 
@@ -727,14 +768,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmBalance;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn clmCheck;
+        private System.Windows.Forms.DataGridView dgAdditionalFees;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgPaymentHistory;
         private System.Windows.Forms.Label label6;
@@ -757,5 +791,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentDate;
         private System.Windows.Forms.DataGridViewButtonColumn clmAction;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmBalanceTuition;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmCheckToAddTuition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentAdditionalFeeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmBalanceAdditional;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmCheckToAddAdditional;
     }
 }

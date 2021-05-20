@@ -21,6 +21,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
         private void LoadCurriculums()
         {
+            dataGridView3.Rows.Clear();
             List<Curriculum> Curriculums = Curriculum.GetCurriculums();
             SchoolYear sy = new SchoolYear();
             foreach (var item in Curriculums)
@@ -35,6 +36,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
             frm_curriculum_entry frm = new frm_curriculum_entry();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+            LoadCurriculums();
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -46,6 +48,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
                 frm_curriculum_entry frm = new frm_curriculum_entry(c,curriculumSubjects);
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
+                LoadCurriculums();
             }
         }
     }

@@ -32,7 +32,6 @@ namespace COLM_SYSTEM.student_information
             txtLastname.Text = student.Lastname;
             txtExtensionName.Text = student.ExtensionName;
             txtBirthDate.Value = student.BirthDate;
-            txtBirthPlace.Text = student.BirthPlace;
             cmbGender.Text = student.Gender;
             txtStreet.Text = student.Street;
             cmbProvince.Text = student.Province;
@@ -102,11 +101,6 @@ namespace COLM_SYSTEM.student_information
             else
                 err.SetError(txtLastname, string.Empty);
 
-            if (string.IsNullOrEmpty(txtBirthPlace.Text))
-                err.SetError(txtBirthPlace, "Birth place is required!");
-            else
-                err.SetError(txtBirthPlace, string.Empty);
-
             if (string.IsNullOrEmpty(cmbGender.Text))
                 err.SetError(cmbGender, "Please select gender");
             else
@@ -173,7 +167,6 @@ namespace COLM_SYSTEM.student_information
                     Middlename = txtMiddlename.Text,
                     ExtensionName = txtExtensionName.Text,
                     BirthDate = txtBirthDate.Value,
-                    BirthPlace = txtBirthPlace.Text,
                     Gender = cmbGender.Text,
                     Street = txtStreet.Text,
                     Barangay = cmbBarangay.Text,

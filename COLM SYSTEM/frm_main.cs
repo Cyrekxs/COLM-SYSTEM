@@ -5,6 +5,7 @@ using COLM_SYSTEM.fees;
 using COLM_SYSTEM.Fees_Folder;
 using COLM_SYSTEM.Payment_Folder;
 using COLM_SYSTEM.registration;
+using COLM_SYSTEM.Registration_Folder;
 using COLM_SYSTEM.Section_Folder;
 using COLM_SYSTEM.student_information;
 using COLM_SYSTEM.subject;
@@ -67,16 +68,12 @@ namespace COLM_SYSTEM
 
         private void rEGISTRATIONToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_registered_student_list frm = new frm_registered_student_list();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
+            DisplayControl(new uc_registered_students_list());
         }
 
         private void iNFORMATIONToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_student_information_list frm = new frm_student_information_list();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
+            DisplayControl(new uc_student_information_list());
         }
 
         private void cLOSEALLFORMSToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,6 +111,18 @@ namespace COLM_SYSTEM
         private void pAYMENTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_payers());
+        }
+
+        private void aDDITIONALFEEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_addtional_fee_entry frm = new frm_addtional_fee_entry();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void dASHBOARDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new UC_DashBoard());
         }
     }
 }

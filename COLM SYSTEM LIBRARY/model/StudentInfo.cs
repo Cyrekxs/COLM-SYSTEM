@@ -16,7 +16,6 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string Middlename { get; set; }
         public string ExtensionName { get; set; }
         public DateTime BirthDate { get; set; }
-        public string BirthPlace { get; set; }
         public string Gender { get; set; }
         public string Street { get; set; }
         public string Barangay { get; set; }

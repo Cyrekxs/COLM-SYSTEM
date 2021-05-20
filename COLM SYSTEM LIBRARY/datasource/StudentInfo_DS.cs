@@ -31,7 +31,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 Middlename = Convert.ToString(reader["Middlename"]),
                                 ExtensionName = Convert.ToString(reader["ExtensionName"]),
                                 BirthDate = Convert.ToDateTime(reader["BirthDate"]),
-                                BirthPlace = Convert.ToString(reader["BirthPlace"]),
                                 Gender = Convert.ToString(reader["Gender"]),
                                 Street = Convert.ToString(reader["Street"]),
                                 Barangay = Convert.ToString(reader["Barangay"]),
@@ -79,7 +78,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 Middlename = Convert.ToString(reader["Middlename"]),
                                 ExtensionName = Convert.ToString(reader["ExtensionName"]),
                                 BirthDate = Convert.ToDateTime(reader["BirthDate"]),
-                                BirthPlace = Convert.ToString(reader["BirthPlace"]),
                                 Gender = Convert.ToString(reader["Gender"]),
                                 Street = Convert.ToString(reader["Street"]),
                                 Barangay = Convert.ToString(reader["Barangay"]),
@@ -110,7 +108,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("EXEC sp_set_student_information @StudentID,@LRN,@Lastname,@Firstname,@Middlename,@ExtensionName,@BirthDate,@BirthPlace,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@SchoolName,@SchoolAddress,@Strand", conn))
+                using (SqlCommand comm = new SqlCommand("EXEC sp_set_student_information @StudentID,@LRN,@Lastname,@Firstname,@Middlename,@ExtensionName,@BirthDate,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@SchoolName,@SchoolAddress,@Strand", conn))
                 {
                     comm.Parameters.AddWithValue("@StudentID", model.StudentID);
                     comm.Parameters.AddWithValue("@LRN", model.LRN);
@@ -119,7 +117,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@Middlename", model.Middlename);
                     comm.Parameters.AddWithValue("@ExtensionName", model.ExtensionName);
                     comm.Parameters.AddWithValue("@BirthDate", model.BirthDate);
-                    comm.Parameters.AddWithValue("@BirthPlace", model.BirthPlace);
                     comm.Parameters.AddWithValue("@Gender", model.Gender);
                     comm.Parameters.AddWithValue("@Street", model.Street);
                     comm.Parameters.AddWithValue("@Barangay", model.Barangay);

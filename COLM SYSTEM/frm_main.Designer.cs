@@ -43,8 +43,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblSemester = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.PanelMain = new System.Windows.Forms.Panel();
+            this.uC_DashBoard1 = new COLM_SYSTEM.UC_DashBoard();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tRANSACTIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFORMATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,13 +56,14 @@
             this.fEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mISCELLANEOUSFEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mISCELLANEOUSFEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aDDITIONALFEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sUBJECTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sECTIONSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cURRICULUMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uC_DashBoard1 = new COLM_SYSTEM.UC_DashBoard();
+            this.dASHBOARDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -227,7 +228,6 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.panel2.Controls.Add(this.lblSemester);
             this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.lblSchoolYear);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 786);
@@ -256,18 +256,6 @@
             this.label15.Size = new System.Drawing.Size(1060, 5);
             this.label15.TabIndex = 11;
             // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label11.Location = new System.Drawing.Point(495, 10);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(152, 20);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "CURRENT SETTINGS";
-            // 
             // PanelMain
             // 
             this.PanelMain.Controls.Add(this.uC_DashBoard1);
@@ -277,9 +265,19 @@
             this.PanelMain.Size = new System.Drawing.Size(1060, 703);
             this.PanelMain.TabIndex = 9;
             // 
+            // uC_DashBoard1
+            // 
+            this.uC_DashBoard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_DashBoard1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_DashBoard1.Location = new System.Drawing.Point(0, 0);
+            this.uC_DashBoard1.Name = "uC_DashBoard1";
+            this.uC_DashBoard1.Size = new System.Drawing.Size(1060, 703);
+            this.uC_DashBoard1.TabIndex = 0;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dASHBOARDToolStripMenuItem,
             this.tRANSACTIONToolStripMenuItem,
             this.sETTINGSToolStripMenuItem,
             this.rEPORTSToolStripMenuItem,
@@ -332,11 +330,11 @@
             // sETTINGSToolStripMenuItem
             // 
             this.sETTINGSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dISCOUNTToolStripMenuItem,
-            this.fEESToolStripMenuItem,
             this.sUBJECTSToolStripMenuItem,
-            this.sECTIONSToolStripMenuItem,
-            this.cURRICULUMToolStripMenuItem});
+            this.cURRICULUMToolStripMenuItem,
+            this.fEESToolStripMenuItem,
+            this.dISCOUNTToolStripMenuItem,
+            this.sECTIONSToolStripMenuItem});
             this.sETTINGSToolStripMenuItem.Name = "sETTINGSToolStripMenuItem";
             this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.sETTINGSToolStripMenuItem.Text = "SETTINGS";
@@ -352,7 +350,8 @@
             // 
             this.fEESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mISCELLANEOUSFEESToolStripMenuItem,
-            this.mISCELLANEOUSFEEToolStripMenuItem});
+            this.mISCELLANEOUSFEEToolStripMenuItem,
+            this.aDDITIONALFEEToolStripMenuItem});
             this.fEESToolStripMenuItem.Name = "fEESToolStripMenuItem";
             this.fEESToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.fEESToolStripMenuItem.Text = "FEES";
@@ -372,6 +371,13 @@
             this.mISCELLANEOUSFEEToolStripMenuItem.Text = "MISCELLANEOUS FEE";
             this.mISCELLANEOUSFEEToolStripMenuItem.Visible = false;
             this.mISCELLANEOUSFEEToolStripMenuItem.Click += new System.EventHandler(this.mISCELLANEOUSFEEToolStripMenuItem_Click);
+            // 
+            // aDDITIONALFEEToolStripMenuItem
+            // 
+            this.aDDITIONALFEEToolStripMenuItem.Name = "aDDITIONALFEEToolStripMenuItem";
+            this.aDDITIONALFEEToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.aDDITIONALFEEToolStripMenuItem.Text = "ADDITIONAL FEE";
+            this.aDDITIONALFEEToolStripMenuItem.Click += new System.EventHandler(this.aDDITIONALFEEToolStripMenuItem_Click);
             // 
             // sUBJECTSToolStripMenuItem
             // 
@@ -415,13 +421,12 @@
             this.cLOSEALLFORMSToolStripMenuItem.Text = "CLOSE ALL FORMS";
             this.cLOSEALLFORMSToolStripMenuItem.Click += new System.EventHandler(this.cLOSEALLFORMSToolStripMenuItem_Click);
             // 
-            // uC_DashBoard1
+            // dASHBOARDToolStripMenuItem
             // 
-            this.uC_DashBoard1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_DashBoard1.Location = new System.Drawing.Point(12, 3);
-            this.uC_DashBoard1.Name = "uC_DashBoard1";
-            this.uC_DashBoard1.Size = new System.Drawing.Size(1036, 664);
-            this.uC_DashBoard1.TabIndex = 0;
+            this.dASHBOARDToolStripMenuItem.Name = "dASHBOARDToolStripMenuItem";
+            this.dASHBOARDToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.dASHBOARDToolStripMenuItem.Text = "DASHBOARD";
+            this.dASHBOARDToolStripMenuItem.Click += new System.EventHandler(this.dASHBOARDToolStripMenuItem_Click);
             // 
             // frm_main
             // 
@@ -464,7 +469,6 @@
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.Label lblAccountName;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
@@ -491,5 +495,7 @@
         private System.Windows.Forms.ToolStripMenuItem cURRICULUMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pAYMENTToolStripMenuItem;
         private UC_DashBoard uC_DashBoard1;
+        private System.Windows.Forms.ToolStripMenuItem aDDITIONALFEEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dASHBOARDToolStripMenuItem;
     }
 }

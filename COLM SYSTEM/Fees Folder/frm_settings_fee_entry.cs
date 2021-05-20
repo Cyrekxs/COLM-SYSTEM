@@ -31,6 +31,9 @@ namespace COLM_SYSTEM.fees_folder
         private void LoadEducationLevels()
         {
             cmbEducationLevel.Items.Clear();
+
+            EducationLevels.Add("All");
+
             foreach (var item in EducationLevels)
             {
                 cmbEducationLevel.Items.Add(item);
@@ -112,6 +115,8 @@ namespace COLM_SYSTEM.fees_folder
         private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<string> CourseStrands = YearLevel.GetCourseStrandByEducationLevel(cmbEducationLevel.Text);
+            CourseStrands.Add("All");
+
             cmbCourseStrand.Items.Clear();
             foreach (var item in CourseStrands)
             {
@@ -127,12 +132,20 @@ namespace COLM_SYSTEM.fees_folder
 
         private void cmbCourseStrand_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<YearLevel> YearLevels = YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text,cmbCourseStrand.Text);
-            cmbYearLevel.Items.Clear();
-            foreach (var item in YearLevels)
+            if (cmbCourseStrand.Text != "All")
             {
-                cmbYearLevel.Items.Add(item.YearLvl);
+                List<YearLevel> YearLevels = YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text, cmbCourseStrand.Text);
+                cmbYearLevel.Items.Clear();
+                foreach (var item in YearLevels)
+                {
+                    cmbYearLevel.Items.Add(item.YearLvl);
+                }
             }
+            else
+            {
+                cmbYearLevel.Items.Add("All");
+            }
+
         }
     }
 }
