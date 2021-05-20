@@ -330,7 +330,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
 
             //display the total of each fee types
-            txtTFee.Text = totalTFee.ToString("n");
             txtMFee.Text = totalMFee.ToString("n");
             txtOFee.Text = totalOFee.ToString("n");
 
@@ -845,6 +844,11 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void button2_Click(object sender, EventArgs e)
         {
             PrintAssessment(_AssessmentID);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblCount.Text = string.Concat("Total Subjects: ", dgSubjects.Rows.Count);
         }
     }
 }

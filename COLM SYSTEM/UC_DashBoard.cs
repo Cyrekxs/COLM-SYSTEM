@@ -15,7 +15,7 @@ namespace COLM_SYSTEM
         {
             InitializeComponent();
             //this.ClientSize.Height / 4 - panelEnrolled.Size.Height / 4
-            panelEnrolled.Location = new Point(this.ClientSize.Width / 2 - panelEnrolled.Size.Width / 2, 15);
+            panelEnrolled.Location = new Point(this.ClientSize.Width / 2 - panelEnrolled.Size.Width / 2, 75);
             panelEnrolled.Anchor = AnchorStyles.None;
 
             //this.ClientSize.Height / 2 - panelGender.Size.Height / 2

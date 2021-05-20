@@ -46,7 +46,7 @@ namespace COLM_SYSTEM.fees_folder
                 dgTuition.Rows.Clear();
                 foreach (var item in subjects)
                 {
-                    dgTuition.Rows.Add(0, item.CurriculumSubjID, item.SubjCode, item.SubjDesc, item.LecUnit, item.LabUnit, 0.ToString("n"), 0.ToString("n"));
+                    dgTuition.Rows.Add(0, item.CurriculumSubjID, item.SubjCode, item.SubjDesc, item.LecUnit, item.LabUnit, item.Unit, 0.ToString("n"));
                 }
             }
         }

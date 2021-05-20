@@ -83,11 +83,11 @@
             // 
             this.lblSchoolYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSchoolYear.AutoSize = true;
-            this.lblSchoolYear.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSchoolYear.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSchoolYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.lblSchoolYear.Location = new System.Drawing.Point(638, 14);
             this.lblSchoolYear.Name = "lblSchoolYear";
-            this.lblSchoolYear.Size = new System.Drawing.Size(115, 20);
+            this.lblSchoolYear.Size = new System.Drawing.Size(117, 19);
             this.lblSchoolYear.TabIndex = 0;
             this.lblSchoolYear.Text = "S.Y : 2020 - 2021";
             // 
@@ -278,7 +278,7 @@
             // 
             // lblAccountName
             // 
-            this.lblAccountName.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccountName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAccountName.Location = new System.Drawing.Point(12, 9);
             this.lblAccountName.Name = "lblAccountName";
             this.lblAccountName.Size = new System.Drawing.Size(200, 17);
@@ -288,9 +288,9 @@
             // 
             // lblPosition
             // 
-            this.lblPosition.Font = new System.Drawing.Font("Source Sans Pro SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblPosition.Location = new System.Drawing.Point(12, 18);
+            this.lblPosition.Location = new System.Drawing.Point(12, 19);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(200, 25);
             this.lblPosition.TabIndex = 9;
@@ -315,7 +315,7 @@
             // lblDateTime
             // 
             this.lblDateTime.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblDateTime.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateTime.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.lblDateTime.Location = new System.Drawing.Point(879, 5);
             this.lblDateTime.Name = "lblDateTime";
@@ -328,11 +328,11 @@
             // 
             this.lblSemester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSemester.AutoSize = true;
-            this.lblSemester.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSemester.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSemester.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.lblSemester.Location = new System.Drawing.Point(759, 14);
             this.lblSemester.Name = "lblSemester";
-            this.lblSemester.Size = new System.Drawing.Size(114, 20);
+            this.lblSemester.Size = new System.Drawing.Size(108, 19);
             this.lblSemester.TabIndex = 12;
             this.lblSemester.Text = "1ST SEMESTER";
             // 

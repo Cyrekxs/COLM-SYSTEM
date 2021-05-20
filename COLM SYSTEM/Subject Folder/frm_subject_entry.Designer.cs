@@ -103,6 +103,7 @@
             this.txtLecUnits.Name = "txtLecUnits";
             this.txtLecUnits.Size = new System.Drawing.Size(63, 23);
             this.txtLecUnits.TabIndex = 6;
+            this.txtLecUnits.Text = "0";
             this.txtLecUnits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtLabUnits
@@ -111,6 +112,7 @@
             this.txtLabUnits.Name = "txtLabUnits";
             this.txtLabUnits.Size = new System.Drawing.Size(63, 23);
             this.txtLabUnits.TabIndex = 7;
+            this.txtLabUnits.Text = "0";
             this.txtLabUnits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button2

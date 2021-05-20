@@ -21,6 +21,7 @@ namespace COLM_SYSTEM.Section_Folder
 
         private void LoadSections()
         {
+            dataGridView1.Rows.Clear();
             List<Section> sections = Section.GetSections(Utilties.GetActiveSchoolYear(),Utilties.GetActiveSemester());
             foreach (var item in sections)
             {

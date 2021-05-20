@@ -7,14 +7,17 @@ namespace COLM_SYSTEM.subject
     public partial class frm_subject_entry : Form
     {
         private Subject _subject = new Subject();
+        private string _savingstatus = string.Empty;
         public frm_subject_entry()
         {
             InitializeComponent();
+            _savingstatus = "ADD";
         }
 
         public frm_subject_entry(Subject subject)
         {
             InitializeComponent();
+            _savingstatus = "EDIT";
             _subject = subject;
             txtSubjCode.Text = subject.SubjCode;
             txtSubJDesc.Text = subject.SubjDesc;
@@ -48,18 +51,67 @@ namespace COLM_SYSTEM.subject
             txtSubjCode.Focus();
         }
 
+        private bool IsValid()
+        {
+            if (txtSubjCode.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter subject code!", "Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (txtSubJDesc.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter subject description!", "Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (txtLecUnits.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter lecture units!", "Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (txtLabUnits.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter laboratory units!", "Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (Convert.ToDouble(txtTotalUnits.Text) >= 30)
+            {
+                MessageBox.Show("Invalid Subject Unit", "Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+
+            if (IsValid() == false)
+            {
+                return;
+            }
+
             Subject subject = new Subject();
             subject.SubjID = _subject.SubjID;
             subject.SubjCode = txtSubjCode.Text;
             subject.SubjDesc = txtSubJDesc.Text;
             subject.LecUnit = Convert.ToDouble(txtLecUnits.Text);
             subject.LabUnit = Convert.ToDouble(txtLabUnits.Text);
+            subject.Unit = Convert.ToDouble(txtTotalUnits.Text);
 
-
-            bool ExistingResult = Subject.IsSubjectExist(subject);
             bool ContinueSaving = true;
+
+
+            bool ExistingResult = false;
+
+            if (_savingstatus == "ADD")
+            {
+                ExistingResult = Subject.IsSubjectExist(subject);
+            }
+
             if (ExistingResult == true)
             {
                 if(MessageBox.Show("Program detected that your trying to create new subject that's already existing in the record! do you want to continue this action?","Duplicate Detected",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.No)
@@ -74,7 +126,7 @@ namespace COLM_SYSTEM.subject
                 bool InsertResult = Subject.InsertUpdateSubject(subject);
                 if (InsertResult == true)
                 {
-                    if (MessageBox.Show("Subject has been successfully created! do you want to add another?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    if (MessageBox.Show("Subject has been successfully saved! do you want to add another?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                     {
                         Close();
                         Dispose();

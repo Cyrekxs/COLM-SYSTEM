@@ -8,6 +8,6 @@ namespace COLM_SYSTEM_LIBRARY.helper
 {
     public static class Connection
     {
-        public static string StringConnection { get { return @"Data Source=.\SQLEXPRESS;Initial Catalog=colmpulilan_server;Persist Security Info=True;User ID=sa;Password=sa"; } }
+        public static string StringConnection { get { return @"Data Source=COLM\SQLEXPRESS;Initial Catalog=colmpulilan_server;Persist Security Info=True;User ID=sa;Password=sa"; } }
     }
 }

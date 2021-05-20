@@ -35,18 +35,17 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.buttonRounded1 = new COLM_SYSTEM.Custom_Controls.ButtonRounded();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -126,7 +125,6 @@
             this.panel2.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.buttonRounded1);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.pictureBox1);
@@ -140,6 +138,33 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(379, 724);
             this.panel2.TabIndex = 28;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.Location = new System.Drawing.Point(250, 398);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(112, 19);
+            this.checkBox1.TabIndex = 3;
+            this.checkBox1.TabStop = false;
+            this.checkBox1.Text = "Show Password";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.login;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(139, 447);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 70);
+            this.button2.TabIndex = 4;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // label6
             // 
@@ -162,6 +187,16 @@
             this.label5.TabIndex = 30;
             this.label5.Text = "VERSION";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.colm_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(139, 33);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 71);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
             // 
             // label4
             // 
@@ -186,57 +221,6 @@
             this.pictureBox2.TabIndex = 29;
             this.pictureBox2.TabStop = false;
             // 
-            // buttonRounded1
-            // 
-            this.buttonRounded1.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.login;
-            this.buttonRounded1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonRounded1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.buttonRounded1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRounded1.Location = new System.Drawing.Point(139, 564);
-            this.buttonRounded1.Name = "buttonRounded1";
-            this.buttonRounded1.Size = new System.Drawing.Size(100, 71);
-            this.buttonRounded1.TabIndex = 33;
-            this.buttonRounded1.UseVisualStyleBackColor = true;
-            this.buttonRounded1.Visible = false;
-            this.buttonRounded1.Click += new System.EventHandler(this.buttonRounded1_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.colm_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(139, 33);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 71);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.login;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(139, 447);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 70);
-            this.button2.TabIndex = 4;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(250, 398);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(112, 19);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.TabStop = false;
-            this.checkBox1.Text = "Show Password";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // frm_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -256,8 +240,8 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,7 +260,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private Custom_Controls.ButtonRounded buttonRounded1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkBox1;
     }

@@ -14,7 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string SubjDesc { get; set; }
         public double LecUnit { get; set; }
         public double LabUnit { get; set; }
-        public int Unit { get; set; }
+        public double Unit { get; set; }
         public bool IsActive { get; set; }
 
         public static bool InsertUpdateSubject(Subject model)
