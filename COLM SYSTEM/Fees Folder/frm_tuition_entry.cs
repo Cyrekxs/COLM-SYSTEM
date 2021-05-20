@@ -272,11 +272,16 @@ namespace COLM_SYSTEM.fees_folder
 
         private void cmbCurriculumCode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> CourseStrands = YearLevel.GetCourseStrandByEducationLevel(cmbEducationLevel.Text);
+            List<string> CourseStrands = YearLevel.GetCourseStrandByCurriculum(cmbCurriculumCode.Text);
             cmbCourseStrand.Items.Clear();
             foreach (var item in CourseStrands)
             {
                 cmbCourseStrand.Items.Add(item);
+            }
+
+            if (cmbCourseStrand.Items.Count == 1)
+            {
+                cmbCourseStrand.SelectedIndex = 0;
             }
         }
 

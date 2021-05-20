@@ -22,6 +22,11 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Subject_DS.InsertUpdateSubject(model);
         }
 
+        public static bool IsSubjectExist(Subject model)
+        {
+            return Subject_DS.IsSubjectExist(model);
+        }
+
         public static List<Subject> GetSubjects()
         {
             return Subject_DS.GetSubjects();

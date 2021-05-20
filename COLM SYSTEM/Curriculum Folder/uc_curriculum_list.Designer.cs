@@ -37,9 +37,9 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.clmCurriculumID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +49,7 @@
             this.clmStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmDuplicate = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panel3.SuspendLayout();
@@ -86,7 +87,8 @@
             this.clmSchoolYear,
             this.clmStatus,
             this.clmCreated,
-            this.clmEdit});
+            this.clmEdit,
+            this.clmDuplicate});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,17 +141,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.Search;
-            this.pictureBox1.Location = new System.Drawing.Point(775, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 22);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -169,6 +160,17 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "CURRICULUM LIST";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.Search;
+            this.pictureBox1.Location = new System.Drawing.Point(775, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 22);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // clmCurriculumID
             // 
             this.clmCurriculumID.HeaderText = "CurriculumID";
@@ -178,9 +180,11 @@
             // 
             // clmCode
             // 
+            this.clmCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.clmCode.HeaderText = "Code";
             this.clmCode.Name = "clmCode";
             this.clmCode.ReadOnly = true;
+            this.clmCode.Width = 59;
             // 
             // clmEducationLevel
             // 
@@ -205,13 +209,11 @@
             // 
             // clmSchoolYear
             // 
-            this.clmSchoolYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.clmSchoolYear.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmSchoolYear.HeaderText = "School Year";
             this.clmSchoolYear.Name = "clmSchoolYear";
             this.clmSchoolYear.ReadOnly = true;
-            this.clmSchoolYear.Width = 95;
             // 
             // clmStatus
             // 
@@ -234,12 +236,24 @@
             // clmEdit
             // 
             this.clmEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmEdit.HeaderText = "Action";
+            this.clmEdit.HeaderText = "Update";
             this.clmEdit.Name = "clmEdit";
             this.clmEdit.ReadOnly = true;
             this.clmEdit.Text = "Update";
             this.clmEdit.UseColumnTextForButtonValue = true;
-            this.clmEdit.Width = 47;
+            this.clmEdit.Width = 52;
+            // 
+            // clmDuplicate
+            // 
+            this.clmDuplicate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmDuplicate.HeaderText = "Duplicate";
+            this.clmDuplicate.Name = "clmDuplicate";
+            this.clmDuplicate.ReadOnly = true;
+            this.clmDuplicate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmDuplicate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmDuplicate.Text = "Duplicate";
+            this.clmDuplicate.UseColumnTextForButtonValue = true;
+            this.clmDuplicate.Width = 85;
             // 
             // uc_curriculum_list
             // 
@@ -248,7 +262,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "uc_curriculum_list";
-            this.Padding = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.Padding = new System.Windows.Forms.Padding(12);
             this.Size = new System.Drawing.Size(1204, 598);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
@@ -277,5 +291,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCreated;
         private System.Windows.Forms.DataGridViewButtonColumn clmEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn clmDuplicate;
     }
 }

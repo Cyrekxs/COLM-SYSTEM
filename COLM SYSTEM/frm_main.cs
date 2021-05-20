@@ -129,5 +129,15 @@ namespace COLM_SYSTEM
         {
             lblDateTime.Text = DateTime.Now.ToString("mmm MM-dd-yyyy hh:mm tt");
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to logout?","Logout",MessageBoxButtons.YesNo,MessageBoxIcon.Question)== DialogResult.Yes)
+            {
+                Application.Exit();
+                Close();
+                Dispose();
+            }
+        }
     }
 }

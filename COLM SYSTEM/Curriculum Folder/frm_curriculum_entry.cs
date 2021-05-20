@@ -19,6 +19,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
         List<SchoolSemester> semesters = SchoolSemester.GetSchoolSemesters();
 
+        private int SelectedRow = -1;
         //EDIT
         public frm_curriculum_entry(Curriculum c, List<CurriculumSubject> subjects)
         {
@@ -62,6 +63,39 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
             //Handle Data Error Event
             dataGridView1.DataError += DataGridview_DataError;
+        }
+
+        //DUPLICATE
+        public frm_curriculum_entry(Curriculum c, List<CurriculumSubject> subjects, string status)
+        {
+            savingoption = "ADD";
+            InitializeComponent();
+            DisplaySemestersOnCombobox();
+            //Handle Data Error Event
+            dataGridView1.DataError += DataGridview_DataError;
+
+            _curriculum = c;
+            _curriculumSubjects = subjects;
+
+            cmbEducationLevel.Text = c.EducationLevel;
+            cmbCourseStrand.Text = c.CourseStrand;
+            txtCurriculumCode.Text = string.Empty;
+            txtDescription.Text = string.Empty;
+
+            foreach (var item in subjects)
+            {
+                Subject subject = Subject.GetSubject(item.SubjectID);
+                dataGridView1.Rows.Add(item.SubjectID,
+                    subject.SubjCode,
+                    subject.SubjDesc,
+                    subject.LecUnit,
+                    subject.LabUnit,
+                    subject.Unit,
+                    item.IsBridging,
+                    YearLevel.GetYearLevel(item.YearLevelID).YearLvl,
+                    SchoolSemester.GetSchoolSemester(item.SemesterID).Semester);
+            }
+
         }
 
         private void DisplaySemestersOnCombobox()
@@ -230,13 +264,38 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == clmRemove.Index)
+            if (e.ColumnIndex == clmAction.Index)
             {
-                if (MessageBox.Show("Are you sure you want to remove this subject on this curriculum?","Remove Subject",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    dataGridView1.Rows.Remove(dataGridView1.Rows[e.RowIndex]);
-                }
+                SelectedRow = e.RowIndex;
+                contextMenuStrip1.Show(new System.Drawing.Point(Cursor.Position.X,Cursor.Position.Y));
             }
+        }
+
+        private void cLOSEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Hide();
+        }
+
+        private void rEMOVESUBJECTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to remove this subject on this curriculum?", "Remove Subject", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                dataGridView1.Rows.Remove(dataGridView1.Rows[SelectedRow]);
+            }
+        }
+
+        private void iNSERTSUBJECTBELOWToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_curriculum_subject_browser frm = new frm_curriculum_subject_browser(dataGridView1,SelectedRow + 1);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void iNSERTSUBJECTABOVEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_curriculum_subject_browser frm = new frm_curriculum_subject_browser(dataGridView1, SelectedRow);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

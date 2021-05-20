@@ -18,17 +18,24 @@ namespace COLM_SYSTEM.subject
         public uc_subject_list()
         {
             InitializeComponent();
-            DisplaySubjects();
+            LoadSubjects();
         }
 
-        private void DisplaySubjects()
+        private void LoadSubjects()
         {
             subjects = Subject.GetSubjects();
+
+            if (txtSearch.Text != string.Empty)
+            {
+                subjects = subjects.Where(item => string.Concat(item.SubjCode, item.SubjDesc).ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            }
+
             dataGridView3.Rows.Clear();
             foreach (var item in subjects)
             {
                 dataGridView3.Rows.Add(item.SubjID, item.SubjCode, item.SubjDesc, item.LecUnit, item.LabUnit, item.LecUnit + item.LabUnit);
             }
+            lblCount.Text = string.Concat("Record(s) Count: ", dataGridView3.Rows.Count);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,7 +43,7 @@ namespace COLM_SYSTEM.subject
             frm_subject_entry frm = new frm_subject_entry();
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
-            DisplaySubjects();
+            LoadSubjects();
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -55,12 +62,20 @@ namespace COLM_SYSTEM.subject
             frm_subject_entry frm = new frm_subject_entry(subject);
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
-            DisplaySubjects();
+            LoadSubjects();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoadSubjects();   
+            }
         }
     }
 }

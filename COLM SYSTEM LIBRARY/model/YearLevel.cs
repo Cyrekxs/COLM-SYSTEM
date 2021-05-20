@@ -1,6 +1,8 @@
 ﻿using COLM_SYSTEM_LIBRARY.datasource;
+using COLM_SYSTEM_LIBRARY.helper;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -135,6 +137,27 @@ namespace COLM_SYSTEM_LIBRARY.model
             return (from r in GetYearLevels()
                     where r.EducationLevel.ToLower() == EducationLevel.ToLower()
                     select r.CourseStrand).Distinct().ToList();
+        }
+
+        public static List<string> GetCourseStrandByCurriculum(string CurriculumCode)
+        {
+            List<string> CourseStrands = new List<string>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum WHERE Code = @CurriculumCode", conn))
+                {
+                    comm.Parameters.AddWithValue("@CurriculumCode", CurriculumCode);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            CourseStrands.Add(Convert.ToString(reader["CourseStrand"]));
+                        }
+                    }
+                }
+            }
+            return CourseStrands;
         }
     }
 }

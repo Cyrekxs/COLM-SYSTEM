@@ -117,7 +117,23 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         return false;
                 }
             }
-        }        
+        }
+
+        public static bool IsSubjectExist(Subject subject)
+        {
+            bool result = false;
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT dbo.fn_check_subject(@subjcode,@subjdesc) AS Result", conn))
+                {
+                    comm.Parameters.AddWithValue("@subjcode", subject.SubjCode);
+                    comm.Parameters.AddWithValue("@subjdesc", subject.SubjDesc);
+                    result = Convert.ToBoolean(comm.ExecuteScalar());
+                }
+            }
+            return result;
+        }
 
     }
 }

@@ -139,6 +139,12 @@
     <Compile Include="Curriculum Folder\frm_curriculum_subject_browser.Designer.cs">
       <DependentUpon>frm_curriculum_subject_browser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Curriculum Folder\frm_duplicate_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Curriculum Folder\frm_duplicate_entry.Designer.cs">
+      <DependentUpon>frm_duplicate_entry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Curriculum Folder\uc_curriculum_list.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -403,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Curriculum Folder\frm_curriculum_subject_browser.resx">
       <DependentUpon>frm_curriculum_subject_browser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Curriculum Folder\frm_duplicate_entry.resx">
+      <DependentUpon>frm_duplicate_entry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Curriculum Folder\uc_curriculum_list.resx">
       <DependentUpon>uc_curriculum_list.cs</DependentUpon>

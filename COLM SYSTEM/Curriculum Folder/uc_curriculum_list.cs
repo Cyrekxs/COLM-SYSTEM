@@ -50,6 +50,15 @@ namespace COLM_SYSTEM.Curriculum_Folder
                 frm.ShowDialog();
                 LoadCurriculums();
             }
+            else if (e.ColumnIndex == clmDuplicate.Index)
+            {
+                Curriculum c = Curriculum.GetCurriculum((int)dataGridView3.Rows[e.RowIndex].Cells["clmCurriculumID"].Value);
+                List<CurriculumSubject> curriculumSubjects = Curriculum.GetCurriculumSubjects(c.CurriculumID);
+                frm_curriculum_entry frm = new frm_curriculum_entry(c, curriculumSubjects,"DUPLICATE");
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                LoadCurriculums();
+            }
         }
     }
 }

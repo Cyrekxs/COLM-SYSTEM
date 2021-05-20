@@ -39,6 +39,15 @@ namespace COLM_SYSTEM.subject
 
         }
 
+        private void ClearControls()
+        {
+            txtSubjCode.Text = string.Empty;
+            txtSubJDesc.Text = string.Empty;
+            txtLecUnits.Text = 0.ToString();
+            txtLabUnits.Text = 0.ToString();
+            txtSubjCode.Focus();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Subject subject = new Subject();
@@ -48,14 +57,35 @@ namespace COLM_SYSTEM.subject
             subject.LecUnit = Convert.ToDouble(txtLecUnits.Text);
             subject.LabUnit = Convert.ToDouble(txtLabUnits.Text);
 
-            bool result = Subject.InsertUpdateSubject(subject);
 
-            if (result == true)
+            bool ExistingResult = Subject.IsSubjectExist(subject);
+            bool ContinueSaving = true;
+            if (ExistingResult == true)
             {
-                MessageBox.Show("Subject has been successfully created!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-                Dispose();
+                if(MessageBox.Show("Program detected that your trying to create new subject that's already existing in the record! do you want to continue this action?","Duplicate Detected",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    ContinueSaving = false;
+                    ClearControls();
+                }                 
             }
+
+            if (ContinueSaving == true)
+            {
+                bool InsertResult = Subject.InsertUpdateSubject(subject);
+                if (InsertResult == true)
+                {
+                    if (MessageBox.Show("Subject has been successfully created! do you want to add another?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    {
+                        Close();
+                        Dispose();
+                    }
+                    else
+                    {
+                        ClearControls();
+                    }
+                }
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
