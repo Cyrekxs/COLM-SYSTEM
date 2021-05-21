@@ -2434,7 +2434,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>ASSESSMENT TYPE </Value>
+                            <Value>PAYMENT MODE </Value>
                             <Style>
                               <FontFamily>Calibri</FontFamily>
                               <FontSize>8pt</FontSize>
@@ -2475,7 +2475,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Parameters!assessmenttype.Value</Value>
+                            <Value>=Parameters!paymentmode.Value</Value>
                             <Style>
                               <FontFamily>Calibri</FontFamily>
                               <FontSize>8pt</FontSize>
@@ -2846,7 +2846,7 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="assessmenttype">
+    <ReportParameter Name="paymentmode">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
       <AllowBlank>true</AllowBlank>
@@ -2934,7 +2934,7 @@
         <CellDefinition>
           <ColumnIndex>3</ColumnIndex>
           <RowIndex>1</RowIndex>
-          <ParameterName>assessmenttype</ParameterName>
+          <ParameterName>paymentmode</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>

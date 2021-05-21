@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\Colm\colm system 2021\</UpdateUrl>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -62,7 +62,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\colm system icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\colm-system-icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -321,6 +321,18 @@
     <Compile Include="Section Folder\frm_section_schedule_entry.Designer.cs">
       <DependentUpon>frm_section_schedule_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings Folder\frm_assessment_payment_mode_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\frm_assessment_payment_mode_entry.Designer.cs">
+      <DependentUpon>frm_assessment_payment_mode_entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings Folder\frm_assessment_payment_mode_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\frm_assessment_payment_mode_list.Designer.cs">
+      <DependentUpon>frm_assessment_payment_mode_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings Folder\frm_settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -527,6 +539,12 @@
     <EmbeddedResource Include="Section Folder\frm_section_schedule_entry.resx">
       <DependentUpon>frm_section_schedule_entry.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\frm_assessment_payment_mode_entry.resx">
+      <DependentUpon>frm_assessment_payment_mode_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\frm_assessment_payment_mode_list.resx">
+      <DependentUpon>frm_assessment_payment_mode_list.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings Folder\frm_settings.resx">
       <DependentUpon>frm_settings.cs</DependentUpon>
     </EmbeddedResource>
@@ -646,6 +664,8 @@
   <ItemGroup>
     <Content Include="Programmers Info\Notes.txt" />
     <Content Include="Programmers Info\What I Did.txt" />
+    <None Include="Resources\colm-system-icon.ico" />
+    <None Include="Resources\login background.png" />
     <None Include="Resources\colm system icon.ico" />
     <None Include="Resources\Logout.png" />
     <None Include="Resources\login.png" />

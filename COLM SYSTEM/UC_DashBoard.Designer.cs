@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelEnrolled = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.lblTotalPending = new System.Windows.Forms.Label();
@@ -556,18 +556,18 @@
             // 
             this.chartEnrolled.BackColor = System.Drawing.Color.Empty;
             this.chartEnrolled.BorderlineColor = System.Drawing.Color.Black;
-            chartArea11.Name = "ChartArea1";
-            this.chartEnrolled.ChartAreas.Add(chartArea11);
+            chartArea1.Name = "ChartArea1";
+            this.chartEnrolled.ChartAreas.Add(chartArea1);
             this.chartEnrolled.Dock = System.Windows.Forms.DockStyle.Left;
             this.chartEnrolled.Location = new System.Drawing.Point(0, 0);
             this.chartEnrolled.Name = "chartEnrolled";
             this.chartEnrolled.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series11.Name = "Series1";
-            series11.YValuesPerPoint = 6;
-            this.chartEnrolled.Series.Add(series11);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Name = "Series1";
+            series1.YValuesPerPoint = 6;
+            this.chartEnrolled.Series.Add(series1);
             this.chartEnrolled.Size = new System.Drawing.Size(407, 353);
             this.chartEnrolled.TabIndex = 7;
             this.chartEnrolled.Text = "chart1";
@@ -882,7 +882,7 @@
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel10.Controls.Add(this.label25);
             this.panel10.Controls.Add(this.label27);
             this.panel10.Controls.Add(this.label28);
@@ -931,9 +931,9 @@
             // 
             // label30
             // 
-            this.label30.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label30.BackColor = System.Drawing.Color.White;
             this.label30.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label30.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.Color.Black;
             this.label30.Location = new System.Drawing.Point(407, 0);
             this.label30.Name = "label30";
@@ -946,18 +946,18 @@
             // 
             this.chartGender.BackColor = System.Drawing.Color.Empty;
             this.chartGender.BorderlineColor = System.Drawing.Color.Black;
-            chartArea12.Name = "ChartArea1";
-            this.chartGender.ChartAreas.Add(chartArea12);
+            chartArea2.Name = "ChartArea1";
+            this.chartGender.ChartAreas.Add(chartArea2);
             this.chartGender.Dock = System.Windows.Forms.DockStyle.Left;
             this.chartGender.Location = new System.Drawing.Point(0, 0);
             this.chartGender.Name = "chartGender";
             this.chartGender.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
-            series12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series12.Name = "Series1";
-            series12.YValuesPerPoint = 6;
-            this.chartGender.Series.Add(series12);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
+            series2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.Name = "Series1";
+            series2.YValuesPerPoint = 6;
+            this.chartGender.Series.Add(series2);
             this.chartGender.Size = new System.Drawing.Size(407, 253);
             this.chartGender.TabIndex = 19;
             this.chartGender.Text = "chart1";

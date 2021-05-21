@@ -43,6 +43,8 @@ namespace COLM_SYSTEM.Registration_Folder
                     item.CurriculumCode,
                     item.EducationLevel,
                     item.CourseStrand,
+                    item.StudentStatus,
+                    item.RegistrationStatus,
                     item.SchoolYear,
                     item.DateRegistered
                     );

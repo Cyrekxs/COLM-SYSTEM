@@ -7,6 +7,7 @@ using COLM_SYSTEM.Payment_Folder;
 using COLM_SYSTEM.registration;
 using COLM_SYSTEM.Registration_Folder;
 using COLM_SYSTEM.Section_Folder;
+using COLM_SYSTEM.Settings_Folder;
 using COLM_SYSTEM.student_information;
 using COLM_SYSTEM.subject;
 using System;
@@ -138,6 +139,20 @@ namespace COLM_SYSTEM
                 Close();
                 Dispose();
             }
+        }
+
+        private void dEFAULTFEESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_default_fees frm = new frm_default_fees();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void aSSESSMENTTYPEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_assessment_payment_mode_list frm = new frm_assessment_payment_mode_list();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

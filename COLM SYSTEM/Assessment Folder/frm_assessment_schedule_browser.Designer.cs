@@ -36,6 +36,8 @@
             this.clmRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFaculty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPick = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSubject = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,11 +55,12 @@
             this.clmRoom,
             this.clmFaculty,
             this.clmPick});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 72);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(768, 414);
+            this.dataGridView1.Size = new System.Drawing.Size(820, 394);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -74,7 +77,7 @@
             this.clmDay.HeaderText = "DAY";
             this.clmDay.Name = "clmDay";
             this.clmDay.ReadOnly = true;
-            this.clmDay.Width = 56;
+            this.clmDay.Width = 52;
             // 
             // clmTimeIn
             // 
@@ -82,7 +85,7 @@
             this.clmTimeIn.HeaderText = "TIME IN";
             this.clmTimeIn.Name = "clmTimeIn";
             this.clmTimeIn.ReadOnly = true;
-            this.clmTimeIn.Width = 79;
+            this.clmTimeIn.Width = 74;
             // 
             // clmTimeOut
             // 
@@ -90,7 +93,7 @@
             this.clmTimeOut.HeaderText = "TIME OUT";
             this.clmTimeOut.Name = "clmTimeOut";
             this.clmTimeOut.ReadOnly = true;
-            this.clmTimeOut.Width = 92;
+            this.clmTimeOut.Width = 85;
             // 
             // clmRoom
             // 
@@ -98,7 +101,7 @@
             this.clmRoom.HeaderText = "ROOM";
             this.clmRoom.Name = "clmRoom";
             this.clmRoom.ReadOnly = true;
-            this.clmRoom.Width = 73;
+            this.clmRoom.Width = 68;
             // 
             // clmFaculty
             // 
@@ -106,7 +109,7 @@
             this.clmFaculty.HeaderText = "FACULTY";
             this.clmFaculty.Name = "clmFaculty";
             this.clmFaculty.ReadOnly = true;
-            this.clmFaculty.Width = 82;
+            this.clmFaculty.Width = 75;
             // 
             // clmPick
             // 
@@ -119,15 +122,33 @@
             this.clmPick.Text = "PICK";
             this.clmPick.UseColumnTextForLinkValue = true;
             this.clmPick.VisitedLinkColor = System.Drawing.Color.SeaGreen;
-            this.clmPick.Width = 40;
+            this.clmPick.Width = 38;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "SUBJECT";
+            // 
+            // txtSubject
+            // 
+            this.txtSubject.Location = new System.Drawing.Point(13, 43);
+            this.txtSubject.Name = "txtSubject";
+            this.txtSubject.Size = new System.Drawing.Size(450, 23);
+            this.txtSubject.TabIndex = 2;
             // 
             // frm_assessment_schedule_browser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 438);
+            this.ClientSize = new System.Drawing.Size(845, 501);
+            this.Controls.Add(this.txtSubject);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -135,6 +156,7 @@
             this.Text = "SCHEDULE BROWSER";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -148,5 +170,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRoom;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFaculty;
         private System.Windows.Forms.DataGridViewLinkColumn clmPick;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtSubject;
     }
 }

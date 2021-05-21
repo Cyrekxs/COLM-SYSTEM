@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace COLM_SYSTEM_LIBRARY.model
 {
-    public class AssessmentTypeItem
+    public class PaymentModeItem
     {
-        public int AssessmentTypeItemID { get; set; }
-        public int AssessmentTypeID { get; set; }
+        public int PaymentModeItemID { get; set; }
+        public int PaymentModeID { get; set; }
         public string ItemCode { get; set; }
         public double TFee { get; set; }
         public double MFee { get; set; }

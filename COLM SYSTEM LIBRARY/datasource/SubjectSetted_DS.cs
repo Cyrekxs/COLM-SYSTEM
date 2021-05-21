@@ -103,6 +103,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 SubjPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
                                 CurriculumSubjID = Convert.ToInt32(reader["CurriculumSubjectID"]),
+                                SubjID = Convert.ToInt16(reader["SubjID"]),
                                 SubjCode = Convert.ToString(reader["SubjCode"]),
                                 SubjDesc = Convert.ToString(reader["SubjDesc"]),
                                 LecUnit = Convert.ToInt32(reader["LecUnit"]),
@@ -110,7 +111,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 Unit = Convert.ToInt32(reader["Unit"]),
                                 SubjPrice = Convert.ToDouble(reader["SubjectPrice"]),
                                 AdditionalFee = Convert.ToDouble(reader["AdditionalFee"]),
-                                SubjType = Convert.ToString(reader["SubjectType"])
+                                SubjType = Convert.ToString(reader["SubjectType"]),
+                                Bridging = Convert.ToBoolean(reader["IsBridging"])
                             };
                             subjects.Add(subject);
                         }

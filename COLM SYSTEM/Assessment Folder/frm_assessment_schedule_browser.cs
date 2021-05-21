@@ -9,10 +9,10 @@ namespace COLM_SYSTEM.Assessment_Folder
     {
         List<Schedule> schedules = new List<Schedule>();
         public Schedule picked_sched = new Schedule();
-        public frm_assessment_schedule_browser(int SubjectPriceID)
+        public frm_assessment_schedule_browser(int SubjectID)
         {
             InitializeComponent();
-            schedules = Schedule.GetScheduleBySubjectPriceID(SubjectPriceID);
+            schedules = Schedule.GetScheduleBySubjectID(SubjectID);
             DisplayAvailableSchedules();
         }
 

@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="datasource\Address_DS.cs" />
-    <Compile Include="datasource\AssessmentType_DS.cs" />
+    <Compile Include="datasource\PaymentType_DS.cs" />
     <Compile Include="datasource\Assessment_DS.cs" />
     <Compile Include="datasource\Curriculum_DS.cs" />
     <Compile Include="datasource\Discount_DS.cs" />
@@ -65,8 +65,8 @@
     <Compile Include="helper\SQLHelper.cs" />
     <Compile Include="helper\Utilities.cs" />
     <Compile Include="model\Address.cs" />
-    <Compile Include="model\AssessmentType.cs" />
-    <Compile Include="model\AssessmentTypeItem.cs" />
+    <Compile Include="model\PaymentMode.cs" />
+    <Compile Include="model\PaymentModeItem.cs" />
     <Compile Include="model\Assessment Folder\AssessmentSubjectAdditionalFee.cs" />
     <Compile Include="model\Assessment Folder\AssessmentBreakdown.cs" />
     <Compile Include="model\Assessment Folder\AssessmentDiscount.cs" />

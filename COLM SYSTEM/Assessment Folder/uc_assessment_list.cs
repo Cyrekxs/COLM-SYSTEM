@@ -32,7 +32,7 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             foreach (var item in assessmentLists)
             {
-                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.AssessmentType, item.Assessor, item.AssessmentDate,item.EnrollmentStatus);
+                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.PaymentMode, item.Assessor, item.AssessmentDate,item.EnrollmentStatus);
             }
         }
 
@@ -57,7 +57,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 ReportParameter param_CourseStrand = new ReportParameter("coursestrand", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmCourseStrand"].Value));
                 ReportParameter param_YearLevel = new ReportParameter("yearlevel", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmYearLevel"].Value));
                 ReportParameter param_Section = new ReportParameter("section", "A");
-                ReportParameter param_AssessmentType = new ReportParameter("assessmenttype", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmAssessmentType"].Value));
+                ReportParameter param_PaymentMode = new ReportParameter("paymentmode", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmPaymentMode"].Value));
                 ReportParameter param_Assessor = new ReportParameter("assessor", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmAssessor"].Value));
                 ReportParameter param_AssessmentDate = new ReportParameter("assessmentdate", Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["clmAssessmentDate"].Value));
 
@@ -75,7 +75,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 reportParameters.Add(param_CourseStrand);
                 reportParameters.Add(param_YearLevel);
                 reportParameters.Add(param_Section);
-                reportParameters.Add(param_AssessmentType);
+                reportParameters.Add(param_PaymentMode);
                 reportParameters.Add(param_Assessor);
                 reportParameters.Add(param_AssessmentDate);
                 reportParameters.Add(param_TFee);

@@ -65,8 +65,8 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             //Get and Set Assessment Types
             LoadAssessmentTypes();
-            List<AssessmentType> assessmentTypes = cmbAssessmentType.Tag as List<AssessmentType>;
-            cmbAssessmentType.Text = assessmentTypes.Where(r => r.AssessmentTypeID == assessment.Summary.AssessmentTypeID).Select(r => r.AssessmentCode).First();
+            List<PaymentMode> assessmentTypes = cmbAssessmentType.Tag as List<PaymentMode>;
+            cmbAssessmentType.Text = assessmentTypes.Where(r => r.PaymentModeID == assessment.Summary.PaymentModeID).Select(r => r.PaymentName).First();
 
             //Get and Set Section
             LoadSections();
@@ -87,7 +87,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             foreach (var item in subjects)
             {
                 Schedule schedule = Schedule.GetScheduleByScheduleID(assessment.Subjects.Where(r => r.SubjectPriceID == item.SubjPriceID).Select(r => r.ScheduleID).First());
-                dgSubjects.Rows.Add(item.CurriculumSubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFee.ToString("n"), item.SubjType, schedule.ScheduleID, schedule.ScheduleInfo);
+                dgSubjects.Rows.Add(item.CurriculumSubjID,item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFee.ToString("n"), item.SubjType, schedule.ScheduleID, schedule.ScheduleInfo);
             }
 
             //this method will tag additional fees of specific subject
@@ -169,8 +169,12 @@ namespace COLM_SYSTEM.Assessment_Folder
             dgFees.Rows.Clear();
 
             int yearLevelID = studentYearLevel.YearLevelID;
-            //Store Tuition Fee
+            //Store Tuition Fee and subjects
             List<SubjectSetted> subjects = SubjectSetted.GetSubjectSetteds(registeredStudent.CurriculumID, yearLevelID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+
+            if (registeredStudent.RegistrationStatus == "Without Bridging")
+                subjects = subjects.Where(item => item.Bridging == false).ToList();
+
 
             //Store Miscellaneous and Other Fees
             List<Fee> fees = Fee.GetSettedFees(registeredStudent.CurriculumID, yearLevelID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
@@ -178,7 +182,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             //Display Tuition Fee
             foreach (var item in subjects)
             {
-                dgSubjects.Rows.Add(item.CurriculumSubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFee.ToString("n"), item.SubjType);
+                dgSubjects.Rows.Add(item.CurriculumSubjID,item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFee.ToString("n"), item.SubjType);
             }
 
             //Display Miscellaneous Fees
@@ -208,7 +212,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void LoadAssessmentTypes() // this function will trigger upon initialization
         {
             //get assessment type list according to education level, school year and semester and tag it into cmbassessment type
-            List<AssessmentType> assessmentTypes = (from r in AssessmentType.GetAssessmentTypes()
+            List<PaymentMode> assessmentTypes = (from r in PaymentMode.GetAssessmentPaymentModes()
                                                     where r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester() && r.EducationLevel.ToLower() == txtEducationLevel.Text.ToLower()
                                                     select r).ToList();
 
@@ -216,7 +220,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             cmbAssessmentType.Tag = assessmentTypes;
             foreach (var item in assessmentTypes)
             {
-                cmbAssessmentType.Items.Add(item.AssessmentCode);
+                cmbAssessmentType.Items.Add(item.PaymentName);
             }
         }
         private void LoadSections() // this function will trigger upon initialization
@@ -451,8 +455,8 @@ namespace COLM_SYSTEM.Assessment_Folder
             if (cmbAssessmentType.Text != string.Empty)
             {
                 //First we need to know what is the assessment type selected
-                List<AssessmentType> assessmentTypes = cmbAssessmentType.Tag as List<AssessmentType>;
-                AssessmentType assessmentType = assessmentTypes[cmbAssessmentType.SelectedIndex];
+                List<PaymentMode> assessmentTypes = cmbAssessmentType.Tag as List<PaymentMode>;
+                PaymentMode assessmentType = assessmentTypes[cmbAssessmentType.SelectedIndex];
 
                 //Get the calculated discounts
                 dynamic calculatedDiscounts = CalculateDiscounts();
@@ -461,7 +465,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 double OFee = calculatedDiscounts.ofee;
 
                 //Get AssessmentTypeItems
-                List<AssessmentTypeItem> TypeItems = AssessmentType.GetAssessmentTypeItems(assessmentType.AssessmentTypeID);
+                List<PaymentModeItem> TypeItems = PaymentMode.GetPaymentModeItems(assessmentType.PaymentModeID);
 
                 //calculate and display breakdown computation
                 dgBreakdown.Rows.Clear();
@@ -572,9 +576,9 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private void cmbAssessmentType_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            List<AssessmentType> assessmentTypes = cmbAssessmentType.Tag as List<AssessmentType>;
-            AssessmentType assessmentType = assessmentTypes[cmbAssessmentType.SelectedIndex];
-            List<AssessmentTypeItem> items = AssessmentType.GetAssessmentTypeItems(assessmentType.AssessmentTypeID);
+            List<PaymentMode> assessmentTypes = cmbAssessmentType.Tag as List<PaymentMode>;
+            PaymentMode assessmentType = assessmentTypes[cmbAssessmentType.SelectedIndex];
+            List<PaymentModeItem> items = PaymentMode.GetPaymentModeItems(assessmentType.PaymentModeID);
 
             double surcharge = items.Sum(r => r.Surcharge);
             txtSurcharge.Text = surcharge.ToString("n");
@@ -583,6 +587,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         }
         private void dgSubjects_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //if click the additional link
             if (e.ColumnIndex == clmAdditionalFee.Index)
             {
                 List<SubjectSettedAddtionalFee> additionalFees = (List<SubjectSettedAddtionalFee>)dgSubjects.Rows[e.RowIndex].Tag;
@@ -590,10 +595,11 @@ namespace COLM_SYSTEM.Assessment_Folder
                 frm.StartPosition = FormStartPosition.CenterScreen;
                 frm.ShowDialog();
             }
+            //if click the picking schedule link
             else if (e.ColumnIndex == clmPickSched.Index)
             {
-                int SubjectPriceID = Convert.ToInt16(dgSubjects.Rows[e.RowIndex].Cells["clmSubjPriceID"].Value);
-                using (frm_assessment_schedule_browser frm = new frm_assessment_schedule_browser(SubjectPriceID))
+                int SubjectID = Convert.ToInt16(dgSubjects.Rows[e.RowIndex].Cells["clmSubjID"].Value);
+                using (frm_assessment_schedule_browser frm = new frm_assessment_schedule_browser(SubjectID))
                 {
                     frm.StartPosition = FormStartPosition.CenterParent;
                     Schedule schedule = new Schedule();
@@ -691,8 +697,8 @@ namespace COLM_SYSTEM.Assessment_Folder
 
 
             //get assessment type id
-            List<AssessmentType> assessmentTypes = cmbAssessmentType.Tag as List<AssessmentType>;
-            AssessmentType assessmentType = assessmentTypes[cmbAssessmentType.SelectedIndex];
+            List<PaymentMode> assessmentTypes = cmbAssessmentType.Tag as List<PaymentMode>;
+            PaymentMode assessmentType = assessmentTypes[cmbAssessmentType.SelectedIndex];
 
             //calculate total amount
             double TFee = Convert.ToDouble(txtTotalTFee.Text);
@@ -705,7 +711,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             List<Section> sections = cmbSection.Tag as List<Section>;
             AssessmentSummary assessmentSummary = new AssessmentSummary()
             {
-                AssessmentTypeID = assessmentType.AssessmentTypeID,
+                PaymentModeID = assessmentType.PaymentModeID,
                 RegisteredStudentID = registeredStudent.RegisteredID,
                 YearLevelID = studentYearLevel.YearLevelID,
                 SectionID = sections.Where(item => item.SectionName == cmbSection.Text).Select(item => item.SectionID).First(),

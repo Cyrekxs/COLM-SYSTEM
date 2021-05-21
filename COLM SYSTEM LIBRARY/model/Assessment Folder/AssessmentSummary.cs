@@ -19,8 +19,8 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
         public string YearLevel { get; set; }
         public int SectionID { get; set; }
         public string Section { get; set; }
-        public int AssessmentTypeID { get; set; }
-        public string AssessmentType { get; set; }
+        public int PaymentModeID { get; set; }
+        public string PaymentMode { get; set; }
         public double TFee { get; set; } //for printing purposes only
         public double MFee { get; set; } //for printing purposes only
         public double OFee { get; set; } //for printing purposes only

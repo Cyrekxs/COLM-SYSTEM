@@ -47,6 +47,8 @@
             this.clmCurriculumCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmStudentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmRegistrationStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSchoolYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
@@ -64,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1119, 44);
+            this.panel1.Size = new System.Drawing.Size(1255, 44);
             this.panel1.TabIndex = 24;
             // 
             // label3
@@ -91,7 +93,7 @@
             "JUNIOR HIGH",
             "SENIOR HIGH",
             "COLLEGE"});
-            this.cmbEducationLevel.Location = new System.Drawing.Point(967, 16);
+            this.cmbEducationLevel.Location = new System.Drawing.Point(1103, 16);
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(145, 23);
             this.cmbEducationLevel.TabIndex = 4;
@@ -102,7 +104,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(769, 3);
+            this.label1.Location = new System.Drawing.Point(905, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 13);
             this.label1.TabIndex = 1;
@@ -112,7 +114,7 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(772, 16);
+            this.textBox1.Location = new System.Drawing.Point(908, 16);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(189, 23);
             this.textBox1.TabIndex = 2;
@@ -123,7 +125,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(964, 2);
+            this.label2.Location = new System.Drawing.Point(1100, 2);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 3;
@@ -134,7 +136,7 @@
             this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCount.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCount.ForeColor = System.Drawing.Color.Red;
-            this.lblCount.Location = new System.Drawing.Point(964, 480);
+            this.lblCount.Location = new System.Drawing.Point(1100, 480);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(141, 30);
             this.lblCount.TabIndex = 27;
@@ -176,13 +178,15 @@
             this.clmCurriculumCode,
             this.clmEducationLevel,
             this.clmCourseStrand,
+            this.clmStudentStatus,
+            this.clmRegistrationStatus,
             this.clmSchoolYear,
             this.Column1});
             this.dataGridView1.Location = new System.Drawing.Point(13, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1099, 424);
+            this.dataGridView1.Size = new System.Drawing.Size(1235, 424);
             this.dataGridView1.TabIndex = 25;
             // 
             // clmRegisteredStudentID
@@ -257,6 +261,20 @@
             this.clmCourseStrand.ReadOnly = true;
             this.clmCourseStrand.Width = 120;
             // 
+            // clmStudentStatus
+            // 
+            this.clmStudentStatus.HeaderText = "Student Status";
+            this.clmStudentStatus.Name = "clmStudentStatus";
+            this.clmStudentStatus.ReadOnly = true;
+            this.clmStudentStatus.Width = 130;
+            // 
+            // clmRegistrationStatus
+            // 
+            this.clmRegistrationStatus.HeaderText = "Registration";
+            this.clmRegistrationStatus.Name = "clmRegistrationStatus";
+            this.clmRegistrationStatus.ReadOnly = true;
+            this.clmRegistrationStatus.Width = 150;
+            // 
             // clmSchoolYear
             // 
             this.clmSchoolYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -283,7 +301,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "uc_registered_students_list";
-            this.Size = new System.Drawing.Size(1119, 517);
+            this.Size = new System.Drawing.Size(1255, 517);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -312,6 +330,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCourseStrand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmStudentStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmRegistrationStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSchoolYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }

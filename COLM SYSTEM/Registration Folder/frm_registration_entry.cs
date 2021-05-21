@@ -42,8 +42,8 @@ namespace COLM_SYSTEM.registration
                 CurriculumID = CurriculumID,
                 SchoolYearID = Utilties.GetActiveSchoolYear(),
                 SemesterID = Utilties.GetActiveSemester(),
+                StudentStatus = cmbStudentStatus.Text,
                 RegistrationStatus = cmbRegistrationStatus.Text
-
             };
 
             if (StudentRegistration.RegisterStudent(model) == true)
