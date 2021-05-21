@@ -102,7 +102,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             SubjectSetted subject = new SubjectSetted()
                             {
                                 SubjPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
-
                                 CurriculumSubjID = Convert.ToInt32(reader["CurriculumSubjectID"]),
                                 SubjCode = Convert.ToString(reader["SubjCode"]),
                                 SubjDesc = Convert.ToString(reader["SubjDesc"]),

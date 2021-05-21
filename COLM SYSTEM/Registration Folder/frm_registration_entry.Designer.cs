@@ -35,6 +35,7 @@
             this.txtLRN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.cmbRegistrationStatus = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbCurriculum = new System.Windows.Forms.ComboBox();
@@ -44,7 +45,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -130,6 +130,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "REGISTRATION INFO";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button2.Location = new System.Drawing.Point(175, 178);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 30);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "CANCEL";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // cmbRegistrationStatus
             // 
             this.cmbRegistrationStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -194,7 +208,8 @@
             "PRE ELEMENTARY",
             "ELEMENTARY",
             "JUNIOR HIGH",
-            "SENIOR HIGH"});
+            "SENIOR HIGH",
+            "COLLEGE"});
             this.cmbEducationLevel.Location = new System.Drawing.Point(19, 52);
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(369, 23);
@@ -230,20 +245,6 @@
             this.label4.Size = new System.Drawing.Size(156, 19);
             this.label4.TabIndex = 2;
             this.label4.Text = "REGISTRATION ENTRY";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.Location = new System.Drawing.Point(175, 178);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 30);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "CANCEL";
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // frm_registration_entry
             // 

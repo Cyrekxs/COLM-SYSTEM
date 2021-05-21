@@ -22,6 +22,7 @@ namespace COLM_SYSTEM.Registration_Folder
 
         private void LoadRegisteredStudents()
         {
+            dataGridView1.Rows.Clear();
             List<StudentRegistered> _RegisteredStudents = StudentRegistered.GetRegisteredStudents();
 
             if (textBox1.Text != string.Empty)
