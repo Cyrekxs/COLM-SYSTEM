@@ -11,23 +11,22 @@ namespace COLM_SYSTEM.Discounts
         int SelectedRow = 0;
         public uc_discount_list()
         {
-            InitializeComponent();           
-            DisplayDiscounts();
+            InitializeComponent();
+            LoadDiscounts();
         }
 
 
-        private void DisplayDiscounts()
+        private void LoadDiscounts()
         {
             _Discounts = Discount.GetDiscounts();
             dataGridView3.Rows.Clear();
 
             foreach (var item in _Discounts)
             {
-                YearLevel yearLevel = YearLevel.GetYearLevel(item.YearLeveLID);
                 if (item.Type == "PERCENTAGE")
-                    dataGridView3.Rows.Add(item.DiscountID, yearLevel.EducationLevel,yearLevel.CourseStrand,yearLevel.YearLvl, item.DiscountCode, item.Type, item.TotalValue, item.TFee, item.MFee, item.OFee, item.DateCreated);                    
+                    dataGridView3.Rows.Add(item.DiscountID, item.DiscountCode, item.Type, item.TotalValue, item.TFee, item.MFee, item.OFee, item.YearLevels.Count.ToString(), item.DateCreated);
                 else
-                    dataGridView3.Rows.Add(item.DiscountID, yearLevel.EducationLevel, yearLevel.CourseStrand, yearLevel.YearLvl, item.DiscountCode, item.Type, item.TotalValue.ToString("n"), item.TFee * 100, item.MFee * 100, item.OFee * 100, item.DateCreated);
+                    dataGridView3.Rows.Add(item.DiscountID, item.DiscountCode, item.Type, item.TotalValue.ToString("n"), item.TFee * 100, item.MFee * 100, item.OFee * 100, item.YearLevels.Count.ToString(), item.DateCreated);
             }
         }
 
@@ -41,35 +40,25 @@ namespace COLM_SYSTEM.Discounts
 
         private void button1_Click(object sender, EventArgs e)
         {
-            cm_discount.Show(button1,new System.Drawing.Point(0,35));
+            frm_discount_entry_amount frm = new frm_discount_entry_amount();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            LoadDiscounts();
         }
 
         private void pERCENTAGEDISCOUNTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_discount_entry_percentage frm = new frm_discount_entry_percentage();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            DisplayDiscounts();
+
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             int DiscountID = Convert.ToInt32(dataGridView3.Rows[SelectedRow].Cells[0].Value);
             Discount discount = Discount.GetDiscount(DiscountID);
-
-            if (discount.Type == "PERCENTAGE")
-            {
-                frm_discount_entry_percentage frm = new frm_discount_entry_percentage(discount);
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-            }
-            else if (discount.Type == "AMOUNT")
-            {
-                frm_discount_entry_amount frm = new frm_discount_entry_amount(discount);
-                frm.StartPosition = FormStartPosition.CenterScreen;
-                frm.ShowDialog();
-            }
-
+            frm_discount_entry_amount frm = new frm_discount_entry_amount(discount);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            LoadDiscounts();
         }
 
         private void dataGridView3_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -82,7 +71,7 @@ namespace COLM_SYSTEM.Discounts
             frm_discount_entry_amount frm = new frm_discount_entry_amount();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
-            DisplayDiscounts();
+            LoadDiscounts();
         }
     }
 }

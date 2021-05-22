@@ -28,16 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPaymentMode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.clmPaymentModeItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmMFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmOFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSurcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -46,13 +53,6 @@
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.clmPaymentModeItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmMFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmOFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSurcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +60,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 52);
+            this.label1.Location = new System.Drawing.Point(285, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 15);
             this.label1.TabIndex = 0;
@@ -68,7 +68,7 @@
             // 
             // txtPaymentMode
             // 
-            this.txtPaymentMode.Location = new System.Drawing.Point(16, 70);
+            this.txtPaymentMode.Location = new System.Drawing.Point(288, 26);
             this.txtPaymentMode.Name = "txtPaymentMode";
             this.txtPaymentMode.Size = new System.Drawing.Size(266, 23);
             this.txtPaymentMode.TabIndex = 1;
@@ -76,7 +76,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 96);
+            this.label2.Location = new System.Drawing.Point(594, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 15);
             this.label2.TabIndex = 2;
@@ -86,17 +86,17 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmPaymentModeItemID,
@@ -106,10 +106,58 @@
             this.clmOFee,
             this.clmSurcharge,
             this.clmDueDate});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 169);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 79);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(698, 338);
             this.dataGridView1.TabIndex = 4;
+            // 
+            // clmPaymentModeItemID
+            // 
+            this.clmPaymentModeItemID.HeaderText = "Payment Mode Item ID";
+            this.clmPaymentModeItemID.Name = "clmPaymentModeItemID";
+            this.clmPaymentModeItemID.Visible = false;
+            // 
+            // clmItemCode
+            // 
+            this.clmItemCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmItemCode.HeaderText = "Item Code";
+            this.clmItemCode.Name = "clmItemCode";
+            // 
+            // clmTFee
+            // 
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmTFee.DefaultCellStyle = dataGridViewCellStyle15;
+            this.clmTFee.HeaderText = "Tuition %";
+            this.clmTFee.Name = "clmTFee";
+            this.clmTFee.Width = 110;
+            // 
+            // clmMFee
+            // 
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmMFee.DefaultCellStyle = dataGridViewCellStyle16;
+            this.clmMFee.HeaderText = "Miscellaneous %";
+            this.clmMFee.Name = "clmMFee";
+            this.clmMFee.Width = 110;
+            // 
+            // clmOFee
+            // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmOFee.DefaultCellStyle = dataGridViewCellStyle17;
+            this.clmOFee.HeaderText = "Other %";
+            this.clmOFee.Name = "clmOFee";
+            this.clmOFee.Width = 110;
+            // 
+            // clmSurcharge
+            // 
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmSurcharge.DefaultCellStyle = dataGridViewCellStyle18;
+            this.clmSurcharge.HeaderText = "Surcharge";
+            this.clmSurcharge.Name = "clmSurcharge";
+            // 
+            // clmDueDate
+            // 
+            this.clmDueDate.HeaderText = "Due Date";
+            this.clmDueDate.Name = "clmDueDate";
             // 
             // label3
             // 
@@ -142,7 +190,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.Location = new System.Drawing.Point(557, 513);
+            this.button3.Location = new System.Drawing.Point(558, 423);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 30);
             this.button3.TabIndex = 15;
@@ -156,7 +204,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(638, 513);
+            this.button4.Location = new System.Drawing.Point(639, 423);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 30);
             this.button4.TabIndex = 14;
@@ -166,7 +214,7 @@
             // 
             // txtNumPayments
             // 
-            this.txtNumPayments.Location = new System.Drawing.Point(16, 114);
+            this.txtNumPayments.Location = new System.Drawing.Point(597, 26);
             this.txtNumPayments.Name = "txtNumPayments";
             this.txtNumPayments.ReadOnly = true;
             this.txtNumPayments.Size = new System.Drawing.Size(41, 23);
@@ -178,7 +226,7 @@
             // hScrollBar1
             // 
             this.hScrollBar1.LargeChange = 1;
-            this.hScrollBar1.Location = new System.Drawing.Point(60, 114);
+            this.hScrollBar1.Location = new System.Drawing.Point(641, 26);
             this.hScrollBar1.Maximum = 15;
             this.hScrollBar1.Minimum = 1;
             this.hScrollBar1.Name = "hScrollBar1";
@@ -191,7 +239,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(12, 521);
+            this.label4.Location = new System.Drawing.Point(13, 431);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(370, 15);
             this.label4.TabIndex = 18;
@@ -209,62 +257,14 @@
             this.panel1.Controls.Add(this.cmbEducationLevel);
             this.panel1.Location = new System.Drawing.Point(15, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(698, 145);
+            this.panel1.Size = new System.Drawing.Size(698, 61);
             this.panel1.TabIndex = 19;
-            // 
-            // clmPaymentModeItemID
-            // 
-            this.clmPaymentModeItemID.HeaderText = "Payment Mode Item ID";
-            this.clmPaymentModeItemID.Name = "clmPaymentModeItemID";
-            this.clmPaymentModeItemID.Visible = false;
-            // 
-            // clmItemCode
-            // 
-            this.clmItemCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmItemCode.HeaderText = "Item Code";
-            this.clmItemCode.Name = "clmItemCode";
-            // 
-            // clmTFee
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmTFee.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmTFee.HeaderText = "Tuition %";
-            this.clmTFee.Name = "clmTFee";
-            this.clmTFee.Width = 110;
-            // 
-            // clmMFee
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmMFee.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clmMFee.HeaderText = "Miscellaneous %";
-            this.clmMFee.Name = "clmMFee";
-            this.clmMFee.Width = 110;
-            // 
-            // clmOFee
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmOFee.DefaultCellStyle = dataGridViewCellStyle5;
-            this.clmOFee.HeaderText = "Other %";
-            this.clmOFee.Name = "clmOFee";
-            this.clmOFee.Width = 110;
-            // 
-            // clmSurcharge
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmSurcharge.DefaultCellStyle = dataGridViewCellStyle6;
-            this.clmSurcharge.HeaderText = "Surcharge";
-            this.clmSurcharge.Name = "clmSurcharge";
-            // 
-            // clmDueDate
-            // 
-            this.clmDueDate.HeaderText = "Due Date";
-            this.clmDueDate.Name = "clmDueDate";
             // 
             // frm_assessment_payment_mode_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 557);
+            this.ClientSize = new System.Drawing.Size(726, 466);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button3);

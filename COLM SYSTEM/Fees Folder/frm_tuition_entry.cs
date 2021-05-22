@@ -409,5 +409,11 @@ namespace COLM_SYSTEM.fees_folder
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
+        }
     }
 }

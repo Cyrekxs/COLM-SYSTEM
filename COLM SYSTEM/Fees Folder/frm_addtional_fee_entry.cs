@@ -20,6 +20,21 @@ namespace COLM_SYSTEM.Fees_Folder
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            if (txtAdditionalFee.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter additional fee", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAdditionalFee.Focus();
+                return;
+            }
+
+            if (txtAmount.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter additional fee amount", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAmount.Focus();
+                return;
+            }
+
             Fee fee = new Fee()
             {
                 CurriculumID = 0,

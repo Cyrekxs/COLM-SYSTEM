@@ -110,7 +110,17 @@ namespace COLM_SYSTEM.Section_Folder
                     bool result = Section.InsertSection(section);
                     if (result == true)
                     {
-                        MessageBox.Show("New section has been successfully created!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        int SectionID = Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester()).Where(
+                            item => item.EducationLevel == cmbEducationLevel.Text && 
+                            item.CurriculumID == tag.CurriculumID && 
+                            item.SectionName == txtSection.Text).First().SectionID;
+
+                        Section sect = Section.GetSection(SectionID);
+                        frm_section_schedule_entry frm = new frm_section_schedule_entry(sect);
+                        frm.StartPosition = FormStartPosition.CenterParent;
+                        frm.ShowDialog();
+
                         Close();
                         Dispose();
                     }

@@ -1,7 +1,6 @@
 ﻿using COLM_SYSTEM.Assessment_Folder;
 using COLM_SYSTEM.Curriculum_Folder;
 using COLM_SYSTEM.Discounts;
-using COLM_SYSTEM.fees;
 using COLM_SYSTEM.Fees_Folder;
 using COLM_SYSTEM.Payment_Folder;
 using COLM_SYSTEM.registration;
@@ -91,7 +90,7 @@ namespace COLM_SYSTEM
 
         private void mISCELLANEOUSFEEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DisplayControl(new uc_fee_list());
+
         }
 
         private void mISCELLANEOUSFEESToolStripMenuItem_Click(object sender, EventArgs e)

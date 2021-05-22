@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbCourseStrand = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,11 +44,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.iNSERTSUBJECTBELOWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iNSERTSUBJECTABOVEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEMOVESUBJECTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clmSubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +54,12 @@
             this.clmYearLevel = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.clmSemester = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.iNSERTSUBJECTBELOWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iNSERTSUBJECTABOVEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rEMOVESUBJECTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -68,6 +68,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.cmbCourseStrand);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
@@ -166,6 +167,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Location = new System.Drawing.Point(12, 77);
@@ -178,12 +180,12 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.DarkSlateGray;
-            this.linkLabel1.Location = new System.Drawing.Point(9, 18);
+            this.linkLabel1.Location = new System.Drawing.Point(802, 9);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(166, 17);
+            this.linkLabel1.Size = new System.Drawing.Size(152, 17);
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "BROWSE TO ADD SUBJECTS";
+            this.linkLabel1.Text = "+ Browse to Add Subjects";
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.DarkSlateGray;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
@@ -216,51 +218,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(827, 574);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 32);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "SAVE";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.iNSERTSUBJECTBELOWToolStripMenuItem,
-            this.iNSERTSUBJECTABOVEToolStripMenuItem,
-            this.rEMOVESUBJECTToolStripMenuItem,
-            this.cLOSEToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 114);
-            // 
-            // iNSERTSUBJECTBELOWToolStripMenuItem
-            // 
-            this.iNSERTSUBJECTBELOWToolStripMenuItem.Name = "iNSERTSUBJECTBELOWToolStripMenuItem";
-            this.iNSERTSUBJECTBELOWToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.iNSERTSUBJECTBELOWToolStripMenuItem.Text = "INSERT SUBJECT BELOW";
-            this.iNSERTSUBJECTBELOWToolStripMenuItem.Click += new System.EventHandler(this.iNSERTSUBJECTBELOWToolStripMenuItem_Click);
-            // 
-            // iNSERTSUBJECTABOVEToolStripMenuItem
-            // 
-            this.iNSERTSUBJECTABOVEToolStripMenuItem.Name = "iNSERTSUBJECTABOVEToolStripMenuItem";
-            this.iNSERTSUBJECTABOVEToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.iNSERTSUBJECTABOVEToolStripMenuItem.Text = "INSERT SUBJECT ABOVE";
-            this.iNSERTSUBJECTABOVEToolStripMenuItem.Click += new System.EventHandler(this.iNSERTSUBJECTABOVEToolStripMenuItem_Click);
-            // 
-            // rEMOVESUBJECTToolStripMenuItem
-            // 
-            this.rEMOVESUBJECTToolStripMenuItem.Name = "rEMOVESUBJECTToolStripMenuItem";
-            this.rEMOVESUBJECTToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.rEMOVESUBJECTToolStripMenuItem.Text = "REMOVE SUBJECT";
-            this.rEMOVESUBJECTToolStripMenuItem.Click += new System.EventHandler(this.rEMOVESUBJECTToolStripMenuItem_Click);
-            // 
             // clmSubjectID
             // 
             this.clmSubjectID.HeaderText = "Subject ID";
@@ -285,8 +242,8 @@
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle13;
             this.Column3.HeaderText = "Lec Unit";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -295,8 +252,8 @@
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column4.HeaderText = "Lab Unit";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -305,8 +262,8 @@
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle15;
             this.Column5.HeaderText = "Total";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -345,12 +302,57 @@
             this.clmAction.UseColumnTextForButtonValue = true;
             this.clmAction.Width = 47;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iNSERTSUBJECTBELOWToolStripMenuItem,
+            this.iNSERTSUBJECTABOVEToolStripMenuItem,
+            this.rEMOVESUBJECTToolStripMenuItem,
+            this.cLOSEToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(201, 92);
+            // 
+            // iNSERTSUBJECTBELOWToolStripMenuItem
+            // 
+            this.iNSERTSUBJECTBELOWToolStripMenuItem.Name = "iNSERTSUBJECTBELOWToolStripMenuItem";
+            this.iNSERTSUBJECTBELOWToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.iNSERTSUBJECTBELOWToolStripMenuItem.Text = "INSERT SUBJECT BELOW";
+            this.iNSERTSUBJECTBELOWToolStripMenuItem.Click += new System.EventHandler(this.iNSERTSUBJECTBELOWToolStripMenuItem_Click);
+            // 
+            // iNSERTSUBJECTABOVEToolStripMenuItem
+            // 
+            this.iNSERTSUBJECTABOVEToolStripMenuItem.Name = "iNSERTSUBJECTABOVEToolStripMenuItem";
+            this.iNSERTSUBJECTABOVEToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.iNSERTSUBJECTABOVEToolStripMenuItem.Text = "INSERT SUBJECT ABOVE";
+            this.iNSERTSUBJECTABOVEToolStripMenuItem.Click += new System.EventHandler(this.iNSERTSUBJECTABOVEToolStripMenuItem_Click);
+            // 
+            // rEMOVESUBJECTToolStripMenuItem
+            // 
+            this.rEMOVESUBJECTToolStripMenuItem.Name = "rEMOVESUBJECTToolStripMenuItem";
+            this.rEMOVESUBJECTToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.rEMOVESUBJECTToolStripMenuItem.Text = "REMOVE SUBJECT";
+            this.rEMOVESUBJECTToolStripMenuItem.Click += new System.EventHandler(this.rEMOVESUBJECTToolStripMenuItem_Click);
+            // 
             // cLOSEToolStripMenuItem
             // 
             this.cLOSEToolStripMenuItem.Name = "cLOSEToolStripMenuItem";
-            this.cLOSEToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.cLOSEToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.cLOSEToolStripMenuItem.Text = "CLOSE";
             this.cLOSEToolStripMenuItem.Click += new System.EventHandler(this.cLOSEToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(827, 574);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(152, 32);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "SAVE";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frm_curriculum_entry
             // 

@@ -129,5 +129,11 @@ namespace COLM_SYSTEM.Payment_Folder
             }
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
+        }
     }
 }

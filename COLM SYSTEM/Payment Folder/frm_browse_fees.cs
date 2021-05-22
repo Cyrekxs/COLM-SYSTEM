@@ -64,6 +64,11 @@ namespace COLM_SYSTEM.Payment_Folder
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
             frm_addtional_fee_entry frm = new frm_addtional_fee_entry();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();

@@ -65,8 +65,8 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             //Get and Set Assessment Types
             LoadAssessmentTypes();
-            List<PaymentMode> assessmentTypes = cmbAssessmentType.Tag as List<PaymentMode>;
-            cmbAssessmentType.Text = assessmentTypes.Where(r => r.PaymentModeID == assessment.Summary.PaymentModeID).Select(r => r.PaymentName).First();
+            List<PaymentMode> assessmentTypes = cmbPaymentMode.Tag as List<PaymentMode>;
+            cmbPaymentMode.Text = assessmentTypes.Where(r => r.PaymentModeID == assessment.Summary.PaymentModeID).Select(r => r.PaymentName).First();
 
             //Get and Set Section
             LoadSections();
@@ -87,7 +87,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             foreach (var item in subjects)
             {
                 Schedule schedule = Schedule.GetScheduleByScheduleID(assessment.Subjects.Where(r => r.SubjectPriceID == item.SubjPriceID).Select(r => r.ScheduleID).First());
-                dgSubjects.Rows.Add(item.CurriculumSubjID,item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFee.ToString("n"), item.SubjType, schedule.ScheduleID, schedule.ScheduleInfo);
+                dgSubjects.Rows.Add(item.CurriculumSubjID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFee.ToString("n"), item.SubjType, schedule.ScheduleID, schedule.ScheduleInfo);
             }
 
             //this method will tag additional fees of specific subject
@@ -182,7 +182,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             //Display Tuition Fee
             foreach (var item in subjects)
             {
-                dgSubjects.Rows.Add(item.CurriculumSubjID,item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFee.ToString("n"), item.SubjType);
+                dgSubjects.Rows.Add(item.CurriculumSubjID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFee.ToString("n"), item.SubjType);
             }
 
             //Display Miscellaneous Fees
@@ -213,14 +213,14 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             //get assessment type list according to education level, school year and semester and tag it into cmbassessment type
             List<PaymentMode> assessmentTypes = (from r in PaymentMode.GetAssessmentPaymentModes()
-                                                    where r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester() && r.EducationLevel.ToLower() == txtEducationLevel.Text.ToLower()
-                                                    select r).ToList();
+                                                 where r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester() && r.EducationLevel.ToLower() == txtEducationLevel.Text.ToLower()
+                                                 select r).ToList();
 
-            cmbAssessmentType.Items.Clear();
-            cmbAssessmentType.Tag = assessmentTypes;
+            cmbPaymentMode.Items.Clear();
+            cmbPaymentMode.Tag = assessmentTypes;
             foreach (var item in assessmentTypes)
             {
-                cmbAssessmentType.Items.Add(item.PaymentName);
+                cmbPaymentMode.Items.Add(item.PaymentName);
             }
         }
         private void LoadSections() // this function will trigger upon initialization
@@ -269,12 +269,28 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             int yearLevelID = studentYearLevel.YearLevelID;
             //get the list of discounts according to yearlevel, school year and semester
-            List<Discount> discounts = Discount.GetDiscounts().Where(item => item.YearLeveLID == yearLevelID && item.SchoolYearID == Utilties.GetActiveSchoolYear() && item.SemesterID == Utilties.GetActiveSemester()).ToList();
-            cmbDiscount.Tag = discounts;
+            List<Discount> discounts = Discount.GetDiscounts().Where(item => item.SchoolYearID == Utilties.GetActiveSchoolYear() && item.SemesterID == Utilties.GetActiveSemester()).ToList();
+
+            List<Discount> AvailableToAllDiscounts = discounts.Where(item => item.HasYearLevels == false).ToList();
+
+            List<Discount> SpecificDiscounts = new List<Discount>();  //discounts.Where(item => item.YearLevels.Contains(studentYearLevel)).ToList();
+
             foreach (var item in discounts)
             {
-                if (item.YearLeveLID == yearLevelID)
-                    cmbDiscount.Items.Add(item.DiscountCode);
+                foreach (var data in item.YearLevels)
+                {
+                    if (data.YearLevelID == yearLevelID)
+                    {
+                        SpecificDiscounts.Add(item);
+                    }
+                }
+            }
+
+            AvailableToAllDiscounts.AddRange(SpecificDiscounts);
+            cmbDiscount.Tag = AvailableToAllDiscounts;
+            foreach (var item in AvailableToAllDiscounts)
+            {
+                cmbDiscount.Items.Add(item.DiscountCode);
             }
         }
         private void CalculateFeeSummary() // all summary calculations will do here.
@@ -452,11 +468,11 @@ namespace COLM_SYSTEM.Assessment_Folder
         }
         private void CalculateFeeBreakdown()
         {
-            if (cmbAssessmentType.Text != string.Empty)
+            if (cmbPaymentMode.Text != string.Empty)
             {
                 //First we need to know what is the assessment type selected
-                List<PaymentMode> assessmentTypes = cmbAssessmentType.Tag as List<PaymentMode>;
-                PaymentMode assessmentType = assessmentTypes[cmbAssessmentType.SelectedIndex];
+                List<PaymentMode> assessmentTypes = cmbPaymentMode.Tag as List<PaymentMode>;
+                PaymentMode assessmentType = assessmentTypes[cmbPaymentMode.SelectedIndex];
 
                 //Get the calculated discounts
                 dynamic calculatedDiscounts = CalculateDiscounts();
@@ -486,7 +502,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             ReportParameter param_CourseStrand = new ReportParameter("coursestrand", Convert.ToString(txtCourseStrand.Text));
             ReportParameter param_YearLevel = new ReportParameter("yearlevel", Convert.ToString(txtYearLevel.Text));
             ReportParameter param_Section = new ReportParameter("section", cmbSection.Text);
-            ReportParameter param_AssessmentType = new ReportParameter("assessmenttype", Convert.ToString(cmbAssessmentType.Text));
+            ReportParameter param_PaymentMode = new ReportParameter("paymentmode", Convert.ToString(cmbPaymentMode.Text));
             ReportParameter param_Assessor = new ReportParameter("assessor", Convert.ToString(Utilties.GetAssessor()));
             ReportParameter param_AssessmentDate = new ReportParameter("assessmentdate", Convert.ToString(DateTime.Now));
 
@@ -504,7 +520,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             reportParameters.Add(param_CourseStrand);
             reportParameters.Add(param_YearLevel);
             reportParameters.Add(param_Section);
-            reportParameters.Add(param_AssessmentType);
+            reportParameters.Add(param_PaymentMode);
             reportParameters.Add(param_Assessor);
             reportParameters.Add(param_AssessmentDate);
             reportParameters.Add(param_TFee);
@@ -576,8 +592,8 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private void cmbAssessmentType_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            List<PaymentMode> assessmentTypes = cmbAssessmentType.Tag as List<PaymentMode>;
-            PaymentMode assessmentType = assessmentTypes[cmbAssessmentType.SelectedIndex];
+            List<PaymentMode> assessmentTypes = cmbPaymentMode.Tag as List<PaymentMode>;
+            PaymentMode assessmentType = assessmentTypes[cmbPaymentMode.SelectedIndex];
             List<PaymentModeItem> items = PaymentMode.GetPaymentModeItems(assessmentType.PaymentModeID);
 
             double surcharge = items.Sum(r => r.Surcharge);
@@ -587,40 +603,46 @@ namespace COLM_SYSTEM.Assessment_Folder
         }
         private void dgSubjects_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if click the additional link
-            if (e.ColumnIndex == clmAdditionalFee.Index)
+            try
             {
-                List<SubjectSettedAddtionalFee> additionalFees = (List<SubjectSettedAddtionalFee>)dgSubjects.Rows[e.RowIndex].Tag;
-                frm_assessment_additional_fee_viewer frm = new frm_assessment_additional_fee_viewer(dgSubjects.Rows[e.RowIndex].Cells["clmSubjectDesc"].Value.ToString(), additionalFees);
-                frm.StartPosition = FormStartPosition.CenterScreen;
-                frm.ShowDialog();
-            }
-            //if click the picking schedule link
-            else if (e.ColumnIndex == clmPickSched.Index)
-            {
-                int SubjectID = Convert.ToInt16(dgSubjects.Rows[e.RowIndex].Cells["clmSubjID"].Value);
-                using (frm_assessment_schedule_browser frm = new frm_assessment_schedule_browser(SubjectID))
+                //if click the additional link
+                if (e.ColumnIndex == clmAdditionalFee.Index)
                 {
-                    frm.StartPosition = FormStartPosition.CenterParent;
-                    Schedule schedule = new Schedule();
-                    if (frm.ShowDialog() == DialogResult.OK)
+                    List<SubjectSettedAddtionalFee> additionalFees = (List<SubjectSettedAddtionalFee>)dgSubjects.Rows[e.RowIndex].Tag;
+                    frm_assessment_additional_fee_viewer frm = new frm_assessment_additional_fee_viewer(dgSubjects.Rows[e.RowIndex].Cells["clmSubjectDesc"].Value.ToString(), additionalFees);
+                    frm.StartPosition = FormStartPosition.CenterScreen;
+                    frm.ShowDialog();
+                }
+                //if click the picking schedule link
+                else if (e.ColumnIndex == clmPickSched.Index)
+                {
+                    int SubjectID = Convert.ToInt16(dgSubjects.Rows[e.RowIndex].Cells["clmSubjID"].Value);
+                    using (frm_assessment_schedule_browser frm = new frm_assessment_schedule_browser(SubjectID))
                     {
-                        schedule = frm.picked_sched;
-                        dgSubjects.Rows[e.RowIndex].Cells["clmScheduleID"].Value = schedule.ScheduleID;
-                        dgSubjects.Rows[e.RowIndex].Cells["clmSchedule"].Value = schedule.ScheduleInfo;
+                        frm.StartPosition = FormStartPosition.CenterParent;
+                        Schedule schedule = new Schedule();
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            schedule = frm.picked_sched;
+                            dgSubjects.Rows[e.RowIndex].Cells["clmScheduleID"].Value = schedule.ScheduleID;
+                            dgSubjects.Rows[e.RowIndex].Cells["clmSchedule"].Value = schedule.ScheduleInfo;
+                        }
+                    }
+
+                }
+                else if (e.ColumnIndex == clmSubjectRemove.Index)
+                {
+                    //other code here..
+                    if (MessageBox.Show("Are you sure you want to remove this subject?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        dgSubjects.Rows.Remove(dgSubjects.Rows[e.RowIndex]);
+                        CalculateFeeSummary();
                     }
                 }
+            }
+            catch (Exception)
+            { }
 
-            }
-            else if (e.ColumnIndex == clmSubjectRemove.Index)
-            {
-                //other code here..
-                if (MessageBox.Show("Are you sure you want to remove this subject?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    dgSubjects.Rows.Remove(dgSubjects.Rows[e.RowIndex]);
-                    CalculateFeeSummary();
-                }
-            }
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -677,9 +699,9 @@ namespace COLM_SYSTEM.Assessment_Folder
                 }
             }
 
-            if (cmbAssessmentType.Text == string.Empty)
+            if (cmbPaymentMode.Text == string.Empty)
             {
-                MessageBox.Show("Please select assessment type!", "Select Assessment Type", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select payment mode!", "Select Payment Mode", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -697,8 +719,8 @@ namespace COLM_SYSTEM.Assessment_Folder
 
 
             //get assessment type id
-            List<PaymentMode> assessmentTypes = cmbAssessmentType.Tag as List<PaymentMode>;
-            PaymentMode assessmentType = assessmentTypes[cmbAssessmentType.SelectedIndex];
+            List<PaymentMode> assessmentTypes = cmbPaymentMode.Tag as List<PaymentMode>;
+            PaymentMode assessmentType = assessmentTypes[cmbPaymentMode.SelectedIndex];
 
             //calculate total amount
             double TFee = Convert.ToDouble(txtTotalTFee.Text);

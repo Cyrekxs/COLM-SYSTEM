@@ -68,10 +68,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frm_subject_entry frm = new frm_subject_entry();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            DisplaySubjects();
+
         }
 
         private bool IsSubjectExists(int SubjectID)
@@ -108,6 +105,14 @@ namespace COLM_SYSTEM.Curriculum_Folder
                 }
 
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frm_subject_entry frm = new frm_subject_entry();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            DisplaySubjects();
         }
     }
 }
