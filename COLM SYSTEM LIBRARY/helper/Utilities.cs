@@ -12,5 +12,10 @@ namespace COLM_SYSTEM_LIBRARY.helper
         {
             return 1;
         }
+
+        public static int GetActiveSemester()
+        {
+            return 1;
+        }
     }
 }

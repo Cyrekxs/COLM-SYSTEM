@@ -878,5 +878,12 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             lblCount.Text = string.Concat("Total Subjects: ", dgSubjects.Rows.Count);
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frm_update_student_email frm = new frm_update_student_email(registeredStudent.StudentID);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

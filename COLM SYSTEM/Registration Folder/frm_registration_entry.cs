@@ -48,6 +48,13 @@ namespace COLM_SYSTEM.registration
 
             if (StudentRegistration.RegisterStudent(model) == true)
             {
+                EmailModel emailInfo = new EmailModel()
+                {
+                    To = _StudentInfo.EmailAddress,
+                    Subject = "COLM System Registration",
+                    Body = string.Concat("Hello ", _StudentInfo.StudentName, " we want to notify you that your account is now successfully registered to our system and now queued to Assessment")
+                };
+
                 MessageBox.Show("Student information has been successfully registered!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
                 Dispose();
@@ -80,6 +87,14 @@ namespace COLM_SYSTEM.registration
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frm_update_student_email frm = new frm_update_student_email(_StudentInfo.StudentID);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            _StudentInfo = StudentInfo.GetStudent(_StudentInfo.StudentID);
         }
     }
 }

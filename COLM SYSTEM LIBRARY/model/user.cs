@@ -1,10 +1,6 @@
 ﻿using COLM_SYSTEM_LIBRARY.helper;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace COLM_SYSTEM_LIBRARY.model
 {
@@ -17,8 +13,9 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string AccountPosition { get; set; }
         public int SchoolYearID { get; set; }
         public int SemesterID { get; set; }
+        public EmailCredential Credential { get; set; }
 
-        public static User login(string Username,string Password)
+        public static User login(string Username, string Password)
         {
             User user = new User();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
@@ -43,13 +40,78 @@ namespace COLM_SYSTEM_LIBRARY.model
                                     AccountPosition = Convert.ToString(reader["AccountPosition"]),
                                     SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                     SemesterID = Convert.ToInt32(reader["SemesterID"])
-                                };                                
+                                };
                             }
                         }
                     }
                 }
             }
+            user.Credential = EmailCredential.GetEmailCredential(user.UserID);
             return user;
+        }
+
+        public static int IsUsernameExists(string Username)
+        {
+            int UserID = 0;
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT UserID FROM settings.users WHERE Username = @Username", conn))
+                {
+                    comm.Parameters.AddWithValue("@Username", Username);
+                    UserID = Convert.ToInt32(comm.ExecuteScalar());
+                }
+            }
+            return UserID;
+        }
+
+        public static int CreateUser(User user)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlTransaction t = conn.BeginTransaction())
+                {
+                    int UserID = 0;
+                    using (SqlCommand comm = new SqlCommand("SELECT UserID FROM settings.users WHERE Username = @Username", conn, t))
+                    {
+                        comm.Parameters.AddWithValue("@Username", user.Username);
+                        UserID = Convert.ToInt32(comm.ExecuteScalar());
+                    }
+
+                    if (UserID == 0)
+                    {
+                        using (SqlCommand comm = new SqlCommand("INSERT INTO settings.users VALUES (@Username,@Password,@AccountName,@AccountPosition,@SchoolYearID,@SemesterID)", conn, t))
+                        {
+                            comm.Parameters.AddWithValue("@Username", user.Username);
+                            comm.Parameters.AddWithValue("@Password", user.Password);
+                            comm.Parameters.AddWithValue("@AccountName", user.AccountName);
+                            comm.Parameters.AddWithValue("@AccountPosition", user.AccountPosition);
+                            comm.Parameters.AddWithValue("@SchoolYearID", Utilities.GetActiveSchoolYear());
+                            comm.Parameters.AddWithValue("@SemesterID", Utilities.GetActiveSemester());
+                            comm.ExecuteNonQuery();
+                        }
+
+                        using (SqlCommand comm = new SqlCommand("SELECT UserID FROM settings.users (NOLOCK) WHERE Username = @Username", conn, t))
+                        {
+                            comm.Parameters.AddWithValue("@Username", user.Username);
+                            UserID = Convert.ToInt32(comm.ExecuteScalar());
+                        }
+
+                        using (SqlCommand comm = new SqlCommand("INSERT INTO settings.email_accounts VALUES (@UserID,@Email,@Password)", conn, t))
+                        {
+                            comm.Parameters.AddWithValue("@UserID", UserID);
+                            comm.Parameters.AddWithValue("@Email", user.Credential.Email);
+                            comm.Parameters.AddWithValue("@Password", user.Password);
+                            comm.ExecuteNonQuery();
+                        }
+
+                        t.Commit();
+                        return 1;
+                    }
+                }
+            }
+            return 0;
         }
     }
 }

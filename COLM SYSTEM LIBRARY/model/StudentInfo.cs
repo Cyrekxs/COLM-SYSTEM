@@ -40,6 +40,12 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return StudentInfo_DS.GetStudents();
         }
+
+        public static async Task<List<StudentInfo>> GetStudentsAsync()
+        {
+            return await StudentInfo_DS.GetStudentsAsync();
+        }
+
         public static StudentInfo GetStudent(int StudentID)
         {
             return StudentInfo_DS.GetStudent(StudentID);
@@ -63,6 +69,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static bool UpdateStudentGuardian(StudentGuardian guardian)
         {
             return StudentInfo_DS.UpdateStudentGuardian(guardian);
+        }
+
+        public static int UpdateStudentEmail(int StudentID, string Email)
+        {
+            return StudentInfo_DS.UpdateStudentEmail(StudentID, Email);
         }
     }
 }

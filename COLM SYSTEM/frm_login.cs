@@ -1,12 +1,5 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM
@@ -21,10 +14,10 @@ namespace COLM_SYSTEM
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
-            Dispose();            
+            Dispose();
         }
 
-        private void VerifyCredentials(string username,string password)
+        private void VerifyCredentials(string username, string password)
         {
             User user = User.login(username, password);
 
@@ -51,14 +44,14 @@ namespace COLM_SYSTEM
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                VerifyCredentials(txtUsername.Text,txtPassword.Text);
+                VerifyCredentials(txtUsername.Text, txtPassword.Text);
             }
         }
 
@@ -77,7 +70,7 @@ namespace COLM_SYSTEM
 
         private void buttonRounded1_Click(object sender, EventArgs e)
         {
-             
+
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -91,6 +84,10 @@ namespace COLM_SYSTEM
                 txtPassword.UseSystemPasswordChar = false;
             else
                 txtPassword.UseSystemPasswordChar = true;
+        }
+
+        private async void button3_ClickAsync(object sender, EventArgs e)
+        {
         }
     }
 }

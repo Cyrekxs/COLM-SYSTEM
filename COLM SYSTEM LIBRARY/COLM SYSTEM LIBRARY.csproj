@@ -65,6 +65,8 @@
     <Compile Include="helper\SQLHelper.cs" />
     <Compile Include="helper\Utilities.cs" />
     <Compile Include="model\Address.cs" />
+    <Compile Include="model\EmailCredential.cs" />
+    <Compile Include="model\EmailModel.cs" />
     <Compile Include="model\PaymentMode.cs" />
     <Compile Include="model\PaymentModeItem.cs" />
     <Compile Include="model\Assessment Folder\AssessmentSubjectAdditionalFee.cs" />

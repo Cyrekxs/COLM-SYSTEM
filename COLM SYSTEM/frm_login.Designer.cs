@@ -33,10 +33,10 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -111,6 +111,17 @@
             this.panel2.Size = new System.Drawing.Size(379, 724);
             this.panel2.TabIndex = 28;
             // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label5.Location = new System.Drawing.Point(277, 664);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 26);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "VERSION";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -148,17 +159,6 @@
             this.label6.TabIndex = 31;
             this.label6.Text = "3.0.0.0";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label5.Location = new System.Drawing.Point(277, 664);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 26);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "VERSION";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 

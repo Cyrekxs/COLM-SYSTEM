@@ -231,6 +231,12 @@
     <Compile Include="frm_print_preview.Designer.cs">
       <DependentUpon>frm_print_preview.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_update_student_email.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_update_student_email.Designer.cs">
+      <DependentUpon>frm_update_student_email.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payment Folder\frm_browse_fees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +346,12 @@
     <Compile Include="UC_DashBoard.Designer.cs">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Folder\frm_user_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Folder\frm_user_entry.Designer.cs">
+      <DependentUpon>frm_user_entry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -427,6 +439,9 @@
     <EmbeddedResource Include="frm_print_preview.resx">
       <DependentUpon>frm_print_preview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_update_student_email.resx">
+      <DependentUpon>frm_update_student_email.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\frm_browse_fees.resx">
       <DependentUpon>frm_browse_fees.cs</DependentUpon>
     </EmbeddedResource>
@@ -499,6 +514,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_DashBoard.resx">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Folder\frm_user_entry.resx">
+      <DependentUpon>frm_user_entry.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Assessment Folder\DataSets\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>

@@ -16,7 +16,7 @@ namespace COLM_SYSTEM.student_information
         public uc_student_information_list()
         {
             InitializeComponent();
-            LoadStudents();
+            LoadStudentsAsync();
         }
 
         private void LoadStudents()
@@ -37,13 +37,31 @@ namespace COLM_SYSTEM.student_information
             lblCount.Text = "Record Count(s): " + dataGridView1.Rows.Count.ToString();
         }
 
+        private async Task LoadStudentsAsync()
+        {
+            List<StudentInfo> students = await StudentInfo.GetStudentsAsync();
+            dataGridView1.Rows.Clear();
+
+            if (txtSearch.Text != string.Empty)
+            {
+                students = students.Where(item => item.StudentName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            }
+
+            foreach (var item in students)
+            {
+                dataGridView1.Rows.Add(item.StudentID, item.LRN, item.StudentName, item.Gender, item.BirthDate.ToString("MM - dd - yyyy"), item.MobileNo, item.GuardianName, item.GuardianMobile);
+            }
+
+            lblCount.Text = "Record Count(s): " + dataGridView1.Rows.Count.ToString();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             using (frm_student_information_entry frm = new frm_student_information_entry())
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-                LoadStudents();
+                LoadStudentsAsync();
             }
         }
 
@@ -57,7 +75,7 @@ namespace COLM_SYSTEM.student_information
                 {
                     frm.StartPosition = FormStartPosition.CenterParent;
                     frm.ShowDialog();
-                    LoadStudents();
+                    LoadStudentsAsync();
                 }
             }
         }
@@ -66,13 +84,13 @@ namespace COLM_SYSTEM.student_information
         {
             if (e.KeyCode == Keys.Enter)
             {
-                LoadStudents();
+                LoadStudentsAsync();
             }
             else if (e.KeyCode == Keys.Back)
             {
                 if (txtSearch.Text == string.Empty)
                 {
-                    LoadStudents();
+                    LoadStudentsAsync();
                 }
             }
         }
