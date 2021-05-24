@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\Colm\colm system 2021\</UpdateUrl>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -101,6 +101,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_direct_discount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_direct_discount.Designer.cs">
+      <DependentUpon>frm_assessment_direct_discount.cs</DependentUpon>
     </Compile>
     <Compile Include="Assessment Folder\frm_assessment_additional_fee_viewer.cs">
       <SubType>Form</SubType>
@@ -206,6 +212,12 @@
     </Compile>
     <Compile Include="Fees Folder\frm_tuition_entry_additional_fee.Designer.cs">
       <DependentUpon>frm_tuition_entry_additional_fee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fees Folder\frm_tuition_entry_browse_subject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fees Folder\frm_tuition_entry_browse_subject.Designer.cs">
+      <DependentUpon>frm_tuition_entry_browse_subject.cs</DependentUpon>
     </Compile>
     <Compile Include="Fees Folder\uc_tuition_list.cs">
       <SubType>UserControl</SubType>
@@ -346,6 +358,12 @@
     <Compile Include="UC_DashBoard.Designer.cs">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Folder\frm_setup_email.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Folder\frm_setup_email.Designer.cs">
+      <DependentUpon>frm_setup_email.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Folder\frm_user_entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -375,6 +393,9 @@
     </Compile>
     <EmbeddedResource Include="Assessment Folder\frm_assessment_additional_fee_viewer.resx">
       <DependentUpon>frm_assessment_additional_fee_viewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assessment Folder\frm_assessment_direct_discount.resx">
+      <DependentUpon>frm_assessment_direct_discount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Assessment Folder\frm_assessment_entry_2.resx">
       <DependentUpon>frm_assessment_entry_2.cs</DependentUpon>
@@ -426,6 +447,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\frm_tuition_entry_additional_fee.resx">
       <DependentUpon>frm_tuition_entry_additional_fee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fees Folder\frm_tuition_entry_browse_subject.resx">
+      <DependentUpon>frm_tuition_entry_browse_subject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\uc_tuition_list.resx">
       <DependentUpon>uc_tuition_list.cs</DependentUpon>
@@ -514,6 +538,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_DashBoard.resx">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Folder\frm_setup_email.resx">
+      <DependentUpon>frm_setup_email.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Folder\frm_user_entry.resx">
       <DependentUpon>frm_user_entry.cs</DependentUpon>
@@ -620,7 +647,6 @@
   <ItemGroup>
     <Folder Include="SqlServerTypes\x64\" />
     <Folder Include="SqlServerTypes\x86\" />
-    <Folder Include="User Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

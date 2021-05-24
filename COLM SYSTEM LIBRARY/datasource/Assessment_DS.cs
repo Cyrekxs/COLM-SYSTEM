@@ -142,6 +142,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 AssessmentID = AssessmentID,
                                 DiscountID = Convert.ToInt32(reader["DiscountID"]),
                                 DiscountType = Convert.ToString(reader["Type"]),
+                                Value = Convert.ToDouble(reader["Value"]),
                                 TFee = Convert.ToDouble(reader["TFee"]),
                                 MFee = Convert.ToDouble(reader["MFee"]),
                                 OFee = Convert.ToDouble(reader["OFee"])
@@ -165,7 +166,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 AssessmentBreakdownID = Convert.ToInt32(reader["AssessmentBreakDownID"]),
                                 AssessmentID = AssessmentID,
-                                ItemCode = Convert.ToString(reader["ItemCode"]),
+                                ItemCode = Convert.ToString(reader["ItemCode"]),                                
                                 Amount = Convert.ToDouble(reader["Amount"]),
                                 DueDate = Convert.ToString(reader["DueDate"])
                             };

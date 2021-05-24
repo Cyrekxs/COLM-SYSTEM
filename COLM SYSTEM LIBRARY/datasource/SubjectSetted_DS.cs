@@ -30,16 +30,16 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         comm.Parameters.AddWithValue("@SubjectPrice", item.SubjPrice);
                         comm.Parameters.AddWithValue("@SubjectType", item.SubjType);
                         if (comm.ExecuteNonQuery() > 0)
-                            result +=1;
+                            result += 1;
                     }
                 }
 
             }
             return result;
         }
-    
+
         //Returns a list of subjects that is not setted
-        public static List<SubjectSetted> GetCurriculumSubjects(int CurriculumID,int YearLevelID,int SemesterID = 0)
+        public static List<SubjectSetted> GetCurriculumSubjects(int CurriculumID, int YearLevelID, int SemesterID = 0)
         {
             List<SubjectSetted> subjects = new List<SubjectSetted>();
             string sql;
@@ -47,7 +47,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 sql = "SELECT * FROM fn_list_CurriculumSubjects() WHERE CurriculumID = @CurriculumID AND YearLevelID = @YearLevelID";
             else
                 sql = "SELECT * FROM fn_list_CurriculumSubjects() WHERE CurriculumID = @CurriculumID AND YearLevelID = @YearLevelID AND SemesterID = @SemesterID";
-            
+
 
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
@@ -81,8 +81,44 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return subjects;
         }
 
+
+        public static List<SubjectSetted> GetCurriculumSubjects(int CurriculumID)
+        {
+            List<SubjectSetted> subjects = new List<SubjectSetted>();
+            string sql;
+            sql = "SELECT * FROM fn_list_CurriculumSubjects() WHERE CurriculumID = @CurriculumID";
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand(sql, conn))
+                {
+                    comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            SubjectSetted subject = new SubjectSetted()
+                            {
+                                CurriculumSubjID = Convert.ToInt32(reader["CurriculumSubjectID"]),
+                                CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
+                                YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
+                                SubjCode = Convert.ToString(reader["SubjCode"]),
+                                SubjDesc = Convert.ToString(reader["SubjDesc"]),
+                                LecUnit = Convert.ToInt32(reader["LecUnit"]),
+                                LabUnit = Convert.ToInt32(reader["LabUnit"]),
+                                Unit = Convert.ToInt32(reader["Unit"]),
+                                Bridging = Convert.ToBoolean(reader["IsBridging"])
+                            };
+                            subjects.Add(subject);
+                        }
+                    }
+                }
+            }
+            return subjects;
+        }
+
         //Returns a list of subjects setted via curriculum id , yearlevel and semester id
-        public static List<SubjectSetted> GetSubjectSetted(int CurriculumID,int YearLevelID, int SchoolYearID, int SemesterID)
+        public static List<SubjectSetted> GetSubjectSetted(int CurriculumID, int YearLevelID, int SchoolYearID, int SemesterID)
         {
             List<SubjectSetted> subjects = new List<SubjectSetted>();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
@@ -149,7 +185,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 SubjPrice = Convert.ToDouble(reader["SubjectPrice"]),
                                 AdditionalFee = Convert.ToDouble(reader["AdditionalFee"]),
                                 SubjType = Convert.ToString(reader["SubjectType"])
-                            };                           
+                            };
                         }
                     }
                 }

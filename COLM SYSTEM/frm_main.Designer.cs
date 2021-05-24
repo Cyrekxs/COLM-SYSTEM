@@ -73,6 +73,8 @@
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.aDMINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -371,7 +373,8 @@
             this.tRANSACTIONToolStripMenuItem,
             this.sETTINGSToolStripMenuItem,
             this.rEPORTSToolStripMenuItem,
-            this.cLOSEALLFORMSToolStripMenuItem});
+            this.cLOSEALLFORMSToolStripMenuItem,
+            this.aDMINToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 72);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1060, 24);
@@ -393,35 +396,35 @@
             this.aSSESSMENTToolStripMenuItem,
             this.pAYMENTToolStripMenuItem});
             this.tRANSACTIONToolStripMenuItem.Name = "tRANSACTIONToolStripMenuItem";
-            this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
             this.tRANSACTIONToolStripMenuItem.Text = "TRANSACTION";
             // 
             // iNFORMATIONToolStripMenuItem
             // 
             this.iNFORMATIONToolStripMenuItem.Name = "iNFORMATIONToolStripMenuItem";
-            this.iNFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.iNFORMATIONToolStripMenuItem.Text = "INFORMATION";
+            this.iNFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iNFORMATIONToolStripMenuItem.Text = "Information";
             this.iNFORMATIONToolStripMenuItem.Click += new System.EventHandler(this.iNFORMATIONToolStripMenuItem_Click);
             // 
             // rEGISTRATIONToolStripMenuItem
             // 
             this.rEGISTRATIONToolStripMenuItem.Name = "rEGISTRATIONToolStripMenuItem";
-            this.rEGISTRATIONToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.rEGISTRATIONToolStripMenuItem.Text = "REGISTRATION";
+            this.rEGISTRATIONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rEGISTRATIONToolStripMenuItem.Text = "Registration";
             this.rEGISTRATIONToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRATIONToolStripMenuItem_Click);
             // 
             // aSSESSMENTToolStripMenuItem
             // 
             this.aSSESSMENTToolStripMenuItem.Name = "aSSESSMENTToolStripMenuItem";
-            this.aSSESSMENTToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.aSSESSMENTToolStripMenuItem.Text = "ASSESSMENT";
+            this.aSSESSMENTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aSSESSMENTToolStripMenuItem.Text = "Assessment";
             this.aSSESSMENTToolStripMenuItem.Click += new System.EventHandler(this.aSSESSMENTToolStripMenuItem_Click);
             // 
             // pAYMENTToolStripMenuItem
             // 
             this.pAYMENTToolStripMenuItem.Name = "pAYMENTToolStripMenuItem";
-            this.pAYMENTToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.pAYMENTToolStripMenuItem.Text = "PAYMENT";
+            this.pAYMENTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pAYMENTToolStripMenuItem.Text = "Payment";
             this.pAYMENTToolStripMenuItem.Click += new System.EventHandler(this.pAYMENTToolStripMenuItem_Click);
             // 
             // sETTINGSToolStripMenuItem
@@ -434,21 +437,21 @@
             this.sECTIONSToolStripMenuItem,
             this.aSSESSMENTTYPEToolStripMenuItem});
             this.sETTINGSToolStripMenuItem.Name = "sETTINGSToolStripMenuItem";
-            this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.sETTINGSToolStripMenuItem.Text = "SETTINGS";
             // 
             // sUBJECTSToolStripMenuItem
             // 
             this.sUBJECTSToolStripMenuItem.Name = "sUBJECTSToolStripMenuItem";
-            this.sUBJECTSToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.sUBJECTSToolStripMenuItem.Text = "SUBJECTS";
+            this.sUBJECTSToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.sUBJECTSToolStripMenuItem.Text = "Subjects";
             this.sUBJECTSToolStripMenuItem.Click += new System.EventHandler(this.sUBJECTSToolStripMenuItem_Click);
             // 
             // cURRICULUMToolStripMenuItem
             // 
             this.cURRICULUMToolStripMenuItem.Name = "cURRICULUMToolStripMenuItem";
-            this.cURRICULUMToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.cURRICULUMToolStripMenuItem.Text = "CURRICULUM";
+            this.cURRICULUMToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.cURRICULUMToolStripMenuItem.Text = "Curriculum";
             this.cURRICULUMToolStripMenuItem.Click += new System.EventHandler(this.cURRICULUMToolStripMenuItem_Click);
             // 
             // fEESToolStripMenuItem
@@ -458,50 +461,49 @@
             this.aDDITIONALFEEToolStripMenuItem,
             this.dEFAULTFEESToolStripMenuItem});
             this.fEESToolStripMenuItem.Name = "fEESToolStripMenuItem";
-            this.fEESToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.fEESToolStripMenuItem.Text = "FEES";
-            this.fEESToolStripMenuItem.Click += new System.EventHandler(this.fEESToolStripMenuItem_Click);
+            this.fEESToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.fEESToolStripMenuItem.Text = "Fees";
             // 
             // mISCELLANEOUSFEESToolStripMenuItem
             // 
             this.mISCELLANEOUSFEESToolStripMenuItem.Name = "mISCELLANEOUSFEESToolStripMenuItem";
-            this.mISCELLANEOUSFEESToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.mISCELLANEOUSFEESToolStripMenuItem.Text = "TUITION FEE";
+            this.mISCELLANEOUSFEESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mISCELLANEOUSFEESToolStripMenuItem.Text = "Tuition Fee";
             this.mISCELLANEOUSFEESToolStripMenuItem.Click += new System.EventHandler(this.mISCELLANEOUSFEESToolStripMenuItem_Click);
             // 
             // aDDITIONALFEEToolStripMenuItem
             // 
             this.aDDITIONALFEEToolStripMenuItem.Name = "aDDITIONALFEEToolStripMenuItem";
-            this.aDDITIONALFEEToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.aDDITIONALFEEToolStripMenuItem.Text = "ADDITIONAL FEE";
+            this.aDDITIONALFEEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aDDITIONALFEEToolStripMenuItem.Text = "Additional Fee";
             this.aDDITIONALFEEToolStripMenuItem.Click += new System.EventHandler(this.aDDITIONALFEEToolStripMenuItem_Click);
             // 
             // dEFAULTFEESToolStripMenuItem
             // 
             this.dEFAULTFEESToolStripMenuItem.Name = "dEFAULTFEESToolStripMenuItem";
-            this.dEFAULTFEESToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.dEFAULTFEESToolStripMenuItem.Text = "DEFAULT FEES";
+            this.dEFAULTFEESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dEFAULTFEESToolStripMenuItem.Text = "Default Fee";
             this.dEFAULTFEESToolStripMenuItem.Click += new System.EventHandler(this.dEFAULTFEESToolStripMenuItem_Click);
             // 
             // dISCOUNTToolStripMenuItem
             // 
             this.dISCOUNTToolStripMenuItem.Name = "dISCOUNTToolStripMenuItem";
-            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.dISCOUNTToolStripMenuItem.Text = "DISCOUNTS";
+            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.dISCOUNTToolStripMenuItem.Text = "Discounts";
             this.dISCOUNTToolStripMenuItem.Click += new System.EventHandler(this.dISCOUNTToolStripMenuItem_Click);
             // 
             // sECTIONSToolStripMenuItem
             // 
             this.sECTIONSToolStripMenuItem.Name = "sECTIONSToolStripMenuItem";
-            this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.sECTIONSToolStripMenuItem.Text = "SECTIONS AND SCHEDULE";
+            this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.sECTIONSToolStripMenuItem.Text = "Section and Schedules";
             this.sECTIONSToolStripMenuItem.Click += new System.EventHandler(this.sECTIONSToolStripMenuItem_Click);
             // 
             // aSSESSMENTTYPEToolStripMenuItem
             // 
             this.aSSESSMENTTYPEToolStripMenuItem.Name = "aSSESSMENTTYPEToolStripMenuItem";
-            this.aSSESSMENTTYPEToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.aSSESSMENTTYPEToolStripMenuItem.Text = "ASSESSMENT PAYMENT MODES";
+            this.aSSESSMENTTYPEToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.aSSESSMENTTYPEToolStripMenuItem.Text = "Assessment Payment Modes";
             this.aSSESSMENTTYPEToolStripMenuItem.Click += new System.EventHandler(this.aSSESSMENTTYPEToolStripMenuItem_Click);
             // 
             // rEPORTSToolStripMenuItem
@@ -509,13 +511,13 @@
             this.rEPORTSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mASTERLISTToolStripMenuItem});
             this.rEPORTSToolStripMenuItem.Name = "rEPORTSToolStripMenuItem";
-            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.rEPORTSToolStripMenuItem.Text = "REPORTS";
             // 
             // mASTERLISTToolStripMenuItem
             // 
             this.mASTERLISTToolStripMenuItem.Name = "mASTERLISTToolStripMenuItem";
-            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.mASTERLISTToolStripMenuItem.Text = "MASTER LIST";
             // 
             // cLOSEALLFORMSToolStripMenuItem
@@ -529,6 +531,20 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // aDMINToolStripMenuItem
+            // 
+            this.aDMINToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usersToolStripMenuItem});
+            this.aDMINToolStripMenuItem.Name = "aDMINToolStripMenuItem";
+            this.aDMINToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.aDMINToolStripMenuItem.Text = "ADMIN";
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem.Text = "Users";
             // 
             // frm_main
             // 
@@ -548,6 +564,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "DASHBOARD";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frm_main_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -607,5 +624,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem dEFAULTFEESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aSSESSMENTTYPEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aDMINToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
     }
 }

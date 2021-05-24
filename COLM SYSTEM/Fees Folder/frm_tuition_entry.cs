@@ -266,7 +266,13 @@ namespace COLM_SYSTEM.fees_folder
                     frm.ShowDialog();
                     dgTuition.Rows[e.RowIndex].Cells["clmAdditionalFee"].Value = frm.additionalFees.Sum(r => r.Amount).ToString("n");
                 }
-
+            }
+            else if (e.ColumnIndex == clmRemove.Index)
+            {
+                if (MessageBox.Show("Remove this subject?","Remove Subject",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    dgTuition.Rows.Remove(dgTuition.Rows[e.RowIndex]);
+                }
             }
         }
 
@@ -407,7 +413,9 @@ namespace COLM_SYSTEM.fees_folder
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            frm_tuition_entry_browse_subject frm = new frm_tuition_entry_browse_subject(cmbCurriculumCode.Text,dgTuition);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)

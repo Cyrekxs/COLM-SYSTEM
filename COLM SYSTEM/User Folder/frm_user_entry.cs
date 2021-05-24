@@ -85,5 +85,29 @@ namespace COLM_SYSTEM.User_Folder
             }
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked == true)
+            {
+                txtEmailPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtEmailPassword.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

@@ -51,10 +51,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return Fee_DS.GetFee(FeeID);
         }
-        public static List<FeeSummary> GetFeeSummaries()
-        {
-            return Fee_DS.GetFeeSummaries();
-        }
+
         public static List<Fee> GetSettedFees(int CurriculumID, int YearLevelID, int SchoolYearID, int SemesterID)
         {
             return Fee_DS.GetSettedFees(CurriculumID, YearLevelID, SchoolYearID, SemesterID);

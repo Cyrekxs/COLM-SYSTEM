@@ -30,13 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtAccountName = new System.Windows.Forms.TextBox();
-            this.cmbPosition = new System.Windows.Forms.ComboBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.cmbPosition = new System.Windows.Forms.ComboBox();
+            this.txtAccountName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtEmailPassword = new System.Windows.Forms.TextBox();
@@ -46,6 +46,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +64,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.txtUsername);
             this.panel1.Controls.Add(this.cmbPosition);
@@ -72,42 +75,23 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(15, 39);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(424, 210);
+            this.panel1.Size = new System.Drawing.Size(424, 219);
             this.panel1.TabIndex = 1;
             // 
-            // label2
+            // txtPassword
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Position";
+            this.txtPassword.Location = new System.Drawing.Point(18, 166);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(391, 23);
+            this.txtPassword.TabIndex = 7;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
-            // label3
+            // txtUsername
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 15);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Username";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 148);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 15);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Password";
-            // 
-            // txtAccountName
-            // 
-            this.txtAccountName.Location = new System.Drawing.Point(18, 34);
-            this.txtAccountName.Name = "txtAccountName";
-            this.txtAccountName.Size = new System.Drawing.Size(391, 23);
-            this.txtAccountName.TabIndex = 4;
+            this.txtUsername.Location = new System.Drawing.Point(18, 122);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(391, 23);
+            this.txtUsername.TabIndex = 6;
             // 
             // cmbPosition
             // 
@@ -123,19 +107,39 @@
             this.cmbPosition.Size = new System.Drawing.Size(391, 23);
             this.cmbPosition.TabIndex = 5;
             // 
-            // txtUsername
+            // txtAccountName
             // 
-            this.txtUsername.Location = new System.Drawing.Point(18, 122);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(391, 23);
-            this.txtUsername.TabIndex = 6;
+            this.txtAccountName.Location = new System.Drawing.Point(18, 34);
+            this.txtAccountName.Name = "txtAccountName";
+            this.txtAccountName.Size = new System.Drawing.Size(391, 23);
+            this.txtAccountName.TabIndex = 4;
             // 
-            // txtPassword
+            // label4
             // 
-            this.txtPassword.Location = new System.Drawing.Point(18, 166);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(391, 23);
-            this.txtPassword.TabIndex = 7;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 148);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 15);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Password";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 15);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Username";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Position";
             // 
             // label5
             // 
@@ -150,13 +154,14 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.checkBox2);
             this.panel2.Controls.Add(this.txtEmailPassword);
             this.panel2.Controls.Add(this.txtEmail);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Location = new System.Drawing.Point(15, 268);
+            this.panel2.Location = new System.Drawing.Point(15, 288);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(424, 116);
+            this.panel2.Size = new System.Drawing.Size(424, 141);
             this.panel2.TabIndex = 3;
             // 
             // txtEmailPassword
@@ -165,6 +170,7 @@
             this.txtEmailPassword.Name = "txtEmailPassword";
             this.txtEmailPassword.Size = new System.Drawing.Size(391, 23);
             this.txtEmailPassword.TabIndex = 7;
+            this.txtEmailPassword.UseSystemPasswordChar = true;
             // 
             // txtEmail
             // 
@@ -195,7 +201,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(12, 252);
+            this.label10.Location = new System.Drawing.Point(12, 272);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(83, 15);
             this.label10.TabIndex = 4;
@@ -208,7 +214,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(323, 390);
+            this.button1.Location = new System.Drawing.Point(323, 435);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 30);
             this.button1.TabIndex = 20;
@@ -223,18 +229,40 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.Location = new System.Drawing.Point(201, 390);
+            this.button3.Location = new System.Drawing.Point(201, 435);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(116, 30);
             this.button3.TabIndex = 22;
             this.button3.Text = "CANCEL";
             this.button3.UseVisualStyleBackColor = false;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(18, 195);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(112, 19);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Show Password";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(18, 107);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(112, 19);
+            this.checkBox2.TabIndex = 8;
+            this.checkBox2.Text = "Show Password";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
             // frm_user_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 440);
+            this.ClientSize = new System.Drawing.Size(459, 490);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
@@ -275,5 +303,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

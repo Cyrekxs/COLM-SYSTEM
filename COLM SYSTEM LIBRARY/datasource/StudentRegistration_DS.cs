@@ -66,7 +66,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 Lastname = Convert.ToString(reader["Lastname"]),
                                 Firstname = Convert.ToString(reader["Firstname"]),
                                 Middlename = Convert.ToString(reader["Middlename"]),
-                                ExtensionName = Convert.ToString(reader["ExtensionName"]),
                                 BirthDate = Convert.ToDateTime(reader["BirthDate"]),
                                 Gender = Convert.ToString(reader["Gender"]),
                                 Street = Convert.ToString(reader["Street"]),

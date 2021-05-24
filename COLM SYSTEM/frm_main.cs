@@ -9,6 +9,7 @@ using COLM_SYSTEM.Section_Folder;
 using COLM_SYSTEM.Settings_Folder;
 using COLM_SYSTEM.student_information;
 using COLM_SYSTEM.subject;
+using COLM_SYSTEM.User_Folder;
 using System;
 using System.Windows.Forms;
 
@@ -41,11 +42,6 @@ namespace COLM_SYSTEM
             lblPosition.Text = Utilties.user.AccountPosition;
         }
 
-        private void frm_main_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void sUBJECTSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_subject_list());
@@ -54,16 +50,6 @@ namespace COLM_SYSTEM
         private void dISCOUNTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_discount_list());
-        }
-
-        private void fEESToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cURRICULUMBUILDERToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void rEGISTRATIONToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,11 +72,6 @@ namespace COLM_SYSTEM
             frm_section_lists frm = new frm_section_lists();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
-        }
-
-        private void mISCELLANEOUSFEEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void mISCELLANEOUSFEESToolStripMenuItem_Click(object sender, EventArgs e)
@@ -152,6 +133,17 @@ namespace COLM_SYSTEM
             frm_assessment_payment_mode_list frm = new frm_assessment_payment_mode_list();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+        }
+
+        private void frm_main_Load_1(object sender, EventArgs e)
+        {
+            if (Utilties.user.Credential.EmailID == 0)
+            {
+                MessageBox.Show("Program detected that your system account has no email setted please setup your email account!", "Email Account Setup", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                frm_setup_email frm = new frm_setup_email();
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
         }
     }
 }

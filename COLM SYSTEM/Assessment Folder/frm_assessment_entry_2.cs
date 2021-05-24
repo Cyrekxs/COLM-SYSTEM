@@ -144,6 +144,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 Discount discount = Discount.GetDiscount(item.DiscountID);
                 discount.Type = assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.DiscountType).First();
+                discount.TotalValue = assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.Value).First();
                 discount.TFee = assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.TFee).First();
                 discount.MFee = assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.MFee).First();
                 discount.OFee = assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.OFee).First();
@@ -584,8 +585,26 @@ namespace COLM_SYSTEM.Assessment_Folder
             if (cmbDiscount.Text != string.Empty)
             {
                 List<Discount> discounts = cmbDiscount.Tag as List<Discount>;
-                Discount discount = discounts[cmbDiscount.SelectedIndex];
-                AddedDiscounts.Add(discount);
+                if (cmbDiscount.Text.ToLower() == "direct discount")
+                {
+                    using (frm_assessment_direct_discount frm = new frm_assessment_direct_discount())
+                    {
+                        frm.StartPosition = FormStartPosition.CenterParent;
+                        frm.ShowDialog();
+
+                        if (frm.DialogResult == DialogResult.OK)
+                        {
+                            Discount discount = discounts[cmbDiscount.SelectedIndex];
+                            discount.TotalValue = frm.DirectAmountDiscount;
+                            AddedDiscounts.Add(discount);
+                        }
+                    }
+                }
+                else
+                {
+                    Discount discount = discounts[cmbDiscount.SelectedIndex];
+                    AddedDiscounts.Add(discount);
+                }
             }
             CalculateFeeSummary();
         }

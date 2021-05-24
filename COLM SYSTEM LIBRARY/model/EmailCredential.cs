@@ -51,6 +51,7 @@ namespace COLM_SYSTEM_LIBRARY.model
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.email_accounts WHERE UserID = @UserID", conn))
                 {
+                    comm.Parameters.AddWithValue("@UserID", UserID);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         while (reader.Read())
