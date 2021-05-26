@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbCourseStrand = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,6 +62,7 @@
             this.clmYearLevel = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.clmSemester = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -180,11 +181,11 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.DarkSlateGray;
-            this.linkLabel1.Location = new System.Drawing.Point(802, 9);
+            this.linkLabel1.Location = new System.Drawing.Point(809, 11);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(152, 17);
+            this.linkLabel1.Size = new System.Drawing.Size(145, 15);
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "+ Browse to Add Subjects";
@@ -311,8 +312,8 @@
             // clmLecUnit
             // 
             this.clmLecUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmLecUnit.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmLecUnit.DefaultCellStyle = dataGridViewCellStyle7;
             this.clmLecUnit.HeaderText = "Lec Unit";
             this.clmLecUnit.Name = "clmLecUnit";
             this.clmLecUnit.ReadOnly = true;
@@ -321,8 +322,8 @@
             // clmLabUnit
             // 
             this.clmLabUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmLabUnit.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmLabUnit.DefaultCellStyle = dataGridViewCellStyle8;
             this.clmLabUnit.HeaderText = "Lab Unit";
             this.clmLabUnit.Name = "clmLabUnit";
             this.clmLabUnit.ReadOnly = true;
@@ -331,8 +332,8 @@
             // clmTotalUnit
             // 
             this.clmTotalUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmTotalUnit.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmTotalUnit.DefaultCellStyle = dataGridViewCellStyle9;
             this.clmTotalUnit.HeaderText = "Total";
             this.clmTotalUnit.Name = "clmTotalUnit";
             this.clmTotalUnit.ReadOnly = true;
@@ -371,11 +372,27 @@
             this.clmAction.UseColumnTextForButtonValue = true;
             this.clmAction.Width = 47;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Firebrick;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(12, 574);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(278, 32);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "DELETE THIS CURRICULUM";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // frm_curriculum_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 618);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -429,5 +446,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn clmYearLevel;
         private System.Windows.Forms.DataGridViewComboBoxColumn clmSemester;
         private System.Windows.Forms.DataGridViewButtonColumn clmAction;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

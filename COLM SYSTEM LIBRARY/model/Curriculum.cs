@@ -68,6 +68,11 @@ namespace COLM_SYSTEM_LIBRARY.model
             return true;
         }
 
+        public static int DeleteCurriculum(Curriculum curriculum)
+        {
+            return Curriculum_DS.DeleteCurriculum(curriculum);
+        }
+
         public static List<Curriculum> GetCurriculums(string EducationLevel)
         {
             return Curriculum_DS.GetCurriculums(EducationLevel);

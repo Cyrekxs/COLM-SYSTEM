@@ -16,15 +16,16 @@ namespace COLM_SYSTEM.Curriculum_Folder
         string savingoption = "";
         Curriculum _curriculum = new Curriculum();
         List<CurriculumSubject> _curriculumSubjects = new List<CurriculumSubject>();
-
         List<SchoolSemester> semesters = SchoolSemester.GetSchoolSemesters();
-
         private int SelectedRow = -1;
         //EDIT
         public frm_curriculum_entry(Curriculum c, List<CurriculumSubject> subjects)
         {
-            savingoption = "EDIT";
             InitializeComponent();
+            savingoption = "EDIT";
+            //show delete button
+            btnDelete.Visible = true;
+
             DisplaySemestersOnCombobox();
             //Handle Data Error Event
             dataGridView1.DataError += DataGridview_DataError;
@@ -58,8 +59,10 @@ namespace COLM_SYSTEM.Curriculum_Folder
         //ADD
         public frm_curriculum_entry()
         {
-            savingoption = "ADD";
             InitializeComponent();
+            //hide delete button
+            btnDelete.Visible = false;
+            savingoption = "ADD";
             DisplaySemestersOnCombobox();
 
 
@@ -241,13 +244,6 @@ namespace COLM_SYSTEM.Curriculum_Folder
                         curriculumSubjects.Add(subject);
                     }
 
-                    //foreach (var item in curriculumSubjects)
-                    //{
-                    //    item.CurriculumSubjectID = (from r in _curriculumSubjects
-                    //                                where r.CurriculumID == item.CurriculumID && r.SubjectID == item.SubjectID
-                    //                                select r.CurriculumSubjectID).FirstOrDefault();
-                    //}
-
 
                     bool result = Curriculum.UpdateCurriculum(curriculum, curriculumSubjects);
 
@@ -311,6 +307,24 @@ namespace COLM_SYSTEM.Curriculum_Folder
             frm_curriculum_subject_browser frm = new frm_curriculum_subject_browser(dataGridView1, SelectedRow,selectedCurriculumSubjectID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete this curriculum? this will check first if there's registered students in this curriculum","Delete Curriculum",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                int result = Curriculum.DeleteCurriculum(_curriculum);
+                if (result < 0)
+                {
+                    MessageBox.Show(string.Concat("Cannot Delete this curriculum there was a ", result * -1, " student(s) registered"), "Delete Curriculum Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);                    
+                }
+                else
+                {
+                    MessageBox.Show("Curriculum successfully deleted!", "Curriculum Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                    Dispose();
+                }
+            }
         }
     }
 }

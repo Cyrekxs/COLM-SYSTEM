@@ -32,6 +32,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
             _dg = dg;
             _rowIndex = rowIndex;
             AddStatus = "CUSTOM INSERT";
+            clmAdd.Text = "Insert";
             DisplaySubjects();
         }
 
@@ -43,6 +44,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
             _rowIndex = rowIndex;
             _CurriculumSubjectID = CurriculumSubjectID;
             AddStatus = "CHANGE SUBJECT";
+            clmAdd.Text = "Change to this";
             DisplaySubjects();
         }
 
@@ -130,14 +132,24 @@ namespace COLM_SYSTEM.Curriculum_Folder
                 }
                 else if (AddStatus == "CHANGE SUBJECT")
                 {
-                    _dg.Rows[_rowIndex].Cells["clmSubjectID"].Value = subject.SubjID;
-                    _dg.Rows[_rowIndex].Cells["clmSubjCode"].Value = subject.SubjCode;
-                    _dg.Rows[_rowIndex].Cells["clmSubjDesc"].Value = subject.SubjDesc;
-                    _dg.Rows[_rowIndex].Cells["clmLecUnit"].Value = subject.LecUnit;
-                    _dg.Rows[_rowIndex].Cells["clmLabUnit"].Value = subject.LabUnit;
-                    _dg.Rows[_rowIndex].Cells["clmTotalUnit"].Value = subject.LecUnit + subject.LabUnit;
-                    Close();
-                    Dispose();
+
+                    if (IsSubjectExists(subject.SubjID) == false)
+                    {
+                        _dg.Rows[_rowIndex].Cells["clmSubjectID"].Value = subject.SubjID;
+                        _dg.Rows[_rowIndex].Cells["clmSubjCode"].Value = subject.SubjCode;
+                        _dg.Rows[_rowIndex].Cells["clmSubjDesc"].Value = subject.SubjDesc;
+                        _dg.Rows[_rowIndex].Cells["clmLecUnit"].Value = subject.LecUnit;
+                        _dg.Rows[_rowIndex].Cells["clmLabUnit"].Value = subject.LabUnit;
+                        _dg.Rows[_rowIndex].Cells["clmTotalUnit"].Value = subject.LecUnit + subject.LabUnit;
+                        Close();
+                        Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show("The subject is already exisiting in the list!", "Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+
                 }
             }
         }

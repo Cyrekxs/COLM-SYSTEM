@@ -16,7 +16,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         {
             bool result = false;
             bool IsCurriculumExist = SQLHelper.ExecuteScalar_Bool("dbo.fn_check_curriculum", curriculum.Code);
-            
+
             if (IsCurriculumExist == true)
                 result = true;
             else
@@ -46,6 +46,33 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
             }
             return result;
+        }
+
+        public static int DeleteCurriculum(Curriculum curriculum)
+        {
+            int RegisteredStudents = 0;
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT COUNT(RegisteredID) AS RegisteredStudents FROM student.registered WHERE CurriculumID = @CurriculumID", conn))
+                {
+                    comm.Parameters.AddWithValue("@CurriculumID", curriculum.CurriculumID);
+                    RegisteredStudents = Convert.ToInt16(comm.ExecuteScalar());
+                }
+
+                if (RegisteredStudents <= 0)
+                {
+                    using (SqlCommand comm = new SqlCommand("DELETE FROM settings.curriculum WHERE CurriculumID = @CurriculumID", conn))
+                    {
+                        comm.Parameters.AddWithValue("@CurriculumID", curriculum.CurriculumID);
+                        return Convert.ToInt16(comm.ExecuteNonQuery());
+                    }
+                }
+                else
+                {
+                    return RegisteredStudents * -1;
+                }
+            }
         }
 
         public static int GetCurriculumID(string CurriculumCode)
@@ -114,7 +141,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     }
                 }
             }
-            return curriculum;   
+            return curriculum;
         }
 
         public static Curriculum GetCurriculum(string CurriculumCode)
@@ -185,7 +212,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT DISTINCT YearLevelID FROM settings.curriculum_subjects WHERE CurriculumID = @CurriculumID ORDER BY YearLevelID ASC",conn))
+                using (SqlCommand comm = new SqlCommand("SELECT DISTINCT YearLevelID FROM settings.curriculum_subjects WHERE CurriculumID = @CurriculumID ORDER BY YearLevelID ASC", conn))
                 {
                     comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
                     using (SqlDataReader reader = comm.ExecuteReader())
