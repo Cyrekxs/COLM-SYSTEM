@@ -34,7 +34,7 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Curriculum_DS.GetCurriculumSubjects(CurriculumID);
         }
 
-        public static bool CreateCurriculum(Curriculum curriculum,List<CurriculumSubject> subjects)
+        public static bool CreateCurriculum(Curriculum curriculum, List<CurriculumSubject> subjects)
         {
             if (Curriculum_DS.IsCurriculumExists(curriculum) == true)
             {
@@ -51,18 +51,21 @@ namespace COLM_SYSTEM_LIBRARY.model
 
                 int CurriculumSubjectResult = Curriculum_DS.SetCurriculumSubjects(subjects);
                 return true;
-            }            
+            }
         }
 
         public static bool UpdateCurriculum(Curriculum curriculum, List<CurriculumSubject> subjects)
         {
-                bool CurriculumResult = Curriculum_DS.SetCurriculum(curriculum);               
-                foreach (var subject in subjects)
-                {
-                    subject.CurriculumID = curriculum.CurriculumID;
-                }
-                int CurriculumSubjectResult = Curriculum_DS.SetCurriculumSubjects(subjects);
-                return true;
+            //Update Curriculum Information first
+            bool CurriculumResult = Curriculum_DS.SetCurriculum(curriculum);
+
+            foreach (var subject in subjects)
+            {
+                subject.CurriculumID = curriculum.CurriculumID;
+            }
+
+            int CurriculumSubjectResult = Curriculum_DS.SetCurriculumSubjects(subjects);
+            return true;
         }
 
         public static List<Curriculum> GetCurriculums(string EducationLevel)
@@ -85,7 +88,7 @@ namespace COLM_SYSTEM_LIBRARY.model
             return (from r in GetCurriculums() where r.Code == CurriculumCode select r.CurriculumID).FirstOrDefault();
         }
 
-        public static int GetCurriculumID(string Code,List<Curriculum> LocalCurriculums)
+        public static int GetCurriculumID(string Code, List<Curriculum> LocalCurriculums)
         {
             int ID = (from r in LocalCurriculums
                       where Code == r.Code

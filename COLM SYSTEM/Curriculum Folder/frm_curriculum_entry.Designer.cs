@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbCourseStrand = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,22 +44,24 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clmSubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmBridging = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.clmYearLevel = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.clmSemester = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.iNSERTSUBJECTBELOWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNSERTSUBJECTABOVEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEMOVESUBJECTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
+            this.cHANGESUBJECTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clmCurriculumSubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLecUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLabUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotalUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBridging = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clmYearLevel = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.clmSemester = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -198,12 +200,13 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmCurriculumSubjectID,
             this.clmSubjectID,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
+            this.clmSubjCode,
+            this.clmSubjDesc,
+            this.clmLecUnit,
+            this.clmLabUnit,
+            this.clmTotalUnit,
             this.clmBridging,
             this.clmYearLevel,
             this.clmSemester,
@@ -218,56 +221,122 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iNSERTSUBJECTBELOWToolStripMenuItem,
+            this.iNSERTSUBJECTABOVEToolStripMenuItem,
+            this.cHANGESUBJECTToolStripMenuItem,
+            this.rEMOVESUBJECTToolStripMenuItem,
+            this.cLOSEToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 114);
+            // 
+            // iNSERTSUBJECTBELOWToolStripMenuItem
+            // 
+            this.iNSERTSUBJECTBELOWToolStripMenuItem.Name = "iNSERTSUBJECTBELOWToolStripMenuItem";
+            this.iNSERTSUBJECTBELOWToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.iNSERTSUBJECTBELOWToolStripMenuItem.Text = "INSERT SUBJECT BELOW";
+            this.iNSERTSUBJECTBELOWToolStripMenuItem.Click += new System.EventHandler(this.iNSERTSUBJECTBELOWToolStripMenuItem_Click);
+            // 
+            // iNSERTSUBJECTABOVEToolStripMenuItem
+            // 
+            this.iNSERTSUBJECTABOVEToolStripMenuItem.Name = "iNSERTSUBJECTABOVEToolStripMenuItem";
+            this.iNSERTSUBJECTABOVEToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.iNSERTSUBJECTABOVEToolStripMenuItem.Text = "INSERT SUBJECT ABOVE";
+            this.iNSERTSUBJECTABOVEToolStripMenuItem.Click += new System.EventHandler(this.iNSERTSUBJECTABOVEToolStripMenuItem_Click);
+            // 
+            // rEMOVESUBJECTToolStripMenuItem
+            // 
+            this.rEMOVESUBJECTToolStripMenuItem.Name = "rEMOVESUBJECTToolStripMenuItem";
+            this.rEMOVESUBJECTToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.rEMOVESUBJECTToolStripMenuItem.Text = "REMOVE SUBJECT";
+            this.rEMOVESUBJECTToolStripMenuItem.Click += new System.EventHandler(this.rEMOVESUBJECTToolStripMenuItem_Click);
+            // 
+            // cLOSEToolStripMenuItem
+            // 
+            this.cLOSEToolStripMenuItem.Name = "cLOSEToolStripMenuItem";
+            this.cLOSEToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.cLOSEToolStripMenuItem.Text = "CLOSE";
+            this.cLOSEToolStripMenuItem.Click += new System.EventHandler(this.cLOSEToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(827, 574);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(152, 32);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "SAVE";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cHANGESUBJECTToolStripMenuItem
+            // 
+            this.cHANGESUBJECTToolStripMenuItem.Name = "cHANGESUBJECTToolStripMenuItem";
+            this.cHANGESUBJECTToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.cHANGESUBJECTToolStripMenuItem.Text = "CHANGE SUBJECT";
+            this.cHANGESUBJECTToolStripMenuItem.Click += new System.EventHandler(this.cHANGESUBJECTToolStripMenuItem_Click);
+            // 
+            // clmCurriculumSubjectID
+            // 
+            this.clmCurriculumSubjectID.HeaderText = "CurriculumSubjectID";
+            this.clmCurriculumSubjectID.Name = "clmCurriculumSubjectID";
+            this.clmCurriculumSubjectID.Visible = false;
+            // 
             // clmSubjectID
             // 
             this.clmSubjectID.HeaderText = "Subject ID";
             this.clmSubjectID.Name = "clmSubjectID";
             this.clmSubjectID.Visible = false;
             // 
-            // Column1
+            // clmSubjCode
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "Subject Code";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 102;
+            this.clmSubjCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmSubjCode.HeaderText = "Subject Code";
+            this.clmSubjCode.Name = "clmSubjCode";
+            this.clmSubjCode.ReadOnly = true;
+            this.clmSubjCode.Width = 102;
             // 
-            // Column2
+            // clmSubjDesc
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "Description";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.clmSubjDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmSubjDesc.HeaderText = "Description";
+            this.clmSubjDesc.Name = "clmSubjDesc";
+            this.clmSubjDesc.ReadOnly = true;
             // 
-            // Column3
+            // clmLecUnit
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Column3.HeaderText = "Lec Unit";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 75;
+            this.clmLecUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmLecUnit.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clmLecUnit.HeaderText = "Lec Unit";
+            this.clmLecUnit.Name = "clmLecUnit";
+            this.clmLecUnit.ReadOnly = true;
+            this.clmLecUnit.Width = 75;
             // 
-            // Column4
+            // clmLabUnit
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle14;
-            this.Column4.HeaderText = "Lab Unit";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 77;
+            this.clmLabUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmLabUnit.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmLabUnit.HeaderText = "Lab Unit";
+            this.clmLabUnit.Name = "clmLabUnit";
+            this.clmLabUnit.ReadOnly = true;
+            this.clmLabUnit.Width = 77;
             // 
-            // Column5
+            // clmTotalUnit
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle15;
-            this.Column5.HeaderText = "Total";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 59;
+            this.clmTotalUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmTotalUnit.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmTotalUnit.HeaderText = "Total";
+            this.clmTotalUnit.Name = "clmTotalUnit";
+            this.clmTotalUnit.ReadOnly = true;
+            this.clmTotalUnit.Width = 59;
             // 
             // clmBridging
             // 
@@ -301,58 +370,6 @@
             this.clmAction.Text = "Action";
             this.clmAction.UseColumnTextForButtonValue = true;
             this.clmAction.Width = 47;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.iNSERTSUBJECTBELOWToolStripMenuItem,
-            this.iNSERTSUBJECTABOVEToolStripMenuItem,
-            this.rEMOVESUBJECTToolStripMenuItem,
-            this.cLOSEToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(201, 92);
-            // 
-            // iNSERTSUBJECTBELOWToolStripMenuItem
-            // 
-            this.iNSERTSUBJECTBELOWToolStripMenuItem.Name = "iNSERTSUBJECTBELOWToolStripMenuItem";
-            this.iNSERTSUBJECTBELOWToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.iNSERTSUBJECTBELOWToolStripMenuItem.Text = "INSERT SUBJECT BELOW";
-            this.iNSERTSUBJECTBELOWToolStripMenuItem.Click += new System.EventHandler(this.iNSERTSUBJECTBELOWToolStripMenuItem_Click);
-            // 
-            // iNSERTSUBJECTABOVEToolStripMenuItem
-            // 
-            this.iNSERTSUBJECTABOVEToolStripMenuItem.Name = "iNSERTSUBJECTABOVEToolStripMenuItem";
-            this.iNSERTSUBJECTABOVEToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.iNSERTSUBJECTABOVEToolStripMenuItem.Text = "INSERT SUBJECT ABOVE";
-            this.iNSERTSUBJECTABOVEToolStripMenuItem.Click += new System.EventHandler(this.iNSERTSUBJECTABOVEToolStripMenuItem_Click);
-            // 
-            // rEMOVESUBJECTToolStripMenuItem
-            // 
-            this.rEMOVESUBJECTToolStripMenuItem.Name = "rEMOVESUBJECTToolStripMenuItem";
-            this.rEMOVESUBJECTToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.rEMOVESUBJECTToolStripMenuItem.Text = "REMOVE SUBJECT";
-            this.rEMOVESUBJECTToolStripMenuItem.Click += new System.EventHandler(this.rEMOVESUBJECTToolStripMenuItem_Click);
-            // 
-            // cLOSEToolStripMenuItem
-            // 
-            this.cLOSEToolStripMenuItem.Name = "cLOSEToolStripMenuItem";
-            this.cLOSEToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.cLOSEToolStripMenuItem.Text = "CLOSE";
-            this.cLOSEToolStripMenuItem.Click += new System.EventHandler(this.cLOSEToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(827, 574);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 32);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "SAVE";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frm_curriculum_entry
             // 
@@ -399,16 +416,18 @@
         private System.Windows.Forms.ToolStripMenuItem iNSERTSUBJECTBELOWToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iNSERTSUBJECTABOVEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEMOVESUBJECTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cLOSEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cHANGESUBJECTToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumSubjectID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjectID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLecUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLabUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTotalUnit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmBridging;
         private System.Windows.Forms.DataGridViewComboBoxColumn clmYearLevel;
         private System.Windows.Forms.DataGridViewComboBoxColumn clmSemester;
         private System.Windows.Forms.DataGridViewButtonColumn clmAction;
-        private System.Windows.Forms.ToolStripMenuItem cLOSEToolStripMenuItem;
     }
 }

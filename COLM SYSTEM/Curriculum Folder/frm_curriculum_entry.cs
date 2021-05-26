@@ -40,7 +40,9 @@ namespace COLM_SYSTEM.Curriculum_Folder
             foreach (var item in subjects)
             {
                 Subject subject = Subject.GetSubject(item.SubjectID);
-                dataGridView1.Rows.Add(item.SubjectID, 
+                dataGridView1.Rows.Add(
+                    item.CurriculumSubjectID,
+                    item.SubjectID, 
                     subject.SubjCode, 
                     subject.SubjDesc, 
                     subject.LecUnit, 
@@ -85,7 +87,9 @@ namespace COLM_SYSTEM.Curriculum_Folder
             foreach (var item in subjects)
             {
                 Subject subject = Subject.GetSubject(item.SubjectID);
-                dataGridView1.Rows.Add(item.SubjectID,
+                dataGridView1.Rows.Add(
+                    0,
+                    item.SubjectID,
                     subject.SubjCode,
                     subject.SubjDesc,
                     subject.LecUnit,
@@ -192,6 +196,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
                         string setted_semester = item.Cells["clmSemester"].Value.ToString();
                         CurriculumSubject subject = new CurriculumSubject()
                         {
+                            CurriculumSubjectID = 0,
                             SemesterID = SchoolSemester.GetSchoolSemester(setted_semester).SemesterID,
                             SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
                             IsActive = true,
@@ -222,8 +227,10 @@ namespace COLM_SYSTEM.Curriculum_Folder
                     foreach (DataGridViewRow item in dataGridView1.Rows)
                     {
                         string setted_semester = item.Cells["clmSemester"].Value.ToString();
+
                         CurriculumSubject subject = new CurriculumSubject()
                         {
+                            CurriculumSubjectID = Convert.ToInt32(item.Cells["clmCurriculumSubjectID"].Value),
                             CurriculumID = curriculum.CurriculumID,
                             SemesterID = SchoolSemester.GetSchoolSemester(setted_semester).SemesterID,
                             SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
@@ -234,12 +241,12 @@ namespace COLM_SYSTEM.Curriculum_Folder
                         curriculumSubjects.Add(subject);
                     }
 
-                    foreach (var item in curriculumSubjects)
-                    {
-                        item.CurriculumSubjectID = (from r in _curriculumSubjects
-                                                    where r.CurriculumID == item.CurriculumID && r.SubjectID == item.SubjectID
-                                                    select r.CurriculumSubjectID).FirstOrDefault();
-                    }
+                    //foreach (var item in curriculumSubjects)
+                    //{
+                    //    item.CurriculumSubjectID = (from r in _curriculumSubjects
+                    //                                where r.CurriculumID == item.CurriculumID && r.SubjectID == item.SubjectID
+                    //                                select r.CurriculumSubjectID).FirstOrDefault();
+                    //}
 
 
                     bool result = Curriculum.UpdateCurriculum(curriculum, curriculumSubjects);
@@ -294,6 +301,14 @@ namespace COLM_SYSTEM.Curriculum_Folder
         private void iNSERTSUBJECTABOVEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_curriculum_subject_browser frm = new frm_curriculum_subject_browser(dataGridView1, SelectedRow);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void cHANGESUBJECTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selectedCurriculumSubjectID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmCurriculumSubjectID"].Value);
+            frm_curriculum_subject_browser frm = new frm_curriculum_subject_browser(dataGridView1, SelectedRow,selectedCurriculumSubjectID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

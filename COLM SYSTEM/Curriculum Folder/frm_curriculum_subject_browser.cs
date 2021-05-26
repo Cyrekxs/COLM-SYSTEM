@@ -13,7 +13,10 @@ namespace COLM_SYSTEM.Curriculum_Folder
         List<Subject> Subjects = new List<Subject>();
         DataGridView _dg;
         int _rowIndex = 0;
+        int _CurriculumSubjectID = 0;
         string AddStatus = string.Empty;
+
+        //Normal Insert
         public frm_curriculum_subject_browser(DataGridView dg)
         {
             InitializeComponent();
@@ -22,12 +25,24 @@ namespace COLM_SYSTEM.Curriculum_Folder
             DisplaySubjects();
         }
 
+        //Custom Insert
         public frm_curriculum_subject_browser(DataGridView dg, int rowIndex)
         {
             InitializeComponent();
             _dg = dg;
             _rowIndex = rowIndex;
             AddStatus = "CUSTOM INSERT";
+            DisplaySubjects();
+        }
+
+        //Change Subject
+        public frm_curriculum_subject_browser(DataGridView dg, int rowIndex,int CurriculumSubjectID)
+        {
+            InitializeComponent();
+            _dg = dg;
+            _rowIndex = rowIndex;
+            _CurriculumSubjectID = CurriculumSubjectID;
+            AddStatus = "CHANGE SUBJECT";
             DisplaySubjects();
         }
 
@@ -92,18 +107,38 @@ namespace COLM_SYSTEM.Curriculum_Folder
                 if (AddStatus == "NORMAL INSERT")
                 {
                     if (IsSubjectExists(subject.SubjID) == false)
-                        _dg.Rows.Add(subject.SubjID, subject.SubjCode, subject.SubjDesc, subject.LecUnit, subject.LabUnit, subject.LecUnit + subject.LabUnit);
+                    {
+                        _dg.Rows.Add(0,subject.SubjID, subject.SubjCode, subject.SubjDesc, subject.LecUnit, subject.LabUnit, subject.LecUnit + subject.LabUnit);
+                    }
+                    else
+                    {
+                        MessageBox.Show("The subject is already exisiting in the list!", "Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else if (AddStatus == "CUSTOM INSERT")
                 {
                     if (IsSubjectExists(subject.SubjID) == false)
                     {
-                        _dg.Rows.Insert(_rowIndex,subject.SubjID, subject.SubjCode, subject.SubjDesc, subject.LecUnit, subject.LabUnit, subject.LecUnit + subject.LabUnit);
+                        _dg.Rows.Insert(_rowIndex,0,subject.SubjID, subject.SubjCode, subject.SubjDesc, subject.LecUnit, subject.LabUnit, subject.LecUnit + subject.LabUnit);
                         Close();
                         Dispose();
                     }
+                    else
+                    {
+                        MessageBox.Show("The subject is already exisiting in the list!", "Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-
+                else if (AddStatus == "CHANGE SUBJECT")
+                {
+                    _dg.Rows[_rowIndex].Cells["clmSubjectID"].Value = subject.SubjID;
+                    _dg.Rows[_rowIndex].Cells["clmSubjCode"].Value = subject.SubjCode;
+                    _dg.Rows[_rowIndex].Cells["clmSubjDesc"].Value = subject.SubjDesc;
+                    _dg.Rows[_rowIndex].Cells["clmLecUnit"].Value = subject.LecUnit;
+                    _dg.Rows[_rowIndex].Cells["clmLabUnit"].Value = subject.LabUnit;
+                    _dg.Rows[_rowIndex].Cells["clmTotalUnit"].Value = subject.LecUnit + subject.LabUnit;
+                    Close();
+                    Dispose();
+                }
             }
         }
 
