@@ -72,9 +72,10 @@
             this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.aDMINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.onlineApplicantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -391,6 +392,7 @@
             // tRANSACTIONToolStripMenuItem
             // 
             this.tRANSACTIONToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.onlineApplicantsToolStripMenuItem,
             this.iNFORMATIONToolStripMenuItem,
             this.rEGISTRATIONToolStripMenuItem,
             this.aSSESSMENTToolStripMenuItem,
@@ -467,21 +469,21 @@
             // mISCELLANEOUSFEESToolStripMenuItem
             // 
             this.mISCELLANEOUSFEESToolStripMenuItem.Name = "mISCELLANEOUSFEESToolStripMenuItem";
-            this.mISCELLANEOUSFEESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mISCELLANEOUSFEESToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.mISCELLANEOUSFEESToolStripMenuItem.Text = "Tuition Fee";
             this.mISCELLANEOUSFEESToolStripMenuItem.Click += new System.EventHandler(this.mISCELLANEOUSFEESToolStripMenuItem_Click);
             // 
             // aDDITIONALFEEToolStripMenuItem
             // 
             this.aDDITIONALFEEToolStripMenuItem.Name = "aDDITIONALFEEToolStripMenuItem";
-            this.aDDITIONALFEEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aDDITIONALFEEToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.aDDITIONALFEEToolStripMenuItem.Text = "Additional Fee";
             this.aDDITIONALFEEToolStripMenuItem.Click += new System.EventHandler(this.aDDITIONALFEEToolStripMenuItem_Click);
             // 
             // dEFAULTFEESToolStripMenuItem
             // 
             this.dEFAULTFEESToolStripMenuItem.Name = "dEFAULTFEESToolStripMenuItem";
-            this.dEFAULTFEESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dEFAULTFEESToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.dEFAULTFEESToolStripMenuItem.Text = "Default Fee";
             this.dEFAULTFEESToolStripMenuItem.Click += new System.EventHandler(this.dEFAULTFEESToolStripMenuItem_Click);
             // 
@@ -527,11 +529,6 @@
             this.cLOSEALLFORMSToolStripMenuItem.Text = "CLOSE ALL FORMS";
             this.cLOSEALLFORMSToolStripMenuItem.Click += new System.EventHandler(this.cLOSEALLFORMSToolStripMenuItem_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // aDMINToolStripMenuItem
             // 
             this.aDMINToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -543,8 +540,20 @@
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.usersToolStripMenuItem.Text = "Users";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // onlineApplicantsToolStripMenuItem
+            // 
+            this.onlineApplicantsToolStripMenuItem.Name = "onlineApplicantsToolStripMenuItem";
+            this.onlineApplicantsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.onlineApplicantsToolStripMenuItem.Text = "Online Applicants";
+            this.onlineApplicantsToolStripMenuItem.Click += new System.EventHandler(this.onlineApplicantsToolStripMenuItem_Click);
             // 
             // frm_main
             // 
@@ -626,5 +635,6 @@
         private System.Windows.Forms.ToolStripMenuItem aSSESSMENTTYPEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aDMINToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem onlineApplicantsToolStripMenuItem;
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using COLM_SYSTEM_LIBRARY.datasource;
+using COLM_SYSTEM_LIBRARY.helper;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -41,18 +43,50 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public DateTime ApplicationDate { get; set; }
 
-        public static string GetConnectionString()
+        private static string GetOnlineConnectionString()
         {
             string connstring = @"Data Source=.\SQLEXPRESS;Initial Catalog=colmpulilan_server_registration;Persist Security Info=True;User ID=sa;Password=sa";
             return connstring;
         }
 
+
+        public static List<StudentInfoOnlineProcessed> GetProcessedApplicants()
+        {
+            List<StudentInfoOnlineProcessed> processedStudents = new List<StudentInfoOnlineProcessed>();
+
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.applicants", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            StudentInfoOnlineProcessed processed = new StudentInfoOnlineProcessed()
+                            {
+                                ProcessedApplicationID = Convert.ToInt32(reader["ProcessedApplicationID"]),
+                                ApplicantID = Convert.ToInt32(reader["ApplicantID"]),
+                                StudentID = Convert.ToInt32(reader["StudentID"]),
+                                ProcessedDate = Convert.ToDateTime(reader["DateProcessed"])
+                            };
+                            processedStudents.Add(processed);
+                        }
+                    }
+                }
+            }
+            return processedStudents;
+        }
+
         public static List<StudentInfoOnline> GetOnlineApplications()
         {
             List<StudentInfoOnline> Applicants = new List<StudentInfoOnline>();
-            using (SqlConnection conn = new SqlConnection(GetConnectionString()))
+
+
+            using (SqlConnection conn = new SqlConnection(GetOnlineConnectionString()))
             {
-                using (SqlCommand comm = new SqlCommand ("SELECT * FROM student.information_online ORDER BY ApplicationDate DESC", conn))
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information_online ORDER BY ApplicationDate DESC", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -92,7 +126,33 @@ namespace COLM_SYSTEM_LIBRARY.model
                     }
                 }
             }
+
+
+            //check and remove processed applicants
+            List<StudentInfoOnlineProcessed> ProcessedApplicants = GetProcessedApplicants();
+            List<StudentInfoOnline> ApplicantsToRemove = new List<StudentInfoOnline>();
+            foreach (var applicant in Applicants)
+            {
+                foreach (var processed in ProcessedApplicants)
+                {
+                    if (applicant.ApplicationID == processed.ApplicantID)
+                    {
+                        ApplicantsToRemove.Add(applicant);
+                    }
+                }
+            }
+
+            foreach (var item in ApplicantsToRemove)
+            {
+                Applicants.Remove(item);
+            }
+
             return Applicants;
+        }
+
+        public static int InsertOnlineApplicant(int ApplicantID, int StudentID)
+        {
+            return StudentInfo_DS.InsertOnlineApplicant(ApplicantID, StudentID);
         }
 
     }

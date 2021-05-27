@@ -16,7 +16,7 @@ namespace COLM_SYSTEM.student_information
         public uc_student_information_list()
         {
             InitializeComponent();
-            LoadStudentsAsync();
+           LoadStudentsAsync();
         }
 
         private void LoadStudents()
@@ -55,17 +55,17 @@ namespace COLM_SYSTEM.student_information
             lblCount.Text = "Record Count(s): " + dataGridView1.Rows.Count.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_ClickAsync(object sender, EventArgs e)
         {
             using (frm_student_information_entry frm = new frm_student_information_entry())
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-                LoadStudentsAsync();
+               await LoadStudentsAsync();
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dataGridView1_CellContentClickAsync(object sender, DataGridViewCellEventArgs e)
         {
             int SelectStudentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["clmStudentID"].Value);
 
@@ -75,22 +75,22 @@ namespace COLM_SYSTEM.student_information
                 {
                     frm.StartPosition = FormStartPosition.CenterParent;
                     frm.ShowDialog();
-                    LoadStudentsAsync();
+                   await LoadStudentsAsync();
                 }
             }
         }
 
-        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        private async void txtSearch_KeyDownAsync(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                LoadStudentsAsync();
+               await LoadStudentsAsync();
             }
             else if (e.KeyCode == Keys.Back)
             {
                 if (txtSearch.Text == string.Empty)
                 {
-                    LoadStudentsAsync();
+                   await LoadStudentsAsync();
                 }
             }
         }

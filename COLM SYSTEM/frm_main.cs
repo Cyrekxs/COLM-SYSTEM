@@ -8,6 +8,7 @@ using COLM_SYSTEM.Registration_Folder;
 using COLM_SYSTEM.Section_Folder;
 using COLM_SYSTEM.Settings_Folder;
 using COLM_SYSTEM.student_information;
+using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM.subject;
 using COLM_SYSTEM.User_Folder;
 using System;
@@ -144,6 +145,11 @@ namespace COLM_SYSTEM
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
             }
+        }
+
+        private void onlineApplicantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_student_information_list_online());
         }
     }
 }

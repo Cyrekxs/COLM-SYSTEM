@@ -253,15 +253,30 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return result;
         }
 
+        public static int RemoveCurriculumSubject(int CurriculumSubjID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("UPDATE settings.curriculum_subjects SET IsActive = @IsActive WHERE CurriculumSubjectID = @CurriculumSubjID", conn))
+                {
+                    comm.Parameters.AddWithValue("@CurriculumSubjID", CurriculumSubjID);
+                    comm.Parameters.AddWithValue("@IsActive", false);
+                    return comm.ExecuteNonQuery();
+                }
+            }
+        }
+
         public static List<CurriculumSubject> GetCurriculumSubjects(int CurriculumID)
         {
             List<CurriculumSubject> subjects = new List<CurriculumSubject>();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum_subjects WHERE CurriculumID = @CurriculumID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum_subjects WHERE CurriculumID = @CurriculumID AND IsActive = @IsActive", conn))
                 {
                     comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
+                    comm.Parameters.AddWithValue("@IsActive", true);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         while (reader.Read())

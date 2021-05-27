@@ -30,7 +30,6 @@ namespace COLM_SYSTEM.student_information
             txtFirstname.Text = student.Firstname;
             txtMiddlename.Text = student.Middlename;
             txtLastname.Text = student.Lastname;
-            txtExtensionName.Text = student.ExtensionName;
             txtBirthDate.Value = student.BirthDate;
             cmbGender.Text = student.Gender;
             txtStreet.Text = student.Street;
@@ -47,7 +46,6 @@ namespace COLM_SYSTEM.student_information
             txtGuardianMobile.Text = student.GuardianMobile;
             txtSchoolName.Text = student.SchoolName;
             txtSchoolAddress.Text = student.SchoolAddress;
-            cmbStrand.Text = student.Strand;
         }
 
         public frm_student_information_entry()
@@ -148,7 +146,6 @@ namespace COLM_SYSTEM.student_information
                 return false;
             else
                 return true;
-
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -165,7 +162,6 @@ namespace COLM_SYSTEM.student_information
                     Lastname = txtLastname.Text,
                     Firstname = txtFirstname.Text,
                     Middlename = txtMiddlename.Text,
-                    ExtensionName = txtExtensionName.Text,
                     BirthDate = txtBirthDate.Value,
                     Gender = cmbGender.Text,
                     Street = txtStreet.Text,
@@ -182,7 +178,6 @@ namespace COLM_SYSTEM.student_information
                     GuardianMobile = txtGuardianMobile.Text,
                     SchoolName = txtSchoolName.Text,
                     SchoolAddress = txtSchoolAddress.Text,
-                    Strand = cmbStrand.Text
                 };
 
                 if (saving == SavingOptions.INSERT)

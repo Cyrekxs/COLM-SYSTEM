@@ -85,9 +85,5 @@ namespace COLM_SYSTEM
             else
                 txtPassword.UseSystemPasswordChar = true;
         }
-
-        private async void button3_ClickAsync(object sender, EventArgs e)
-        {
-        }
     }
 }

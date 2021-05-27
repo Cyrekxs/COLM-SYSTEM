@@ -101,6 +101,11 @@ namespace COLM_SYSTEM_LIBRARY.model
             return ID;
         }
 
+        public static int RemoveCurriculumSubject(int CurriculumSubjID)
+        {
+            return Curriculum_DS.RemoveCurriculumSubject(CurriculumSubjID);
+        }
+
         public static List<CurriculumCourseStrandYearLevel> GetCurriculumCourseStrandYearLevels(string CurriculumCode)
         {
             return Curriculum_DS.GetCurriculumCourseStrandYearLevels(CurriculumCode);

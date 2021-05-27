@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\Colm\colm system 2021\</UpdateUrl>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -279,6 +279,12 @@
     <Compile Include="Payment Folder\uc_payers.Designer.cs">
       <DependentUpon>uc_payers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registration Folder\frm_grade_encode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration Folder\frm_grade_encode.Designer.cs">
+      <DependentUpon>frm_grade_encode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registration Folder\uc_registered_students_list.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -328,6 +334,12 @@
       <DependentUpon>frm_settings.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Student Information Folder\frm_student_information_online_entry_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student Information Folder\frm_student_information_online_entry_1.Designer.cs">
+      <DependentUpon>frm_student_information_online_entry_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student Information Folder\uc_student_information_list.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -497,6 +509,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Registration Folder\frm_grade_encode.resx">
+      <DependentUpon>frm_grade_encode.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registration Folder\frm_registration_entry.resx">
       <DependentUpon>frm_registration_entry.cs</DependentUpon>
     </EmbeddedResource>
@@ -529,6 +544,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\frm_student_information_entry.resx">
       <DependentUpon>frm_student_information_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student Information Folder\frm_student_information_online_entry_1.resx">
+      <DependentUpon>frm_student_information_online_entry_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\uc_student_information_list.resx">
       <DependentUpon>uc_student_information_list.cs</DependentUpon>

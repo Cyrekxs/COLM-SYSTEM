@@ -34,7 +34,6 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public string SchoolName { get; set; }
         public string SchoolAddress { get; set; }
-        public string Strand { get; set; }
 
         public static List<StudentInfo> GetStudents()
         {
@@ -51,19 +50,14 @@ namespace COLM_SYSTEM_LIBRARY.model
             return StudentInfo_DS.GetStudent(StudentID);
         }
 
+        public static StudentInfo IsStudentExist(string Lastname,string Firstname)
+        {
+            return StudentInfo_DS.IsStudentExists(Lastname, Firstname);
+        }
+
         public static bool InsertUpdateStudentInformation(StudentInfo model)
         {
             return StudentInfo_DS.InsertUpdateStudentInformation(model);
-        }
-
-        public static StudentGuardian GetStudentGuardian(int StudentID)
-        {
-            return StudentInfo_DS.GetStudentGuardian(StudentID);
-        }
-
-        public static bool SaveStudentGuardian(StudentGuardian guardian)
-        {
-            return StudentInfo_DS.InsertStudentGuardian(guardian);
         }
 
         public static bool UpdateStudentGuardian(StudentGuardian guardian)
@@ -74,6 +68,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static int UpdateStudentEmail(int StudentID, string Email)
         {
             return StudentInfo_DS.UpdateStudentEmail(StudentID, Email);
+        }
+
+        public static List<StudentInfo> GetStudents(List<int> StudentIDs)
+        {
+            return StudentInfo_DS.GetStudents(StudentIDs);
         }
     }
 }

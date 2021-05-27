@@ -43,14 +43,14 @@ namespace COLM_SYSTEM.Curriculum_Folder
                 Subject subject = Subject.GetSubject(item.SubjectID);
                 dataGridView1.Rows.Add(
                     item.CurriculumSubjectID,
-                    item.SubjectID, 
-                    subject.SubjCode, 
-                    subject.SubjDesc, 
-                    subject.LecUnit, 
-                    subject.LabUnit, 
-                    subject.Unit, 
-                    item.IsBridging, 
-                    YearLevel.GetYearLevel(item.YearLevelID).YearLvl, 
+                    item.SubjectID,
+                    subject.SubjCode,
+                    subject.SubjDesc,
+                    subject.LecUnit,
+                    subject.LabUnit,
+                    subject.Unit,
+                    item.IsBridging,
+                    YearLevel.GetYearLevel(item.YearLevelID).YearLvl,
                     SchoolSemester.GetSchoolSemester(item.SemesterID).Semester);
             }
 
@@ -163,7 +163,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
             {
                 if (item.Cells["clmYearLevel"].Value == null)
                 {
-                    MessageBox.Show("Please check the year level column on each subject","",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Please check the year level column on each subject", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     status = false;
                     break;
                 }
@@ -270,7 +270,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
             if (e.ColumnIndex == clmAction.Index)
             {
                 SelectedRow = e.RowIndex;
-                contextMenuStrip1.Show(new System.Drawing.Point(Cursor.Position.X,Cursor.Position.Y));
+                contextMenuStrip1.Show(new System.Drawing.Point(Cursor.Position.X, Cursor.Position.Y));
             }
         }
 
@@ -283,13 +283,27 @@ namespace COLM_SYSTEM.Curriculum_Folder
         {
             if (MessageBox.Show("Are you sure you want to remove this subject on this curriculum?", "Remove Subject", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                dataGridView1.Rows.Remove(dataGridView1.Rows[SelectedRow]);
+                int CurriculumSubjectID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmCurriculumSubjectID"].Value);
+
+                //if not yet saved in the database
+                if (CurriculumSubjectID <= 0)
+                {
+                    dataGridView1.Rows.Remove(dataGridView1.Rows[SelectedRow]);
+                }
+                else
+                {
+                    int result = Curriculum.RemoveCurriculumSubject(CurriculumSubjectID);
+                    if (result > 0)
+                    {
+                        dataGridView1.Rows.Remove(dataGridView1.Rows[SelectedRow]);
+                    }
+                }
             }
         }
 
         private void iNSERTSUBJECTBELOWToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_curriculum_subject_browser frm = new frm_curriculum_subject_browser(dataGridView1,SelectedRow + 1);
+            frm_curriculum_subject_browser frm = new frm_curriculum_subject_browser(dataGridView1, SelectedRow + 1);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
@@ -304,19 +318,19 @@ namespace COLM_SYSTEM.Curriculum_Folder
         private void cHANGESUBJECTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int selectedCurriculumSubjectID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmCurriculumSubjectID"].Value);
-            frm_curriculum_subject_browser frm = new frm_curriculum_subject_browser(dataGridView1, SelectedRow,selectedCurriculumSubjectID);
+            frm_curriculum_subject_browser frm = new frm_curriculum_subject_browser(dataGridView1, SelectedRow, selectedCurriculumSubjectID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete this curriculum? this will check first if there's registered students in this curriculum","Delete Curriculum",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to delete this curriculum? this will check first if there's registered students in this curriculum", "Delete Curriculum", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int result = Curriculum.DeleteCurriculum(_curriculum);
                 if (result < 0)
                 {
-                    MessageBox.Show(string.Concat("Cannot Delete this curriculum there was a ", result * -1, " student(s) registered"), "Delete Curriculum Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);                    
+                    MessageBox.Show(string.Concat("Cannot Delete this curriculum there was a ", result * -1, " student(s) registered"), "Delete Curriculum Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
