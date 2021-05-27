@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\Colm\colm system 2021\</UpdateUrl>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -207,6 +207,12 @@
     <Compile Include="Fees Folder\frm_miscother_fees_entry.Designer.cs">
       <DependentUpon>frm_miscother_fees_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fees Folder\frm_set_subject_amount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fees Folder\frm_set_subject_amount.Designer.cs">
+      <DependentUpon>frm_set_subject_amount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fees Folder\frm_tuition_entry_additional_fee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,12 @@
     </Compile>
     <Compile Include="Reports Folder\frm_enrollees_masterlist.Designer.cs">
       <DependentUpon>frm_enrollees_masterlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Section Folder\frm_browse_unlisted_subjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Section Folder\frm_browse_unlisted_subjects.Designer.cs">
+      <DependentUpon>frm_browse_unlisted_subjects.cs</DependentUpon>
     </Compile>
     <Compile Include="Section Folder\frm_section_entry.cs">
       <SubType>Form</SubType>
@@ -463,6 +475,9 @@
     <EmbeddedResource Include="Fees Folder\frm_miscother_fees_entry.resx">
       <DependentUpon>frm_miscother_fees_entry.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fees Folder\frm_set_subject_amount.resx">
+      <DependentUpon>frm_set_subject_amount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\frm_tuition_entry_additional_fee.resx">
       <DependentUpon>frm_tuition_entry_additional_fee.cs</DependentUpon>
     </EmbeddedResource>
@@ -523,6 +538,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports Folder\frm_enrollees_masterlist.resx">
       <DependentUpon>frm_enrollees_masterlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Section Folder\frm_browse_unlisted_subjects.resx">
+      <DependentUpon>frm_browse_unlisted_subjects.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Section Folder\frm_section_entry.resx">
       <DependentUpon>frm_section_entry.cs</DependentUpon>

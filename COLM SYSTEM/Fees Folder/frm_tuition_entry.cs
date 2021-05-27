@@ -179,6 +179,7 @@ namespace COLM_SYSTEM.fees_folder
                 {
                     SubjPriceID = Convert.ToInt32(item.Cells["clmSubjPriceID"].Value),
                     CurriculumID = CurriculumID,
+                    YearLevelID = yearLevel.YearLevelID,
                     CurriculumSubjID = Convert.ToInt32(item.Cells["clmCurriculumSubjID"].Value),
                     SchoolYearID = Utilties.GetActiveSchoolYear(),
                     SemesterID = Utilties.GetActiveSemester(),
@@ -269,8 +270,10 @@ namespace COLM_SYSTEM.fees_folder
             }
             else if (e.ColumnIndex == clmRemove.Index)
             {
-                if (MessageBox.Show("Remove this subject?","Remove Subject",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Remove this subject?", "Remove Subject", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    int SubjectPriceID = Convert.ToInt16(dgTuition.Rows[e.RowIndex].Cells["clmSubjPriceID"].Value);
+                    int result = SubjectSetted.RemoveSubject(SubjectPriceID);
                     dgTuition.Rows.Remove(dgTuition.Rows[e.RowIndex]);
                 }
             }
@@ -413,7 +416,7 @@ namespace COLM_SYSTEM.fees_folder
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frm_tuition_entry_browse_subject frm = new frm_tuition_entry_browse_subject(cmbCurriculumCode.Text,dgTuition);
+            frm_tuition_entry_browse_subject frm = new frm_tuition_entry_browse_subject(cmbCurriculumCode.Text, dgTuition);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
@@ -422,6 +425,32 @@ namespace COLM_SYSTEM.fees_folder
         {
             Close();
             Dispose();
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (dgTuition.Rows.Count != 0)
+            {
+                using (frm_set_subject_amount frm = new frm_set_subject_amount())
+                {
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        double amount = frm.Amount;
+                        foreach (DataGridViewRow item in dgTuition.Rows)
+                        {
+                            item.Cells["clmSubjPrice"].Value = amount.ToString("n");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please add subject first!", "No Subject Detected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }

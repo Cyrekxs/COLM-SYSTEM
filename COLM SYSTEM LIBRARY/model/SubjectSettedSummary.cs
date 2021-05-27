@@ -32,7 +32,7 @@ namespace COLM_SYSTEM_LIBRARY.model
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM [dbo].[fn_list_subject_setted_summary]()", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM [dbo].[fn_list_subject_setted_summary]() ORDER BY EducationLevel,CourseStrand,YearLevelID ASC", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {

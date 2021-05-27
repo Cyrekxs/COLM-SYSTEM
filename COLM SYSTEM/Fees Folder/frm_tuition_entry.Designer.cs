@@ -82,6 +82,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.clmSubjPriceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCurriculumSubjID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubjCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -545,6 +546,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.linkLabel4);
             this.panel1.Controls.Add(this.dgTuition);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.label8);
@@ -607,6 +609,21 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(451, 265);
             this.panel4.TabIndex = 40;
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.ActiveLinkColor = System.Drawing.Color.SeaGreen;
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel4.LinkColor = System.Drawing.Color.SeaGreen;
+            this.linkLabel4.Location = new System.Drawing.Point(759, 9);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(120, 17);
+            this.linkLabel4.TabIndex = 32;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Set Subject Amount";
+            this.linkLabel4.VisitedLinkColor = System.Drawing.Color.SeaGreen;
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // clmSubjPriceID
             // 
@@ -701,11 +718,13 @@
             // 
             this.clmRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.clmRemove.HeaderText = "Remove";
-            this.clmRemove.LinkColor = System.Drawing.Color.DarkSlateGray;
+            this.clmRemove.LinkColor = System.Drawing.Color.Red;
             this.clmRemove.Name = "clmRemove";
             this.clmRemove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.clmRemove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmRemove.VisitedLinkColor = System.Drawing.Color.DarkSlateGray;
+            this.clmRemove.Text = "Remove";
+            this.clmRemove.UseColumnTextForLinkValue = true;
+            this.clmRemove.VisitedLinkColor = System.Drawing.Color.Red;
             this.clmRemove.Width = 74;
             // 
             // frm_tuition_entry
@@ -791,6 +810,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         public System.Windows.Forms.DataGridView dgTuition;
+        private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjPriceID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumSubjID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjCode;

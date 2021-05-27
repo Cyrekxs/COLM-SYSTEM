@@ -123,5 +123,12 @@ namespace COLM_SYSTEM.Section_Folder
                 }
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frm_browse_unlisted_subjects frm = new frm_browse_unlisted_subjects(_section, dataGridView1);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

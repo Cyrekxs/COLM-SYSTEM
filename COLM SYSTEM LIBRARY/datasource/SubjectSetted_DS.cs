@@ -20,10 +20,11 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 conn.Open();
                 foreach (var item in subjects)
                 {
-                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum_subject_setted @SubjectPriceID,@CurriculumID,@CurriculumSubjectID,@SchoolYearID,@SemesterID,@SubjectPrice,@SubjectType", conn))
+                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum_subject_setted @SubjectPriceID,@CurriculumID,@YearLevelID,@CurriculumSubjectID,@SchoolYearID,@SemesterID,@SubjectPrice,@SubjectType", conn))
                     {
                         comm.Parameters.AddWithValue("@SubjectPriceID", item.SubjPriceID);
                         comm.Parameters.AddWithValue("@CurriculumID", item.CurriculumID);
+                        comm.Parameters.AddWithValue("@YearLevelID", item.YearLevelID);
                         comm.Parameters.AddWithValue("@CurriculumSUbjectID", item.CurriculumSubjID);
                         comm.Parameters.AddWithValue("@SchoolYearID", item.SchoolYearID);
                         comm.Parameters.AddWithValue("@SemesterID", item.SemesterID);
@@ -36,6 +37,19 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
             }
             return result;
+        }
+
+        public static int RemoveSubject(int SubjectPriceID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("DELETE FROM settings.curriculum_subjects_setted WHERE SubjectPriceID = @SubjectPriceID", conn))
+                {
+                    comm.Parameters.AddWithValue("@SubjectPriceID", SubjectPriceID);
+                    return comm.ExecuteNonQuery();
+                }
+            }
         }
 
         //Returns a list of subjects that is not setted
