@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtOFee = new System.Windows.Forms.TextBox();
+            this.txtMFee = new System.Windows.Forms.TextBox();
+            this.txtTFee = new System.Windows.Forms.TextBox();
             this.ch_OFee = new System.Windows.Forms.CheckBox();
             this.ch_MFee = new System.Windows.Forms.CheckBox();
             this.ch_TFee = new System.Windows.Forms.CheckBox();
@@ -57,13 +60,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.chkSpecific = new System.Windows.Forms.CheckBox();
             this.panelList = new System.Windows.Forms.Panel();
-            this.btnDeleteDiscount = new System.Windows.Forms.Button();
             this.chkAll = new System.Windows.Forms.CheckBox();
+            this.btnDeleteDiscount = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbDiscountType = new System.Windows.Forms.ComboBox();
-            this.txtTFee = new System.Windows.Forms.TextBox();
-            this.txtMFee = new System.Windows.Forms.TextBox();
-            this.txtOFee = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridview1)).BeginInit();
@@ -86,6 +86,33 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(285, 142);
             this.panel1.TabIndex = 46;
+            // 
+            // txtOFee
+            // 
+            this.txtOFee.Enabled = false;
+            this.txtOFee.Location = new System.Drawing.Point(194, 103);
+            this.txtOFee.Name = "txtOFee";
+            this.txtOFee.Size = new System.Drawing.Size(71, 23);
+            this.txtOFee.TabIndex = 9;
+            this.txtOFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtMFee
+            // 
+            this.txtMFee.Enabled = false;
+            this.txtMFee.Location = new System.Drawing.Point(194, 77);
+            this.txtMFee.Name = "txtMFee";
+            this.txtMFee.Size = new System.Drawing.Size(71, 23);
+            this.txtMFee.TabIndex = 7;
+            this.txtMFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtTFee
+            // 
+            this.txtTFee.Enabled = false;
+            this.txtTFee.Location = new System.Drawing.Point(194, 52);
+            this.txtTFee.Name = "txtTFee";
+            this.txtTFee.Size = new System.Drawing.Size(71, 23);
+            this.txtTFee.TabIndex = 5;
+            this.txtTFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ch_OFee
             // 
@@ -189,7 +216,7 @@
             // 
             this.cmbYearLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbYearLevel.FormattingEnabled = true;
-            this.cmbYearLevel.Location = new System.Drawing.Point(245, 63);
+            this.cmbYearLevel.Location = new System.Drawing.Point(242, 28);
             this.cmbYearLevel.Name = "cmbYearLevel";
             this.cmbYearLevel.Size = new System.Drawing.Size(109, 23);
             this.cmbYearLevel.TabIndex = 14;
@@ -204,7 +231,7 @@
             "Junior High",
             "Senior High",
             "College"});
-            this.cmbEducationLevel.Location = new System.Drawing.Point(15, 63);
+            this.cmbEducationLevel.Location = new System.Drawing.Point(12, 28);
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(109, 23);
             this.cmbEducationLevel.TabIndex = 12;
@@ -213,7 +240,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(242, 45);
+            this.label2.Location = new System.Drawing.Point(239, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 15);
             this.label2.TabIndex = 39;
@@ -222,7 +249,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 45);
+            this.label1.Location = new System.Drawing.Point(9, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 15);
             this.label1.TabIndex = 37;
@@ -255,7 +282,7 @@
             "ELEMENTARY",
             "JUNIOR HIGH",
             "SENIOR HIGH"});
-            this.cmbCourseStrand.Location = new System.Drawing.Point(130, 63);
+            this.cmbCourseStrand.Location = new System.Drawing.Point(127, 28);
             this.cmbCourseStrand.Name = "cmbCourseStrand";
             this.cmbCourseStrand.Size = new System.Drawing.Size(109, 23);
             this.cmbCourseStrand.TabIndex = 13;
@@ -264,7 +291,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(127, 45);
+            this.label5.Location = new System.Drawing.Point(124, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 15);
             this.label5.TabIndex = 49;
@@ -276,8 +303,8 @@
             this.datagridview1.AllowUserToDeleteRows = false;
             this.datagridview1.AllowUserToResizeColumns = false;
             this.datagridview1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.datagridview1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.datagridview1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.datagridview1.BackgroundColor = System.Drawing.Color.White;
             this.datagridview1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datagridview1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -289,12 +316,12 @@
             this.clmCourseStrand,
             this.clmYearLevel,
             this.clmRemove});
-            this.datagridview1.Location = new System.Drawing.Point(15, 92);
+            this.datagridview1.Location = new System.Drawing.Point(12, 57);
             this.datagridview1.Name = "datagridview1";
             this.datagridview1.ReadOnly = true;
             this.datagridview1.RowHeadersVisible = false;
             this.datagridview1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridview1.Size = new System.Drawing.Size(423, 233);
+            this.datagridview1.Size = new System.Drawing.Size(423, 244);
             this.datagridview1.TabIndex = 52;
             this.datagridview1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridview1_CellContentClick);
             // 
@@ -351,7 +378,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(370, 63);
+            this.button2.Location = new System.Drawing.Point(367, 28);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 23);
             this.button2.TabIndex = 15;
@@ -363,7 +390,7 @@
             // 
             this.chkSpecific.AutoSize = true;
             this.chkSpecific.ForeColor = System.Drawing.Color.Red;
-            this.chkSpecific.Location = new System.Drawing.Point(187, 10);
+            this.chkSpecific.Location = new System.Drawing.Point(505, 12);
             this.chkSpecific.Name = "chkSpecific";
             this.chkSpecific.Size = new System.Drawing.Size(251, 19);
             this.chkSpecific.TabIndex = 11;
@@ -375,19 +402,31 @@
             // 
             this.panelList.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelList.Controls.Add(this.label1);
-            this.panelList.Controls.Add(this.chkAll);
             this.panelList.Controls.Add(this.label2);
             this.panelList.Controls.Add(this.button2);
-            this.panelList.Controls.Add(this.chkSpecific);
             this.panelList.Controls.Add(this.cmbEducationLevel);
             this.panelList.Controls.Add(this.datagridview1);
             this.panelList.Controls.Add(this.cmbYearLevel);
             this.panelList.Controls.Add(this.cmbCourseStrand);
             this.panelList.Controls.Add(this.label5);
-            this.panelList.Location = new System.Drawing.Point(333, 12);
+            this.panelList.Location = new System.Drawing.Point(333, 40);
             this.panelList.Name = "panelList";
-            this.panelList.Size = new System.Drawing.Size(449, 341);
+            this.panelList.Size = new System.Drawing.Size(449, 315);
             this.panelList.TabIndex = 55;
+            // 
+            // chkAll
+            // 
+            this.chkAll.AutoSize = true;
+            this.chkAll.Checked = true;
+            this.chkAll.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAll.ForeColor = System.Drawing.Color.Red;
+            this.chkAll.Location = new System.Drawing.Point(333, 12);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Size = new System.Drawing.Size(162, 19);
+            this.chkAll.TabIndex = 10;
+            this.chkAll.Text = "Applied to all year levels";
+            this.chkAll.UseVisualStyleBackColor = true;
+            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
             // 
             // btnDeleteDiscount
             // 
@@ -404,20 +443,6 @@
             this.btnDeleteDiscount.UseVisualStyleBackColor = false;
             this.btnDeleteDiscount.Visible = false;
             this.btnDeleteDiscount.Click += new System.EventHandler(this.btnDeleteDiscount_Click);
-            // 
-            // chkAll
-            // 
-            this.chkAll.AutoSize = true;
-            this.chkAll.Checked = true;
-            this.chkAll.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAll.ForeColor = System.Drawing.Color.Red;
-            this.chkAll.Location = new System.Drawing.Point(15, 10);
-            this.chkAll.Name = "chkAll";
-            this.chkAll.Size = new System.Drawing.Size(162, 19);
-            this.chkAll.TabIndex = 10;
-            this.chkAll.Text = "Applied to all year levels";
-            this.chkAll.UseVisualStyleBackColor = true;
-            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
             // 
             // label7
             // 
@@ -441,33 +466,6 @@
             this.cmbDiscountType.TabIndex = 2;
             this.cmbDiscountType.SelectedIndexChanged += new System.EventHandler(this.cmbDiscountType_SelectedIndexChanged);
             // 
-            // txtTFee
-            // 
-            this.txtTFee.Enabled = false;
-            this.txtTFee.Location = new System.Drawing.Point(194, 52);
-            this.txtTFee.Name = "txtTFee";
-            this.txtTFee.Size = new System.Drawing.Size(71, 23);
-            this.txtTFee.TabIndex = 5;
-            this.txtTFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtMFee
-            // 
-            this.txtMFee.Enabled = false;
-            this.txtMFee.Location = new System.Drawing.Point(194, 77);
-            this.txtMFee.Name = "txtMFee";
-            this.txtMFee.Size = new System.Drawing.Size(71, 23);
-            this.txtMFee.TabIndex = 7;
-            this.txtMFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtOFee
-            // 
-            this.txtOFee.Enabled = false;
-            this.txtOFee.Location = new System.Drawing.Point(194, 103);
-            this.txtOFee.Name = "txtOFee";
-            this.txtOFee.Size = new System.Drawing.Size(71, 23);
-            this.txtOFee.TabIndex = 9;
-            this.txtOFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -488,10 +486,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 407);
+            this.ClientSize = new System.Drawing.Size(803, 407);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.chkAll);
             this.Controls.Add(this.btnDeleteDiscount);
             this.Controls.Add(this.panelList);
+            this.Controls.Add(this.chkSpecific);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -509,6 +509,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

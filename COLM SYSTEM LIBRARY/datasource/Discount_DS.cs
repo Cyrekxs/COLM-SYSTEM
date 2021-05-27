@@ -188,6 +188,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
+                conn.Open();
                 using (SqlCommand comm = new SqlCommand("DELETE FROM settings.discounts WHERE DiscountID = @DiscountID", conn))
                 {
                     comm.Parameters.AddWithValue("@DiscountID", DiscountID);

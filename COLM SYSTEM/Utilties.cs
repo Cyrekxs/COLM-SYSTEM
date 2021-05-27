@@ -21,6 +21,16 @@ namespace COLM_SYSTEM
             return user.SemesterID;
         }
 
+        public static string GetActiveSchoolYearInfo()
+        {
+            return SchoolYear.GetSchoolYear(user.SchoolYearID).Name;
+        }
+
+        public static string GetActiveSchoolSemesterInfo()
+        {
+            return SchoolSemester.GetSchoolSemester(user.SemesterID).Semester;
+        }
+
         public static string GetAssessor()
         {
             return user.AccountName;

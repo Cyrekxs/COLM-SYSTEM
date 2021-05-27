@@ -292,6 +292,11 @@ namespace COLM_SYSTEM.Discounts
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(cmbEducationLevel.Text) || string.IsNullOrEmpty(cmbCourseStrand.Text) || string.IsNullOrEmpty(cmbYearLevel.Text))
+            {
+                MessageBox.Show("Select Education, Course / Strand and Year Level!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             List<YearLevel> yearLevels = cmbYearLevel.Tag as List<YearLevel>;
 
             YearLevel SelectedYearLevel = yearLevels.Where(item =>

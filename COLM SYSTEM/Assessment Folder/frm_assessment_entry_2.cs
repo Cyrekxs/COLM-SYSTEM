@@ -498,46 +498,13 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private void PrintAssessment(int AssessmentID)
         {
-            ReportParameter param_LRN = new ReportParameter("LRN", Convert.ToString(txtLRN.Text));
-            ReportParameter param_StudentName = new ReportParameter("studentname", Convert.ToString(txtStudentName.Text));
-            ReportParameter param_CourseStrand = new ReportParameter("coursestrand", Convert.ToString(txtCourseStrand.Text));
-            ReportParameter param_YearLevel = new ReportParameter("yearlevel", Convert.ToString(txtYearLevel.Text));
-            ReportParameter param_Section = new ReportParameter("section", cmbSection.Text);
-            ReportParameter param_PaymentMode = new ReportParameter("paymentmode", Convert.ToString(cmbPaymentMode.Text));
-            ReportParameter param_Assessor = new ReportParameter("assessor", Convert.ToString(Utilties.GetAssessor()));
-            ReportParameter param_AssessmentDate = new ReportParameter("assessmentdate", Convert.ToString(DateTime.Now));
-
-            ReportParameter param_TFee = new ReportParameter("TFee", txtTotalTFee.Text);
-            ReportParameter param_MFee = new ReportParameter("MFee", txtTotalMFee.Text);
-            ReportParameter param_OFee = new ReportParameter("OFee", txtTotalOFee.Text);
-            ReportParameter param_Discount = new ReportParameter("Discount", txtTotalDiscount.Text);
-            ReportParameter param_Surcharge = new ReportParameter("Surcharge", txtSurcharge.Text);
-            ReportParameter param_TotalDue = new ReportParameter("TotalDue", txtTotalDue.Text);
-
-
-            List<ReportParameter> reportParameters = new List<ReportParameter>();
-            reportParameters.Add(param_LRN);
-            reportParameters.Add(param_StudentName);
-            reportParameters.Add(param_CourseStrand);
-            reportParameters.Add(param_YearLevel);
-            reportParameters.Add(param_Section);
-            reportParameters.Add(param_PaymentMode);
-            reportParameters.Add(param_Assessor);
-            reportParameters.Add(param_AssessmentDate);
-            reportParameters.Add(param_TFee);
-            reportParameters.Add(param_MFee);
-            reportParameters.Add(param_OFee);
-            reportParameters.Add(param_Discount);
-            reportParameters.Add(param_Surcharge);
-            reportParameters.Add(param_TotalDue);
-
-
 
             DataSets.DataSet1 ds = new DataSets.DataSet1();
             DataRow dr;
 
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
 
+            double TotalUnits = 0;
             var tbl = ds.Tables["DTSubjects"];
             tbl.Rows.Clear();
             foreach (var item in assessment.Subjects)
@@ -547,6 +514,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 dr = tbl.NewRow();
                 dr["Subject"] = string.Concat(schedule.SubjCode, "|", schedule.SubjDesc);
                 dr["Unit"] = schedule.SubjUnit;
+                TotalUnits += Convert.ToDouble(schedule.SubjUnit);
                 dr["Day"] = schedule.Day;
                 dr["Start"] = schedule.TimeIn;
                 dr["End"] = schedule.TimeOut;
@@ -565,6 +533,52 @@ namespace COLM_SYSTEM.Assessment_Folder
                 dr["DueDate"] = item.DueDate;
                 ds.Tables["DTPaymentSchedule"].Rows.Add(dr);
             }
+
+
+            ReportParameter param_LRN = new ReportParameter("LRN", Convert.ToString(txtLRN.Text));
+            ReportParameter param_StudentName = new ReportParameter("studentname", Convert.ToString(txtStudentName.Text));
+            ReportParameter param_CourseStrand = new ReportParameter("coursestrand", Convert.ToString(txtCourseStrand.Text));
+            ReportParameter param_YearLevel = new ReportParameter("yearlevel", Convert.ToString(txtYearLevel.Text));
+            ReportParameter param_Section = new ReportParameter("section", cmbSection.Text);
+            ReportParameter param_PaymentMode = new ReportParameter("paymentmode", Convert.ToString(cmbPaymentMode.Text));
+            ReportParameter param_Assessor = new ReportParameter("assessor", Convert.ToString(Utilties.GetAssessor()));
+            ReportParameter param_AssessmentDate = new ReportParameter("assessmentdate", Convert.ToString(DateTime.Now));
+
+            ReportParameter param_TFee = new ReportParameter("TFee", txtTotalTFee.Text);
+            ReportParameter param_MFee = new ReportParameter("MFee", txtTotalMFee.Text);
+            ReportParameter param_OFee = new ReportParameter("OFee", txtTotalOFee.Text);
+            ReportParameter param_Discount = new ReportParameter("Discount", txtTotalDiscount.Text);
+            ReportParameter param_Surcharge = new ReportParameter("Surcharge", txtSurcharge.Text);
+            ReportParameter param_TotalDue = new ReportParameter("TotalDue", txtTotalDue.Text);
+            ReportParameter param_TotalUnits = new ReportParameter("TotalUnit", Convert.ToInt16(TotalUnits).ToString());
+            ReportParameter param_sysem;
+            if (txtEducationLevel.Text.ToLower() != "college")
+            {
+                param_sysem = new ReportParameter("sysem", string.Concat("S.Y :", Utilties.GetActiveSchoolYearInfo().ToString().ToUpper()));
+            }
+            else
+            {
+                param_sysem = new ReportParameter("sysem", string.Concat("A.Y : ",Utilties.GetActiveSchoolSemesterInfo().ToUpper()," ", Utilties.GetActiveSchoolYearInfo().ToString()));
+            }
+
+            List<ReportParameter> reportParameters = new List<ReportParameter>();
+            reportParameters.Add(param_LRN);
+            reportParameters.Add(param_StudentName);
+            reportParameters.Add(param_CourseStrand);
+            reportParameters.Add(param_YearLevel);
+            reportParameters.Add(param_Section);
+            reportParameters.Add(param_PaymentMode);
+            reportParameters.Add(param_Assessor);
+            reportParameters.Add(param_AssessmentDate);
+            reportParameters.Add(param_TFee);
+            reportParameters.Add(param_MFee);
+            reportParameters.Add(param_OFee);
+            reportParameters.Add(param_Discount);
+            reportParameters.Add(param_Surcharge);
+            reportParameters.Add(param_TotalDue);
+            reportParameters.Add(param_TotalUnits);
+            reportParameters.Add(param_sysem);
+
 
             frm_print_preview frm = new frm_print_preview();
             ReportDataSource dsPaymentSchedule = new ReportDataSource("dsPaymentSchedule", ds.Tables["DTPaymentSchedule"]);

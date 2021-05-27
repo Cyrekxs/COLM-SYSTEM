@@ -87,10 +87,19 @@ namespace COLM_SYSTEM.Settings_Folder
             }
 
             if (SavingStatus == "ADD")
+            {
                 PaymentMode.InsertPaymentMode(payment, paymentitems);
+                MessageBox.Show("Payment mode has been successfully saved", "Payment Mode Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+                Dispose();
+            }
+
             else if (SavingStatus == "UPDATE")
             {
                 PaymentMode.UpdatePaymentMode(payment, paymentitems);
+                MessageBox.Show("Payment mode has been successfully updated", "Payment Mode Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+                Dispose();
             }
         }
     }
