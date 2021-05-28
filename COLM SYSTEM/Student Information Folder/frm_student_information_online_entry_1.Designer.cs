@@ -30,6 +30,11 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtBarangay = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.txtProvince = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbGender = new System.Windows.Forms.ComboBox();
             this.txtLRN = new System.Windows.Forms.TextBox();
@@ -78,11 +83,10 @@
             this.txtMotherMobile = new System.Windows.Forms.TextBox();
             this.txtMotherName = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtProvince = new System.Windows.Forms.TextBox();
-            this.txtCity = new System.Windows.Forms.TextBox();
-            this.txtBarangay = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -137,6 +141,53 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "BASIC INFORMATION";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtBarangay
+            // 
+            this.txtBarangay.Location = new System.Drawing.Point(304, 253);
+            this.txtBarangay.Name = "txtBarangay";
+            this.txtBarangay.Size = new System.Drawing.Size(143, 23);
+            this.txtBarangay.TabIndex = 12;
+            // 
+            // txtCity
+            // 
+            this.txtCity.Location = new System.Drawing.Point(158, 253);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(143, 23);
+            this.txtCity.TabIndex = 11;
+            // 
+            // txtProvince
+            // 
+            this.txtProvince.Location = new System.Drawing.Point(9, 253);
+            this.txtProvince.Name = "txtProvince";
+            this.txtProvince.Size = new System.Drawing.Size(143, 23);
+            this.txtProvince.TabIndex = 10;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Gray;
+            this.button2.Location = new System.Drawing.Point(157, 389);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 31);
+            this.button2.TabIndex = 37;
+            this.button2.Text = "CANCEL";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(248, 389);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 31);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "PROCESS APPLICATION";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_ClickAsync);
             // 
             // label1
             // 
@@ -371,6 +422,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label26);
+            this.tabPage2.Controls.Add(this.comboBox2);
+            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label23);
             this.tabPage2.Controls.Add(this.label25);
             this.tabPage2.Controls.Add(this.label13);
@@ -465,7 +520,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(3, 335);
+            this.label30.Location = new System.Drawing.Point(3, 308);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(78, 13);
             this.label30.TabIndex = 30;
@@ -473,7 +528,7 @@
             // 
             // txtSchoolAddress
             // 
-            this.txtSchoolAddress.Location = new System.Drawing.Point(6, 309);
+            this.txtSchoolAddress.Location = new System.Drawing.Point(6, 282);
             this.txtSchoolAddress.Name = "txtSchoolAddress";
             this.txtSchoolAddress.Size = new System.Drawing.Size(444, 23);
             this.txtSchoolAddress.TabIndex = 29;
@@ -482,7 +537,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(3, 279);
+            this.label29.Location = new System.Drawing.Point(3, 266);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(68, 13);
             this.label29.TabIndex = 28;
@@ -490,7 +545,7 @@
             // 
             // txtSchoolName
             // 
-            this.txtSchoolName.Location = new System.Drawing.Point(6, 253);
+            this.txtSchoolName.Location = new System.Drawing.Point(6, 240);
             this.txtSchoolName.Name = "txtSchoolName";
             this.txtSchoolName.Size = new System.Drawing.Size(444, 23);
             this.txtSchoolName.TabIndex = 27;
@@ -499,7 +554,7 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(3, 233);
+            this.label28.Location = new System.Drawing.Point(3, 220);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(163, 15);
             this.label28.TabIndex = 26;
@@ -597,52 +652,49 @@
             this.label18.TabIndex = 12;
             this.label18.Text = "MOTHER\'S INFORMATION";
             // 
-            // button2
+            // label5
             // 
-            this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Gray;
-            this.button2.Location = new System.Drawing.Point(157, 389);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 31);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "CANCEL";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 350);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "School Status";
             // 
-            // button1
+            // comboBox1
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(248, 389);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 31);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "PROCESS APPLICATION";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_ClickAsync);
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Private",
+            "Public"});
+            this.comboBox1.Location = new System.Drawing.Point(6, 324);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(270, 23);
+            this.comboBox1.TabIndex = 45;
             // 
-            // txtProvince
+            // comboBox2
             // 
-            this.txtProvince.Location = new System.Drawing.Point(9, 253);
-            this.txtProvince.Name = "txtProvince";
-            this.txtProvince.Size = new System.Drawing.Size(143, 23);
-            this.txtProvince.TabIndex = 10;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.comboBox2.Location = new System.Drawing.Point(302, 324);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(148, 23);
+            this.comboBox2.TabIndex = 46;
             // 
-            // txtCity
+            // label26
             // 
-            this.txtCity.Location = new System.Drawing.Point(158, 253);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(143, 23);
-            this.txtCity.TabIndex = 11;
-            // 
-            // txtBarangay
-            // 
-            this.txtBarangay.Location = new System.Drawing.Point(304, 253);
-            this.txtBarangay.Name = "txtBarangay";
-            this.txtBarangay.Size = new System.Drawing.Size(143, 23);
-            this.txtBarangay.TabIndex = 12;
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(299, 350);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(76, 13);
+            this.label26.TabIndex = 47;
+            this.label26.Text = "ESC Guarantee";
             // 
             // frm_student_information_online_entry_1
             // 
@@ -721,5 +773,9 @@
         private System.Windows.Forms.TextBox txtBarangay;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtProvince;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label26;
     }
 }

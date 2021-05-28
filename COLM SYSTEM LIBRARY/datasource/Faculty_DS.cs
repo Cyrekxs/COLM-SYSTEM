@@ -28,7 +28,10 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 FacultyID = Convert.ToInt32(reader["FacultyID"]),
                                 Title = Convert.ToString(reader["Title"]),
                                 Lastname = Convert.ToString(reader["Lastname"]),
-                                Firstname = Convert.ToString(reader["Firstname"])
+                                Firstname = Convert.ToString(reader["Firstname"]),
+                                Username = Convert.ToString(reader["Username"]),
+                                Userpass = Convert.ToString(reader["Userpass"])
+
                             };
                             faculties.Add(faculty);
                         }
@@ -51,18 +54,38 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     {
                         while (reader.Read())
                         {
-                           faculty = new Faculty()
+                            faculty = new Faculty()
                             {
                                 FacultyID = Convert.ToInt32(reader["FacultyID"]),
                                 Title = Convert.ToString(reader["Title"]),
                                 Lastname = Convert.ToString(reader["Lastname"]),
-                                Firstname = Convert.ToString(reader["Firstname"])
+                                Firstname = Convert.ToString(reader["Firstname"]),
+                                Username = Convert.ToString(reader["Username"]),
+                                Userpass = Convert.ToString(reader["Userpass"])
                             };
                         }
                     }
                 }
             }
             return faculty;
+        }
+
+        public static int InsertUpdateFaculty(Faculty faculty)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("EXEC sp_set_faculty @FacultyID,@Title,@Lastname,@Firstname,@Username,@Userpass", conn))
+                {
+                    comm.Parameters.AddWithValue("@facultyid", faculty.FacultyID);
+                    comm.Parameters.AddWithValue("@Title", faculty.Title);
+                    comm.Parameters.AddWithValue("@Lastname", faculty.Lastname);
+                    comm.Parameters.AddWithValue("@Firstname", faculty.Firstname);
+                    comm.Parameters.AddWithValue("@Username", faculty.Username);
+                    comm.Parameters.AddWithValue("@Userpass", faculty.Userpass);
+                    return comm.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

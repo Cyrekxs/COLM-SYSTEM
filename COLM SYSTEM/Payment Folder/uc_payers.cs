@@ -1,4 +1,5 @@
-﻿using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
+﻿using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -47,6 +48,20 @@ namespace COLM_SYSTEM.Payment_Folder
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
                 LoadAssessments();
+            }
+            else if (e.ColumnIndex == clmEnroll.Index)
+            {
+                if(MessageBox.Show("Are you sure you want to mark this student as enrolled?","Mark as Enrolled",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    EnrolledStudent student = new EnrolledStudent()
+                    {
+                        RegisteredStudentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["clmRegisteredStudentID"].Value),
+                        SchoolYearID = Utilties.GetActiveSchoolYear(),
+                        SemesterID = Utilties.GetActiveSemester(),
+                    };
+
+                    EnrolledStudent.EnrollStudent(student);
+                }
             }
         }
     }

@@ -55,6 +55,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dASHBOARDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tRANSACTIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onlineApplicantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFORMATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEGISTRATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aSSESSMENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,13 +70,14 @@
             this.dISCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sECTIONSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aSSESSMENTTYPEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assessmentPaymentModesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aDMINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.onlineApplicantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -401,31 +403,38 @@
             this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
             this.tRANSACTIONToolStripMenuItem.Text = "TRANSACTION";
             // 
+            // onlineApplicantsToolStripMenuItem
+            // 
+            this.onlineApplicantsToolStripMenuItem.Name = "onlineApplicantsToolStripMenuItem";
+            this.onlineApplicantsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.onlineApplicantsToolStripMenuItem.Text = "Online Applicants";
+            this.onlineApplicantsToolStripMenuItem.Click += new System.EventHandler(this.onlineApplicantsToolStripMenuItem_Click);
+            // 
             // iNFORMATIONToolStripMenuItem
             // 
             this.iNFORMATIONToolStripMenuItem.Name = "iNFORMATIONToolStripMenuItem";
-            this.iNFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iNFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.iNFORMATIONToolStripMenuItem.Text = "Information";
             this.iNFORMATIONToolStripMenuItem.Click += new System.EventHandler(this.iNFORMATIONToolStripMenuItem_Click);
             // 
             // rEGISTRATIONToolStripMenuItem
             // 
             this.rEGISTRATIONToolStripMenuItem.Name = "rEGISTRATIONToolStripMenuItem";
-            this.rEGISTRATIONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rEGISTRATIONToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.rEGISTRATIONToolStripMenuItem.Text = "Registration";
             this.rEGISTRATIONToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRATIONToolStripMenuItem_Click);
             // 
             // aSSESSMENTToolStripMenuItem
             // 
             this.aSSESSMENTToolStripMenuItem.Name = "aSSESSMENTToolStripMenuItem";
-            this.aSSESSMENTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aSSESSMENTToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.aSSESSMENTToolStripMenuItem.Text = "Assessment";
             this.aSSESSMENTToolStripMenuItem.Click += new System.EventHandler(this.aSSESSMENTToolStripMenuItem_Click);
             // 
             // pAYMENTToolStripMenuItem
             // 
             this.pAYMENTToolStripMenuItem.Name = "pAYMENTToolStripMenuItem";
-            this.pAYMENTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pAYMENTToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.pAYMENTToolStripMenuItem.Text = "Payment";
             this.pAYMENTToolStripMenuItem.Click += new System.EventHandler(this.pAYMENTToolStripMenuItem_Click);
             // 
@@ -503,10 +512,26 @@
             // 
             // aSSESSMENTTYPEToolStripMenuItem
             // 
+            this.aSSESSMENTTYPEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.facultyToolStripMenuItem,
+            this.assessmentPaymentModesToolStripMenuItem});
             this.aSSESSMENTTYPEToolStripMenuItem.Name = "aSSESSMENTTYPEToolStripMenuItem";
-            this.aSSESSMENTTYPEToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.aSSESSMENTTYPEToolStripMenuItem.Text = "Assessment Payment Modes";
-            this.aSSESSMENTTYPEToolStripMenuItem.Click += new System.EventHandler(this.aSSESSMENTTYPEToolStripMenuItem_Click);
+            this.aSSESSMENTTYPEToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.aSSESSMENTTYPEToolStripMenuItem.Text = "Management";
+            // 
+            // facultyToolStripMenuItem
+            // 
+            this.facultyToolStripMenuItem.Name = "facultyToolStripMenuItem";
+            this.facultyToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.facultyToolStripMenuItem.Text = "Faculty";
+            this.facultyToolStripMenuItem.Click += new System.EventHandler(this.facultyToolStripMenuItem_Click);
+            // 
+            // assessmentPaymentModesToolStripMenuItem
+            // 
+            this.assessmentPaymentModesToolStripMenuItem.Name = "assessmentPaymentModesToolStripMenuItem";
+            this.assessmentPaymentModesToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.assessmentPaymentModesToolStripMenuItem.Text = "Assessment Payment Modes";
+            this.assessmentPaymentModesToolStripMenuItem.Click += new System.EventHandler(this.assessmentPaymentModesToolStripMenuItem_Click);
             // 
             // rEPORTSToolStripMenuItem
             // 
@@ -547,13 +572,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // onlineApplicantsToolStripMenuItem
-            // 
-            this.onlineApplicantsToolStripMenuItem.Name = "onlineApplicantsToolStripMenuItem";
-            this.onlineApplicantsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.onlineApplicantsToolStripMenuItem.Text = "Online Applicants";
-            this.onlineApplicantsToolStripMenuItem.Click += new System.EventHandler(this.onlineApplicantsToolStripMenuItem_Click);
             // 
             // frm_main
             // 
@@ -636,5 +654,7 @@
         private System.Windows.Forms.ToolStripMenuItem aDMINToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem onlineApplicantsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facultyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem assessmentPaymentModesToolStripMenuItem;
     }
 }

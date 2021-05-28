@@ -1,6 +1,7 @@
 ﻿using COLM_SYSTEM.Assessment_Folder;
 using COLM_SYSTEM.Curriculum_Folder;
 using COLM_SYSTEM.Discounts;
+using COLM_SYSTEM.Faculty_Folder;
 using COLM_SYSTEM.Fees_Folder;
 using COLM_SYSTEM.Payment_Folder;
 using COLM_SYSTEM.registration;
@@ -129,13 +130,6 @@ namespace COLM_SYSTEM
             frm.ShowDialog();
         }
 
-        private void aSSESSMENTTYPEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frm_assessment_payment_mode_list frm = new frm_assessment_payment_mode_list();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-        }
-
         private void frm_main_Load_1(object sender, EventArgs e)
         {
             if (Utilties.user.Credential.EmailID == 0)
@@ -150,6 +144,20 @@ namespace COLM_SYSTEM
         private void onlineApplicantsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_student_information_list_online());
+        }
+
+        private void assessmentPaymentModesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_assessment_payment_mode_list frm = new frm_assessment_payment_mode_list();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void facultyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_faculty_entry frm = new frm_faculty_entry();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

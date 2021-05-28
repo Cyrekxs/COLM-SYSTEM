@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\Colm\colm system 2021\</UpdateUrl>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -188,6 +188,12 @@
     </Compile>
     <Compile Include="Faculty Folder\frm_faculty_browser.Designer.cs">
       <DependentUpon>frm_faculty_browser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty Folder\frm_faculty_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faculty Folder\frm_faculty_entry.Designer.cs">
+      <DependentUpon>frm_faculty_entry.cs</DependentUpon>
     </Compile>
     <Compile Include="Fees Folder\frm_addtional_fee_entry.cs">
       <SubType>Form</SubType>
@@ -465,6 +471,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Faculty Folder\frm_faculty_browser.resx">
       <DependentUpon>frm_faculty_browser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Faculty Folder\frm_faculty_entry.resx">
+      <DependentUpon>frm_faculty_entry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\frm_addtional_fee_entry.resx">
       <DependentUpon>frm_addtional_fee_entry.cs</DependentUpon>

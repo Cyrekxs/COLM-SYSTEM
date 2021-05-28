@@ -45,7 +45,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         private static string GetOnlineConnectionString()
         {
-            string connstring = @"Data Source=.\SQLEXPRESS;Initial Catalog=colmpulilan_server_registration;Persist Security Info=True;User ID=sa;Password=sa";
+            string connstring = @"Server=hgws12.win.hostgator.com;Database=colmpulilan_server_registration;User Id=colmpulilan_sysadmin;Password=Admin.c0lm2o18;";
             return connstring;
         }
 
