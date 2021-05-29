@@ -43,14 +43,20 @@ namespace COLM_SYSTEM.Assessment_Folder
         private YearLevel GetStudentYearLevel()
         {
             YearLevel yearLevel = (from r in Curriculum.GetCurriculumYearLevels(registeredStudent.CurriculumID)
-                               where r.YearLvl.ToLower() == cmbYearLevel.Text.ToLower()
-                               select r).First();
+                                   where r.YearLvl.ToLower() == cmbYearLevel.Text.ToLower()
+                                   select r).First();
             return yearLevel;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frm_assessment_entry_2 frm = new frm_assessment_entry_2(registeredStudent,GetStudentYearLevel());
+            if (string.IsNullOrEmpty(cmbYearLevel.Text) == true)
+            {
+                MessageBox.Show("Please select year level to proceed in step 2", "Select Year Level", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frm_assessment_entry_2 frm = new frm_assessment_entry_2(registeredStudent, GetStudentYearLevel());
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             Close();

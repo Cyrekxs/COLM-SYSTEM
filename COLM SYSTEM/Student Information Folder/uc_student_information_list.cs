@@ -8,15 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM.Student_Information_Folder;
 
 namespace COLM_SYSTEM.student_information
 {
     public partial class uc_student_information_list : UserControl
     {
+        private int SelectedRow = 0;
         public uc_student_information_list()
         {
             InitializeComponent();
-           LoadStudentsAsync();
+            LoadStudentsAsync();
         }
 
         private void LoadStudents()
@@ -31,7 +33,7 @@ namespace COLM_SYSTEM.student_information
 
             foreach (var item in students)
             {
-                dataGridView1.Rows.Add(item.StudentID, item.LRN, item.StudentName,item.Gender, item.BirthDate.ToString("MM - dd - yyyy"), item.MobileNo,item.GuardianName,item.GuardianMobile);
+                dataGridView1.Rows.Add(item.StudentID, item.LRN, item.StudentName, item.Gender, item.BirthDate.ToString("MM - dd - yyyy"), item.MobileNo, item.GuardianName, item.GuardianMobile);
             }
 
             lblCount.Text = "Record Count(s): " + dataGridView1.Rows.Count.ToString();
@@ -57,26 +59,26 @@ namespace COLM_SYSTEM.student_information
 
         private async void button1_ClickAsync(object sender, EventArgs e)
         {
-            using (frm_student_information_entry frm = new frm_student_information_entry())
+            using (frm_student_information_online_entry_1 frm = new frm_student_information_online_entry_1())
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-               await LoadStudentsAsync();
+                await LoadStudentsAsync();
             }
+            //using (frm_student_information_entry frm = new frm_student_information_entry())
+            //{
+            //    frm.StartPosition = FormStartPosition.CenterParent;
+            //    frm.ShowDialog();
+            //    await LoadStudentsAsync();
+            //}
         }
 
-        private async void dataGridView1_CellContentClickAsync(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClickAsync(object sender, DataGridViewCellEventArgs e)
         {
-            int SelectStudentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["clmStudentID"].Value);
-
-            if (e.ColumnIndex == clmUpdateStudentInfo.Index)
+            if (e.ColumnIndex == clmAction.Index)
             {
-                using (frm_student_information_entry frm = new frm_student_information_entry(SelectStudentID))
-                {
-                    frm.StartPosition = FormStartPosition.CenterParent;
-                    frm.ShowDialog();
-                   await LoadStudentsAsync();
-                }
+                SelectedRow = e.RowIndex;
+                contextMenuStrip1.Show(new Point(Cursor.Position.X, Cursor.Position.Y));
             }
         }
 
@@ -84,13 +86,44 @@ namespace COLM_SYSTEM.student_information
         {
             if (e.KeyCode == Keys.Enter)
             {
-               await LoadStudentsAsync();
+                await LoadStudentsAsync();
             }
             else if (e.KeyCode == Keys.Back)
             {
                 if (txtSearch.Text == string.Empty)
                 {
-                   await LoadStudentsAsync();
+                    await LoadStudentsAsync();
+                }
+            }
+        }
+
+        private async void uPDATEINFORToolStripMenuItem_ClickAsync(object sender, EventArgs e)
+        {
+            int SelectedStudentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmStudentID"].Value);
+            using (frm_student_information_entry frm = new frm_student_information_entry(SelectedStudentID))
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                await LoadStudentsAsync();
+            }
+        }
+
+        private async void dELETEINFORMATIONToolStripMenuItem_ClickAsync(object sender, EventArgs e)
+        {
+            int SelectedStudentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmStudentID"].Value);
+            bool HasRegistration = StudentInfo.HasRegistration(SelectedStudentID);
+
+            if (HasRegistration == false)
+            {
+                if (MessageBox.Show("Are you sure you want to delete this student information?", "Delete Student Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int result = StudentInfo.RemoveStudent(SelectedStudentID);
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Student has been successfully deleted!", "Delete Successfull!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await LoadStudentsAsync();
+                    }
                 }
             }
         }

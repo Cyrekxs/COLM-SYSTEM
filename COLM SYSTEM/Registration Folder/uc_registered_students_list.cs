@@ -61,5 +61,13 @@ namespace COLM_SYSTEM.Registration_Folder
                 LoadRegisteredStudents();
             }
         }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoadRegisteredStudents();
+            }
+        }
     }
 }

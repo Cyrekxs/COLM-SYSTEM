@@ -61,6 +61,7 @@ namespace COLM_SYSTEM.Payment_Folder
                     };
 
                     EnrolledStudent.EnrollStudent(student);
+                    dataGridView1.Rows[e.RowIndex].Cells["clmEnroll"].Value = "";
                 }
             }
         }

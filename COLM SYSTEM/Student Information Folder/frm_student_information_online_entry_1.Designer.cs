@@ -61,6 +61,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label26 = new System.Windows.Forms.Label();
+            this.cmbESCGuarantee = new System.Windows.Forms.ComboBox();
+            this.cmbSchoolStatus = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -83,23 +87,39 @@
             this.txtMotherMobile = new System.Windows.Forms.TextBox();
             this.txtMotherName = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label26 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.txtEmergencyMobile = new System.Windows.Forms.TextBox();
+            this.txtEmergencyName = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txtEmergencyRelation = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label35 = new System.Windows.Forms.Label();
+            this.txtEducationLevel = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.txtCourseStrand = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.txtYearLevel = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.cmbStudentStatus = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(6, 6);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(467, 454);
+            this.tabControl1.Size = new System.Drawing.Size(570, 466);
             this.tabControl1.TabIndex = 37;
             // 
             // tabPage1
@@ -107,8 +127,6 @@
             this.tabPage1.Controls.Add(this.txtBarangay);
             this.tabPage1.Controls.Add(this.txtCity);
             this.tabPage1.Controls.Add(this.txtProvince);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.cmbGender);
             this.tabPage1.Controls.Add(this.txtLRN);
@@ -134,10 +152,10 @@
             this.tabPage1.Controls.Add(this.txtBirthDate);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(459, 426);
+            this.tabPage1.Size = new System.Drawing.Size(562, 432);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "BASIC INFORMATION";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -167,7 +185,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Gray;
-            this.button2.Location = new System.Drawing.Point(157, 389);
+            this.button2.Location = new System.Drawing.Point(165, 390);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 31);
             this.button2.TabIndex = 37;
@@ -181,7 +199,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(248, 389);
+            this.button1.Location = new System.Drawing.Point(256, 390);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 31);
             this.button1.TabIndex = 36;
@@ -422,21 +440,19 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label26);
-            this.tabPage2.Controls.Add(this.comboBox2);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label34);
+            this.tabPage2.Controls.Add(this.txtEmergencyRelation);
+            this.tabPage2.Controls.Add(this.label31);
+            this.tabPage2.Controls.Add(this.label32);
+            this.tabPage2.Controls.Add(this.txtEmergencyMobile);
+            this.tabPage2.Controls.Add(this.txtEmergencyName);
+            this.tabPage2.Controls.Add(this.label33);
             this.tabPage2.Controls.Add(this.label23);
             this.tabPage2.Controls.Add(this.label25);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.label22);
             this.tabPage2.Controls.Add(this.checkBox2);
             this.tabPage2.Controls.Add(this.checkBox1);
-            this.tabPage2.Controls.Add(this.label30);
-            this.tabPage2.Controls.Add(this.txtSchoolAddress);
-            this.tabPage2.Controls.Add(this.label29);
-            this.tabPage2.Controls.Add(this.txtSchoolName);
-            this.tabPage2.Controls.Add(this.label28);
             this.tabPage2.Controls.Add(this.txtGuardianMobile);
             this.tabPage2.Controls.Add(this.txtGuardianName);
             this.tabPage2.Controls.Add(this.label27);
@@ -448,13 +464,57 @@
             this.tabPage2.Controls.Add(this.txtMotherMobile);
             this.tabPage2.Controls.Add(this.txtMotherName);
             this.tabPage2.Controls.Add(this.label18);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(459, 426);
+            this.tabPage2.Size = new System.Drawing.Size(562, 432);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SCHOOL AND GUARDIAN INFORMATION";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(6, 186);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(76, 13);
+            this.label26.TabIndex = 47;
+            this.label26.Text = "ESC Guarantee";
+            // 
+            // cmbESCGuarantee
+            // 
+            this.cmbESCGuarantee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbESCGuarantee.FormattingEnabled = true;
+            this.cmbESCGuarantee.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.cmbESCGuarantee.Location = new System.Drawing.Point(9, 160);
+            this.cmbESCGuarantee.Name = "cmbESCGuarantee";
+            this.cmbESCGuarantee.Size = new System.Drawing.Size(447, 23);
+            this.cmbESCGuarantee.TabIndex = 30;
+            // 
+            // cmbSchoolStatus
+            // 
+            this.cmbSchoolStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSchoolStatus.FormattingEnabled = true;
+            this.cmbSchoolStatus.Items.AddRange(new object[] {
+            "Private",
+            "Public"});
+            this.cmbSchoolStatus.Location = new System.Drawing.Point(9, 118);
+            this.cmbSchoolStatus.Name = "cmbSchoolStatus";
+            this.cmbSchoolStatus.Size = new System.Drawing.Size(447, 23);
+            this.cmbSchoolStatus.TabIndex = 29;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "School Status";
             // 
             // label23
             // 
@@ -520,7 +580,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(3, 308);
+            this.label30.Location = new System.Drawing.Point(6, 102);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(78, 13);
             this.label30.TabIndex = 30;
@@ -528,16 +588,16 @@
             // 
             // txtSchoolAddress
             // 
-            this.txtSchoolAddress.Location = new System.Drawing.Point(6, 282);
+            this.txtSchoolAddress.Location = new System.Drawing.Point(9, 76);
             this.txtSchoolAddress.Name = "txtSchoolAddress";
-            this.txtSchoolAddress.Size = new System.Drawing.Size(444, 23);
-            this.txtSchoolAddress.TabIndex = 29;
+            this.txtSchoolAddress.Size = new System.Drawing.Size(447, 23);
+            this.txtSchoolAddress.TabIndex = 28;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(3, 266);
+            this.label29.Location = new System.Drawing.Point(6, 60);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(68, 13);
             this.label29.TabIndex = 28;
@@ -545,16 +605,16 @@
             // 
             // txtSchoolName
             // 
-            this.txtSchoolName.Location = new System.Drawing.Point(6, 240);
+            this.txtSchoolName.Location = new System.Drawing.Point(9, 34);
             this.txtSchoolName.Name = "txtSchoolName";
-            this.txtSchoolName.Size = new System.Drawing.Size(444, 23);
+            this.txtSchoolName.Size = new System.Drawing.Size(447, 23);
             this.txtSchoolName.TabIndex = 27;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(3, 220);
+            this.label28.Location = new System.Drawing.Point(6, 14);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(163, 15);
             this.label28.TabIndex = 26;
@@ -652,55 +712,186 @@
             this.label18.TabIndex = 12;
             this.label18.Text = "MOTHER\'S INFORMATION";
             // 
-            // label5
+            // label31
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 350);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 13);
-            this.label5.TabIndex = 44;
-            this.label5.Text = "School Status";
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(299, 264);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(40, 13);
+            this.label31.TabIndex = 47;
+            this.label31.Text = "Mobile";
             // 
-            // comboBox1
+            // label32
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Private",
-            "Public"});
-            this.comboBox1.Location = new System.Drawing.Point(6, 324);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(270, 23);
-            this.comboBox1.TabIndex = 45;
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(3, 264);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(35, 13);
+            this.label32.TabIndex = 46;
+            this.label32.Text = "Name";
             // 
-            // comboBox2
+            // txtEmergencyMobile
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-            this.comboBox2.Location = new System.Drawing.Point(302, 324);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(148, 23);
-            this.comboBox2.TabIndex = 46;
+            this.txtEmergencyMobile.Location = new System.Drawing.Point(302, 238);
+            this.txtEmergencyMobile.Name = "txtEmergencyMobile";
+            this.txtEmergencyMobile.Size = new System.Drawing.Size(148, 23);
+            this.txtEmergencyMobile.TabIndex = 25;
             // 
-            // label26
+            // txtEmergencyName
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(299, 350);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(76, 13);
-            this.label26.TabIndex = 47;
-            this.label26.Text = "ESC Guarantee";
+            this.txtEmergencyName.Location = new System.Drawing.Point(6, 238);
+            this.txtEmergencyName.Name = "txtEmergencyName";
+            this.txtEmergencyName.Size = new System.Drawing.Size(290, 23);
+            this.txtEmergencyName.TabIndex = 24;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(3, 221);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(210, 15);
+            this.label33.TabIndex = 44;
+            this.label33.Text = "EMERGENCY CONTACT INFORMATION";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(3, 308);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(46, 13);
+            this.label34.TabIndex = 49;
+            this.label34.Text = "Relation";
+            // 
+            // txtEmergencyRelation
+            // 
+            this.txtEmergencyRelation.Location = new System.Drawing.Point(6, 282);
+            this.txtEmergencyRelation.Name = "txtEmergencyRelation";
+            this.txtEmergencyRelation.Size = new System.Drawing.Size(290, 23);
+            this.txtEmergencyRelation.TabIndex = 26;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.cmbStudentStatus);
+            this.tabPage3.Controls.Add(this.label39);
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.label38);
+            this.tabPage3.Controls.Add(this.txtYearLevel);
+            this.tabPage3.Controls.Add(this.label37);
+            this.tabPage3.Controls.Add(this.txtCourseStrand);
+            this.tabPage3.Controls.Add(this.label36);
+            this.tabPage3.Controls.Add(this.label35);
+            this.tabPage3.Controls.Add(this.txtEducationLevel);
+            this.tabPage3.Controls.Add(this.label26);
+            this.tabPage3.Controls.Add(this.label28);
+            this.tabPage3.Controls.Add(this.label29);
+            this.tabPage3.Controls.Add(this.cmbESCGuarantee);
+            this.tabPage3.Controls.Add(this.txtSchoolAddress);
+            this.tabPage3.Controls.Add(this.txtSchoolName);
+            this.tabPage3.Controls.Add(this.cmbSchoolStatus);
+            this.tabPage3.Controls.Add(this.label30);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 30);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(562, 432);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "SCHOOL INFO AND APPLICATION INFO";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(6, 324);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(80, 13);
+            this.label35.TabIndex = 49;
+            this.label35.Text = "Education Level";
+            // 
+            // txtEducationLevel
+            // 
+            this.txtEducationLevel.Location = new System.Drawing.Point(9, 298);
+            this.txtEducationLevel.Name = "txtEducationLevel";
+            this.txtEducationLevel.Size = new System.Drawing.Size(145, 23);
+            this.txtEducationLevel.TabIndex = 32;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(6, 238);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(161, 15);
+            this.label36.TabIndex = 50;
+            this.label36.Text = "APPLICATION INFORMATION";
+            // 
+            // txtCourseStrand
+            // 
+            this.txtCourseStrand.Location = new System.Drawing.Point(160, 298);
+            this.txtCourseStrand.Name = "txtCourseStrand";
+            this.txtCourseStrand.Size = new System.Drawing.Size(145, 23);
+            this.txtCourseStrand.TabIndex = 33;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(157, 324);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(79, 13);
+            this.label37.TabIndex = 52;
+            this.label37.Text = "Course / Strand";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(308, 324);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(54, 13);
+            this.label38.TabIndex = 54;
+            this.label38.Text = "Year Level";
+            // 
+            // txtYearLevel
+            // 
+            this.txtYearLevel.Location = new System.Drawing.Point(311, 298);
+            this.txtYearLevel.Name = "txtYearLevel";
+            this.txtYearLevel.Size = new System.Drawing.Size(145, 23);
+            this.txtYearLevel.TabIndex = 34;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(6, 282);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(76, 13);
+            this.label39.TabIndex = 56;
+            this.label39.Text = "Student Status";
+            // 
+            // cmbStudentStatus
+            // 
+            this.cmbStudentStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStudentStatus.FormattingEnabled = true;
+            this.cmbStudentStatus.Items.AddRange(new object[] {
+            "New Student",
+            "Transferee",
+            "Old Student"});
+            this.cmbStudentStatus.Location = new System.Drawing.Point(9, 256);
+            this.cmbStudentStatus.Name = "cmbStudentStatus";
+            this.cmbStudentStatus.Size = new System.Drawing.Size(447, 23);
+            this.cmbStudentStatus.TabIndex = 57;
             // 
             // frm_student_information_online_entry_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 482);
+            this.ClientSize = new System.Drawing.Size(590, 498);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
@@ -712,6 +903,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -773,9 +966,26 @@
         private System.Windows.Forms.TextBox txtBarangay;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtProvince;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbSchoolStatus;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbESCGuarantee;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox txtEmergencyMobile;
+        private System.Windows.Forms.TextBox txtEmergencyName;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox txtEmergencyRelation;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox txtEducationLevel;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox txtYearLevel;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox txtCourseStrand;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.ComboBox cmbStudentStatus;
     }
 }

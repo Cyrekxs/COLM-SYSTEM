@@ -32,9 +32,14 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string FatherMobile { get; set; }
         public string GuardianName { get; set; }
         public string GuardianMobile { get; set; }
+        public string EmergencyName { get; set; }
+        public string EmergencyRelation { get; set; }
+        public string EmergencyMobile { get; set; }
 
         public string SchoolName { get; set; }
         public string SchoolAddress { get; set; }
+        public string SchoolStatus { get; set; }
+        public string ESCGuarantee { get; set; }
 
         public string StudentStatus { get; set; }
         public string EducationLevel { get; set; }
@@ -107,14 +112,22 @@ namespace COLM_SYSTEM_LIBRARY.model
                                 Province = Convert.ToString(reader["Province"]),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
                                 EmailAddress = Convert.ToString(reader["EmailAddress"]),
+
                                 MotherName = Convert.ToString(reader["MotherName"]),
                                 MotherMobile = Convert.ToString(reader["MotherMobile"]),
                                 FatherName = Convert.ToString(reader["FatherName"]),
                                 FatherMobile = Convert.ToString(reader["FatherMobile"]),
                                 GuardianName = Convert.ToString(reader["GuardianName"]),
                                 GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
+                                EmergencyName= Convert.ToString(reader["EmergencyName"]),
+                                EmergencyMobile =Convert.ToString(reader["EmergencyMobile"]),
+                                EmergencyRelation = Convert.ToString(reader["EmergencyRelation"]),
+
                                 SchoolName = Convert.ToString(reader["SchoolName"]),
                                 SchoolAddress = Convert.ToString(reader["SchoolAddress"]),
+                                SchoolStatus = Convert.ToString(reader["SchoolStatus"]),
+                                ESCGuarantee = Convert.ToString(reader["ESCGuarantee"]),
+
                                 StudentStatus = Convert.ToString(reader["StudentStatus"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),

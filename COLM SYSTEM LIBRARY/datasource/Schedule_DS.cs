@@ -54,6 +54,30 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
         }
 
+        public static bool DeleteSchedule(int SectionID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlTransaction t = conn.BeginTransaction())
+                {
+                    using (SqlCommand comm = new SqlCommand("DELETE FROM settings.curriculum_subjects_schedule WHERE SectionID = @SectionID", conn, t))
+                    {
+                        comm.Parameters.AddWithValue("@SectionID", SectionID);
+                        comm.ExecuteNonQuery();
+                    }
+
+                    using (SqlCommand comm = new SqlCommand("DELETE FROM settings.yearlevel_sections WHERE SectionID = @SectionID", conn, t))
+                    {
+                        comm.Parameters.AddWithValue("@SectionID", SectionID);
+                        comm.ExecuteNonQuery();
+                    }
+
+                    t.Commit();
+                    return true;
+                }
+            }
+        }
 
         public static List<Schedule> GetSchedules(int SectionID)
         {
@@ -163,8 +187,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return schedules;
         }
-
-
 
         public static Schedule GetSchedulesByScheduleID(int ScheduleID)
         {

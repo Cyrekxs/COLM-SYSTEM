@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clmScheduleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubjPriceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +65,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.btnDeleteSchedule = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -74,8 +76,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle36;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -92,7 +94,7 @@
             this.clmPick});
             this.dataGridView1.Location = new System.Drawing.Point(12, 27);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(799, 249);
+            this.dataGridView1.Size = new System.Drawing.Size(785, 249);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -116,7 +118,8 @@
             this.clmSubjCode.HeaderText = "Subject";
             this.clmSubjCode.Name = "clmSubjCode";
             this.clmSubjCode.ReadOnly = true;
-            this.clmSubjCode.Width = 72;
+            this.clmSubjCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmSubjCode.Width = 53;
             // 
             // clmSubjDesc
             // 
@@ -124,62 +127,69 @@
             this.clmSubjDesc.HeaderText = "Description";
             this.clmSubjDesc.Name = "clmSubjDesc";
             this.clmSubjDesc.ReadOnly = true;
+            this.clmSubjDesc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // clmSubjUnit
             // 
             this.clmSubjUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmSubjUnit.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmSubjUnit.DefaultCellStyle = dataGridViewCellStyle37;
             this.clmSubjUnit.HeaderText = "Unit";
             this.clmSubjUnit.Name = "clmSubjUnit";
             this.clmSubjUnit.ReadOnly = true;
-            this.clmSubjUnit.Width = 55;
+            this.clmSubjUnit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmSubjUnit.Width = 36;
             // 
             // clmDay
             // 
             this.clmDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.clmDay.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.clmDay.DefaultCellStyle = dataGridViewCellStyle38;
             this.clmDay.HeaderText = "Day";
             this.clmDay.Name = "clmDay";
-            this.clmDay.Width = 53;
+            this.clmDay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmDay.Width = 34;
             // 
             // clmTimeIn
             // 
             this.clmTimeIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.clmTimeIn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.clmTimeIn.DefaultCellStyle = dataGridViewCellStyle39;
             this.clmTimeIn.HeaderText = "Time In";
             this.clmTimeIn.Name = "clmTimeIn";
-            this.clmTimeIn.Width = 72;
+            this.clmTimeIn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmTimeIn.Width = 53;
             // 
             // clmTimeOut
             // 
             this.clmTimeOut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.clmTimeOut.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.clmTimeOut.DefaultCellStyle = dataGridViewCellStyle40;
             this.clmTimeOut.HeaderText = "Time Out";
             this.clmTimeOut.Name = "clmTimeOut";
-            this.clmTimeOut.Width = 81;
+            this.clmTimeOut.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmTimeOut.Width = 62;
             // 
             // clmRoom
             // 
             this.clmRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.clmRoom.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.clmRoom.DefaultCellStyle = dataGridViewCellStyle41;
             this.clmRoom.HeaderText = "Room";
             this.clmRoom.Name = "clmRoom";
-            this.clmRoom.Width = 63;
+            this.clmRoom.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmRoom.Width = 44;
             // 
             // clmFaculty
             // 
             this.clmFaculty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.clmFaculty.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.clmFaculty.DefaultCellStyle = dataGridViewCellStyle42;
             this.clmFaculty.HeaderText = "Faculty";
             this.clmFaculty.Name = "clmFaculty";
             this.clmFaculty.ReadOnly = true;
-            this.clmFaculty.Width = 72;
+            this.clmFaculty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmFaculty.Width = 53;
             // 
             // clmPick
             // 
@@ -189,11 +199,10 @@
             this.clmPick.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.clmPick.Name = "clmPick";
             this.clmPick.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmPick.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.clmPick.Text = "Pick";
             this.clmPick.UseColumnTextForLinkValue = true;
             this.clmPick.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.clmPick.Width = 55;
+            this.clmPick.Width = 36;
             // 
             // label1
             // 
@@ -298,7 +307,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(714, 427);
+            this.button1.Location = new System.Drawing.Point(706, 427);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 30);
             this.button1.TabIndex = 11;
@@ -310,7 +319,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(642, 285);
+            this.label7.Location = new System.Drawing.Point(628, 285);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 15);
             this.label7.TabIndex = 13;
@@ -318,7 +327,7 @@
             // 
             // txtCount
             // 
-            this.txtCount.Location = new System.Drawing.Point(729, 282);
+            this.txtCount.Location = new System.Drawing.Point(715, 282);
             this.txtCount.Name = "txtCount";
             this.txtCount.ReadOnly = true;
             this.txtCount.Size = new System.Drawing.Size(82, 23);
@@ -343,19 +352,20 @@
             this.panel1.Controls.Add(this.txtSectionCode);
             this.panel1.Location = new System.Drawing.Point(12, 26);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(818, 57);
+            this.panel1.Size = new System.Drawing.Size(810, 57);
             this.panel1.TabIndex = 14;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.txtCount);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Location = new System.Drawing.Point(12, 104);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(818, 317);
+            this.panel2.Size = new System.Drawing.Size(810, 317);
             this.panel2.TabIndex = 15;
             // 
             // linkLabel1
@@ -363,7 +373,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.DarkSlateGray;
-            this.linkLabel1.Location = new System.Drawing.Point(682, 9);
+            this.linkLabel1.Location = new System.Drawing.Point(668, 9);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(129, 15);
             this.linkLabel1.TabIndex = 14;
@@ -371,11 +381,38 @@
             this.linkLabel1.Text = "+ Add Unlisted Subject";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // btnDeleteSchedule
+            // 
+            this.btnDeleteSchedule.BackColor = System.Drawing.Color.Firebrick;
+            this.btnDeleteSchedule.FlatAppearance.BorderSize = 0;
+            this.btnDeleteSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteSchedule.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteSchedule.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteSchedule.Location = new System.Drawing.Point(12, 427);
+            this.btnDeleteSchedule.Name = "btnDeleteSchedule";
+            this.btnDeleteSchedule.Size = new System.Drawing.Size(116, 30);
+            this.btnDeleteSchedule.TabIndex = 16;
+            this.btnDeleteSchedule.Text = "DELETE SCHEDULE";
+            this.btnDeleteSchedule.UseVisualStyleBackColor = false;
+            this.btnDeleteSchedule.Click += new System.EventHandler(this.btnDeleteSchedule_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Firebrick;
+            this.label8.Location = new System.Drawing.Point(9, 285);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(266, 15);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "* Note you can save a schedule without teacher";
+            // 
             // frm_section_schedule_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 472);
+            this.ClientSize = new System.Drawing.Size(837, 472);
+            this.Controls.Add(this.btnDeleteSchedule);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
@@ -416,6 +453,9 @@
         private System.Windows.Forms.TextBox txtCount;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button btnDeleteSchedule;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmScheduleID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjPriceID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjCode;
@@ -427,7 +467,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRoom;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFaculty;
         private System.Windows.Forms.DataGridViewLinkColumn clmPick;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label8;
     }
 }

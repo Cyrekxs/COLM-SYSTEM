@@ -30,6 +30,11 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Schedule_DS.InsertUpdateSchedule(schedule);
         }
 
+        public static bool DeleteSchedule(int SectionID)
+        {
+            return Schedule_DS.DeleteSchedule(SectionID);
+        }
+
         public static List<Schedule> GetSchedules(int SectionID)
         {
             return Schedule_DS.GetSchedules(SectionID);

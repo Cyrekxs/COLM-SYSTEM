@@ -128,14 +128,26 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 Province = Convert.ToString(reader["Province"]),
                                 EmailAddress = Convert.ToString(reader["EmailAddress"]),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
+
                                 MotherName = Convert.ToString(reader["MotherName"]),
                                 MotherMobile = Convert.ToString(reader["MotherMobile"]),
                                 FatherName = Convert.ToString(reader["FatherName"]),
                                 FatherMobile = Convert.ToString(reader["FatherMobile"]),
                                 GuardianName = Convert.ToString(reader["GuardianName"]),
                                 GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
+                                EmergencyName = Convert.ToString(reader["EmergencyName"]),
+                                EmergencyMobile = Convert.ToString(reader["EmergencyMobile"]),
+                                EmergencyRelation = Convert.ToString(reader["EmergencyRelation"]),
+
                                 SchoolName = Convert.ToString(reader["SchoolName"]),
                                 SchoolAddress = Convert.ToString(reader["SchoolAddress"]),
+                                SchoolStatus = Convert.ToString(reader["SchoolStatus"]),
+                                ESCGuarantee = Convert.ToString(reader["ESCGuarantee"]),
+
+                                StudentStatus = Convert.ToString(reader["StudentStatus"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
+                                YearLevel = Convert.ToString(reader["YearLevel"])                                
                             };
                             students.Add(student);
                         }
@@ -205,7 +217,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("EXEC sp_set_student_information @StudentID,@LRN,@Lastname,@Firstname,@Middlename,@BirthDate,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@SchoolName,@SchoolAddress", conn))
+                using (SqlCommand comm = new SqlCommand("EXEC sp_set_student_information @StudentID,@LRN,@Lastname,@Firstname,@Middlename,@BirthDate,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@EmergencyName,@EmergencyRelation,@EmergencyMobile,@SchoolName,@SchoolAddress,@SchoolStatus,@ESCGuarantee,@StudentStatus,@EducationLevel,@CourseStrand,@YearLevel", conn))
                 {
                     comm.Parameters.AddWithValue("@StudentID", model.StudentID);
                     comm.Parameters.AddWithValue("@LRN", model.LRN);
@@ -220,14 +232,26 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@Province", model.Province);
                     comm.Parameters.AddWithValue("@MobileNo", model.MobileNo);
                     comm.Parameters.AddWithValue("@EmailAddress", model.EmailAddress);
+
                     comm.Parameters.AddWithValue("@MotherName", model.MotherName);
                     comm.Parameters.AddWithValue("@MotherMobile", model.MotherMobile);
                     comm.Parameters.AddWithValue("@FatherName", model.FatherName);
                     comm.Parameters.AddWithValue("@FatherMobile", model.FatherMobile);
                     comm.Parameters.AddWithValue("@GuardianName", model.GuardianName);
                     comm.Parameters.AddWithValue("@GuardianMobile", model.GuardianMobile);
+                    comm.Parameters.AddWithValue("@EmergencyName", model.EmergencyName);
+                    comm.Parameters.AddWithValue("@EmergencyRelation", model.EmergencyRelation);
+                    comm.Parameters.AddWithValue("@EmergencyMobile", model.EmergencyMobile);
+
                     comm.Parameters.AddWithValue("@SchoolName", model.SchoolName);
                     comm.Parameters.AddWithValue("@SchoolAddress", model.SchoolAddress);
+                    comm.Parameters.AddWithValue("@SchoolStatus", model.SchoolStatus);
+                    comm.Parameters.AddWithValue("@ESCGuarantee", model.ESCGuarantee);
+
+                    comm.Parameters.AddWithValue("@StudentStatus", model.StudentStatus);
+                    comm.Parameters.AddWithValue("@EducationLevel", model.EducationLevel);
+                    comm.Parameters.AddWithValue("@CourseStrand", model.CourseStrand);
+                    comm.Parameters.AddWithValue("@Yearlevel", model.YearLevel);
                     if (comm.ExecuteNonQuery() > 0)
                         return true;
                     else
@@ -368,5 +392,47 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
         }
 
+        public static bool HasRegistration(int StudentID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.registered WHERE StudentID = @StudentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@StudentID", StudentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader.HasRows == true)
+                                return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        public static int RemoveStudent(int StudentID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                bool HasRegistered = HasRegistration(StudentID);
+
+                if (HasRegistered == false)
+                {
+                    using (SqlCommand comm = new SqlCommand("DELETE FROM student.information WHERE StudentID = @StudentID", conn))
+                    {
+                        comm.Parameters.AddWithValue("@StudentID", StudentID);
+                        return comm.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
     }
 }

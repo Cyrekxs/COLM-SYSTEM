@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLRN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -206,18 +206,19 @@
             this.tabControl1.Controls.Add(this.tbpAssessmentInfo);
             this.tabControl1.Location = new System.Drawing.Point(12, 103);
             this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(6, 6);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(968, 432);
+            this.tabControl1.Size = new System.Drawing.Size(968, 439);
             this.tabControl1.TabIndex = 0;
             // 
             // tbpSubjects
             // 
             this.tbpSubjects.Controls.Add(this.lblCount);
             this.tbpSubjects.Controls.Add(this.panel10);
-            this.tbpSubjects.Location = new System.Drawing.Point(4, 24);
+            this.tbpSubjects.Location = new System.Drawing.Point(4, 30);
             this.tbpSubjects.Name = "tbpSubjects";
             this.tbpSubjects.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpSubjects.Size = new System.Drawing.Size(960, 404);
+            this.tbpSubjects.Size = new System.Drawing.Size(960, 405);
             this.tbpSubjects.TabIndex = 5;
             this.tbpSubjects.Text = "SUBJECTS";
             this.tbpSubjects.UseVisualStyleBackColor = true;
@@ -249,8 +250,8 @@
             this.dgSubjects.AllowUserToDeleteRows = false;
             this.dgSubjects.AllowUserToResizeColumns = false;
             this.dgSubjects.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.dgSubjects.BackgroundColor = System.Drawing.Color.White;
             this.dgSubjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgSubjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -304,8 +305,8 @@
             // clmSubjectDesc
             // 
             this.clmSubjectDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.clmSubjectDesc.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.clmSubjectDesc.DefaultCellStyle = dataGridViewCellStyle26;
             this.clmSubjectDesc.HeaderText = "SUBJECT";
             this.clmSubjectDesc.Name = "clmSubjectDesc";
             this.clmSubjectDesc.ReadOnly = true;
@@ -322,8 +323,8 @@
             // clmSubjectPrice
             // 
             this.clmSubjectPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmSubjectPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmSubjectPrice.DefaultCellStyle = dataGridViewCellStyle27;
             this.clmSubjectPrice.HeaderText = "SUBJECT FEE";
             this.clmSubjectPrice.Name = "clmSubjectPrice";
             this.clmSubjectPrice.ReadOnly = true;
@@ -333,8 +334,8 @@
             // clmAdditionalFee
             // 
             this.clmAdditionalFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmAdditionalFee.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmAdditionalFee.DefaultCellStyle = dataGridViewCellStyle28;
             this.clmAdditionalFee.HeaderText = "ADD\'L FEE";
             this.clmAdditionalFee.Name = "clmAdditionalFee";
             this.clmAdditionalFee.ReadOnly = true;
@@ -345,8 +346,8 @@
             // Column7
             // 
             this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle29;
             this.Column7.HeaderText = "TYPE";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -439,10 +440,10 @@
             this.tbpFees.Controls.Add(this.label8);
             this.tbpFees.Controls.Add(this.txtMFee);
             this.tbpFees.Controls.Add(this.panel2);
-            this.tbpFees.Location = new System.Drawing.Point(4, 24);
+            this.tbpFees.Location = new System.Drawing.Point(4, 30);
             this.tbpFees.Name = "tbpFees";
             this.tbpFees.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpFees.Size = new System.Drawing.Size(960, 404);
+            this.tbpFees.Size = new System.Drawing.Size(960, 398);
             this.tbpFees.TabIndex = 0;
             this.tbpFees.Text = "FEES";
             // 
@@ -498,8 +499,8 @@
             this.dgFees.AllowUserToDeleteRows = false;
             this.dgFees.AllowUserToResizeColumns = false;
             this.dgFees.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgFees.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgFees.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle30;
             this.dgFees.BackgroundColor = System.Drawing.Color.White;
             this.dgFees.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgFees.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -544,8 +545,8 @@
             // 
             // clmFeeAmount
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmFeeAmount.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmFeeAmount.DefaultCellStyle = dataGridViewCellStyle31;
             this.clmFeeAmount.HeaderText = "AMOUNT";
             this.clmFeeAmount.Name = "clmFeeAmount";
             this.clmFeeAmount.ReadOnly = true;
@@ -609,10 +610,10 @@
             this.tbpAssessmentInfo.Controls.Add(this.label13);
             this.tbpAssessmentInfo.Controls.Add(this.label12);
             this.tbpAssessmentInfo.Controls.Add(this.label11);
-            this.tbpAssessmentInfo.Location = new System.Drawing.Point(4, 24);
+            this.tbpAssessmentInfo.Location = new System.Drawing.Point(4, 30);
             this.tbpAssessmentInfo.Name = "tbpAssessmentInfo";
             this.tbpAssessmentInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpAssessmentInfo.Size = new System.Drawing.Size(960, 404);
+            this.tbpAssessmentInfo.Size = new System.Drawing.Size(960, 398);
             this.tbpAssessmentInfo.TabIndex = 4;
             this.tbpAssessmentInfo.Text = "SUMMARY";
             this.tbpAssessmentInfo.UseVisualStyleBackColor = true;
@@ -732,8 +733,8 @@
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle32;
             this.Column4.HeaderText = "TYPE";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -743,8 +744,8 @@
             // clmDiscountValue
             // 
             this.clmDiscountValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmDiscountValue.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmDiscountValue.DefaultCellStyle = dataGridViewCellStyle33;
             this.clmDiscountValue.HeaderText = "VALUE";
             this.clmDiscountValue.Name = "clmDiscountValue";
             this.clmDiscountValue.ReadOnly = true;
@@ -776,11 +777,12 @@
             // label16
             // 
             this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(6, 9);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(93, 15);
+            this.label16.Size = new System.Drawing.Size(136, 15);
             this.label16.TabIndex = 15;
-            this.label16.Text = "PAYMENT MODE";
+            this.label16.Text = "SELECT PAYMENT MODE";
             // 
             // dgBreakdown
             // 
@@ -788,8 +790,8 @@
             this.dgBreakdown.AllowUserToDeleteRows = false;
             this.dgBreakdown.AllowUserToResizeColumns = false;
             this.dgBreakdown.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgBreakdown.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgBreakdown.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
             this.dgBreakdown.BackgroundColor = System.Drawing.Color.White;
             this.dgBreakdown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgBreakdown.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -822,8 +824,8 @@
             // clmBreakDownAmount
             // 
             this.clmBreakDownAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBreakDownAmount.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBreakDownAmount.DefaultCellStyle = dataGridViewCellStyle35;
             this.clmBreakDownAmount.HeaderText = "AMOUNT";
             this.clmBreakDownAmount.Name = "clmBreakDownAmount";
             this.clmBreakDownAmount.ReadOnly = true;
@@ -833,8 +835,8 @@
             // clmBreakDownDueDate
             // 
             this.clmBreakDownDueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBreakDownDueDate.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBreakDownDueDate.DefaultCellStyle = dataGridViewCellStyle36;
             this.clmBreakDownDueDate.HeaderText = "DUE DATE";
             this.clmBreakDownDueDate.Name = "clmBreakDownDueDate";
             this.clmBreakDownDueDate.ReadOnly = true;
@@ -1049,11 +1051,13 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(833, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 15);
+            this.label5.Size = new System.Drawing.Size(83, 15);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Section";
+            this.label5.Text = "Select Section";
             // 
             // txtEducationLevel
             // 
@@ -1104,7 +1108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 541);
+            this.ClientSize = new System.Drawing.Size(989, 554);
             this.ControlBox = false;
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.tabControl1);

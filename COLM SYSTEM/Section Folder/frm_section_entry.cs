@@ -114,6 +114,7 @@ namespace COLM_SYSTEM.Section_Folder
                         int SectionID = Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester()).Where(
                             item => item.EducationLevel == cmbEducationLevel.Text && 
                             item.CurriculumID == tag.CurriculumID && 
+                            item.YearLevelID == tag.YearLevelID &&
                             item.SectionName == txtSection.Text).First().SectionID;
 
                         Section sect = Section.GetSection(SectionID);

@@ -14,7 +14,6 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string Lastname { get; set; }
         public string Firstname { get; set; }
         public string Middlename { get; set; }
-        public string ExtensionName { get; set; }
         public DateTime BirthDate { get; set; }
         public string Gender { get; set; }
         public string Street { get; set; }
@@ -31,9 +30,21 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string FatherMobile { get; set; }
         public string GuardianName { get; set; }
         public string GuardianMobile { get; set; }
+        public string EmergencyName { get; set; }
+        public string EmergencyRelation { get; set; }
+        public string EmergencyMobile { get; set; }
+
+
 
         public string SchoolName { get; set; }
         public string SchoolAddress { get; set; }
+        public string SchoolStatus { get; set; }
+        public string ESCGuarantee { get; set; }
+
+        public string StudentStatus { get; set; }
+        public string EducationLevel { get; set; }
+        public string CourseStrand { get; set; }
+        public string YearLevel { get; set; }
 
         public static List<StudentInfo> GetStudents()
         {
@@ -68,6 +79,16 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static int UpdateStudentEmail(int StudentID, string Email)
         {
             return StudentInfo_DS.UpdateStudentEmail(StudentID, Email);
+        }
+
+        public static bool HasRegistration(int StudentID)
+        {
+            return StudentInfo_DS.HasRegistration(StudentID);
+        }
+
+        public static int RemoveStudent(int StudentID)
+        {
+            return StudentInfo_DS.RemoveStudent(StudentID);
         }
 
         public static List<StudentInfo> GetStudents(List<int> StudentIDs)

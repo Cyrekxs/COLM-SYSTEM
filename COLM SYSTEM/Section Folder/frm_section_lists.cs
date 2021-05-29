@@ -48,12 +48,7 @@ namespace COLM_SYSTEM.Section_Folder
                 frm_section_schedule_entry frm = new frm_section_schedule_entry(section);
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-
-
-
-                //frm_schedule_entry frm = new frm_schedule_entry(YearlevelID,SectionID,EducationLevel,YearLevel,Section);
-                //frm.StartPosition = FormStartPosition.CenterParent;
-                //frm.ShowDialog();
+                LoadSections();
             }
         }
     }

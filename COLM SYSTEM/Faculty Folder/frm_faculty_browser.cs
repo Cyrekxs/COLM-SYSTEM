@@ -25,6 +25,8 @@ namespace COLM_SYSTEM.Faculty_Folder
 
         private void LoadFaculties(string search = "")
         {
+            _faculties = Faculty.GetFaculties();
+
             dataGridView1.Rows.Clear();
             List<Faculty> faculties = (from r in _faculties
                                        where r.Fullname.ToLower().Contains(search.ToLower())
@@ -52,6 +54,14 @@ namespace COLM_SYSTEM.Faculty_Folder
                 Close();
 
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frm_faculty_entry frm = new frm_faculty_entry();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            LoadFaculties();
         }
     }
 }

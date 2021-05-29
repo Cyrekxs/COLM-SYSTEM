@@ -51,7 +51,6 @@
             this.lblSemester = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.PanelMain = new System.Windows.Forms.Panel();
-            this.uC_DashBoard1 = new COLM_SYSTEM.UC_DashBoard();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dASHBOARDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tRANSACTIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +77,7 @@
             this.aDMINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.uC_DashBoard1 = new COLM_SYSTEM.UC_DashBoard();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -360,15 +360,6 @@
             this.PanelMain.Size = new System.Drawing.Size(1060, 685);
             this.PanelMain.TabIndex = 9;
             // 
-            // uC_DashBoard1
-            // 
-            this.uC_DashBoard1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_DashBoard1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_DashBoard1.Location = new System.Drawing.Point(0, 0);
-            this.uC_DashBoard1.Name = "uC_DashBoard1";
-            this.uC_DashBoard1.Size = new System.Drawing.Size(1060, 685);
-            this.uC_DashBoard1.TabIndex = 0;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -454,14 +445,14 @@
             // sUBJECTSToolStripMenuItem
             // 
             this.sUBJECTSToolStripMenuItem.Name = "sUBJECTSToolStripMenuItem";
-            this.sUBJECTSToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.sUBJECTSToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.sUBJECTSToolStripMenuItem.Text = "Subjects";
             this.sUBJECTSToolStripMenuItem.Click += new System.EventHandler(this.sUBJECTSToolStripMenuItem_Click);
             // 
             // cURRICULUMToolStripMenuItem
             // 
             this.cURRICULUMToolStripMenuItem.Name = "cURRICULUMToolStripMenuItem";
-            this.cURRICULUMToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.cURRICULUMToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.cURRICULUMToolStripMenuItem.Text = "Curriculum";
             this.cURRICULUMToolStripMenuItem.Click += new System.EventHandler(this.cURRICULUMToolStripMenuItem_Click);
             // 
@@ -472,7 +463,7 @@
             this.aDDITIONALFEEToolStripMenuItem,
             this.dEFAULTFEESToolStripMenuItem});
             this.fEESToolStripMenuItem.Name = "fEESToolStripMenuItem";
-            this.fEESToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.fEESToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.fEESToolStripMenuItem.Text = "Fees";
             // 
             // mISCELLANEOUSFEESToolStripMenuItem
@@ -499,14 +490,14 @@
             // dISCOUNTToolStripMenuItem
             // 
             this.dISCOUNTToolStripMenuItem.Name = "dISCOUNTToolStripMenuItem";
-            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.dISCOUNTToolStripMenuItem.Text = "Discounts";
             this.dISCOUNTToolStripMenuItem.Click += new System.EventHandler(this.dISCOUNTToolStripMenuItem_Click);
             // 
             // sECTIONSToolStripMenuItem
             // 
             this.sECTIONSToolStripMenuItem.Name = "sECTIONSToolStripMenuItem";
-            this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.sECTIONSToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.sECTIONSToolStripMenuItem.Text = "Section and Schedules";
             this.sECTIONSToolStripMenuItem.Click += new System.EventHandler(this.sECTIONSToolStripMenuItem_Click);
             // 
@@ -561,17 +552,27 @@
             this.aDMINToolStripMenuItem.Name = "aDMINToolStripMenuItem";
             this.aDMINToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.aDMINToolStripMenuItem.Text = "ADMIN";
+            this.aDMINToolStripMenuItem.Visible = false;
             // 
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usersToolStripMenuItem.Text = "Users";
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // uC_DashBoard1
+            // 
+            this.uC_DashBoard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_DashBoard1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_DashBoard1.Location = new System.Drawing.Point(0, 0);
+            this.uC_DashBoard1.Name = "uC_DashBoard1";
+            this.uC_DashBoard1.Size = new System.Drawing.Size(1060, 685);
+            this.uC_DashBoard1.TabIndex = 0;
             // 
             // frm_main
             // 
@@ -581,8 +582,8 @@
             this.ClientSize = new System.Drawing.Size(1060, 825);
             this.Controls.Add(this.PanelMain);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;

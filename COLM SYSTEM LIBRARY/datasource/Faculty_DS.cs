@@ -75,6 +75,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
+
                 using (SqlCommand comm = new SqlCommand("EXEC sp_set_faculty @FacultyID,@Title,@Lastname,@Firstname,@Username,@Userpass", conn))
                 {
                     comm.Parameters.AddWithValue("@facultyid", faculty.FacultyID);

@@ -39,6 +39,7 @@ namespace COLM_SYSTEM.Section_Folder
                 //get the existing schedules if the result is true
                 Schedules = Schedule.GetSchedules(section.SectionID);
                 LoadSubjectSchedules();
+                btnDeleteSchedule.Visible = true;
             }
 
 
@@ -129,6 +130,20 @@ namespace COLM_SYSTEM.Section_Folder
             frm_browse_unlisted_subjects frm = new frm_browse_unlisted_subjects(_section, dataGridView1);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+        }
+
+        private void btnDeleteSchedule_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete this schedule","Delete Schedule",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                bool result = Schedule.DeleteSchedule(_section.SectionID);
+                if (result == true)
+                {
+                    MessageBox.Show("Section successfully deleted!", "Section Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                    Dispose();
+                }
+            }
         }
     }
 }

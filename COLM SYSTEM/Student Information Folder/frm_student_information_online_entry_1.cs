@@ -14,11 +14,12 @@ namespace COLM_SYSTEM.Student_Information_Folder
     public partial class frm_student_information_online_entry_1 : Form
     {
         List<Address> addresses = Address.GetAddresses();
-
+        private string SavingStatus;
 
         public frm_student_information_online_entry_1(StudentInfoOnline model)
         {
             InitializeComponent();
+            SavingStatus = "ONLINE";
 
             txtLRN.Tag = model.ApplicationID;
             txtLRN.Text = model.LRN;
@@ -42,10 +43,25 @@ namespace COLM_SYSTEM.Student_Information_Folder
             txtFatherMobile.Text = model.FatherMobile;
             txtGuardianName.Text = model.GuardianName;
             txtGuardianMobile.Text = model.GuardianMobile;
+            txtEmergencyName.Text = model.EmergencyName;
+            txtEmergencyRelation.Text = model.EmergencyRelation;
+            txtEmergencyMobile.Text = model.EmergencyMobile;
 
             txtSchoolName.Text = model.SchoolName;
             txtSchoolAddress.Text = model.SchoolAddress;
+            cmbSchoolStatus.Text = model.SchoolStatus;
+            cmbESCGuarantee.Text = model.ESCGuarantee;
 
+            cmbStudentStatus.Text = model.StudentStatus;
+            txtEducationLevel.Text = model.EducationLevel;
+            txtCourseStrand.Text = model.CourseStrand;
+            txtYearLevel.Text = model.YearLevel;
+
+        }
+        public frm_student_information_online_entry_1()
+        {
+            InitializeComponent();
+            SavingStatus = "WALKIN";
         }
 
         private async void button1_ClickAsync(object sender, EventArgs e)
@@ -66,14 +82,25 @@ namespace COLM_SYSTEM.Student_Information_Folder
                 Province = txtProvince.Text,
                 MobileNo = txtMobileNo.Text,
                 EmailAddress = txtEmailAddress.Text,
+
                 MotherName = txtMotherName.Text,
                 MotherMobile = txtMotherMobile.Text,
                 FatherName = txtFatherName.Text,
                 FatherMobile = txtFatherMobile.Text,
                 GuardianName = txtGuardianName.Text,
                 GuardianMobile = txtGuardianMobile.Text,
+                EmergencyName = txtGuardianName.Text,
+                EmergencyRelation = txtEmergencyRelation.Text,
+                EmergencyMobile = txtEmergencyMobile.Text,
+
                 SchoolName = txtSchoolName.Text,
                 SchoolAddress = txtSchoolAddress.Text,
+                SchoolStatus = cmbSchoolStatus.Text,
+                ESCGuarantee = cmbESCGuarantee.Text,
+                StudentStatus = cmbStudentStatus.Text,
+                EducationLevel = txtEducationLevel.Text,
+                CourseStrand = txtCourseStrand.Text,
+                YearLevel = txtYearLevel.Text
             };
             //Program detected existing student
             if (student_existing.StudentID != 0)
@@ -92,26 +119,37 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
             //insert new student information
             StudentInfo.InsertUpdateStudentInformation(model);
-            //get the newly inserted student information
-            model = StudentInfo.IsStudentExist(txtLastname.Text, txtFirstname.Text);
-            //insert student application
-            int result = StudentInfoOnline.InsertOnlineApplicant(Convert.ToInt16(txtLRN.Tag), model.StudentID);
 
-            if (result > 0)
+            //if the application is online the save the application id into process table
+            if (SavingStatus == "ONLINE")
             {
-                MessageBox.Show("Information has been successfully saved! you can now proceed to registration", "Information Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                EmailModel email = new EmailModel()
+                //get the newly inserted student information
+                model = StudentInfo.IsStudentExist(txtLastname.Text, txtFirstname.Text);
+                //insert student application
+                int result = StudentInfoOnline.InsertOnlineApplicant(Convert.ToInt16(txtLRN.Tag), model.StudentID);
+                if (result > 0)
                 {
-                    To = txtEmailAddress.Text,
-                    Subject = "Online Application Received",
-                    Body = "Your account is now on process to the school registrar!",
-                };
+                    MessageBox.Show("Information has been successfully saved! you can now proceed to registration", "Information Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    EmailModel email = new EmailModel()
+                    {
+                        To = txtEmailAddress.Text,
+                        Subject = "Online Application Received",
+                        Body = "Your account is now on process to the school registrar!",
+                    };
 
-                await EmailModel.SendMailAsync(email, Utilties.user.Credential);
+                    await EmailModel.SendMailAsync(email, Utilties.user.Credential);
 
+                    Close();
+                    Dispose();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Student has been successfully processed you will see his / her information in under master list of student information", "Process Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
                 Dispose();
             }
+
         }
 
     }
