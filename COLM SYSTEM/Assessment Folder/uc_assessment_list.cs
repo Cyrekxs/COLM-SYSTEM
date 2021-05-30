@@ -34,6 +34,8 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.PaymentMode, item.Assessor, item.AssessmentDate,item.EnrollmentStatus);
             }
+
+            lblCount.Text = string.Concat("Record Count(s) :", dataGridView1.Rows.Count);
         }
 
         private void button1_Click(object sender, EventArgs e)
