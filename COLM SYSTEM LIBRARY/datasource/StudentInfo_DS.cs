@@ -35,69 +35,31 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 Province = Convert.ToString(reader["Province"]),
                                 EmailAddress = Convert.ToString(reader["EmailAddress"]),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
+
                                 MotherName = Convert.ToString(reader["MotherName"]),
                                 MotherMobile = Convert.ToString(reader["MotherMobile"]),
                                 FatherName = Convert.ToString(reader["FatherName"]),
                                 FatherMobile = Convert.ToString(reader["FatherMobile"]),
                                 GuardianName = Convert.ToString(reader["GuardianName"]),
                                 GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
+                                EmergencyName = Convert.ToString(reader["EmergencyName"]),
+                                EmergencyRelation = Convert.ToString(reader["EmergencyRelation"]),
+                                EmergencyMobile = Convert.ToString(reader["EmergencyMobile"]),
+
                                 SchoolName = Convert.ToString(reader["SchoolName"]),
                                 SchoolAddress = Convert.ToString(reader["SchoolAddress"]),
+                                SchoolStatus = Convert.ToString(reader["SchoolStatus"]),
+                                ESCGuarantee = Convert.ToString(reader["ESCGuarantee"]),
+
+                                StudentStatus = Convert.ToString(reader["StudentStatus"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
+                                YearLevel = Convert.ToString(reader["YearLevel"])                                
                             };
                             students.Add(student);
                         }
                     }
                 }
-            }
-            return students;
-        }
-
-        public static List<StudentInfo> GetStudents(List<int> StudentIDs)
-        {
-
-            List<StudentInfo> students = new List<StudentInfo>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
-            {
-                conn.Open();
-                foreach (int StudentID in StudentIDs)
-                {
-                    using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information WHERE StudentID = @StudentID", conn))
-                    {
-                        comm.Parameters.AddWithValue("@StudentID", StudentID);
-                        using (SqlDataReader reader = comm.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                StudentInfo student = new StudentInfo()
-                                {
-                                    StudentID = Convert.ToInt32(reader["StudentID"]),
-                                    LRN = Convert.ToString(reader["LRN"]),
-                                    Lastname = Convert.ToString(reader["Lastname"]),
-                                    Firstname = Convert.ToString(reader["Firstname"]),
-                                    Middlename = Convert.ToString(reader["Middlename"]),
-                                    BirthDate = Convert.ToDateTime(reader["BirthDate"]),
-                                    Gender = Convert.ToString(reader["Gender"]),
-                                    Street = Convert.ToString(reader["Street"]),
-                                    Barangay = Convert.ToString(reader["Barangay"]),
-                                    City = Convert.ToString(reader["City"]),
-                                    Province = Convert.ToString(reader["Province"]),
-                                    EmailAddress = Convert.ToString(reader["EmailAddress"]),
-                                    MobileNo = Convert.ToString(reader["MobileNo"]),
-                                    MotherName = Convert.ToString(reader["MotherName"]),
-                                    MotherMobile = Convert.ToString(reader["MotherMobile"]),
-                                    FatherName = Convert.ToString(reader["FatherName"]),
-                                    FatherMobile = Convert.ToString(reader["FatherMobile"]),
-                                    GuardianName = Convert.ToString(reader["GuardianName"]),
-                                    GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
-                                    SchoolName = Convert.ToString(reader["SchoolName"]),
-                                    SchoolAddress = Convert.ToString(reader["SchoolAddress"]),
-                                };
-                                students.Add(student);
-                            }
-                        }
-                    }
-                }
-                
             }
             return students;
         }
@@ -184,14 +146,26 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 Province = Convert.ToString(reader["Province"]),
                                 EmailAddress = Convert.ToString(reader["EmailAddress"]),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
+
                                 MotherName = Convert.ToString(reader["MotherName"]),
                                 MotherMobile = Convert.ToString(reader["MotherMobile"]),
                                 FatherName = Convert.ToString(reader["FatherName"]),
                                 FatherMobile = Convert.ToString(reader["FatherMobile"]),
                                 GuardianName = Convert.ToString(reader["GuardianName"]),
                                 GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
+                                EmergencyName = Convert.ToString(reader["EmergencyName"]),
+                                EmergencyRelation = Convert.ToString(reader["EmergencyRelation"]),
+                                EmergencyMobile = Convert.ToString(reader["EmergencyMobile"]),
+
                                 SchoolName = Convert.ToString(reader["SchoolName"]),
                                 SchoolAddress = Convert.ToString(reader["SchoolAddress"]),
+                                SchoolStatus = Convert.ToString(reader["SchoolStatus"]),
+                                ESCGuarantee = Convert.ToString(reader["ESCGuarantee"]),
+
+                                StudentStatus = Convert.ToString(reader["StudentStatus"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
+                                YearLevel = Convert.ToString(reader["YearLevel"])
                             };
                         }
                     }
@@ -316,81 +290,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return student;
         }
-        public static StudentGuardian GetStudentGuardian(int StudentID)
-        {
-            StudentGuardian guardian = new StudentGuardian();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
-            {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information_guardian WHERE StudentID = @StudentID", conn))
-                {
-                    comm.Parameters.AddWithValue("@StudentID", StudentID);
-                    using (SqlDataReader reader = comm.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            guardian = new StudentGuardian()
-                            {
-                                StudentGuardianID = Convert.ToInt32(reader["StudentGuardianID"]),
-                                MotherName = Convert.ToString(reader["MotherName"]),
-                                MotherMobile = Convert.ToString(reader["MotherMobile"]),
-                                FatherName = Convert.ToString(reader["FatherName"]),
-                                FatherMobile = Convert.ToString(reader["FatherMobile"]),
-                                GuardianName = Convert.ToString(reader["GuardianName"]),
-                                GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
-                                GuardianRelation = Convert.ToString(reader["GuardianRelation"])
-                            };
-                        }
-                    }
-                }
-            }
-            return guardian;
-        }
-        public static bool InsertStudentGuardian(StudentGuardian model)
-        {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
-            {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO student.information_guardian VALUES (@StudentID,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@GuardianRelation)", conn))
-                {
-                    comm.Parameters.AddWithValue("@StudentID", model.StudentID);
-                    comm.Parameters.AddWithValue("@MotherName", model.MotherName);
-                    comm.Parameters.AddWithValue("@MotherMobile", model.MotherMobile);
-                    comm.Parameters.AddWithValue("@FatherName", model.FatherName);
-                    comm.Parameters.AddWithValue("@FatherMobile", model.FatherMobile);
-                    comm.Parameters.AddWithValue("@GuardianName", model.GuardianName);
-                    comm.Parameters.AddWithValue("@GuardianMobile", model.GuardianMobile);
-                    comm.Parameters.AddWithValue("@GuardianRelation", model.GuardianRelation);
-                    if (comm.ExecuteNonQuery() > 0)
-                        return true;
-                    else
-                        return false;
-                }
-            }
-        }
-        public static bool UpdateStudentGuardian(StudentGuardian model)
-        {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
-            {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE student.information_guardian SET MotherName = @MotherName, MotherMobile = @MotherMobile, FatherName = @FatherName, FatherMobile = @FatherMobile, GuardianName = @GuardianName, GuardianMobile = @GuardianMobile, GuardianRelation = @GuardianRelation WHERE StudentGuardianID = @StudentGuardianID", conn))
-                {
-                    comm.Parameters.AddWithValue("@StudentGuardianID", model.StudentGuardianID);
-
-                    comm.Parameters.AddWithValue("@MotherName", model.MotherName);
-                    comm.Parameters.AddWithValue("@MotherMobile", model.MotherMobile);
-                    comm.Parameters.AddWithValue("@FatherName", model.FatherName);
-                    comm.Parameters.AddWithValue("@FatherMobile", model.FatherMobile);
-                    comm.Parameters.AddWithValue("@GuardianName", model.GuardianName);
-                    comm.Parameters.AddWithValue("@GuardianMobile", model.GuardianMobile);
-                    comm.Parameters.AddWithValue("@GuardianRelation", model.GuardianRelation);
-                    if (comm.ExecuteNonQuery() > 0)
-                        return true;
-                    else
-                        return false;
-                }
-            }
-        }
 
         public static bool HasRegistration(int StudentID)
         {
@@ -412,7 +311,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return false;
         }
-
         public static int RemoveStudent(int StudentID)
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))

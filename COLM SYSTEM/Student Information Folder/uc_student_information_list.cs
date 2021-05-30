@@ -100,7 +100,7 @@ namespace COLM_SYSTEM.student_information
         private async void uPDATEINFORToolStripMenuItem_ClickAsync(object sender, EventArgs e)
         {
             int SelectedStudentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmStudentID"].Value);
-            using (frm_student_information_entry frm = new frm_student_information_entry(SelectedStudentID))
+            using (frm_student_information_online_entry_1 frm = new frm_student_information_online_entry_1(SelectedStudentID))
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();

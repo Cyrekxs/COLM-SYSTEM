@@ -71,10 +71,6 @@ namespace COLM_SYSTEM_LIBRARY.model
             return StudentInfo_DS.InsertUpdateStudentInformation(model);
         }
 
-        public static bool UpdateStudentGuardian(StudentGuardian guardian)
-        {
-            return StudentInfo_DS.UpdateStudentGuardian(guardian);
-        }
 
         public static int UpdateStudentEmail(int StudentID, string Email)
         {
@@ -89,11 +85,6 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static int RemoveStudent(int StudentID)
         {
             return StudentInfo_DS.RemoveStudent(StudentID);
-        }
-
-        public static List<StudentInfo> GetStudents(List<int> StudentIDs)
-        {
-            return StudentInfo_DS.GetStudents(StudentIDs);
         }
     }
 }
