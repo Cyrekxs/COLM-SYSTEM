@@ -110,9 +110,9 @@ namespace COLM_SYSTEM.student_information
 
         private async void dELETEINFORMATIONToolStripMenuItem_ClickAsync(object sender, EventArgs e)
         {
+            //this function will check if the current student id has a registration info.. if it has a registration id then it will not continue to delete student info
             int SelectedStudentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmStudentID"].Value);
             bool HasRegistration = StudentInfo.HasRegistration(SelectedStudentID);
-
             if (HasRegistration == false)
             {
                 if (MessageBox.Show("Are you sure you want to delete this student information?", "Delete Student Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
