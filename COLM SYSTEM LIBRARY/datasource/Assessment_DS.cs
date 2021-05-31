@@ -70,7 +70,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 AssessmentSubjectID = Convert.ToInt32(reader["AssessmentSubjectID"]),
                                 AssessmentID = AssessmentID,
                                 SubjectPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
-                                SubjectFee = Convert.ToInt32(reader["SubjectFee"]),
+                                SubjectFee = Convert.ToDouble(reader["SubjectFee"]),
                                 ScheduleID = Convert.ToInt32(reader["ScheduleID"]),
                             };
                             subjects.Add(subject);

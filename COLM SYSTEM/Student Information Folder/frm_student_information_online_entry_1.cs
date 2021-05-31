@@ -341,6 +341,8 @@ namespace COLM_SYSTEM.Student_Information_Folder
                 txtEmergencyName.Text = txtMotherName.Text;
                 txtEmergencyMobile.Text = txtMotherMobile.Text;
                 txtEmergencyRelation.Text = "Mother";
+                checkBox2.Checked = false;
+                checkBox3.Checked = false;
             }
             else
             {
@@ -357,6 +359,8 @@ namespace COLM_SYSTEM.Student_Information_Folder
                 txtEmergencyName.Text = txtFatherName.Text;
                 txtEmergencyMobile.Text = txtFatherMobile.Text;
                 txtEmergencyRelation.Text = "Father";
+                checkBox1.Checked = false;
+                checkBox3.Checked = false;
             }
             else
             {
@@ -372,6 +376,8 @@ namespace COLM_SYSTEM.Student_Information_Folder
             {
                 txtEmergencyName.Text = txtGuardianName.Text;
                 txtEmergencyMobile.Text = txtGuardianMobile.Text;
+                checkBox1.Checked = false;
+                checkBox2.Checked = false;
             }
             else
             {
