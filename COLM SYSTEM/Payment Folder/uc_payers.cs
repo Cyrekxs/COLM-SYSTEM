@@ -65,5 +65,13 @@ namespace COLM_SYSTEM.Payment_Folder
                 }
             }
         }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoadAssessments();
+            }
+        }
     }
 }

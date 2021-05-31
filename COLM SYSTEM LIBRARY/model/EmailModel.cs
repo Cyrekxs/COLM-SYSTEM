@@ -24,6 +24,9 @@ namespace COLM_SYSTEM_LIBRARY.model
                 mm.Subject = model.Subject;
                 mm.Body = model.Body;
                 mm.IsBodyHtml = false;
+                Attachment attachment = new Attachment(@"C:\Users\COLM\Documents\Assessment Attachment\TESDA-FORM-9-EPAS-NC-II-1.docx");
+                mm.Attachments.Add(attachment);
+
 
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";

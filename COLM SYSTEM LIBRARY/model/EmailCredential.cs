@@ -15,6 +15,15 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string Email { get; set; }
         public string Password { get; set; }
 
+        public static EmailCredential GetDefaultEmail()
+        {
+            return new EmailCredential()
+            {
+                Email = "admission@colm.edu.ph",
+                Password = "colmadmission2021"
+            };
+        }
+
         public static List<EmailCredential> GetEmailCredentials()
         {
             List<EmailCredential> credentials = new List<EmailCredential>();
@@ -41,7 +50,6 @@ namespace COLM_SYSTEM_LIBRARY.model
             }
             return credentials;
         }
-
 
         public static EmailCredential GetEmailCredential(int UserID)
         {

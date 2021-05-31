@@ -33,6 +33,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -95,6 +96,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Controls.Add(this.button2);
@@ -110,6 +112,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(379, 724);
             this.panel2.TabIndex = 28;
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.login;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(139, 559);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(100, 70);
+            this.button3.TabIndex = 32;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_ClickAsync);
             // 
             // label5
             // 
@@ -245,5 +261,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
     }
 }

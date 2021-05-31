@@ -66,6 +66,19 @@ namespace COLM_SYSTEM.Student_Information_Folder
             txtCourseStrand.Text = model.CourseStrand;
             txtYearLevel.Text = model.YearLevel;
 
+
+            if (txtEmergencyName.Text == txtMotherName.Text)
+                checkBox1.Checked = true;
+            else if (txtEmergencyName.Text == txtFatherName.Text)
+                checkBox2.Checked = true;
+            else if (txtEmergencyName.Text == txtGuardianName.Text)
+                checkBox3.Checked = true;
+
+        }
+
+        public frm_student_information_online_entry_1(int StudentID,string SavingStatus)
+        {
+
         }
 
         //IMPORT ONLINE APPLICANT TO CREATE NEW STUDENT
@@ -287,6 +300,10 @@ namespace COLM_SYSTEM.Student_Information_Folder
                 {
                     model.StudentID = 0;
                 }
+            }
+            else
+            {
+                model.StudentID = Convert.ToInt32(txtLRN.Tag);
             }
 
 

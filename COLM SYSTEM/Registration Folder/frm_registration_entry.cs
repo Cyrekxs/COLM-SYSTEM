@@ -104,5 +104,11 @@ namespace COLM_SYSTEM.registration
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
+        }
     }
 }

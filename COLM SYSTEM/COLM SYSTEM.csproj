@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\Colm\colm system 2021\</UpdateUrl>
-    <ApplicationRevision>16</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -113,6 +113,12 @@
     </Compile>
     <Compile Include="Assessment Folder\frm_assessment_additional_fee_viewer.Designer.cs">
       <DependentUpon>frm_assessment_additional_fee_viewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_email_sender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_email_sender.Designer.cs">
+      <DependentUpon>frm_assessment_email_sender.cs</DependentUpon>
     </Compile>
     <Compile Include="Assessment Folder\frm_assessment_entry_2.cs">
       <SubType>Form</SubType>
@@ -432,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Assessment Folder\frm_assessment_direct_discount.resx">
       <DependentUpon>frm_assessment_direct_discount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assessment Folder\frm_assessment_email_sender.resx">
+      <DependentUpon>frm_assessment_email_sender.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Assessment Folder\frm_assessment_entry_2.resx">
       <DependentUpon>frm_assessment_entry_2.cs</DependentUpon>

@@ -89,8 +89,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.cmbStudentStatus = new System.Windows.Forms.ComboBox();
             this.label39 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnProcess = new System.Windows.Forms.Button();
             this.label38 = new System.Windows.Forms.Label();
             this.txtYearLevel = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
@@ -108,6 +108,19 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -119,15 +132,21 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(12, 32);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(6, 6);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(566, 466);
+            this.tabControl1.Size = new System.Drawing.Size(504, 466);
             this.tabControl1.TabIndex = 37;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label44);
+            this.tabPage1.Controls.Add(this.label43);
+            this.tabPage1.Controls.Add(this.label19);
+            this.tabPage1.Controls.Add(this.label42);
+            this.tabPage1.Controls.Add(this.label41);
+            this.tabPage1.Controls.Add(this.label40);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.txtBarangay);
             this.tabPage1.Controls.Add(this.txtCity);
@@ -135,7 +154,6 @@
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.cmbGender);
             this.tabPage1.Controls.Add(this.txtLRN);
-            this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.txtFirstname);
             this.tabPage1.Controls.Add(this.label3);
@@ -160,7 +178,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(558, 432);
+            this.tabPage1.Size = new System.Drawing.Size(496, 432);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "BASIC INFORMATION";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -442,6 +460,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label49);
+            this.tabPage2.Controls.Add(this.label48);
+            this.tabPage2.Controls.Add(this.label47);
+            this.tabPage2.Controls.Add(this.label46);
+            this.tabPage2.Controls.Add(this.label45);
             this.tabPage2.Controls.Add(this.checkBox3);
             this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.button4);
@@ -472,7 +495,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(558, 432);
+            this.tabPage2.Size = new System.Drawing.Size(496, 432);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "GUARDIAN INFORMATION";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -481,9 +504,9 @@
             // 
             this.button5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Gray;
-            this.button5.Location = new System.Drawing.Point(211, 395);
+            this.button5.Location = new System.Drawing.Point(155, 395);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(85, 31);
+            this.button5.Size = new System.Drawing.Size(141, 31);
             this.button5.TabIndex = 51;
             this.button5.Text = "BACK";
             this.button5.UseVisualStyleBackColor = true;
@@ -508,7 +531,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(3, 308);
+            this.label34.Location = new System.Drawing.Point(3, 313);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(46, 13);
             this.label34.TabIndex = 49;
@@ -516,7 +539,7 @@
             // 
             // txtEmergencyRelation
             // 
-            this.txtEmergencyRelation.Location = new System.Drawing.Point(6, 282);
+            this.txtEmergencyRelation.Location = new System.Drawing.Point(6, 287);
             this.txtEmergencyRelation.Name = "txtEmergencyRelation";
             this.txtEmergencyRelation.Size = new System.Drawing.Size(290, 23);
             this.txtEmergencyRelation.TabIndex = 26;
@@ -721,10 +744,12 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label51);
+            this.tabPage3.Controls.Add(this.label50);
             this.tabPage3.Controls.Add(this.cmbStudentStatus);
             this.tabPage3.Controls.Add(this.label39);
-            this.tabPage3.Controls.Add(this.button2);
-            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.btnCancel);
+            this.tabPage3.Controls.Add(this.btnProcess);
             this.tabPage3.Controls.Add(this.label38);
             this.tabPage3.Controls.Add(this.txtYearLevel);
             this.tabPage3.Controls.Add(this.label37);
@@ -744,7 +769,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(558, 432);
+            this.tabPage3.Size = new System.Drawing.Size(496, 432);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "SCHOOL INFO AND APPLICATION INFO";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -772,31 +797,31 @@
             this.label39.TabIndex = 56;
             this.label39.Text = "Student Status";
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Gray;
-            this.button2.Location = new System.Drawing.Point(165, 395);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 31);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "CANCEL";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Gray;
+            this.btnCancel.Location = new System.Drawing.Point(165, 395);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(85, 31);
+            this.btnCancel.TabIndex = 37;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnProcess
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(256, 395);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 31);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "PROCESS APPLICATION";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnProcess.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnProcess.FlatAppearance.BorderSize = 0;
+            this.btnProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProcess.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcess.ForeColor = System.Drawing.Color.White;
+            this.btnProcess.Location = new System.Drawing.Point(256, 395);
+            this.btnProcess.Name = "btnProcess";
+            this.btnProcess.Size = new System.Drawing.Size(200, 31);
+            this.btnProcess.TabIndex = 36;
+            this.btnProcess.Text = "PROCESS APPLICATION";
+            this.btnProcess.UseVisualStyleBackColor = false;
+            this.btnProcess.Click += new System.EventHandler(this.button1_Click);
             // 
             // label38
             // 
@@ -962,11 +987,155 @@
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.Red;
+            this.label40.Location = new System.Drawing.Point(60, 95);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(17, 19);
+            this.label40.TabIndex = 38;
+            this.label40.Text = "*";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.Red;
+            this.label41.Location = new System.Drawing.Point(355, 97);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(17, 19);
+            this.label41.TabIndex = 39;
+            this.label41.Text = "*";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.Red;
+            this.label42.Location = new System.Drawing.Point(194, 166);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(17, 19);
+            this.label42.TabIndex = 40;
+            this.label42.Text = "*";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.Color.Red;
+            this.label43.Location = new System.Drawing.Point(225, 346);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(17, 19);
+            this.label43.TabIndex = 41;
+            this.label43.Text = "*";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.Red;
+            this.label44.Location = new System.Drawing.Point(60, 346);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(17, 19);
+            this.label44.TabIndex = 42;
+            this.label44.Text = "*";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.ForeColor = System.Drawing.Color.Red;
+            this.label45.Location = new System.Drawing.Point(37, 63);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(17, 19);
+            this.label45.TabIndex = 53;
+            this.label45.Text = "*";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.ForeColor = System.Drawing.Color.Red;
+            this.label46.Location = new System.Drawing.Point(37, 131);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(17, 19);
+            this.label46.TabIndex = 54;
+            this.label46.Text = "*";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.ForeColor = System.Drawing.Color.Red;
+            this.label47.Location = new System.Drawing.Point(37, 264);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(17, 19);
+            this.label47.TabIndex = 55;
+            this.label47.Text = "*";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.ForeColor = System.Drawing.Color.Red;
+            this.label48.Location = new System.Drawing.Point(345, 264);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(17, 19);
+            this.label48.TabIndex = 56;
+            this.label48.Text = "*";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.ForeColor = System.Drawing.Color.Red;
+            this.label49.Location = new System.Drawing.Point(55, 313);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(17, 19);
+            this.label49.TabIndex = 57;
+            this.label49.Text = "*";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.ForeColor = System.Drawing.Color.Red;
+            this.label50.Location = new System.Drawing.Point(80, 59);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(17, 19);
+            this.label50.TabIndex = 58;
+            this.label50.Text = "*";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.ForeColor = System.Drawing.Color.Red;
+            this.label51.Location = new System.Drawing.Point(80, 107);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(17, 19);
+            this.label51.TabIndex = 59;
+            this.label51.Text = "*";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.ForeColor = System.Drawing.Color.Red;
+            this.label52.Location = new System.Drawing.Point(13, 14);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(288, 15);
+            this.label52.TabIndex = 39;
+            this.label52.Text = "Note : All fields with (*) mark is required to be filled";
+            // 
             // frm_student_information_online_entry_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 498);
+            this.ClientSize = new System.Drawing.Size(526, 512);
+            this.Controls.Add(this.label52);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
@@ -982,6 +1151,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1037,8 +1207,8 @@
         private System.Windows.Forms.TextBox txtMotherMobile;
         private System.Windows.Forms.TextBox txtMotherName;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.TextBox txtBarangay;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtProvince;
@@ -1067,5 +1237,18 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label52;
     }
 }
