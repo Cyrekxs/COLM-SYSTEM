@@ -1,4 +1,5 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM.Student_Information_Folder;
+using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -95,6 +96,13 @@ namespace COLM_SYSTEM.registration
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             _StudentInfo = StudentInfo.GetStudent(_StudentInfo.StudentID);
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frm_student_information_online_entry_1 frm = new frm_student_information_online_entry_1(_StudentInfo.StudentID);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

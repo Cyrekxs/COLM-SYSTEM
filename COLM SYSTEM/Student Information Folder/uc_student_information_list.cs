@@ -21,24 +21,6 @@ namespace COLM_SYSTEM.student_information
             LoadStudentsAsync();
         }
 
-        private void LoadStudents()
-        {
-            List<StudentInfo> students = StudentInfo.GetStudents();
-            dataGridView1.Rows.Clear();
-
-            if (txtSearch.Text != string.Empty)
-            {
-                students = students.Where(item => item.StudentName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
-            }
-
-            foreach (var item in students)
-            {
-                dataGridView1.Rows.Add(item.StudentID, item.LRN, item.StudentName, item.Gender, item.BirthDate.ToString("MM - dd - yyyy"), item.MobileNo, item.GuardianName, item.GuardianMobile);
-            }
-
-            lblCount.Text = "Record Count(s): " + dataGridView1.Rows.Count.ToString();
-        }
-
         private async Task LoadStudentsAsync()
         {
             List<StudentInfo> students = await StudentInfo.GetStudentsAsync();
@@ -51,7 +33,7 @@ namespace COLM_SYSTEM.student_information
 
             foreach (var item in students)
             {
-                dataGridView1.Rows.Add(item.StudentID, item.LRN, item.StudentName, item.Gender, item.BirthDate.ToString("MM - dd - yyyy"), item.MobileNo, item.GuardianName, item.GuardianMobile);
+                dataGridView1.Rows.Add(item.StudentID, item.LRN, item.StudentName, item.Gender, item.BirthDate.ToString("MM - dd - yyyy"), item.MobileNo, item.GuardianName, item.GuardianMobile,item.ApplicationInfo);
             }
 
             lblCount.Text = "Record Count(s): " + dataGridView1.Rows.Count.ToString();

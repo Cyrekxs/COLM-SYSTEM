@@ -332,5 +332,45 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
             }
         }
+
+        public static List<string> GetSchools()
+        {
+            List<string> Schools = new List<string>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT DISTINCT SchoolName FROM student.information ORDER BY SchoolName ASC", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Schools.Add(Convert.ToString(reader["SchoolName"]));
+                        }
+                    }
+                }
+            }
+            return Schools;
+        }
+
+        public static List<string> GetSchoolAddresses()
+        {
+            List<string> SchoolAddresses = new List<string>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT DISTINCT SchoolAddress FROM student.information ORDER BY SchoolAddress ASC", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            SchoolAddresses.Add(Convert.ToString(reader["SchoolAddress"]));
+                        }
+                    }
+                }
+            }
+            return SchoolAddresses;
+        }
     }
 }

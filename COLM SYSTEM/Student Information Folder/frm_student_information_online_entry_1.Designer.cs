@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
             this.txtBarangay = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtProvince = new System.Windows.Forms.TextBox();
@@ -59,6 +60,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
             this.txtEmergencyRelation = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -104,9 +107,7 @@
             this.cmbSchoolStatus = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -164,8 +165,25 @@
             this.tabPage1.Text = "BASIC INFORMATION";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(304, 395);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(143, 31);
+            this.button3.TabIndex = 37;
+            this.button3.Text = "NEXT";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // txtBarangay
             // 
+            this.txtBarangay.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtBarangay.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtBarangay.Location = new System.Drawing.Point(304, 253);
             this.txtBarangay.Name = "txtBarangay";
             this.txtBarangay.Size = new System.Drawing.Size(143, 23);
@@ -173,17 +191,23 @@
             // 
             // txtCity
             // 
+            this.txtCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtCity.Location = new System.Drawing.Point(158, 253);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(143, 23);
             this.txtCity.TabIndex = 11;
+            this.txtCity.Leave += new System.EventHandler(this.txtCity_Leave);
             // 
             // txtProvince
             // 
+            this.txtProvince.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtProvince.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtProvince.Location = new System.Drawing.Point(9, 253);
             this.txtProvince.Name = "txtProvince";
             this.txtProvince.Size = new System.Drawing.Size(143, 23);
             this.txtProvince.TabIndex = 10;
+            this.txtProvince.Leave += new System.EventHandler(this.txtProvince_Leave);
             // 
             // label1
             // 
@@ -418,6 +442,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.checkBox3);
             this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.label34);
@@ -449,8 +474,35 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(558, 432);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "SCHOOL AND GUARDIAN INFORMATION";
+            this.tabPage2.Text = "GUARDIAN INFORMATION";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.Gray;
+            this.button5.Location = new System.Drawing.Point(211, 395);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(85, 31);
+            this.button5.TabIndex = 51;
+            this.button5.Text = "BACK";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(302, 395);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(141, 31);
+            this.button4.TabIndex = 50;
+            this.button4.Text = "NEXT";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label34
             // 
@@ -556,22 +608,24 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(163, 86);
+            this.checkBox2.Location = new System.Drawing.Point(279, 84);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(113, 19);
+            this.checkBox2.Size = new System.Drawing.Size(164, 19);
             this.checkBox2.TabIndex = 38;
-            this.checkBox2.Text = "Set as Guardian";
+            this.checkBox2.Text = "Set as Emergency Contact";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(163, 17);
+            this.checkBox1.Location = new System.Drawing.Point(279, 16);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(113, 19);
+            this.checkBox1.Size = new System.Drawing.Size(164, 19);
             this.checkBox1.TabIndex = 37;
-            this.checkBox1.Text = "Set as Guardian";
+            this.checkBox1.Text = "Set as Emergency Contact";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // txtGuardianMobile
             // 
@@ -849,6 +903,8 @@
             // 
             // txtSchoolAddress
             // 
+            this.txtSchoolAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtSchoolAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtSchoolAddress.Location = new System.Drawing.Point(9, 81);
             this.txtSchoolAddress.Name = "txtSchoolAddress";
             this.txtSchoolAddress.Size = new System.Drawing.Size(447, 23);
@@ -856,6 +912,8 @@
             // 
             // txtSchoolName
             // 
+            this.txtSchoolName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtSchoolName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtSchoolName.Location = new System.Drawing.Point(9, 34);
             this.txtSchoolName.Name = "txtSchoolName";
             this.txtSchoolName.Size = new System.Drawing.Size(447, 23);
@@ -893,47 +951,16 @@
             this.label5.TabIndex = 44;
             this.label5.Text = "School Status";
             // 
-            // button3
+            // checkBox3
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(304, 395);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(143, 31);
-            this.button3.TabIndex = 37;
-            this.button3.Text = "NEXT";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(302, 395);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(141, 31);
-            this.button4.TabIndex = 50;
-            this.button4.Text = "NEXT";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Gray;
-            this.button5.Location = new System.Drawing.Point(211, 395);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(85, 31);
-            this.button5.TabIndex = 51;
-            this.button5.Text = "BACK";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(279, 151);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(164, 19);
+            this.checkBox3.TabIndex = 52;
+            this.checkBox3.Text = "Set as Emergency Contact";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // frm_student_information_online_entry_1
             // 
@@ -946,6 +973,7 @@
             this.MinimizeBox = false;
             this.Name = "frm_student_information_online_entry_1";
             this.Text = "ONLINE PROCESSOR";
+            this.Load += new System.EventHandler(this.frm_student_information_online_entry_1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1038,5 +1066,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.CheckBox checkBox3;
     }
 }

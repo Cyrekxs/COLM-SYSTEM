@@ -14,6 +14,9 @@ namespace COLM_SYSTEM.Student_Information_Folder
     public partial class frm_student_information_online_entry_1 : Form
     {
         List<Address> addresses = Address.GetAddresses();
+        List<string> Schools = StudentInfo.GetSchools();
+        List<string> SchoolAddresses = StudentInfo.GetSchoolAddresses();
+
         private string SavingStatus;
         //ADD NEW STUDENT
         public frm_student_information_online_entry_1()
@@ -109,6 +112,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
         }
 
+
         private bool IsValidForm()
         {
             if (string.IsNullOrEmpty(txtLastname.Text))
@@ -178,6 +182,50 @@ namespace COLM_SYSTEM.Student_Information_Folder
             }
 
             return true;
+        }
+
+
+        private void LoadSuggestionSchools()
+        {
+            foreach (var item in Schools)
+            {
+                txtSchoolName.AutoCompleteCustomSource.Add(item);
+            }
+        }
+
+        private void LoadSuggestionSchoolAddresses()
+        {
+            foreach (var item in SchoolAddresses)
+            {
+                txtSchoolAddress.AutoCompleteCustomSource.Add(item);
+            }
+        }
+
+        private void LoadSuggestionProvince()
+        {
+            List<string> Provinces = addresses.Select(r => r.Province).Distinct().ToList();
+            foreach (var item in Provinces)
+            {
+                txtProvince.AutoCompleteCustomSource.Add(item);
+            }
+        }
+
+        private void LoadSuggestionCities()
+        {
+            List<string> Cities = addresses.Where(r => r.Province.ToLower() == txtProvince.Text.ToLower()).Select(r => r.City).Distinct().ToList();
+            foreach (var item in Cities)
+            {
+                txtCity.AutoCompleteCustomSource.Add(item);
+            }
+        }
+
+        private void LoadSuggestionBarangay()
+        {
+            List<string> Barangays = addresses.Where(r => r.Province.ToLower() == txtProvince.Text.ToLower() && r.City.ToLower() == txtCity.Text.ToLower()).Select(r => r.Barangay).Distinct().ToList();
+            foreach (var item in Barangays)
+            {
+                txtBarangay.AutoCompleteCustomSource.Add(item);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -284,6 +332,70 @@ namespace COLM_SYSTEM.Student_Information_Folder
         private void button4_Click(object sender, EventArgs e)
         {
             tabControl1.SelectTab(2);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                txtEmergencyName.Text = txtMotherName.Text;
+                txtEmergencyMobile.Text = txtMotherMobile.Text;
+                txtEmergencyRelation.Text = "Mother";
+            }
+            else
+            {
+                txtEmergencyName.Text = "";
+                txtEmergencyMobile.Text = "";
+                txtEmergencyRelation.Text = "";
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked == true)
+            {
+                txtEmergencyName.Text = txtFatherName.Text;
+                txtEmergencyMobile.Text = txtFatherMobile.Text;
+                txtEmergencyRelation.Text = "Father";
+            }
+            else
+            {
+                txtEmergencyName.Text = "";
+                txtEmergencyMobile.Text = "";
+                txtEmergencyRelation.Text = "";
+            }
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked == true)
+            {
+                txtEmergencyName.Text = txtGuardianName.Text;
+                txtEmergencyMobile.Text = txtGuardianMobile.Text;
+            }
+            else
+            {
+                txtEmergencyName.Text = "";
+                txtEmergencyMobile.Text = "";
+                txtEmergencyRelation.Text = "";
+            }
+        }
+
+        private void frm_student_information_online_entry_1_Load(object sender, EventArgs e)
+        {
+            LoadSuggestionProvince();
+            LoadSuggestionSchools();
+            LoadSuggestionSchoolAddresses();
+        }
+
+        private void txtProvince_Leave(object sender, EventArgs e)
+        {
+            LoadSuggestionCities();
+        }
+
+        private void txtCity_Leave(object sender, EventArgs e)
+        {
+            LoadSuggestionBarangay();
         }
     }
 }

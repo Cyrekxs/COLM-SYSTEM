@@ -46,6 +46,19 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string CourseStrand { get; set; }
         public string YearLevel { get; set; }
 
+        public string ApplicationInfo
+        {
+            get
+            {
+                string info = string.Empty;
+
+                if (EducationLevel.ToLower() != "college" || EducationLevel.ToLower() != "senior high")
+                    return string.Concat(CourseStrand, " ", YearLevel);
+                else
+                    return string.Concat(EducationLevel," ", CourseStrand, " ", YearLevel);
+            }
+        }
+
         public static List<StudentInfo> GetStudents()
         {
             return StudentInfo_DS.GetStudents();
@@ -61,7 +74,7 @@ namespace COLM_SYSTEM_LIBRARY.model
             return StudentInfo_DS.GetStudent(StudentID);
         }
 
-        public static StudentInfo IsStudentExist(string Lastname,string Firstname)
+        public static StudentInfo IsStudentExist(string Lastname, string Firstname)
         {
             return StudentInfo_DS.IsStudentExists(Lastname, Firstname);
         }
@@ -70,6 +83,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return StudentInfo_DS.InsertUpdateStudentInformation(model);
         }
+        public static int RemoveStudent(int StudentID)
+        {
+            return StudentInfo_DS.RemoveStudent(StudentID);
+        }
+
 
 
         public static int UpdateStudentEmail(int StudentID, string Email)
@@ -82,9 +100,16 @@ namespace COLM_SYSTEM_LIBRARY.model
             return StudentInfo_DS.HasRegistration(StudentID);
         }
 
-        public static int RemoveStudent(int StudentID)
+        public static List<string> GetSchools()
         {
-            return StudentInfo_DS.RemoveStudent(StudentID);
+            return StudentInfo_DS.GetSchools();
         }
+
+        public static List<string> GetSchoolAddresses()
+        {
+            return StudentInfo_DS.GetSchoolAddresses();
+        }
+
+
     }
 }
