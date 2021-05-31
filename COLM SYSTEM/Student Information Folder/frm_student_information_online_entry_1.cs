@@ -76,11 +76,6 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
         }
 
-        public frm_student_information_online_entry_1(int StudentID,string SavingStatus)
-        {
-
-        }
-
         //IMPORT ONLINE APPLICANT TO CREATE NEW STUDENT
         public frm_student_information_online_entry_1(StudentInfoOnline model)
         {
@@ -116,7 +111,12 @@ namespace COLM_SYSTEM.Student_Information_Folder
             txtSchoolName.Text = model.SchoolName;
             txtSchoolAddress.Text = model.SchoolAddress;
             cmbSchoolStatus.Text = model.SchoolStatus;
-            cmbESCGuarantee.Text = model.ESCGuarantee;
+            if (model.ESCGuarantee.ToLower() == "yes")
+                cmbESCGuarantee.Text = "ESC Guaranteed";
+            else if (model.ESCGuarantee.ToLower() == "no")
+                cmbESCGuarantee.Text = "NOT ESC Guaranteed";
+            else
+                cmbESCGuarantee.Text = model.ESCGuarantee;
 
             cmbStudentStatus.Text = model.StudentStatus;
             txtEducationLevel.Text = model.EducationLevel;

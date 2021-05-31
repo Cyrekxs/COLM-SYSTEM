@@ -54,7 +54,7 @@ namespace COLM_SYSTEM_LIBRARY.model
             return connstring;
         }
 
-
+        //coming from local database
         public static List<StudentInfoOnlineProcessed> GetProcessedApplicants()
         {
             List<StudentInfoOnlineProcessed> processedStudents = new List<StudentInfoOnlineProcessed>();
@@ -166,6 +166,19 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static int InsertOnlineApplicant(int ApplicantID, int StudentID)
         {
             return StudentInfo_DS.InsertOnlineApplicant(ApplicantID, StudentID);
+        }
+
+        public static int RemoveOnlineApplication(int ApplicationID)
+        {
+            using (SqlConnection conn = new SqlConnection(GetOnlineConnectionString()))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("DELETE FROM student.information_online WHERE ApplicationID = @ApplicationID", conn))
+                {
+                    comm.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+                    return comm.ExecuteNonQuery();
+                }
+            }
         }
 
     }
