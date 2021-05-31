@@ -47,12 +47,6 @@ namespace COLM_SYSTEM.student_information
                 frm.ShowDialog();
                 await LoadStudentsAsync();
             }
-            //using (frm_student_information_entry frm = new frm_student_information_entry())
-            //{
-            //    frm.StartPosition = FormStartPosition.CenterParent;
-            //    frm.ShowDialog();
-            //    await LoadStudentsAsync();
-            //}
         }
 
         private void dataGridView1_CellContentClickAsync(object sender, DataGridViewCellEventArgs e)

@@ -87,8 +87,8 @@ namespace COLM_SYSTEM_LIBRARY.model
                             comm.Parameters.AddWithValue("@Password", user.Password);
                             comm.Parameters.AddWithValue("@AccountName", user.AccountName);
                             comm.Parameters.AddWithValue("@AccountPosition", user.AccountPosition);
-                            comm.Parameters.AddWithValue("@SchoolYearID", Utilities.GetActiveSchoolYear());
-                            comm.Parameters.AddWithValue("@SemesterID", Utilities.GetActiveSemester());
+                            comm.Parameters.AddWithValue("@SchoolYearID", user.SchoolYearID);
+                            comm.Parameters.AddWithValue("@SemesterID", user.SemesterID);
                             comm.ExecuteNonQuery();
                         }
 

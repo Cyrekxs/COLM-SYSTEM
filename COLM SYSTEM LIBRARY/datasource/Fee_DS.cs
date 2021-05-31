@@ -128,37 +128,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return fee;
         }
-
-        public static List<FeeSummary> GetFeeSummaries()
-        {
-            List<FeeSummary> feeSummaries = new List<FeeSummary>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
-            {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_get_Fee_Summary(@SchoolYearID)", conn))
-                {
-                    comm.Parameters.AddWithValue("@SchoolYearID", Utilities.GetActiveSchoolYear());
-                    using (SqlDataReader reader = comm.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            FeeSummary feeSummary = new FeeSummary()
-                            {
-                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
-                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
-                                YearLevel = Convert.ToString(reader["YearLevel"]),
-                                TotalTFee = Convert.ToDouble(reader["Total_TFee"]),
-                                TotalMFee = Convert.ToDouble(reader["Total_MFee"]),
-                                TotalOFee = Convert.ToDouble(reader["Total_OFee"]),
-                                TotalAFee = Convert.ToDouble(reader["Total_AFee"])
-                            };
-                            feeSummaries.Add(feeSummary);
-                        }
-                    }
-                }
-            }
-            return feeSummaries;
-        }
+      
 
         public static List<Fee> GetSettedFees(int CurriculumID, int YearLevelID,int SchoolYearID,int SemesterID)
         {

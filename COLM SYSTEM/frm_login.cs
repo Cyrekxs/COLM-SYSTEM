@@ -85,18 +85,5 @@ namespace COLM_SYSTEM
             else
                 txtPassword.UseSystemPasswordChar = true;
         }
-
-        private async void button3_ClickAsync(object sender, EventArgs e)
-        {
-            EmailModel email = new EmailModel()
-            {
-                To = "anthonyquijano@colm.edu.ph",
-                Subject = "This is a sample subject",
-                Body = "This is a sample body"
-            };
-
-           await EmailModel.SendMailAsync(email, EmailCredential.GetDefaultEmail());
-            MessageBox.Show("Email sent successfully");
-        }
     }
 }

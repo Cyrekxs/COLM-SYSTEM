@@ -63,7 +63,6 @@
     <Compile Include="helper\Enums.cs" />
     <Compile Include="helper\Globals.cs" />
     <Compile Include="helper\SQLHelper.cs" />
-    <Compile Include="helper\Utilities.cs" />
     <Compile Include="model\Address.cs" />
     <Compile Include="model\EmailCredential.cs" />
     <Compile Include="model\EmailModel.cs" />

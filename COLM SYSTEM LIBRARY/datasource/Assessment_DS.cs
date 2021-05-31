@@ -29,6 +29,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 EnrollmentStatus = Convert.ToString(reader["EnrollmentStatus"]),
                                 LRN = Convert.ToString(reader["LRN"]),
                                 StudentName = Convert.ToString(reader["StudentName"]),
+                                EmailAddress = Convert.ToString(reader["EmailAddress"]),
+                                MobileNo = Convert.ToString(reader["MobileNo"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
@@ -193,12 +195,14 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         while (reader.Read())
                         {
                             AssessmentSummary assessment = new AssessmentSummary()
-                            {
+                            {                                
                                 AssessmentID = Convert.ToInt32(reader["AssessmentID"]),
                                 RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
                                 EnrollmentStatus = Convert.ToString(reader["EnrollmentStatus"]),
                                 LRN = Convert.ToString(reader["LRN"]),
                                 StudentName = Convert.ToString(reader["StudentName"]),
+                                EmailAddress = Convert.ToString(reader["EmailAddress"]),
+                                MobileNo = Convert.ToString(reader["MobileNo"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),

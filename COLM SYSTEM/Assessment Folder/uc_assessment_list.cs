@@ -232,7 +232,7 @@ namespace COLM_SYSTEM.Assessment_Folder
 
 
 
-            frm_assessment_email_sender frm = new frm_assessment_email_sender();
+            frm_assessment_email_sender frm = new frm_assessment_email_sender(assessment);
             ReportDataSource dsPaymentSchedule = new ReportDataSource("dsPaymentSchedule", ds.Tables["DTPaymentSchedule"]);
             ReportDataSource dsSubjects = new ReportDataSource("dsSubjects", ds.Tables["DTSubjects"]);
             frm.reportViewer1.LocalReport.DataSources.Clear();

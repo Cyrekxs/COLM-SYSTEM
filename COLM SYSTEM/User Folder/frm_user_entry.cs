@@ -74,6 +74,8 @@ namespace COLM_SYSTEM.User_Folder
                     AccountPosition = cmbPosition.Text,
                     Username = txtUsername.Text,
                     Password = txtPassword.Text,
+                    SchoolYearID = Utilties.GetActiveSchoolYear(),
+                    SemesterID = Utilties.GetActiveSemester(),
                     Credential = new EmailCredential()
                     {
                         Email = txtEmail.Text,
