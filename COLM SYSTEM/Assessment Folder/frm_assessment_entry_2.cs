@@ -918,7 +918,11 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            btnCancel.PerformClick();
+            if (MessageBox.Show("Are you sure you want to close assessment viewing / reassessment?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+                Dispose();
+            }
         }
     }
 }

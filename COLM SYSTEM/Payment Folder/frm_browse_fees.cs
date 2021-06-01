@@ -72,6 +72,7 @@ namespace COLM_SYSTEM.Payment_Folder
             frm_addtional_fee_entry frm = new frm_addtional_fee_entry();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+            LoadAdditionalFees();
         }
     }
 }

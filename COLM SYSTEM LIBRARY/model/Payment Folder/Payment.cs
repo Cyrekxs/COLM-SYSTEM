@@ -49,5 +49,10 @@ namespace COLM_SYSTEM_LIBRARY.model.Payment_Folder
         {
             return Payment_DS.InsertAdditionalFeePayment(AssessmentAdditionalFeeID, Payment);
         }
+
+        public static int CancelReciept(string ORNumber)
+        {
+            return Payment_DS.CancelReciept(ORNumber);
+        }
     }
 }

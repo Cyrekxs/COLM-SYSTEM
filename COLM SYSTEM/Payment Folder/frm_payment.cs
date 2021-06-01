@@ -197,5 +197,21 @@ namespace COLM_SYSTEM.Payment_Folder
             }
 
         }
+
+        private void dgPaymentHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == clmAction.Index)
+            {
+                if (dgPaymentHistory.Rows[e.RowIndex].Cells["clmPaymentStatus"].Value.ToString().ToLower() == "active")
+                {
+                    if (MessageBox.Show("Are you sure you want cancel this reciept?", "Cancel Reciept", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        string ORNumber = dgPaymentHistory.Rows[e.RowIndex].Cells["clmORNumber"].Value.ToString();
+                        int result = Payment.CancelReciept(ORNumber);
+                        LoadPaymentHistory();
+                    }
+                }
+            }
+        }
     }
 }

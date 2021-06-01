@@ -157,5 +157,17 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
         }
 
+        public static int CancelReciept(string ORNumber)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("UPDATE assessment.payment SET PaymentStatus = 'Cancelled' WHERE ORNumber = @ORNumber", conn))
+                {
+                    comm.Parameters.AddWithValue("@ORNumber", ORNumber);
+                    return comm.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
