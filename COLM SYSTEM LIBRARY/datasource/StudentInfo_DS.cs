@@ -63,6 +63,63 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return students;
         }
+
+        public static List<StudentInfo> GetStudentsToImport()
+        {
+            List<StudentInfo> students = new List<StudentInfo>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information_import ORDER BY Lastname,Firstname ASC", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            StudentInfo student = new StudentInfo()
+                            {
+                                StudentID = Convert.ToInt32(reader["StudentID"]),
+                                LRN = Convert.ToString(reader["LRN"]),
+                                Lastname = Convert.ToString(reader["Lastname"]),
+                                Firstname = Convert.ToString(reader["Firstname"]),
+                                Middlename = Convert.ToString(reader["Middlename"]),
+                                BirthDate = Convert.ToDateTime(reader["BirthDate"]),
+                                Gender = Convert.ToString(reader["Gender"]),
+                                Street = Convert.ToString(reader["Street"]),
+                                Barangay = Convert.ToString(reader["Barangay"]),
+                                City = Convert.ToString(reader["City"]),
+                                Province = Convert.ToString(reader["Province"]),
+                                EmailAddress = Convert.ToString(reader["EmailAddress"]),
+                                MobileNo = Convert.ToString(reader["MobileNo"]),
+
+                                MotherName = Convert.ToString(reader["MotherName"]),
+                                MotherMobile = Convert.ToString(reader["MotherMobile"]),
+                                FatherName = Convert.ToString(reader["FatherName"]),
+                                FatherMobile = Convert.ToString(reader["FatherMobile"]),
+                                GuardianName = Convert.ToString(reader["GuardianName"]),
+                                GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
+                                EmergencyName = Convert.ToString(reader["EmergencyName"]),
+                                EmergencyRelation = Convert.ToString(reader["EmergencyRelation"]),
+                                EmergencyMobile = Convert.ToString(reader["EmergencyMobile"]),
+
+                                SchoolName = Convert.ToString(reader["SchoolName"]),
+                                SchoolAddress = Convert.ToString(reader["SchoolAddress"]),
+                                SchoolStatus = Convert.ToString(reader["SchoolStatus"]),
+                                ESCGuarantee = Convert.ToString(reader["ESCGuarantee"]),
+
+                                StudentStatus = Convert.ToString(reader["StudentStatus"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
+                                YearLevel = Convert.ToString(reader["YearLevel"])
+                            };
+                            students.Add(student);
+                        }
+                    }
+                }
+            }
+            return students;
+        }
+
         public static async Task<List<StudentInfo>> GetStudentsAsync()
         {
             List<StudentInfo> students = new List<StudentInfo>();

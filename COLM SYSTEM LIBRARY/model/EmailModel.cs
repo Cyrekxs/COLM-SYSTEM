@@ -40,8 +40,8 @@ namespace COLM_SYSTEM_LIBRARY.model
                 smtp.Credentials = nc;
                 smtp.Send(mm);
 
-                //await smtp.SendMailAsync(mm);
-                //var result = smtp.SendCompleted;
+                smtp.Dispose();
+                mm.Dispose();
 
                 return true;
             }

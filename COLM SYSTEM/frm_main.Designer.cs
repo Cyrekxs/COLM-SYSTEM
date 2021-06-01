@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             this.lblSchoolYear = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -77,6 +79,7 @@
             this.aDMINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             this.uC_DashBoard1 = new COLM_SYSTEM.UC_DashBoard();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -100,6 +103,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -119,6 +124,25 @@
             this.panel1.Size = new System.Drawing.Size(1060, 72);
             this.panel1.TabIndex = 6;
             // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.Red;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button4.Location = new System.Drawing.Point(951, 4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(58, 50);
+            this.button4.TabIndex = 17;
+            this.button4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -136,7 +160,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(1009, 50);
+            this.label3.Location = new System.Drawing.Point(1009, 53);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 11);
             this.label3.TabIndex = 15;
@@ -148,7 +172,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(938, 50);
+            this.label2.Location = new System.Drawing.Point(904, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 11);
             this.label2.TabIndex = 14;
@@ -160,7 +184,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(856, 50);
+            this.label1.Location = new System.Drawing.Point(833, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 11);
             this.label1.TabIndex = 13;
@@ -190,7 +214,7 @@
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label12.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(875, 4);
+            this.label12.Location = new System.Drawing.Point(852, 4);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(27, 21);
             this.label12.TabIndex = 9;
@@ -206,7 +230,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Red;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(933, 3);
+            this.button2.Location = new System.Drawing.Point(899, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(48, 46);
             this.button2.TabIndex = 11;
@@ -216,7 +240,7 @@
             // 
             // label14
             // 
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.label14.BackColor = System.Drawing.Color.SlateGray;
             this.label14.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label14.Location = new System.Drawing.Point(0, 67);
             this.label14.Name = "label14";
@@ -227,7 +251,7 @@
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.BackColor = System.Drawing.Color.LightGray;
-            this.label13.Location = new System.Drawing.Point(847, 1);
+            this.label13.Location = new System.Drawing.Point(824, 1);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(2, 62);
             this.label13.TabIndex = 9;
@@ -274,7 +298,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Red;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(859, 5);
+            this.button1.Location = new System.Drawing.Point(836, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(48, 46);
             this.button1.TabIndex = 9;
@@ -305,7 +329,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.Controls.Add(this.lblDateTime);
             this.panel2.Controls.Add(this.lblAccountName);
             this.panel2.Controls.Add(this.lblSemester);
@@ -344,7 +368,7 @@
             // 
             // label15
             // 
-            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.label15.BackColor = System.Drawing.Color.LightSlateGray;
             this.label15.Dock = System.Windows.Forms.DockStyle.Top;
             this.label15.Location = new System.Drawing.Point(0, 0);
             this.label15.Name = "label15";
@@ -557,13 +581,25 @@
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.usersToolStripMenuItem.Text = "Users";
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(956, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 11);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "MINIMIZE";
             // 
             // uC_DashBoard1
             // 
@@ -657,5 +693,7 @@
         private System.Windows.Forms.ToolStripMenuItem onlineApplicantsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facultyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem assessmentPaymentModesToolStripMenuItem;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label5;
     }
 }

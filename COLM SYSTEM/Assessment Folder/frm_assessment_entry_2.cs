@@ -246,7 +246,6 @@ namespace COLM_SYSTEM.Assessment_Folder
                 cmbSection.Items.Add(item.SectionName);
             }
         }
-
         private void LoadSectionSchedule() //this function will trigger if the cmbsection change
         {
             if (cmbSection.Text != "Irregular")
@@ -271,9 +270,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             int yearLevelID = studentYearLevel.YearLevelID;
             //get the list of discounts according to yearlevel, school year and semester
             List<Discount> discounts = Discount.GetDiscounts().Where(item => item.SchoolYearID == Utilties.GetActiveSchoolYear() && item.SemesterID == Utilties.GetActiveSemester()).ToList();
-
             List<Discount> AvailableToAllDiscounts = discounts.Where(item => item.HasYearLevels == false).ToList();
-
             List<Discount> SpecificDiscounts = new List<Discount>();  //discounts.Where(item => item.YearLevels.Contains(studentYearLevel)).ToList();
 
             foreach (var item in discounts)
@@ -489,7 +486,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 foreach (var item in TypeItems)
                 {
                     double breakdownAmount = (((item.TFee / 100) * TFee) + ((item.MFee / 100) * MFee) + ((item.OFee / 100) * OFee) + item.Surcharge);
-                    dgBreakdown.Rows.Add(0, item.ItemCode, breakdownAmount, item.DueDate);
+                    dgBreakdown.Rows.Add(0, item.ItemCode, breakdownAmount.ToString("n"), item.DueDate);
                 }
             }
 

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelEnrolled = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.lblTotalPending = new System.Windows.Forms.Label();
@@ -135,7 +135,7 @@
             // 
             // panel21
             // 
-            this.panel21.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel21.BackColor = System.Drawing.Color.Gray;
             this.panel21.Controls.Add(this.lblTotalPending);
             this.panel21.Controls.Add(this.lblTotalEnrolled);
             this.panel21.Controls.Add(this.label32);
@@ -149,7 +149,7 @@
             // 
             this.lblTotalPending.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalPending.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPending.ForeColor = System.Drawing.Color.IndianRed;
+            this.lblTotalPending.ForeColor = System.Drawing.Color.Maroon;
             this.lblTotalPending.Location = new System.Drawing.Point(385, 0);
             this.lblTotalPending.Name = "lblTotalPending";
             this.lblTotalPending.Size = new System.Drawing.Size(154, 49);
@@ -161,7 +161,7 @@
             // 
             this.lblTotalEnrolled.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalEnrolled.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalEnrolled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.lblTotalEnrolled.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblTotalEnrolled.Location = new System.Drawing.Point(231, 0);
             this.lblTotalEnrolled.Name = "lblTotalEnrolled";
             this.lblTotalEnrolled.Size = new System.Drawing.Size(154, 49);
@@ -556,18 +556,18 @@
             // 
             this.chartEnrolled.BackColor = System.Drawing.Color.Empty;
             this.chartEnrolled.BorderlineColor = System.Drawing.Color.Black;
-            chartArea1.Name = "ChartArea1";
-            this.chartEnrolled.ChartAreas.Add(chartArea1);
+            chartArea13.Name = "ChartArea1";
+            this.chartEnrolled.ChartAreas.Add(chartArea13);
             this.chartEnrolled.Dock = System.Windows.Forms.DockStyle.Left;
             this.chartEnrolled.Location = new System.Drawing.Point(0, 0);
             this.chartEnrolled.Name = "chartEnrolled";
             this.chartEnrolled.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.Name = "Series1";
-            series1.YValuesPerPoint = 6;
-            this.chartEnrolled.Series.Add(series1);
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series13.Name = "Series1";
+            series13.YValuesPerPoint = 6;
+            this.chartEnrolled.Series.Add(series13);
             this.chartEnrolled.Size = new System.Drawing.Size(407, 353);
             this.chartEnrolled.TabIndex = 7;
             this.chartEnrolled.Text = "chart1";
@@ -590,7 +590,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel3.BackColor = System.Drawing.Color.Gray;
             this.panel3.Controls.Add(this.lblTotalFemale);
             this.panel3.Controls.Add(this.lblTotalMale);
             this.panel3.Controls.Add(this.label6);
@@ -616,7 +616,7 @@
             // 
             this.lblTotalMale.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalMale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalMale.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.lblTotalMale.ForeColor = System.Drawing.Color.DarkBlue;
             this.lblTotalMale.Location = new System.Drawing.Point(231, 0);
             this.lblTotalMale.Name = "lblTotalMale";
             this.lblTotalMale.Size = new System.Drawing.Size(154, 30);
@@ -946,18 +946,18 @@
             // 
             this.chartGender.BackColor = System.Drawing.Color.Empty;
             this.chartGender.BorderlineColor = System.Drawing.Color.Black;
-            chartArea2.Name = "ChartArea1";
-            this.chartGender.ChartAreas.Add(chartArea2);
+            chartArea14.Name = "ChartArea1";
+            this.chartGender.ChartAreas.Add(chartArea14);
             this.chartGender.Dock = System.Windows.Forms.DockStyle.Left;
             this.chartGender.Location = new System.Drawing.Point(0, 0);
             this.chartGender.Name = "chartGender";
             this.chartGender.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
-            series2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.Name = "Series1";
-            series2.YValuesPerPoint = 6;
-            this.chartGender.Series.Add(series2);
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
+            series14.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series14.Name = "Series1";
+            series14.YValuesPerPoint = 6;
+            this.chartGender.Series.Add(series14);
             this.chartGender.Size = new System.Drawing.Size(407, 253);
             this.chartGender.TabIndex = 19;
             this.chartGender.Text = "chart1";
@@ -970,7 +970,7 @@
             this.Controls.Add(this.panelEnrolled);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_DashBoard";
-            this.Size = new System.Drawing.Size(1366, 768);
+            this.Size = new System.Drawing.Size(1168, 763);
             this.Load += new System.EventHandler(this.UC_DashBoard_Load);
             this.panelEnrolled.ResumeLayout(false);
             this.panel21.ResumeLayout(false);

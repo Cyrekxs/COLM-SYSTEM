@@ -26,8 +26,12 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
             applicants = StudentInfoOnline.GetOnlineApplications();
 
-            dataGridView1.Rows.Clear();
+            if (string.IsNullOrEmpty(txtSearch.Text) == false)
+            {
+                applicants = applicants.Where(r => r.StudentName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            }
 
+            dataGridView1.Rows.Clear();
             foreach (var item in applicants)
             {
                 dataGridView1.Rows.Add(item.ApplicationID, item.StudentStatus, item.LRN, item.StudentName, item.Gender, item.EmailAddress, item.MobileNo, item.EducationLevel, item.CourseStrand, item.YearLevel, item.ApplicationDate.ToString("MM-dd-yyyy hh:mm tt"));

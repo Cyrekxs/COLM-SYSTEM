@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\Colm\colm system 2021\</UpdateUrl>
-    <ApplicationRevision>18</ApplicationRevision>
+    <ApplicationRevision>27</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -68,6 +68,11 @@
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -86,6 +91,7 @@
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -97,7 +103,10 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -362,6 +371,12 @@
       <DependentUpon>frm_settings.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Student Information Folder\frm_online_importer_processor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student Information Folder\frm_online_importer_processor.Designer.cs">
+      <DependentUpon>frm_online_importer_processor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student Information Folder\frm_student_information_online_entry_1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -461,6 +476,7 @@
     <EmbeddedResource Include="Assessment Folder\frm_assessment_subject_browser.resx">
       <DependentUpon>frm_assessment_subject_browser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assessment Folder\rpt_payment_attachments.rdlc" />
     <EmbeddedResource Include="Assessment Folder\rpt_assessment.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -582,6 +598,9 @@
     <EmbeddedResource Include="Settings Folder\frm_settings.resx">
       <DependentUpon>frm_settings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Student Information Folder\frm_online_importer_processor.resx">
+      <DependentUpon>frm_online_importer_processor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\frm_student_information_entry.resx">
       <DependentUpon>frm_student_information_entry.cs</DependentUpon>
     </EmbeddedResource>
@@ -625,6 +644,7 @@
     </None>
     <None Include="COLM SYSTEM_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -704,6 +724,8 @@
   <ItemGroup>
     <Content Include="Programmers Info\Notes.txt" />
     <Content Include="Programmers Info\What I Did.txt" />
+    <None Include="Resources\Minus.png" />
+    <None Include="Resources\COLM Pulilan digital qr.png" />
     <None Include="Resources\colm-system-icon.ico" />
     <None Include="Resources\login background.png" />
     <None Include="Resources\colm system icon.ico" />

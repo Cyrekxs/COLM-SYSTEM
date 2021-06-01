@@ -1,5 +1,6 @@
 ﻿using COLM_SYSTEM;
 using COLM_SYSTEM.Curriculum_Folder;
+using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM.subject;
 using System;
 using System.Collections.Generic;

@@ -239,8 +239,10 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.reportViewer1.LocalReport.DataSources.Add(dsPaymentSchedule);
             frm.reportViewer1.LocalReport.DataSources.Add(dsSubjects);
             frm.reportViewer1.LocalReport.ReportEmbeddedResource = "COLM_SYSTEM.Assessment_Folder.rpt_assessment.rdlc";
+            frm.reportViewer2.LocalReport.ReportEmbeddedResource = "COLM_SYSTEM.Assessment_Folder.rpt_payment_attachments.rdlc";
             frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());
             frm.reportViewer1.RefreshReport();
+            frm.reportViewer2.RefreshReport();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

@@ -28,5 +28,17 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return StudentRegistration_DS.UpdateStudentRegistration(student);
         }
+
+        public static bool HasAssessment(int RegistrationID)
+        {
+            return StudentRegistration_DS.HasAssessment(RegistrationID);
+        }
+        public static int DeleteStudentRegistration(int RegistrationID)
+        {
+            if (StudentRegistration_DS.HasAssessment(RegistrationID) == true)
+                return -1;
+            else
+                return StudentRegistration_DS.DeleteRegistration(RegistrationID);
+        }
     }
 }

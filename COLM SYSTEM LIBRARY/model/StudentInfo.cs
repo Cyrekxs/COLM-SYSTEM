@@ -64,6 +64,11 @@ namespace COLM_SYSTEM_LIBRARY.model
             return StudentInfo_DS.GetStudents();
         }
 
+        public static List<StudentInfo> GetStudentsToImport()
+        {
+            return StudentInfo_DS.GetStudentsToImport();
+        }
+
         public static async Task<List<StudentInfo>> GetStudentsAsync()
         {
             return await StudentInfo_DS.GetStudentsAsync();

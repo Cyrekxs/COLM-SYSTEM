@@ -14,6 +14,7 @@ namespace COLM_SYSTEM.Registration_Folder
 {
     public partial class uc_registered_students_list : UserControl
     {
+        int SelectedRow = 0;
         public uc_registered_students_list()
         {
             InitializeComponent();
@@ -67,6 +68,30 @@ namespace COLM_SYSTEM.Registration_Folder
             if (e.KeyCode == Keys.Enter)
             {
                 LoadRegisteredStudents();
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == clmAction.Index)
+            {
+                SelectedRow = e.RowIndex;
+                contextMenuStrip1.Show(new Point(Cursor.Position.X, Cursor.Position.Y));
+            }
+        }
+
+        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int RegistrationID = Convert.ToInt16( dataGridView1.Rows[SelectedRow].Cells["clmRegisteredStudentID"].Value);
+            bool result = StudentRegistration.HasAssessment(RegistrationID);
+            if (result == false)
+            {
+                if (MessageBox.Show("Are you sure you want to delete this registration? this will not be reverted","Delete Regstration?",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int deleteResult = StudentRegistration.DeleteStudentRegistration(RegistrationID);
+                    if (deleteResult > 0)
+                        LoadRegisteredStudents();
+                }
             }
         }
     }

@@ -241,7 +241,7 @@
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel8.BackColor = System.Drawing.Color.SlateGray;
             this.panel8.Controls.Add(this.label19);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(1, 1);

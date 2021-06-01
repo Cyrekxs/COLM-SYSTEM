@@ -187,6 +187,38 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
         }
 
+        public static bool HasAssessment(int RegistrationID)
+        {
+            int result = 0;
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT AssessmentID FROM assessment.summary WHERE RegisteredStudentID = @RegisteredStudentID AND AssessmentStatus = 'ACITVE'", conn))
+                {
+                    comm.Parameters.AddWithValue("@RegisteredStudentID", RegistrationID);
+                    result = Convert.ToInt32(comm.ExecuteScalar());
+                }
+            }
+
+            if (result > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public static int DeleteRegistration(int RegistrationID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("DELETE FROM student.registered WHERE RegisteredID = @RegistrationID", conn))
+                {
+                    comm.Parameters.AddWithValue("@RegistrationID", RegistrationID);
+                    return comm.ExecuteNonQuery();
+                }
+            }
+        }
+
         public static List<StudentRegistered> GetStudentsWithNoAssessment(int SchoolYearID, int SemesterID)
         {
             List<StudentRegistered> registeredStudents = new List<StudentRegistered>();

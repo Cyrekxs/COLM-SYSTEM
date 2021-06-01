@@ -38,6 +38,7 @@
             this.btnSendMail = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +53,7 @@
             // 
             // txtTo
             // 
+            this.txtTo.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtTo.Location = new System.Drawing.Point(65, 11);
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(540, 23);
@@ -93,10 +95,10 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Location = new System.Drawing.Point(12, 383);
+            this.reportViewer1.Location = new System.Drawing.Point(198, 400);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(618, 350);
+            this.reportViewer1.Size = new System.Drawing.Size(219, 187);
             this.reportViewer1.TabIndex = 6;
             // 
             // btnSendMail
@@ -105,7 +107,7 @@
             this.btnSendMail.FlatAppearance.BorderSize = 0;
             this.btnSendMail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSendMail.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnSendMail.ForeColor = System.Drawing.Color.White;
             this.btnSendMail.Location = new System.Drawing.Point(522, 321);
             this.btnSendMail.Name = "btnSendMail";
             this.btnSendMail.Size = new System.Drawing.Size(108, 36);
@@ -143,12 +145,22 @@
             this.panel1.Size = new System.Drawing.Size(618, 303);
             this.panel1.TabIndex = 22;
             // 
+            // reportViewer2
+            // 
+            this.reportViewer2.LocalReport.ReportEmbeddedResource = "COLM_SYSTEM.Assessment Folder.rpt_payment_attachments.rdlc";
+            this.reportViewer2.Location = new System.Drawing.Point(433, 400);
+            this.reportViewer2.Name = "reportViewer2";
+            this.reportViewer2.ServerReport.BearerToken = null;
+            this.reportViewer2.Size = new System.Drawing.Size(197, 187);
+            this.reportViewer2.TabIndex = 23;
+            // 
             // frm_assessment_email_sender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 366);
+            this.ClientSize = new System.Drawing.Size(646, 376);
             this.ControlBox = false;
+            this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSendMail);
@@ -178,5 +190,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel panel1;
         public Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        public Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
     }
 }
