@@ -208,7 +208,7 @@ namespace COLM_SYSTEM.Payment_Folder
                     {
                         string ORNumber = dgPaymentHistory.Rows[e.RowIndex].Cells["clmORNumber"].Value.ToString();
                         int result = Payment.CancelReciept(ORNumber);
-                        LoadPaymentHistory();
+                        LoadAssessmentInformation();
                     }
                 }
             }

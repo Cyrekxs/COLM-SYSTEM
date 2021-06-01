@@ -20,6 +20,11 @@ namespace COLM_SYSTEM.Assessment_Folder
             CORPath = string.Concat(Path.GetDirectoryName(Application.ExecutablePath), @"\Certificate of Registration.pdf");
             GCashPath = string.Concat(Path.GetDirectoryName(Application.ExecutablePath), @"\Payment Options.pdf");
 
+            txtStudentName.Text = assessment.Summary.StudentName;
+            txtEducationlevel.Text = assessment.Summary.EducationLevel;
+            txtCourseStrand.Text = assessment.Summary.CourseStrand;
+            txtYearLevel.Text = assessment.Summary.YearLevel;
+
             this.assessment = assessment;
             string MessageBody = string.Concat(
                 "Hi ", assessment.Summary.Firstname, ",",
@@ -31,9 +36,9 @@ namespace COLM_SYSTEM.Assessment_Folder
                 Environment.NewLine, "\t", "1. Clear scanned copy of your PAS Birth Certificate",
                 Environment.NewLine, "\t", "2. Clear Scanned copy of report card (SF9) / Transcript of Record (TOR)",
                 Environment.NewLine, "\t", "3. 2x2 Picture with white background for the ID",
-                Environment.NewLine, Environment.NewLine,
+                Environment.NewLine,
                 ExtraMessage(),
-                Environment.NewLine,Environment.NewLine,
+                Environment.NewLine, Environment.NewLine,
                 "Thank you and we look forward to see you this coming school year",
                 Environment.NewLine, Environment.NewLine,
                 "Warm Regards,",
@@ -49,7 +54,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private string ExtraMessage()
         {
             if (assessment.Summary.TotalDue > 0)
-                return "Attached is the QR Code and the Bank Details for payment. Please send a screen shot of the proof of payment";
+                return string.Concat(Environment.NewLine, "Attached is the QR Code and the Bank Details for payment. Please send a screen shot of the proof of payment");
             else
                 return "";
         }
@@ -136,6 +141,16 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentRegistered student = StudentRegistered.GetRegisteredStudent(assessment.Summary.RegisteredStudentID);
+            frm_update_student_email frm = new frm_update_student_email(student.StudentID);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            StudentInfo.GetStudent(student.StudentID);
+            txtTo.Text = StudentInfo.GetStudent(student.StudentID).EmailAddress;
         }
     }
 }

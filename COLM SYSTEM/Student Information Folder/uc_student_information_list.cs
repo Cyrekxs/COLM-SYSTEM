@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM.Student_Information_Folder;
+using System.Globalization;
 
 namespace COLM_SYSTEM.student_information
 {
@@ -30,6 +31,7 @@ namespace COLM_SYSTEM.student_information
             {
                 students = students.Where(item => item.StudentName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
             }
+
 
             foreach (var item in students)
             {

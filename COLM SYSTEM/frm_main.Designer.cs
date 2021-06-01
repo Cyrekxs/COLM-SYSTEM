@@ -33,6 +33,7 @@
             this.lblSchoolYear = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -79,7 +80,7 @@
             this.aDMINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label5 = new System.Windows.Forms.Label();
+            this.importUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uC_DashBoard1 = new COLM_SYSTEM.UC_DashBoard();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -142,6 +143,18 @@
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(956, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 11);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "MINIMIZE";
             // 
             // label4
             // 
@@ -415,7 +428,7 @@
             this.aSSESSMENTToolStripMenuItem,
             this.pAYMENTToolStripMenuItem});
             this.tRANSACTIONToolStripMenuItem.Name = "tRANSACTIONToolStripMenuItem";
-            this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.tRANSACTIONToolStripMenuItem.Text = "TRANSACTION";
             // 
             // onlineApplicantsToolStripMenuItem
@@ -463,7 +476,7 @@
             this.sECTIONSToolStripMenuItem,
             this.aSSESSMENTTYPEToolStripMenuItem});
             this.sETTINGSToolStripMenuItem.Name = "sETTINGSToolStripMenuItem";
-            this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.sETTINGSToolStripMenuItem.Text = "SETTINGS";
             // 
             // sUBJECTSToolStripMenuItem
@@ -553,13 +566,13 @@
             this.rEPORTSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mASTERLISTToolStripMenuItem});
             this.rEPORTSToolStripMenuItem.Name = "rEPORTSToolStripMenuItem";
-            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.rEPORTSToolStripMenuItem.Text = "REPORTS";
             // 
             // mASTERLISTToolStripMenuItem
             // 
             this.mASTERLISTToolStripMenuItem.Name = "mASTERLISTToolStripMenuItem";
-            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.mASTERLISTToolStripMenuItem.Text = "MASTER LIST";
             // 
             // cLOSEALLFORMSToolStripMenuItem
@@ -572,16 +585,16 @@
             // aDMINToolStripMenuItem
             // 
             this.aDMINToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usersToolStripMenuItem});
+            this.usersToolStripMenuItem,
+            this.importUsersToolStripMenuItem});
             this.aDMINToolStripMenuItem.Name = "aDMINToolStripMenuItem";
             this.aDMINToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.aDMINToolStripMenuItem.Text = "ADMIN";
-            this.aDMINToolStripMenuItem.Visible = false;
             // 
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usersToolStripMenuItem.Text = "Users";
             // 
             // timer1
@@ -589,17 +602,12 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label5
+            // importUsersToolStripMenuItem
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(956, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 11);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "MINIMIZE";
+            this.importUsersToolStripMenuItem.Name = "importUsersToolStripMenuItem";
+            this.importUsersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importUsersToolStripMenuItem.Text = "Import Applicants";
+            this.importUsersToolStripMenuItem.Click += new System.EventHandler(this.importUsersToolStripMenuItem_Click);
             // 
             // uC_DashBoard1
             // 
@@ -695,5 +703,6 @@
         private System.Windows.Forms.ToolStripMenuItem assessmentPaymentModesToolStripMenuItem;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripMenuItem importUsersToolStripMenuItem;
     }
 }

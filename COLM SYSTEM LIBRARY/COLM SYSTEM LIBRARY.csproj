@@ -94,7 +94,6 @@
     <Compile Include="model\StudentInfoOnline.cs" />
     <Compile Include="model\StudentInfoOnlineProcessed.cs" />
     <Compile Include="model\StudentRegistered.cs" />
-    <Compile Include="model\StudentGuardian.cs" />
     <Compile Include="model\StudentInfo.cs" />
     <Compile Include="model\StudentRegistration.cs" />
     <Compile Include="model\Subject.cs" />

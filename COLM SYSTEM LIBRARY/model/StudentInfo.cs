@@ -59,11 +59,6 @@ namespace COLM_SYSTEM_LIBRARY.model
             }
         }
 
-        public static List<StudentInfo> GetStudents()
-        {
-            return StudentInfo_DS.GetStudents();
-        }
-
         public static List<StudentInfo> GetStudentsToImport()
         {
             return StudentInfo_DS.GetStudentsToImport();

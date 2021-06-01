@@ -3,10 +3,13 @@ using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
+
 namespace COLM_SYSTEM_LIBRARY.datasource
 {
     class StudentRegistration_DS
     {
+        static TextInfo text = CultureInfo.CurrentCulture.TextInfo;
         public static List<StudentRegistered> GetRegisteredStudents()
         {
             List<StudentRegistered> registeredStudents = new List<StudentRegistered>();
@@ -24,8 +27,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 RegisteredID = Convert.ToInt32(reader["RegisteredID"]),
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
                                 LRN = Convert.ToString(reader["LRN"]),
-                                StudentName = Convert.ToString(reader["StudentName"]),
-                                Gender = Convert.ToString(reader["Gender"]),
+                                StudentName = text.ToTitleCase( Convert.ToString(reader["StudentName"]).ToLower()),
+                                Gender = text.ToTitleCase(Convert.ToString(reader["Gender"]).ToLower()),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
@@ -63,15 +66,15 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
                                 LRN = Convert.ToString(reader["LRN"]),
-                                Lastname = Convert.ToString(reader["Lastname"]),
-                                Firstname = Convert.ToString(reader["Firstname"]),
-                                Middlename = Convert.ToString(reader["Middlename"]),
+                                Lastname = text.ToTitleCase( Convert.ToString(reader["Lastname"]).ToLower()),
+                                Firstname = text.ToTitleCase(Convert.ToString(reader["Firstname"]).ToLower()),
+                                Middlename = text.ToTitleCase(Convert.ToString(reader["Middlename"]).ToLower()),
                                 BirthDate = Convert.ToDateTime(reader["BirthDate"]),
-                                Gender = Convert.ToString(reader["Gender"]),
-                                Street = Convert.ToString(reader["Street"]),
-                                Barangay = Convert.ToString(reader["Barangay"]),
-                                City = Convert.ToString(reader["City"]),
-                                Province = Convert.ToString(reader["Province"]),
+                                Gender = text.ToTitleCase(Convert.ToString(reader["Gender"]).ToLower()),
+                                Street = text.ToTitleCase(Convert.ToString(reader["Street"]).ToLower()),
+                                Barangay = text.ToTitleCase(Convert.ToString(reader["Barangay"]).ToLower()),
+                                City = text.ToTitleCase(Convert.ToString(reader["City"]).ToLower()),
+                                Province = text.ToTitleCase(Convert.ToString(reader["Province"]).ToLower()),
                                 EmailAddress = Convert.ToString(reader["EmailAddress"]),
                                 MobileNo = Convert.ToString(reader["MobileNo"])
                             };
@@ -101,8 +104,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 RegisteredID = Convert.ToInt32(reader["RegisteredID"]),
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
                                 LRN = Convert.ToString(reader["LRN"]),
-                                StudentName = Convert.ToString(reader["StudentName"]),
-                                Gender = Convert.ToString(reader["Gender"]),
+                                StudentName = text.ToTitleCase(Convert.ToString(reader["StudentName"]).ToLower()),
+                                Gender = text.ToTitleCase(Convert.ToString(reader["Gender"]).ToLower()),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
@@ -238,8 +241,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 RegisteredID = Convert.ToInt32(reader["RegisteredID"]),
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
                                 LRN = Convert.ToString(reader["LRN"]),
-                                StudentName = Convert.ToString(reader["StudentName"]),
-                                Gender = Convert.ToString(reader["Gender"]),
+                                StudentName = text.ToTitleCase(Convert.ToString(reader["StudentName"]).ToLower()),
+                                Gender = text.ToTitleCase(Convert.ToString(reader["Gender"]).ToLower()),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CurriculumID = Convert.ToInt32(reader["CurriculumID"]),

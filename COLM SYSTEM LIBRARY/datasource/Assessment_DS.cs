@@ -3,11 +3,13 @@ using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace COLM_SYSTEM_LIBRARY.datasource
 {
     class Assessment_DS
     {
+        static TextInfo text = CultureInfo.CurrentCulture.TextInfo;
         public static Assessment GetAssessment(int AssessmentID)
         {
             Assessment assessment = new Assessment();
@@ -28,9 +30,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
                                 EnrollmentStatus = Convert.ToString(reader["EnrollmentStatus"]),
                                 LRN = Convert.ToString(reader["LRN"]),
-                                Lastname = Convert.ToString(reader["Lastname"]),
-                                Firstname = Convert.ToString(reader["Firstname"]),
-                                StudentName = Convert.ToString(reader["StudentName"]),
+                                Lastname = text.ToTitleCase( Convert.ToString(reader["Lastname"]).ToLower()),
+                                Firstname = text.ToTitleCase(Convert.ToString(reader["Firstname"]).ToLower()),
+                                StudentName = text.ToTitleCase(Convert.ToString(reader["StudentName"]).ToLower()),
                                 EmailAddress = Convert.ToString(reader["EmailAddress"]),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
@@ -202,9 +204,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
                                 EnrollmentStatus = Convert.ToString(reader["EnrollmentStatus"]),
                                 LRN = Convert.ToString(reader["LRN"]),
-                                Firstname = Convert.ToString(reader["Firstname"]),
-                                Lastname = Convert.ToString(reader["Lastname"]),
-                                StudentName = Convert.ToString(reader["StudentName"]),
+                                Lastname = text.ToTitleCase(Convert.ToString(reader["Lastname"]).ToLower()),
+                                Firstname = text.ToTitleCase(Convert.ToString(reader["Firstname"]).ToLower()),
+                                StudentName = text.ToTitleCase(Convert.ToString(reader["StudentName"]).ToLower()),
                                 EmailAddress = Convert.ToString(reader["EmailAddress"]),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),

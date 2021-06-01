@@ -273,7 +273,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum_subjects WHERE CurriculumID = @CurriculumID AND IsActive = @IsActive", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum_subjects WHERE CurriculumID = @CurriculumID AND IsActive = @IsActive ORDER BY YearLevelID,SemesterID,CurriculumSubjectID", conn))
                 {
                     comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
                     comm.Parameters.AddWithValue("@IsActive", true);
