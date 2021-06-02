@@ -8,7 +8,7 @@ using COLM_SYSTEM_LIBRARY.helper;
 
 namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
 {
-    public class EnrolledCount
+    public class Enrollees
     {
         public int SchoolYearID { get; set; }
         public int SemesterID { get; set; }
@@ -19,9 +19,9 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
         public int ResultCount { get; set; }
         
 
-        public static List<EnrolledCount> GetEnrolledCounts()
+        public static List<Enrollees> GetEnrollees()
         {
-            List<EnrolledCount> enrolledCounts = new List<EnrolledCount>();
+            List<Enrollees> enrolledCounts = new List<Enrollees>();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
@@ -31,7 +31,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
                     {
                         while (reader.Read())
                         {
-                            EnrolledCount count = new EnrolledCount()
+                            Enrollees count = new Enrollees()
                             {
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 SemesterID = Convert.ToInt32(reader["SemesterID"]),

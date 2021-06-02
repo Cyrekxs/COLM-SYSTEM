@@ -101,11 +101,18 @@ namespace COLM_SYSTEM.Assessment_Folder
                 Body = txtBody.Text,
                 attachments = attachments
             };
-            return EmailModel.SendMail(email, EmailCredential.GetDefaultEmail());
+
+            if (EmailModel.IsValidEmail(email.To) == true)
+                return EmailModel.SendMail(email, EmailCredential.GetDefaultEmail());
+            else
+                return false;
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
+
+
+
             Task<bool> TaskPDFSaving = new Task<bool>(SavePDF);
             TaskPDFSaving.Start();
             btnSendMail.Enabled = false;
@@ -133,7 +140,10 @@ namespace COLM_SYSTEM.Assessment_Folder
                 }
                 else
                 {
-                    MessageBox.Show("Sending Email Failed", "Email Sending Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Sending Email failed possible scenario is invalid email or lost internet connection", "Email Sending Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    btnCancel.Enabled = true;
+                    btnSendMail.Text = "SEND MAIL";
+                    btnSendMail.Enabled = true;
                 }
             }
         }

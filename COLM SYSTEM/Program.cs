@@ -1,5 +1,6 @@
 ﻿using COLM_SYSTEM;
 using COLM_SYSTEM.Curriculum_Folder;
+using COLM_SYSTEM.Reports_Folder;
 using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM.subject;
 using System;
@@ -21,6 +22,7 @@ namespace COLM_SYSTEM
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frm_login());
+            //Application.Run(new frm_enrollees_masterlist("College"));
         }
     }
 }

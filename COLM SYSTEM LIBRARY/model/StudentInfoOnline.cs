@@ -3,6 +3,7 @@ using COLM_SYSTEM_LIBRARY.helper;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public DateTime ApplicationDate { get; set; }
 
+        static TextInfo text = CultureInfo.CurrentCulture.TextInfo;
         private static string GetOnlineConnectionString()
         {
             string connstring = @"Server=hgws12.win.hostgator.com;Database=colmpulilan_server_registration;User Id=colmpulilan_sysadmin;Password=Admin.c0lm2o18;";
@@ -101,30 +103,30 @@ namespace COLM_SYSTEM_LIBRARY.model
                             {
                                 ApplicationID = Convert.ToInt32(reader["ApplicationID"]),
                                 LRN = Convert.ToString(reader["LRN"]),
-                                Lastname = Convert.ToString(reader["Lastname"]),
-                                Firstname = Convert.ToString(reader["Firstname"]),
-                                Middlename = Convert.ToString(reader["Middlename"]),
+                                Lastname = text.ToTitleCase( Convert.ToString(reader["Lastname"]).ToLower()),
+                                Firstname = text.ToTitleCase(Convert.ToString(reader["Firstname"]).ToLower()),
+                                Middlename = text.ToTitleCase(Convert.ToString(reader["Middlename"]).ToLower()),
                                 BirthDate = Convert.ToDateTime(reader["BirthDate"]),
-                                Gender = Convert.ToString(reader["Gender"]),
-                                Street = Convert.ToString(reader["Street"]),
-                                Barangay = Convert.ToString(reader["Barangay"]),
-                                City = Convert.ToString(reader["City"]),
-                                Province = Convert.ToString(reader["Province"]),
+                                Gender = text.ToTitleCase(Convert.ToString(reader["Gender"]).ToLower()),
+                                Street = text.ToTitleCase(Convert.ToString(reader["Street"]).ToLower()),
+                                Barangay = text.ToTitleCase(Convert.ToString(reader["Barangay"]).ToLower()),
+                                City = text.ToTitleCase(Convert.ToString(reader["City"]).ToLower()),
+                                Province = text.ToTitleCase(Convert.ToString(reader["Province"]).ToLower()),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
-                                EmailAddress = Convert.ToString(reader["EmailAddress"]),
+                                EmailAddress = Convert.ToString(reader["EmailAddress"]).ToLower(),
 
-                                MotherName = Convert.ToString(reader["MotherName"]),
+                                MotherName = text.ToTitleCase(Convert.ToString(reader["MotherName"]).ToLower()),
                                 MotherMobile = Convert.ToString(reader["MotherMobile"]),
-                                FatherName = Convert.ToString(reader["FatherName"]),
+                                FatherName = text.ToTitleCase(Convert.ToString(reader["FatherName"]).ToLower()),
                                 FatherMobile = Convert.ToString(reader["FatherMobile"]),
-                                GuardianName = Convert.ToString(reader["GuardianName"]),
+                                GuardianName = text.ToTitleCase(Convert.ToString(reader["GuardianName"]).ToLower()),
                                 GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
-                                EmergencyName= Convert.ToString(reader["EmergencyName"]),
+                                EmergencyName= text.ToTitleCase(Convert.ToString(reader["EmergencyName"]).ToLower()),
                                 EmergencyMobile =Convert.ToString(reader["EmergencyMobile"]),
-                                EmergencyRelation = Convert.ToString(reader["EmergencyRelation"]),
+                                EmergencyRelation = text.ToTitleCase(Convert.ToString(reader["EmergencyRelation"]).ToLower()),
 
-                                SchoolName = Convert.ToString(reader["SchoolName"]),
-                                SchoolAddress = Convert.ToString(reader["SchoolAddress"]),
+                                SchoolName = text.ToTitleCase(Convert.ToString(reader["SchoolName"]).ToLower()),
+                                SchoolAddress = text.ToTitleCase(Convert.ToString(reader["SchoolAddress"]).ToLower()),
                                 SchoolStatus = Convert.ToString(reader["SchoolStatus"]),
                                 ESCGuarantee = Convert.ToString(reader["ESCGuarantee"]),
 

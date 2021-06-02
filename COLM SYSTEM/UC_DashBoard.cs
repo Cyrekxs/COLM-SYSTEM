@@ -1,34 +1,48 @@
-﻿using COLM_SYSTEM_LIBRARY.model.Reports_Folder;
+﻿using COLM_SYSTEM.Reports_Folder;
+using COLM_SYSTEM_LIBRARY.model.Reports_Folder;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace COLM_SYSTEM
 {
     public partial class UC_DashBoard : UserControl
     {
-        List<EnrolledCount> enrolledCounts;
+        List<Enrollees> enrolledCounts;
+        string SelectedEducationLevel = string.Empty;
         public UC_DashBoard()
         {
             InitializeComponent();
             //this.ClientSize.Height / 4 - panelEnrolled.Size.Height / 4
-            panelEnrolled.Location = new Point(this.ClientSize.Width / 2 - panelEnrolled.Size.Width / 2, 75);
+            panelEnrolled.Location = new Point(this.ClientSize.Width / 2 - panelEnrolled.Size.Width / 2, 0);
             panelEnrolled.Anchor = AnchorStyles.None;
 
             //this.ClientSize.Height / 2 - panelGender.Size.Height / 2
-            panelGender.Location = new Point(this.ClientSize.Width / 2 - panelGender.Size.Width / 2, 435);
-            panelGender.Anchor = AnchorStyles.None;
-
-
+            panelBreakdown.Location = new Point(this.ClientSize.Width / 2 - panelBreakdown.Size.Width / 2, 280);
+            panelBreakdown.Anchor = AnchorStyles.None;
             LoadCharts();
+
+            DisplayChartBreakDownNotifier();
+        }
+        private void DisplayChartBreakDownNotifier()
+        {
+            if (chart1.Series["Enrolled"].Points.Count == 0 && chart1.Series["Pending"].Points.Count == 0)
+            {
+                lblChartBreakDownNotifier.Visible = true;
+            }
+            else
+            {
+                lblChartBreakDownNotifier.Visible = false;
+            }
         }
 
         private void LoadEnrolledStudentCount()
         {
-            enrolledCounts = EnrolledCount.GetEnrolledCounts();
+            enrolledCounts = Enrollees.GetEnrollees();
         }
 
         private void LoadCharts()
@@ -83,6 +97,14 @@ namespace COLM_SYSTEM
             lblPendingCollege.Text = PendingCollege.ToString();
             lblTotalPending.Text = TotalPending.ToString();
 
+            //display total in charts
+            lblTotalPreElem.Text = (EnrolledPreElem + PendingPreElem).ToString();
+            lblTotalElem.Text = (EnrolledElem + PendingElem).ToString();
+            lblTotalJuniorHigh.Text = (EnrolledJHS + PendingJHS).ToString();
+            lblTotalSeniorHigh.Text = (EnrolledSHS + PendingSHS).ToString();
+            lblTotalCollege.Text = (EnrolledCollege + PendingCollege).ToString();
+            lblTotalStudents.Text = (TotalEnrolled + TotalPending).ToString();
+
 
             if (TotalPending == 0 && TotalEnrolled == 0)
             {
@@ -97,7 +119,7 @@ namespace COLM_SYSTEM
                 chartEnrolled.Series["Series1"].Points.AddXY("Pending", TotalPending.ToString());
                 int chartpoint = chartEnrolled.Series["Series1"].Points.Count - 1;
                 chartEnrolled.Series["Series1"].Points[chartpoint].LabelForeColor = Color.White;
-                chartEnrolled.Series["Series1"].Points[chartpoint].Color = Color.Firebrick;
+                chartEnrolled.Series["Series1"].Points[chartpoint].Color = Color.Gray;
             }
 
             if (TotalEnrolled > 0)
@@ -107,20 +129,46 @@ namespace COLM_SYSTEM
                 chartEnrolled.Series["Series1"].Points[chartpoint].LabelForeColor = Color.White;
                 chartEnrolled.Series["Series1"].Points[chartpoint].Color = Color.DarkSlateGray;
             }
+        }
 
-            lblTotalEnrolled.Text = TotalEnrolled.ToString();
+        private void LoadChartBreakdown(string EducationLevel)
+        {
+            List<Enrollees> enrollees = Enrollees.GetEnrollees();
+            enrollees = enrollees.Where(model => model.EducationLevel.ToLower() == EducationLevel.ToLower()).ToList();
+
+            List<string> CourseStrands = enrollees.Select(r => r.CourseStrand).Distinct().ToList();
+            List<string> YearLevels = enrollees.Select(r => r.YearLevel).Distinct().ToList();
+
+            chart1.Series["Enrolled"].Points.Clear();
+            chart1.Series["Pending"].Points.Clear();
 
 
-            chartGender.Series["Series1"].Points.AddXY("Male", 1);
-            chartGender.Series["Series1"].Points[0].LabelForeColor = Color.White;
-            chartGender.Series["Series1"].Points[0].Color = Color.RoyalBlue;
+            int s1 = 0;
+            foreach (var cs in CourseStrands)
+            {
+                foreach (var yl in YearLevels)
+                {
+                    int EnrolledCount = enrollees.Where(r => r.CourseStrand == cs && r.YearLevel == yl && r.EnrollmentStatus.ToLower() == "enrolled").Select(r => r.ResultCount).FirstOrDefault();
+                    int PendingCount = enrollees.Where(r => r.CourseStrand == cs && r.YearLevel == yl && r.EnrollmentStatus.ToLower() == "not enrolled").Select(r => r.ResultCount).FirstOrDefault();
+
+                    string pname = string.Empty;
+                    if (cs.ToLower() == "junior high" || cs.ToLower() == "elementary" || cs.ToLower() == "pre elementary")
+                        pname = yl;
+                    else
+                        pname = string.Concat(cs, " ", yl);
 
 
-            chartGender.Series["Series1"].Points.AddXY("Female", 1);
-            chartGender.Series["Series1"].Points[1].LabelForeColor = Color.White;
-            chartGender.Series["Series1"].Points[1].Color = Color.HotPink;
+                    chart1.Series["Enrolled"].Points.AddXY(pname, EnrolledCount);
+                    chart1.Series["Enrolled"].Points[s1].Tag = cs;
 
 
+                    chart1.Series["Pending"].Points.AddXY(pname, PendingCount);
+                    chart1.Series["Pending"].Points[s1].Tag = yl;
+                    s1++;
+                }
+            }
+
+            DisplayChartBreakDownNotifier();
         }
 
         private void chartEnrolled_Click(object sender, EventArgs e)
@@ -131,6 +179,53 @@ namespace COLM_SYSTEM
         private void UC_DashBoard_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadChartBreakdown("Pre Elementary");
+            SelectedEducationLevel = "Pre Elementary";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LoadChartBreakdown("Elementary");
+            SelectedEducationLevel = "Elementary";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoadChartBreakdown("Junior High");
+            SelectedEducationLevel = "Junior High";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            LoadChartBreakdown("Senior High");
+            SelectedEducationLevel = "Senior High";
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            LoadChartBreakdown("College");
+            SelectedEducationLevel = "College";
+        }
+
+        private void chart1_MouseClick(object sender, MouseEventArgs e)
+        {
+            HitTestResult hit = chart1.HitTest(e.X, e.Y, ChartElementType.DataPoint);
+            if (hit.PointIndex >= 0 && hit.Series != null)
+            {
+                DataPoint enrolled = chart1.Series["Enrolled"].Points[hit.PointIndex];
+                DataPoint pending = chart1.Series["Pending"].Points[hit.PointIndex];
+
+                frm_enrollees_masterlist frm = new frm_enrollees_masterlist(SelectedEducationLevel, enrolled.Tag.ToString(), pending.Tag.ToString());
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                //MessageBox.Show("Value #" + hit.PointIndex + " = " + enrolled.Tag.ToString());
+                //MessageBox.Show("Value #" + hit.PointIndex + " = " + pending.Tag.ToString());
+            }
         }
     }
 }

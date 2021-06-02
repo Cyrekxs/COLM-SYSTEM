@@ -79,8 +79,8 @@
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aDMINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.importUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.uC_DashBoard1 = new COLM_SYSTEM.UC_DashBoard();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -103,7 +103,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -160,7 +160,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
             this.label4.Location = new System.Drawing.Point(135, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(222, 25);
@@ -283,7 +283,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label8.Location = new System.Drawing.Point(71, 39);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 15);
@@ -294,7 +294,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.label7.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label7.Location = new System.Drawing.Point(69, 14);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 25);
@@ -342,7 +342,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.lblDateTime);
             this.panel2.Controls.Add(this.lblAccountName);
             this.panel2.Controls.Add(this.lblSemester);
@@ -594,20 +594,20 @@
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.usersToolStripMenuItem.Text = "Users";
+            // 
+            // importUsersToolStripMenuItem
+            // 
+            this.importUsersToolStripMenuItem.Name = "importUsersToolStripMenuItem";
+            this.importUsersToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.importUsersToolStripMenuItem.Text = "Import Applicants";
+            this.importUsersToolStripMenuItem.Click += new System.EventHandler(this.importUsersToolStripMenuItem_Click);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // importUsersToolStripMenuItem
-            // 
-            this.importUsersToolStripMenuItem.Name = "importUsersToolStripMenuItem";
-            this.importUsersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.importUsersToolStripMenuItem.Text = "Import Applicants";
-            this.importUsersToolStripMenuItem.Click += new System.EventHandler(this.importUsersToolStripMenuItem_Click);
             // 
             // uC_DashBoard1
             // 
@@ -684,7 +684,6 @@
         private System.Windows.Forms.Label lblSemester;
         private System.Windows.Forms.ToolStripMenuItem cURRICULUMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pAYMENTToolStripMenuItem;
-        private UC_DashBoard uC_DashBoard1;
         private System.Windows.Forms.ToolStripMenuItem aDDITIONALFEEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dASHBOARDToolStripMenuItem;
         private System.Windows.Forms.Button button3;
@@ -704,5 +703,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem importUsersToolStripMenuItem;
+        private UC_DashBoard uC_DashBoard1;
     }
 }
