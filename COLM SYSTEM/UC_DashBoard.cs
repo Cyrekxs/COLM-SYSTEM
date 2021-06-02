@@ -133,42 +133,50 @@ namespace COLM_SYSTEM
 
         private void LoadChartBreakdown(string EducationLevel)
         {
-            List<Enrollees> enrollees = Enrollees.GetEnrollees();
-            enrollees = enrollees.Where(model => model.EducationLevel.ToLower() == EducationLevel.ToLower()).ToList();
-
-            List<string> CourseStrands = enrollees.Select(r => r.CourseStrand).Distinct().ToList();
-            List<string> YearLevels = enrollees.Select(r => r.YearLevel).Distinct().ToList();
-
-            chart1.Series["Enrolled"].Points.Clear();
-            chart1.Series["Pending"].Points.Clear();
-
-
-            int s1 = 0;
-            foreach (var cs in CourseStrands)
+            try
             {
-                foreach (var yl in YearLevels)
+                List<Enrollees> enrollees = Enrollees.GetEnrollees();
+                enrollees = enrollees.Where(model => model.EducationLevel.ToLower() == EducationLevel.ToLower()).ToList();
+
+                List<string> CourseStrands = enrollees.Select(r => r.CourseStrand).Distinct().ToList();
+                List<string> YearLevels = enrollees.Select(r => r.YearLevel).Distinct().ToList();
+
+                chart1.Series["Enrolled"].Points.Clear();
+                chart1.Series["Pending"].Points.Clear();
+
+
+                int s1 = 0;
+                foreach (var cs in CourseStrands)
                 {
-                    int EnrolledCount = enrollees.Where(r => r.CourseStrand == cs && r.YearLevel == yl && r.EnrollmentStatus.ToLower() == "enrolled").Select(r => r.ResultCount).FirstOrDefault();
-                    int PendingCount = enrollees.Where(r => r.CourseStrand == cs && r.YearLevel == yl && r.EnrollmentStatus.ToLower() == "not enrolled").Select(r => r.ResultCount).FirstOrDefault();
+                    foreach (var yl in YearLevels)
+                    {
+                        int EnrolledCount = enrollees.Where(r => r.CourseStrand == cs && r.YearLevel == yl && r.EnrollmentStatus.ToLower() == "enrolled").Select(r => r.ResultCount).FirstOrDefault();
+                        int PendingCount = enrollees.Where(r => r.CourseStrand == cs && r.YearLevel == yl && r.EnrollmentStatus.ToLower() == "not enrolled").Select(r => r.ResultCount).FirstOrDefault();
 
-                    string pname = string.Empty;
-                    if (cs.ToLower() == "junior high" || cs.ToLower() == "elementary" || cs.ToLower() == "pre elementary")
-                        pname = yl;
-                    else
-                        pname = string.Concat(cs, " ", yl);
-
-
-                    chart1.Series["Enrolled"].Points.AddXY(pname, EnrolledCount);
-                    chart1.Series["Enrolled"].Points[s1].Tag = cs;
+                        string pname = string.Empty;
+                        if (cs.ToLower() == "junior high" || cs.ToLower() == "elementary" || cs.ToLower() == "pre elementary")
+                            pname = yl;
+                        else
+                            pname = string.Concat(cs, " ", yl);
 
 
-                    chart1.Series["Pending"].Points.AddXY(pname, PendingCount);
-                    chart1.Series["Pending"].Points[s1].Tag = yl;
-                    s1++;
+                        chart1.Series["Enrolled"].Points.AddXY(pname, EnrolledCount);
+                        chart1.Series["Enrolled"].Points[s1].Tag = cs;
+
+
+                        chart1.Series["Pending"].Points.AddXY(pname, PendingCount);
+                        chart1.Series["Pending"].Points[s1].Tag = yl;
+                        s1++;
+                    }
                 }
-            }
 
-            DisplayChartBreakDownNotifier();
+                DisplayChartBreakDownNotifier();
+            }
+            catch
+            {
+               
+            }
+            
         }
 
         private void chartEnrolled_Click(object sender, EventArgs e)
