@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea17 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series25 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea18 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series26 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series27 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelEnrolled = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.lblTotalStudents = new System.Windows.Forms.Label();
@@ -640,67 +640,67 @@
             // 
             this.chartEnrolled.BackColor = System.Drawing.Color.Empty;
             this.chartEnrolled.BorderlineColor = System.Drawing.Color.Black;
-            chartArea7.Name = "ChartArea1";
-            this.chartEnrolled.ChartAreas.Add(chartArea7);
+            chartArea17.Name = "ChartArea1";
+            this.chartEnrolled.ChartAreas.Add(chartArea17);
             this.chartEnrolled.Dock = System.Windows.Forms.DockStyle.Left;
             this.chartEnrolled.Location = new System.Drawing.Point(0, 0);
             this.chartEnrolled.Name = "chartEnrolled";
             this.chartEnrolled.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series10.BorderColor = System.Drawing.Color.White;
-            series10.BorderWidth = 3;
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series10.Name = "Series1";
-            series10.YValuesPerPoint = 6;
-            this.chartEnrolled.Series.Add(series10);
+            series25.BorderColor = System.Drawing.Color.White;
+            series25.BorderWidth = 3;
+            series25.ChartArea = "ChartArea1";
+            series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series25.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series25.Name = "Series1";
+            series25.YValuesPerPoint = 6;
+            this.chartEnrolled.Series.Add(series25);
             this.chartEnrolled.Size = new System.Drawing.Size(267, 265);
             this.chartEnrolled.TabIndex = 7;
             this.chartEnrolled.Text = "chart1";
             // 
             // chart1
             // 
-            chartArea8.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.None;
-            chartArea8.Area3DStyle.Rotation = 130;
-            chartArea8.AxisX.Interval = 1D;
-            chartArea8.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea8.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea8.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea8.AxisX.IsLabelAutoFit = false;
-            chartArea8.AxisX.LabelAutoFitMinFontSize = 5;
-            chartArea8.AxisX.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea8.AxisX.MajorGrid.Enabled = false;
-            chartArea8.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea8.AxisX.TitleFont = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea8.AxisX2.MajorGrid.LineColor = System.Drawing.Color.Empty;
-            chartArea8.AxisY.IsLabelAutoFit = false;
-            chartArea8.AxisY.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea8.AxisY.LabelStyle.Format = "# Students";
-            chartArea8.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea8.BackColor = System.Drawing.Color.WhiteSmoke;
-            chartArea8.BackSecondaryColor = System.Drawing.Color.Navy;
-            chartArea8.Name = "ChartArea1";
-            chartArea8.ShadowColor = System.Drawing.Color.Empty;
-            this.chart1.ChartAreas.Add(chartArea8);
+            chartArea18.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.None;
+            chartArea18.Area3DStyle.Rotation = 130;
+            chartArea18.AxisX.Interval = 1D;
+            chartArea18.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea18.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea18.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea18.AxisX.IsLabelAutoFit = false;
+            chartArea18.AxisX.LabelAutoFitMinFontSize = 5;
+            chartArea18.AxisX.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea18.AxisX.MajorGrid.Enabled = false;
+            chartArea18.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea18.AxisX.TitleFont = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea18.AxisX2.MajorGrid.LineColor = System.Drawing.Color.Empty;
+            chartArea18.AxisY.IsLabelAutoFit = false;
+            chartArea18.AxisY.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea18.AxisY.LabelStyle.Format = "# Students";
+            chartArea18.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea18.BackColor = System.Drawing.Color.WhiteSmoke;
+            chartArea18.BackSecondaryColor = System.Drawing.Color.Navy;
+            chartArea18.Name = "ChartArea1";
+            chartArea18.ShadowColor = System.Drawing.Color.Empty;
+            this.chart1.ChartAreas.Add(chartArea18);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.Location = new System.Drawing.Point(5, 5);
             this.chart1.Name = "chart1";
-            series11.ChartArea = "ChartArea1";
-            series11.Color = System.Drawing.Color.DarkSlateGray;
-            series11.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series11.IsValueShownAsLabel = true;
-            series11.IsVisibleInLegend = false;
-            series11.MarkerBorderColor = System.Drawing.Color.Red;
-            series11.Name = "Enrolled";
-            series12.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Percent25;
-            series12.ChartArea = "ChartArea1";
-            series12.Color = System.Drawing.Color.Gray;
-            series12.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series12.IsValueShownAsLabel = true;
-            series12.IsVisibleInLegend = false;
-            series12.Name = "Pending";
-            this.chart1.Series.Add(series11);
-            this.chart1.Series.Add(series12);
+            series26.ChartArea = "ChartArea1";
+            series26.Color = System.Drawing.Color.DarkSlateGray;
+            series26.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series26.IsValueShownAsLabel = true;
+            series26.IsVisibleInLegend = false;
+            series26.MarkerBorderColor = System.Drawing.Color.Red;
+            series26.Name = "Enrolled";
+            series27.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Percent25;
+            series27.ChartArea = "ChartArea1";
+            series27.Color = System.Drawing.Color.Gray;
+            series27.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series27.IsValueShownAsLabel = true;
+            series27.IsVisibleInLegend = false;
+            series27.Name = "Pending";
+            this.chart1.Series.Add(series26);
+            this.chart1.Series.Add(series27);
             this.chart1.Size = new System.Drawing.Size(1159, 300);
             this.chart1.TabIndex = 11;
             this.chart1.Text = "chart1";
@@ -732,14 +732,14 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Firebrick;
-            this.label2.Location = new System.Drawing.Point(147, 5);
+            this.label2.Location = new System.Drawing.Point(391, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(494, 15);
+            this.label2.Size = new System.Drawing.Size(496, 15);
             this.label2.TabIndex = 13;
-            this.label2.Text = "note you can click the column to view the list of Enrolled and Pending Students M" +
+            this.label2.Text = "Note you can click the column to view the list of Enrolled and Pending Students M" +
     "asterlist";
             // 
             // UC_DashBoard
