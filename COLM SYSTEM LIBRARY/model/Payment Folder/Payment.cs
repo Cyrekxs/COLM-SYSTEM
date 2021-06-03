@@ -19,6 +19,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Payment_Folder
         public double AmountPaid { get; set; }
         public string PaymentStatus { get; set; }
         public DateTime PaymentDate { get; set; }
+        public int UserID { get; set; }
 
         public static List<Payment> GetPayments(int RegisteredStudentID,int SchoolYearID, int SemesterID)
         {

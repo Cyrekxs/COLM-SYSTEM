@@ -67,7 +67,7 @@ namespace COLM_SYSTEM.student_information
         private void LoadCities()
         {
             cmbCity.Items.Clear();
-            foreach (var item in Address.GetCities(addresses,cmbProvince.Text))
+            foreach (var item in Address.GetCities(addresses, cmbProvince.Text))
             {
                 cmbCity.Items.Add(item.ToUpper());
             }
@@ -76,7 +76,7 @@ namespace COLM_SYSTEM.student_information
         private void LoadBarangays()
         {
             cmbBarangay.Items.Clear();
-            foreach (var item in Address.GetBarangays(addresses,cmbProvince.Text,cmbCity.Text))
+            foreach (var item in Address.GetBarangays(addresses, cmbProvince.Text, cmbCity.Text))
             {
                 cmbBarangay.Items.Add(item.ToUpper());
             }
@@ -151,7 +151,7 @@ namespace COLM_SYSTEM.student_information
         {
             if (IsValidData() == false)
             {
-                MessageBox.Show("Please check the errors before proceeding!","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Please check the errors before proceeding!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -182,7 +182,21 @@ namespace COLM_SYSTEM.student_information
 
                 if (saving == SavingOptions.INSERT)
                 {
-                    StudentInfo.InsertUpdateStudentInformation(student);
+                    if (string.IsNullOrEmpty(txtLRN.Text) == false)
+                    {
+                        if (StudentInfo.IsLRNExists(txtLRN.Text) == false)
+                        {
+                            StudentInfo.InsertUpdateStudentInformation(student);
+                        }
+                        else
+                        {
+                            MessageBox.Show("System detected that this LRN is already exists in the record!", "LRN EXIST", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        StudentInfo.InsertUpdateStudentInformation(student);
+                    }
                 }
                 else
                 {
@@ -227,7 +241,7 @@ namespace COLM_SYSTEM.student_information
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to cancel encoding information?","Cancel",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to cancel encoding information?", "Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Close();
                 Dispose();

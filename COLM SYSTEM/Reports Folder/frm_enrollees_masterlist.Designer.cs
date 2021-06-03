@@ -38,16 +38,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clmLRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEnrollmentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.lblEnrolled = new System.Windows.Forms.Label();
             this.lblPending = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.clmLRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmMobileNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEnrollmentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -159,6 +160,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmLRN,
             this.clmStudentName,
+            this.clmMobileNo,
             this.clmEducationLevel,
             this.clmCourseStrand,
             this.clmYearLevel,
@@ -170,52 +172,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1106, 504);
             this.dataGridView1.TabIndex = 26;
-            // 
-            // clmLRN
-            // 
-            this.clmLRN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmLRN.HeaderText = "LRN";
-            this.clmLRN.Name = "clmLRN";
-            this.clmLRN.ReadOnly = true;
-            this.clmLRN.Width = 52;
-            // 
-            // clmStudentName
-            // 
-            this.clmStudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmStudentName.HeaderText = "Student Name";
-            this.clmStudentName.Name = "clmStudentName";
-            this.clmStudentName.ReadOnly = true;
-            // 
-            // clmEducationLevel
-            // 
-            this.clmEducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmEducationLevel.HeaderText = "Education";
-            this.clmEducationLevel.Name = "clmEducationLevel";
-            this.clmEducationLevel.ReadOnly = true;
-            this.clmEducationLevel.Width = 86;
-            // 
-            // clmCourseStrand
-            // 
-            this.clmCourseStrand.HeaderText = "Course / Strand";
-            this.clmCourseStrand.Name = "clmCourseStrand";
-            this.clmCourseStrand.ReadOnly = true;
-            this.clmCourseStrand.Width = 120;
-            // 
-            // clmYearLevel
-            // 
-            this.clmYearLevel.HeaderText = "Year Level";
-            this.clmYearLevel.Name = "clmYearLevel";
-            this.clmYearLevel.ReadOnly = true;
-            this.clmYearLevel.Width = 85;
-            // 
-            // clmEnrollmentStatus
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmEnrollmentStatus.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmEnrollmentStatus.HeaderText = "Enrollment Status";
-            this.clmEnrollmentStatus.Name = "clmEnrollmentStatus";
-            this.clmEnrollmentStatus.ReadOnly = true;
-            this.clmEnrollmentStatus.Width = 130;
             // 
             // label4
             // 
@@ -259,6 +215,60 @@
             this.label7.TabIndex = 29;
             this.label7.Text = "Pending Students :";
             // 
+            // clmLRN
+            // 
+            this.clmLRN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmLRN.HeaderText = "LRN";
+            this.clmLRN.Name = "clmLRN";
+            this.clmLRN.ReadOnly = true;
+            this.clmLRN.Width = 52;
+            // 
+            // clmStudentName
+            // 
+            this.clmStudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmStudentName.HeaderText = "Student Name";
+            this.clmStudentName.Name = "clmStudentName";
+            this.clmStudentName.ReadOnly = true;
+            // 
+            // clmMobileNo
+            // 
+            this.clmMobileNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmMobileNo.HeaderText = "Mobile No";
+            this.clmMobileNo.Name = "clmMobileNo";
+            this.clmMobileNo.ReadOnly = true;
+            this.clmMobileNo.Width = 89;
+            // 
+            // clmEducationLevel
+            // 
+            this.clmEducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmEducationLevel.HeaderText = "Education";
+            this.clmEducationLevel.Name = "clmEducationLevel";
+            this.clmEducationLevel.ReadOnly = true;
+            this.clmEducationLevel.Width = 86;
+            // 
+            // clmCourseStrand
+            // 
+            this.clmCourseStrand.HeaderText = "Course / Strand";
+            this.clmCourseStrand.Name = "clmCourseStrand";
+            this.clmCourseStrand.ReadOnly = true;
+            this.clmCourseStrand.Width = 120;
+            // 
+            // clmYearLevel
+            // 
+            this.clmYearLevel.HeaderText = "Year Level";
+            this.clmYearLevel.Name = "clmYearLevel";
+            this.clmYearLevel.ReadOnly = true;
+            this.clmYearLevel.Width = 85;
+            // 
+            // clmEnrollmentStatus
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmEnrollmentStatus.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmEnrollmentStatus.HeaderText = "Enrollment Status";
+            this.clmEnrollmentStatus.Name = "clmEnrollmentStatus";
+            this.clmEnrollmentStatus.ReadOnly = true;
+            this.clmEnrollmentStatus.Width = 130;
+            // 
             // frm_enrollees_masterlist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -291,12 +301,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmLRN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmStudentName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCourseStrand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmEnrollmentStatus;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbFilter;
@@ -304,5 +308,12 @@
         private System.Windows.Forms.Label lblEnrolled;
         private System.Windows.Forms.Label lblPending;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLRN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmStudentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmMobileNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCourseStrand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmEnrollmentStatus;
     }
 }

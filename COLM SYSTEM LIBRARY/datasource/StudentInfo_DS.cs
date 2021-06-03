@@ -57,7 +57,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 StudentStatus = Convert.ToString(reader["StudentStatus"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
-                                YearLevel = Convert.ToString(reader["YearLevel"])                                
+                                YearLevel = Convert.ToString(reader["YearLevel"])
                             };
                             students.Add(student);
                         }
@@ -169,7 +169,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 StudentStatus = Convert.ToString(reader["StudentStatus"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
-                                YearLevel = Convert.ToString(reader["YearLevel"])                                
+                                YearLevel = Convert.ToString(reader["YearLevel"]),
+                                Encoded = Convert.ToDateTime(reader["DateEncoded"])
                             };
 
                             students.Add(student);
@@ -226,7 +227,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 StudentStatus = Convert.ToString(reader["StudentStatus"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
-                                YearLevel = Convert.ToString(reader["YearLevel"])
+                                YearLevel = Convert.ToString(reader["YearLevel"]),
+                                Encoded = Convert.ToDateTime(reader["DateEncoded"])
                             };
                         }
                     }
@@ -234,6 +236,26 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return student;
         }
+
+        public static bool IsLRNExists(string LRN)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information WHERE LRN = @LRN", conn))
+                {
+                    comm.Parameters.AddWithValue("@LRN", LRN);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        if (reader.HasRows == true)
+                            return true;
+                        else
+                            return false;
+                    }
+                }
+            }
+        }
+
         public static int UpdateStudentEmail(int StudentID, string Email)
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))

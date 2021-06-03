@@ -50,7 +50,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("EXEC sp_set_payment @RegisteredStudentID,@SchoolYearID,@SemesterID,@ORNumber,@FeeCategory,@PaymentCategory,@AmountPaid", conn))
+                using (SqlCommand comm = new SqlCommand("EXEC sp_set_payment @RegisteredStudentID,@SchoolYearID,@SemesterID,@ORNumber,@FeeCategory,@PaymentCategory,@AmountPaid,@UserID", conn))
                 {
                     comm.Parameters.AddWithValue("@RegisteredStudentID", payment.RegisteredStudentID);
                     comm.Parameters.AddWithValue("@SchoolYearID", payment.SchoolYearID);
@@ -59,6 +59,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@FeeCategory", payment.FeeCategory);
                     comm.Parameters.AddWithValue("@PaymentCategory", payment.PaymentCategory);
                     comm.Parameters.AddWithValue("@AmountPaid", payment.AmountPaid);
+                    comm.Parameters.AddWithValue("@UserID", payment.UserID);
                     return comm.ExecuteNonQuery();
                 }
             }

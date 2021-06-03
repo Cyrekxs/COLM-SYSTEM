@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\Colm\colm system 2021\</UpdateUrl>
-    <ApplicationRevision>27</ApplicationRevision>
+    <ApplicationRevision>29</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -150,6 +150,12 @@
     </Compile>
     <Compile Include="Assessment Folder\frm_assessment_entry_1.Designer.cs">
       <DependentUpon>frm_assessment_entry_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_old_peeker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assessment Folder\frm_assessment_old_peeker.Designer.cs">
+      <DependentUpon>frm_assessment_old_peeker.cs</DependentUpon>
     </Compile>
     <Compile Include="Assessment Folder\frm_assessment_schedule_browser.cs">
       <SubType>Form</SubType>
@@ -322,6 +328,12 @@
     <Compile Include="Registration Folder\uc_registered_students_list.Designer.cs">
       <DependentUpon>uc_registered_students_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports Folder\frm_collection_report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports Folder\frm_collection_report.Designer.cs">
+      <DependentUpon>frm_collection_report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports Folder\frm_enrollees_masterlist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -470,6 +482,9 @@
     <EmbeddedResource Include="Assessment Folder\frm_assessment_entry_1.resx">
       <DependentUpon>frm_assessment_entry_1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assessment Folder\frm_assessment_old_peeker.resx">
+      <DependentUpon>frm_assessment_old_peeker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assessment Folder\frm_assessment_schedule_browser.resx">
       <DependentUpon>frm_assessment_schedule_browser.cs</DependentUpon>
     </EmbeddedResource>
@@ -573,6 +588,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registration Folder\uc_registered_students_list.resx">
       <DependentUpon>uc_registered_students_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports Folder\frm_collection_report.resx">
+      <DependentUpon>frm_collection_report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports Folder\frm_enrollees_masterlist.resx">
       <DependentUpon>frm_enrollees_masterlist.cs</DependentUpon>

@@ -65,6 +65,7 @@
             this.clmPickSched = new System.Windows.Forms.DataGridViewLinkColumn();
             this.clmSubjectRemove = new System.Windows.Forms.DataGridViewLinkColumn();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label20 = new System.Windows.Forms.Label();
             this.tbpFees = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
@@ -126,7 +127,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label19 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.tabControl1.SuspendLayout();
             this.tbpSubjects.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -405,6 +406,19 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(939, 30);
             this.panel11.TabIndex = 3;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.LinkColor = System.Drawing.Color.DarkBlue;
+            this.linkLabel2.Location = new System.Drawing.Point(846, 8);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(81, 15);
+            this.linkLabel2.TabIndex = 23;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "+ Add Subject";
+            this.linkLabel2.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
             // 
             // label20
             // 
@@ -1040,6 +1054,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.SlateGray;
+            this.panel8.Controls.Add(this.linkLabel3);
             this.panel8.Controls.Add(this.button2);
             this.panel8.Controls.Add(this.linkLabel1);
             this.panel8.Controls.Add(this.label19);
@@ -1090,18 +1105,18 @@
             this.label19.TabIndex = 3;
             this.label19.Text = "STUDENT INFORMATION";
             // 
-            // linkLabel2
+            // linkLabel3
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.LinkColor = System.Drawing.Color.DarkBlue;
-            this.linkLabel2.Location = new System.Drawing.Point(846, 8);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(81, 15);
-            this.linkLabel2.TabIndex = 23;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "+ Add Subject";
-            this.linkLabel2.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel3.LinkColor = System.Drawing.Color.DarkBlue;
+            this.linkLabel3.Location = new System.Drawing.Point(660, 8);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(124, 15);
+            this.linkLabel3.TabIndex = 24;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Peek Old Assessment";
+            this.linkLabel3.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
             // 
             // frm_assessment_entry_2
             // 
@@ -1229,5 +1244,6 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel3;
     }
 }

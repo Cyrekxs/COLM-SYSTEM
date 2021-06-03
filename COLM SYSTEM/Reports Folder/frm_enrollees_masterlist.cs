@@ -42,7 +42,7 @@ namespace COLM_SYSTEM.Reports_Folder
 
             foreach (var student in ListToDisplay)
             {
-                dataGridView1.Rows.Add(student.LRN, student.StudentName, student.EducationLevel, student.CourseStrand, student.YearLevel, student.EnrollmentStatus);
+                dataGridView1.Rows.Add(student.LRN, student.StudentName,student.MobileNo, student.EducationLevel, student.CourseStrand, student.YearLevel, student.EnrollmentStatus);
                 if (student.EnrollmentStatus.ToLower() == "enrolled")
                 {
                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.DarkSlateGray;

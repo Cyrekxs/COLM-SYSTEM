@@ -139,11 +139,12 @@
             // 
             // txtCurriculumCode
             // 
-            this.txtCurriculumCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtCurriculumCode.BackColor = System.Drawing.SystemColors.Control;
             this.txtCurriculumCode.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCurriculumCode.Location = new System.Drawing.Point(13, 179);
             this.txtCurriculumCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCurriculumCode.Name = "txtCurriculumCode";
+            this.txtCurriculumCode.ReadOnly = true;
             this.txtCurriculumCode.Size = new System.Drawing.Size(313, 23);
             this.txtCurriculumCode.TabIndex = 11;
             // 
@@ -159,11 +160,12 @@
             // 
             // txtCourseStrand
             // 
-            this.txtCourseStrand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtCourseStrand.BackColor = System.Drawing.SystemColors.Control;
             this.txtCourseStrand.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCourseStrand.Location = new System.Drawing.Point(14, 229);
             this.txtCourseStrand.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCourseStrand.Name = "txtCourseStrand";
+            this.txtCourseStrand.ReadOnly = true;
             this.txtCourseStrand.Size = new System.Drawing.Size(312, 23);
             this.txtCourseStrand.TabIndex = 9;
             // 
@@ -179,11 +181,12 @@
             // 
             // txtStudentName
             // 
-            this.txtStudentName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtStudentName.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentName.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStudentName.Location = new System.Drawing.Point(14, 79);
             this.txtStudentName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtStudentName.Name = "txtStudentName";
+            this.txtStudentName.ReadOnly = true;
             this.txtStudentName.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtStudentName.Size = new System.Drawing.Size(312, 23);
             this.txtStudentName.TabIndex = 2;
@@ -200,11 +203,12 @@
             // 
             // txtLRN
             // 
-            this.txtLRN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtLRN.BackColor = System.Drawing.SystemColors.Control;
             this.txtLRN.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLRN.Location = new System.Drawing.Point(14, 29);
             this.txtLRN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLRN.Name = "txtLRN";
+            this.txtLRN.ReadOnly = true;
             this.txtLRN.Size = new System.Drawing.Size(312, 23);
             this.txtLRN.TabIndex = 0;
             // 
@@ -231,11 +235,12 @@
             // 
             // txtEducationLevel
             // 
-            this.txtEducationLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtEducationLevel.BackColor = System.Drawing.SystemColors.Control;
             this.txtEducationLevel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEducationLevel.Location = new System.Drawing.Point(14, 129);
             this.txtEducationLevel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEducationLevel.Name = "txtEducationLevel";
+            this.txtEducationLevel.ReadOnly = true;
             this.txtEducationLevel.Size = new System.Drawing.Size(312, 23);
             this.txtEducationLevel.TabIndex = 3;
             // 

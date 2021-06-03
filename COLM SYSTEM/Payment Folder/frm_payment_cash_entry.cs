@@ -62,7 +62,8 @@ namespace COLM_SYSTEM.Payment_Folder
                 ORNumber = txtORNumber.Text,
                 FeeCategory = "Tuition",
                 PaymentCategory = "Cash",
-                AmountPaid = Convert.ToDouble(txtAmount.Text)
+                AmountPaid = Convert.ToDouble(txtAmount.Text),
+                UserID = Utilties.user.UserID
             };
 
             int result = Payment.InsertPayment(payment);

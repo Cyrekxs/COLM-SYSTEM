@@ -90,12 +90,12 @@
             this.cmbEducationLevel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEducationLevel.FormattingEnabled = true;
             this.cmbEducationLevel.Items.AddRange(new object[] {
-            "ALL",
-            "PRE ELEMENTARY",
-            "ELEMENTARY",
-            "JUNIOR HIGH",
-            "SENIOR HIGH",
-            "COLLEGE"});
+            "All",
+            "Pre Elementary",
+            "Elementary",
+            "Junior High",
+            "Senior High",
+            "College"});
             this.cmbEducationLevel.Location = new System.Drawing.Point(965, 15);
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(145, 23);

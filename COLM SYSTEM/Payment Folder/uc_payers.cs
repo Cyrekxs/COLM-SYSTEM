@@ -27,6 +27,9 @@ namespace COLM_SYSTEM.Payment_Folder
                                    select r).ToList();
             }
 
+
+            assessmentLists = assessmentLists.OrderBy(item => item.StudentName).ToList();
+
             dataGridView1.Rows.Clear();
             foreach (var item in assessmentLists)
             {

@@ -46,6 +46,8 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string CourseStrand { get; set; }
         public string YearLevel { get; set; }
 
+        public DateTime Encoded { get; set; }
+
         public string ApplicationInfo
         {
             get
@@ -77,6 +79,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static StudentInfo IsStudentExist(string Lastname, string Firstname)
         {
             return StudentInfo_DS.IsStudentExists(Lastname, Firstname);
+        }
+
+        public static bool IsLRNExists(string LRN)
+        {
+            return StudentInfo_DS.IsLRNExists(LRN);
         }
 
         public static bool InsertUpdateStudentInformation(StudentInfo model)

@@ -39,6 +39,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.uPDATEINFORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dELETEINFORMATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clmStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,10 +51,8 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmApplication = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEncoded = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.uPDATEINFORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dELETEINFORMATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -168,6 +169,7 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.clmApplication,
+            this.clmEncoded,
             this.clmAction});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 50);
@@ -180,6 +182,28 @@
             this.dataGridView1.Size = new System.Drawing.Size(972, 478);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClickAsync);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.uPDATEINFORToolStripMenuItem,
+            this.dELETEINFORMATIONToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 48);
+            // 
+            // uPDATEINFORToolStripMenuItem
+            // 
+            this.uPDATEINFORToolStripMenuItem.Name = "uPDATEINFORToolStripMenuItem";
+            this.uPDATEINFORToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.uPDATEINFORToolStripMenuItem.Text = "View / Update";
+            this.uPDATEINFORToolStripMenuItem.Click += new System.EventHandler(this.uPDATEINFORToolStripMenuItem_ClickAsync);
+            // 
+            // dELETEINFORMATIONToolStripMenuItem
+            // 
+            this.dELETEINFORMATIONToolStripMenuItem.Name = "dELETEINFORMATIONToolStripMenuItem";
+            this.dELETEINFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.dELETEINFORMATIONToolStripMenuItem.Text = "Delete";
+            this.dELETEINFORMATIONToolStripMenuItem.Click += new System.EventHandler(this.dELETEINFORMATIONToolStripMenuItem_ClickAsync);
             // 
             // clmStudentID
             // 
@@ -249,6 +273,14 @@
             this.clmApplication.ReadOnly = true;
             this.clmApplication.Width = 95;
             // 
+            // clmEncoded
+            // 
+            this.clmEncoded.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmEncoded.HeaderText = "Encoded";
+            this.clmEncoded.Name = "clmEncoded";
+            this.clmEncoded.ReadOnly = true;
+            this.clmEncoded.Width = 78;
+            // 
             // clmAction
             // 
             this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -258,28 +290,6 @@
             this.clmAction.Text = "Action";
             this.clmAction.UseColumnTextForButtonValue = true;
             this.clmAction.Width = 47;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.uPDATEINFORToolStripMenuItem,
-            this.dELETEINFORMATIONToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 48);
-            // 
-            // uPDATEINFORToolStripMenuItem
-            // 
-            this.uPDATEINFORToolStripMenuItem.Name = "uPDATEINFORToolStripMenuItem";
-            this.uPDATEINFORToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.uPDATEINFORToolStripMenuItem.Text = "View / Update";
-            this.uPDATEINFORToolStripMenuItem.Click += new System.EventHandler(this.uPDATEINFORToolStripMenuItem_ClickAsync);
-            // 
-            // dELETEINFORMATIONToolStripMenuItem
-            // 
-            this.dELETEINFORMATIONToolStripMenuItem.Name = "dELETEINFORMATIONToolStripMenuItem";
-            this.dELETEINFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.dELETEINFORMATIONToolStripMenuItem.Text = "Delete";
-            this.dELETEINFORMATIONToolStripMenuItem.Click += new System.EventHandler(this.dELETEINFORMATIONToolStripMenuItem_ClickAsync);
             // 
             // uc_student_information_list
             // 
@@ -320,6 +330,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmApplication;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmEncoded;
         private System.Windows.Forms.DataGridViewButtonColumn clmAction;
     }
 }
