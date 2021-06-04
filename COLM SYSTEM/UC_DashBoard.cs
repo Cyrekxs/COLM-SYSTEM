@@ -14,6 +14,7 @@ namespace COLM_SYSTEM
     {
         List<Enrollees> enrolledCounts;
         string SelectedEducationLevel = string.Empty;
+        List<Target> targets = Target.GetTargets();
         public UC_DashBoard()
         {
             InitializeComponent();
@@ -63,6 +64,13 @@ namespace COLM_SYSTEM
             int PendingCollege = 0;
             int TotalPending = 0;
 
+            double TargetPreElem = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "pre elementary" && r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester()).TargetCount;
+            double TargetElem = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "elementary" && r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester()).TargetCount;
+            double TargetJHS = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "junior high" && r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester()).TargetCount;
+            double TargetSHS = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "senior high" && r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester()).TargetCount;
+            double TargetCollege = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "college" && r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester()).TargetCount;
+            double TargetTotal = TargetPreElem + TargetElem + TargetJHS + TargetSHS + TargetCollege;
+
             //enrolled charts
             EnrolledPreElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Pre Elementary" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
             EnrolledElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Elementary" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
@@ -78,6 +86,14 @@ namespace COLM_SYSTEM
             PendingSHS = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Senior High" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
             PendingCollege = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "College" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
             TotalPending = PendingPreElem + PendingElem + PendingJHS + PendingSHS + PendingCollege;
+
+
+            TargetPreElem = ((EnrolledPreElem + PendingElem) / TargetPreElem) * 100;
+            TargetElem = ((EnrolledElem + PendingElem) / TargetElem) * 100;
+            TargetJHS = ((EnrolledJHS + PendingJHS) / TargetJHS) * 100;
+            TargetSHS = ((EnrolledSHS + PendingSHS) / TargetSHS  ) * 100;
+            TargetCollege = ((EnrolledCollege + PendingCollege) / TargetCollege ) * 100;
+            TargetTotal = ((TotalEnrolled + TotalPending) / TargetTotal) * 100;
 
 
             //display enrolled charts
@@ -105,6 +121,13 @@ namespace COLM_SYSTEM
             lblTotalCollege.Text = (EnrolledCollege + PendingCollege).ToString();
             lblTotalStudents.Text = (TotalEnrolled + TotalPending).ToString();
 
+            //display target
+            lblTargetPreElem.Text = TargetPreElem.ToString("0.##") + " %";
+            lblTargetElem.Text = TargetElem.ToString("0.##") + " %";
+            lblTargetJHS.Text = TargetJHS.ToString("0.##") + " %";
+            lblTargetSHS.Text = TargetSHS.ToString("0.##") + " %";
+            lblTargetCollege.Text = TargetCollege.ToString("0.##") + " %";
+            lblTargetTotal.Text = TargetTotal.ToString("0.##") + " %";
 
             if (TotalPending == 0 && TotalEnrolled == 0)
             {
@@ -174,9 +197,9 @@ namespace COLM_SYSTEM
             }
             catch
             {
-               
+
             }
-            
+
         }
 
         private void chartEnrolled_Click(object sender, EventArgs e)

@@ -88,6 +88,7 @@
     <Compile Include="model\Payment Folder\AdditionalFee.cs" />
     <Compile Include="model\Payment Folder\Payment.cs" />
     <Compile Include="model\Reports Folder\Enrollees.cs" />
+    <Compile Include="model\Reports Folder\Target.cs" />
     <Compile Include="model\Schedule.cs" />
     <Compile Include="model\SchoolYear.cs" />
     <Compile Include="model\Section.cs" />
