@@ -924,5 +924,13 @@ namespace COLM_SYSTEM.Assessment_Folder
                 Dispose();
             }
         }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentInfo student = StudentInfo.GetStudent(registeredStudent.StudentID);
+            frm_assessment_old_peeker frm = new frm_assessment_old_peeker(student.Lastname, student.Firstname);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

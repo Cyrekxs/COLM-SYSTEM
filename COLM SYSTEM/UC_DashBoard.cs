@@ -129,6 +129,11 @@ namespace COLM_SYSTEM
             lblTargetCollege.Text = TargetCollege.ToString("0.##") + " %";
             lblTargetTotal.Text = TargetTotal.ToString("0.##") + " %";
 
+
+            double TotalStudents = TotalEnrolled + TotalPending;
+            double TotalPendingPercent = (TotalPending / TotalStudents) * 100;
+            double TotalEnrolledPercent = (TotalEnrolled / TotalStudents) * 100;
+
             if (TotalPending == 0 && TotalEnrolled == 0)
             {
                 chartEnrolled.Series["Series1"].Points.AddXY("No Enrolled", 1);
@@ -139,7 +144,7 @@ namespace COLM_SYSTEM
 
             if (TotalPending > 0)
             {
-                chartEnrolled.Series["Series1"].Points.AddXY("Pending", TotalPending.ToString());
+                chartEnrolled.Series["Series1"].Points.AddXY(string.Concat("Pending",Environment.NewLine,TotalPendingPercent.ToString("0.##"),"%"), TotalPending.ToString());
                 int chartpoint = chartEnrolled.Series["Series1"].Points.Count - 1;
                 chartEnrolled.Series["Series1"].Points[chartpoint].LabelForeColor = Color.White;
                 chartEnrolled.Series["Series1"].Points[chartpoint].Color = Color.Gray;
@@ -147,7 +152,7 @@ namespace COLM_SYSTEM
 
             if (TotalEnrolled > 0)
             {
-                chartEnrolled.Series["Series1"].Points.AddXY("Enrolled", TotalEnrolled.ToString());
+                chartEnrolled.Series["Series1"].Points.AddXY(string.Concat("Enrolled",Environment.NewLine,TotalEnrolledPercent.ToString("0.##"),"%"), TotalEnrolled.ToString());
                 int chartpoint = chartEnrolled.Series["Series1"].Points.Count - 1;
                 chartEnrolled.Series["Series1"].Points[chartpoint].LabelForeColor = Color.White;
                 chartEnrolled.Series["Series1"].Points[chartpoint].Color = Color.DarkSlateGray;
