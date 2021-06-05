@@ -185,8 +185,9 @@ namespace COLM_SYSTEM
                         if (cs.ToLower() == "junior high" || cs.ToLower() == "elementary" || cs.ToLower() == "pre elementary")
                             pname = yl;
                         else
-                            pname = string.Concat(cs, " ", yl);
+                            pname = string.Concat(cs, " ", yl.Replace("Year",""));
 
+                        
 
                         chart1.Series["Enrolled"].Points.AddXY(pname, EnrolledCount);
                         chart1.Series["Enrolled"].Points[s1].Tag = cs;

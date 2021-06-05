@@ -18,15 +18,18 @@ namespace COLM_SYSTEM_LIBRARY.model
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.mailer", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.emailer", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
-                        ec = new EmailCredential()
+                        while(reader.Read())
                         {
-                            Email = Convert.ToString(reader["Email"]),
-                            Password = Convert.ToString(reader["Password"])
-                        };
+                            ec = new EmailCredential()
+                            {
+                                Email = Convert.ToString(reader["Email"]),
+                                Password = Convert.ToString(reader["Password"])
+                            };
+                        }
                     }
                 }
             }
