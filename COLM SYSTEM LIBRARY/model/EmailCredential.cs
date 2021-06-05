@@ -1,10 +1,7 @@
-﻿using System;
+﻿using COLM_SYSTEM_LIBRARY.helper;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
-using COLM_SYSTEM_LIBRARY.helper;
 
 namespace COLM_SYSTEM_LIBRARY.model
 {
@@ -17,14 +14,26 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public static EmailCredential GetDefaultEmail()
         {
-            return new EmailCredential()
+            EmailCredential ec = new EmailCredential();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
-                Email = "admission@colm.edu.ph",
-                Password = "colmadmission2021"
-            };
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.mailer", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        ec = new EmailCredential()
+                        {
+                            Email = Convert.ToString(reader["Email"]),
+                            Password = Convert.ToString(reader["Password"])
+                        };
+                    }
+                }
+            }
+            return ec;
         }
 
-        public static List<EmailCredential> GetEmailCredentials()
+        public static List<EmailCredential> GetUserEmailCredentials()
         {
             List<EmailCredential> credentials = new List<EmailCredential>();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
@@ -51,7 +60,7 @@ namespace COLM_SYSTEM_LIBRARY.model
             return credentials;
         }
 
-        public static EmailCredential GetEmailCredential(int UserID)
+        public static EmailCredential GetUserEmailCredential(int UserID)
         {
             EmailCredential credential = new EmailCredential();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
@@ -76,6 +85,47 @@ namespace COLM_SYSTEM_LIBRARY.model
                 }
             }
             return credential;
+        }
+
+        public static bool HasDefaultMailer()
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.mailer", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        if (reader.HasRows == true)
+                            return true;
+                        else
+                            return false;
+                    }
+                }
+            }
+        }
+
+        public static int SetDefaultMailer(string Email, string Password)
+        {
+            string sqlcomm = string.Empty;
+            if (HasDefaultMailer() == false)
+                sqlcomm = "INSERT INTO settings.emailer VALUES (@Email,@Password)";
+            else
+                sqlcomm = "UPDATE settings.emailer SET Email = @Email, Password = @Password";
+
+
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand(sqlcomm, conn))
+                {
+                    comm.Parameters.AddWithValue("@Email", Email);
+                    comm.Parameters.AddWithValue("@Password", Password);
+                    return comm.ExecuteNonQuery();
+                }
+            }
+
+
         }
     }
 }

@@ -65,6 +65,7 @@
     <Compile Include="helper\SQLHelper.cs" />
     <Compile Include="model\Address.cs" />
     <Compile Include="model\Assessment Folder\OldAssessmentModel.cs" />
+    <Compile Include="model\Department.cs" />
     <Compile Include="model\EmailCredential.cs" />
     <Compile Include="model\EmailModel.cs" />
     <Compile Include="model\PaymentMode.cs" />

@@ -100,9 +100,12 @@ namespace COLM_SYSTEM.registration
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frm_student_information_online_entry_1 frm = new frm_student_information_online_entry_1(_StudentInfo.StudentID);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
+            if (_StudentInfo.StudentID != 0)
+            {
+                frm_student_information_online_entry_1 frm = new frm_student_information_online_entry_1(_StudentInfo.StudentID);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
         }
 
         private void button2_Click_1(object sender, EventArgs e)

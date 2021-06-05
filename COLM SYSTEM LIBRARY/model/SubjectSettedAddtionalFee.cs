@@ -10,16 +10,16 @@ namespace COLM_SYSTEM_LIBRARY.model
     public class SubjectSettedAddtionalFee
     {
         public int AdditionalFeeID { get; set; }
-        public int CurriculumSubjectID { get; set; }
+        public int SubjectPriceID { get; set; }
         public int SchoolYearID { get; set; }
         public int SemesterID { get; set; }
         public string FeeDescription { get; set; }
         public double Amount { get; set; }
         public string FeeType { get; set; }
 
-        public static List<SubjectSettedAddtionalFee> GetSubjectSettedAddtionalFees(int CurriculumSubjectID, int SchoolYearID, int SemesterID)
+        public static List<SubjectSettedAddtionalFee> GetSubjectSettedAddtionalFees(int SubjectPriceID)
         {
-            return SubjectSettedAdditionalFee_DS.GetSubjectSettedAddtionalFees(CurriculumSubjectID, SchoolYearID, SemesterID);
+            return SubjectSettedAdditionalFee_DS.GetSubjectSettedAddtionalFees(SubjectPriceID);
         }
 
         public static SubjectSettedAddtionalFee GetSubjectSettedAddtionalFee(int AdditionalFeeID)

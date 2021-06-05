@@ -24,7 +24,8 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public bool Bridging { get; set; }
         public double SubjPrice { get; set; }
-        public double AdditionalFee { get; set; } // for display purposes only
+        public List<SubjectSettedAddtionalFee> AdditionalFees { get; set; }
+
         public string SubjType { get; set; }
 
         public static int InsertSubject(List<SubjectSetted> subjects)
@@ -51,6 +52,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<SubjectSetted> GetSubjectSetteds(int CurriculumID, int YearLevelID, int SchoolYearID, int SemesterID)
         {
             return SubjectSetted_DS.GetSubjectSetted(CurriculumID, YearLevelID, SchoolYearID, SemesterID);
+        }
+
+        public static bool HasSetted(int CurriculumID, int YearLevelID, int SchoolYearID, int SemesterID)
+        {
+            return SubjectSetted_DS.HasSetted(CurriculumID, YearLevelID, SchoolYearID, SemesterID);
         }
 
         public static SubjectSetted GetSubjectSetted(int SubjectPriceID)

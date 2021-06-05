@@ -77,37 +77,14 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 AssessmentID = AssessmentID,
                                 SubjectPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
                                 SubjectFee = Convert.ToDouble(reader["SubjectFee"]),
-                                ScheduleID = Convert.ToInt32(reader["ScheduleID"]),
+                                ScheduleID = Convert.ToInt32(reader["ScheduleID"]),                                
                             };
+                            subject.AdditionalFees = AssessmentSubjectAdditionalFee.GetSubjectAdditionalFees(assessment.Summary.AssessmentID, subject.SubjectPriceID);
                             subjects.Add(subject);
                         }
                     }
                 }
-                assessment.Subjects = subjects;
-
-                //get assessment additional fees
-                List<AssessmentSubjectAdditionalFee> additionalFees = new List<AssessmentSubjectAdditionalFee>();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.subjects_additional_fees WHERE AssessmentID = @AssessmentID", conn))
-                {
-                    comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
-                    using (SqlDataReader reader = comm.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            AssessmentSubjectAdditionalFee additionalFee = new AssessmentSubjectAdditionalFee()
-                            {
-                                SubjectAdditionalFeeID = Convert.ToInt32(reader["SubjectAdditionalFeeID"]),
-                                AssessmentID = AssessmentID,
-                                AdditionalFeeID = Convert.ToInt32(reader["AdditionalFeeID"]),
-                                CurriculumSubjectID = Convert.ToInt16(reader["CurriculumSubjectID"]),
-                                FeeDscription = Convert.ToString(reader["FeeDescription"]),
-                                FeeAmount = Convert.ToDouble(reader["FeeAmount"])
-                            };
-                            additionalFees.Add(additionalFee);
-                        }
-                    }
-                }
-                assessment.AdditionalFees = additionalFees;
+                assessment.Subjects = subjects;               
 
                 //get assessment fees
                 List<AssessmentFee> fees = new List<AssessmentFee>();
@@ -238,7 +215,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return assessmentLists;
         }
-        public static int InsertAssessment(AssessmentSummary summary, List<AssessmentSubject> subjects, List<AssessmentSubjectAdditionalFee> additionalFees, List<AssessmentFee> fees, List<AssessmentDiscount> discounts, List<AssessmentBreakdown> breakdown)
+        public static int InsertAssessment(AssessmentSummary summary, List<AssessmentSubject> subjects, List<AssessmentFee> fees, List<AssessmentDiscount> discounts, List<AssessmentBreakdown> breakdown)
         {         
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
@@ -294,17 +271,20 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         }
 
                         //insert additional fees
-                        foreach (var item in additionalFees)
+                        foreach (var subject in subjects)
                         {
-                            using (SqlCommand comm = new SqlCommand("EXEC sp_set_assessment_subject_additional_fee @AssessmentID,@AdditionalFeeID,@CurriculumSubjectID,@FeeDescription,@FeeAmount", conn, t))
+                            foreach (var item in subject.AdditionalFees)
                             {
-                                comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
-                                comm.Parameters.AddWithValue("@AdditionalFeeID", item.AdditionalFeeID);
-                                comm.Parameters.AddWithValue("@CurriculumSubjectID", item.CurriculumSubjectID);
-                                comm.Parameters.AddWithValue("@FeeDescription", item.FeeDscription);
-                                comm.Parameters.AddWithValue("@FeeAmount", item.FeeAmount);
-                                comm.ExecuteNonQuery();
+                                using (SqlCommand comm = new SqlCommand("EXEC sp_set_assessment_subject_additional_fee @AssessmentID,@AdditionalFeeID,@FeeDescription,@FeeAmount", conn, t))
+                                {
+                                    comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
+                                    comm.Parameters.AddWithValue("@AdditionalFeeID", item.AdditionalFeeID);
+                                    comm.Parameters.AddWithValue("@FeeDescription", item.FeeDscription);
+                                    comm.Parameters.AddWithValue("@FeeAmount", item.FeeAmount);
+                                    comm.ExecuteNonQuery();
+                                }
                             }
+
                         }
 
                         //insert fees

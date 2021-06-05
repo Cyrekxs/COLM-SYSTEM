@@ -93,6 +93,10 @@ namespace COLM_SYSTEM.Registration_Folder
                         LoadRegisteredStudents();
                 }
             }
+            else
+            {
+                MessageBox.Show("This student has a record on the assessment you cannot delete this registration info", "Student Has Assessment", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

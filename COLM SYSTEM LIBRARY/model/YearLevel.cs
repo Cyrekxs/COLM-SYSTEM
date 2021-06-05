@@ -16,6 +16,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string CourseStrand { get; set; }
         public string YearLvl { get; set; }
         public int NextYearLvlID { get; set; }
+        public int DepartmentID { get; set; }
 
         /// <summary>
         /// Get a list of yearlevels
@@ -103,7 +104,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static int GetYearLevelID(List<YearLevel> yearLevels, string EducationLevel,string YearLevel)
         {
             return (from r in yearLevels
-                    where r.EducationLevel == EducationLevel && r.YearLvl == YearLevel
+                    where r.EducationLevel.ToLower() == EducationLevel.ToLower() && r.YearLvl.ToLower() == YearLevel.ToLower()
                     select r.YearLevelID).FirstOrDefault();
         }
 

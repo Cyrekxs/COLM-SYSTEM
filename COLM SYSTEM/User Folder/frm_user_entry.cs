@@ -71,7 +71,6 @@ namespace COLM_SYSTEM.User_Folder
                 User user = new User()
                 {
                     AccountName = txtAccountName.Text,
-                    AccountPosition = cmbPosition.Text,
                     Username = txtUsername.Text,
                     Password = txtPassword.Text,
                     SchoolYearID = Utilties.GetActiveSchoolYear(),

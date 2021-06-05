@@ -16,6 +16,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string EducationLevel { get; set; }
         public string CourseStrand { get; set; }
         public int SchoolYearID { get; set; }
+        public int DepartmentID { get; set; }
         public DateTime DateCreated { get; set; }
 
 
@@ -104,11 +105,6 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static int RemoveCurriculumSubject(int CurriculumSubjID)
         {
             return Curriculum_DS.RemoveCurriculumSubject(CurriculumSubjID);
-        }
-
-        public static List<CurriculumCourseStrandYearLevel> GetCurriculumCourseStrandYearLevels(string CurriculumCode)
-        {
-            return Curriculum_DS.GetCurriculumCourseStrandYearLevels(CurriculumCode);
         }
 
     }

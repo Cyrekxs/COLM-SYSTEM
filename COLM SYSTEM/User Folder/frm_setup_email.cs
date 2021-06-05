@@ -46,7 +46,7 @@ namespace COLM_SYSTEM.User_Folder
             if (result > 0)
             {
                 MessageBox.Show("Email has been successfully updated!", "Email Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Utilties.user.Credential = EmailCredential.GetEmailCredential(user.UserID);
+                Utilties.user.Credential = EmailCredential.GetUserEmailCredential(user.UserID);
                 Close();
                 Dispose();
             }

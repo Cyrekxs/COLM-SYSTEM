@@ -9,17 +9,15 @@ namespace COLM_SYSTEM_LIBRARY.datasource
     public class SubjectSettedAdditionalFee_DS
     {
 
-        public static List<SubjectSettedAddtionalFee> GetSubjectSettedAddtionalFees(int CurriculumSubjectID, int SchoolYearID, int SemesterID)
+        public static List<SubjectSettedAddtionalFee> GetSubjectSettedAddtionalFees(int SubjectPriceID)
         {
             List<SubjectSettedAddtionalFee> additionalFees = new List<SubjectSettedAddtionalFee>();
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM [settings].[curriculum_subjects_setted_additionalfee] WHERE CurriculumSubjectID = @CurriculumSubjectID AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM [settings].[curriculum_subjects_setted_additionalfee] WHERE SubjectPriceID = @SubjectPriceID", conn))
                 {
-                    comm.Parameters.AddWithValue("@CurriculumSubjectID", CurriculumSubjectID);
-                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
-                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
+                    comm.Parameters.AddWithValue("@SubjectPriceID", SubjectPriceID);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         while (reader.Read())
@@ -27,9 +25,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             SubjectSettedAddtionalFee addtionalFee = new SubjectSettedAddtionalFee()
                             {
                                 AdditionalFeeID = Convert.ToInt32(reader["AdditionalFeeID"]),
-                                CurriculumSubjectID = Convert.ToInt32(reader["CurriculumSubjectID"]),
-                                SchoolYearID = SchoolYearID,
-                                SemesterID = SemesterID,
+                                SubjectPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                SemesterID = Convert.ToInt32(reader["SemesterID"]),
                                 FeeDescription = Convert.ToString(reader["FeeDescription"]),
                                 Amount = Convert.ToDouble(reader["FeeAmount"]),
                                 FeeType = Convert.ToString(reader["FeeType"])
@@ -58,7 +56,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             additionalFee = new SubjectSettedAddtionalFee()
                             {
                                 AdditionalFeeID = Convert.ToInt32(reader["AdditionalFeeID"]),
-                                CurriculumSubjectID = Convert.ToInt32(reader["CurriculumSubjectID"]),
+                                SubjectPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 SemesterID = Convert.ToInt32(reader["SemesterID"]),
                                 FeeDescription = Convert.ToString(reader["FeeDescription"]),
@@ -80,10 +78,10 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 conn.Open();
                 foreach (var item in settedAddtionalFees)
                 {
-                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_additional_subject_fee @AdditionalFeeID,@CurriculumSubjectID,@SchoolYearID,@SemesterID,@FeeDescription,@FeeAmount,@FeeType", conn))
+                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_additional_subject_fee @AdditionalFeeID,@SubjectPriceID,@SchoolYearID,@SemesterID,@FeeDescription,@FeeAmount,@FeeType", conn))
                     {
                         comm.Parameters.AddWithValue("@AdditionalFeeID", item.AdditionalFeeID);
-                        comm.Parameters.AddWithValue("@CurriculumSubjectID", item.CurriculumSubjectID);
+                        comm.Parameters.AddWithValue("@SubjectPriceID", item.SubjectPriceID);
                         comm.Parameters.AddWithValue("@SchoolYearID", item.SchoolYearID);
                         comm.Parameters.AddWithValue("@SemesterID", item.SemesterID);
                         comm.Parameters.AddWithValue("@FeeDescription", item.FeeDescription);

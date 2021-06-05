@@ -20,8 +20,10 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string CourseStrand { get; set; }
         public int YearLevelID { get; set; }
         public string YearLevel { get; set; }
-        public int Subjects { get; set; }
-        public double Tuition { get; set; }
+        public int RegSubjectsCount { get; set; }
+        public int IrregSubjectsCount { get; set; }
+        public double RegTuition { get; set; }
+        public double IrregTuition { get; set; }
         public double Miscellaneous { get; set; }
         public double OtherFees { get; set; }
 
@@ -49,8 +51,10 @@ namespace COLM_SYSTEM_LIBRARY.model
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 YearLevel = Convert.ToString(reader["YearLevel"]),
-                                Subjects = Convert.ToInt32(reader["Subjects"]),
-                                Tuition = Convert.ToDouble(reader["Tuition"]),
+                                RegSubjectsCount = Convert.ToInt32(reader["RegSubjects"]),
+                                IrregSubjectsCount = Convert.ToInt16(reader["IrregSubjects"]),
+                                RegTuition = Convert.ToDouble(reader["RegTuition"]),
+                                IrregTuition = Convert.ToDouble(reader["IrregTuition"]),
                                 Miscellaneous = Convert.ToDouble(reader["MiscellaneousFees"]),
                                 OtherFees = Convert.ToDouble(reader["OtherFees"])
                             };

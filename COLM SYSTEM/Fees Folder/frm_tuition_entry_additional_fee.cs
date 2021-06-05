@@ -10,18 +10,15 @@ namespace COLM_SYSTEM.Fees_Folder
     {
 
         public List<SubjectSettedAddtionalFee> additionalFees;
-        private readonly int curriculumSubjectID;
 
-        public frm_tuition_entry_additional_fee(int CurriculumSubjectID)
+        public frm_tuition_entry_additional_fee(List<SubjectSettedAddtionalFee> fees)
         {
             InitializeComponent();
-
-            curriculumSubjectID = CurriculumSubjectID;
-            additionalFees = SubjectSettedAddtionalFee.GetSubjectSettedAddtionalFees(CurriculumSubjectID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+            additionalFees = fees;
 
             foreach (var item in additionalFees)
             {
-                dataGridView1.Rows.Add(item.AdditionalFeeID, item.FeeDescription, item.Amount.ToString("n"),item.FeeType);
+                dataGridView1.Rows.Add(item.AdditionalFeeID, item.FeeDescription, item.Amount.ToString("n"), item.FeeType);
             }
 
         }
@@ -29,7 +26,6 @@ namespace COLM_SYSTEM.Fees_Folder
         public void SetAdditionalFees()
         {
             additionalFees.Clear();
-
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
                 if (item.Cells["clmFee"].Value != null)
@@ -37,7 +33,6 @@ namespace COLM_SYSTEM.Fees_Folder
                     SubjectSettedAddtionalFee additionalFee = new SubjectSettedAddtionalFee()
                     {
                         AdditionalFeeID = Convert.ToInt32(item.Cells["clmAdditionalFeeID"].Value),
-                        CurriculumSubjectID = curriculumSubjectID,
                         SchoolYearID = Utilties.GetActiveSchoolYear(),
                         SemesterID = Utilties.GetActiveSemester(),
                         FeeDescription = Convert.ToString(item.Cells["clmFee"].Value),
@@ -52,13 +47,21 @@ namespace COLM_SYSTEM.Fees_Folder
         private void button4_Click(object sender, EventArgs e)
         {
 
+            foreach (DataGridViewRow item in dataGridView1.Rows)
+            {
+                if (item.Cells["clmFee"].Value != null)
+                {
+                    if (item.Cells["clmFeeType"].Value == null)
+                    {
+                        MessageBox.Show("Please select the fee type of specific additional subject fee", "Select Fee Type", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
             SetAdditionalFees();
-
-            //command to save subject setted additional fee
-            int result = SubjectSettedAddtionalFee.InsertUpdateSubjectSettedAdditionalFee(additionalFees);
-
             DialogResult = DialogResult.OK;
-            this.Close();
+            Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -69,23 +72,31 @@ namespace COLM_SYSTEM.Fees_Folder
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete this additional fee?","Delete Additional Fee",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (e.ColumnIndex == clmDelete.Index)
             {
-                int AdditionalFeeID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmAdditionalFeeID"].Value);
-                if (e.ColumnIndex == clmDelete.Index)
+                if (MessageBox.Show("Are you sure you want to delete this additional fee?", "Delete Additional Fee", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int result = SubjectSettedAddtionalFee.DeleteSubjectSettedAdditionalFee(AdditionalFeeID);
-                    if (result > 0)
+                    int AdditionalFeeID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmAdditionalFeeID"].Value);
+                    if (AdditionalFeeID > 0)
                     {
-                        dataGridView1.Rows.Remove(dataGridView1.Rows[e.RowIndex]);
-                        MessageBox.Show("Fee has been successfully deleted into database!", "Additional Fee Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        int result = SubjectSettedAddtionalFee.DeleteSubjectSettedAdditionalFee(AdditionalFeeID);
+                        if (result > 0)
+                        {
+                            dataGridView1.Rows.Remove(dataGridView1.Rows[e.RowIndex]);
+                            MessageBox.Show("Fee has been successfully deleted into database!", "Additional Fee Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error deleting fee!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Error deleting fee!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dataGridView1.Rows.Remove(dataGridView1.Rows[e.RowIndex]);
                     }
                 }
             }
+
         }
     }
 }

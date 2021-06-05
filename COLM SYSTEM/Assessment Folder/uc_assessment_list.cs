@@ -277,6 +277,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+            LoadAssessments();
         }
 
         private void removeAssessmentToolStripMenuItem_Click(object sender, EventArgs e)

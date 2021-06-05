@@ -11,7 +11,6 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
     {
         public AssessmentSummary Summary { get; set; }
         public List<AssessmentSubject> Subjects { get; set; }
-        public List<AssessmentSubjectAdditionalFee> AdditionalFees { get; set; }
         public List<AssessmentFee> Fees { get; set; }
         public List<AssessmentDiscount> Discounts { get; set; }
         public List<AssessmentBreakdown> Breakdown { get; set; }
@@ -28,7 +27,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
 
         public static int InsertAssessment(Assessment entry)
         {
-            return Assessment_DS.InsertAssessment(entry.Summary, entry.Subjects, entry.AdditionalFees, entry.Fees, entry.Discounts, entry.Breakdown);
+            return Assessment_DS.InsertAssessment(entry.Summary, entry.Subjects, entry.Fees, entry.Discounts, entry.Breakdown);
         }
 
         public static int DeactivateAssessment(int AssessmentID)

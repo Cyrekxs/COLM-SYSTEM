@@ -20,21 +20,56 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 conn.Open();
                 foreach (var item in subjects)
                 {
-                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum_subject_setted @SubjectPriceID,@CurriculumID,@YearLevelID,@CurriculumSubjectID,@SchoolYearID,@SemesterID,@SubjectPrice,@SubjectType", conn))
+                    using (SqlTransaction t = conn.BeginTransaction())
                     {
-                        comm.Parameters.AddWithValue("@SubjectPriceID", item.SubjPriceID);
-                        comm.Parameters.AddWithValue("@CurriculumID", item.CurriculumID);
-                        comm.Parameters.AddWithValue("@YearLevelID", item.YearLevelID);
-                        comm.Parameters.AddWithValue("@CurriculumSUbjectID", item.CurriculumSubjID);
-                        comm.Parameters.AddWithValue("@SchoolYearID", item.SchoolYearID);
-                        comm.Parameters.AddWithValue("@SemesterID", item.SemesterID);
-                        comm.Parameters.AddWithValue("@SubjectPrice", item.SubjPrice);
-                        comm.Parameters.AddWithValue("@SubjectType", item.SubjType);
-                        if (comm.ExecuteNonQuery() > 0)
-                            result += 1;
+                        //save the subject
+                        using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum_subject_setted @SubjectPriceID,@CurriculumID,@YearLevelID,@CurriculumSubjectID,@SchoolYearID,@SemesterID,@SubjectPrice,@SubjectType", conn,t))
+                        {
+                            comm.Parameters.AddWithValue("@SubjectPriceID", item.SubjPriceID);
+                            comm.Parameters.AddWithValue("@CurriculumID", item.CurriculumID);
+                            comm.Parameters.AddWithValue("@YearLevelID", item.YearLevelID);
+                            comm.Parameters.AddWithValue("@CurriculumSUbjectID", item.CurriculumSubjID);
+                            comm.Parameters.AddWithValue("@SchoolYearID", item.SchoolYearID);
+                            comm.Parameters.AddWithValue("@SemesterID", item.SemesterID);
+                            comm.Parameters.AddWithValue("@SubjectPrice", item.SubjPrice);
+                            comm.Parameters.AddWithValue("@SubjectType", item.SubjType);
+                            if (comm.ExecuteNonQuery() > 0)
+                                result += 1;
+                        }
+
+                        //get the uncomitted subject price id
+                        int SubjectPriceID = 0;
+                        using (SqlCommand comm = new SqlCommand("SELECT SubjectPriceID FROM settings.curriculum_subjects_setted (NOLOCK) WHERE CurriculumID = @CurriculumID AND YearLevelID = @YearLevelID AND CurriculumSubjectID = @CurriculumSubjectID AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn, t))
+                        {
+                            comm.Parameters.AddWithValue("@CurriculumID", item.CurriculumID);
+                            comm.Parameters.AddWithValue("@YearLevelID", item.YearLevelID);
+                            comm.Parameters.AddWithValue("@CurriculumSUbjectID", item.CurriculumSubjID);
+                            comm.Parameters.AddWithValue("@SchoolYearID", item.SchoolYearID);
+                            comm.Parameters.AddWithValue("@SemesterID", item.SemesterID);
+                            SubjectPriceID = Convert.ToInt32(comm.ExecuteScalar());
+                        }
+
+                        //insert or update subject additional fees
+                        if (item.AdditionalFees != null)
+                        {
+                            foreach (var fee in item.AdditionalFees)
+                            {
+                                using (SqlCommand comm = new SqlCommand("EXEC sp_set_additional_subject_fee @AdditionalFeeID,@SubjectPriceID,@SchoolYearID,@SemesterID,@FeeDescription,@FeeAmount,@FeeType", conn,t))
+                                {
+                                    comm.Parameters.AddWithValue("@AdditionalFeeID", fee.AdditionalFeeID);
+                                    comm.Parameters.AddWithValue("@SubjectPriceID", SubjectPriceID);
+                                    comm.Parameters.AddWithValue("@SchoolYearID", item.SchoolYearID);
+                                    comm.Parameters.AddWithValue("@SemesterID", item.SemesterID);
+                                    comm.Parameters.AddWithValue("@FeeDescription", fee.FeeDescription);
+                                    comm.Parameters.AddWithValue("@FeeAmount", fee.Amount);
+                                    comm.Parameters.AddWithValue("@FeeType", fee.FeeType);
+                                    comm.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                        t.Commit();
                     }
                 }
-
             }
             return result;
         }
@@ -85,7 +120,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 LecUnit = Convert.ToInt32(reader["LecUnit"]),
                                 LabUnit = Convert.ToInt32(reader["LabUnit"]),
                                 Unit = Convert.ToInt32(reader["Unit"]),
-                                Bridging = Convert.ToBoolean(reader["IsBridging"])
+                                Bridging = Convert.ToBoolean(reader["IsBridging"]),
+                                SubjType = "Regular"
                             };
                             subjects.Add(subject);
                         }
@@ -95,6 +131,26 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return subjects;
         }
 
+        public static bool HasSetted(int CurriculumID,int YearLevelID,int SchoolYearID,int SemesterID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT COUNT(SubjectPriceID) AS Subjects FROM settings.curriculum_subjects_setted WHERE CurriculumID = @CurriculumID AND YearLevelID = @YearLevelID AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
+                {
+                    comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
+                    comm.Parameters.AddWithValue("@YearLevelID", YearLevelID);
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
+                    int result = Convert.ToInt32(comm.ExecuteScalar());
+
+                    if (result > 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+        }
 
         public static List<SubjectSetted> GetCurriculumSubjects(int CurriculumID)
         {
@@ -160,7 +216,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 LabUnit = Convert.ToInt32(reader["LabUnit"]),
                                 Unit = Convert.ToInt32(reader["Unit"]),
                                 SubjPrice = Convert.ToDouble(reader["SubjectPrice"]),
-                                AdditionalFee = Convert.ToDouble(reader["AdditionalFee"]),
+                                AdditionalFees = SubjectSettedAdditionalFee_DS.GetSubjectSettedAddtionalFees(Convert.ToInt32(reader["SubjectPriceID"])),
                                 SubjType = Convert.ToString(reader["SubjectType"]),
                                 Bridging = Convert.ToBoolean(reader["IsBridging"])
                             };
@@ -188,8 +244,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         {
                             subject = new SubjectSetted()
                             {
-                                SubjPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
-
+                                SubjPriceID = Convert.ToInt32(reader["SubjectPriceID"]),                                
                                 CurriculumSubjID = Convert.ToInt32(reader["CurriculumSubjectID"]),
                                 SubjCode = Convert.ToString(reader["SubjCode"]),
                                 SubjDesc = Convert.ToString(reader["SubjDesc"]),
@@ -197,8 +252,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 LabUnit = Convert.ToInt32(reader["LabUnit"]),
                                 Unit = Convert.ToInt32(reader["Unit"]),
                                 SubjPrice = Convert.ToDouble(reader["SubjectPrice"]),
-                                AdditionalFee = Convert.ToDouble(reader["AdditionalFee"]),
-                                SubjType = Convert.ToString(reader["SubjectType"])
+                                AdditionalFees = SubjectSettedAdditionalFee_DS.GetSubjectSettedAddtionalFees(Convert.ToInt32(reader["SubjectPriceID"])),
+                                SubjType = Convert.ToString(reader["SubjectType"]),
+                                Bridging = Convert.ToBoolean(reader["IsBridging"]),                                
                             };
                         }
                     }

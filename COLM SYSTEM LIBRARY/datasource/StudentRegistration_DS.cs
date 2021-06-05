@@ -196,7 +196,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT AssessmentID FROM assessment.summary WHERE RegisteredStudentID = @RegisteredStudentID AND AssessmentStatus = 'ACITVE'", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT AssessmentID FROM assessment.summary WHERE RegisteredStudentID = @RegisteredStudentID AND AssessmentStatus = 'Active'", conn))
                 {
                     comm.Parameters.AddWithValue("@RegisteredStudentID", RegistrationID);
                     result = Convert.ToInt32(comm.ExecuteScalar());

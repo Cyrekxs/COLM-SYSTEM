@@ -14,5 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
         public double SubjectFee { get; set; }
         public int ScheduleID { get; set; }
 
+        public List<AssessmentSubjectAdditionalFee> AdditionalFees = new List<AssessmentSubjectAdditionalFee>();
+
     }
 }

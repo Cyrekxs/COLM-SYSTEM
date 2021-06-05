@@ -7,28 +7,33 @@ using System.Windows.Forms;
 
 namespace COLM_SYSTEM.fees_folder
 {
-    public partial class frm_tuition_entry : Form
+    public partial class frm_tuition_entry_2 : Form
     {
         public string SavingFlag { get; set; }
 
         //constructor that will marks saving flag as add
-        public frm_tuition_entry()
+        public frm_tuition_entry_2(string EducationLevel,string CurriculumCode,string CourseStrand,string YearLevel)
         {
             InitializeComponent();
             SavingFlag = "ADD";
+            txtEducationLevel.Text = EducationLevel;
+            txtCurriculumCode.Text = CurriculumCode;
+            txtCourseStrand.Text = CourseStrand;
+            txtYearLevel.Text = YearLevel;
+            LoadDefaultSubjects();
             LoadDefaultFees();
         }
 
         //constructor that will marks saving flag as edit
-        public frm_tuition_entry(SubjectSettedSummary tuition)
+        public frm_tuition_entry_2(SubjectSettedSummary tuition)
         {
             InitializeComponent();
             SavingFlag = "EDIT";
 
-            cmbEducationLevel.Text = tuition.EducationLevel;
-            cmbCurriculumCode.Text = tuition.Code;
-            cmbCourseStrand.Text = tuition.CourseStrand;
-            cmbYearLevel.Text = tuition.YearLevel;
+            txtEducationLevel.Text = tuition.EducationLevel;
+            txtCurriculumCode.Text = tuition.Code;
+            txtCourseStrand.Text = tuition.CourseStrand;
+            txtYearLevel.Text = tuition.YearLevel;
 
             LoadSettedSubjects(tuition);
             LoadSettedFees(tuition);
@@ -40,13 +45,13 @@ namespace COLM_SYSTEM.fees_folder
             //if the saving flag property is add then load the default curriculum subjects
             if (SavingFlag == "ADD")
             {
-                YearLevel yearLevel = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbCourseStrand.Text, cmbYearLevel.Text);
-                List<SubjectSetted> subjects = SubjectSetted.GetCurriculumSubjects(Curriculum.GetCurriculumID(cmbCurriculumCode.Text), yearLevel.YearLevelID, Utilties.GetActiveSemester());
+                YearLevel yearLevel = YearLevel.GetYearLevel(txtEducationLevel.Text, txtCourseStrand.Text, txtYearLevel.Text);
+                List<SubjectSetted> subjects = SubjectSetted.GetCurriculumSubjects(Curriculum.GetCurriculumID(txtCurriculumCode.Text), yearLevel.YearLevelID, Utilties.GetActiveSemester());
 
                 dgTuition.Rows.Clear();
                 foreach (var item in subjects)
                 {
-                    dgTuition.Rows.Add(0, item.CurriculumSubjID, item.SubjCode, item.SubjDesc, item.LecUnit, item.LabUnit, item.Unit, 0.ToString("n"));
+                    dgTuition.Rows.Add(0, item.CurriculumSubjID,item.SubjType, item.SubjCode, item.SubjDesc, item.LecUnit, item.LabUnit, item.Unit, 0.ToString("n"));
                 }
             }
         }
@@ -81,13 +86,15 @@ namespace COLM_SYSTEM.fees_folder
                 dgTuition.Rows.Add(
                     item.SubjPriceID,
                     item.CurriculumSubjID,
+                    item.SubjType,
                     item.SubjCode,
                     item.SubjDesc,
                     item.LecUnit,
                     item.LabUnit,
                     item.Unit,
                     item.SubjPrice.ToString("n"),
-                    item.AdditionalFee.ToString("n"));
+                    item.AdditionalFees.Sum(r => r.Amount).ToString("n"));
+                dgTuition.Rows[dgTuition.Rows.Count - 1].Tag = item.AdditionalFees;
             }
         }
 
@@ -114,35 +121,6 @@ namespace COLM_SYSTEM.fees_folder
             }
         }
 
-
-
-
-        private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cmbCurriculumCode.Items.Clear();
-
-            List<Curriculum> curriculums = Curriculum.GetCurriculums(cmbEducationLevel.Text);
-            foreach (var item in curriculums)
-            {
-                cmbCurriculumCode.Items.Add(item.Code);
-            }
-        }
-
-        private void cmbCourseStrand_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            List<YearLevel> YearLevels = YearLevel.GetYearLevelsByEducationLevel(cmbEducationLevel.Text, cmbCourseStrand.Text);
-            cmbYearLevel.Items.Clear();
-            foreach (var item in YearLevels)
-            {
-                cmbYearLevel.Items.Add(item.YearLvl);
-            }
-        }
-
-        private void cmbYearLevel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadDefaultSubjects();
-        }
-
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -167,8 +145,8 @@ namespace COLM_SYSTEM.fees_folder
         private void button4_Click(object sender, EventArgs e)
         {
 
-            int CurriculumID = Curriculum.GetCurriculumID(cmbCurriculumCode.Text);
-            YearLevel yearLevel = YearLevel.GetYearLevel(cmbEducationLevel.Text, cmbCourseStrand.Text, cmbYearLevel.Text);
+            int CurriculumID = Curriculum.GetCurriculumID(txtCurriculumCode.Text);
+            YearLevel yearLevel = YearLevel.GetYearLevel(txtEducationLevel.Text, txtCourseStrand.Text, txtYearLevel.Text);
 
 
             //List of subjects to be saved
@@ -184,12 +162,13 @@ namespace COLM_SYSTEM.fees_folder
                     SchoolYearID = Utilties.GetActiveSchoolYear(),
                     SemesterID = Utilties.GetActiveSemester(),
                     SubjPrice = Convert.ToDouble(item.Cells["clmSubjPrice"].Value),
-                    SubjType = "REGULAR"
+                    SubjType = Convert.ToString(item.Cells["clmSubjectType"].Value),
+                    AdditionalFees = item.Tag as List<SubjectSettedAddtionalFee>
                 };
                 subjectsToSave.Add(subject);
             }
 
-            //List of fees to be saved
+            //List of fees to be saved for miscellaneous
             List<Fee> feesToSave = new List<Fee>();
 
             foreach (DataGridViewRow item in dgMiscellaneous.Rows)
@@ -208,6 +187,7 @@ namespace COLM_SYSTEM.fees_folder
                 feesToSave.Add(fee);
             }
 
+            //List of fees to be saved for other fees
             foreach (DataGridViewRow item in dgOtherFees.Rows)
             {
                 Fee fee = new Fee()
@@ -255,17 +235,19 @@ namespace COLM_SYSTEM.fees_folder
         {
             if (e.ColumnIndex == clmAdditionalSettings.Index)
             {
-                //get subject price id
-                int CurriculumSubjectID = Convert.ToInt32(dgTuition.Rows[e.RowIndex].Cells["clmCurriculumSubjID"].Value);
                 //get the tag
                 List<SubjectSettedAddtionalFee> settedAdditionalFees = (List<SubjectSettedAddtionalFee>)dgTuition.Rows[e.RowIndex].Tag;
 
-                using (frm_tuition_entry_additional_fee frm = new frm_tuition_entry_additional_fee(CurriculumSubjectID))
+                using (frm_tuition_entry_additional_fee frm = new frm_tuition_entry_additional_fee(settedAdditionalFees))
                 {
                     frm.StartPosition = FormStartPosition.CenterParent;
                     frm.txtSubjDesc.Text = string.Concat(dgTuition.Rows[e.RowIndex].Cells["clmSubjCode"].Value.ToString(), " | ", dgTuition.Rows[e.RowIndex].Cells["clmSubjDesc"].Value.ToString());
                     frm.ShowDialog();
-                    dgTuition.Rows[e.RowIndex].Cells["clmAdditionalFee"].Value = frm.additionalFees.Sum(r => r.Amount).ToString("n");
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        dgTuition.Rows[e.RowIndex].Tag = frm.additionalFees;
+                        dgTuition.Rows[e.RowIndex].Cells["clmAdditionalFee"].Value = frm.additionalFees.Sum(r => r.Amount).ToString("n");
+                    }
                 }
             }
             else if (e.ColumnIndex == clmRemove.Index)
@@ -276,21 +258,6 @@ namespace COLM_SYSTEM.fees_folder
                     int result = SubjectSetted.RemoveSubject(SubjectPriceID);
                     dgTuition.Rows.Remove(dgTuition.Rows[e.RowIndex]);
                 }
-            }
-        }
-
-        private void cmbCurriculumCode_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            List<string> CourseStrands = YearLevel.GetCourseStrandByCurriculum(cmbCurriculumCode.Text);
-            cmbCourseStrand.Items.Clear();
-            foreach (var item in CourseStrands)
-            {
-                cmbCourseStrand.Items.Add(item);
-            }
-
-            if (cmbCourseStrand.Items.Count == 1)
-            {
-                cmbCourseStrand.SelectedIndex = 0;
             }
         }
 
@@ -416,15 +383,18 @@ namespace COLM_SYSTEM.fees_folder
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frm_tuition_entry_browse_subject frm = new frm_tuition_entry_browse_subject(cmbCurriculumCode.Text, dgTuition);
+            frm_tuition_entry_browse_subject frm = new frm_tuition_entry_browse_subject(txtCurriculumCode.Text, dgTuition);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Close();
-            Dispose();
+            if (MessageBox.Show("Are you sure you want to close tuition fee settings?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+                Dispose();
+            }
         }
 
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -451,6 +421,15 @@ namespace COLM_SYSTEM.fees_folder
                 MessageBox.Show("Please add subject first!", "No Subject Detected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to close tuition fee settings?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+                Dispose();
+            }
         }
     }
 }

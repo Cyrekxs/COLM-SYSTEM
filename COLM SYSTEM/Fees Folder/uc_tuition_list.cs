@@ -26,6 +26,8 @@ namespace COLM_SYSTEM.Fees_Folder
             dataGridView1.Rows.Clear();
             foreach (var item in TuitionSummaries)
             {
+                double Total = item.RegTuition + item.Miscellaneous + item.OtherFees;
+
                 dataGridView1.Rows.Add(
                     item.CurriculumID,
                     item.Code, 
@@ -33,10 +35,13 @@ namespace COLM_SYSTEM.Fees_Folder
                     item.CourseStrand,
                     item.YearLevelID, 
                     item.YearLevel,
-                    item.Subjects,
-                    item.Tuition.ToString("n"),
+                    item.RegSubjectsCount,
+                    item.IrregSubjectsCount,
+                    item.RegTuition.ToString("n"),
+                    item.IrregTuition.ToString("n"),
                     item.Miscellaneous.ToString("n"),
-                    item.OtherFees.ToString("n"));
+                    item.OtherFees.ToString("n"),
+                    Total.ToString("n"));
 
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item; // set the item as a row tag
             }
@@ -54,7 +59,7 @@ namespace COLM_SYSTEM.Fees_Folder
                 //convert datagridview row tag into subject setted summary object
                 SubjectSettedSummary dgrowtag = (SubjectSettedSummary)dataGridView1.Rows[e.RowIndex].Tag;
 
-                frm_tuition_entry frm = new frm_tuition_entry(dgrowtag);
+                frm_tuition_entry_2 frm = new frm_tuition_entry_2(dgrowtag);
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
 
@@ -64,7 +69,7 @@ namespace COLM_SYSTEM.Fees_Folder
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frm_tuition_entry frm = new frm_tuition_entry();
+            frm_tuition_entry_1 frm = new frm_tuition_entry_1();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             LoadTuitionSummary();

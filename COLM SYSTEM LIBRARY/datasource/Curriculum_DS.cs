@@ -87,7 +87,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum WHERE EducationLevel = @EducationLevel", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_curriculums() WHERE EducationLevel = @EducationLevel", conn))
                 {
                     comm.Parameters.AddWithValue("@EducationLevel", EducationLevel);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -103,6 +103,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 Status = Convert.ToString(reader["Status"]),
+                                DepartmentID = Convert.ToInt16(reader["DepartmentID"]),
                                 DateCreated = Convert.ToDateTime(reader["DateCreated"])
                             };
                             Curriculums.Add(c);
@@ -119,7 +120,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum WHERE CurriculumID = @CurriculumID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_curriculums() WHERE CurriculumID = @CurriculumID", conn))
                 {
                     comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -135,6 +136,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 Status = Convert.ToString(reader["Status"]),
+                                DepartmentID = Convert.ToInt16(reader["DepartmentID"]),
                                 DateCreated = Convert.ToDateTime(reader["DateCreated"])
                             };
                         }
@@ -150,7 +152,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum WHERE Code = @CurriculumCode", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_curriculums() WHERE Code = @CurriculumCode", conn))
                 {
                     comm.Parameters.AddWithValue("@CurriculumCode", CurriculumCode);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -166,6 +168,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 Status = Convert.ToString(reader["Status"]),
+                                DepartmentID = Convert.ToInt16(reader["DepartmentID"]),
                                 DateCreated = Convert.ToDateTime(reader["DateCreated"])
                             };
                         }
@@ -181,7 +184,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum ORDER BY EducationLevel,Code ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_curriculums() ORDER BY EducationLevel,Code ASC", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -196,6 +199,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 Status = Convert.ToString(reader["Status"]),
+                                DepartmentID = Convert.ToInt16(reader["DepartmentID"]),
                                 DateCreated = Convert.ToDateTime(reader["DateCreated"])
                             };
                             Curriculums.Add(c);
@@ -273,7 +277,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum_subjects WHERE CurriculumID = @CurriculumID AND IsActive = @IsActive ORDER BY YearLevelID,SemesterID,CurriculumSubjectID", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM [dbo].[fn_list_CurriculumSubjects]() WHERE CurriculumID = @CurriculumID ORDER BY YearLevelID,SemesterID,CurriculumSubjectID", conn))
                 {
                     comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
                     comm.Parameters.AddWithValue("@IsActive", true);
@@ -288,6 +292,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 SemesterID = Convert.ToInt32(reader["SemesterID"]),
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 SubjectID = Convert.ToInt32(reader["SubjID"]),
+                                SubjCode = Convert.ToString(reader["SubjCode"]),
+                                SubjDesc = Convert.ToString(reader["SubjDesc"]),
                                 IsBridging = Convert.ToBoolean(reader["IsBridging"]),
                                 IsActive = Convert.ToBoolean(reader["IsActive"])
                             };
@@ -297,36 +303,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
             }
             return subjects;
-        }
-
-        public static List<CurriculumCourseStrandYearLevel> GetCurriculumCourseStrandYearLevels(string CurriculumCode)
-        {
-            List<CurriculumCourseStrandYearLevel> ccsy_list = new List<CurriculumCourseStrandYearLevel>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
-            {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_Curriculum_CourseStrandYearLevel() WHERE Code = @Code", conn))
-                {
-                    comm.Parameters.AddWithValue("@Code", CurriculumCode);
-                    using (SqlDataReader reader = comm.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            CurriculumCourseStrandYearLevel ccsy = new CurriculumCourseStrandYearLevel()
-                            {
-                                CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
-                                CurriculumCode = Convert.ToString(reader["Code"]),
-                                YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
-                                YearLevel = Convert.ToString(reader["YearLevel"]),
-                                CourseStrand = Convert.ToString(reader["CourseStrand"])
-                            };
-
-                            ccsy_list.Add(ccsy);
-                        }
-                    }
-                }
-            }
-            return ccsy_list;
         }
 
     }

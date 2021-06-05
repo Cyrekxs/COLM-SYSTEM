@@ -1,12 +1,7 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Assessment_Folder
@@ -14,18 +9,24 @@ namespace COLM_SYSTEM.Assessment_Folder
     public partial class frm_assessment_subject_browser : Form
     {
         private StudentRegistered registeredStudent = new StudentRegistered();
-        private int yearLevelID = 0;
-        public frm_assessment_subject_browser(StudentRegistered student,int yearLevelID)
+        public frm_assessment_subject_browser(StudentRegistered student)
         {
             InitializeComponent();
-            this.yearLevelID = yearLevelID;
             registeredStudent = student;
+            LoadCurriculumSubjects();
         }
 
-        private void LoadSubjects()
+        private void LoadCurriculumSubjects()
         {
-            //Store Tuition Fee
-            List<SubjectSetted> subjects = SubjectSetted.GetSubjectSetteds(registeredStudent.CurriculumID, yearLevelID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+            List<CurriculumSubject> curriculumSubjects = Curriculum.GetCurriculumSubjects(registeredStudent.CurriculumID);
+
+            curriculumSubjects = curriculumSubjects.OrderBy(item => item.SubjDesc).ToList();
+
+            foreach (var item in curriculumSubjects)
+            {
+                dataGridView1.Rows.Add(item.CurriculumSubjectID,item.SubjectID,item.SubjCode,item.SubjDesc);
+            }
+
         }
     }
 }

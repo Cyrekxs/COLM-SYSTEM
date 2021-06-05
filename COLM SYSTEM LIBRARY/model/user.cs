@@ -10,9 +10,9 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string Username { get; set; }
         public string Password { get; set; }
         public string AccountName { get; set; }
-        public string AccountPosition { get; set; }
         public int SchoolYearID { get; set; }
         public int SemesterID { get; set; }
+        public bool IsActive { get; set; }
         public EmailCredential Credential { get; set; }
 
         public static User login(string Username, string Password)
@@ -37,16 +37,16 @@ namespace COLM_SYSTEM_LIBRARY.model
                                     Username = Username,
                                     Password = Password,
                                     AccountName = Convert.ToString(reader["AccountName"]),
-                                    AccountPosition = Convert.ToString(reader["AccountPosition"]),
                                     SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
-                                    SemesterID = Convert.ToInt32(reader["SemesterID"])
+                                    SemesterID = Convert.ToInt32(reader["SemesterID"]),
+                                    IsActive = Convert.ToBoolean(reader["IsActive"])
                                 };
                             }
                         }
                     }
                 }
             }
-            user.Credential = EmailCredential.GetEmailCredential(user.UserID);
+            user.Credential = EmailCredential.GetUserEmailCredential(user.UserID);
             return user;
         }
 
@@ -81,14 +81,14 @@ namespace COLM_SYSTEM_LIBRARY.model
 
                     if (UserID == 0)
                     {
-                        using (SqlCommand comm = new SqlCommand("INSERT INTO settings.users VALUES (@Username,@Password,@AccountName,@AccountPosition,@SchoolYearID,@SemesterID)", conn, t))
+                        using (SqlCommand comm = new SqlCommand("INSERT INTO settings.users VALUES (@Username,@Password,@AccountName,@SchoolYearID,@SemesterID,@IsActive)", conn, t))
                         {
                             comm.Parameters.AddWithValue("@Username", user.Username);
                             comm.Parameters.AddWithValue("@Password", user.Password);
                             comm.Parameters.AddWithValue("@AccountName", user.AccountName);
-                            comm.Parameters.AddWithValue("@AccountPosition", user.AccountPosition);
                             comm.Parameters.AddWithValue("@SchoolYearID", user.SchoolYearID);
                             comm.Parameters.AddWithValue("@SemesterID", user.SemesterID);
+                            comm.Parameters.AddWithValue("@SemesterID", true);
                             comm.ExecuteNonQuery();
                         }
 

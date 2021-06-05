@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtAdditionalFees = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSubject = new System.Windows.Forms.TextBox();
             this.clmAdditionalFeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAdditionalFeeAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtAdditionalFees = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSubject = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -46,6 +46,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -57,8 +59,39 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(544, 173);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // clmAdditionalFeeID
+            // 
+            this.clmAdditionalFeeID.HeaderText = "Additional Fee ID";
+            this.clmAdditionalFeeID.Name = "clmAdditionalFeeID";
+            this.clmAdditionalFeeID.ReadOnly = true;
+            this.clmAdditionalFeeID.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "Fee Description";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // clmAdditionalFeeAmount
+            // 
+            this.clmAdditionalFeeAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmAdditionalFeeAmount.HeaderText = "Amount";
+            this.clmAdditionalFeeAmount.Name = "clmAdditionalFeeAmount";
+            this.clmAdditionalFeeAmount.ReadOnly = true;
+            this.clmAdditionalFeeAmount.Width = 74;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Add\'l Type";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 120;
             // 
             // label1
             // 
@@ -96,35 +129,6 @@
             this.txtSubject.ReadOnly = true;
             this.txtSubject.Size = new System.Drawing.Size(543, 23);
             this.txtSubject.TabIndex = 4;
-            // 
-            // clmAdditionalFeeID
-            // 
-            this.clmAdditionalFeeID.HeaderText = "Additional Fee ID";
-            this.clmAdditionalFeeID.Name = "clmAdditionalFeeID";
-            this.clmAdditionalFeeID.ReadOnly = true;
-            this.clmAdditionalFeeID.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Fee Description";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // clmAdditionalFeeAmount
-            // 
-            this.clmAdditionalFeeAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmAdditionalFeeAmount.HeaderText = "Amount";
-            this.clmAdditionalFeeAmount.Name = "clmAdditionalFeeAmount";
-            this.clmAdditionalFeeAmount.ReadOnly = true;
-            this.clmAdditionalFeeAmount.Width = 74;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Add\'l Type";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 120;
             // 
             // panel1
             // 

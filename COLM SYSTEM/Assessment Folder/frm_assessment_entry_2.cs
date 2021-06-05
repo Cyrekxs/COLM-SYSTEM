@@ -36,7 +36,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             LoadDefaultFees();
             LoadAssessmentTypes();
             LoadSections();
-            TagDefaultAdditionalFees();
             LoadDiscounts();
             CalculateFeeSummary();
         }
@@ -77,34 +76,42 @@ namespace COLM_SYSTEM.Assessment_Folder
             List<SubjectSetted> subjects = new List<SubjectSetted>();
             foreach (var item in assessment.Subjects)
             {
+                //get the subject setted information
                 SubjectSetted subject = SubjectSetted.GetSubjectSetted(item.SubjectPriceID);
+                //set to last subject assessment price 
                 subject.SubjPrice = item.SubjectFee;
-                subject.AdditionalFee = assessment.AdditionalFees.Where(r => r.CurriculumSubjectID == subject.CurriculumSubjID).Sum(r => r.FeeAmount);
+                //set the last subject additional fee
+                foreach (var fee in subject.AdditionalFees)
+                {
+                    fee.Amount = item.AdditionalFees.Where(r => r.AdditionalFeeID == fee.AdditionalFeeID).Select(r => r.FeeAmount).FirstOrDefault();
+                }
                 subjects.Add(subject);
             }
 
             //Display Tuition Fee
             foreach (var item in subjects)
             {
-                Schedule schedule = Schedule.GetScheduleByScheduleID(assessment.Subjects.Where(r => r.SubjectPriceID == item.SubjPriceID).Select(r => r.ScheduleID).First());
-                dgSubjects.Rows.Add(item.CurriculumSubjID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFee.ToString("n"), item.SubjType, schedule.ScheduleID, schedule.ScheduleInfo);
-            }
+                //get the last assessment schedule by subject
+                Schedule schedule = Schedule.GetScheduleByScheduleID(assessment.Subjects.Where(r => r.SubjectPriceID == item.SubjPriceID).Select(r => r.ScheduleID).FirstOrDefault());
+                //display data into datagridview
+                dgSubjects.Rows.Add(item.CurriculumSubjID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType, schedule.ScheduleID, schedule.ScheduleInfo);
 
-            //this method will tag additional fees of specific subject
-            foreach (DataGridViewRow item in dgSubjects.Rows)
-            {
-                List<SubjectSettedAddtionalFee> additionalfees = new List<SubjectSettedAddtionalFee>();
-
-                List<AssessmentSubjectAdditionalFee> assessmentAdditionalFees = assessment.AdditionalFees.Where(r => r.CurriculumSubjectID == Convert.ToInt16(item.Cells["clmCurriculumSubjectID"].Value)).ToList();
-                foreach (var fee in assessmentAdditionalFees)
+                List<AssessmentSubjectAdditionalFee> subjectAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
+                foreach (var fee in item.AdditionalFees)
                 {
-                    SubjectSettedAddtionalFee additionalFee = SubjectSettedAddtionalFee.GetSubjectSettedAddtionalFee(fee.AdditionalFeeID);
-                    additionalFee.FeeDescription = fee.FeeDscription;
-                    additionalFee.Amount = fee.FeeAmount;
-                    additionalfees.Add(additionalFee);
+                    AssessmentSubjectAdditionalFee additionalFee = new AssessmentSubjectAdditionalFee()
+                    {
+                        AdditionalFeeID = fee.AdditionalFeeID,
+                        FeeAmount = fee.Amount,
+                        FeeDscription = fee.FeeDescription,
+                        FeeType = fee.FeeType
+                    };
+                    subjectAdditionalFees.Add(additionalFee);
                 }
-                item.Tag = additionalfees;
+
+                dgSubjects.Rows[dgSubjects.Rows.Count - 1].Tag = subjectAdditionalFees; //tag additional fees into row
             }
+
 
             //convert assessment.fees into list of fee to display data
             List<Fee> fees = new List<Fee>();
@@ -183,7 +190,22 @@ namespace COLM_SYSTEM.Assessment_Folder
             //Display Tuition Fee
             foreach (var item in subjects)
             {
-                dgSubjects.Rows.Add(item.CurriculumSubjID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFee.ToString("n"), item.SubjType);
+                dgSubjects.Rows.Add(item.CurriculumSubjID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType);
+                List<AssessmentSubjectAdditionalFee> subjectAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
+                //loop on each additional fee and convert it into AssessmentSubjectAdditionalFee for tagging
+                foreach (var fee in item.AdditionalFees)
+                {
+                    AssessmentSubjectAdditionalFee additionalFee = new AssessmentSubjectAdditionalFee()
+                    {
+                        AdditionalFeeID = fee.AdditionalFeeID,
+                        FeeAmount = fee.Amount,
+                        FeeDscription = fee.FeeDescription,
+                        FeeType = fee.FeeType
+                    };
+                    subjectAdditionalFees.Add(additionalFee);
+                }
+
+                dgSubjects.Rows[dgSubjects.Rows.Count - 1].Tag = subjectAdditionalFees; //tag additional fees into row
             }
 
             //Display Miscellaneous Fees
@@ -199,15 +221,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 if (item.YearLeveLID == yearLevelID)
                     dgFees.Rows.Add(item.FeeID, item.FeeDesc, item.FeeType, item.Amount.ToString("n"));
-            }
-        }
-        private void TagDefaultAdditionalFees() // this function will trigger upon initialization
-        {
-            //this method will tag additional fees of specific subject
-            foreach (DataGridViewRow item in dgSubjects.Rows)
-            {
-                List<SubjectSettedAddtionalFee> additionalfees = SubjectSettedAddtionalFee.GetSubjectSettedAddtionalFees((int)item.Cells["clmCurriculumSubjectID"].Value, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
-                item.Tag = additionalfees;
             }
         }
         private void LoadAssessmentTypes() // this function will trigger upon initialization
@@ -298,7 +311,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             double totalOFee = 0;
 
             //Get the tag fee on each subject in dgsubjects for calculation
-            List<SubjectSettedAddtionalFee> fees = new List<SubjectSettedAddtionalFee>();
+            List<AssessmentSubjectAdditionalFee> fees = new List<AssessmentSubjectAdditionalFee>();
             foreach (DataGridViewRow item in dgSubjects.Rows)
             {
                 //get each subject price and sum it into totalTFee
@@ -306,14 +319,11 @@ namespace COLM_SYSTEM.Assessment_Folder
 
                 //Each subject will have a list of additional fee
                 //loop on it then store it into fees
-                foreach (SubjectSettedAddtionalFee fee in (List<SubjectSettedAddtionalFee>)item.Tag)
-                {
-                    fees.Add(fee);
-                }
+                fees.AddRange(item.Tag as List<AssessmentSubjectAdditionalFee>);
             }
 
-            var AdditionalMFee = fees.Where(item => item.FeeType.ToLower() == "miscellaneous").Sum(item => item.Amount);
-            var AdditionalOFee = fees.Where(item => item.FeeType.ToLower() == "other").Sum(item => item.Amount);
+            var AdditionalMFee = fees.Where(item => item.FeeType.ToLower() == "miscellaneous").Sum(item => item.FeeAmount);
+            var AdditionalOFee = fees.Where(item => item.FeeType.ToLower() == "other").Sum(item => item.FeeAmount);
 
             //Remove all additional existing fee first before adding;
             for (int i = 0; i <= dgFees.Rows.Count - 1; i++)
@@ -555,7 +565,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
             else
             {
-                param_sysem = new ReportParameter("sysem", string.Concat("A.Y : ",Utilties.GetActiveSchoolSemesterInfo().ToUpper()," ", Utilties.GetActiveSchoolYearInfo().ToString()));
+                param_sysem = new ReportParameter("sysem", string.Concat("A.Y : ", Utilties.GetActiveSchoolSemesterInfo().ToUpper(), " ", Utilties.GetActiveSchoolYearInfo().ToString()));
             }
 
             List<ReportParameter> reportParameters = new List<ReportParameter>();
@@ -638,8 +648,21 @@ namespace COLM_SYSTEM.Assessment_Folder
                 //if click the additional link
                 if (e.ColumnIndex == clmAdditionalFee.Index)
                 {
-                    List<SubjectSettedAddtionalFee> additionalFees = (List<SubjectSettedAddtionalFee>)dgSubjects.Rows[e.RowIndex].Tag;
-                    frm_assessment_additional_fee_viewer frm = new frm_assessment_additional_fee_viewer(dgSubjects.Rows[e.RowIndex].Cells["clmSubjectDesc"].Value.ToString(), additionalFees);
+                    string SubjCode = dgSubjects.Rows[e.RowIndex].Cells["clmSubjectDesc"].Value.ToString();
+                    List<SubjectSettedAddtionalFee> additionalFees = new List<SubjectSettedAddtionalFee>();
+                    var tagfees = dgSubjects.Rows[e.RowIndex].Tag as List<AssessmentSubjectAdditionalFee>;
+                    foreach (var item in tagfees)
+                    {
+                        SubjectSettedAddtionalFee fee = new SubjectSettedAddtionalFee()
+                        {
+                            AdditionalFeeID = item.AdditionalFeeID,
+                            FeeDescription = item.FeeDscription,
+                            Amount = item.FeeAmount,
+                            FeeType = item.FeeType
+                        };
+                        additionalFees.Add(fee);
+                    }
+                    frm_assessment_additional_fee_viewer frm = new frm_assessment_additional_fee_viewer(SubjCode, additionalFees);
                     frm.StartPosition = FormStartPosition.CenterScreen;
                     frm.ShowDialog();
                 }
@@ -783,34 +806,10 @@ namespace COLM_SYSTEM.Assessment_Folder
                 {
                     SubjectPriceID = Convert.ToInt16(item.Cells["clmSubjPriceID"].Value),
                     SubjectFee = Convert.ToDouble(item.Cells["clmSubjectPrice"].Value),
-                    ScheduleID = Convert.ToInt16(item.Cells["clmScheduleID"].Value)
+                    ScheduleID = Convert.ToInt16(item.Cells["clmScheduleID"].Value),
+                    AdditionalFees = item.Tag as List<AssessmentSubjectAdditionalFee>
                 };
                 assessmentSubjects.Add(subject);
-            }
-
-            //put data into additional subject fees           
-            List<SubjectSettedAddtionalFee> subjectSettedAdditionalFees = new List<SubjectSettedAddtionalFee>();
-            foreach (DataGridViewRow item in dgSubjects.Rows)
-            {
-                //Each subject will have a list of additional fee
-                //loop on it then store it into fees
-                foreach (SubjectSettedAddtionalFee fee in (List<SubjectSettedAddtionalFee>)item.Tag)
-                {
-                    subjectSettedAdditionalFees.Add(fee);
-                }
-            }
-
-            List<AssessmentSubjectAdditionalFee> assessmentAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
-            foreach (var item in subjectSettedAdditionalFees)
-            {
-                AssessmentSubjectAdditionalFee additionalFee = new AssessmentSubjectAdditionalFee()
-                {
-                    AdditionalFeeID = item.AdditionalFeeID,
-                    CurriculumSubjectID = item.CurriculumSubjectID,
-                    FeeDscription = item.FeeDescription,
-                    FeeAmount = item.Amount
-                };
-                assessmentAdditionalFees.Add(additionalFee);
             }
 
             //put data into fees
@@ -861,7 +860,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 Summary = assessmentSummary,
                 Subjects = assessmentSubjects,
-                AdditionalFees = assessmentAdditionalFees,
                 Fees = assessmentfees,
                 Discounts = assessmentDiscounts,
                 Breakdown = assessmentBreakDowns
@@ -929,6 +927,13 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             StudentInfo student = StudentInfo.GetStudent(registeredStudent.StudentID);
             frm_assessment_old_peeker frm = new frm_assessment_old_peeker(student.Lastname, student.Firstname);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frm_assessment_subject_browser frm = new frm_assessment_subject_browser(registeredStudent);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

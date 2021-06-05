@@ -41,7 +41,6 @@ namespace COLM_SYSTEM
         {
             InitializeComponent();
             lblAccountName.Text = Utilties.user.AccountName;
-            lblPosition.Text = Utilties.user.AccountPosition;
         }
 
         private void sUBJECTSToolStripMenuItem_Click(object sender, EventArgs e)

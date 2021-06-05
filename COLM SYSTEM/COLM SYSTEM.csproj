@@ -244,6 +244,12 @@
     <Compile Include="Fees Folder\frm_set_subject_amount.Designer.cs">
       <DependentUpon>frm_set_subject_amount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fees Folder\frm_tuition_entry_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fees Folder\frm_tuition_entry_1.Designer.cs">
+      <DependentUpon>frm_tuition_entry_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fees Folder\frm_tuition_entry_additional_fee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -413,11 +419,11 @@
     <Compile Include="Subject Folder\frm_subject_entry.Designer.cs">
       <DependentUpon>frm_subject_entry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fees Folder\frm_tuition_entry.cs">
+    <Compile Include="Fees Folder\frm_tuition_entry_2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fees Folder\frm_tuition_entry.Designer.cs">
-      <DependentUpon>frm_tuition_entry.cs</DependentUpon>
+    <Compile Include="Fees Folder\frm_tuition_entry_2.Designer.cs">
+      <DependentUpon>frm_tuition_entry_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Subject Folder\uc_subject_list.cs">
       <SubType>UserControl</SubType>
@@ -442,6 +448,12 @@
     </Compile>
     <Compile Include="User Folder\frm_user_entry.Designer.cs">
       <DependentUpon>frm_user_entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Folder\uc_users_lists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Folder\uc_users_lists.Designer.cs">
+      <DependentUpon>uc_users_lists.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilties.cs" />
     <Compile Include="Program.cs" />
@@ -530,6 +542,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\frm_set_subject_amount.resx">
       <DependentUpon>frm_set_subject_amount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fees Folder\frm_tuition_entry_1.resx">
+      <DependentUpon>frm_tuition_entry_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\frm_tuition_entry_additional_fee.resx">
       <DependentUpon>frm_tuition_entry_additional_fee.cs</DependentUpon>
@@ -634,8 +649,8 @@
     <EmbeddedResource Include="Subject Folder\frm_subject_entry.resx">
       <DependentUpon>frm_subject_entry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fees Folder\frm_tuition_entry.resx">
-      <DependentUpon>frm_tuition_entry.cs</DependentUpon>
+    <EmbeddedResource Include="Fees Folder\frm_tuition_entry_2.resx">
+      <DependentUpon>frm_tuition_entry_2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subject Folder\uc_subject_list.resx">
       <DependentUpon>uc_subject_list.cs</DependentUpon>
@@ -648,6 +663,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Folder\frm_user_entry.resx">
       <DependentUpon>frm_user_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Folder\uc_users_lists.resx">
+      <DependentUpon>uc_users_lists.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Assessment Folder\DataSets\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
