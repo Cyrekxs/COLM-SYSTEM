@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
@@ -47,13 +46,13 @@
             this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTotalDue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssessor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssessmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPayment = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.clmEnroll = new System.Windows.Forms.DataGridViewLinkColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +99,7 @@
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(145, 23);
             this.cmbEducationLevel.TabIndex = 4;
+            this.cmbEducationLevel.SelectedIndexChanged += new System.EventHandler(this.cmbEducationLevel_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -141,8 +141,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -156,13 +156,13 @@
             this.clmEducationLevel,
             this.clmCourseStrand,
             this.clmYearLevel,
+            this.clmStatus,
             this.clmTotalDue,
             this.clmPaid,
             this.clmBalance,
             this.clmAssessor,
             this.clmAssessmentDate,
-            this.clmPayment,
-            this.clmEnroll});
+            this.clmPayment});
             this.dataGridView1.Location = new System.Drawing.Point(7, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -221,28 +221,35 @@
             this.clmYearLevel.ReadOnly = true;
             this.clmYearLevel.Width = 85;
             // 
+            // clmStatus
+            // 
+            this.clmStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmStatus.HeaderText = "Enrollment Status";
+            this.clmStatus.Name = "clmStatus";
+            this.clmStatus.Width = 118;
+            // 
             // clmTotalDue
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmTotalDue.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmTotalDue.HeaderText = "Total Due";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmTotalDue.DefaultCellStyle = dataGridViewCellStyle10;
+            this.clmTotalDue.HeaderText = "Amount Due";
             this.clmTotalDue.Name = "clmTotalDue";
             this.clmTotalDue.ReadOnly = true;
             this.clmTotalDue.Width = 85;
             // 
             // clmPaid
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmPaid.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmPaid.HeaderText = "Total Paid";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmPaid.DefaultCellStyle = dataGridViewCellStyle11;
+            this.clmPaid.HeaderText = "Credit";
             this.clmPaid.Name = "clmPaid";
             this.clmPaid.ReadOnly = true;
             // 
             // clmBalance
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBalance.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clmBalance.HeaderText = "Balance";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBalance.DefaultCellStyle = dataGridViewCellStyle12;
+            this.clmBalance.HeaderText = "Receivables";
             this.clmBalance.Name = "clmBalance";
             this.clmBalance.ReadOnly = true;
             // 
@@ -265,24 +272,12 @@
             // clmPayment
             // 
             this.clmPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmPayment.HeaderText = "Payment";
+            this.clmPayment.HeaderText = "Account";
             this.clmPayment.Name = "clmPayment";
             this.clmPayment.ReadOnly = true;
-            this.clmPayment.Text = "Enter";
+            this.clmPayment.Text = "View";
             this.clmPayment.UseColumnTextForButtonValue = true;
-            this.clmPayment.Width = 60;
-            // 
-            // clmEnroll
-            // 
-            this.clmEnroll.ActiveLinkColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmEnroll.DefaultCellStyle = dataGridViewCellStyle5;
-            this.clmEnroll.HeaderText = "Enrollment Status";
-            this.clmEnroll.LinkColor = System.Drawing.Color.DarkRed;
-            this.clmEnroll.Name = "clmEnroll";
-            this.clmEnroll.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmEnroll.VisitedLinkColor = System.Drawing.Color.DarkRed;
-            this.clmEnroll.Width = 120;
+            this.clmPayment.Width = 57;
             // 
             // uc_payers
             // 
@@ -316,12 +311,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCourseStrand;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTotalDue;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessor;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentDate;
         private System.Windows.Forms.DataGridViewButtonColumn clmPayment;
-        private System.Windows.Forms.DataGridViewLinkColumn clmEnroll;
     }
 }

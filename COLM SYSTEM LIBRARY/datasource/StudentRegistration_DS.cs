@@ -209,6 +209,25 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 return false;
         }
 
+        public static bool HasPayment(int RegistrationID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.payment WHERE RegisteredStudentID = @RegisteredID", conn))
+                {
+                    comm.Parameters.AddWithValue("@RegisteredID", RegistrationID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        if (reader.HasRows == true)
+                            return true;
+                        else
+                            return false;
+                    }
+                }
+            }
+        }
+
         public static int DeleteRegistration(int RegistrationID)
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))

@@ -40,5 +40,10 @@ namespace COLM_SYSTEM_LIBRARY.model
             else
                 return StudentRegistration_DS.DeleteRegistration(RegistrationID);
         }
+
+        public static bool HasPayment(int RegistrationID)
+        {
+            return StudentRegistration_DS.HasPayment(RegistrationID);
+        }
     }
 }

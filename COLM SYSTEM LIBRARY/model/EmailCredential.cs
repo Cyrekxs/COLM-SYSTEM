@@ -95,7 +95,7 @@ namespace COLM_SYSTEM_LIBRARY.model
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.mailer", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.emailer", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {

@@ -20,7 +20,8 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             foreach (var item in schedules)
             {
-                dataGridView1.Rows.Add(item.ScheduleID, item.Day, item.TimeIn, item.TimeOut, item.Room, item.FacultyName);
+                YearLevel yearLevel = YearLevel.GetYearLevel(item.YearLevelID);
+                dataGridView1.Rows.Add(item.ScheduleID, yearLevel.CourseStrand, yearLevel.YearLvl, item.Day, item.TimeIn, item.TimeOut, item.Room, item.FacultyName);
             }
         }
 

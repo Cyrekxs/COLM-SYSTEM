@@ -20,9 +20,19 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Enrolled_DS.GetEnrolledStudents();
         }
 
+        public static List<EnrolledStudent> GetEnrolledStudents(int SchoolYearID,int SemesterID)
+        {
+            return Enrolled_DS.GetEnrolledStudents(SchoolYearID,SemesterID);
+        }
+
         public static int EnrollStudent(EnrolledStudent student)
         {
             return Enrolled_DS.EnrollStudent(student);
+        }
+
+        public static bool IsStudentEnrolled(int RegisteredStudentID,int SchoolYearID, int SemesterID)
+        {
+            return Enrolled_DS.IsStudentEnrolled(RegisteredStudentID,SchoolYearID,SemesterID);
         }
     }
 }

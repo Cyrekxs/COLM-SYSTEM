@@ -15,6 +15,8 @@ namespace COLM_SYSTEM.Assessment_Folder
         StudentRegistered registeredStudent = new StudentRegistered();
         YearLevel studentYearLevel = new YearLevel();
         private List<Discount> AddedDiscounts = new List<Discount>();
+        private int SelectedSubjectRow = -1;
+
 
         //for new assessment entry
         public frm_assessment_entry_2(StudentRegistered student, YearLevel yearLevel)
@@ -94,7 +96,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 //get the last assessment schedule by subject
                 Schedule schedule = Schedule.GetScheduleByScheduleID(assessment.Subjects.Where(r => r.SubjectPriceID == item.SubjPriceID).Select(r => r.ScheduleID).FirstOrDefault());
                 //display data into datagridview
-                dgSubjects.Rows.Add(item.CurriculumSubjID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType, schedule.ScheduleID, schedule.ScheduleInfo);
+                dgSubjects.Rows.Add(item.SubjPriceID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType, schedule.ScheduleID, schedule.ScheduleInfo);
 
                 List<AssessmentSubjectAdditionalFee> subjectAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
                 foreach (var fee in item.AdditionalFees)
@@ -190,7 +192,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             //Display Tuition Fee
             foreach (var item in subjects)
             {
-                dgSubjects.Rows.Add(item.CurriculumSubjID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPriceID, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType);
+                dgSubjects.Rows.Add(item.SubjPriceID, item.SubjID, item.SubjCode, item.SubjDesc,  item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType);
                 List<AssessmentSubjectAdditionalFee> subjectAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
                 //loop on each additional fee and convert it into AssessmentSubjectAdditionalFee for tagging
                 foreach (var fee in item.AdditionalFees)
@@ -645,52 +647,10 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             try
             {
-                //if click the additional link
-                if (e.ColumnIndex == clmAdditionalFee.Index)
+                if (e.ColumnIndex == clmAction.Index)
                 {
-                    string SubjCode = dgSubjects.Rows[e.RowIndex].Cells["clmSubjectDesc"].Value.ToString();
-                    List<SubjectSettedAddtionalFee> additionalFees = new List<SubjectSettedAddtionalFee>();
-                    var tagfees = dgSubjects.Rows[e.RowIndex].Tag as List<AssessmentSubjectAdditionalFee>;
-                    foreach (var item in tagfees)
-                    {
-                        SubjectSettedAddtionalFee fee = new SubjectSettedAddtionalFee()
-                        {
-                            AdditionalFeeID = item.AdditionalFeeID,
-                            FeeDescription = item.FeeDscription,
-                            Amount = item.FeeAmount,
-                            FeeType = item.FeeType
-                        };
-                        additionalFees.Add(fee);
-                    }
-                    frm_assessment_additional_fee_viewer frm = new frm_assessment_additional_fee_viewer(SubjCode, additionalFees);
-                    frm.StartPosition = FormStartPosition.CenterScreen;
-                    frm.ShowDialog();
-                }
-                //if click the picking schedule link
-                else if (e.ColumnIndex == clmPickSched.Index)
-                {
-                    int SubjectID = Convert.ToInt16(dgSubjects.Rows[e.RowIndex].Cells["clmSubjID"].Value);
-                    using (frm_assessment_schedule_browser frm = new frm_assessment_schedule_browser(SubjectID))
-                    {
-                        frm.StartPosition = FormStartPosition.CenterParent;
-                        Schedule schedule = new Schedule();
-                        if (frm.ShowDialog() == DialogResult.OK)
-                        {
-                            schedule = frm.picked_sched;
-                            dgSubjects.Rows[e.RowIndex].Cells["clmScheduleID"].Value = schedule.ScheduleID;
-                            dgSubjects.Rows[e.RowIndex].Cells["clmSchedule"].Value = schedule.ScheduleInfo;
-                        }
-                    }
-
-                }
-                else if (e.ColumnIndex == clmSubjectRemove.Index)
-                {
-                    //other code here..
-                    if (MessageBox.Show("Are you sure you want to remove this subject?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        dgSubjects.Rows.Remove(dgSubjects.Rows[e.RowIndex]);
-                        CalculateFeeSummary();
-                    }
+                    SelectedSubjectRow = e.RowIndex;
+                    contextMenuStrip1.Show(new System.Drawing.Point(Cursor.Position.X, Cursor.Position.Y));
                 }
             }
             catch (Exception)
@@ -933,9 +893,56 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frm_assessment_subject_browser frm = new frm_assessment_subject_browser(registeredStudent);
+            frm_assessment_subject_browser frm = new frm_assessment_subject_browser(registeredStudent,dgSubjects);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+        }
+
+        private void viewAdditionalFeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string SubjCode = dgSubjects.Rows[SelectedSubjectRow].Cells["clmSubjectDesc"].Value.ToString();
+            List<SubjectSettedAddtionalFee> additionalFees = new List<SubjectSettedAddtionalFee>();
+            var tagfees = dgSubjects.Rows[SelectedSubjectRow].Tag as List<AssessmentSubjectAdditionalFee>;
+            foreach (var item in tagfees)
+            {
+                SubjectSettedAddtionalFee fee = new SubjectSettedAddtionalFee()
+                {
+                    AdditionalFeeID = item.AdditionalFeeID,
+                    FeeDescription = item.FeeDscription,
+                    Amount = item.FeeAmount,
+                    FeeType = item.FeeType
+                };
+                additionalFees.Add(fee);
+            }
+            frm_assessment_additional_fee_viewer frm = new frm_assessment_additional_fee_viewer(SubjCode, additionalFees);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int SubjectID = Convert.ToInt16(dgSubjects.Rows[SelectedSubjectRow].Cells["clmSubjID"].Value);
+            using (frm_assessment_schedule_browser frm = new frm_assessment_schedule_browser(SubjectID))
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                Schedule schedule = new Schedule();
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    schedule = frm.picked_sched;
+                    dgSubjects.Rows[SelectedSubjectRow].Cells["clmScheduleID"].Value = schedule.ScheduleID;
+                    dgSubjects.Rows[SelectedSubjectRow].Cells["clmSchedule"].Value = schedule.ScheduleInfo;
+                }
+            }
+        }
+
+        private void removeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //other code here..
+            if (MessageBox.Show("Are you sure you want to remove this subject?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                dgSubjects.Rows.Remove(dgSubjects.Rows[SelectedSubjectRow]);
+                CalculateFeeSummary();
+            }
         }
     }
 }

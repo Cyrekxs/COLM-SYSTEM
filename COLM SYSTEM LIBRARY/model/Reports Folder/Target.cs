@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
 {
@@ -42,6 +39,60 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
                 }
             }
             return targets;
+        }
+
+
+        public static bool HasTargetSetted(Target t)
+        {
+            bool IsExists = false;
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.targets (NOLOCK) WHERE EducationLevel = @EducationLevel AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
+                {
+                    comm.Parameters.AddWithValue("@EducationLevel", t.EducationLevel);
+                    comm.Parameters.AddWithValue("@SchoolYearID", t.SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", t.SemesterID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        if (reader.HasRows == true)
+                            IsExists = true;
+                        else
+                            IsExists = false;
+                    }
+                }
+            }
+            return IsExists;
+        }
+        public static int InsertUpdateTarget(List<Target> targets)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlTransaction t = conn.BeginTransaction())
+                {
+                    foreach (var item in targets)
+                    {
+                        bool IsExists = HasTargetSetted(item);
+                        string sqlcomm = string.Empty;
+                        if (IsExists == true)
+                            sqlcomm = "UPDATE student.targets SET Target = @Target WHERE EducationLevel = @EducationLevel AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID";
+                        else
+                            sqlcomm = "INSERT INTO student.targets VALUES (@EducationLevel,@Target,@SchoolYearID,@SemesterID)";
+
+                        using (SqlCommand comm = new SqlCommand(sqlcomm, conn, t))
+                        {
+                            comm.Parameters.AddWithValue("@Target", item.TargetCount);
+                            comm.Parameters.AddWithValue("@EducationLevel", item.EducationLevel);
+                            comm.Parameters.AddWithValue("@SchoolYearID", item.SchoolYearID);
+                            comm.Parameters.AddWithValue("@SemesterID", item.SemesterID);
+                            comm.ExecuteNonQuery();
+                        }
+                    }
+                    t.Commit();
+                }
+            }
+            return 1;
         }
     }
 }

@@ -6,6 +6,7 @@ using COLM_SYSTEM.Fees_Folder;
 using COLM_SYSTEM.Payment_Folder;
 using COLM_SYSTEM.registration;
 using COLM_SYSTEM.Registration_Folder;
+using COLM_SYSTEM.Reports_Folder;
 using COLM_SYSTEM.Section_Folder;
 using COLM_SYSTEM.Settings_Folder;
 using COLM_SYSTEM.student_information;
@@ -41,6 +42,7 @@ namespace COLM_SYSTEM
         {
             InitializeComponent();
             lblAccountName.Text = Utilties.user.AccountName;
+            DisplayControl(new UC_DashBoard());
         }
 
         private void sUBJECTSToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,7 +52,7 @@ namespace COLM_SYSTEM
 
         private void dISCOUNTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DisplayControl(new uc_discount_list());
+           
         }
 
         private void rEGISTRATIONToolStripMenuItem_Click(object sender, EventArgs e)
@@ -147,9 +149,7 @@ namespace COLM_SYSTEM
 
         private void assessmentPaymentModesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_assessment_payment_mode_list frm = new frm_assessment_payment_mode_list();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
+
         }
 
         private void facultyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -167,6 +167,39 @@ namespace COLM_SYSTEM
         private void importUsersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_online_importer_processor frm = new frm_online_importer_processor();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void miscellaneousToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_settings frm = new frm_settings();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frm_user_settings frm = new frm_user_settings();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void discountsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_discount_list());
+        }
+
+        private void assessmentPaymentModesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frm_assessment_payment_mode_list frm = new frm_assessment_payment_mode_list();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void cOLLECTIONREPORTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_collection_report frm = new frm_collection_report();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

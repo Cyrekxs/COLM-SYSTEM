@@ -346,6 +346,12 @@
     <Compile Include="Reports Folder\frm_enrollees_masterlist.Designer.cs">
       <DependentUpon>frm_enrollees_masterlist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports Folder\frm_subject_master_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports Folder\frm_subject_master_list.Designer.cs">
+      <DependentUpon>frm_subject_master_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="Section Folder\frm_browse_unlisted_subjects.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -448,6 +454,12 @@
     </Compile>
     <Compile Include="User Folder\frm_user_entry.Designer.cs">
       <DependentUpon>frm_user_entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Folder\frm_user_settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Folder\frm_user_settings.Designer.cs">
+      <DependentUpon>frm_user_settings.cs</DependentUpon>
     </Compile>
     <Compile Include="User Folder\uc_users_lists.cs">
       <SubType>UserControl</SubType>
@@ -663,6 +675,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Folder\frm_user_entry.resx">
       <DependentUpon>frm_user_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Folder\frm_user_settings.resx">
+      <DependentUpon>frm_user_settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Folder\uc_users_lists.resx">
       <DependentUpon>uc_users_lists.cs</DependentUpon>

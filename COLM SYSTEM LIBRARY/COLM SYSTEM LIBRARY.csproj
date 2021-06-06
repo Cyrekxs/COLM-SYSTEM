@@ -68,6 +68,7 @@
     <Compile Include="model\Department.cs" />
     <Compile Include="model\EmailCredential.cs" />
     <Compile Include="model\EmailModel.cs" />
+    <Compile Include="model\Payment Folder\PaymentBreakdown.cs" />
     <Compile Include="model\PaymentMode.cs" />
     <Compile Include="model\PaymentModeItem.cs" />
     <Compile Include="model\Assessment Folder\AssessmentSubjectAdditionalFee.cs" />

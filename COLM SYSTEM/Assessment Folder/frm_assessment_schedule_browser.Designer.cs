@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSubject = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.clmScheduleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTimeIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTimeOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,12 +50,16 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmScheduleID,
+            this.clmCourse,
+            this.clmYearLevel,
             this.clmDay,
             this.clmTimeIn,
             this.clmTimeOut,
@@ -102,6 +108,22 @@
             this.clmScheduleID.Name = "clmScheduleID";
             this.clmScheduleID.ReadOnly = true;
             this.clmScheduleID.Visible = false;
+            // 
+            // clmCourse
+            // 
+            this.clmCourse.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmCourse.HeaderText = "Course";
+            this.clmCourse.Name = "clmCourse";
+            this.clmCourse.ReadOnly = true;
+            this.clmCourse.Width = 70;
+            // 
+            // clmYearLevel
+            // 
+            this.clmYearLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmYearLevel.HeaderText = "Year Level";
+            this.clmYearLevel.Name = "clmYearLevel";
+            this.clmYearLevel.ReadOnly = true;
+            this.clmYearLevel.Width = 85;
             // 
             // clmDay
             // 
@@ -182,6 +204,8 @@
         private System.Windows.Forms.TextBox txtSubject;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmScheduleID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCourse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDay;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTimeOut;

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using COLM_SYSTEM.registration;
 using COLM_SYSTEM_LIBRARY.model;
-using COLM_SYSTEM.registration;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Registration_Folder
 {
@@ -82,20 +79,30 @@ namespace COLM_SYSTEM.Registration_Folder
 
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int RegistrationID = Convert.ToInt16( dataGridView1.Rows[SelectedRow].Cells["clmRegisteredStudentID"].Value);
-            bool result = StudentRegistration.HasAssessment(RegistrationID);
-            if (result == false)
+            int RegistrationID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmRegisteredStudentID"].Value);
+            bool HasPayment = StudentRegistration.HasPayment(RegistrationID);
+
+            //verify if has payment
+            if (HasPayment == true)
             {
-                if (MessageBox.Show("Are you sure you want to delete this registration? this will not be reverted","Delete Regstration?",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    int deleteResult = StudentRegistration.DeleteStudentRegistration(RegistrationID);
-                    if (deleteResult > 0)
-                        LoadRegisteredStudents();
-                }
+                MessageBox.Show("You cannot delete this student because the payment is already made!", "Cannot Delete Registration", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            //verify if has assessment
+            bool HasAssessment = StudentRegistration.HasAssessment(RegistrationID);
+            if (HasAssessment == true)
             {
                 MessageBox.Show("This student has a record on the assessment you cannot delete this registration info", "Student Has Assessment", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //delete 
+            if (MessageBox.Show("Are you sure you want to delete this registration? this will not be reverted", "Delete Regstration?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                int deleteResult = StudentRegistration.DeleteStudentRegistration(RegistrationID);
+                if (deleteResult > 0)
+                    LoadRegisteredStudents();
             }
         }
     }

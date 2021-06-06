@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clmAssessmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmRegisteredStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,8 +71,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -154,8 +154,8 @@
             // 
             // clmTotalDue
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmTotalDue.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmTotalDue.DefaultCellStyle = dataGridViewCellStyle6;
             this.clmTotalDue.HeaderText = "Total Due";
             this.clmTotalDue.Name = "clmTotalDue";
             this.clmTotalDue.ReadOnly = true;
@@ -163,8 +163,8 @@
             // 
             // clmPaymentMode
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmPaymentMode.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmPaymentMode.DefaultCellStyle = dataGridViewCellStyle7;
             this.clmPaymentMode.HeaderText = "Payment Mode";
             this.clmPaymentMode.Name = "clmPaymentMode";
             this.clmPaymentMode.ReadOnly = true;
@@ -188,8 +188,8 @@
             // 
             // clmEnrollmentStatus
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmEnrollmentStatus.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmEnrollmentStatus.DefaultCellStyle = dataGridViewCellStyle8;
             this.clmEnrollmentStatus.HeaderText = "Enrollment Status";
             this.clmEnrollmentStatus.Name = "clmEnrollmentStatus";
             this.clmEnrollmentStatus.ReadOnly = true;
@@ -258,6 +258,7 @@
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(145, 23);
             this.cmbEducationLevel.TabIndex = 4;
+            this.cmbEducationLevel.SelectedIndexChanged += new System.EventHandler(this.cmbEducationLevel_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -315,19 +316,22 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.emailStudentToolStripMenuItem,
             this.printAssessmentToolStripMenuItem,
             this.reAssessToolStripMenuItem,
             this.removeAssessmentToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(183, 92);
+            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.contextMenuStrip1.ShowImageMargin = false;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(158, 92);
             // 
             // emailStudentToolStripMenuItem
             // 
             this.emailStudentToolStripMenuItem.ForeColor = System.Drawing.Color.Green;
             this.emailStudentToolStripMenuItem.Name = "emailStudentToolStripMenuItem";
-            this.emailStudentToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.emailStudentToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.emailStudentToolStripMenuItem.Text = "Email Student";
             this.emailStudentToolStripMenuItem.Click += new System.EventHandler(this.emailStudentToolStripMenuItem_Click);
             // 
@@ -335,7 +339,7 @@
             // 
             this.printAssessmentToolStripMenuItem.ForeColor = System.Drawing.Color.Green;
             this.printAssessmentToolStripMenuItem.Name = "printAssessmentToolStripMenuItem";
-            this.printAssessmentToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.printAssessmentToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.printAssessmentToolStripMenuItem.Text = "Print Assessment";
             this.printAssessmentToolStripMenuItem.Click += new System.EventHandler(this.printAssessmentToolStripMenuItem_Click);
             // 
@@ -343,7 +347,7 @@
             // 
             this.reAssessToolStripMenuItem.ForeColor = System.Drawing.Color.RoyalBlue;
             this.reAssessToolStripMenuItem.Name = "reAssessToolStripMenuItem";
-            this.reAssessToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.reAssessToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.reAssessToolStripMenuItem.Text = "View / Reassess";
             this.reAssessToolStripMenuItem.Click += new System.EventHandler(this.reAssessToolStripMenuItem_Click);
             // 
@@ -351,7 +355,7 @@
             // 
             this.removeAssessmentToolStripMenuItem.ForeColor = System.Drawing.Color.Firebrick;
             this.removeAssessmentToolStripMenuItem.Name = "removeAssessmentToolStripMenuItem";
-            this.removeAssessmentToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.removeAssessmentToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.removeAssessmentToolStripMenuItem.Text = "Remove Assessment";
             this.removeAssessmentToolStripMenuItem.Click += new System.EventHandler(this.removeAssessmentToolStripMenuItem_Click);
             // 

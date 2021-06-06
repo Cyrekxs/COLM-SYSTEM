@@ -114,6 +114,21 @@ namespace COLM_SYSTEM_LIBRARY.model
             return 0;
         }
 
+        public static int UpdateUser(User user)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("UPDATE settings.users SET Username = @Username, Password = @Password WHERE UserID = @UserID", conn))
+                {
+                    comm.Parameters.AddWithValue("@UserID", user.UserID);
+                    comm.Parameters.AddWithValue("@Username", user.Username);
+                    comm.Parameters.AddWithValue("@Password", user.Password);
+                    return comm.ExecuteNonQuery();
+                }
+            }
+        }
+
         public static int InsertUpdateEmail(User user)
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))

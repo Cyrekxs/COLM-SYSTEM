@@ -69,23 +69,24 @@
             this.mISCELLANEOUSFEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aDDITIONALFEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dEFAULTFEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dISCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sECTIONSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aSSESSMENTTYPEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.assessmentPaymentModesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aDMINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.uC_DashBoard1 = new COLM_SYSTEM.UC_DashBoard();
+            this.assessmentPaymentModesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.discountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.yearLevelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cOLLECTIONREPORTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.PanelMain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -250,6 +251,7 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label14
             // 
@@ -390,12 +392,11 @@
             // 
             // PanelMain
             // 
-            this.PanelMain.Controls.Add(this.uC_DashBoard1);
             this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMain.Location = new System.Drawing.Point(0, 96);
             this.PanelMain.Name = "PanelMain";
             this.PanelMain.Size = new System.Drawing.Size(1060, 685);
-            this.PanelMain.TabIndex = 9;
+            this.PanelMain.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -472,7 +473,6 @@
             this.sUBJECTSToolStripMenuItem,
             this.cURRICULUMToolStripMenuItem,
             this.fEESToolStripMenuItem,
-            this.dISCOUNTToolStripMenuItem,
             this.sECTIONSToolStripMenuItem,
             this.aSSESSMENTTYPEToolStripMenuItem});
             this.sETTINGSToolStripMenuItem.Name = "sETTINGSToolStripMenuItem";
@@ -498,7 +498,9 @@
             this.fEESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mISCELLANEOUSFEESToolStripMenuItem,
             this.aDDITIONALFEEToolStripMenuItem,
-            this.dEFAULTFEESToolStripMenuItem});
+            this.dEFAULTFEESToolStripMenuItem,
+            this.assessmentPaymentModesToolStripMenuItem1,
+            this.discountsToolStripMenuItem});
             this.fEESToolStripMenuItem.Name = "fEESToolStripMenuItem";
             this.fEESToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.fEESToolStripMenuItem.Text = "Fees";
@@ -524,13 +526,6 @@
             this.dEFAULTFEESToolStripMenuItem.Text = "Default Fee";
             this.dEFAULTFEESToolStripMenuItem.Click += new System.EventHandler(this.dEFAULTFEESToolStripMenuItem_Click);
             // 
-            // dISCOUNTToolStripMenuItem
-            // 
-            this.dISCOUNTToolStripMenuItem.Name = "dISCOUNTToolStripMenuItem";
-            this.dISCOUNTToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.dISCOUNTToolStripMenuItem.Text = "Discounts";
-            this.dISCOUNTToolStripMenuItem.Click += new System.EventHandler(this.dISCOUNTToolStripMenuItem_Click);
-            // 
             // sECTIONSToolStripMenuItem
             // 
             this.sECTIONSToolStripMenuItem.Name = "sECTIONSToolStripMenuItem";
@@ -541,8 +536,10 @@
             // aSSESSMENTTYPEToolStripMenuItem
             // 
             this.aSSESSMENTTYPEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.yearLevelsToolStripMenuItem,
             this.facultyToolStripMenuItem,
-            this.assessmentPaymentModesToolStripMenuItem});
+            this.miscellaneousToolStripMenuItem,
+            this.usersToolStripMenuItem});
             this.aSSESSMENTTYPEToolStripMenuItem.Name = "aSSESSMENTTYPEToolStripMenuItem";
             this.aSSESSMENTTYPEToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.aSSESSMENTTYPEToolStripMenuItem.Text = "Management";
@@ -554,17 +551,18 @@
             this.facultyToolStripMenuItem.Text = "Faculty";
             this.facultyToolStripMenuItem.Click += new System.EventHandler(this.facultyToolStripMenuItem_Click);
             // 
-            // assessmentPaymentModesToolStripMenuItem
+            // miscellaneousToolStripMenuItem
             // 
-            this.assessmentPaymentModesToolStripMenuItem.Name = "assessmentPaymentModesToolStripMenuItem";
-            this.assessmentPaymentModesToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.assessmentPaymentModesToolStripMenuItem.Text = "Assessment Payment Modes";
-            this.assessmentPaymentModesToolStripMenuItem.Click += new System.EventHandler(this.assessmentPaymentModesToolStripMenuItem_Click);
+            this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
+            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
+            this.miscellaneousToolStripMenuItem.Click += new System.EventHandler(this.miscellaneousToolStripMenuItem_Click);
             // 
             // rEPORTSToolStripMenuItem
             // 
             this.rEPORTSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mASTERLISTToolStripMenuItem});
+            this.mASTERLISTToolStripMenuItem,
+            this.cOLLECTIONREPORTToolStripMenuItem});
             this.rEPORTSToolStripMenuItem.Name = "rEPORTSToolStripMenuItem";
             this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.rEPORTSToolStripMenuItem.Text = "REPORTS";
@@ -572,8 +570,8 @@
             // mASTERLISTToolStripMenuItem
             // 
             this.mASTERLISTToolStripMenuItem.Name = "mASTERLISTToolStripMenuItem";
-            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.mASTERLISTToolStripMenuItem.Text = "MASTER LIST";
+            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mASTERLISTToolStripMenuItem.Text = "Masterlist";
             // 
             // cLOSEALLFORMSToolStripMenuItem
             // 
@@ -585,17 +583,10 @@
             // aDMINToolStripMenuItem
             // 
             this.aDMINToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usersToolStripMenuItem,
             this.importUsersToolStripMenuItem});
             this.aDMINToolStripMenuItem.Name = "aDMINToolStripMenuItem";
             this.aDMINToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.aDMINToolStripMenuItem.Text = "ADMIN";
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.usersToolStripMenuItem.Text = "Users";
             // 
             // importUsersToolStripMenuItem
             // 
@@ -609,14 +600,38 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // uC_DashBoard1
+            // assessmentPaymentModesToolStripMenuItem1
             // 
-            this.uC_DashBoard1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_DashBoard1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_DashBoard1.Location = new System.Drawing.Point(0, 0);
-            this.uC_DashBoard1.Name = "uC_DashBoard1";
-            this.uC_DashBoard1.Size = new System.Drawing.Size(1060, 685);
-            this.uC_DashBoard1.TabIndex = 0;
+            this.assessmentPaymentModesToolStripMenuItem1.Name = "assessmentPaymentModesToolStripMenuItem1";
+            this.assessmentPaymentModesToolStripMenuItem1.Size = new System.Drawing.Size(225, 22);
+            this.assessmentPaymentModesToolStripMenuItem1.Text = "Assessment Payment Modes";
+            this.assessmentPaymentModesToolStripMenuItem1.Click += new System.EventHandler(this.assessmentPaymentModesToolStripMenuItem1_Click);
+            // 
+            // discountsToolStripMenuItem
+            // 
+            this.discountsToolStripMenuItem.Name = "discountsToolStripMenuItem";
+            this.discountsToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.discountsToolStripMenuItem.Text = "Discounts";
+            this.discountsToolStripMenuItem.Click += new System.EventHandler(this.discountsToolStripMenuItem_Click);
+            // 
+            // yearLevelsToolStripMenuItem
+            // 
+            this.yearLevelsToolStripMenuItem.Name = "yearLevelsToolStripMenuItem";
+            this.yearLevelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.yearLevelsToolStripMenuItem.Text = "Year Levels";
+            // 
+            // cOLLECTIONREPORTToolStripMenuItem
+            // 
+            this.cOLLECTIONREPORTToolStripMenuItem.Name = "cOLLECTIONREPORTToolStripMenuItem";
+            this.cOLLECTIONREPORTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cOLLECTIONREPORTToolStripMenuItem.Text = "Collection Report";
+            this.cOLLECTIONREPORTToolStripMenuItem.Click += new System.EventHandler(this.cOLLECTIONREPORTToolStripMenuItem_Click);
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem.Text = "Users";
             // 
             // frm_main
             // 
@@ -642,7 +657,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.PanelMain.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -673,7 +687,6 @@
         private System.Windows.Forms.ToolStripMenuItem rEGISTRATIONToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aSSESSMENTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sETTINGSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dISCOUNTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fEESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sUBJECTSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEPORTSToolStripMenuItem;
@@ -696,13 +709,17 @@
         private System.Windows.Forms.ToolStripMenuItem dEFAULTFEESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aSSESSMENTTYPEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aDMINToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem onlineApplicantsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facultyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem assessmentPaymentModesToolStripMenuItem;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem importUsersToolStripMenuItem;
         private UC_DashBoard uC_DashBoard1;
+        private System.Windows.Forms.ToolStripMenuItem miscellaneousToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem assessmentPaymentModesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem discountsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem yearLevelsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cOLLECTIONREPORTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
     }
 }

@@ -38,9 +38,14 @@ namespace COLM_SYSTEM_LIBRARY.model
             return SubjectSetted_DS.RemoveSubject(SubjectPriceID);
         }
 
-        public static List<SubjectSetted> GetCurriculumSubjects(int CurriculumID, int YearLevelID, int SemesterID = 0)
+        public static List<SubjectSetted> GetCurriculumSubjects(int CurriculumID, int YearLevelID, int SemesterID)
         {
             return SubjectSetted_DS.GetCurriculumSubjects(CurriculumID, YearLevelID, SemesterID);
+        }
+
+        public static List<SubjectSetted> GetAvailableSubjects(int SubjectID,int SchoolYearID,int SemesterID)
+        {
+            return SubjectSetted_DS.GetAvailableSubjects(SubjectID,SchoolYearID,SemesterID);
         }
 
         public static List<SubjectSetted> GetCurriculumSubjects(int CurriculumID)

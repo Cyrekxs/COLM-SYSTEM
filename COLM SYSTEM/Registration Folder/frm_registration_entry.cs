@@ -21,6 +21,7 @@ namespace COLM_SYSTEM.registration
         private void LoadCurriculums(string EducationLevel)
         {
             _Curriculums = Curriculum.GetCurriculums(EducationLevel);
+            _Curriculums = _Curriculums.OrderBy(item => item.Code).ToList();
             cmbCurriculum.Items.Clear();
             foreach (var item in _Curriculums)
             {
@@ -81,11 +82,6 @@ namespace COLM_SYSTEM.registration
         }
 
         private void cmbCurriculum_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
         {
 
         }

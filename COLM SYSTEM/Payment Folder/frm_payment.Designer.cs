@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtSection = new System.Windows.Forms.TextBox();
@@ -94,6 +94,7 @@
             this.clmPaymentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.linkMarkEnrolled = new System.Windows.Forms.LinkLabel();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -255,6 +256,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.SlateGray;
+            this.panel8.Controls.Add(this.linkMarkEnrolled);
             this.panel8.Controls.Add(this.button6);
             this.panel8.Controls.Add(this.label19);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
@@ -344,9 +346,9 @@
             this.label6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(708, 295);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 15);
+            this.label6.Size = new System.Drawing.Size(76, 15);
             this.label6.TabIndex = 23;
-            this.label6.Text = "TOTAL BALANCE";
+            this.label6.Text = "RECIEVABLES";
             // 
             // txtTotalBalanceTuition
             // 
@@ -363,8 +365,8 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(168, 295);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(168, 306);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 30);
             this.button1.TabIndex = 22;
@@ -377,8 +379,8 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(9, 295);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(9, 306);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(153, 30);
             this.button2.TabIndex = 21;
@@ -392,8 +394,8 @@
             this.dgBreakdown.AllowUserToDeleteRows = false;
             this.dgBreakdown.AllowUserToResizeColumns = false;
             this.dgBreakdown.AllowUserToResizeRows = false;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgBreakdown.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgBreakdown.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgBreakdown.BackgroundColor = System.Drawing.Color.White;
             this.dgBreakdown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgBreakdown.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -420,8 +422,8 @@
             // clmAmount
             // 
             this.clmAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmAmount.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmAmount.DefaultCellStyle = dataGridViewCellStyle17;
             this.clmAmount.HeaderText = "Amount";
             this.clmAmount.Name = "clmAmount";
             this.clmAmount.ReadOnly = true;
@@ -431,8 +433,8 @@
             // clmBalanceTuition
             // 
             this.clmBalanceTuition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBalanceTuition.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBalanceTuition.DefaultCellStyle = dataGridViewCellStyle18;
             this.clmBalanceTuition.HeaderText = "Balance";
             this.clmBalanceTuition.Name = "clmBalanceTuition";
             this.clmBalanceTuition.ReadOnly = true;
@@ -472,7 +474,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(9, 295);
+            this.button5.Location = new System.Drawing.Point(8, 306);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(153, 30);
             this.button5.TabIndex = 33;
@@ -487,7 +489,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(327, 295);
+            this.button3.Location = new System.Drawing.Point(326, 306);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(153, 30);
             this.button3.TabIndex = 32;
@@ -501,7 +503,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(168, 295);
+            this.button4.Location = new System.Drawing.Point(167, 306);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(153, 30);
             this.button4.TabIndex = 31;
@@ -553,8 +555,8 @@
             this.dgAdditionalFees.AllowUserToDeleteRows = false;
             this.dgAdditionalFees.AllowUserToResizeColumns = false;
             this.dgAdditionalFees.AllowUserToResizeRows = false;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgAdditionalFees.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgAdditionalFees.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgAdditionalFees.BackgroundColor = System.Drawing.Color.White;
             this.dgAdditionalFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAdditionalFees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -589,8 +591,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewTextBoxColumn2.HeaderText = "Amount";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -598,8 +600,8 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column1.HeaderText = "Payment";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -607,8 +609,8 @@
             // 
             // clmBalanceAdditional
             // 
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBalanceAdditional.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBalanceAdditional.DefaultCellStyle = dataGridViewCellStyle15;
             this.clmBalanceAdditional.HeaderText = "Balance";
             this.clmBalanceAdditional.Name = "clmBalanceAdditional";
             this.clmBalanceAdditional.ReadOnly = true;
@@ -638,8 +640,8 @@
             this.dgPaymentHistory.AllowUserToDeleteRows = false;
             this.dgPaymentHistory.AllowUserToResizeColumns = false;
             this.dgPaymentHistory.AllowUserToResizeRows = false;
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgPaymentHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgPaymentHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.dgPaymentHistory.BackgroundColor = System.Drawing.Color.White;
             this.dgPaymentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgPaymentHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -675,8 +677,8 @@
             // 
             // clmPaymentCategory
             // 
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmPaymentCategory.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmPaymentCategory.DefaultCellStyle = dataGridViewCellStyle20;
             this.clmPaymentCategory.HeaderText = "Payment Category";
             this.clmPaymentCategory.Name = "clmPaymentCategory";
             this.clmPaymentCategory.ReadOnly = true;
@@ -684,8 +686,8 @@
             // 
             // clmFeeCategory
             // 
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmFeeCategory.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmFeeCategory.DefaultCellStyle = dataGridViewCellStyle21;
             this.clmFeeCategory.HeaderText = "Fee Category";
             this.clmFeeCategory.Name = "clmFeeCategory";
             this.clmFeeCategory.ReadOnly = true;
@@ -693,8 +695,8 @@
             // 
             // clmPaymentAmount
             // 
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmPaymentAmount.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmPaymentAmount.DefaultCellStyle = dataGridViewCellStyle22;
             this.clmPaymentAmount.HeaderText = "Amount";
             this.clmPaymentAmount.Name = "clmPaymentAmount";
             this.clmPaymentAmount.ReadOnly = true;
@@ -723,6 +725,19 @@
             this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.clmAction.Text = "Cancel";
             this.clmAction.Width = 48;
+            // 
+            // linkMarkEnrolled
+            // 
+            this.linkMarkEnrolled.AutoSize = true;
+            this.linkMarkEnrolled.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkMarkEnrolled.LinkColor = System.Drawing.Color.DarkBlue;
+            this.linkMarkEnrolled.Location = new System.Drawing.Point(652, 9);
+            this.linkMarkEnrolled.Name = "linkMarkEnrolled";
+            this.linkMarkEnrolled.Size = new System.Drawing.Size(144, 15);
+            this.linkMarkEnrolled.TabIndex = 27;
+            this.linkMarkEnrolled.TabStop = true;
+            this.linkMarkEnrolled.Text = "Mark Student as Enrolled";
+            this.linkMarkEnrolled.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // frm_payment
             // 
@@ -812,5 +827,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBalanceAdditional;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmCheckToAddAdditional;
+        private System.Windows.Forms.LinkLabel linkMarkEnrolled;
     }
 }

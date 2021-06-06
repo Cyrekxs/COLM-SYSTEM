@@ -246,6 +246,8 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 SubjPriceID = Convert.ToInt32(reader["SubjectPriceID"]),                                
                                 CurriculumSubjID = Convert.ToInt32(reader["CurriculumSubjectID"]),
+                                YearLevelID = Convert.ToInt16(reader["YearLevelID"]),
+                                SubjID = Convert.ToInt16(reader["SubjID"]),
                                 SubjCode = Convert.ToString(reader["SubjCode"]),
                                 SubjDesc = Convert.ToString(reader["SubjDesc"]),
                                 LecUnit = Convert.ToInt32(reader["LecUnit"]),
@@ -261,6 +263,46 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
             }
             return subject;
+        }
+
+        //Get available subjects via SubjectID
+        public static List<SubjectSetted> GetAvailableSubjects(int SubjectID,int SchoolYearID,int SemesterID)
+        {
+            List<SubjectSetted> subjects = new List<SubjectSetted>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM [dbo].[fn_subjects_setted_breakdown]() WHERE SubjID = @SubjectID AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
+                {
+                    comm.Parameters.AddWithValue("@SubjectID", SubjectID);
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            SubjectSetted subject = new SubjectSetted()
+                            {
+                                SubjPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
+                                CurriculumSubjID = Convert.ToInt32(reader["CurriculumSubjectID"]),
+                                YearLevelID = Convert.ToInt16(reader["YearLevelID"]),
+                                SubjID = Convert.ToInt16(reader["SubjID"]),
+                                SubjCode = Convert.ToString(reader["SubjCode"]),
+                                SubjDesc = Convert.ToString(reader["SubjDesc"]),
+                                LecUnit = Convert.ToInt32(reader["LecUnit"]),
+                                LabUnit = Convert.ToInt32(reader["LabUnit"]),
+                                Unit = Convert.ToInt32(reader["Unit"]),
+                                SubjPrice = Convert.ToDouble(reader["SubjectPrice"]),
+                                AdditionalFees = SubjectSettedAdditionalFee_DS.GetSubjectSettedAddtionalFees(Convert.ToInt32(reader["SubjectPriceID"])),
+                                SubjType = Convert.ToString(reader["SubjectType"]),
+                                Bridging = Convert.ToBoolean(reader["IsBridging"]),
+                            };
+                            subjects.Add(subject);
+                        }
+                    }
+                }
+            }
+            return subjects;
         }
 
     }

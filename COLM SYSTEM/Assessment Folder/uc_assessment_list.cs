@@ -16,6 +16,8 @@ namespace COLM_SYSTEM.Assessment_Folder
         public uc_assessment_list()
         {
             InitializeComponent();
+            cmbEducationLevel.Text = "All";
+
             LoadAssessments();
         }
 
@@ -30,7 +32,16 @@ namespace COLM_SYSTEM.Assessment_Folder
                                    select r).ToList();
             }
 
+            if (cmbEducationLevel.Text.ToLower() != "all")
+            {
+                assessmentLists = (from r in assessmentLists
+                                   where r.EducationLevel.ToLower().Contains(cmbEducationLevel.Text.ToLower())
+                                   select r).ToList();
+            }
+
             dataGridView1.Rows.Clear();
+
+            assessmentLists = assessmentLists.OrderBy(r => r.EducationLevel).ThenBy(r => r.StudentName).ToList();
 
             foreach (var item in assessmentLists)
             {
@@ -298,6 +309,11 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             int AssessmentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmAssessmentID"].Value);
             EmailStudent(AssessmentID);
+        }
+
+        private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadAssessments();
         }
     }
 }

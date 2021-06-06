@@ -88,7 +88,7 @@ namespace COLM_SYSTEM
             TotalPending = PendingPreElem + PendingElem + PendingJHS + PendingSHS + PendingCollege;
 
 
-            TargetPreElem = ((EnrolledPreElem + PendingElem) / TargetPreElem) * 100;
+            TargetPreElem = ((EnrolledPreElem + PendingPreElem) / TargetPreElem) * 100;
             TargetElem = ((EnrolledElem + PendingElem) / TargetElem) * 100;
             TargetJHS = ((EnrolledJHS + PendingJHS) / TargetJHS) * 100;
             TargetSHS = ((EnrolledSHS + PendingSHS) / TargetSHS  ) * 100;

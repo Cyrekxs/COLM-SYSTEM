@@ -13,6 +13,7 @@ namespace COLM_SYSTEM.Payment_Folder
         public uc_payers()
         {
             InitializeComponent();
+            cmbEducationLevel.Text = "All";
             LoadAssessments();
         }
 
@@ -27,6 +28,10 @@ namespace COLM_SYSTEM.Payment_Folder
                                    select r).ToList();
             }
 
+            if (cmbEducationLevel.Text != "All")
+            {
+                assessmentLists = assessmentLists.Where(item => item.EducationLevel.ToLower().Equals(cmbEducationLevel.Text.ToLower())).ToList();
+            }
 
             assessmentLists = assessmentLists.OrderBy(item => item.StudentName).ToList();
 
@@ -34,11 +39,7 @@ namespace COLM_SYSTEM.Payment_Folder
             foreach (var item in assessmentLists)
             {
                 double balance = item.TotalDue - item.TotalPaidTuition;
-                string EnrollmentLinkText = "";
-                if (item.EnrollmentStatus != "Enrolled")
-                    EnrollmentLinkText = "Mark as Enrolled";
-
-                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.TotalPaidTuition.ToString("n"), balance.ToString("n"), item.Assessor, item.AssessmentDate, "Enter", EnrollmentLinkText);
+                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel,item.EnrollmentStatus, item.TotalDue.ToString("n"), item.TotalPaidTuition.ToString("n"), balance.ToString("n"), item.Assessor, item.AssessmentDate);
             }
         }
 
@@ -52,21 +53,6 @@ namespace COLM_SYSTEM.Payment_Folder
                 frm.ShowDialog();
                 LoadAssessments();
             }
-            else if (e.ColumnIndex == clmEnroll.Index)
-            {
-                if(MessageBox.Show("Are you sure you want to mark this student as enrolled?","Mark as Enrolled",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    EnrolledStudent student = new EnrolledStudent()
-                    {
-                        RegisteredStudentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["clmRegisteredStudentID"].Value),
-                        SchoolYearID = Utilties.GetActiveSchoolYear(),
-                        SemesterID = Utilties.GetActiveSemester(),
-                    };
-
-                    EnrolledStudent.EnrollStudent(student);
-                    dataGridView1.Rows[e.RowIndex].Cells["clmEnroll"].Value = "";
-                }
-            }
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
@@ -75,6 +61,11 @@ namespace COLM_SYSTEM.Payment_Folder
             {
                 LoadAssessments();
             }
+        }
+
+        private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadAssessments();
         }
     }
 }

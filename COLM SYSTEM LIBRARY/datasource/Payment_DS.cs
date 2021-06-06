@@ -4,11 +4,51 @@ using COLM_SYSTEM_LIBRARY.model.Payment_Folder;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace COLM_SYSTEM_LIBRARY.datasource
 {
     public class Payment_DS
     {
+        static TextInfo text = CultureInfo.CurrentCulture.TextInfo;
+        public static List<PaymentBreakdown> GetPaymentBreakdowns()
+        {
+            List<PaymentBreakdown> payments = new List<PaymentBreakdown>();
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_payment_breakdown() ORDER BY ORNumber ASC", conn))
+                {
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            payments.Add(new PaymentBreakdown()
+                            {
+                                RegisteredID = Convert.ToInt32(reader["RegisteredID"]),
+                                LRN = Convert.ToString(reader["LRN"]),
+                                Lastname = text.ToTitleCase(Convert.ToString(reader["Lastname"]).ToLower()),
+                                Firstname = text.ToTitleCase(Convert.ToString(reader["Firstname"]).ToLower()),
+                                EducationLevel = text.ToTitleCase(Convert.ToString(reader["EducationLevel"]).ToLower()),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
+                                PaymentID = Convert.ToInt32(reader["PaymentID"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                SemesterID = Convert.ToInt32(reader["SemesterID"]),
+                                ORNumber = Convert.ToString(reader["ORNumber"]),
+                                FeeCategory = Convert.ToString(reader["FeeCategory"]),
+                                PaymentCategory = Convert.ToString(reader["PaymentCategory"]),
+                                AmountPaid = Convert.ToDouble(reader["AmountPaid"]),
+                                PaymentStatus = Convert.ToString(reader["PaymentStatus"]),
+                                PaymentDate = Convert.ToDateTime(reader["PaymentDate"]),
+                                UserID = Convert.ToInt16(reader["UserID"])
+                            });
+                        }
+
+                    }
+                }
+            }
+            return payments;
+        }
         public static List<Payment> GetStudentPayment(int RegisteredStudentID, int SchoolYearID, int SemesterID)
         {
             List<Payment> payments = new List<Payment>();

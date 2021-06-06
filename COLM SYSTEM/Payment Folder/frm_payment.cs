@@ -35,6 +35,12 @@ namespace COLM_SYSTEM.Payment_Folder
 
             LoadAdditionalFees();
             LoadPaymentHistory();
+
+            bool IsEnrolled = EnrolledStudent.IsStudentEnrolled(studentRegistered.RegisteredID,Utilties.GetActiveSchoolYear(),Utilties.GetActiveSemester());
+            if (IsEnrolled == true)
+                linkMarkEnrolled.Visible = false;
+            else
+                linkMarkEnrolled.Visible = true;
         }
 
         //default load
@@ -56,11 +62,11 @@ namespace COLM_SYSTEM.Payment_Folder
         private void LoadAdditionalFees()
         {
             dgAdditionalFees.Rows.Clear();
-            List<AdditionalFee> additionalFees = Payment.GetAdditionalFees(studentRegistered.RegisteredID,Utilties.GetActiveSchoolYear(),Utilties.GetActiveSemester());
+            List<AdditionalFee> additionalFees = Payment.GetAdditionalFees(studentRegistered.RegisteredID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
             foreach (var item in additionalFees)
             {
                 double balance = item.TotalAmount - item.TotalPayment;
-                dgAdditionalFees.Rows.Add(item.AssessmentAdditionalFeeID, item.Fee, item.TotalAmount.ToString("n"),item.TotalPayment.ToString("n"),balance.ToString("n"));
+                dgAdditionalFees.Rows.Add(item.AssessmentAdditionalFeeID, item.Fee, item.TotalAmount.ToString("n"), item.TotalPayment.ToString("n"), balance.ToString("n"));
                 dgAdditionalFees.Rows[dgAdditionalFees.Rows.Count - 1].Tag = item;
             }
 
@@ -72,7 +78,7 @@ namespace COLM_SYSTEM.Payment_Folder
             List<Payment> payments = Payment.GetPayments(studentRegistered.RegisteredID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
             foreach (var item in payments)
             {
-                dgPaymentHistory.Rows.Add(item.PaymentID, item.ORNumber, item.PaymentCategory, item.FeeCategory, item.AmountPaid.ToString("n"),item.PaymentStatus, item.PaymentDate.ToString("MM-dd-yyyy hh:mm tt"));
+                dgPaymentHistory.Rows.Add(item.PaymentID, item.ORNumber, item.PaymentCategory, item.FeeCategory, item.AmountPaid.ToString("n"), item.PaymentStatus, item.PaymentDate.ToString("MM-dd-yyyy hh:mm tt"));
                 if (item.PaymentStatus.ToLower() == "cancelled")
                     dgPaymentHistory.Rows[dgPaymentHistory.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.Red;
                 else
@@ -141,13 +147,13 @@ namespace COLM_SYSTEM.Payment_Folder
             double AmountToPay = 0;
             foreach (DataGridViewRow item in dgBreakdown.Rows)
             {
-                if (Convert.ToBoolean( item.Cells["clmCheckToAddTuition"].Value) == true)
+                if (Convert.ToBoolean(item.Cells["clmCheckToAddTuition"].Value) == true)
                 {
                     AmountToPay += Convert.ToDouble(item.Cells["clmBalanceTuition"].Value);
                 }
             }
 
-            frm_payment_cash_entry frm = new frm_payment_cash_entry(studentRegistered,AmountToPay);
+            frm_payment_cash_entry frm = new frm_payment_cash_entry(studentRegistered, AmountToPay);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
 
@@ -210,6 +216,26 @@ namespace COLM_SYSTEM.Payment_Folder
                         int result = Payment.CancelReciept(ORNumber);
                         LoadAssessmentInformation();
                     }
+                }
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to mark this student as enrolled without payment?", "Mark as Enrolled", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                EnrolledStudent student = new EnrolledStudent()
+                {
+                    RegisteredStudentID = studentRegistered.RegisteredID,
+                    SchoolYearID = Utilties.GetActiveSchoolYear(),
+                    SemesterID = Utilties.GetActiveSemester(),
+                };
+
+                int result = EnrolledStudent.EnrollStudent(student);
+                if (result > 0)
+                {
+                    MessageBox.Show("This is student has been successfully marked as enrolled without payment!", "Mark Student Enrolled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    linkMarkEnrolled.Visible = false;
                 }
             }
         }

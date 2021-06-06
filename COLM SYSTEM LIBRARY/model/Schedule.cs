@@ -8,6 +8,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int ScheduleID { get; set; }
         public int SectionID { get; set; }
         public int SubjectPriceID { get; set; }
+        public int YearLevelID { get; set; }
         public string SubjCode { get; set; } // for displaying purposes
         public string SubjDesc { get; set; } // for displaying purposes
         public string SubjUnit { get; set; } // for displaying purposes
