@@ -34,6 +34,15 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="dtReportProperties" msprop:Generator_TableClassName="dtReportPropertiesDataTable" msprop:Generator_TableVarName="tabledtReportProperties" msprop:Generator_RowChangedName="dtReportPropertiesRowChanged" msprop:Generator_TablePropName="dtReportProperties" msprop:Generator_RowDeletingName="dtReportPropertiesRowDeleting" msprop:Generator_RowChangingName="dtReportPropertiesRowChanging" msprop:Generator_RowEvHandlerName="dtReportPropertiesRowChangeEventHandler" msprop:Generator_RowDeletedName="dtReportPropertiesRowDeleted" msprop:Generator_RowClassName="dtReportPropertiesRow" msprop:Generator_UserTableName="dtReportProperties" msprop:Generator_RowEvArgName="dtReportPropertiesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Logo" msprop:Generator_ColumnVarNameInTable="columnLogo" msprop:Generator_ColumnPropNameInRow="Logo" msprop:Generator_ColumnPropNameInTable="LogoColumn" msprop:Generator_UserColumnName="Logo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Sign" msprop:Generator_ColumnVarNameInTable="columnSign" msprop:Generator_ColumnPropNameInRow="Sign" msprop:Generator_ColumnPropNameInTable="SignColumn" msprop:Generator_UserColumnName="Sign" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="WaterMark" msprop:Generator_ColumnVarNameInTable="columnWaterMark" msprop:Generator_ColumnPropNameInRow="WaterMark" msprop:Generator_ColumnPropNameInTable="WaterMarkColumn" msprop:Generator_UserColumnName="WaterMark" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

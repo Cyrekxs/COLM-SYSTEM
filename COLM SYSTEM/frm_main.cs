@@ -4,7 +4,6 @@ using COLM_SYSTEM.Discounts;
 using COLM_SYSTEM.Faculty_Folder;
 using COLM_SYSTEM.Fees_Folder;
 using COLM_SYSTEM.Payment_Folder;
-using COLM_SYSTEM.registration;
 using COLM_SYSTEM.Registration_Folder;
 using COLM_SYSTEM.Reports_Folder;
 using COLM_SYSTEM.Section_Folder;
@@ -13,6 +12,7 @@ using COLM_SYSTEM.student_information;
 using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM.subject;
 using COLM_SYSTEM.User_Folder;
+using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Windows.Forms;
 
@@ -27,6 +27,7 @@ namespace COLM_SYSTEM
             ClearUserControls();
             uc.Dock = DockStyle.Fill;
             PanelMain.Controls.Add(uc);
+
         }
 
         private void ClearUserControls()
@@ -44,12 +45,86 @@ namespace COLM_SYSTEM
             lblAccountName.Text = Utilties.user.AccountName;
             lblPosition.Text = Utilties.user.UserRole.RoleName;
 
+            SchoolInfo school = SchoolInfo.GetSchoolInfo();
+            pbLogo.Image = Utilties.ConvertByteToImage(school.Logo);
+
+            string role = Utilties.user.UserRole.RoleName.ToLower();
+            if (role.Equals("information"))
+            {
+                HideAllMi();
+                //transaction
+                miStudentApplicants.Visible = true;
+                miStudentInformation.Visible = true;
+            }
+
+            else if (role.Equals("assessor"))
+            {
+                HideAllMi();
+                //transaction
+                miStudentApplicants.Visible = true;
+                miStudentInformation.Visible = true;
+                miStudentRegistration.Visible = true;
+                miStudentAssessment.Visible = true;
+            }
+
+            else if (role.Equals("registrar"))
+            {
+                HideAllMi();
+                //transaction
+                miStudentApplicants.Visible = true;
+                miStudentInformation.Visible = true;
+                miStudentRegistration.Visible = true;
+                miStudentAssessment.Visible = true;
+                //settings
+                miSettings.Visible = true;
+                miSchoolData.Visible = true;
+            }
+
+            else if (role.Equals("cashier"))
+            {
+                HideAllMi();
+                //transaction
+                miStudentPayment.Visible = true;
+                miReports.Visible = true;
+                miCollectionReport.Visible = true;
+            }
+
             DisplayControl(new UC_DashBoard());
         }
 
-        private void sUBJECTSToolStripMenuItem_Click(object sender, EventArgs e)
+        private void HideAllMi()
         {
-            DisplayControl(new uc_subject_list());
+            HideAllMiTransactions();
+
+            miSettings.Visible = false;
+            HideAllMiSettings();
+
+            miReports.Visible = false;
+            HideAllMiReports();
+        }
+
+        private void HideAllMiTransactions()
+        {
+            foreach (ToolStripMenuItem item in miTransactions.DropDownItems)
+            {
+                item.Visible = false;
+            }
+        }
+
+        private void HideAllMiSettings()
+        {
+            foreach (ToolStripMenuItem item in miSettings.DropDownItems)
+            {
+                item.Visible = false;
+            }
+        }
+
+        private void HideAllMiReports()
+        {
+            foreach (ToolStripMenuItem item in miReports.DropDownItems)
+            {
+                item.Visible = false;
+            }
         }
 
         private void rEGISTRATIONToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,13 +142,6 @@ namespace COLM_SYSTEM
             ClearUserControls();
         }
 
-        private void sECTIONSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frm_section_lists frm = new frm_section_lists();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-        }
-
         private void mISCELLANEOUSFEESToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_tuition_list());
@@ -82,11 +150,6 @@ namespace COLM_SYSTEM
         private void aSSESSMENTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_assessment_list());
-        }
-
-        private void cURRICULUMToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DisplayControl(new uc_curriculum_list());
         }
 
         private void pAYMENTToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,7 +176,7 @@ namespace COLM_SYSTEM
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to logout?","Logout",MessageBoxButtons.YesNo,MessageBoxIcon.Question)== DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
                 Close();
@@ -142,18 +205,6 @@ namespace COLM_SYSTEM
         private void onlineApplicantsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_student_information_list_online());
-        }
-
-        private void assessmentPaymentModesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void facultyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frm_faculty_entry frm = new frm_faculty_entry();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -204,6 +255,30 @@ namespace COLM_SYSTEM
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_user_lists frm = new frm_user_lists();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void subjectsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_subject_list());
+        }
+
+        private void curriculumToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_curriculum_list());
+        }
+
+        private void sectionAndSchedulesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_section_lists frm = new frm_section_lists();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void facultiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_faculty_entry frm = new frm_faculty_entry();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
