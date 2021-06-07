@@ -40,16 +40,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtStudentName = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtEducationlevel = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtCourseStrand = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtYearLevel = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtCourseStrand = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtEducationlevel = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtStudentName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -108,7 +108,7 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Location = new System.Drawing.Point(876, 365);
+            this.reportViewer1.Location = new System.Drawing.Point(722, 120);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(219, 187);
@@ -161,7 +161,7 @@
             // reportViewer2
             // 
             this.reportViewer2.LocalReport.ReportEmbeddedResource = "COLM_SYSTEM.Assessment Folder.rpt_payment_attachments.rdlc";
-            this.reportViewer2.Location = new System.Drawing.Point(1111, 365);
+            this.reportViewer2.Location = new System.Drawing.Point(957, 120);
             this.reportViewer2.Name = "reportViewer2";
             this.reportViewer2.ServerReport.BearerToken = null;
             this.reportViewer2.Size = new System.Drawing.Size(197, 187);
@@ -183,6 +183,74 @@
             this.panel2.Size = new System.Drawing.Size(666, 59);
             this.panel2.TabIndex = 24;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(391, 35);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 15);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Year Level";
+            // 
+            // txtYearLevel
+            // 
+            this.txtYearLevel.Location = new System.Drawing.Point(394, 9);
+            this.txtYearLevel.Name = "txtYearLevel";
+            this.txtYearLevel.ReadOnly = true;
+            this.txtYearLevel.Size = new System.Drawing.Size(89, 23);
+            this.txtYearLevel.TabIndex = 9;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(296, 35);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(92, 15);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Course / Strand";
+            // 
+            // txtCourseStrand
+            // 
+            this.txtCourseStrand.Location = new System.Drawing.Point(299, 9);
+            this.txtCourseStrand.Name = "txtCourseStrand";
+            this.txtCourseStrand.ReadOnly = true;
+            this.txtCourseStrand.Size = new System.Drawing.Size(89, 23);
+            this.txtCourseStrand.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(202, 35);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(91, 15);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Education Level";
+            // 
+            // txtEducationlevel
+            // 
+            this.txtEducationlevel.Location = new System.Drawing.Point(205, 9);
+            this.txtEducationlevel.Name = "txtEducationlevel";
+            this.txtEducationlevel.ReadOnly = true;
+            this.txtEducationlevel.Size = new System.Drawing.Size(88, 23);
+            this.txtEducationlevel.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(9, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 15);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Student Name";
+            // 
+            // txtStudentName
+            // 
+            this.txtStudentName.Location = new System.Drawing.Point(12, 9);
+            this.txtStudentName.Name = "txtStudentName";
+            this.txtStudentName.ReadOnly = true;
+            this.txtStudentName.Size = new System.Drawing.Size(187, 23);
+            this.txtStudentName.TabIndex = 3;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -203,74 +271,6 @@
             this.label5.TabIndex = 25;
             this.label5.Text = "Email Information";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 15);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Student Name";
-            // 
-            // txtStudentName
-            // 
-            this.txtStudentName.Location = new System.Drawing.Point(12, 9);
-            this.txtStudentName.Name = "txtStudentName";
-            this.txtStudentName.ReadOnly = true;
-            this.txtStudentName.Size = new System.Drawing.Size(187, 23);
-            this.txtStudentName.TabIndex = 3;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(202, 35);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 15);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Education Level";
-            // 
-            // txtEducationlevel
-            // 
-            this.txtEducationlevel.Location = new System.Drawing.Point(205, 9);
-            this.txtEducationlevel.Name = "txtEducationlevel";
-            this.txtEducationlevel.ReadOnly = true;
-            this.txtEducationlevel.Size = new System.Drawing.Size(88, 23);
-            this.txtEducationlevel.TabIndex = 5;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(296, 35);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(92, 15);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Course / Strand";
-            // 
-            // txtCourseStrand
-            // 
-            this.txtCourseStrand.Location = new System.Drawing.Point(299, 9);
-            this.txtCourseStrand.Name = "txtCourseStrand";
-            this.txtCourseStrand.ReadOnly = true;
-            this.txtCourseStrand.Size = new System.Drawing.Size(89, 23);
-            this.txtCourseStrand.TabIndex = 7;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(391, 35);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 15);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Year Level";
-            // 
-            // txtYearLevel
-            // 
-            this.txtYearLevel.Location = new System.Drawing.Point(394, 9);
-            this.txtYearLevel.Name = "txtYearLevel";
-            this.txtYearLevel.ReadOnly = true;
-            this.txtYearLevel.Size = new System.Drawing.Size(89, 23);
-            this.txtYearLevel.TabIndex = 9;
-            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -289,7 +289,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 603);
+            this.ClientSize = new System.Drawing.Size(696, 603);
             this.ControlBox = false;
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label4);

@@ -191,6 +191,9 @@ namespace COLM_SYSTEM.Assessment_Folder
         }
         private void EmailStudent(int AssessmentID)
         {
+            //get school information and settings
+            SchoolInfo school = SchoolInfo.GetSchoolInfo();
+            //get student assessment information
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
             DataSet1 ds = new DataSet1();
             DataRow dr;
@@ -226,6 +229,14 @@ namespace COLM_SYSTEM.Assessment_Folder
                 ds.Tables["DTPaymentSchedule"].Rows.Add(dr);
             }
 
+            //for logo,signature and watermark
+            ds.Tables["dtReportProperties"].Rows.Clear();
+            dr = ds.Tables["dtReportProperties"].NewRow();
+            dr["Logo"] = school.Logo;
+            dr["Sign"] = school.Sign;
+            dr["WaterMark"] = school.WaterMark;
+            ds.Tables["dtReportProperties"].Rows.Add(dr);
+
 
             ReportParameter param_LRN = new ReportParameter("LRN", Convert.ToString(dataGridView1.Rows[SelectedRow].Cells["clmLRN"].Value));
             ReportParameter param_StudentName = new ReportParameter("studentname", Convert.ToString(dataGridView1.Rows[SelectedRow].Cells["clmStudentName"].Value));
@@ -243,6 +254,14 @@ namespace COLM_SYSTEM.Assessment_Folder
             ReportParameter param_Surcharge = new ReportParameter("Surcharge", assessment.Summary.Surcharge.ToString("n"));
             ReportParameter param_TotalDue = new ReportParameter("TotalDue", assessment.Summary.TotalDue.ToString("n"));
             ReportParameter param_TotalUnits = new ReportParameter("TotalUnit", Convert.ToInt16(TotalUnits).ToString());
+
+            //report properties
+            ReportParameter param_MainHeader = new ReportParameter("MainHeader", school.MainHeader);
+            ReportParameter param_SubHeader1 = new ReportParameter("SubHeader1", school.FirstSubHeader);
+            ReportParameter param_SubHeader2 = new ReportParameter("SubHeader2", school.SecondSubHeader);
+            ReportParameter param_Contact = new ReportParameter("footerContact", school.FooterContact);
+            ReportParameter param_Facebook = new ReportParameter("footerFacebook", school.FooterFacebook);
+            ReportParameter param_Registrar = new ReportParameter("SchoolRegistrar", school.SchoolRegistrar);
 
             ReportParameter param_sysem;
             if (dataGridView1.Rows[SelectedRow].Cells["clmEducationLevel"].Value.ToString().ToLower() != "college")
@@ -271,16 +290,24 @@ namespace COLM_SYSTEM.Assessment_Folder
             reportParameters.Add(param_TotalDue);
             reportParameters.Add(param_TotalUnits);
             reportParameters.Add(param_sysem);
+            reportParameters.Add(param_MainHeader);
+            reportParameters.Add(param_SubHeader1);
+            reportParameters.Add(param_SubHeader2);
+            reportParameters.Add(param_Contact);
+            reportParameters.Add(param_Facebook);
+            reportParameters.Add(param_Registrar);
 
 
 
 
             frm_assessment_email_sender frm = new frm_assessment_email_sender(assessment);
+            ReportDataSource dsReportProperties = new ReportDataSource("dsReportProperties", ds.Tables["dtReportProperties"]);
             ReportDataSource dsPaymentSchedule = new ReportDataSource("dsPaymentSchedule", ds.Tables["DTPaymentSchedule"]);
             ReportDataSource dsSubjects = new ReportDataSource("dsSubjects", ds.Tables["DTSubjects"]);
             frm.reportViewer1.LocalReport.DataSources.Clear();
             frm.reportViewer1.LocalReport.DataSources.Add(dsPaymentSchedule);
             frm.reportViewer1.LocalReport.DataSources.Add(dsSubjects);
+            frm.reportViewer1.LocalReport.DataSources.Add(dsReportProperties);
             frm.reportViewer1.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_assessment.rdlc";
             frm.reportViewer2.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_payment_attachments.rdlc";
             frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());

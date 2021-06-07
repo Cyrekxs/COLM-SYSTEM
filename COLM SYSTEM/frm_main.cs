@@ -45,8 +45,8 @@ namespace COLM_SYSTEM
             lblAccountName.Text = Utilties.user.AccountName;
             lblPosition.Text = Utilties.user.UserRole.RoleName;
 
-            SchoolInfo school = SchoolInfo.GetSchoolInfo();
-            pbLogo.Image = Utilties.ConvertByteToImage(school.Logo);
+            //SchoolInfo school = SchoolInfo.GetSchoolInfo();
+            //pbLogo.Image = Utilties.ConvertByteToImage(school.Logo);
 
             string role = Utilties.user.UserRole.RoleName.ToLower();
             if (role.Equals("information"))

@@ -9,6 +9,8 @@ namespace COLM_SYSTEM
         public frm_login()
         {
             InitializeComponent();
+            SchoolInfo school = SchoolInfo.GetSchoolInfo();
+            pictureBox1.Image = Utilties.ConvertByteToImage(school.Logo);
         }
 
         private void button1_Click(object sender, EventArgs e)

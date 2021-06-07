@@ -136,7 +136,7 @@
             // 
             this.lblTargetTotal.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTargetTotal.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTargetTotal.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblTargetTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblTargetTotal.Location = new System.Drawing.Point(525, 0);
             this.lblTargetTotal.Name = "lblTargetTotal";
             this.lblTargetTotal.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -149,7 +149,7 @@
             // 
             this.lblTotalStudents.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalStudents.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalStudents.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblTotalStudents.ForeColor = System.Drawing.Color.Green;
             this.lblTotalStudents.Location = new System.Drawing.Point(410, 0);
             this.lblTotalStudents.Name = "lblTotalStudents";
             this.lblTotalStudents.Size = new System.Drawing.Size(115, 40);
@@ -212,7 +212,7 @@
             // 
             this.lblTargetCollege.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTargetCollege.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTargetCollege.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblTargetCollege.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblTargetCollege.Location = new System.Drawing.Point(525, 0);
             this.lblTargetCollege.Name = "lblTargetCollege";
             this.lblTargetCollege.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -225,7 +225,7 @@
             // 
             this.lblTotalCollege.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalCollege.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalCollege.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblTotalCollege.ForeColor = System.Drawing.Color.Green;
             this.lblTotalCollege.Location = new System.Drawing.Point(410, 0);
             this.lblTotalCollege.Name = "lblTotalCollege";
             this.lblTotalCollege.Size = new System.Drawing.Size(115, 37);
@@ -304,7 +304,7 @@
             this.lblTargetSHS.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblTargetSHS.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTargetSHS.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTargetSHS.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblTargetSHS.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblTargetSHS.Location = new System.Drawing.Point(525, 0);
             this.lblTargetSHS.Name = "lblTargetSHS";
             this.lblTargetSHS.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -318,7 +318,7 @@
             this.lblTotalSeniorHigh.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblTotalSeniorHigh.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalSeniorHigh.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalSeniorHigh.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblTotalSeniorHigh.ForeColor = System.Drawing.Color.Green;
             this.lblTotalSeniorHigh.Location = new System.Drawing.Point(410, 0);
             this.lblTotalSeniorHigh.Name = "lblTotalSeniorHigh";
             this.lblTotalSeniorHigh.Size = new System.Drawing.Size(115, 37);
@@ -399,7 +399,7 @@
             // 
             this.lblTargetJHS.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTargetJHS.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTargetJHS.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblTargetJHS.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblTargetJHS.Location = new System.Drawing.Point(525, 0);
             this.lblTargetJHS.Name = "lblTargetJHS";
             this.lblTargetJHS.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -412,7 +412,7 @@
             // 
             this.lblTotalJuniorHigh.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalJuniorHigh.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalJuniorHigh.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblTotalJuniorHigh.ForeColor = System.Drawing.Color.Green;
             this.lblTotalJuniorHigh.Location = new System.Drawing.Point(410, 0);
             this.lblTotalJuniorHigh.Name = "lblTotalJuniorHigh";
             this.lblTotalJuniorHigh.Size = new System.Drawing.Size(115, 37);
@@ -491,7 +491,7 @@
             this.lblTargetElem.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblTargetElem.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTargetElem.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTargetElem.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblTargetElem.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblTargetElem.Location = new System.Drawing.Point(525, 0);
             this.lblTargetElem.Name = "lblTargetElem";
             this.lblTargetElem.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -505,7 +505,7 @@
             this.lblTotalElem.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblTotalElem.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalElem.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalElem.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblTotalElem.ForeColor = System.Drawing.Color.Green;
             this.lblTotalElem.Location = new System.Drawing.Point(410, 0);
             this.lblTotalElem.Name = "lblTotalElem";
             this.lblTotalElem.Size = new System.Drawing.Size(115, 37);
@@ -586,7 +586,7 @@
             // 
             this.lblTargetPreElem.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTargetPreElem.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTargetPreElem.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblTargetPreElem.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblTargetPreElem.Location = new System.Drawing.Point(525, 0);
             this.lblTargetPreElem.Name = "lblTargetPreElem";
             this.lblTargetPreElem.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -599,7 +599,7 @@
             // 
             this.lblTotalPreElem.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalPreElem.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPreElem.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblTotalPreElem.ForeColor = System.Drawing.Color.Green;
             this.lblTotalPreElem.Location = new System.Drawing.Point(410, 0);
             this.lblTotalPreElem.Name = "lblTotalPreElem";
             this.lblTotalPreElem.Size = new System.Drawing.Size(115, 37);
@@ -685,7 +685,7 @@
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label6.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label6.Location = new System.Drawing.Point(525, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 40);
@@ -697,7 +697,7 @@
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label1.ForeColor = System.Drawing.Color.Green;
             this.label1.Location = new System.Drawing.Point(410, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 40);
