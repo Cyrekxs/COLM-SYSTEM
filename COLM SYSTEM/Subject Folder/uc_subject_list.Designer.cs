@@ -74,7 +74,7 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewImageColumn1.HeaderText = "MENU";
-            this.dataGridViewImageColumn1.Image = global::COLM_SYSTEM.Properties.Resources.Data_Edit;
+            this.dataGridViewImageColumn1.Image = global::SEMS.Properties.Resources.Data_Edit;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -93,7 +93,7 @@
             // 
             this.toolStripMenuItem1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripMenuItem1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.toolStripMenuItem1.Image = global::COLM_SYSTEM.Properties.Resources.Data_Edit;
+            this.toolStripMenuItem1.Image = global::SEMS.Properties.Resources.Data_Edit;
             this.toolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
@@ -109,7 +109,7 @@
             // 
             this.toolStripMenuItem2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripMenuItem2.ForeColor = System.Drawing.Color.IndianRed;
-            this.toolStripMenuItem2.Image = global::COLM_SYSTEM.Properties.Resources.Garbage;
+            this.toolStripMenuItem2.Image = global::SEMS.Properties.Resources.Garbage;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
             this.toolStripMenuItem2.Text = "Delete";
@@ -306,7 +306,7 @@
             dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.clmMenu.DefaultCellStyle = dataGridViewCellStyle13;
             this.clmMenu.HeaderText = "Action";
-            this.clmMenu.Image = global::COLM_SYSTEM.Properties.Resources.Data_Information;
+            this.clmMenu.Image = global::SEMS.Properties.Resources.Data_Information;
             this.clmMenu.Name = "clmMenu";
             this.clmMenu.ReadOnly = true;
             this.clmMenu.Resizable = System.Windows.Forms.DataGridViewTriState.True;

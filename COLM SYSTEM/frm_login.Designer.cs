@@ -138,7 +138,7 @@
             // 
             // button2
             // 
-            this.button2.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.login;
+            this.button2.BackgroundImage = global::SEMS.Properties.Resources.login;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -162,7 +162,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::COLM_SYSTEM.Properties.Resources.colm_logo;
+            this.pictureBox1.Image = global::SEMS.Properties.Resources.colm_logo;
             this.pictureBox1.Location = new System.Drawing.Point(139, 33);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 71);
@@ -185,7 +185,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::COLM_SYSTEM.Properties.Resources.login_background;
+            this.pictureBox2.Image = global::SEMS.Properties.Resources.login_background;
             this.pictureBox2.Location = new System.Drawing.Point(379, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(904, 724);

@@ -218,7 +218,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.Logout;
+            this.button3.BackgroundImage = global::SEMS.Properties.Resources.Logout;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -249,7 +249,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.User_Settings;
+            this.button2.BackgroundImage = global::SEMS.Properties.Resources.User_Settings;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -284,7 +284,7 @@
             // 
             // pbLogo
             // 
-            this.pbLogo.Image = global::COLM_SYSTEM.Properties.Resources.colm_logo;
+            this.pbLogo.Image = global::SEMS.Properties.Resources.colm_logo;
             this.pbLogo.Location = new System.Drawing.Point(11, 12);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(54, 42);
@@ -307,7 +307,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::COLM_SYSTEM.Properties.Resources.Bell;
+            this.button1.BackgroundImage = global::SEMS.Properties.Resources.Bell;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

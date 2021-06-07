@@ -7,6 +7,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Linq;
 using System.Drawing;
+using SEMS.Assessment_Folder.DataSets;
 
 namespace COLM_SYSTEM.Assessment_Folder
 {
@@ -66,7 +67,7 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             //get student assessment information
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
-            DataSets.DataSet1 ds = new DataSets.DataSet1();
+            DataSet1 ds = new DataSet1();
             DataRow dr;
 
 
@@ -182,7 +183,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.reportViewer1.LocalReport.DataSources.Add(dsPaymentSchedule);
             frm.reportViewer1.LocalReport.DataSources.Add(dsSubjects);
             frm.reportViewer1.LocalReport.DataSources.Add(dsReportProperties);
-            frm.reportViewer1.LocalReport.ReportEmbeddedResource = "COLM_SYSTEM.Assessment_Folder.rpt_assessment.rdlc";
+            frm.reportViewer1.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_assessment.rdlc";
             frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());
             frm.reportViewer1.RefreshReport();
             frm.StartPosition = FormStartPosition.CenterParent;
@@ -191,7 +192,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void EmailStudent(int AssessmentID)
         {
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
-            DataSets.DataSet1 ds = new DataSets.DataSet1();
+            DataSet1 ds = new DataSet1();
             DataRow dr;
 
 
@@ -280,8 +281,8 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.reportViewer1.LocalReport.DataSources.Clear();
             frm.reportViewer1.LocalReport.DataSources.Add(dsPaymentSchedule);
             frm.reportViewer1.LocalReport.DataSources.Add(dsSubjects);
-            frm.reportViewer1.LocalReport.ReportEmbeddedResource = "COLM_SYSTEM.Assessment_Folder.rpt_assessment.rdlc";
-            frm.reportViewer2.LocalReport.ReportEmbeddedResource = "COLM_SYSTEM.Assessment_Folder.rpt_payment_attachments.rdlc";
+            frm.reportViewer1.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_assessment.rdlc";
+            frm.reportViewer2.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_payment_attachments.rdlc";
             frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());
             frm.reportViewer1.RefreshReport();
             frm.reportViewer2.RefreshReport();

@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace COLM_SYSTEM.Assessment_Folder.DataSets {
+namespace SEMS.Assessment_Folder.DataSets {
     
     
     /// <summary>

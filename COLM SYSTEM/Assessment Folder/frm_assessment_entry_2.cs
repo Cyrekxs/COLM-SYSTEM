@@ -1,6 +1,7 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using Microsoft.Reporting.WinForms;
+using SEMS.Assessment_Folder.DataSets;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -508,7 +509,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void PrintAssessment(int AssessmentID)
         {
 
-            DataSets.DataSet1 ds = new DataSets.DataSet1();
+            DataSet1 ds = new DataSet1();
             DataRow dr;
 
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
@@ -596,7 +597,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.reportViewer1.LocalReport.DataSources.Add(dsPaymentSchedule);
             frm.reportViewer1.LocalReport.DataSources.Add(dsSubjects);
             string AssemblyNameSpaces = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
-            frm.reportViewer1.LocalReport.ReportEmbeddedResource = "COLM_SYSTEM.Assessment_Folder.rpt_assessment.rdlc";
+            frm.reportViewer1.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_assessment.rdlc";
 
             frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());
             frm.reportViewer1.RefreshReport();

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FCD29585-C0CC-4156-8C0F-8504F24DDD87}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>COLM_SYSTEM</RootNamespace>
-    <AssemblyName>COLM SYSTEM</AssemblyName>
+    <RootNamespace>SEMS</RootNamespace>
+    <AssemblyName>SEMS</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
