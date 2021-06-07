@@ -39,8 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblCount = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clmRegisteredStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +54,8 @@
             this.clmSchoolYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -110,16 +110,17 @@
             this.cmbEducationLevel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEducationLevel.FormattingEnabled = true;
             this.cmbEducationLevel.Items.AddRange(new object[] {
-            "ALL",
-            "PRE ELEMENTARY",
-            "ELEMENTARY",
-            "JUNIOR HIGH",
-            "SENIOR HIGH",
-            "COLLEGE"});
+            "All",
+            "Pre Elementary",
+            "Elementary",
+            "Junior High",
+            "Senior High",
+            "College"});
             this.cmbEducationLevel.Location = new System.Drawing.Point(938, 14);
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(145, 23);
             this.cmbEducationLevel.TabIndex = 4;
+            this.cmbEducationLevel.SelectedIndexChanged += new System.EventHandler(this.cmbEducationLevel_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -205,21 +206,6 @@
             this.dataGridView1.TabIndex = 25;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteApplicationToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(174, 26);
-            // 
-            // deleteApplicationToolStripMenuItem
-            // 
-            this.deleteApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.Firebrick;
-            this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
-            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.deleteApplicationToolStripMenuItem.Text = "Delete Registration";
-            this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_Click);
-            // 
             // clmRegisteredStudentID
             // 
             this.clmRegisteredStudentID.HeaderText = "RegisteredStudentID";
@@ -261,7 +247,7 @@
             this.Column6.HeaderText = "Mobile No";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 89;
+            this.Column6.Width = 82;
             // 
             // clmCurriculumID
             // 
@@ -312,7 +298,7 @@
             this.clmSchoolYear.HeaderText = "School Year";
             this.clmSchoolYear.Name = "clmSchoolYear";
             this.clmSchoolYear.ReadOnly = true;
-            this.clmSchoolYear.Width = 95;
+            this.clmSchoolYear.Width = 87;
             // 
             // Column1
             // 
@@ -333,6 +319,21 @@
             this.clmAction.Text = "Action";
             this.clmAction.UseColumnTextForButtonValue = true;
             this.clmAction.Width = 66;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteApplicationToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(174, 26);
+            // 
+            // deleteApplicationToolStripMenuItem
+            // 
+            this.deleteApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.Firebrick;
+            this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
+            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.deleteApplicationToolStripMenuItem.Text = "Delete Registration";
+            this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_Click);
             // 
             // uc_registered_students_list
             // 

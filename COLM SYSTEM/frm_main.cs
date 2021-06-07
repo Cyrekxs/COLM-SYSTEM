@@ -42,17 +42,14 @@ namespace COLM_SYSTEM
         {
             InitializeComponent();
             lblAccountName.Text = Utilties.user.AccountName;
+            lblPosition.Text = Utilties.user.UserRole.RoleName;
+
             DisplayControl(new UC_DashBoard());
         }
 
         private void sUBJECTSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_subject_list());
-        }
-
-        private void dISCOUNTToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
         }
 
         private void rEGISTRATIONToolStripMenuItem_Click(object sender, EventArgs e)
@@ -200,6 +197,13 @@ namespace COLM_SYSTEM
         private void cOLLECTIONREPORTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_collection_report frm = new frm_collection_report();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_user_lists frm = new frm_user_lists();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             this.lblSchoolYear = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lblAccountName = new System.Windows.Forms.Label();
             this.lblPosition = new System.Windows.Forms.Label();
@@ -69,21 +69,21 @@
             this.mISCELLANEOUSFEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aDDITIONALFEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dEFAULTFEESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assessmentPaymentModesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.discountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sECTIONSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aSSESSMENTTYPEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.yearLevelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mASTERLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cOLLECTIONREPORTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aDMINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.assessmentPaymentModesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.discountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.yearLevelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cOLLECTIONREPORTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -95,7 +95,7 @@
             this.lblSchoolYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSchoolYear.AutoSize = true;
             this.lblSchoolYear.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSchoolYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblSchoolYear.ForeColor = System.Drawing.Color.Gray;
             this.lblSchoolYear.Location = new System.Drawing.Point(638, 14);
             this.lblSchoolYear.Name = "lblSchoolYear";
             this.lblSchoolYear.Size = new System.Drawing.Size(117, 19);
@@ -105,6 +105,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -118,13 +119,23 @@
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1060, 72);
             this.panel1.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label6.Location = new System.Drawing.Point(73, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 15);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "VERSION 1.0.0.0";
             // 
             // button4
             // 
@@ -162,11 +173,11 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(135, 14);
+            this.label4.Location = new System.Drawing.Point(71, 6);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(222, 25);
+            this.label4.Size = new System.Drawing.Size(82, 25);
             this.label4.TabIndex = 16;
-            this.label4.Text = "ENROLLMENT SYSTEM";
+            this.label4.Text = "S.E.M.S";
             // 
             // label3
             // 
@@ -286,22 +297,11 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label8.Location = new System.Drawing.Point(71, 39);
+            this.label8.Location = new System.Drawing.Point(73, 31);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 15);
+            this.label8.Size = new System.Drawing.Size(215, 15);
             this.label8.TabIndex = 8;
-            this.label8.Text = "version 3.0.0.0";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label7.Location = new System.Drawing.Point(69, 14);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 25);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "COLM";
+            this.label8.Text = "School Enrollment Management System";
             // 
             // button1
             // 
@@ -334,7 +334,7 @@
             // lblPosition
             // 
             this.lblPosition.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblPosition.ForeColor = System.Drawing.Color.Gray;
             this.lblPosition.Location = new System.Drawing.Point(12, 19);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(200, 25);
@@ -361,7 +361,7 @@
             // 
             this.lblDateTime.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblDateTime.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblDateTime.ForeColor = System.Drawing.Color.Gray;
             this.lblDateTime.Location = new System.Drawing.Point(879, 5);
             this.lblDateTime.Name = "lblDateTime";
             this.lblDateTime.Size = new System.Drawing.Size(181, 39);
@@ -374,7 +374,7 @@
             this.lblSemester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSemester.AutoSize = true;
             this.lblSemester.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSemester.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblSemester.ForeColor = System.Drawing.Color.Gray;
             this.lblSemester.Location = new System.Drawing.Point(759, 14);
             this.lblSemester.Name = "lblSemester";
             this.lblSemester.Size = new System.Drawing.Size(108, 19);
@@ -429,7 +429,7 @@
             this.aSSESSMENTToolStripMenuItem,
             this.pAYMENTToolStripMenuItem});
             this.tRANSACTIONToolStripMenuItem.Name = "tRANSACTIONToolStripMenuItem";
-            this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.tRANSACTIONToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
             this.tRANSACTIONToolStripMenuItem.Text = "TRANSACTION";
             // 
             // onlineApplicantsToolStripMenuItem
@@ -476,7 +476,7 @@
             this.sECTIONSToolStripMenuItem,
             this.aSSESSMENTTYPEToolStripMenuItem});
             this.sETTINGSToolStripMenuItem.Name = "sETTINGSToolStripMenuItem";
-            this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.sETTINGSToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.sETTINGSToolStripMenuItem.Text = "SETTINGS";
             // 
             // sUBJECTSToolStripMenuItem
@@ -508,23 +508,37 @@
             // mISCELLANEOUSFEESToolStripMenuItem
             // 
             this.mISCELLANEOUSFEESToolStripMenuItem.Name = "mISCELLANEOUSFEESToolStripMenuItem";
-            this.mISCELLANEOUSFEESToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.mISCELLANEOUSFEESToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.mISCELLANEOUSFEESToolStripMenuItem.Text = "Tuition Fee";
             this.mISCELLANEOUSFEESToolStripMenuItem.Click += new System.EventHandler(this.mISCELLANEOUSFEESToolStripMenuItem_Click);
             // 
             // aDDITIONALFEEToolStripMenuItem
             // 
             this.aDDITIONALFEEToolStripMenuItem.Name = "aDDITIONALFEEToolStripMenuItem";
-            this.aDDITIONALFEEToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.aDDITIONALFEEToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.aDDITIONALFEEToolStripMenuItem.Text = "Additional Fee";
             this.aDDITIONALFEEToolStripMenuItem.Click += new System.EventHandler(this.aDDITIONALFEEToolStripMenuItem_Click);
             // 
             // dEFAULTFEESToolStripMenuItem
             // 
             this.dEFAULTFEESToolStripMenuItem.Name = "dEFAULTFEESToolStripMenuItem";
-            this.dEFAULTFEESToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.dEFAULTFEESToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.dEFAULTFEESToolStripMenuItem.Text = "Default Fee";
             this.dEFAULTFEESToolStripMenuItem.Click += new System.EventHandler(this.dEFAULTFEESToolStripMenuItem_Click);
+            // 
+            // assessmentPaymentModesToolStripMenuItem1
+            // 
+            this.assessmentPaymentModesToolStripMenuItem1.Name = "assessmentPaymentModesToolStripMenuItem1";
+            this.assessmentPaymentModesToolStripMenuItem1.Size = new System.Drawing.Size(225, 22);
+            this.assessmentPaymentModesToolStripMenuItem1.Text = "Assessment Payment Modes";
+            this.assessmentPaymentModesToolStripMenuItem1.Click += new System.EventHandler(this.assessmentPaymentModesToolStripMenuItem1_Click);
+            // 
+            // discountsToolStripMenuItem
+            // 
+            this.discountsToolStripMenuItem.Name = "discountsToolStripMenuItem";
+            this.discountsToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.discountsToolStripMenuItem.Text = "Discounts";
+            this.discountsToolStripMenuItem.Click += new System.EventHandler(this.discountsToolStripMenuItem_Click);
             // 
             // sECTIONSToolStripMenuItem
             // 
@@ -544,19 +558,32 @@
             this.aSSESSMENTTYPEToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.aSSESSMENTTYPEToolStripMenuItem.Text = "Management";
             // 
+            // yearLevelsToolStripMenuItem
+            // 
+            this.yearLevelsToolStripMenuItem.Name = "yearLevelsToolStripMenuItem";
+            this.yearLevelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.yearLevelsToolStripMenuItem.Text = "Year Levels";
+            // 
             // facultyToolStripMenuItem
             // 
             this.facultyToolStripMenuItem.Name = "facultyToolStripMenuItem";
-            this.facultyToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.facultyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.facultyToolStripMenuItem.Text = "Faculty";
             this.facultyToolStripMenuItem.Click += new System.EventHandler(this.facultyToolStripMenuItem_Click);
             // 
             // miscellaneousToolStripMenuItem
             // 
             this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
-            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
             this.miscellaneousToolStripMenuItem.Click += new System.EventHandler(this.miscellaneousToolStripMenuItem_Click);
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem.Text = "Users";
+            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // rEPORTSToolStripMenuItem
             // 
@@ -564,14 +591,21 @@
             this.mASTERLISTToolStripMenuItem,
             this.cOLLECTIONREPORTToolStripMenuItem});
             this.rEPORTSToolStripMenuItem.Name = "rEPORTSToolStripMenuItem";
-            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.rEPORTSToolStripMenuItem.Text = "REPORTS";
             // 
             // mASTERLISTToolStripMenuItem
             // 
             this.mASTERLISTToolStripMenuItem.Name = "mASTERLISTToolStripMenuItem";
-            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mASTERLISTToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.mASTERLISTToolStripMenuItem.Text = "Masterlist";
+            // 
+            // cOLLECTIONREPORTToolStripMenuItem
+            // 
+            this.cOLLECTIONREPORTToolStripMenuItem.Name = "cOLLECTIONREPORTToolStripMenuItem";
+            this.cOLLECTIONREPORTToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.cOLLECTIONREPORTToolStripMenuItem.Text = "Collection Report";
+            this.cOLLECTIONREPORTToolStripMenuItem.Click += new System.EventHandler(this.cOLLECTIONREPORTToolStripMenuItem_Click);
             // 
             // cLOSEALLFORMSToolStripMenuItem
             // 
@@ -599,39 +633,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // assessmentPaymentModesToolStripMenuItem1
-            // 
-            this.assessmentPaymentModesToolStripMenuItem1.Name = "assessmentPaymentModesToolStripMenuItem1";
-            this.assessmentPaymentModesToolStripMenuItem1.Size = new System.Drawing.Size(225, 22);
-            this.assessmentPaymentModesToolStripMenuItem1.Text = "Assessment Payment Modes";
-            this.assessmentPaymentModesToolStripMenuItem1.Click += new System.EventHandler(this.assessmentPaymentModesToolStripMenuItem1_Click);
-            // 
-            // discountsToolStripMenuItem
-            // 
-            this.discountsToolStripMenuItem.Name = "discountsToolStripMenuItem";
-            this.discountsToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.discountsToolStripMenuItem.Text = "Discounts";
-            this.discountsToolStripMenuItem.Click += new System.EventHandler(this.discountsToolStripMenuItem_Click);
-            // 
-            // yearLevelsToolStripMenuItem
-            // 
-            this.yearLevelsToolStripMenuItem.Name = "yearLevelsToolStripMenuItem";
-            this.yearLevelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.yearLevelsToolStripMenuItem.Text = "Year Levels";
-            // 
-            // cOLLECTIONREPORTToolStripMenuItem
-            // 
-            this.cOLLECTIONREPORTToolStripMenuItem.Name = "cOLLECTIONREPORTToolStripMenuItem";
-            this.cOLLECTIONREPORTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cOLLECTIONREPORTToolStripMenuItem.Text = "Collection Report";
-            this.cOLLECTIONREPORTToolStripMenuItem.Click += new System.EventHandler(this.cOLLECTIONREPORTToolStripMenuItem_Click);
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.usersToolStripMenuItem.Text = "Users";
             // 
             // frm_main
             // 
@@ -670,7 +671,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.Label lblAccountName;
         private System.Windows.Forms.Panel panel2;
@@ -721,5 +721,6 @@
         private System.Windows.Forms.ToolStripMenuItem yearLevelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cOLLECTIONREPORTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+        private System.Windows.Forms.Label label6;
     }
 }

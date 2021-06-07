@@ -15,6 +15,7 @@ namespace COLM_SYSTEM.Registration_Folder
         public uc_registered_students_list()
         {
             InitializeComponent();
+            cmbEducationLevel.Text = "All";
             LoadRegisteredStudents();
         }
 
@@ -26,6 +27,11 @@ namespace COLM_SYSTEM.Registration_Folder
             if (textBox1.Text != string.Empty)
             {
                 _RegisteredStudents = _RegisteredStudents.Where(item => item.StudentName.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+            }
+
+            if (cmbEducationLevel.Text != "All")
+            {
+                _RegisteredStudents = _RegisteredStudents.Where(item => item.EducationLevel.ToLower().Equals(cmbEducationLevel.Text.ToLower())).ToList();
             }
 
             foreach (var item in _RegisteredStudents)
@@ -104,6 +110,11 @@ namespace COLM_SYSTEM.Registration_Folder
                 if (deleteResult > 0)
                     LoadRegisteredStudents();
             }
+        }
+
+        private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadRegisteredStudents();
         }
     }
 }

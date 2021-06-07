@@ -13,9 +13,46 @@ namespace COLM_SYSTEM.User_Folder
 {
     public partial class frm_user_entry : Form
     {
+        List<Role> roles = Role.GetRoles();
+        User _user = new User();
+        string SavingStatus = string.Empty;
         public frm_user_entry()
         {
             InitializeComponent();
+
+            SavingStatus = "ADD";
+            btnSave.Text = "CREATE ACCOUNT";
+
+            cmbRole.Tag = roles;
+            cmbRole.Items.Clear();
+            foreach (var role in roles)
+            {
+                cmbRole.Items.Add(role.RoleName);
+            }
+        }
+
+        public frm_user_entry(User user)
+        {
+            InitializeComponent();
+
+            SavingStatus = "UPDATE";
+
+            btnSave.Text = "UPDATE ACCOUNT";
+
+            _user = user;
+            txtAccountName.Text = user.AccountName;
+            txtUsername.Text = user.Username;
+            txtPassword.Text = user.Password;
+            txtEmail.Text = user.Credential.Email;
+            txtEmailPassword.Text = user.Credential.Password;
+
+            cmbRole.Tag = roles;
+            cmbRole.Items.Clear();
+            foreach (var role in roles)
+            {
+                cmbRole.Items.Add(role.RoleName);
+            }
+            cmbRole.Text = user.UserRole.RoleName;
         }
         private bool IsValid()
         {
@@ -25,10 +62,9 @@ namespace COLM_SYSTEM.User_Folder
                 return false;                
             }
 
-
-            if (cmbPosition.Text == string.Empty)
+            if (cmbRole.Text == string.Empty)
             {
-                MessageBox.Show("Position is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Role is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -38,10 +74,13 @@ namespace COLM_SYSTEM.User_Folder
                 return false;
             }
 
-            if (User.IsUsernameExists(txtUsername.Text) > 0)
+            if (SavingStatus == "ADD")
             {
-                MessageBox.Show("Username is already exists!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                if (User.IsUsernameExists(txtUsername.Text) > 0)
+                {
+                    MessageBox.Show("Username is already exists!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
 
             if (txtPassword.Text == string.Empty)
@@ -68,13 +107,17 @@ namespace COLM_SYSTEM.User_Folder
         {
             if (IsValid() == true)
             {
+                Role role = roles.Where(item => item.RoleName.ToLower().Equals(cmbRole.Text.ToLower())).FirstOrDefault();
+
                 User user = new User()
                 {
+                    UserID = _user.UserID,
                     AccountName = txtAccountName.Text,
                     Username = txtUsername.Text,
                     Password = txtPassword.Text,
                     SchoolYearID = Utilties.GetActiveSchoolYear(),
                     SemesterID = Utilties.GetActiveSemester(),
+                    UserRole = role,
                     Credential = new EmailCredential()
                     {
                         Email = txtEmail.Text,
@@ -82,7 +125,17 @@ namespace COLM_SYSTEM.User_Folder
                     }
                 };
 
-                int result = User.CreateUser(user);
+                int result = User.CreateUpdate(user);
+
+                if (result > 0)
+                {
+                    if (SavingStatus == "ADD")
+                        MessageBox.Show("New user has been successfully created!", "User Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("User has been successfully updated!", "User Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                    Dispose();
+                }
             }
 
         }
@@ -109,6 +162,12 @@ namespace COLM_SYSTEM.User_Folder
             {
                 txtEmailPassword.UseSystemPasswordChar = true;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
         }
     }
 }

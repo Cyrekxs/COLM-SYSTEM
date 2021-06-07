@@ -1,6 +1,8 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +15,18 @@ namespace COLM_SYSTEM
 
         public static int GetActiveSchoolYear()
         {
-            return user.SchoolYearID;
+            if (user != null)
+                return user.SchoolYearID;
+            else
+                return 0;
         }
 
         public static int GetActiveSemester()
         {
-            return user.SemesterID;
+            if (user != null)
+                return user.SemesterID;
+            else
+                return 0;
         }
 
         public static string GetActiveSchoolYearInfo()
@@ -40,9 +48,30 @@ namespace COLM_SYSTEM
         {
             string input = val.ToString();
             bool result = double.TryParse(input, out val);
-            return result;                
+            return result;
         }
 
+        public static byte[] ConvertImageToByte(Image image)
+        {
+            byte[] result;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, image.RawFormat);
+                result = new byte[ms.Length];
+                ms.Position = 0;
+                ms.Read(result, 0, result.Length);
+            }
+            return result;
+        }
 
+        public static Image ConvertByteToImage(byte[] image)
+        {
+            Image result;
+            using (MemoryStream ms = new MemoryStream(image))
+            {
+                result = Image.FromStream(ms);
+            }
+            return result;
+        }
     }
 }

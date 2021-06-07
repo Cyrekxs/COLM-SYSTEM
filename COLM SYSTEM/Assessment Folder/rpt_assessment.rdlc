@@ -95,7 +95,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>COLLEGE OF OUR LADY OF MERCY </Value>
+                    <Value>COLLEGE OF OUR LADY OF MERCY</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Copperplate Gothic Light</FontFamily>
@@ -107,37 +107,11 @@
                   <TextAlign>Center</TextAlign>
                 </Style>
               </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>OF PULILAN FOUNDATION INC.</Value>
-                    <Style>
-                      <FontFamily>Copperplate Gothic Light</FontFamily>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Longos, Pulilan, Bulacan</Value>
-                    <Style>
-                      <FontFamily>Century Gothic</FontFamily>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>0.07292in</Top>
             <Left>2.77763in</Left>
-            <Height>0.58333in</Height>
+            <Height>0.1875in</Height>
             <Width>2.98383in</Width>
             <Style>
               <Border>
@@ -155,7 +129,7 @@
             <Value>COLMLOGO</Value>
             <Sizing>FitProportional</Sizing>
             <Top>0.07292in</Top>
-            <Left>1.74804in</Left>
+            <Left>0.97825in</Left>
             <Height>1.01735in</Height>
             <Width>1.0157in</Width>
             <ZIndex>1</ZIndex>
@@ -2642,7 +2616,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>COLM STUDENT ASSESSMENT</Value>
+                    <Value>STUDENT ASSESSMENT</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -2654,7 +2628,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>0.7118in</Top>
+            <Top>0.8368in</Top>
             <Left>2.77763in</Left>
             <Height>0.25in</Height>
             <Width>2.98383in</Width>
@@ -3187,6 +3161,80 @@
               <Border>
                 <Style>None</Style>
               </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox44">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>COLLEGE OF OUR LADY OF MERCY</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Copperplate Gothic Light</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.27431in</Top>
+            <Left>2.77763in</Left>
+            <Height>0.1875in</Height>
+            <Width>2.98383in</Width>
+            <ZIndex>20</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox45">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>COLLEGE OF OUR LADY OF MERCY</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Copperplate Gothic Light</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.46181in</Top>
+            <Left>2.77763in</Left>
+            <Height>0.1875in</Height>
+            <Width>2.98383in</Width>
+            <ZIndex>21</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>

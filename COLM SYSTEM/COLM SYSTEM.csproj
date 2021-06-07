@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\Colm\colm system 2021\</UpdateUrl>
-    <ApplicationRevision>32</ApplicationRevision>
+    <ApplicationRevision>33</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -394,6 +394,24 @@
     <Compile Include="Settings Folder\frm_settings.Designer.cs">
       <DependentUpon>frm_settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings Folder\uc_settings_mail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\uc_settings_mail.Designer.cs">
+      <DependentUpon>uc_settings_mail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings Folder\uc_settings_school_information.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\uc_settings_school_information.Designer.cs">
+      <DependentUpon>uc_settings_school_information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings Folder\uc_settings_target.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\uc_settings_target.Designer.cs">
+      <DependentUpon>uc_settings_target.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Student Information Folder\frm_online_importer_processor.cs">
       <SubType>Form</SubType>
@@ -455,17 +473,17 @@
     <Compile Include="User Folder\frm_user_entry.Designer.cs">
       <DependentUpon>frm_user_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Folder\frm_user_lists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Folder\frm_user_lists.Designer.cs">
+      <DependentUpon>frm_user_lists.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Folder\frm_user_settings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="User Folder\frm_user_settings.Designer.cs">
       <DependentUpon>frm_user_settings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="User Folder\uc_users_lists.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User Folder\uc_users_lists.Designer.cs">
-      <DependentUpon>uc_users_lists.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilties.cs" />
     <Compile Include="Program.cs" />
@@ -643,6 +661,15 @@
     <EmbeddedResource Include="Settings Folder\frm_settings.resx">
       <DependentUpon>frm_settings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\uc_settings_mail.resx">
+      <DependentUpon>uc_settings_mail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\uc_settings_school_information.resx">
+      <DependentUpon>uc_settings_school_information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\uc_settings_target.resx">
+      <DependentUpon>uc_settings_target.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\frm_online_importer_processor.resx">
       <DependentUpon>frm_online_importer_processor.cs</DependentUpon>
     </EmbeddedResource>
@@ -676,11 +703,11 @@
     <EmbeddedResource Include="User Folder\frm_user_entry.resx">
       <DependentUpon>frm_user_entry.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User Folder\frm_user_lists.resx">
+      <DependentUpon>frm_user_lists.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User Folder\frm_user_settings.resx">
       <DependentUpon>frm_user_settings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Folder\uc_users_lists.resx">
-      <DependentUpon>uc_users_lists.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Assessment Folder\DataSets\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>

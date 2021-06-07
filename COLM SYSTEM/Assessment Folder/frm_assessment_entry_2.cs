@@ -857,11 +857,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblCount.Text = string.Concat("Total Subjects: ", dgSubjects.Rows.Count);
@@ -896,6 +891,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm_assessment_subject_browser frm = new frm_assessment_subject_browser(registeredStudent,dgSubjects);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+            CalculateFeeSummary();
         }
 
         private void viewAdditionalFeeToolStripMenuItem_Click(object sender, EventArgs e)

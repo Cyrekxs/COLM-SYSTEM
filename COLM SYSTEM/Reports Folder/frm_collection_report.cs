@@ -69,7 +69,6 @@ namespace COLM_SYSTEM.Reports_Folder
             txtCollege.Text = college.ToString("n");
             txtTotal.Text = (preelem + elem + jhs + shs + college).ToString("n");
 
-            cmbEducationLevel.Text = "All";
             DisplayPaymentBreakdowns();
         }
 
@@ -80,6 +79,21 @@ namespace COLM_SYSTEM.Reports_Folder
             if (cmbEducationLevel.Text != "All")
             {
                 DataToDisplay = DataToDisplay.Where(item => item.EducationLevel.ToLower().Equals(cmbEducationLevel.Text.ToLower())).ToList();
+            }
+
+            if (cmbFeeCategory.Text != "All")
+            {
+                DataToDisplay = DataToDisplay.Where(item => item.FeeCategory.ToLower().Equals(cmbFeeCategory.Text.ToLower())).ToList();
+            }
+
+            if (cmbPayment.Text != "All")
+            {
+                DataToDisplay = DataToDisplay.Where(item => item.PaymentCategory.ToLower().Equals(cmbPayment.Text.ToLower())).ToList();
+            }
+
+            if (cmbORStatus.Text != "All")
+            {
+                DataToDisplay = DataToDisplay.Where(item => item.PaymentStatus.ToLower().Equals(cmbORStatus.Text.ToLower())).ToList();
             }
 
             dataGridView1.Rows.Clear();
@@ -106,6 +120,10 @@ namespace COLM_SYSTEM.Reports_Folder
 
         private void cmbEducationLevel_SelectedIndexChanged(object sender, System.EventArgs e)
         {
+            cmbEducationLevel.Text = "All";
+            cmbFeeCategory.Text = "All";
+            cmbPayment.Text = "All";
+            cmbORStatus.Text = "All";
             DisplayPaymentBreakdowns();
         }
     }
