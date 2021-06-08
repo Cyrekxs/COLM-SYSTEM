@@ -13,7 +13,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<StudentRegistered> GetRegisteredStudents()
         {
             List<StudentRegistered> registeredStudents = new List<StudentRegistered>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_StudentsRegistered()", conn))
@@ -53,7 +53,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<StudentInfo> GetUnregisteredStudents()
         {
             List<StudentInfo> students = new List<StudentInfo>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_StudentsUnregistered() ORDER BY Lastname,Firstname ASC", conn))
@@ -89,7 +89,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static StudentRegistered GetRegisteredStudent(int RegisteredID)
         {
             StudentRegistered registeredInfo = new StudentRegistered();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_StudentsRegistered() WHERE RegisteredID = @RegisteredID", conn))
@@ -130,7 +130,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         {
             bool HasRecord = false;
             bool IsSuccess = false;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
 
@@ -172,7 +172,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static bool UpdateStudentRegistration(StudentRegistration model)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("UPDATE student.registered SET CurriculumID = @CurriculumID, RegistrationStatus = @RegistrationStatus, StudentStatus = @StudentStatus, WHERE RegisteredStudentID = @RegisteredStudentID", conn))
@@ -193,7 +193,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static bool HasAssessment(int RegistrationID)
         {
             int result = 0;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT AssessmentID FROM assessment.summary WHERE RegisteredStudentID = @RegisteredStudentID AND AssessmentStatus = 'Active'", conn))
@@ -211,7 +211,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static bool HasPayment(int RegistrationID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.payment WHERE RegisteredStudentID = @RegisteredID", conn))
@@ -230,7 +230,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int DeleteRegistration(int RegistrationID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("DELETE FROM student.registered WHERE RegisteredID = @RegistrationID", conn))
@@ -244,7 +244,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<StudentRegistered> GetStudentsWithNoAssessment(int SchoolYearID, int SemesterID)
         {
             List<StudentRegistered> registeredStudents = new List<StudentRegistered>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_get_no_student_assessment(@SchoolYearID,@SemesterID)", conn))

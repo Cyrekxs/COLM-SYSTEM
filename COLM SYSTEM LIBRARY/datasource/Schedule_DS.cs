@@ -15,7 +15,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static bool IsScheduleExists(int SectionID)
         {
             bool IsExists = false;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum_subjects_schedule WHERE SectionID = @SectionID", conn))
@@ -33,7 +33,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static bool InsertUpdateSchedule(Schedule schedule)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("EXEC sp_set_subject_schedule @ScheduleID,@SubjectPriceID,@SectionID,@Day,@TimeIn,@TimeOut,@Room,@FacultyID", conn))
@@ -56,7 +56,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static bool DeleteSchedule(int SectionID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlTransaction t = conn.BeginTransaction())
@@ -82,7 +82,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Schedule> GetSchedules(int SectionID)
         {
             List<Schedule> schedules = new List<Schedule>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_Section_Schedule() WHERE SectionID = @SectionID", conn))
@@ -120,7 +120,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Schedule> GetSchedulesBySubjectPriceID(int SubjectPriceID)
         {
             List<Schedule> schedules = new List<Schedule>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_Section_Schedule() WHERE SubjectPriceID = @SubjectPriceID", conn))
@@ -157,7 +157,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Schedule> GetSchedulesBySubjectID(int SubjectID)
         {
             List<Schedule> schedules = new List<Schedule>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_Section_Schedule() WHERE SubjID = @SubjectID", conn))
@@ -194,7 +194,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static Schedule GetSchedulesByScheduleID(int ScheduleID)
         {
             Schedule schedule = new Schedule();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_Section_Schedule() WHERE ScheduleID = @ScheduleID", conn))

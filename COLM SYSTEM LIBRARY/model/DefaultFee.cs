@@ -19,7 +19,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<DefaultFee> GetDefaultFees()
         {
             List<DefaultFee> defaultFees = new List<DefaultFee>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM defaults.fees ORDER BY DefaultFeeID ASC", conn))
@@ -64,7 +64,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public static int InsertDefaultFee(DefaultFee fee)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("INSERT INTO defaults.fees VALUES (@Fee,@FeeType,@FeeAmount,@IsActive)", conn))
@@ -80,7 +80,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public static int UpdateDefaultFee(DefaultFee fee)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("UPDATE defaults.fees SET Fee = @Fee, FeeType = @FeeType, FeeAmount = @FeeAmount, IsActive = @IsActive WHERE DefaultFeeID = @DefaultFeeID", conn))

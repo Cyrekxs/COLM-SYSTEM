@@ -43,10 +43,10 @@ namespace COLM_SYSTEM.Assessment_Folder
                 Environment.NewLine, Environment.NewLine,
                 "Warm Regards,",
                 Environment.NewLine, Environment.NewLine,
-                "COLM Admission Office");
+                "Admission Office");
 
             txtTo.Text = assessment.Summary.EmailAddress;
-            txtSubject.Text = "COLM Admission Status";
+            txtSubject.Text = "Admission Status";
             txtBody.Text = MessageBody;
 
         }
@@ -111,19 +111,17 @@ namespace COLM_SYSTEM.Assessment_Folder
         private async void button1_Click(object sender, EventArgs e)
         {
 
-
-
             Task<bool> TaskPDFSaving = new Task<bool>(SavePDF);
             TaskPDFSaving.Start();
             btnSendMail.Enabled = false;
             await TaskPDFSaving;
 
-            if (assessment.Summary.TotalDue > 0)
-            {
-                Task<bool> TaskGCashSaving = new Task<bool>(SaveGCash);
-                TaskGCashSaving.Start();
-                await TaskGCashSaving;
-            }
+            //if (assessment.Summary.TotalDue > 0)
+            //{
+            //    Task<bool> TaskGCashSaving = new Task<bool>(SaveGCash);
+            //    TaskGCashSaving.Start();
+            //    await TaskGCashSaving;
+            //}
 
             if (TaskPDFSaving.Result == true)
             {

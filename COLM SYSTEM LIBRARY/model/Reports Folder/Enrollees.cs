@@ -22,7 +22,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
         public static List<Enrollees> GetEnrollees()
         {
             List<Enrollees> enrolledCounts = new List<Enrollees>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_enrolled_students()", conn))

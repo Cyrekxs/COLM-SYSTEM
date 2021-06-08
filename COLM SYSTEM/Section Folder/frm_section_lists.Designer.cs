@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clmSectionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,8 +53,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -180,12 +180,12 @@
             this.cmbEducationLevel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEducationLevel.FormattingEnabled = true;
             this.cmbEducationLevel.Items.AddRange(new object[] {
-            "ALL",
-            "PRE ELEMENTARY",
-            "ELEMENTARY",
-            "JUNIOR HIGH",
-            "SENIOR HIGH",
-            "COLLEGE"});
+            "All",
+            "Pre Elementary",
+            "Elementary",
+            "Junior High",
+            "Senior High",
+            "College"});
             this.cmbEducationLevel.Location = new System.Drawing.Point(691, 14);
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(145, 23);

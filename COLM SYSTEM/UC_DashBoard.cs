@@ -102,7 +102,7 @@ namespace COLM_SYSTEM
             lblEnrolledJHS.Text = EnrolledJHS.ToString();
             lblEnrolledSHS.Text = EnrolledSHS.ToString();
             lblEnrolledCollege.Text = EnrolledCollege.ToString();
-            lblTotalEnrolled.Text = TotalEnrolled.ToString();
+
 
 
             //dispaly pendings charts
@@ -111,26 +111,28 @@ namespace COLM_SYSTEM
             lblPendingJHS.Text = PendingJHS.ToString();
             lblPendingSHS.Text = PendingSHS.ToString();
             lblPendingCollege.Text = PendingCollege.ToString();
-            lblTotalPending.Text = TotalPending.ToString();
+
 
             //display total in charts
-            lblTotalPreElem.Text = (EnrolledPreElem + PendingPreElem).ToString();
-            lblTotalElem.Text = (EnrolledElem + PendingElem).ToString();
-            lblTotalJuniorHigh.Text = (EnrolledJHS + PendingJHS).ToString();
-            lblTotalSeniorHigh.Text = (EnrolledSHS + PendingSHS).ToString();
+            lblTotalPreElementary.Text = (EnrolledPreElem + PendingPreElem).ToString();
+            lblTotalElementary.Text = (EnrolledElem + PendingElem).ToString();
+            lblTotalJHS.Text = (EnrolledJHS + PendingJHS).ToString();
+            lblTotalSHS.Text = (EnrolledSHS + PendingSHS).ToString();
             lblTotalCollege.Text = (EnrolledCollege + PendingCollege).ToString();
-            lblTotalStudents.Text = (TotalEnrolled + TotalPending).ToString();
+
 
             //display target
-            lblTargetPreElem.Text = TargetPreElem.ToString("0.##") + " %";
-            lblTargetElem.Text = TargetElem.ToString("0.##") + " %";
-            lblTargetJHS.Text = TargetJHS.ToString("0.##") + " %";
-            lblTargetSHS.Text = TargetSHS.ToString("0.##") + " %";
-            lblTargetCollege.Text = TargetCollege.ToString("0.##") + " %";
-            lblTargetTotal.Text = TargetTotal.ToString("0.##") + " %";
+            lblTargetPreElem.Text = TargetPreElem.ToString("0.##") + "%";
+            lblTargetElem.Text = TargetElem.ToString("0.##") + "%";
+            lblTargetJHS.Text = TargetJHS.ToString("0.##") + "%";
+            lblTargetSHS.Text = TargetSHS.ToString("0.##") + "%";
+            lblTargetCollege.Text = TargetCollege.ToString("0.##") + "%";
+
 
 
             double TotalStudents = TotalEnrolled + TotalPending;
+            lblTotalEnrolled.Text = TotalEnrolled.ToString();
+            lblTotalPending.Text = TotalPending.ToString();
             double TotalPendingPercent = (TotalPending / TotalStudents) * 100;
             double TotalEnrolledPercent = (TotalEnrolled / TotalStudents) * 100;
 
@@ -220,33 +222,28 @@ namespace COLM_SYSTEM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoadChartBreakdown("Pre Elementary");
-            SelectedEducationLevel = "Pre Elementary";
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LoadChartBreakdown("Elementary");
-            SelectedEducationLevel = "Elementary";
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            LoadChartBreakdown("Junior High");
-            SelectedEducationLevel = "Junior High";
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            LoadChartBreakdown("Senior High");
-            SelectedEducationLevel = "Senior High";
+
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            LoadChartBreakdown("College");
-            SelectedEducationLevel = "College";
+
         }
 
         private void chart1_MouseClick(object sender, MouseEventArgs e)
@@ -263,6 +260,36 @@ namespace COLM_SYSTEM
                 //MessageBox.Show("Value #" + hit.PointIndex + " = " + enrolled.Tag.ToString());
                 //MessageBox.Show("Value #" + hit.PointIndex + " = " + pending.Tag.ToString());
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            LoadChartBreakdown("Pre Elementary");
+            SelectedEducationLevel = "Pre Elementary";
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            LoadChartBreakdown("Elementary");
+            SelectedEducationLevel = "Elementary";
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            LoadChartBreakdown("Junior High");
+            SelectedEducationLevel = "Junior High";
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            LoadChartBreakdown("Senior High");
+            SelectedEducationLevel = "Senior High";
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            LoadChartBreakdown("College");
+            SelectedEducationLevel = "College";
         }
     }
 }

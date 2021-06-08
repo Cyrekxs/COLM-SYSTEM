@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Drawing;
 using SEMS.Assessment_Folder.DataSets;
+using System.Threading.Tasks;
+using SEMS;
 
 namespace COLM_SYSTEM.Assessment_Folder
 {
@@ -24,7 +26,18 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private void LoadAssessments()
         {
-            List<AssessmentSummary> assessmentLists = Assessment.GetAssessments();
+
+
+            Task<List<AssessmentSummary>> task = new Task<List<AssessmentSummary>>(Assessment.GetAssessments);
+            task.Start();
+
+            using (frm_loading frm = new frm_loading(task))
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
+
+            List<AssessmentSummary> assessmentLists = task.Result;
 
             if (textBox1.Text != string.Empty)
             {
@@ -173,8 +186,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             reportParameters.Add(param_Facebook);
             reportParameters.Add(param_Registrar);
             reportParameters.Add(param_Policies);
-
-
 
 
             frm_print_preview frm = new frm_print_preview();

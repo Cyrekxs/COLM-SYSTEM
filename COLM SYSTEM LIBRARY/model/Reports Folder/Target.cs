@@ -16,7 +16,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
         public static List<Target> GetTargets()
         {
             List<Target> targets = new List<Target>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.targets ORDER BY TargetID ASC", conn))
@@ -45,7 +45,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
         public static bool HasTargetSetted(Target t)
         {
             bool IsExists = false;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.targets (NOLOCK) WHERE EducationLevel = @EducationLevel AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
@@ -66,7 +66,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
         }
         public static int InsertUpdateTarget(List<Target> targets)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlTransaction t = conn.BeginTransaction())

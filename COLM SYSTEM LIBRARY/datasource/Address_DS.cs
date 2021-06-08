@@ -11,7 +11,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Address> GetAddresses()
         {
             List<Address> addresses = new List<Address>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.addresses ORDER BY Province,City,Barangay ASC", conn))

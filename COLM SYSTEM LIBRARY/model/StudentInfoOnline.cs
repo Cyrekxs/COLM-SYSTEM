@@ -50,9 +50,10 @@ namespace COLM_SYSTEM_LIBRARY.model
         public DateTime ApplicationDate { get; set; }
 
         static TextInfo text = CultureInfo.CurrentCulture.TextInfo;
+
         private static string GetOnlineConnectionString()
         {
-            string connstring = @"Server=hgws12.win.hostgator.com;Database=colmpulilan_server_registration;User Id=colmpulilan_sysadmin;Password=Admin.c0lm2o18;";
+            string connstring = Connection.OStringConnection;
             return connstring;
         }
 
@@ -61,7 +62,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             List<StudentInfoOnlineProcessed> processedStudents = new List<StudentInfoOnlineProcessed>();
 
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.applicants", conn))

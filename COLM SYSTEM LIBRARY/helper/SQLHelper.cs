@@ -14,7 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.helper
         {
             string func = string.Concat("SELECT ", scalarfunction, "('", value, "')");
 
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand(func, conn))
@@ -29,7 +29,7 @@ namespace COLM_SYSTEM_LIBRARY.helper
         {
             string func = string.Concat("SELECT ", scalarfunction, "('", value, "')");
 
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand(func, conn))

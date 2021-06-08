@@ -15,7 +15,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static int InsertSubject(List<SubjectSetted> subjects)
         {
             int result = 0;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 foreach (var item in subjects)
@@ -76,7 +76,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int RemoveSubject(int SubjectPriceID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("DELETE FROM settings.curriculum_subjects_setted WHERE SubjectPriceID = @SubjectPriceID", conn))
@@ -98,7 +98,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 sql = "SELECT * FROM fn_list_CurriculumSubjects() WHERE CurriculumID = @CurriculumID AND YearLevelID = @YearLevelID AND SemesterID = @SemesterID";
 
 
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand(sql, conn))
@@ -133,7 +133,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static bool HasSetted(int CurriculumID,int YearLevelID,int SchoolYearID,int SemesterID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT COUNT(SubjectPriceID) AS Subjects FROM settings.curriculum_subjects_setted WHERE CurriculumID = @CurriculumID AND YearLevelID = @YearLevelID AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
@@ -157,7 +157,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             List<SubjectSetted> subjects = new List<SubjectSetted>();
             string sql;
             sql = "SELECT * FROM fn_list_CurriculumSubjects() WHERE CurriculumID = @CurriculumID";
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand(sql, conn))
@@ -191,7 +191,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<SubjectSetted> GetSubjectSetted(int CurriculumID, int YearLevelID, int SchoolYearID, int SemesterID)
         {
             List<SubjectSetted> subjects = new List<SubjectSetted>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM [dbo].[fn_subjects_setted_breakdown]() WHERE CurriculumID = @CurriculumID AND YearLevelID = @YearLevelID AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
@@ -232,7 +232,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static SubjectSetted GetSubjectSetted(int SubjectPriceID)
         {
             SubjectSetted subject = new SubjectSetted();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM [dbo].[fn_subjects_setted_breakdown]() WHERE SubjectPriceID = @SubjectPriceID", conn))
@@ -269,7 +269,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<SubjectSetted> GetAvailableSubjects(int SubjectID,int SchoolYearID,int SemesterID)
         {
             List<SubjectSetted> subjects = new List<SubjectSetted>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM [dbo].[fn_subjects_setted_breakdown]() WHERE SubjID = @SubjectID AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))

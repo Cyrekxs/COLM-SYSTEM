@@ -21,7 +21,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
         {
             List<AssessmentSubjectAdditionalFee> additionalFees = new List<AssessmentSubjectAdditionalFee>();
             List<AssessmentSubjectAdditionalFee> subjectAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.subjects_additional_fees WHERE AssessmentID = @AssessmentID", conn))

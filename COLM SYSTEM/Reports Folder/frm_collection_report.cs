@@ -120,10 +120,21 @@ namespace COLM_SYSTEM.Reports_Folder
 
         private void cmbEducationLevel_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            cmbEducationLevel.Text = "All";
-            cmbFeeCategory.Text = "All";
-            cmbPayment.Text = "All";
-            cmbORStatus.Text = "All";
+            DisplayPaymentBreakdowns();
+        }
+
+        private void cmbFeeCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayPaymentBreakdowns();
+        }
+
+        private void cmbPayment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayPaymentBreakdowns();
+        }
+
+        private void cmbORStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
             DisplayPaymentBreakdowns();
         }
     }

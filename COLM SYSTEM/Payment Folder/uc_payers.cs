@@ -1,9 +1,11 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
+using SEMS;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Payment_Folder
@@ -19,7 +21,16 @@ namespace COLM_SYSTEM.Payment_Folder
 
         private void LoadAssessments()
         {
-            List<AssessmentSummary> assessmentLists = Assessment.GetAssessments();
+
+            Task<List<AssessmentSummary>> task = new Task<List<AssessmentSummary>>(Assessment.GetAssessments);
+            task.Start();
+            using (frm_loading frm = new frm_loading(task))
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
+
+            List<AssessmentSummary> assessmentLists = task.Result;
 
             if (textBox1.Text != string.Empty)
             {

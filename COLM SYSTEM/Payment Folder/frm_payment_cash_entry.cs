@@ -12,7 +12,7 @@ namespace COLM_SYSTEM.Payment_Folder
         {
             InitializeComponent();
             studentRegistered = student;
-            txtAmount.Text = AmountToPay.ToString("n");
+            txtAmountToPay.Text = AmountToPay.ToString("n");
         }
 
         private bool IsValidData()
@@ -29,13 +29,13 @@ namespace COLM_SYSTEM.Payment_Folder
                 return false;
             }
 
-            if (txtAmount.Text == string.Empty)
+            if (txtAmountToPay.Text == string.Empty)
             {
                 MessageBox.Show("Please enter amount to pay", "Invalid Amount", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (Convert.ToDouble(txtAmount.Text) <= 0)
+            if (Convert.ToDouble(txtAmountToPay.Text) <= 0)
             {
                 MessageBox.Show("Please enter amount to pay", "Invalid Amount", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -62,7 +62,7 @@ namespace COLM_SYSTEM.Payment_Folder
                 ORNumber = txtORNumber.Text,
                 FeeCategory = "Tuition",
                 PaymentCategory = "Cash",
-                AmountPaid = Convert.ToDouble(txtAmount.Text),
+                AmountPaid = Convert.ToDouble(txtAmountToPay.Text),
                 UserID = Utilties.user.UserID
             };
 

@@ -1,17 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace COLM_SYSTEM_LIBRARY.helper
+﻿namespace COLM_SYSTEM_LIBRARY.helper
 {
     public static class Connection
     {
-        //local connection
-        public static string StringConnection { get { return @"Data Source=COLM\SQLEXPRESS;Initial Catalog=colmpulilan_server;Persist Security Info=True;User ID=sa;Password=sa"; } }
+        /// <summary>
+        /// COLM SYSTEM
+        /// </summary>
 
-        //online connection
-        //public static string StringConnection { get { return @"Server=hgws12.win.hostgator.com;Database=colmpulilan_server;User Id=colmpulilan_sysadmin;Password=Admin.c0lm2o18"; } }
+        //local connection COLM
+        public static string LStringConnection { get { return @"Server=hgws12.win.hostgator.com;Database=colmpulilan_server;User Id=colmpulilan_sysadmin;Password=Admin.c0lm2o18"; } }
+        //online connection COLM
+        public static string OStringConnection { get { return @"Server=hgws12.win.hostgator.com;Database=colmpulilan_server_registration;User Id=colmpulilan_sysadmin;Password=Admin.c0lm2o18"; } }
+
+
+        /// <summary>
+        /// STDA SYSTEM
+        /// </summary>
+
+        ////local connection STDA
+        //public static string LStringConnection { get { return @"Server=ns51.win.hostgator.com;Database=stda_server;User Id=stda_sysadmin;Password=stda.admin2o21"; } }
+        ////online connection STDA
+        //public static string OStringConnection { get { return @"Server=ns51.win.hostgator.com;Database=stda_server_registration;User Id=stda_sysadmin;Password=stda.admin2o21;"; } }
+
+
+        /// <summary>
+        /// LOCAL SYSTEM
+        /// </summary>
+
+        ////local connection SYSTEM
+        //public static string LStringConnection { get { return @"Data Source=.\SQLEXPRESS;Initial Catalog=colmpulilan_server;Persist Security Info=True;User ID=sa;Password=sa"; } }
+        ////online connection SYSTEM
+        //public static string OStringConnection { get { return @"Server=hgws12.win.hostgator.com;Database=colmpulilan_server_registration;User Id=colmpulilan_sysadmin;Password=Admin.c0lm2o18;"; } }
     }
 }

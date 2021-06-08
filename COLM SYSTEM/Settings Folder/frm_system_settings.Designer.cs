@@ -87,7 +87,7 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.Filter = "jpeg | *.jpg |png | *.png";
+            this.openFileDialog1.Filter = "jpeg|*.jpg|png|*.png|All Files|*.*";
             // 
             // frm_system_settings
             // 

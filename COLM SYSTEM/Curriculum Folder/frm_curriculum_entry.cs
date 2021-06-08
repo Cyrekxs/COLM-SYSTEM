@@ -325,6 +325,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            //this function will check first if the curriculum has a registered students, if has then the user will not able to delete this curriculum
             if (MessageBox.Show("Are you sure you want to delete this curriculum? this will check first if there's registered students in this curriculum", "Delete Curriculum", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int result = Curriculum.DeleteCurriculum(_curriculum);

@@ -31,7 +31,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<SubjectSettedSummary> GetSubjectSettedSummaries()
         {
             List<SubjectSettedSummary> settedSummaries = new List<SubjectSettedSummary>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM [dbo].[fn_list_subject_setted_summary]() ORDER BY EducationLevel,CourseStrand,YearLevelID ASC", conn))

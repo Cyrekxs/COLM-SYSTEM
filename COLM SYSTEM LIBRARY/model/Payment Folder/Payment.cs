@@ -36,6 +36,11 @@ namespace COLM_SYSTEM_LIBRARY.model.Payment_Folder
             return Payment_DS.InsertPaymentCheque(payment, cheque);
         }
 
+        public static PaymentCheque GetCheque(int PaymentID)
+        {
+            return Payment_DS.GetCheque(PaymentID);
+        }
+
         public static bool IsValidORNumber(string ORNumber)
         {
             return Payment_DS.IsValidORnumber(ORNumber);

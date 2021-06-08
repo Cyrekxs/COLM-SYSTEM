@@ -17,7 +17,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<Role> GetRoles()
         {
             List<Role> roles = new List<Role>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.roles", conn))

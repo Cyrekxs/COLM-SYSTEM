@@ -14,7 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<PaymentMode> GetAssessmentPaymentModes()
         {
             List<PaymentMode> assessmentTypes = new List<PaymentMode>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_assessment_payment_modes() ORDER BY PaymentModeID ASC", conn))
@@ -44,7 +44,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<PaymentModeItem> GetPaymentModeItems(int PaymentModeID)
         {
             List<PaymentModeItem> assessmentTypeItems = new List<PaymentModeItem>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.assessment_payment_items WHERE PaymentModeID = @PaymentModeID ORDER BY PaymentModeID", conn))
@@ -75,7 +75,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int InsertPaymentType(PaymentMode payment, List<PaymentModeItem> paymentItems)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlTransaction t = conn.BeginTransaction())
@@ -123,7 +123,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int UpdatePaymentType(PaymentMode payment, List<PaymentModeItem> paymentItems)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlTransaction t = conn.BeginTransaction())

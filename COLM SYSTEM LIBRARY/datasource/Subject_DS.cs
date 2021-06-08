@@ -14,7 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Subject> GetSubjects()
         {
             List<Subject> subjects = new List<Subject>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.subjects WHERE IsActive = 1", conn))
@@ -44,7 +44,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static Subject GetSubject(int SubjID)
         {
             Subject subject = new Subject();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.subjects WHERE SubjID = @SubjID", conn))
@@ -74,7 +74,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<SubjectComponent> GetSubjectComponents(int SubjID)
         {
             List<SubjectComponent> subjectComponents = new List<SubjectComponent>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.subjects_component WHERE SubjID = @SubjID", conn))
@@ -100,7 +100,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static bool InsertUpdateSubject(Subject model)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("EXECUTE sp_set_subject @SubjID,@SubjCode,@SubjDesc,@LecUnit,@LabUnit,@Unit", conn))
@@ -122,7 +122,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static bool IsSubjectExist(Subject subject)
         {
             bool result = false;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT dbo.fn_check_subject(@subjcode,@subjdesc) AS Result", conn))

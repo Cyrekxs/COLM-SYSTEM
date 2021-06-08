@@ -17,7 +17,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<Department> GetDepartments()
         {
             List<Department> departments = new List<Department>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.departments", conn))

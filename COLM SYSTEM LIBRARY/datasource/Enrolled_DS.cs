@@ -14,7 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<EnrolledStudent> GetEnrolledStudents()
         {
             List<EnrolledStudent> enrolledStudents = new List<EnrolledStudent>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM students.enrolled", conn))
@@ -41,7 +41,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int EnrollStudent(EnrolledStudent student)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("EXEC sp_set_enrolled_student @RegisteredStudentID,@SchoolYearID,@SemesterID", conn))
@@ -57,7 +57,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<EnrolledStudent> GetEnrolledStudents(int SchoolYearID, int SemesterID)
         {
             List<EnrolledStudent> enrolledStudents = new List<EnrolledStudent>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.enrolled WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
@@ -85,7 +85,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static bool IsStudentEnrolled(int RegisteredStudentID, int SchoolYearID, int SemesterID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.enrolled WHERE RegisteredStudentID = @RegisteredStudentID AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))

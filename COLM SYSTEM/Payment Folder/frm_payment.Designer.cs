@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -95,6 +96,9 @@
             this.clmPaymentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiViewCheque = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiCancel = new System.Windows.Forms.ToolStripMenuItem();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -105,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgAdditionalFees)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPaymentHistory)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel7
@@ -385,6 +390,7 @@
             this.button1.TabIndex = 22;
             this.button1.Text = "CHEQUE PAYMENT";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -736,8 +742,31 @@
             this.clmAction.Name = "clmAction";
             this.clmAction.ReadOnly = true;
             this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmAction.Text = "Cancel";
+            this.clmAction.Text = "Action";
+            this.clmAction.UseColumnTextForButtonValue = true;
             this.clmAction.Width = 48;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiViewCheque,
+            this.tsmiCancel});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // tsmiViewCheque
+            // 
+            this.tsmiViewCheque.Name = "tsmiViewCheque";
+            this.tsmiViewCheque.Size = new System.Drawing.Size(180, 22);
+            this.tsmiViewCheque.Text = "View Cheque Info";
+            this.tsmiViewCheque.Click += new System.EventHandler(this.tsmiViewCheque_Click);
+            // 
+            // tsmiCancel
+            // 
+            this.tsmiCancel.Name = "tsmiCancel";
+            this.tsmiCancel.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCancel.Text = "Cancel OR";
+            this.tsmiCancel.Click += new System.EventHandler(this.cancelPaymentToolStripMenuItem_Click);
             // 
             // frm_payment
             // 
@@ -766,6 +795,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgAdditionalFees)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgPaymentHistory)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -809,14 +839,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmORNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentDate;
-        private System.Windows.Forms.DataGridViewButtonColumn clmAction;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBalanceTuition;
@@ -828,5 +850,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBalanceAdditional;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmCheckToAddAdditional;
         private System.Windows.Forms.LinkLabel linkMarkEnrolled;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmORNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentDate;
+        private System.Windows.Forms.DataGridViewButtonColumn clmAction;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiCancel;
+        private System.Windows.Forms.ToolStripMenuItem tsmiViewCheque;
     }
 }

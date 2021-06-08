@@ -13,7 +13,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static Assessment GetAssessment(int AssessmentID)
         {
             Assessment assessment = new Assessment();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 //get assessment summary
@@ -166,7 +166,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<AssessmentSummary> GetAssessmentLists()
         {
             List<AssessmentSummary> assessmentLists = new List<AssessmentSummary>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_student_assessment()", conn))
@@ -217,7 +217,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         }
         public static int InsertAssessment(AssessmentSummary summary, List<AssessmentSubject> subjects, List<AssessmentFee> fees, List<AssessmentDiscount> discounts, List<AssessmentBreakdown> breakdown)
         {         
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlTransaction t = conn.BeginTransaction())
@@ -345,7 +345,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int DeactivateAssessment(int AssessmentID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("UPDATE assessment.summary SET AssessmentStatus = 'INACTIVE' WHERE AssessmentID = @AssessmentID", conn))

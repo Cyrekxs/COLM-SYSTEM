@@ -15,7 +15,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static EmailCredential GetDefaultEmail()
         {
             EmailCredential ec = new EmailCredential();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.emailer", conn))
@@ -39,7 +39,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<EmailCredential> GetUserEmailCredentials()
         {
             List<EmailCredential> credentials = new List<EmailCredential>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.email_accounts", conn))
@@ -66,7 +66,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static EmailCredential GetUserEmailCredential(int UserID)
         {
             EmailCredential credential = new EmailCredential();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.email_accounts WHERE UserID = @UserID", conn))
@@ -92,7 +92,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public static bool HasDefaultMailer()
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.emailer", conn))
@@ -117,7 +117,7 @@ namespace COLM_SYSTEM_LIBRARY.model
                 sqlcomm = "UPDATE settings.emailer SET Email = @Email, Password = @Password";
 
 
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand(sqlcomm, conn))

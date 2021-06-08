@@ -143,7 +143,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<string> GetCourseStrandByCurriculum(string CurriculumCode)
         {
             List<string> CourseStrands = new List<string>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.curriculum WHERE Code = @CurriculumCode", conn))

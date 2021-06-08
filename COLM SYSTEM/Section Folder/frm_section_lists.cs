@@ -1,11 +1,9 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
+using SEMS;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,13 +19,36 @@ namespace COLM_SYSTEM.Section_Folder
 
         private void LoadSections()
         {
+
+            Task<List<Section>> task_getsections = new Task<List<Section>>(() => Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester()));
+            task_getsections.Start();
+            List<Section> sections = task_getsections.Result; // Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+
+            Task<List<YearLevel>> task_getyearlevels = new Task<List<YearLevel>>(YearLevel.GetYearLevels);
+            task_getyearlevels.Start();
+            List<YearLevel> yearLevels = task_getyearlevels.Result;
+
+
+            Task task_display = new Task(() => DisplaySections(sections, yearLevels));
+            task_display.Start();
+
+            frm_loading frm = new frm_loading(task_getsections, task_getyearlevels, task_display);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void DisplaySections(List<Section> sections, List<YearLevel> yearLevels)
+        {
             dataGridView1.Rows.Clear();
-            List<Section> sections = Section.GetSections(Utilties.GetActiveSchoolYear(),Utilties.GetActiveSemester());
+            List<Curriculum> curriculums = Curriculum.GetCurriculums();
+
             foreach (var item in sections)
             {
-                YearLevel level = YearLevel.GetYearLevel(item.YearLevelID); // get year level info to show course or strand
+                string CurriculumCode = string.Empty;
+                CurriculumCode = curriculums.FirstOrDefault(r => r.CurriculumID == item.CurriculumID).Code;
 
-                dataGridView1.Rows.Add(item.SectionID, item.EducationLevel,Curriculum.GetCurriculum(item.CurriculumID).Code, level.CourseStrand, item.YearLevel, item.SectionName, item.DateCreated.ToString("MM-dd-yyyy"));
+                YearLevel level = yearLevels.Where(r => r.YearLevelID == item.YearLevelID).FirstOrDefault(); // get year level info to show course or strand
+                dataGridView1.Rows.Add(item.SectionID, item.EducationLevel, CurriculumCode, level.CourseStrand, item.YearLevel, item.SectionName, item.DateCreated.ToString("MM-dd-yyyy"));
             }
         }
 

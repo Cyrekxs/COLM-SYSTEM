@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>H:\COLM SYSTEM 2021\</PublishUrl>
+    <PublishUrl>D:\SEMS DEPLOYMENT\COLM\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>https://colm.edu.ph/sems/</UpdateUrl>
-    <ApplicationRevision>38</ApplicationRevision>
+    <UpdateUrl>http://colm.edu.ph/SEMS/</UpdateUrl>
+    <ApplicationRevision>43</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -62,7 +62,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\colm-system-icon.ico</ApplicationIcon>
+    <ApplicationIcon>sems.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -268,6 +268,12 @@
     <Compile Include="Fees Folder\uc_tuition_list.Designer.cs">
       <DependentUpon>uc_tuition_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_loading.Designer.cs">
+      <DependentUpon>frm_loading.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,6 +327,12 @@
     </Compile>
     <Compile Include="Payment Folder\frm_payment_cheque_entry.Designer.cs">
       <DependentUpon>frm_payment_cheque_entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment Folder\frm_payment_cheque_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment Folder\frm_payment_cheque_info.Designer.cs">
+      <DependentUpon>frm_payment_cheque_info.cs</DependentUpon>
     </Compile>
     <Compile Include="Payment Folder\uc_payers.cs">
       <SubType>UserControl</SubType>
@@ -603,6 +615,9 @@
     <EmbeddedResource Include="Fees Folder\uc_tuition_list.resx">
       <DependentUpon>uc_tuition_list.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_loading.resx">
+      <DependentUpon>frm_loading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_login.resx">
       <DependentUpon>frm_login.cs</DependentUpon>
     </EmbeddedResource>
@@ -629,6 +644,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\frm_payment_cheque_entry.resx">
       <DependentUpon>frm_payment_cheque_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment Folder\frm_payment_cheque_info.resx">
+      <DependentUpon>frm_payment_cheque_info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\uc_payers.resx">
       <DependentUpon>uc_payers.cs</DependentUpon>
@@ -827,8 +845,11 @@
     <None Include="Resources\Garbage.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Need to check before publish.txt" />
+    <Content Include="Nodes1.ico" />
     <Content Include="Programmers Info\Notes.txt" />
     <Content Include="Programmers Info\What I Did.txt" />
+    <Content Include="sems.ico" />
     <None Include="Resources\NONITA NABONG.jpg" />
     <None Include="Resources\Logout.png" />
     <None Include="Resources\AccountSettings.png" />

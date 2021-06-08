@@ -28,7 +28,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public static int SaveSchoolInfo(SchoolInfo info)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 string qry = string.Empty;
@@ -64,7 +64,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static SchoolInfo GetSchoolInfo()
         {
             SchoolInfo info = new SchoolInfo();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.school_info", conn))
@@ -115,7 +115,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public static bool HasSetted()
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.school_info", conn))

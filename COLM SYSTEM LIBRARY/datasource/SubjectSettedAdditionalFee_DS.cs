@@ -12,7 +12,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<SubjectSettedAddtionalFee> GetSubjectSettedAddtionalFees(int SubjectPriceID)
         {
             List<SubjectSettedAddtionalFee> additionalFees = new List<SubjectSettedAddtionalFee>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM [settings].[curriculum_subjects_setted_additionalfee] WHERE SubjectPriceID = @SubjectPriceID", conn))
@@ -43,7 +43,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static SubjectSettedAddtionalFee GetSubjectSettedAddtionalFee(int AdditionalFeeID)
         {
             SubjectSettedAddtionalFee additionalFee = new SubjectSettedAddtionalFee();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM [settings].[curriculum_subjects_setted_additionalfee] WHERE AdditionalFeeID = @AdditionalFeeID", conn))
@@ -73,7 +73,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static int InsertUpdateSubjectSettedAdditionalFee(List<SubjectSettedAddtionalFee> settedAddtionalFees)
         {
             int result = 0;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 foreach (var item in settedAddtionalFees)
@@ -96,7 +96,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int DeleteSubjectSettedAdditionalFee(int AdditionalFeeID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("DELETE FROM [settings].[curriculum_subjects_setted_additionalfee] WHERE AdditionalFeeID = @AdditionalFeeID", conn))

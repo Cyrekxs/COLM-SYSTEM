@@ -1,10 +1,12 @@
 ﻿using COLM_SYSTEM.registration;
 using COLM_SYSTEM_LIBRARY.model;
+using SEMS;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Registration_Folder
@@ -22,7 +24,14 @@ namespace COLM_SYSTEM.Registration_Folder
         private void LoadRegisteredStudents()
         {
             dataGridView1.Rows.Clear();
-            List<StudentRegistered> _RegisteredStudents = StudentRegistered.GetRegisteredStudents();
+            Task<List<StudentRegistered>> task = new Task<List<StudentRegistered>>(StudentRegistered.GetRegisteredStudents);
+            task.Start();
+
+            frm_loading frm = new frm_loading(task);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+
+            List<StudentRegistered> _RegisteredStudents =task.Result;
 
             if (textBox1.Text != string.Empty)
             {

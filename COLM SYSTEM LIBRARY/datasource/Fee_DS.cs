@@ -14,7 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Fee> GetFees()
         {
             List<Fee> fees = new List<Fee>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.fees ORDER BY Type ASC", conn))
@@ -43,7 +43,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Fee> GetFees(int YearLevelID)
         {
             List<Fee> fees = new List<Fee>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.fees WHERE YearLevelID = @YearLevelID", conn))
@@ -73,7 +73,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Fee> GetAdditionalFees()
         {
             List<Fee> fees = new List<Fee>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.fees WHERE Type = 'Additional' ORDER BY Fee ASC", conn))
@@ -103,7 +103,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static Fee GetFee(int FeeID)
         {
             Fee fee = new Fee();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.fees WHERE FeeID = @FeeID", conn))
@@ -133,7 +133,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Fee> GetSettedFees(int CurriculumID, int YearLevelID,int SchoolYearID,int SemesterID)
         {
             List<Fee> SettedFees = new List<Fee>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_get_setted_fees(@CurriculumID,@YearLevelID,@SchoolYearID,@SemesterID)", conn))
@@ -168,7 +168,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static int InsertUpdateFee(Fee model)
         {
             int result = 0;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("EXECUTE sp_set_fee @FeeID,@CurriculumID,@YearLevelID,@SchoolYearID,@SemesterID,@Fee,@Type,@Amount", conn))
@@ -192,7 +192,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static int RemoveSettedFee(int FeeID)
         {
             int result = 0;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("DELETE FROM settings.fees WHERE FeeID = @FeeID", conn))

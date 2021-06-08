@@ -225,13 +225,6 @@ namespace COLM_SYSTEM
             frm.ShowDialog();
         }
 
-        private void miscellaneousToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frm_settings frm = new frm_settings();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             frm_user_settings frm = new frm_user_settings();
@@ -289,9 +282,37 @@ namespace COLM_SYSTEM
             frm.ShowDialog();
         }
 
-        private void loginWallpaperToolStripMenuItem_Click(object sender, EventArgs e)
+        private void loginWallpaperToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frm_system_settings frm = new frm_system_settings();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void schoolInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_settings frm = new frm_settings(new uc_settings_school_information());
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void assessmentReportSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_settings frm = new frm_settings(new uc_settings_assessment() );
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void emailSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_settings frm = new frm_settings(new uc_settings_mail());
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void targetStudentsSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_settings frm = new frm_settings(new uc_settings_target());
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

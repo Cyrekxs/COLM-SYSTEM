@@ -14,7 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<SchoolYear> GetSchoolYears()
         {
             List<SchoolYear> sy_list = new List<SchoolYear>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.schoolyear ORDER BY SchoolYearID ASC", conn))
@@ -40,7 +40,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<SchoolSemester> GetSchoolSemesters()
         {
             List<SchoolSemester> sem_list = new List<SchoolSemester>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.schoolsem ORDER BY SemesterID ASC", conn))

@@ -30,11 +30,12 @@
         {
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.txtAmountToPay = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtORNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,9 +46,9 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.Location = new System.Drawing.Point(132, 159);
+            this.button3.Location = new System.Drawing.Point(142, 137);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(92, 41);
+            this.button3.Size = new System.Drawing.Size(90, 30);
             this.button3.TabIndex = 28;
             this.button3.Text = "CANCEL";
             this.button3.UseVisualStyleBackColor = false;
@@ -59,53 +60,51 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(230, 159);
+            this.button1.Location = new System.Drawing.Point(240, 137);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 41);
+            this.button1.Size = new System.Drawing.Size(90, 30);
             this.button1.TabIndex = 27;
             this.button1.Text = "PAY";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtAmount
+            // txtAmountToPay
             // 
-            this.txtAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtAmount.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmount.Location = new System.Drawing.Point(19, 116);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(311, 37);
-            this.txtAmount.TabIndex = 26;
-            this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAmountToPay.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAmountToPay.Location = new System.Drawing.Point(19, 92);
+            this.txtAmountToPay.Name = "txtAmountToPay";
+            this.txtAmountToPay.Size = new System.Drawing.Size(311, 27);
+            this.txtAmountToPay.TabIndex = 26;
+            this.txtAmountToPay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 84);
+            this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(16, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 29);
+            this.label2.Size = new System.Drawing.Size(86, 15);
             this.label2.TabIndex = 25;
-            this.label2.Text = "AMOUNT:";
+            this.label2.Text = "Amount to Pay";
             // 
             // txtORNumber
             // 
-            this.txtORNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtORNumber.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtORNumber.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtORNumber.Location = new System.Drawing.Point(19, 44);
             this.txtORNumber.Name = "txtORNumber";
-            this.txtORNumber.Size = new System.Drawing.Size(311, 37);
+            this.txtORNumber.Size = new System.Drawing.Size(311, 27);
             this.txtORNumber.TabIndex = 24;
             this.txtORNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 12);
+            this.label1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(16, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 29);
+            this.label1.Size = new System.Drawing.Size(32, 15);
             this.label1.TabIndex = 23;
-            this.label1.Text = "OR NUMBER:";
+            this.label1.Text = "OR #";
             // 
             // panel1
             // 
@@ -115,17 +114,28 @@
             this.panel1.Controls.Add(this.txtORNumber);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtAmount);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Controls.Add(this.txtAmountToPay);
+            this.panel1.Location = new System.Drawing.Point(15, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(340, 218);
+            this.panel1.Size = new System.Drawing.Size(340, 183);
             this.panel1.TabIndex = 29;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 15);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Cash Payment";
             // 
             // frm_payment_cash_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 251);
+            this.ClientSize = new System.Drawing.Size(371, 226);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -134,6 +144,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -141,10 +152,11 @@
 
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.TextBox txtAmountToPay;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtORNumber;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label3;
     }
 }

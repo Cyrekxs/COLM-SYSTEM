@@ -146,7 +146,7 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.Filter = "jpeg | *.jpg |png | *.png";
+            this.openFileDialog1.Filter = "jpeg|*.jpg|png|*.png|All Files|*.*";
             // 
             // uc_settings_school_information
             // 

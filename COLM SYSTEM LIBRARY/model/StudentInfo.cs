@@ -71,6 +71,11 @@ namespace COLM_SYSTEM_LIBRARY.model
             return await StudentInfo_DS.GetStudentsAsync();
         }
 
+        public static List<StudentInfo> GetStudents()
+        {
+            return StudentInfo_DS.GetStudents();
+        }
+
         public static StudentInfo GetStudent(int StudentID)
         {
             return StudentInfo_DS.GetStudent(StudentID);

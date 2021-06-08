@@ -49,7 +49,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(113, 70);
+            this.label10.Location = new System.Drawing.Point(220, 70);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 15);
             this.label10.TabIndex = 23;
@@ -57,7 +57,7 @@
             // 
             // txtCollege
             // 
-            this.txtCollege.Location = new System.Drawing.Point(113, 204);
+            this.txtCollege.Location = new System.Drawing.Point(220, 204);
             this.txtCollege.Name = "txtCollege";
             this.txtCollege.Size = new System.Drawing.Size(93, 23);
             this.txtCollege.TabIndex = 21;
@@ -65,7 +65,7 @@
             // 
             // txtSeniorHigh
             // 
-            this.txtSeniorHigh.Location = new System.Drawing.Point(113, 175);
+            this.txtSeniorHigh.Location = new System.Drawing.Point(220, 175);
             this.txtSeniorHigh.Name = "txtSeniorHigh";
             this.txtSeniorHigh.Size = new System.Drawing.Size(93, 23);
             this.txtSeniorHigh.TabIndex = 20;
@@ -73,7 +73,7 @@
             // 
             // txtJuniorHigh
             // 
-            this.txtJuniorHigh.Location = new System.Drawing.Point(113, 146);
+            this.txtJuniorHigh.Location = new System.Drawing.Point(220, 146);
             this.txtJuniorHigh.Name = "txtJuniorHigh";
             this.txtJuniorHigh.Size = new System.Drawing.Size(93, 23);
             this.txtJuniorHigh.TabIndex = 19;
@@ -81,7 +81,7 @@
             // 
             // txtElem
             // 
-            this.txtElem.Location = new System.Drawing.Point(113, 117);
+            this.txtElem.Location = new System.Drawing.Point(220, 117);
             this.txtElem.Name = "txtElem";
             this.txtElem.Size = new System.Drawing.Size(93, 23);
             this.txtElem.TabIndex = 18;
@@ -89,7 +89,7 @@
             // 
             // txtPreElem
             // 
-            this.txtPreElem.Location = new System.Drawing.Point(113, 88);
+            this.txtPreElem.Location = new System.Drawing.Point(220, 88);
             this.txtPreElem.Name = "txtPreElem";
             this.txtPreElem.Size = new System.Drawing.Size(93, 23);
             this.txtPreElem.TabIndex = 17;
@@ -148,7 +148,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(445, 262);
+            this.button1.Location = new System.Drawing.Point(260, 262);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 30);
             this.button1.TabIndex = 39;
@@ -163,7 +163,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 48);
+            this.panel1.Size = new System.Drawing.Size(351, 48);
             this.panel1.TabIndex = 40;
             // 
             // label1
@@ -197,7 +197,7 @@
             this.Controls.Add(this.label4);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "uc_settings_target";
-            this.Size = new System.Drawing.Size(540, 310);
+            this.Size = new System.Drawing.Size(351, 310);
             this.Load += new System.EventHandler(this.uc_settings_target_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

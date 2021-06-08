@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM.Student_Information_Folder;
 using System.Globalization;
+using SEMS;
 
 namespace COLM_SYSTEM.student_information
 {
@@ -19,12 +20,19 @@ namespace COLM_SYSTEM.student_information
         public uc_student_information_list()
         {
             InitializeComponent();
-            LoadStudentsAsync();
+            LoadStudents();
         }
 
-        private async Task LoadStudentsAsync()
+        private void LoadStudents()
         {
-            List<StudentInfo> students = await StudentInfo.GetStudentsAsync();
+            Task<List<StudentInfo>> task = new Task<List<StudentInfo>>(StudentInfo.GetStudents);
+            task.Start();
+            frm_loading frm = new frm_loading(task);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+
+
+            List<StudentInfo> students = task.Result;
             dataGridView1.Rows.Clear();
 
             if (txtSearch.Text != string.Empty)
@@ -41,13 +49,13 @@ namespace COLM_SYSTEM.student_information
             lblCount.Text = "Record Count(s): " + dataGridView1.Rows.Count.ToString();
         }
 
-        private async void button1_ClickAsync(object sender, EventArgs e)
+        private void button1_ClickAsync(object sender, EventArgs e)
         {
             using (frm_student_information_online_entry_1 frm = new frm_student_information_online_entry_1())
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-                await LoadStudentsAsync();
+                LoadStudents();
             }
         }
 
@@ -60,33 +68,33 @@ namespace COLM_SYSTEM.student_information
             }
         }
 
-        private async void txtSearch_KeyDownAsync(object sender, KeyEventArgs e)
+        private void txtSearch_KeyDownAsync(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                await LoadStudentsAsync();
+                LoadStudents();
             }
             else if (e.KeyCode == Keys.Back)
             {
                 if (txtSearch.Text == string.Empty)
                 {
-                    await LoadStudentsAsync();
+                    LoadStudents();
                 }
             }
         }
 
-        private async void uPDATEINFORToolStripMenuItem_ClickAsync(object sender, EventArgs e)
+        private void uPDATEINFORToolStripMenuItem_ClickAsync(object sender, EventArgs e)
         {
             int SelectedStudentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmStudentID"].Value);
             using (frm_student_information_online_entry_1 frm = new frm_student_information_online_entry_1(SelectedStudentID))
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-                await LoadStudentsAsync();
+                LoadStudents();
             }
         }
 
-        private async void dELETEINFORMATIONToolStripMenuItem_ClickAsync(object sender, EventArgs e)
+        private void dELETEINFORMATIONToolStripMenuItem_ClickAsync(object sender, EventArgs e)
         {
             //this function will check if the current student id has a registration info.. if it has a registration id then it will not continue to delete student info
             int SelectedStudentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmStudentID"].Value);
@@ -100,7 +108,7 @@ namespace COLM_SYSTEM.student_information
                     if (result > 0)
                     {
                         MessageBox.Show("Student has been successfully deleted!", "Delete Successfull!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        await LoadStudentsAsync();
+                        LoadStudents();
                     }
                 }
             }

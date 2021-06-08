@@ -28,7 +28,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static bool SetCurriculum(Curriculum curriculum)
         {
             bool result = false;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum @CurriculumID,@Code,@Desc,@EducationLevel,@CourseStrand,@SchoolYearID", conn))
@@ -51,7 +51,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static int DeleteCurriculum(Curriculum curriculum)
         {
             int RegisteredStudents = 0;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT COUNT(RegisteredID) AS RegisteredStudents FROM student.registered WHERE CurriculumID = @CurriculumID", conn))
@@ -84,7 +84,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Curriculum> GetCurriculums(string EducationLevel)
         {
             List<Curriculum> Curriculums = new List<Curriculum>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_curriculums() WHERE EducationLevel = @EducationLevel", conn))
@@ -117,7 +117,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static Curriculum GetCurriculum(int CurriculumID)
         {
             Curriculum curriculum = new Curriculum();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_curriculums() WHERE CurriculumID = @CurriculumID", conn))
@@ -149,7 +149,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static Curriculum GetCurriculum(string CurriculumCode)
         {
             Curriculum curriculum = new Curriculum();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_curriculums() WHERE Code = @CurriculumCode", conn))
@@ -181,7 +181,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Curriculum> GetCurriculums()
         {
             List<Curriculum> Curriculums = new List<Curriculum>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_curriculums() ORDER BY EducationLevel,Code ASC", conn))
@@ -213,7 +213,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<YearLevel> GetCurriculumYearLevels(int CurriculumID)
         {
             List<YearLevel> yearLevels = new List<YearLevel>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT DISTINCT YearLevelID FROM settings.curriculum_subjects WHERE CurriculumID = @CurriculumID ORDER BY YearLevelID ASC", conn))
@@ -235,7 +235,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static int SetCurriculumSubjects(List<CurriculumSubject> subjects)
         {
             int result = 0;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 foreach (var subject in subjects)
@@ -259,7 +259,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int RemoveCurriculumSubject(int CurriculumSubjID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("UPDATE settings.curriculum_subjects SET IsActive = @IsActive WHERE CurriculumSubjectID = @CurriculumSubjID", conn))
@@ -274,7 +274,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<CurriculumSubject> GetCurriculumSubjects(int CurriculumID)
         {
             List<CurriculumSubject> subjects = new List<CurriculumSubject>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM [dbo].[fn_list_CurriculumSubjects]() WHERE CurriculumID = @CurriculumID ORDER BY YearLevelID,SemesterID,CurriculumSubjectID", conn))

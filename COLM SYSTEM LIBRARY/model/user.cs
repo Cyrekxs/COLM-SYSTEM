@@ -20,7 +20,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<User> GetUsers()
         {
             List<User> users = new List<User>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_users()", conn))
@@ -62,7 +62,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static User login(string Username, string Password)
         {
             User user = new User();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_users() WHERE Username = @Username AND AccountPassword = @Password", conn))
@@ -109,7 +109,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static int IsUsernameExists(string Username)
         {
             int UserID = 0;
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT UserID FROM settings.users WHERE Username = @Username", conn))
@@ -123,7 +123,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public static int CreateUpdate(User user)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlTransaction t = conn.BeginTransaction())
@@ -209,7 +209,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public static int UpdateUser(User user)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("UPDATE settings.users SET Username = @Username, Password = @Password WHERE UserID = @UserID", conn))
@@ -224,7 +224,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public static int InsertUpdateEmail(User user)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 if (user.Credential.EmailID == 0)

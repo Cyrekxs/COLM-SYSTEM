@@ -10,7 +10,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
     {
         public static bool InsertSection(Section section)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("INSERT INTO settings.yearlevel_sections VALUES (@CurriculumID,@YearLevelID,@Section,@SchoolYearID,@SemesterID,GETDATE())", conn))
@@ -31,7 +31,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Section> GetSections(int SchoolYearID,int SemesterID)
         {
             List<Section> sections = new List<Section>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_section_summary() WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID ORDER BY YearLevelID,Section ASC", conn))
@@ -64,7 +64,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static Section GetSection(int SectionID)
         {
             Section section = new Section();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_section_summary() WHERE SectionID = @SectionID", conn))
@@ -96,7 +96,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static bool IsSectionExists(Section section)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.yearlevel_sections WHERE CurriculumID = @CurriculumID AND YearLevelID = @YearLevelID AND Section = @Section AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))

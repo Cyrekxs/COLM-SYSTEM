@@ -10,7 +10,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Discount> GetDiscounts()
         {
             List<Discount> discounts = new List<Discount>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.discounts ORDER BY DateCreated ASC", conn))
@@ -61,7 +61,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static Discount GetDiscount(int DiscountID)
         {
             Discount discount = new Discount();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.discounts WHERE DiscountID = @DiscountID ORDER BY DateCreated ASC", conn))
@@ -108,7 +108,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int InsertUpdateDiscount(Discount model)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
 
@@ -186,7 +186,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int RemoveDiscount(int DiscountID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("DELETE FROM settings.discounts WHERE DiscountID = @DiscountID", conn))
@@ -199,7 +199,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int RemoveDiscountYearLevel(int DiscountID, int YearLevelID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 using (SqlCommand comm = new SqlCommand("DELETE FROM settings.discounts_yearlevels WHERE DiscountID = @DiscountID AND YearLevelID = @YearLevelID", conn))
                 {

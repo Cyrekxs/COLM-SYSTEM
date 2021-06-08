@@ -215,7 +215,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "jpeg | *.jpg |png | *.png";
+            this.openFileDialog1.Filter = "jpeg|*.jpg|png|*.png|All Files|*.*";
             // 
             // label17
             // 

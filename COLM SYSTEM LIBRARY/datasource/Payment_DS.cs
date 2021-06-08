@@ -14,7 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<PaymentBreakdown> GetPaymentBreakdowns()
         {
             List<PaymentBreakdown> payments = new List<PaymentBreakdown>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_payment_breakdown() ORDER BY ORNumber ASC", conn))
@@ -52,7 +52,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Payment> GetStudentPayment(int RegisteredStudentID, int SchoolYearID, int SemesterID)
         {
             List<Payment> payments = new List<Payment>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_get_student_payment(@RegisteredStudentID,@SchoolYearID,@SemesterID)", conn))
@@ -87,7 +87,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int InsertPaymentCash(Payment payment)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("EXEC sp_set_payment @RegisteredStudentID,@SchoolYearID,@SemesterID,@ORNumber,@FeeCategory,@PaymentCategory,@AmountPaid,@UserID", conn))
@@ -107,7 +107,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int InsertPaymentCheque(Payment payment, PaymentCheque cheque)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlTransaction t = conn.BeginTransaction())
@@ -134,7 +134,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
                     using (SqlCommand comm = new SqlCommand("INSERT INTO assessment.payment_cheque VALUES (@PaymentID,@BankName,@ChequeNo,@ChequeAmount)", conn, t))
                     {
-                        comm.Parameters.AddWithValue("@PaymentID", 0);
+                        comm.Parameters.AddWithValue("@PaymentID", PaymentID);
                         comm.Parameters.AddWithValue("@BankName", cheque.BankName);
                         comm.Parameters.AddWithValue("@ChequeNo", cheque.ChequeNo);
                         comm.Parameters.AddWithValue("@ChequeAmount", cheque.Amount);
@@ -147,9 +147,37 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
         }
 
+        public static PaymentCheque GetCheque(int PaymentID)
+        {
+            PaymentCheque cheque = new PaymentCheque();
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.payment_cheque WHERE PaymentID = @PaymentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@PaymentID", PaymentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            cheque = new PaymentCheque()
+                            {
+                                ChequeID = Convert.ToInt32(reader["ChequeID"]),
+                                PaymentID = Convert.ToInt32(reader["PaymentID"]),
+                                BankName = Convert.ToString(reader["BankName"]),
+                                ChequeNo = Convert.ToString(reader["ChequeNo"]),
+                                Amount = Convert.ToDouble(reader["ChequeAmount"])
+                            };
+                        }
+                    }
+                }
+            }
+            return cheque;
+        }
+
         public static bool IsValidORnumber(string ORNumber)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.payment WHERE ORNumber = @ORNumber", conn))
@@ -172,7 +200,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int ChargeFee(StudentRegistered student, Fee fee, int Quantity)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("EXEC sp_set_assessment_additional_fee @RegisteredStudentID,@SchoolYearID,@SemesterID,@AdditionalFeeID,@Amount,@Quantity,@TotalAmount", conn))
@@ -192,7 +220,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<AdditionalFee> GetAdditionalFees(int RegisteredStudentID, int SchoolYearID, int SemesterID)
         {
             List<AdditionalFee> fees = new List<AdditionalFee>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_get_assessment_additionalfee(@RegisteredStudentID,@SchoolYearID,@SemesterID)", conn))
@@ -228,7 +256,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int InsertAdditionalFeePayment(int AssessmentAdditionalFeeID, double Payment)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("INSERT INTO assessment.payment_additional_fees VALUES (@AssessmentAdditionalFeeID,@AmountPaid)", conn))
@@ -242,7 +270,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int CancelReciept(string ORNumber)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("UPDATE assessment.payment SET PaymentStatus = 'Cancelled' WHERE ORNumber = @ORNumber", conn))

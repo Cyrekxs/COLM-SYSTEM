@@ -1,6 +1,7 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using COLM_SYSTEM_LIBRARY.model.Payment_Folder;
+using SEMS.Payment_Folder;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -13,6 +14,7 @@ namespace COLM_SYSTEM.Payment_Folder
         Assessment assessment = new Assessment();
         StudentRegistered studentRegistered = new StudentRegistered();
         YearLevel studentYearLevel = new YearLevel();
+        int SelectedOR = -1;
         public frm_payment(int AssessmentID)
         {
             InitializeComponent();
@@ -206,18 +208,24 @@ namespace COLM_SYSTEM.Payment_Folder
 
         private void dgPaymentHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == clmAction.Index)
+
+            try
             {
-                if (dgPaymentHistory.Rows[e.RowIndex].Cells["clmPaymentStatus"].Value.ToString().ToLower() == "active")
+                if (e.ColumnIndex == clmAction.Index)
                 {
-                    if (MessageBox.Show("Are you sure you want cancel this reciept?", "Cancel Reciept", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        string ORNumber = dgPaymentHistory.Rows[e.RowIndex].Cells["clmORNumber"].Value.ToString();
-                        int result = Payment.CancelReciept(ORNumber);
-                        LoadAssessmentInformation();
-                    }
+                    SelectedOR = e.RowIndex;
+
+                    if (dgPaymentHistory.Rows[e.RowIndex].Cells["clmPaymentCategory"].Value.ToString().ToLower() != "cash")
+                        tsmiViewCheque.Visible = true;
+                    else
+                        tsmiViewCheque.Visible = false;
+
+                    contextMenuStrip1.Show(new Point(Cursor.Position.X, Cursor.Position.Y));
+                    
                 }
             }
+            catch (Exception)
+            { }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -238,6 +246,45 @@ namespace COLM_SYSTEM.Payment_Folder
                     linkMarkEnrolled.Visible = false;
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double AmountToPay = 0;
+            foreach (DataGridViewRow item in dgBreakdown.Rows)
+            {
+                if (Convert.ToBoolean(item.Cells["clmCheckToAddTuition"].Value) == true)
+                {
+                    AmountToPay += Convert.ToDouble(item.Cells["clmBalanceTuition"].Value);
+                }
+            }
+
+            frm_payment_cheque_entry frm = new frm_payment_cheque_entry(studentRegistered, AmountToPay);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+
+            LoadAssessmentInformation();
+        }
+
+        private void cancelPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                if (dgPaymentHistory.Rows[SelectedOR].Cells["clmPaymentStatus"].Value.ToString().ToLower() == "active")
+                {
+                    if (MessageBox.Show("Are you sure you want cancel this reciept?", "Cancel Reciept", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        string ORNumber = dgPaymentHistory.Rows[SelectedOR].Cells["clmORNumber"].Value.ToString();
+                        int result = Payment.CancelReciept(ORNumber);
+                        LoadAssessmentInformation();
+                    }
+                }
+        }
+
+        private void tsmiViewCheque_Click(object sender, EventArgs e)
+        {
+            int PaymentID = Convert.ToInt16(dgPaymentHistory.Rows[SelectedOR].Cells["clmPaymentID"].Value);
+            frm_payment_cheque_info frm = new frm_payment_cheque_info(PaymentID);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

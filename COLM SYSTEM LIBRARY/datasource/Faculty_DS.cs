@@ -14,7 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<Faculty> GetFaculties()
         {
             List<Faculty> faculties = new List<Faculty>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.faculties ORDER BY Lastname,Firstname ASC", conn))
@@ -44,7 +44,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static Faculty GetFaculty(int FacultyID)
         {
             Faculty faculty = new Faculty();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.faculties WHERE FacultyID = @FacultyID", conn))
@@ -72,7 +72,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int InsertUpdateFaculty(Faculty faculty)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
 

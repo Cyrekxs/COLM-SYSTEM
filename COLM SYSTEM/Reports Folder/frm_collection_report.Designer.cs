@@ -28,22 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.clmORNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmORStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFeeCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmORDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbORStatus = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cmbPayment = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbFeeCategory = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.lblPaymentCount = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -63,22 +79,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cmbFeeCategory = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cmbPayment = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cmbORStatus = new System.Windows.Forms.ComboBox();
-            this.clmORNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmORStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFeeCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmORDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -91,18 +91,18 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmORNumber,
@@ -122,36 +122,117 @@
             this.dataGridView1.Size = new System.Drawing.Size(928, 336);
             this.dataGridView1.TabIndex = 27;
             // 
+            // clmORNumber
+            // 
+            this.clmORNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmORNumber.DefaultCellStyle = dataGridViewCellStyle17;
+            this.clmORNumber.HeaderText = "OR Number";
+            this.clmORNumber.Name = "clmORNumber";
+            this.clmORNumber.ReadOnly = true;
+            this.clmORNumber.Width = 87;
+            // 
+            // clmORStatus
+            // 
+            this.clmORStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmORStatus.DefaultCellStyle = dataGridViewCellStyle18;
+            this.clmORStatus.HeaderText = "OR Status";
+            this.clmORStatus.Name = "clmORStatus";
+            this.clmORStatus.ReadOnly = true;
+            this.clmORStatus.Width = 78;
+            // 
+            // clmPayment
+            // 
+            this.clmPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmPayment.DefaultCellStyle = dataGridViewCellStyle19;
+            this.clmPayment.HeaderText = "Payment";
+            this.clmPayment.Name = "clmPayment";
+            this.clmPayment.ReadOnly = true;
+            this.clmPayment.Width = 79;
+            // 
+            // clmFeeCategory
+            // 
+            this.clmFeeCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmFeeCategory.DefaultCellStyle = dataGridViewCellStyle20;
+            this.clmFeeCategory.HeaderText = "Category";
+            this.clmFeeCategory.Name = "clmFeeCategory";
+            this.clmFeeCategory.ReadOnly = true;
+            this.clmFeeCategory.Width = 80;
+            // 
+            // clmAmount
+            // 
+            this.clmAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmAmount.DefaultCellStyle = dataGridViewCellStyle21;
+            this.clmAmount.HeaderText = "Amount";
+            this.clmAmount.Name = "clmAmount";
+            this.clmAmount.ReadOnly = true;
+            this.clmAmount.Width = 74;
+            // 
+            // clmORDate
+            // 
+            this.clmORDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmORDate.HeaderText = "Date";
+            this.clmORDate.Name = "clmORDate";
+            this.clmORDate.ReadOnly = true;
+            this.clmORDate.Width = 57;
+            // 
+            // clmStudentName
+            // 
+            this.clmStudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmStudentName.HeaderText = "Student Name";
+            this.clmStudentName.Name = "clmStudentName";
+            this.clmStudentName.ReadOnly = true;
+            // 
+            // clmEducationLevel
+            // 
+            this.clmEducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmEducationLevel.HeaderText = "Education";
+            this.clmEducationLevel.Name = "clmEducationLevel";
+            this.clmEducationLevel.ReadOnly = true;
+            this.clmEducationLevel.Width = 86;
+            // 
+            // clmCourseStrand
+            // 
+            this.clmCourseStrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmCourseStrand.HeaderText = "Course / Strand";
+            this.clmCourseStrand.Name = "clmCourseStrand";
+            this.clmCourseStrand.ReadOnly = true;
+            this.clmCourseStrand.Width = 107;
+            // 
             // chart1
             // 
-            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisX.LineColor = System.Drawing.Color.Gray;
-            chartArea1.AxisX.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisY.LabelStyle.Format = "n";
-            chartArea1.AxisY.LineColor = System.Drawing.Color.Gray;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea1.BackColor = System.Drawing.Color.WhiteSmoke;
-            chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea3.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea3.AxisX.IsLabelAutoFit = false;
+            chartArea3.AxisX.LabelStyle.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea3.AxisX.LineColor = System.Drawing.Color.Gray;
+            chartArea3.AxisX.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea3.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea3.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea3.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea3.AxisY.LabelStyle.Format = "n";
+            chartArea3.AxisY.LineColor = System.Drawing.Color.Gray;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea3.BackColor = System.Drawing.Color.WhiteSmoke;
+            chartArea3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.Location = new System.Drawing.Point(10, 9);
             this.chart1.Name = "chart1";
-            series1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ForwardDiagonal;
-            series1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series1.Color = System.Drawing.Color.DarkSlateGray;
-            series1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.IsValueShownAsLabel = true;
-            series1.LabelFormat = "n";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.ForwardDiagonal;
+            series3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series3.Color = System.Drawing.Color.DarkSlateGray;
+            series3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.IsValueShownAsLabel = true;
+            series3.LabelFormat = "n";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(927, 231);
             this.chart1.TabIndex = 28;
             this.chart1.Text = "chart1";
@@ -174,6 +255,90 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(945, 637);
             this.panel1.TabIndex = 29;
+            // 
+            // cmbORStatus
+            // 
+            this.cmbORStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbORStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbORStatus.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbORStatus.FormattingEnabled = true;
+            this.cmbORStatus.Items.AddRange(new object[] {
+            "All",
+            "Active",
+            "Cancelled"});
+            this.cmbORStatus.Location = new System.Drawing.Point(817, 246);
+            this.cmbORStatus.Name = "cmbORStatus";
+            this.cmbORStatus.Size = new System.Drawing.Size(120, 23);
+            this.cmbORStatus.TabIndex = 37;
+            this.cmbORStatus.SelectedIndexChanged += new System.EventHandler(this.cmbORStatus_SelectedIndexChanged);
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(751, 249);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 15);
+            this.label14.TabIndex = 36;
+            this.label14.Text = "OR Status";
+            // 
+            // cmbPayment
+            // 
+            this.cmbPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPayment.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPayment.FormattingEnabled = true;
+            this.cmbPayment.Items.AddRange(new object[] {
+            "All",
+            "Cash",
+            "Cheque"});
+            this.cmbPayment.Location = new System.Drawing.Point(600, 245);
+            this.cmbPayment.Name = "cmbPayment";
+            this.cmbPayment.Size = new System.Drawing.Size(139, 23);
+            this.cmbPayment.TabIndex = 35;
+            this.cmbPayment.SelectedIndexChanged += new System.EventHandler(this.cmbPayment_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(538, 249);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 15);
+            this.label13.TabIndex = 34;
+            this.label13.Text = "Payment";
+            // 
+            // cmbFeeCategory
+            // 
+            this.cmbFeeCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbFeeCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFeeCategory.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbFeeCategory.FormattingEnabled = true;
+            this.cmbFeeCategory.Items.AddRange(new object[] {
+            "All",
+            "Tuition",
+            "Additional"});
+            this.cmbFeeCategory.Location = new System.Drawing.Point(393, 246);
+            this.cmbFeeCategory.Name = "cmbFeeCategory";
+            this.cmbFeeCategory.Size = new System.Drawing.Size(139, 23);
+            this.cmbFeeCategory.TabIndex = 33;
+            this.cmbFeeCategory.SelectedIndexChanged += new System.EventHandler(this.cmbFeeCategory_SelectedIndexChanged);
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(308, 249);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(79, 15);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "Fee Category";
             // 
             // cmbEducationLevel
             // 
@@ -243,6 +408,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(209, 634);
             this.panel2.TabIndex = 30;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(15, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "COLLECTION REPORT";
             // 
             // button2
             // 
@@ -436,179 +612,6 @@
             this.label2.Size = new System.Drawing.Size(89, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Pre Elementary";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(15, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "COLLECTION REPORT";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(308, 249);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 15);
-            this.label12.TabIndex = 32;
-            this.label12.Text = "Fee Category";
-            // 
-            // cmbFeeCategory
-            // 
-            this.cmbFeeCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbFeeCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbFeeCategory.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbFeeCategory.FormattingEnabled = true;
-            this.cmbFeeCategory.Items.AddRange(new object[] {
-            "All",
-            "Tuition",
-            "Additional"});
-            this.cmbFeeCategory.Location = new System.Drawing.Point(393, 246);
-            this.cmbFeeCategory.Name = "cmbFeeCategory";
-            this.cmbFeeCategory.Size = new System.Drawing.Size(139, 23);
-            this.cmbFeeCategory.TabIndex = 33;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(538, 249);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(56, 15);
-            this.label13.TabIndex = 34;
-            this.label13.Text = "Payment";
-            // 
-            // cmbPayment
-            // 
-            this.cmbPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPayment.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPayment.FormattingEnabled = true;
-            this.cmbPayment.Items.AddRange(new object[] {
-            "All",
-            "Cash",
-            "Cheque"});
-            this.cmbPayment.Location = new System.Drawing.Point(600, 245);
-            this.cmbPayment.Name = "cmbPayment";
-            this.cmbPayment.Size = new System.Drawing.Size(139, 23);
-            this.cmbPayment.TabIndex = 35;
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(751, 249);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(60, 15);
-            this.label14.TabIndex = 36;
-            this.label14.Text = "OR Status";
-            // 
-            // cmbORStatus
-            // 
-            this.cmbORStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbORStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbORStatus.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbORStatus.FormattingEnabled = true;
-            this.cmbORStatus.Items.AddRange(new object[] {
-            "All",
-            "Active",
-            "Cancelled"});
-            this.cmbORStatus.Location = new System.Drawing.Point(817, 246);
-            this.cmbORStatus.Name = "cmbORStatus";
-            this.cmbORStatus.Size = new System.Drawing.Size(120, 23);
-            this.cmbORStatus.TabIndex = 37;
-            // 
-            // clmORNumber
-            // 
-            this.clmORNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmORNumber.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmORNumber.HeaderText = "OR Number";
-            this.clmORNumber.Name = "clmORNumber";
-            this.clmORNumber.ReadOnly = true;
-            this.clmORNumber.Width = 94;
-            // 
-            // clmORStatus
-            // 
-            this.clmORStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmORStatus.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clmORStatus.HeaderText = "OR Status";
-            this.clmORStatus.Name = "clmORStatus";
-            this.clmORStatus.ReadOnly = true;
-            this.clmORStatus.Width = 85;
-            // 
-            // clmPayment
-            // 
-            this.clmPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmPayment.DefaultCellStyle = dataGridViewCellStyle5;
-            this.clmPayment.HeaderText = "Payment";
-            this.clmPayment.Name = "clmPayment";
-            this.clmPayment.ReadOnly = true;
-            this.clmPayment.Width = 79;
-            // 
-            // clmFeeCategory
-            // 
-            this.clmFeeCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmFeeCategory.DefaultCellStyle = dataGridViewCellStyle6;
-            this.clmFeeCategory.HeaderText = "Category";
-            this.clmFeeCategory.Name = "clmFeeCategory";
-            this.clmFeeCategory.ReadOnly = true;
-            this.clmFeeCategory.Width = 80;
-            // 
-            // clmAmount
-            // 
-            this.clmAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmAmount.DefaultCellStyle = dataGridViewCellStyle7;
-            this.clmAmount.HeaderText = "Amount";
-            this.clmAmount.Name = "clmAmount";
-            this.clmAmount.ReadOnly = true;
-            this.clmAmount.Width = 74;
-            // 
-            // clmORDate
-            // 
-            this.clmORDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmORDate.HeaderText = "Date";
-            this.clmORDate.Name = "clmORDate";
-            this.clmORDate.ReadOnly = true;
-            this.clmORDate.Width = 57;
-            // 
-            // clmStudentName
-            // 
-            this.clmStudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmStudentName.HeaderText = "Student Name";
-            this.clmStudentName.Name = "clmStudentName";
-            this.clmStudentName.ReadOnly = true;
-            // 
-            // clmEducationLevel
-            // 
-            this.clmEducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmEducationLevel.HeaderText = "Education";
-            this.clmEducationLevel.Name = "clmEducationLevel";
-            this.clmEducationLevel.ReadOnly = true;
-            this.clmEducationLevel.Width = 86;
-            // 
-            // clmCourseStrand
-            // 
-            this.clmCourseStrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmCourseStrand.HeaderText = "Course / Strand";
-            this.clmCourseStrand.Name = "clmCourseStrand";
-            this.clmCourseStrand.ReadOnly = true;
-            this.clmCourseStrand.Width = 117;
             // 
             // frm_collection_report
             // 

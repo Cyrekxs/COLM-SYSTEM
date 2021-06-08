@@ -34,6 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.lblVersion = new System.Windows.Forms.Label();
+            this.lblSemester = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.lblPosition = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblDateTime = new System.Windows.Forms.Label();
-            this.lblSemester = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.PanelMain = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -75,8 +75,8 @@
             this.assessmentPaymentModesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.discountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miManagement = new System.Windows.Forms.ToolStripMenuItem();
-            this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miReports = new System.Windows.Forms.ToolStripMenuItem();
             this.miCollectionReport = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +84,11 @@
             this.importUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.loginWallpaperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schoolInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assessmentReportSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emailSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.targetStudentsSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loginWallpaperToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -143,13 +147,25 @@
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
-            this.lblVersion.Font = new System.Drawing.Font("Calibri Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblVersion.Location = new System.Drawing.Point(77, 46);
+            this.lblVersion.Location = new System.Drawing.Point(77, 47);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(85, 15);
+            this.lblVersion.Size = new System.Drawing.Size(88, 15);
             this.lblVersion.TabIndex = 19;
             this.lblVersion.Text = "version 3.0.0.0";
+            // 
+            // lblSemester
+            // 
+            this.lblSemester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSemester.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSemester.ForeColor = System.Drawing.Color.Gray;
+            this.lblSemester.Location = new System.Drawing.Point(710, 10);
+            this.lblSemester.Name = "lblSemester";
+            this.lblSemester.Size = new System.Drawing.Size(108, 19);
+            this.lblSemester.TabIndex = 12;
+            this.lblSemester.Text = "1ST SEMESTER";
+            this.lblSemester.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // button4
             // 
@@ -186,7 +202,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label4.Location = new System.Drawing.Point(76, 4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 25);
@@ -299,11 +315,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label8.Location = new System.Drawing.Point(78, 29);
+            this.label8.Location = new System.Drawing.Point(78, 30);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(215, 15);
+            this.label8.Size = new System.Drawing.Size(225, 15);
             this.label8.TabIndex = 8;
             this.label8.Text = "School Enrollment Management System";
             // 
@@ -371,18 +387,6 @@
             this.lblDateTime.Text = "Thu 05/20/2021 8:22 am";
             this.lblDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblSemester
-            // 
-            this.lblSemester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSemester.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSemester.ForeColor = System.Drawing.Color.Gray;
-            this.lblSemester.Location = new System.Drawing.Point(710, 10);
-            this.lblSemester.Name = "lblSemester";
-            this.lblSemester.Size = new System.Drawing.Size(108, 19);
-            this.lblSemester.TabIndex = 12;
-            this.lblSemester.Text = "1ST SEMESTER";
-            this.lblSemester.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // label15
             // 
             this.label15.BackColor = System.Drawing.Color.LightSlateGray;
@@ -394,6 +398,7 @@
             // 
             // PanelMain
             // 
+            this.PanelMain.BackColor = System.Drawing.SystemColors.Control;
             this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMain.Location = new System.Drawing.Point(0, 96);
             this.PanelMain.Name = "PanelMain";
@@ -402,6 +407,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miDashBoard,
             this.miTransactions,
@@ -431,7 +437,7 @@
             this.miStudentAssessment,
             this.miStudentPayment});
             this.miTransactions.Name = "miTransactions";
-            this.miTransactions.Size = new System.Drawing.Size(100, 20);
+            this.miTransactions.Size = new System.Drawing.Size(98, 20);
             this.miTransactions.Text = "TRANSACTION";
             // 
             // miStudentApplicants
@@ -476,7 +482,7 @@
             this.miFees,
             this.miManagement});
             this.miSettings.Name = "miSettings";
-            this.miSettings.Size = new System.Drawing.Size(71, 20);
+            this.miSettings.Size = new System.Drawing.Size(69, 20);
             this.miSettings.Text = "SETTINGS";
             // 
             // miSchoolData
@@ -569,18 +575,10 @@
             // 
             this.miManagement.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usersToolStripMenuItem,
-            this.miscellaneousToolStripMenuItem,
-            this.loginWallpaperToolStripMenuItem});
+            this.miscellaneousToolStripMenuItem});
             this.miManagement.Name = "miManagement";
             this.miManagement.Size = new System.Drawing.Size(180, 22);
             this.miManagement.Text = "Management";
-            // 
-            // miscellaneousToolStripMenuItem
-            // 
-            this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
-            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
-            this.miscellaneousToolStripMenuItem.Click += new System.EventHandler(this.miscellaneousToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
             // 
@@ -589,12 +587,24 @@
             this.usersToolStripMenuItem.Text = "Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
+            // miscellaneousToolStripMenuItem
+            // 
+            this.miscellaneousToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.schoolInformationToolStripMenuItem,
+            this.assessmentReportSettingsToolStripMenuItem,
+            this.emailSettingsToolStripMenuItem,
+            this.targetStudentsSettingsToolStripMenuItem,
+            this.loginWallpaperToolStripMenuItem1});
+            this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
+            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
+            // 
             // miReports
             // 
             this.miReports.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miCollectionReport});
             this.miReports.Name = "miReports";
-            this.miReports.Size = new System.Drawing.Size(67, 20);
+            this.miReports.Size = new System.Drawing.Size(66, 20);
             this.miReports.Text = "REPORTS";
             // 
             // miCollectionReport
@@ -632,12 +642,40 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // loginWallpaperToolStripMenuItem
+            // schoolInformationToolStripMenuItem
             // 
-            this.loginWallpaperToolStripMenuItem.Name = "loginWallpaperToolStripMenuItem";
-            this.loginWallpaperToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loginWallpaperToolStripMenuItem.Text = "Login Wallpaper";
-            this.loginWallpaperToolStripMenuItem.Click += new System.EventHandler(this.loginWallpaperToolStripMenuItem_Click);
+            this.schoolInformationToolStripMenuItem.Name = "schoolInformationToolStripMenuItem";
+            this.schoolInformationToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.schoolInformationToolStripMenuItem.Text = "School Information Settings";
+            this.schoolInformationToolStripMenuItem.Click += new System.EventHandler(this.schoolInformationToolStripMenuItem_Click);
+            // 
+            // assessmentReportSettingsToolStripMenuItem
+            // 
+            this.assessmentReportSettingsToolStripMenuItem.Name = "assessmentReportSettingsToolStripMenuItem";
+            this.assessmentReportSettingsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.assessmentReportSettingsToolStripMenuItem.Text = "Assessment Report Settings";
+            this.assessmentReportSettingsToolStripMenuItem.Click += new System.EventHandler(this.assessmentReportSettingsToolStripMenuItem_Click);
+            // 
+            // emailSettingsToolStripMenuItem
+            // 
+            this.emailSettingsToolStripMenuItem.Name = "emailSettingsToolStripMenuItem";
+            this.emailSettingsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.emailSettingsToolStripMenuItem.Text = "Email Settings";
+            this.emailSettingsToolStripMenuItem.Click += new System.EventHandler(this.emailSettingsToolStripMenuItem_Click);
+            // 
+            // targetStudentsSettingsToolStripMenuItem
+            // 
+            this.targetStudentsSettingsToolStripMenuItem.Name = "targetStudentsSettingsToolStripMenuItem";
+            this.targetStudentsSettingsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.targetStudentsSettingsToolStripMenuItem.Text = "Target Students Settings";
+            this.targetStudentsSettingsToolStripMenuItem.Click += new System.EventHandler(this.targetStudentsSettingsToolStripMenuItem_Click);
+            // 
+            // loginWallpaperToolStripMenuItem1
+            // 
+            this.loginWallpaperToolStripMenuItem1.Name = "loginWallpaperToolStripMenuItem1";
+            this.loginWallpaperToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
+            this.loginWallpaperToolStripMenuItem1.Text = "Login Wallpaper";
+            this.loginWallpaperToolStripMenuItem1.Click += new System.EventHandler(this.loginWallpaperToolStripMenuItem1_Click);
             // 
             // frm_main
             // 
@@ -726,6 +764,10 @@
         private System.Windows.Forms.ToolStripMenuItem sectionAndSchedulesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facultiesToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ToolStripMenuItem loginWallpaperToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem schoolInformationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem assessmentReportSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem emailSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem targetStudentsSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loginWallpaperToolStripMenuItem1;
     }
 }

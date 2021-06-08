@@ -16,7 +16,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static SEMSSettings GetSettings()
         {
             SEMSSettings settings = new SEMSSettings();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.sems", conn))
@@ -50,7 +50,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static bool HasSetted()
         {
             bool result = false;    
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.sems", conn))
@@ -80,7 +80,7 @@ namespace COLM_SYSTEM_LIBRARY.model
             else
                 query = "UPDATE settings.sems SET LoginWallpaper = @LoginWallpaper";
 
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using(SqlCommand comm = new SqlCommand(query, conn))

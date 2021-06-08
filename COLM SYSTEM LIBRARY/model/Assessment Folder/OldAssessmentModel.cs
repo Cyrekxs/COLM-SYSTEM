@@ -29,7 +29,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
         public static List<OldAssessmentModel> GetOldAssessments(string Lastname,string Firstname)
         {
             List<OldAssessmentModel> oldAssessments = new List<OldAssessmentModel>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.old_account WHERE Lastname LIKE @Lastname AND Firstname LIKE @Firstname", conn))

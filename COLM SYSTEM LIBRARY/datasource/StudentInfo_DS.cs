@@ -14,7 +14,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<StudentInfo> GetStudents()
         {
             List<StudentInfo> students = new List<StudentInfo>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information ORDER BY Lastname,Firstname ASC", conn))
@@ -27,37 +27,38 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
                                 LRN = Convert.ToString(reader["LRN"]),
-                                Lastname = Convert.ToString(reader["Lastname"]),
-                                Firstname = Convert.ToString(reader["Firstname"]),
-                                Middlename = Convert.ToString(reader["Middlename"]),
+                                Lastname = text.ToTitleCase(Convert.ToString(reader["Lastname"]).ToLower()),
+                                Firstname = text.ToTitleCase(Convert.ToString(reader["Firstname"]).ToLower()),
+                                Middlename = text.ToTitleCase(Convert.ToString(reader["Middlename"]).ToLower()),
                                 BirthDate = Convert.ToDateTime(reader["BirthDate"]),
-                                Gender = Convert.ToString(reader["Gender"]),
-                                Street = Convert.ToString(reader["Street"]),
-                                Barangay = Convert.ToString(reader["Barangay"]),
-                                City = Convert.ToString(reader["City"]),
-                                Province = Convert.ToString(reader["Province"]),
+                                Gender = text.ToTitleCase(Convert.ToString(reader["Gender"]).ToLower()),
+                                Street = text.ToTitleCase(Convert.ToString(reader["Street"]).ToLower()),
+                                Barangay = text.ToTitleCase(Convert.ToString(reader["Barangay"]).ToLower()),
+                                City = text.ToTitleCase(Convert.ToString(reader["City"]).ToLower()),
+                                Province = text.ToTitleCase(Convert.ToString(reader["Province"]).ToLower()),
                                 EmailAddress = Convert.ToString(reader["EmailAddress"]),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
 
-                                MotherName = Convert.ToString(reader["MotherName"]),
+                                MotherName = text.ToTitleCase(Convert.ToString(reader["MotherName"]).ToLower()),
                                 MotherMobile = Convert.ToString(reader["MotherMobile"]),
-                                FatherName = Convert.ToString(reader["FatherName"]),
+                                FatherName = text.ToTitleCase(Convert.ToString(reader["FatherName"]).ToLower()),
                                 FatherMobile = Convert.ToString(reader["FatherMobile"]),
-                                GuardianName = Convert.ToString(reader["GuardianName"]),
+                                GuardianName = text.ToTitleCase(Convert.ToString(reader["GuardianName"]).ToLower()),
                                 GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
-                                EmergencyName = Convert.ToString(reader["EmergencyName"]),
-                                EmergencyRelation = Convert.ToString(reader["EmergencyRelation"]),
+                                EmergencyName = text.ToTitleCase(Convert.ToString(reader["EmergencyName"]).ToLower()),
                                 EmergencyMobile = Convert.ToString(reader["EmergencyMobile"]),
+                                EmergencyRelation = text.ToTitleCase(Convert.ToString(reader["EmergencyRelation"]).ToLower()),
 
-                                SchoolName = Convert.ToString(reader["SchoolName"]),
-                                SchoolAddress = Convert.ToString(reader["SchoolAddress"]),
-                                SchoolStatus = Convert.ToString(reader["SchoolStatus"]),
+                                SchoolName = text.ToTitleCase(Convert.ToString(reader["SchoolName"]).ToLower()),
+                                SchoolAddress = text.ToTitleCase(Convert.ToString(reader["SchoolAddress"]).ToLower()),
+                                SchoolStatus = text.ToTitleCase(Convert.ToString(reader["SchoolStatus"]).ToLower()),
                                 ESCGuarantee = Convert.ToString(reader["ESCGuarantee"]),
 
                                 StudentStatus = Convert.ToString(reader["StudentStatus"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
-                                YearLevel = Convert.ToString(reader["YearLevel"])
+                                YearLevel = Convert.ToString(reader["YearLevel"]),
+                                Encoded = Convert.ToDateTime(reader["DateEncoded"])
                             };
                             students.Add(student);
                         }
@@ -70,7 +71,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<StudentInfo> GetStudentsToImport()
         {
             List<StudentInfo> students = new List<StudentInfo>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information_import ORDER BY Lastname,Firstname ASC", conn))
@@ -126,7 +127,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static async Task<List<StudentInfo>> GetStudentsAsync()
         {
             List<StudentInfo> students = new List<StudentInfo>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 await conn.OpenAsync();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information ORDER BY Lastname,Firstname ASC", conn))
@@ -183,7 +184,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static StudentInfo GetStudent(int StudentID)
         {
             StudentInfo student = new StudentInfo();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information WHERE StudentID = @StudentID ORDER BY Lastname,Firstname ASC", conn))
@@ -239,7 +240,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static bool IsLRNExists(string LRN)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information WHERE LRN = @LRN", conn))
@@ -258,7 +259,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static int UpdateStudentEmail(int StudentID, string Email)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("UPDATE student.information SET EmailAddress = @Email WHERE StudentID = @StudentID", conn))
@@ -271,7 +272,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         }
         public static bool InsertUpdateStudentInformation(StudentInfo model)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("EXEC sp_set_student_information @StudentID,@LRN,@Lastname,@Firstname,@Middlename,@BirthDate,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@EmergencyName,@EmergencyRelation,@EmergencyMobile,@SchoolName,@SchoolAddress,@SchoolStatus,@ESCGuarantee,@StudentStatus,@EducationLevel,@CourseStrand,@YearLevel", conn))
@@ -318,7 +319,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         }
         public static int InsertOnlineApplicant(int ApplicantID, int StudentID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("INSERT INTO student.applicants VALUES (@ApplicantID,@StudentID,GETDATE())", conn))
@@ -332,7 +333,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static StudentInfo IsStudentExists(string Lastname, string Firstname)
         {
             StudentInfo student = new StudentInfo();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information WHERE Lastname = @Lastname AND Firstname = @Firstname", conn))
@@ -376,7 +377,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static bool HasRegistration(int StudentID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.registered WHERE StudentID = @StudentID", conn))
@@ -396,7 +397,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         }
         public static int RemoveStudent(int StudentID)
         {
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 bool HasRegistered = HasRegistration(StudentID);
@@ -419,7 +420,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<string> GetSchools()
         {
             List<string> Schools = new List<string>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT DISTINCT SchoolName FROM student.information ORDER BY SchoolName ASC", conn))
@@ -439,7 +440,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         public static List<string> GetSchoolAddresses()
         {
             List<string> SchoolAddresses = new List<string>();
-            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT DISTINCT SchoolAddress FROM student.information ORDER BY SchoolAddress ASC", conn))
