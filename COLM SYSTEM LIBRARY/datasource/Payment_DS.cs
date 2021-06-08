@@ -85,7 +85,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return payments;
         }
 
-        public static int InsertPayment(Payment payment)
+        public static int InsertPaymentCash(Payment payment)
         {
             using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
             {
@@ -102,6 +102,48 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@UserID", payment.UserID);
                     return comm.ExecuteNonQuery();
                 }
+            }
+        }
+
+        public static int InsertPaymentCheque(Payment payment, PaymentCheque cheque)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.StringConnection))
+            {
+                conn.Open();
+                using (SqlTransaction t = conn.BeginTransaction())
+                {
+                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_payment @RegisteredStudentID,@SchoolYearID,@SemesterID,@ORNumber,@FeeCategory,@PaymentCategory,@AmountPaid,@UserID", conn,t))
+                    {
+                        comm.Parameters.AddWithValue("@RegisteredStudentID", payment.RegisteredStudentID);
+                        comm.Parameters.AddWithValue("@SchoolYearID", payment.SchoolYearID);
+                        comm.Parameters.AddWithValue("@SemesterID", payment.SemesterID);
+                        comm.Parameters.AddWithValue("@ORNumber", payment.ORNumber);
+                        comm.Parameters.AddWithValue("@FeeCategory", payment.FeeCategory);
+                        comm.Parameters.AddWithValue("@PaymentCategory", payment.PaymentCategory);
+                        comm.Parameters.AddWithValue("@AmountPaid", payment.AmountPaid);
+                        comm.Parameters.AddWithValue("@UserID", payment.UserID);
+                        comm.ExecuteNonQuery();
+                    }
+
+                    int PaymentID = 0;
+                    using (SqlCommand comm = new SqlCommand("SELECT PaymentID FROM assessment.payment (NOLOCK) WHERE ORNumber = @ORNumber", conn, t))
+                    {
+                        comm.Parameters.AddWithValue("@ORNumber", payment.ORNumber);
+                        PaymentID = Convert.ToInt32(comm.ExecuteScalar());
+                    }
+
+                    using (SqlCommand comm = new SqlCommand("INSERT INTO assessment.payment_cheque VALUES (@PaymentID,@BankName,@ChequeNo,@ChequeAmount)", conn, t))
+                    {
+                        comm.Parameters.AddWithValue("@PaymentID", 0);
+                        comm.Parameters.AddWithValue("@BankName", cheque.BankName);
+                        comm.Parameters.AddWithValue("@ChequeNo", cheque.ChequeNo);
+                        comm.Parameters.AddWithValue("@ChequeAmount", cheque.Amount);
+                        comm.ExecuteNonQuery();
+                    }
+                    t.Commit();
+                    return 1;
+                }
+
             }
         }
 

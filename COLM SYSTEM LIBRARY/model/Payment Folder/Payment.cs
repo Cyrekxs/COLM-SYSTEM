@@ -26,9 +26,14 @@ namespace COLM_SYSTEM_LIBRARY.model.Payment_Folder
             return Payment_DS.GetStudentPayment(RegisteredStudentID, SchoolYearID, SemesterID);
         }
 
-        public static int InsertPayment(Payment payment)
+        public static int InsertPaymentCash(Payment payment)
         {
-            return Payment_DS.InsertPayment(payment);
+            return Payment_DS.InsertPaymentCash(payment);
+        }
+
+        public static int InsertPaymentCheque(Payment payment, PaymentCheque cheque)
+        {
+            return Payment_DS.InsertPaymentCheque(payment, cheque);
         }
 
         public static bool IsValidORNumber(string ORNumber)

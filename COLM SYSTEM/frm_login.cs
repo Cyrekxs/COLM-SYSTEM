@@ -1,16 +1,41 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
+using SEMS.Settings_Folder;
 using System;
+using System.Deployment.Application;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM
 {
     public partial class frm_login : Form
     {
+        
         public frm_login()
         {
             InitializeComponent();
-            SchoolInfo school = SchoolInfo.GetSchoolInfo();
-            pictureBox1.Image = Utilties.ConvertByteToImage(school.Logo);
+
+            //SchoolInfo school = SchoolInfo.GetSchoolInfo();
+            //pictureBox1.Image = Utilties.ConvertByteToImage(school.Logo);
+            
+            string GetVersion = ApplicationDeployment.IsNetworkDeployed ?  ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString() :  Application.ProductVersion;
+            lblVersion.Text = GetVersion;
+
+            if (SEMSSettings.HasSetted() == false)
+            {
+                frm_system_settings frm = new frm_system_settings();
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                LoadWallpaper();
+            }
+            else
+            {
+                LoadWallpaper();
+            }
+        }
+
+        private void LoadWallpaper()
+        {
+            SEMSSettings settings = SEMSSettings.GetSettings();
+            pictureBox2.Image = Utilties.ConvertByteToImage(settings.LoginWallpaper);
         }
 
         private void button1_Click(object sender, EventArgs e)

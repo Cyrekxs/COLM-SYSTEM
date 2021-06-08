@@ -138,9 +138,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>0.07292in</Top>
-            <Left>0.12485in</Left>
+            <Left>1.12485in</Left>
             <Height>0.25695in</Height>
-            <Width>7.72015in</Width>
+            <Width>5.72015in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2632,9 +2632,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>0.9618in</Top>
-            <Left>0.12485in</Left>
+            <Left>1.12485in</Left>
             <Height>0.25in</Height>
-            <Width>7.72015in</Width>
+            <Width>5.72015in</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -2653,99 +2653,10 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Section 2: Withdrawal and Transfer</Value>
+                    <Value>=Parameters!Policies.Value</Value>
                     <Style>
                       <FontSize>6pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value />
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>A. Upon enrollment, a student pays for part of all of the required tuition and other fees for the entire school year. When a student enrolls, it is understood that he/she is enrolling for the entire school year. A student is considered officialy enrolled if he/she has paid the required tuition and other fees whether in the full or installment basis.</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>B. Officially enrolled Students who withdraw their enrollment before the official start of classes shall be charged two thousand five hundred pesos.</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>C. Officiall Enrolled Students who withdraw their enrollment after the start of classes, and have already paid the pertinent tuition and other school fees in the full or for any length  longer than one month (regardless of whether or not he has actually attended classes) shall be charged the retention fee as stipulated in 2010 Manual of Regulations for Private Schools (MRPS) of 2010:</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>        • Within the first week of classes - twenty-five percent (25%) of the total school fees</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>        • Within the second week of classes - fifty percent (50%) of the total school fees.</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>        • Beyond the second week of classes - one hundred percent (100%) of the total school fees. In the event that a student wishes to withdraw from the school or transfer to another school the folllowing procedures should be observed.</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value />
-                    <Style>
-                      <FontSize>6pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -2755,7 +2666,7 @@
             <rd:DefaultName>Textbox29</rd:DefaultName>
             <Top>5.94667in</Top>
             <Left>0.11093in</Left>
-            <Height>1.21875in</Height>
+            <Height>2.45139in</Height>
             <Width>7.73407in</Width>
             <ZIndex>10</ZIndex>
             <Style>
@@ -2926,244 +2837,15 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>1.2118in</Top>
-            <Left>0.12485in</Left>
+            <Left>1.12485in</Left>
             <Height>0.22222in</Height>
-            <Width>7.72015in</Width>
+            <Width>5.72015in</Width>
             <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
               <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox42">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>   Section 2.1 Procedure for Withdrawal and Transfer</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value />
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>   1. Inform the Principal's Office and Registrar's Office of the ntent to withdraw from the school.</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>   2. Secure a Withdrawal Form from the Registrar's Office</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>   3. Have this form be signed by the Class Adviser, Librarian, Cashier, Guidance Counselor, Registrar and Principal</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>   4. Settle the following accounts at the Finance Office:</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>           • Tuition, miscellaneous and other fees:</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>           • Fee for the permanent records; and</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>           • Other financial obligations with COLM</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value xml:space="preserve">   </Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox42</rd:DefaultName>
-            <Top>7.22098in</Top>
-            <Left>0.10069in</Left>
-            <Height>1.21875in</Height>
-            <Width>2.95691in</Width>
-            <ZIndex>17</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox43">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>5. Present reciept of payment to the Registrar's Office. Only then will the Form-138/SF9  be released. Form-137/SF10 or the permanent records will be forwarded to the next school upon request.</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>6. Remember these: if you don't comply with the rules of withdrawal orransfer you are:</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>           • Considered dismissed from COLM;</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>           • Disqualified for future admission to COLM; and</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>           • Certificate of Good Moral Character will be withheld.</Value>
-                    <Style>
-                      <FontSize>6pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>7.22098in</Top>
-            <Left>3.11316in</Left>
-            <Height>1.21875in</Height>
-            <Width>3.24924in</Width>
-            <ZIndex>18</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -3192,10 +2874,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>0.32987in</Top>
-            <Left>0.12485in</Left>
+            <Left>1.12485in</Left>
             <Height>0.25694in</Height>
-            <Width>7.72015in</Width>
-            <ZIndex>19</ZIndex>
+            <Width>5.72015in</Width>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3229,10 +2911,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>0.58681in</Top>
-            <Left>0.12485in</Left>
+            <Left>1.12485in</Left>
             <Height>0.25in</Height>
-            <Width>7.72015in</Width>
-            <ZIndex>20</ZIndex>
+            <Width>5.72015in</Width>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3267,7 +2949,7 @@
             <Left>5.846in</Left>
             <Height>0.23in</Height>
             <Width>1.999in</Width>
-            <ZIndex>21</ZIndex>
+            <ZIndex>19</ZIndex>
             <Style>
               <Border />
               <PaddingLeft>2pt</PaddingLeft>
@@ -3285,7 +2967,7 @@
             <Left>0.11093in</Left>
             <Height>1.01735in</Height>
             <Width>1.0157in</Width>
-            <ZIndex>22</ZIndex>
+            <ZIndex>20</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3453,6 +3135,12 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="Policies">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -3573,6 +3261,11 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>6</RowIndex>
           <ParameterName>SchoolRegistrar</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>6</RowIndex>
+          <ParameterName>Policies</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

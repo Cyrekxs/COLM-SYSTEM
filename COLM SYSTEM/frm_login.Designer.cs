@@ -36,7 +36,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -98,7 +98,7 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.lblVersion);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label1);
@@ -149,21 +149,21 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // label6
+            // lblVersion
             // 
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label6.Location = new System.Drawing.Point(277, 681);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 26);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "3.0.0.0";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblVersion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblVersion.Location = new System.Drawing.Point(277, 681);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(85, 26);
+            this.lblVersion.TabIndex = 31;
+            this.lblVersion.Text = "3.0.0.0";
+            this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SEMS.Properties.Resources.colm_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(139, 48);
+            this.pictureBox1.Location = new System.Drawing.Point(138, 48);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 71);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -241,7 +241,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkBox1;

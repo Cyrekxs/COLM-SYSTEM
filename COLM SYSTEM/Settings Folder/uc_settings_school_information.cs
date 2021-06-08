@@ -20,24 +20,10 @@ namespace COLM_SYSTEM.Settings_Folder
             //for header and footers
             txtSchoolID.Text = info.SchoolID;
             txtSchoolName.Text = info.SchoolName;
-            txtMainHeader.Text = info.MainHeader;
-            txtFirstSubHeader.Text = info.FirstSubHeader;
-            txtSecondSubHeader.Text = info.SecondSubHeader;
-            txtFooterContact.Text = info.FooterContact;
-            txtFooterFacebook.Text = info.FooterFacebook;
-            txtSchoolRegistrar.Text = info.SchoolRegistrar;
 
             if (info.Logo != null)
             {
                 pictureBox1.Image = Utilties.ConvertByteToImage(info.Logo);
-            }
-            if (info.Sign != null)
-            {
-                pictureBox2.Image = Utilties.ConvertByteToImage(info.Sign);
-            }
-            if (info.WaterMark != null)
-            {
-                pictureBox3.Image = Utilties.ConvertByteToImage(info.WaterMark);
             }
 
         }
@@ -46,12 +32,7 @@ namespace COLM_SYSTEM.Settings_Folder
         {
             info.SchoolID = txtSchoolID.Text;
             info.SchoolName = txtSchoolName.Text;
-            info.MainHeader = txtMainHeader.Text;
-            info.FirstSubHeader = txtFirstSubHeader.Text;
-            info.SecondSubHeader = txtSecondSubHeader.Text;
-            info.FooterContact = txtFooterContact.Text;
-            info.FooterFacebook = txtFooterFacebook.Text;
-            info.SchoolRegistrar = txtSchoolRegistrar.Text;
+
 
             int result = SchoolInfo.SaveSchoolInfo(info);
             if (result > 0)
@@ -71,24 +52,5 @@ namespace COLM_SYSTEM.Settings_Folder
             }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            var result = openFileDialog1.ShowDialog(this);
-            if (result == DialogResult.OK)
-            {
-                pictureBox2.Image = Image.FromFile(openFileDialog1.FileName);
-                info.Sign = Utilties.ConvertImageToByte(Image.FromFile(openFileDialog1.FileName));
-            }
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            var result = openFileDialog1.ShowDialog(this);
-            if (result == DialogResult.OK)
-            {
-                pictureBox3.Image = Image.FromFile(openFileDialog1.FileName);
-                info.WaterMark = Utilties.ConvertImageToByte(Image.FromFile(openFileDialog1.FileName));
-            }
-        }
     }
 }

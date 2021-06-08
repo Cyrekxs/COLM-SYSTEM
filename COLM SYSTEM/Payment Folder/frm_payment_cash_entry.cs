@@ -66,7 +66,7 @@ namespace COLM_SYSTEM.Payment_Folder
                 UserID = Utilties.user.UserID
             };
 
-            int result = Payment.InsertPayment(payment);
+            int result = Payment.InsertPaymentCash(payment);
 
             if (result > 0)
             {

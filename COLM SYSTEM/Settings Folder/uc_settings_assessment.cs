@@ -1,0 +1,78 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM;
+
+namespace SEMS.Settings_Folder
+{
+    public partial class uc_settings_assessment : UserControl
+    {
+        SchoolInfo info = SchoolInfo.GetSchoolInfo();
+
+        public uc_settings_assessment()
+        {
+            InitializeComponent();
+
+            txtMainHeader.Text = info.MainHeader;
+            txtFirstSubHeader.Text = info.SubHeader1;
+            txtSecondSubHeader.Text = info.SubHeader2;
+            txtFooterContact.Text = info.FooterContact;
+            txtFooterFacebook.Text = info.FooterFacebook;
+            txtSchoolRegistrar.Text = info.SchoolRegistrar;
+            txtSchoolPolicies.Text = info.Policies;
+
+            if (info.Sign != null)
+            {
+                pictureBox2.Image = Utilties.ConvertByteToImage(info.Sign);
+            }
+            if (info.WaterMark != null)
+            {
+                pictureBox3.Image = Utilties.ConvertByteToImage(info.WaterMark);
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog1.ShowDialog(this);
+            if (result == DialogResult.OK)
+            {
+                pictureBox2.Image = Image.FromFile(openFileDialog1.FileName);
+                info.Sign = Utilties.ConvertImageToByte(Image.FromFile(openFileDialog1.FileName));
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog1.ShowDialog(this);
+            if (result == DialogResult.OK)
+            {
+                pictureBox3.Image = Image.FromFile(openFileDialog1.FileName);
+                info.WaterMark = Utilties.ConvertImageToByte(Image.FromFile(openFileDialog1.FileName));
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            info.MainHeader = txtMainHeader.Text;
+            info.SubHeader1 = txtFirstSubHeader.Text;
+            info.SubHeader2 = txtSecondSubHeader.Text;
+            info.FooterContact = txtFooterContact.Text;
+            info.FooterFacebook = txtFooterFacebook.Text;
+            info.SchoolRegistrar = txtSchoolRegistrar.Text;
+            info.Policies = txtSchoolPolicies.Text;
+
+            int result = SchoolInfo.SaveSchoolInfo(info);
+            if (result > 0)
+                MessageBox.Show("Assessment Settings has been successfully saved and setted", "Assessment Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Assessment Settings saving failed!", "School Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+}

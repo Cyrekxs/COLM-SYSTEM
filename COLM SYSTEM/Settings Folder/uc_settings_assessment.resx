@@ -117,4 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="txtSchoolPolicies.Text" xml:space="preserve">
+    <value>Section 2: Withdrawal and Transfer
+
+A. Upon enrollment, a student pays for part of all of the required tuition and other fees for the entire school year. When a student enrolls, it is understood that he/she is enrolling for the entire school year. A student is considered officialy enrolled if he/she has paid the required tuition and other fees whether in the full or installment basis.
+B. Officially enrolled Students who withdraw their enrollment before the official start of classes shall be charged two thousand five hundred pesos.
+C. Officiall Enrolled Students who withdraw their enrollment after the start of classes, and have already paid the pertinent tuition and other school fees in the full or for any length  longer than one month (regardless of whether or not he has actually attended classes) shall be charged the retention fee as stipulated in 2010 Manual of Regulations for Private Schools (MRPS) of 2010:
+        • Within the first week of classes - twenty-five percent (25%) of the total school fees
+        • Within the second week of classes - fifty percent (50%) of the total school fees.
+        • Beyond the second week of classes - one hundred percent (100%) of the total school fees. In the event that a student wishes to withdraw from the school or transfer to another school the folllowing procedures should be observed.
+
+Section 2.1 Procedure for Withdrawal and Transfer
+
+1. Inform the Principal's Office and Registrar's Office of the ntent to withdraw from the school.  2. Secure a Withdrawal Form from the Registrar's Office  3. Have this form be signed by the Class Adviser, Librarian,Cashier, Guidance Counselor, Registrar and Principal 4. Settle the following accounts at the Finance Office: • Tuition, miscellaneous and other fees: • Fee for the permanent records; and • Other financial obligations with COLM 5. Present reciept of payment to the Registrar's Office. Only then will the Form-138/SF9  be released. Form-137/SF10 or the permanent records will be forwarded to the next school upon request.  6. Remember these: if you don't comply with the rules of withdrawal orransfer you are: • Considered dismissed from COLM; • Disqualified for future admission to COLM; and • Certificate of Good Moral Character will be withheld.</value>
+  </data>
 </root>

@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>\\Colm\colm system 2021\</UpdateUrl>
-    <ApplicationRevision>34</ApplicationRevision>
+    <UpdateUrl>https://colm.edu.ph/sems/</UpdateUrl>
+    <ApplicationRevision>38</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -316,6 +316,12 @@
     <Compile Include="Payment Folder\frm_payment_cash_entry.Designer.cs">
       <DependentUpon>frm_payment_cash_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Payment Folder\frm_payment_cheque_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment Folder\frm_payment_cheque_entry.Designer.cs">
+      <DependentUpon>frm_payment_cheque_entry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payment Folder\uc_payers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -393,6 +399,18 @@
     </Compile>
     <Compile Include="Settings Folder\frm_settings.Designer.cs">
       <DependentUpon>frm_settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings Folder\frm_system_settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\frm_system_settings.Designer.cs">
+      <DependentUpon>frm_system_settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings Folder\uc_settings_assessment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\uc_settings_assessment.Designer.cs">
+      <DependentUpon>uc_settings_assessment.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings Folder\uc_settings_mail.cs">
       <SubType>UserControl</SubType>
@@ -609,6 +627,9 @@
     <EmbeddedResource Include="Payment Folder\frm_payment_cash_entry.resx">
       <DependentUpon>frm_payment_cash_entry.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Payment Folder\frm_payment_cheque_entry.resx">
+      <DependentUpon>frm_payment_cheque_entry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\uc_payers.resx">
       <DependentUpon>uc_payers.cs</DependentUpon>
     </EmbeddedResource>
@@ -660,6 +681,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings Folder\frm_settings.resx">
       <DependentUpon>frm_settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\frm_system_settings.resx">
+      <DependentUpon>frm_system_settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\uc_settings_assessment.resx">
+      <DependentUpon>uc_settings_assessment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings Folder\uc_settings_mail.resx">
       <DependentUpon>uc_settings_mail.cs</DependentUpon>
@@ -802,6 +829,10 @@
   <ItemGroup>
     <Content Include="Programmers Info\Notes.txt" />
     <Content Include="Programmers Info\What I Did.txt" />
+    <None Include="Resources\NONITA NABONG.jpg" />
+    <None Include="Resources\Logout.png" />
+    <None Include="Resources\AccountSettings.png" />
+    <None Include="Resources\Message.png" />
     <None Include="Resources\Nodes1.png" />
     <None Include="Resources\Nodes.png" />
     <None Include="Resources\stda logo watermark.png" />
@@ -811,7 +842,6 @@
     <None Include="Resources\colm-system-icon.ico" />
     <None Include="Resources\login background.png" />
     <None Include="Resources\colm system icon.ico" />
-    <None Include="Resources\Logout.png" />
     <None Include="Resources\login.png" />
     <None Include="Resources\colm wallpaper.jpg" />
   </ItemGroup>

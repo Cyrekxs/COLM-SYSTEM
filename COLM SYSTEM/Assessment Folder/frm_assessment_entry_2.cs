@@ -512,6 +512,9 @@ namespace COLM_SYSTEM.Assessment_Folder
             DataSet1 ds = new DataSet1();
             DataRow dr;
 
+            //get school information and settings
+            SchoolInfo school = SchoolInfo.GetSchoolInfo();
+
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
 
             double TotalUnits = 0;
@@ -544,6 +547,14 @@ namespace COLM_SYSTEM.Assessment_Folder
                 ds.Tables["DTPaymentSchedule"].Rows.Add(dr);
             }
 
+            //for logo,signature and watermark
+            ds.Tables["dtReportProperties"].Rows.Clear();
+            dr = ds.Tables["dtReportProperties"].NewRow();
+            dr["Logo"] = school.Logo;
+            dr["Sign"] = school.Sign;
+            dr["WaterMark"] = school.WaterMark;
+            ds.Tables["dtReportProperties"].Rows.Add(dr);
+
 
             ReportParameter param_LRN = new ReportParameter("LRN", Convert.ToString(txtLRN.Text));
             ReportParameter param_StudentName = new ReportParameter("studentname", Convert.ToString(txtStudentName.Text));
@@ -562,6 +573,17 @@ namespace COLM_SYSTEM.Assessment_Folder
             ReportParameter param_TotalDue = new ReportParameter("TotalDue", txtTotalDue.Text);
             ReportParameter param_TotalUnits = new ReportParameter("TotalUnit", Convert.ToInt16(TotalUnits).ToString());
             ReportParameter param_sysem;
+
+            //report properties
+            ReportParameter param_MainHeader = new ReportParameter("MainHeader", school.MainHeader);
+            ReportParameter param_SubHeader1 = new ReportParameter("SubHeader1", school.SubHeader1);
+            ReportParameter param_SubHeader2 = new ReportParameter("SubHeader2", school.SubHeader2);
+            ReportParameter param_Contact = new ReportParameter("footerContact", school.FooterContact);
+            ReportParameter param_Facebook = new ReportParameter("footerFacebook", school.FooterFacebook);
+            ReportParameter param_Registrar = new ReportParameter("SchoolRegistrar", school.SchoolRegistrar);
+            ReportParameter param_Policies = new ReportParameter("Policies", school.Policies);
+
+
             if (txtEducationLevel.Text.ToLower() != "college")
             {
                 param_sysem = new ReportParameter("sysem", string.Concat("S.Y :", Utilties.GetActiveSchoolYearInfo().ToString().ToUpper()));
@@ -588,12 +610,21 @@ namespace COLM_SYSTEM.Assessment_Folder
             reportParameters.Add(param_TotalDue);
             reportParameters.Add(param_TotalUnits);
             reportParameters.Add(param_sysem);
+            reportParameters.Add(param_MainHeader);
+            reportParameters.Add(param_SubHeader1);
+            reportParameters.Add(param_SubHeader2);
+            reportParameters.Add(param_Contact);
+            reportParameters.Add(param_Facebook);
+            reportParameters.Add(param_Registrar);
+            reportParameters.Add(param_Policies);
 
 
             frm_print_preview frm = new frm_print_preview();
+            ReportDataSource dsReportProperties = new ReportDataSource("dsReportProperties", ds.Tables["dtReportProperties"]);
             ReportDataSource dsPaymentSchedule = new ReportDataSource("dsPaymentSchedule", ds.Tables["DTPaymentSchedule"]);
             ReportDataSource dsSubjects = new ReportDataSource("dsSubjects", ds.Tables["DTSubjects"]);
             frm.reportViewer1.LocalReport.DataSources.Clear();
+            frm.reportViewer1.LocalReport.DataSources.Add(dsReportProperties);
             frm.reportViewer1.LocalReport.DataSources.Add(dsPaymentSchedule);
             frm.reportViewer1.LocalReport.DataSources.Add(dsSubjects);
             string AssemblyNameSpaces = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;

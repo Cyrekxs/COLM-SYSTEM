@@ -118,7 +118,7 @@ namespace COLM_SYSTEM.Payment_Folder
                 };
 
 
-                int result = Payment.InsertPayment(payment);
+                int result = Payment.InsertPaymentCash(payment);
 
                 if (result > 0)
                 {

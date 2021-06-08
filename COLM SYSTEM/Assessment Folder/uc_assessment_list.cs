@@ -131,11 +131,12 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             //report properties
             ReportParameter param_MainHeader = new ReportParameter("MainHeader", school.MainHeader);
-            ReportParameter param_SubHeader1 = new ReportParameter("SubHeader1", school.FirstSubHeader);
-            ReportParameter param_SubHeader2 = new ReportParameter("SubHeader2", school.SecondSubHeader);
+            ReportParameter param_SubHeader1 = new ReportParameter("SubHeader1", school.SubHeader1);
+            ReportParameter param_SubHeader2 = new ReportParameter("SubHeader2", school.SubHeader2);
             ReportParameter param_Contact = new ReportParameter("footerContact", school.FooterContact);
             ReportParameter param_Facebook = new ReportParameter("footerFacebook", school.FooterFacebook);
             ReportParameter param_Registrar = new ReportParameter("SchoolRegistrar", school.SchoolRegistrar);
+            ReportParameter param_Policies = new ReportParameter("Policies", school.Policies);
 
 
             ReportParameter param_sysem;
@@ -171,6 +172,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             reportParameters.Add(param_Contact);
             reportParameters.Add(param_Facebook);
             reportParameters.Add(param_Registrar);
+            reportParameters.Add(param_Policies);
 
 
 
@@ -257,11 +259,12 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             //report properties
             ReportParameter param_MainHeader = new ReportParameter("MainHeader", school.MainHeader);
-            ReportParameter param_SubHeader1 = new ReportParameter("SubHeader1", school.FirstSubHeader);
-            ReportParameter param_SubHeader2 = new ReportParameter("SubHeader2", school.SecondSubHeader);
+            ReportParameter param_SubHeader1 = new ReportParameter("SubHeader1", school.SubHeader1);
+            ReportParameter param_SubHeader2 = new ReportParameter("SubHeader2", school.SubHeader2);
             ReportParameter param_Contact = new ReportParameter("footerContact", school.FooterContact);
             ReportParameter param_Facebook = new ReportParameter("footerFacebook", school.FooterFacebook);
             ReportParameter param_Registrar = new ReportParameter("SchoolRegistrar", school.SchoolRegistrar);
+            ReportParameter param_Policies = new ReportParameter("Policies", school.Policies);
 
             ReportParameter param_sysem;
             if (dataGridView1.Rows[SelectedRow].Cells["clmEducationLevel"].Value.ToString().ToLower() != "college")
@@ -296,7 +299,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             reportParameters.Add(param_Contact);
             reportParameters.Add(param_Facebook);
             reportParameters.Add(param_Registrar);
-
+            reportParameters.Add(param_Policies);
 
 
 

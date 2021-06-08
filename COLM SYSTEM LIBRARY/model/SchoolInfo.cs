@@ -15,15 +15,15 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string SchoolID { get; set; }
         public string SchoolName { get; set; }
         public string MainHeader { get; set; }
-        public string FirstSubHeader { get; set; }
-        public string SecondSubHeader { get; set; }
+        public string SubHeader1 { get; set; }
+        public string SubHeader2 { get; set; }
         public string FooterContact { get; set; }
         public string FooterFacebook { get; set; }
         public string SchoolRegistrar { get; set; }
         public byte[] Logo { get; set; }
         public byte[] Sign { get; set; }
         public byte[] WaterMark { get; set; }
-
+        public string Policies { get; set; }
 
 
         public static int SaveSchoolInfo(SchoolInfo info)
@@ -34,19 +34,20 @@ namespace COLM_SYSTEM_LIBRARY.model
                 string qry = string.Empty;
 
                 if (HasSetted() == true)
-                    qry = "UPDATE settings.school_info SET SchoolID = @SchoolID,SchoolName = @SchoolName, MainHeader = @MainHeader, FirstSubHeader = @FirstSubHeader, SecondSubHeader = @SecondSubHeader,FooterContact = @FooterContact,FooterFacebook = @FooterFacebook,Logo = @Logo, SchoolRegistrar = @SchoolRegistrar,Sign = @Sign,WaterMark = @WaterMark";
+                    qry = "UPDATE settings.school_info SET SchoolID = @SchoolID,SchoolName = @SchoolName, MainHeader = @MainHeader, FirstSubHeader = @FirstSubHeader, SecondSubHeader = @SecondSubHeader,FooterContact = @FooterContact,FooterFacebook = @FooterFacebook,Logo = @Logo, SchoolRegistrar = @SchoolRegistrar,Sign = @Sign,WaterMark = @WaterMark,Policies = @Policies";
                 else
-                    qry = "INSERT INTO settings.school_info VALUES (@SchoolID,@SchoolName,@MainHeader,@FirstSubHeader,@SecondSubHeader,@FooterContact,@FooterFacebook,@Logo,@SchoolRegistrar,@Sign,@WaterMark)";
+                    qry = "INSERT INTO settings.school_info VALUES (@SchoolID,@SchoolName,@MainHeader,@FirstSubHeader,@SecondSubHeader,@FooterContact,@FooterFacebook,@Logo,@SchoolRegistrar,@Sign,@WaterMark,@Policies)";
                 using (SqlCommand comm = new SqlCommand(qry, conn))
                 {
                     comm.Parameters.AddWithValue("@SchoolID", info.SchoolID);
                     comm.Parameters.AddWithValue("@SchoolName", info.SchoolName);
                     comm.Parameters.AddWithValue("@MainHeader", info.MainHeader);
-                    comm.Parameters.AddWithValue("@FirstSubHeader", info.FirstSubHeader);
-                    comm.Parameters.AddWithValue("@SecondSubHeader", info.SecondSubHeader);
+                    comm.Parameters.AddWithValue("@FirstSubHeader", info.SubHeader1);
+                    comm.Parameters.AddWithValue("@SecondSubHeader", info.SubHeader2);
                     comm.Parameters.AddWithValue("@FooterContact", info.FooterContact);
                     comm.Parameters.AddWithValue("@FooterFacebook", info.FooterFacebook);
                     comm.Parameters.AddWithValue("@SchoolRegistrar", info.SchoolRegistrar);
+                    comm.Parameters.AddWithValue("@Policies", info.Policies);
                     comm.Parameters.Add("@Logo", SqlDbType.Image);
                     comm.Parameters["@Logo"].Value = info.Logo;
                     comm.Parameters.Add("@Sign", SqlDbType.Image);
@@ -95,11 +96,12 @@ namespace COLM_SYSTEM_LIBRARY.model
                                 SchoolID = Convert.ToString(reader["SchoolID"]),
                                 SchoolName = Convert.ToString(reader["SchoolName"]),
                                 MainHeader = Convert.ToString(reader["MainHeader"]),
-                                FirstSubHeader = Convert.ToString(reader["FirstSubHeader"]),
-                                SecondSubHeader = Convert.ToString(reader["SecondSubHeader"]),
+                                SubHeader1 = Convert.ToString(reader["FirstSubHeader"]),
+                                SubHeader2 = Convert.ToString(reader["SecondSubHeader"]),
                                 FooterContact = Convert.ToString(reader["FooterContact"]),
                                 FooterFacebook = Convert.ToString(reader["FooterFacebook"]),
                                 SchoolRegistrar = Convert.ToString(reader["SchoolRegistrar"]),
+                                Policies = Convert.ToString(reader["Policies"]),
                                 Logo = img_logo,
                                 Sign = img_sign,
                                 WaterMark = img_watermark

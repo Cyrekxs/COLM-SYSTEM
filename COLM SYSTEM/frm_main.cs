@@ -13,7 +13,9 @@ using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM.subject;
 using COLM_SYSTEM.User_Folder;
 using COLM_SYSTEM_LIBRARY.model;
+using SEMS.Settings_Folder;
 using System;
+using System.Deployment.Application;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM
@@ -44,6 +46,10 @@ namespace COLM_SYSTEM
             InitializeComponent();
             lblAccountName.Text = Utilties.user.AccountName;
             lblPosition.Text = Utilties.user.UserRole.RoleName;
+            string GetVersion = ApplicationDeployment.IsNetworkDeployed ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString() : Application.ProductVersion;
+            lblVersion.Text = string.Concat("version ", GetVersion);
+            lblSchoolYear.Text = Utilties.GetActiveSchoolYearInfo().ToUpper();
+            lblSemester.Text = Utilties.GetActiveSchoolSemesterInfo().ToUpper();
 
             //SchoolInfo school = SchoolInfo.GetSchoolInfo();
             //pbLogo.Image = Utilties.ConvertByteToImage(school.Logo);
@@ -279,6 +285,13 @@ namespace COLM_SYSTEM
         private void facultiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_faculty_entry frm = new frm_faculty_entry();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void loginWallpaperToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_system_settings frm = new frm_system_settings();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

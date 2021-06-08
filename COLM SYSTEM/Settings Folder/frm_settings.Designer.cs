@@ -28,13 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // panel1
             // 
@@ -61,7 +56,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Panel panel1;
     }
 }

@@ -63,6 +63,16 @@ namespace SEMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap AccountSettings {
+            get {
+                object obj = ResourceManager.GetObject("AccountSettings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Assessment {
             get {
                 object obj = ResourceManager.GetObject("Assessment", resourceCulture);
@@ -243,6 +253,16 @@ namespace SEMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Message {
+            get {
+                object obj = ResourceManager.GetObject("Message", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Minus {
             get {
                 object obj = ResourceManager.GetObject("Minus", resourceCulture);
@@ -266,6 +286,16 @@ namespace SEMS.Properties {
         public static System.Drawing.Bitmap Nodes1 {
             get {
                 object obj = ResourceManager.GetObject("Nodes1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap NONITA_NABONG {
+            get {
+                object obj = ResourceManager.GetObject("NONITA_NABONG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
