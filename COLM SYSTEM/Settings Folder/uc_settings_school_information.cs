@@ -28,8 +28,31 @@ namespace COLM_SYSTEM.Settings_Folder
 
         }
 
+        private bool IsValid()
+        {
+            if (pictureBox1.Image == null)
+            {
+                MessageBox.Show("Please select your school logo", "School Logo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtSchoolName.Text) == true)
+            {
+                MessageBox.Show("Please select your school name", "School Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
+
+            if (IsValid() == false)
+            {
+                return;
+            }
+
             info.SchoolID = txtSchoolID.Text;
             info.SchoolName = txtSchoolName.Text;
 

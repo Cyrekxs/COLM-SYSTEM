@@ -52,6 +52,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -59,15 +60,16 @@
             // 
             // txtSchoolRegistrar
             // 
-            this.txtSchoolRegistrar.Location = new System.Drawing.Point(28, 327);
+            this.txtSchoolRegistrar.Location = new System.Drawing.Point(578, 334);
             this.txtSchoolRegistrar.Name = "txtSchoolRegistrar";
-            this.txtSchoolRegistrar.Size = new System.Drawing.Size(501, 23);
+            this.txtSchoolRegistrar.Size = new System.Drawing.Size(192, 23);
             this.txtSchoolRegistrar.TabIndex = 54;
+            this.txtSchoolRegistrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 309);
+            this.label2.Location = new System.Drawing.Point(575, 316);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 15);
             this.label2.TabIndex = 55;
@@ -75,15 +77,15 @@
             // 
             // txtFooterFacebook
             // 
-            this.txtFooterFacebook.Location = new System.Drawing.Point(28, 283);
+            this.txtFooterFacebook.Location = new System.Drawing.Point(597, 651);
             this.txtFooterFacebook.Name = "txtFooterFacebook";
-            this.txtFooterFacebook.Size = new System.Drawing.Size(501, 23);
+            this.txtFooterFacebook.Size = new System.Drawing.Size(173, 23);
             this.txtFooterFacebook.TabIndex = 47;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(25, 262);
+            this.label15.Location = new System.Drawing.Point(594, 630);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(104, 15);
             this.label15.TabIndex = 52;
@@ -91,15 +93,15 @@
             // 
             // txtFooterContact
             // 
-            this.txtFooterContact.Location = new System.Drawing.Point(28, 232);
+            this.txtFooterContact.Location = new System.Drawing.Point(28, 651);
             this.txtFooterContact.Name = "txtFooterContact";
-            this.txtFooterContact.Size = new System.Drawing.Size(501, 23);
+            this.txtFooterContact.Size = new System.Drawing.Size(504, 23);
             this.txtFooterContact.TabIndex = 46;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(25, 211);
+            this.label14.Location = new System.Drawing.Point(25, 630);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(87, 15);
             this.label14.TabIndex = 51;
@@ -107,15 +109,16 @@
             // 
             // txtSecondSubHeader
             // 
-            this.txtSecondSubHeader.Location = new System.Drawing.Point(28, 181);
+            this.txtSecondSubHeader.Location = new System.Drawing.Point(122, 181);
             this.txtSecondSubHeader.Name = "txtSecondSubHeader";
-            this.txtSecondSubHeader.Size = new System.Drawing.Size(501, 23);
+            this.txtSecondSubHeader.Size = new System.Drawing.Size(550, 23);
             this.txtSecondSubHeader.TabIndex = 45;
+            this.txtSecondSubHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(25, 161);
+            this.label13.Location = new System.Drawing.Point(119, 161);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(79, 15);
             this.label13.TabIndex = 50;
@@ -123,15 +126,16 @@
             // 
             // txtFirstSubHeader
             // 
-            this.txtFirstSubHeader.Location = new System.Drawing.Point(28, 131);
+            this.txtFirstSubHeader.Location = new System.Drawing.Point(122, 131);
             this.txtFirstSubHeader.Name = "txtFirstSubHeader";
-            this.txtFirstSubHeader.Size = new System.Drawing.Size(501, 23);
+            this.txtFirstSubHeader.Size = new System.Drawing.Size(550, 23);
             this.txtFirstSubHeader.TabIndex = 44;
+            this.txtFirstSubHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(25, 110);
+            this.label12.Location = new System.Drawing.Point(119, 110);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(79, 15);
             this.label12.TabIndex = 49;
@@ -139,15 +143,16 @@
             // 
             // txtMainHeader
             // 
-            this.txtMainHeader.Location = new System.Drawing.Point(28, 80);
+            this.txtMainHeader.Location = new System.Drawing.Point(122, 80);
             this.txtMainHeader.Name = "txtMainHeader";
-            this.txtMainHeader.Size = new System.Drawing.Size(501, 23);
+            this.txtMainHeader.Size = new System.Drawing.Size(550, 23);
             this.txtMainHeader.TabIndex = 43;
+            this.txtMainHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(25, 59);
+            this.label11.Location = new System.Drawing.Point(119, 59);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(78, 15);
             this.label11.TabIndex = 48;
@@ -160,7 +165,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 48);
+            this.panel1.Size = new System.Drawing.Size(781, 48);
             this.panel1.TabIndex = 56;
             // 
             // label4
@@ -178,7 +183,7 @@
             // 
             this.label5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Location = new System.Drawing.Point(121, 362);
+            this.label5.Location = new System.Drawing.Point(29, 207);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 17);
             this.label5.TabIndex = 59;
@@ -189,7 +194,7 @@
             // 
             this.label7.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Location = new System.Drawing.Point(28, 362);
+            this.label7.Location = new System.Drawing.Point(683, 207);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 17);
             this.label7.TabIndex = 57;
@@ -204,7 +209,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(454, 738);
+            this.button2.Location = new System.Drawing.Point(695, 679);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 30);
             this.button2.TabIndex = 61;
@@ -220,36 +225,38 @@
             // label17
             // 
             this.label17.ForeColor = System.Drawing.Color.Firebrick;
-            this.label17.Location = new System.Drawing.Point(214, 362);
+            this.label17.Location = new System.Drawing.Point(29, 301);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(78, 93);
+            this.label17.Size = new System.Drawing.Size(86, 17);
             this.label17.TabIndex = 62;
-            this.label17.Text = "Click box to Change / Browse";
+            this.label17.Text = "Click box";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtSchoolPolicies
             // 
-            this.txtSchoolPolicies.Location = new System.Drawing.Point(28, 476);
+            this.txtSchoolPolicies.Location = new System.Drawing.Point(28, 371);
             this.txtSchoolPolicies.Multiline = true;
             this.txtSchoolPolicies.Name = "txtSchoolPolicies";
             this.txtSchoolPolicies.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSchoolPolicies.Size = new System.Drawing.Size(501, 256);
+            this.txtSchoolPolicies.Size = new System.Drawing.Size(742, 256);
             this.txtSchoolPolicies.TabIndex = 63;
             this.txtSchoolPolicies.Text = resources.GetString("txtSchoolPolicies.Text");
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 458);
+            this.label1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(25, 353);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 15);
+            this.label1.Size = new System.Drawing.Size(85, 15);
             this.label1.TabIndex = 64;
             this.label1.Text = "School Policies";
             // 
             // pictureBox3
             // 
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(121, 378);
+            this.pictureBox3.Location = new System.Drawing.Point(29, 223);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(87, 77);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -260,7 +267,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(28, 378);
+            this.pictureBox2.Location = new System.Drawing.Point(683, 223);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(87, 77);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -268,10 +275,21 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // label3
+            // 
+            this.label3.ForeColor = System.Drawing.Color.Firebrick;
+            this.label3.Location = new System.Drawing.Point(683, 300);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 17);
+            this.label3.TabIndex = 65;
+            this.label3.Text = "Click box";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // uc_settings_assessment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtSchoolPolicies);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label17);
@@ -295,7 +313,7 @@
             this.Controls.Add(this.label11);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "uc_settings_assessment";
-            this.Size = new System.Drawing.Size(540, 784);
+            this.Size = new System.Drawing.Size(781, 725);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -330,5 +348,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtSchoolPolicies;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }

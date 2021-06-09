@@ -42,7 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblNotificationCount = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -77,6 +77,11 @@
             this.miManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schoolInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assessmentReportSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emailSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.targetStudentsSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loginWallpaperToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.miReports = new System.Windows.Forms.ToolStripMenuItem();
             this.miCollectionReport = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEALLFORMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,11 +89,7 @@
             this.importUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.schoolInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.assessmentReportSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.emailSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.targetStudentsSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loginWallpaperToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ApplicationsTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -121,7 +122,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.lblNotificationCount);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
@@ -263,18 +264,18 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label12
+            // lblNotificationCount
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label12.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(832, 5);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(22, 21);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "50";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNotificationCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNotificationCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblNotificationCount.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotificationCount.ForeColor = System.Drawing.Color.White;
+            this.lblNotificationCount.Location = new System.Drawing.Point(832, 5);
+            this.lblNotificationCount.Name = "lblNotificationCount";
+            this.lblNotificationCount.Size = new System.Drawing.Size(22, 21);
+            this.lblNotificationCount.TabIndex = 9;
+            this.lblNotificationCount.Text = "0";
+            this.lblNotificationCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button2
             // 
@@ -340,6 +341,7 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblAccountName
             // 
@@ -493,7 +495,7 @@
             this.facultiesToolStripMenuItem,
             this.sectionAndSchedulesToolStripMenuItem});
             this.miSchoolData.Name = "miSchoolData";
-            this.miSchoolData.Size = new System.Drawing.Size(180, 22);
+            this.miSchoolData.Size = new System.Drawing.Size(145, 22);
             this.miSchoolData.Text = "School Data";
             // 
             // subjectsToolStripMenuItem1
@@ -533,7 +535,7 @@
             this.assessmentPaymentModesToolStripMenuItem1,
             this.discountsToolStripMenuItem});
             this.miFees.Name = "miFees";
-            this.miFees.Size = new System.Drawing.Size(180, 22);
+            this.miFees.Size = new System.Drawing.Size(145, 22);
             this.miFees.Text = "Fees";
             // 
             // mISCELLANEOUSFEESToolStripMenuItem
@@ -577,13 +579,13 @@
             this.usersToolStripMenuItem,
             this.miscellaneousToolStripMenuItem});
             this.miManagement.Name = "miManagement";
-            this.miManagement.Size = new System.Drawing.Size(180, 22);
+            this.miManagement.Size = new System.Drawing.Size(145, 22);
             this.miManagement.Text = "Management";
             // 
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.usersToolStripMenuItem.Text = "Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
@@ -596,8 +598,43 @@
             this.targetStudentsSettingsToolStripMenuItem,
             this.loginWallpaperToolStripMenuItem1});
             this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
-            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
+            // 
+            // schoolInformationToolStripMenuItem
+            // 
+            this.schoolInformationToolStripMenuItem.Name = "schoolInformationToolStripMenuItem";
+            this.schoolInformationToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.schoolInformationToolStripMenuItem.Text = "School Information Settings";
+            this.schoolInformationToolStripMenuItem.Click += new System.EventHandler(this.schoolInformationToolStripMenuItem_Click);
+            // 
+            // assessmentReportSettingsToolStripMenuItem
+            // 
+            this.assessmentReportSettingsToolStripMenuItem.Name = "assessmentReportSettingsToolStripMenuItem";
+            this.assessmentReportSettingsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.assessmentReportSettingsToolStripMenuItem.Text = "Assessment Report Settings";
+            this.assessmentReportSettingsToolStripMenuItem.Click += new System.EventHandler(this.assessmentReportSettingsToolStripMenuItem_Click);
+            // 
+            // emailSettingsToolStripMenuItem
+            // 
+            this.emailSettingsToolStripMenuItem.Name = "emailSettingsToolStripMenuItem";
+            this.emailSettingsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.emailSettingsToolStripMenuItem.Text = "Email Settings";
+            this.emailSettingsToolStripMenuItem.Click += new System.EventHandler(this.emailSettingsToolStripMenuItem_Click);
+            // 
+            // targetStudentsSettingsToolStripMenuItem
+            // 
+            this.targetStudentsSettingsToolStripMenuItem.Name = "targetStudentsSettingsToolStripMenuItem";
+            this.targetStudentsSettingsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.targetStudentsSettingsToolStripMenuItem.Text = "Target Students Settings";
+            this.targetStudentsSettingsToolStripMenuItem.Click += new System.EventHandler(this.targetStudentsSettingsToolStripMenuItem_Click);
+            // 
+            // loginWallpaperToolStripMenuItem1
+            // 
+            this.loginWallpaperToolStripMenuItem1.Name = "loginWallpaperToolStripMenuItem1";
+            this.loginWallpaperToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
+            this.loginWallpaperToolStripMenuItem1.Text = "Login Wallpaper";
+            this.loginWallpaperToolStripMenuItem1.Click += new System.EventHandler(this.loginWallpaperToolStripMenuItem1_Click);
             // 
             // miReports
             // 
@@ -642,40 +679,11 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // schoolInformationToolStripMenuItem
+            // ApplicationsTimer
             // 
-            this.schoolInformationToolStripMenuItem.Name = "schoolInformationToolStripMenuItem";
-            this.schoolInformationToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.schoolInformationToolStripMenuItem.Text = "School Information Settings";
-            this.schoolInformationToolStripMenuItem.Click += new System.EventHandler(this.schoolInformationToolStripMenuItem_Click);
-            // 
-            // assessmentReportSettingsToolStripMenuItem
-            // 
-            this.assessmentReportSettingsToolStripMenuItem.Name = "assessmentReportSettingsToolStripMenuItem";
-            this.assessmentReportSettingsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.assessmentReportSettingsToolStripMenuItem.Text = "Assessment Report Settings";
-            this.assessmentReportSettingsToolStripMenuItem.Click += new System.EventHandler(this.assessmentReportSettingsToolStripMenuItem_Click);
-            // 
-            // emailSettingsToolStripMenuItem
-            // 
-            this.emailSettingsToolStripMenuItem.Name = "emailSettingsToolStripMenuItem";
-            this.emailSettingsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.emailSettingsToolStripMenuItem.Text = "Email Settings";
-            this.emailSettingsToolStripMenuItem.Click += new System.EventHandler(this.emailSettingsToolStripMenuItem_Click);
-            // 
-            // targetStudentsSettingsToolStripMenuItem
-            // 
-            this.targetStudentsSettingsToolStripMenuItem.Name = "targetStudentsSettingsToolStripMenuItem";
-            this.targetStudentsSettingsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.targetStudentsSettingsToolStripMenuItem.Text = "Target Students Settings";
-            this.targetStudentsSettingsToolStripMenuItem.Click += new System.EventHandler(this.targetStudentsSettingsToolStripMenuItem_Click);
-            // 
-            // loginWallpaperToolStripMenuItem1
-            // 
-            this.loginWallpaperToolStripMenuItem1.Name = "loginWallpaperToolStripMenuItem1";
-            this.loginWallpaperToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
-            this.loginWallpaperToolStripMenuItem1.Text = "Login Wallpaper";
-            this.loginWallpaperToolStripMenuItem1.Click += new System.EventHandler(this.loginWallpaperToolStripMenuItem1_Click);
+            this.ApplicationsTimer.Enabled = true;
+            this.ApplicationsTimer.Interval = 120000;
+            this.ApplicationsTimer.Tick += new System.EventHandler(this.ApplicationsTimer_Tick);
             // 
             // frm_main
             // 
@@ -716,7 +724,7 @@
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.Label lblAccountName;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblNotificationCount;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -769,5 +777,6 @@
         private System.Windows.Forms.ToolStripMenuItem emailSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem targetStudentsSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginWallpaperToolStripMenuItem1;
+        private System.Windows.Forms.Timer ApplicationsTimer;
     }
 }

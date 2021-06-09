@@ -3,6 +3,8 @@ using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
+
 namespace COLM_SYSTEM_LIBRARY.datasource
 {
     class Discount_DS
@@ -38,9 +40,12 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     }
                 }
 
+
+                List<YearLevel> yearLevels = YearLevel.GetYearLevels();
+
                 foreach (var item in discounts)
                 {
-                    List<YearLevel> yearLevels = new List<YearLevel>();
+                    List<YearLevel> DiscountYearLevels = new List<YearLevel>();
                     using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.discounts_yearlevels WHERE DiscountID = @DiscountID", conn))
                     {
                         comm.Parameters.AddWithValue("@DiscountID", item.DiscountID);
@@ -48,11 +53,12 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         {
                             while (reader.Read())
                             {
-                                yearLevels.Add(YearLevel.GetYearLevel(Convert.ToInt32(reader["YearLevelID"])));
+                                int YearLevelID = Convert.ToInt16(reader["YearLevelID"]);
+                                DiscountYearLevels.Add(yearLevels.Where(r => r.YearLevelID == YearLevelID).FirstOrDefault());
                             }
                         }
                     }
-                    item.YearLevels = yearLevels;
+                    item.YearLevels = DiscountYearLevels;
                 }
             }
             return discounts;

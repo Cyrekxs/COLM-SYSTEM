@@ -29,77 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea19 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series28 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series29 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea20 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series30 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelBreakdown = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblChartBreakDownNotifier = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelEnrolled = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.lblTotalPreElementary = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.lblPendingPreElementary = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblEnrolledPreElementary = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblTargetPreElem = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.lblTotalElementary = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.lblPendingElementary = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.lblEnrolledElementary = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.lblTargetElem = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.lblTotalJHS = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.lblPendingJHS = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.lblEnrolledJHS = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.lblTargetJHS = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.lblTotalSHS = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.lblPendingSHS = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.panel28 = new System.Windows.Forms.Panel();
-            this.lblEnrolledSHS = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.panel29 = new System.Windows.Forms.Panel();
-            this.lblTargetSHS = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblTotalPending = new System.Windows.Forms.Label();
+            this.lblTotalEnrolled = new System.Windows.Forms.Label();
+            this.chartEnrolled = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel30 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
             this.lblTotalCollege = new System.Windows.Forms.Label();
@@ -115,84 +59,141 @@
             this.lblTargetCollege = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
-            this.chartEnrolled = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lblTotalEnrolled = new System.Windows.Forms.Label();
-            this.lblTotalPending = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.lblTotalSHS = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.lblPendingSHS = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.lblEnrolledSHS = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.lblTargetSHS = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.lblTotalJHS = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.lblPendingJHS = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.lblEnrolledJHS = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.lblTargetJHS = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lblTotalElementary = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.lblPendingElementary = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.lblEnrolledElementary = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.lblTargetElem = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lblTotalPreElementary = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblPendingPreElementary = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblEnrolledPreElementary = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblTargetPreElem = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panelBreakdown.SuspendLayout();
             this.panelEnrolled.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel22.SuspendLayout();
-            this.panel23.SuspendLayout();
-            this.panel24.SuspendLayout();
-            this.panel25.SuspendLayout();
-            this.panel26.SuspendLayout();
-            this.panel27.SuspendLayout();
-            this.panel28.SuspendLayout();
-            this.panel29.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartEnrolled)).BeginInit();
             this.panel30.SuspendLayout();
             this.panel31.SuspendLayout();
             this.panel32.SuspendLayout();
             this.panel33.SuspendLayout();
             this.panel34.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartEnrolled)).BeginInit();
+            this.panel25.SuspendLayout();
+            this.panel26.SuspendLayout();
+            this.panel27.SuspendLayout();
+            this.panel28.SuspendLayout();
+            this.panel29.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
             // 
-            chartArea19.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.None;
-            chartArea19.Area3DStyle.Rotation = 130;
-            chartArea19.AxisX.Interval = 1D;
-            chartArea19.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea19.AxisX.IsLabelAutoFit = false;
-            chartArea19.AxisX.LabelAutoFitMinFontSize = 8;
-            chartArea19.AxisX.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea19.AxisX.MajorGrid.Enabled = false;
-            chartArea19.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea19.AxisX.TitleFont = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea19.AxisX2.MajorGrid.LineColor = System.Drawing.Color.Empty;
-            chartArea19.AxisY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea19.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea19.AxisY.IsLabelAutoFit = false;
-            chartArea19.AxisY.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea19.AxisY.LabelStyle.Format = "# Students";
-            chartArea19.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea19.BackColor = System.Drawing.Color.WhiteSmoke;
-            chartArea19.BackSecondaryColor = System.Drawing.Color.Navy;
-            chartArea19.Name = "ChartArea1";
-            chartArea19.ShadowColor = System.Drawing.Color.Empty;
-            this.chart1.ChartAreas.Add(chartArea19);
+            chartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.None;
+            chartArea1.Area3DStyle.Rotation = 130;
+            chartArea1.AxisX.Interval = 1D;
+            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelAutoFitMinFontSize = 8;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.Empty;
+            chartArea1.AxisY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.LabelStyle.Format = "# Students";
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea1.BackColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.BackSecondaryColor = System.Drawing.Color.Navy;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.ShadowColor = System.Drawing.Color.Empty;
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.Location = new System.Drawing.Point(5, 5);
             this.chart1.Name = "chart1";
-            series28.ChartArea = "ChartArea1";
-            series28.Color = System.Drawing.Color.DarkSlateGray;
-            series28.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series28.IsValueShownAsLabel = true;
-            series28.IsVisibleInLegend = false;
-            series28.MarkerBorderColor = System.Drawing.Color.Red;
-            series28.Name = "Enrolled";
-            series29.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Percent25;
-            series29.ChartArea = "ChartArea1";
-            series29.Color = System.Drawing.Color.Gray;
-            series29.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series29.IsValueShownAsLabel = true;
-            series29.IsVisibleInLegend = false;
-            series29.Name = "Pending";
-            this.chart1.Series.Add(series28);
-            this.chart1.Series.Add(series29);
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.DarkSlateGray;
+            series1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
+            series1.IsVisibleInLegend = false;
+            series1.MarkerBorderColor = System.Drawing.Color.Red;
+            series1.Name = "Enrolled";
+            series2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Percent25;
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.Gray;
+            series2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.IsValueShownAsLabel = true;
+            series2.IsVisibleInLegend = false;
+            series2.Name = "Pending";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1311, 300);
             this.chart1.TabIndex = 11;
             this.chart1.Text = "chart1";
@@ -251,773 +252,60 @@
             this.panelEnrolled.Size = new System.Drawing.Size(1321, 265);
             this.panelEnrolled.TabIndex = 13;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.panel7);
-            this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.button6);
-            this.panel4.Controls.Add(this.panel3);
-            this.panel4.Location = new System.Drawing.Point(324, 33);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(182, 204);
-            this.panel4.TabIndex = 10;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel7.Controls.Add(this.lblTotalPreElementary);
-            this.panel7.Controls.Add(this.label16);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 132);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(182, 36);
-            this.panel7.TabIndex = 18;
-            // 
-            // lblTotalPreElementary
-            // 
-            this.lblTotalPreElementary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTotalPreElementary.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPreElementary.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalPreElementary.Location = new System.Drawing.Point(125, 0);
-            this.lblTotalPreElementary.Name = "lblTotalPreElementary";
-            this.lblTotalPreElementary.Size = new System.Drawing.Size(57, 36);
-            this.lblTotalPreElementary.TabIndex = 14;
-            this.lblTotalPreElementary.Text = "0";
-            this.lblTotalPreElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label16
-            // 
-            this.label16.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label16.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(0, 0);
-            this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label16.Size = new System.Drawing.Size(125, 36);
-            this.label16.TabIndex = 10;
-            this.label16.Text = "Total";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel6.Controls.Add(this.lblPendingPreElementary);
-            this.panel6.Controls.Add(this.label14);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 96);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(182, 36);
-            this.panel6.TabIndex = 17;
-            // 
-            // lblPendingPreElementary
-            // 
-            this.lblPendingPreElementary.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblPendingPreElementary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPendingPreElementary.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingPreElementary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPendingPreElementary.Location = new System.Drawing.Point(125, 0);
-            this.lblPendingPreElementary.Name = "lblPendingPreElementary";
-            this.lblPendingPreElementary.Size = new System.Drawing.Size(57, 36);
-            this.lblPendingPreElementary.TabIndex = 14;
-            this.lblPendingPreElementary.Text = "0";
-            this.lblPendingPreElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label14
-            // 
-            this.label14.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label14.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label14.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(0, 0);
-            this.label14.Name = "label14";
-            this.label14.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label14.Size = new System.Drawing.Size(125, 36);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "Pending";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel5.Controls.Add(this.lblEnrolledPreElementary);
-            this.panel5.Controls.Add(this.label12);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 60);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(182, 36);
-            this.panel5.TabIndex = 11;
-            // 
-            // lblEnrolledPreElementary
-            // 
-            this.lblEnrolledPreElementary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEnrolledPreElementary.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnrolledPreElementary.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblEnrolledPreElementary.Location = new System.Drawing.Point(125, 0);
-            this.lblEnrolledPreElementary.Name = "lblEnrolledPreElementary";
-            this.lblEnrolledPreElementary.Size = new System.Drawing.Size(57, 36);
-            this.lblEnrolledPreElementary.TabIndex = 14;
-            this.lblEnrolledPreElementary.Text = "0";
-            this.lblEnrolledPreElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label12
-            // 
-            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label12.Location = new System.Drawing.Point(0, 0);
-            this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label12.Size = new System.Drawing.Size(125, 36);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "Enrolled";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Gainsboro;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button6.Location = new System.Drawing.Point(0, 168);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(182, 36);
-            this.button6.TabIndex = 16;
-            this.button6.Text = "View in Chart";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel3.Controls.Add(this.lblTargetPreElem);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(182, 60);
-            this.panel3.TabIndex = 9;
-            // 
-            // lblTargetPreElem
-            // 
-            this.lblTargetPreElem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTargetPreElem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTargetPreElem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTargetPreElem.Location = new System.Drawing.Point(125, 25);
-            this.lblTargetPreElem.Name = "lblTargetPreElem";
-            this.lblTargetPreElem.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblTargetPreElem.Size = new System.Drawing.Size(57, 35);
-            this.lblTargetPreElem.TabIndex = 12;
-            this.lblTargetPreElem.Text = "0%";
-            this.lblTargetPreElem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.Color.Gainsboro;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label10.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Location = new System.Drawing.Point(125, 0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label10.Size = new System.Drawing.Size(57, 25);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "Target";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.Silver;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(0, 0);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.label7.Size = new System.Drawing.Size(125, 60);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "PRE ELEMENTARY";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.White;
-            this.panel8.Controls.Add(this.panel10);
-            this.panel8.Controls.Add(this.panel11);
-            this.panel8.Controls.Add(this.panel12);
-            this.panel8.Controls.Add(this.button7);
-            this.panel8.Controls.Add(this.panel13);
-            this.panel8.Location = new System.Drawing.Point(512, 33);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(182, 204);
-            this.panel8.TabIndex = 11;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel10.Controls.Add(this.lblTotalElementary);
-            this.panel10.Controls.Add(this.label18);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 132);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(182, 36);
-            this.panel10.TabIndex = 18;
-            // 
-            // lblTotalElementary
-            // 
-            this.lblTotalElementary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTotalElementary.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalElementary.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalElementary.Location = new System.Drawing.Point(125, 0);
-            this.lblTotalElementary.Name = "lblTotalElementary";
-            this.lblTotalElementary.Size = new System.Drawing.Size(57, 36);
-            this.lblTotalElementary.TabIndex = 14;
-            this.lblTotalElementary.Text = "0";
-            this.lblTotalElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label18
-            // 
-            this.label18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label18.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(0, 0);
-            this.label18.Name = "label18";
-            this.label18.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label18.Size = new System.Drawing.Size(125, 36);
-            this.label18.TabIndex = 10;
-            this.label18.Text = "Total";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel11.Controls.Add(this.lblPendingElementary);
-            this.panel11.Controls.Add(this.label21);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(0, 96);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(182, 36);
-            this.panel11.TabIndex = 17;
-            // 
-            // lblPendingElementary
-            // 
-            this.lblPendingElementary.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblPendingElementary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPendingElementary.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingElementary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPendingElementary.Location = new System.Drawing.Point(125, 0);
-            this.lblPendingElementary.Name = "lblPendingElementary";
-            this.lblPendingElementary.Size = new System.Drawing.Size(57, 36);
-            this.lblPendingElementary.TabIndex = 14;
-            this.lblPendingElementary.Text = "0";
-            this.lblPendingElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label21
-            // 
-            this.label21.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label21.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label21.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label21.Location = new System.Drawing.Point(0, 0);
-            this.label21.Name = "label21";
-            this.label21.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label21.Size = new System.Drawing.Size(125, 36);
-            this.label21.TabIndex = 10;
-            this.label21.Text = "Pending";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel12.Controls.Add(this.lblEnrolledElementary);
-            this.panel12.Controls.Add(this.label24);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 60);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(182, 36);
-            this.panel12.TabIndex = 11;
-            // 
-            // lblEnrolledElementary
-            // 
-            this.lblEnrolledElementary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEnrolledElementary.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnrolledElementary.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblEnrolledElementary.Location = new System.Drawing.Point(125, 0);
-            this.lblEnrolledElementary.Name = "lblEnrolledElementary";
-            this.lblEnrolledElementary.Size = new System.Drawing.Size(57, 36);
-            this.lblEnrolledElementary.TabIndex = 14;
-            this.lblEnrolledElementary.Text = "0";
-            this.lblEnrolledElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label24
-            // 
-            this.label24.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label24.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label24.Location = new System.Drawing.Point(0, 0);
-            this.label24.Name = "label24";
-            this.label24.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label24.Size = new System.Drawing.Size(125, 36);
-            this.label24.TabIndex = 10;
-            this.label24.Text = "Enrolled";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.Gainsboro;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button7.Location = new System.Drawing.Point(0, 168);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(182, 36);
-            this.button7.TabIndex = 16;
-            this.button7.Text = "View in Chart";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel13.Controls.Add(this.lblTargetElem);
-            this.panel13.Controls.Add(this.label27);
-            this.panel13.Controls.Add(this.label28);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(182, 60);
-            this.panel13.TabIndex = 9;
-            // 
-            // lblTargetElem
-            // 
-            this.lblTargetElem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTargetElem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTargetElem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTargetElem.Location = new System.Drawing.Point(125, 25);
-            this.lblTargetElem.Name = "lblTargetElem";
-            this.lblTargetElem.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblTargetElem.Size = new System.Drawing.Size(57, 35);
-            this.lblTargetElem.TabIndex = 12;
-            this.lblTargetElem.Text = "0%";
-            this.lblTargetElem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label27
-            // 
-            this.label27.BackColor = System.Drawing.Color.Gainsboro;
-            this.label27.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label27.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label27.Location = new System.Drawing.Point(125, 0);
-            this.label27.Name = "label27";
-            this.label27.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label27.Size = new System.Drawing.Size(57, 25);
-            this.label27.TabIndex = 13;
-            this.label27.Text = "Target";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label28
-            // 
-            this.label28.BackColor = System.Drawing.Color.Silver;
-            this.label28.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label28.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label28.Location = new System.Drawing.Point(0, 0);
-            this.label28.Name = "label28";
-            this.label28.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.label28.Size = new System.Drawing.Size(125, 60);
-            this.label28.TabIndex = 11;
-            this.label28.Text = "ELEMENTARY";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.White;
-            this.panel14.Controls.Add(this.panel15);
-            this.panel14.Controls.Add(this.panel22);
-            this.panel14.Controls.Add(this.panel23);
-            this.panel14.Controls.Add(this.button8);
-            this.panel14.Controls.Add(this.panel24);
-            this.panel14.Location = new System.Drawing.Point(700, 33);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(182, 204);
-            this.panel14.TabIndex = 12;
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel15.Controls.Add(this.lblTotalJHS);
-            this.panel15.Controls.Add(this.label31);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(0, 132);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(182, 36);
-            this.panel15.TabIndex = 18;
-            // 
-            // lblTotalJHS
-            // 
-            this.lblTotalJHS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTotalJHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalJHS.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalJHS.Location = new System.Drawing.Point(125, 0);
-            this.lblTotalJHS.Name = "lblTotalJHS";
-            this.lblTotalJHS.Size = new System.Drawing.Size(57, 36);
-            this.lblTotalJHS.TabIndex = 14;
-            this.lblTotalJHS.Text = "0";
-            this.lblTotalJHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label31
-            // 
-            this.label31.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label31.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(0, 0);
-            this.label31.Name = "label31";
-            this.label31.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label31.Size = new System.Drawing.Size(125, 36);
-            this.label31.TabIndex = 10;
-            this.label31.Text = "Total";
-            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel22
-            // 
-            this.panel22.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel22.Controls.Add(this.lblPendingJHS);
-            this.panel22.Controls.Add(this.label34);
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel22.Location = new System.Drawing.Point(0, 96);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(182, 36);
-            this.panel22.TabIndex = 17;
-            // 
-            // lblPendingJHS
-            // 
-            this.lblPendingJHS.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblPendingJHS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPendingJHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingJHS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPendingJHS.Location = new System.Drawing.Point(125, 0);
-            this.lblPendingJHS.Name = "lblPendingJHS";
-            this.lblPendingJHS.Size = new System.Drawing.Size(57, 36);
-            this.lblPendingJHS.TabIndex = 14;
-            this.lblPendingJHS.Text = "0";
-            this.lblPendingJHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label34
-            // 
-            this.label34.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label34.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label34.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label34.Location = new System.Drawing.Point(0, 0);
-            this.label34.Name = "label34";
-            this.label34.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label34.Size = new System.Drawing.Size(125, 36);
-            this.label34.TabIndex = 10;
-            this.label34.Text = "Pending";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel23
-            // 
-            this.panel23.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel23.Controls.Add(this.lblEnrolledJHS);
-            this.panel23.Controls.Add(this.label36);
-            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel23.Location = new System.Drawing.Point(0, 60);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(182, 36);
-            this.panel23.TabIndex = 11;
-            // 
-            // lblEnrolledJHS
-            // 
-            this.lblEnrolledJHS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEnrolledJHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnrolledJHS.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblEnrolledJHS.Location = new System.Drawing.Point(125, 0);
-            this.lblEnrolledJHS.Name = "lblEnrolledJHS";
-            this.lblEnrolledJHS.Size = new System.Drawing.Size(57, 36);
-            this.lblEnrolledJHS.TabIndex = 14;
-            this.lblEnrolledJHS.Text = "0";
-            this.lblEnrolledJHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label36
-            // 
-            this.label36.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label36.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label36.Location = new System.Drawing.Point(0, 0);
-            this.label36.Name = "label36";
-            this.label36.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label36.Size = new System.Drawing.Size(125, 36);
-            this.label36.TabIndex = 10;
-            this.label36.Text = "Enrolled";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Gainsboro;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button8.Location = new System.Drawing.Point(0, 168);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(182, 36);
-            this.button8.TabIndex = 16;
-            this.button8.Text = "View in Chart";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // panel24
-            // 
-            this.panel24.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel24.Controls.Add(this.lblTargetJHS);
-            this.panel24.Controls.Add(this.label38);
-            this.panel24.Controls.Add(this.label39);
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel24.Location = new System.Drawing.Point(0, 0);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(182, 60);
-            this.panel24.TabIndex = 9;
-            // 
-            // lblTargetJHS
-            // 
-            this.lblTargetJHS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTargetJHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTargetJHS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTargetJHS.Location = new System.Drawing.Point(125, 25);
-            this.lblTargetJHS.Name = "lblTargetJHS";
-            this.lblTargetJHS.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblTargetJHS.Size = new System.Drawing.Size(57, 35);
-            this.lblTargetJHS.TabIndex = 12;
-            this.lblTargetJHS.Text = "0%";
-            this.lblTargetJHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label38
-            // 
-            this.label38.BackColor = System.Drawing.Color.Gainsboro;
-            this.label38.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label38.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label38.Location = new System.Drawing.Point(125, 0);
-            this.label38.Name = "label38";
-            this.label38.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label38.Size = new System.Drawing.Size(57, 25);
-            this.label38.TabIndex = 13;
-            this.label38.Text = "Target";
-            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label39
-            // 
-            this.label39.BackColor = System.Drawing.Color.Silver;
-            this.label39.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label39.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label39.Location = new System.Drawing.Point(0, 0);
-            this.label39.Name = "label39";
-            this.label39.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.label39.Size = new System.Drawing.Size(125, 60);
-            this.label39.TabIndex = 11;
-            this.label39.Text = "JUNIOR HIGH";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel25
-            // 
-            this.panel25.BackColor = System.Drawing.Color.White;
-            this.panel25.Controls.Add(this.panel26);
-            this.panel25.Controls.Add(this.panel27);
-            this.panel25.Controls.Add(this.panel28);
-            this.panel25.Controls.Add(this.button9);
-            this.panel25.Controls.Add(this.panel29);
-            this.panel25.Location = new System.Drawing.Point(888, 33);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(182, 204);
-            this.panel25.TabIndex = 13;
-            // 
-            // panel26
-            // 
-            this.panel26.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel26.Controls.Add(this.lblTotalSHS);
-            this.panel26.Controls.Add(this.label41);
-            this.panel26.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel26.Location = new System.Drawing.Point(0, 132);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(182, 36);
-            this.panel26.TabIndex = 18;
-            // 
-            // lblTotalSHS
-            // 
-            this.lblTotalSHS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTotalSHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalSHS.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalSHS.Location = new System.Drawing.Point(125, 0);
-            this.lblTotalSHS.Name = "lblTotalSHS";
-            this.lblTotalSHS.Size = new System.Drawing.Size(57, 36);
-            this.lblTotalSHS.TabIndex = 14;
-            this.lblTotalSHS.Text = "0";
-            this.lblTotalSHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label41
-            // 
-            this.label41.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label41.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.ForeColor = System.Drawing.Color.Black;
-            this.label41.Location = new System.Drawing.Point(0, 0);
-            this.label41.Name = "label41";
-            this.label41.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label41.Size = new System.Drawing.Size(125, 36);
-            this.label41.TabIndex = 10;
-            this.label41.Text = "Total";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel27
-            // 
-            this.panel27.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel27.Controls.Add(this.lblPendingSHS);
-            this.panel27.Controls.Add(this.label43);
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel27.Location = new System.Drawing.Point(0, 96);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(182, 36);
-            this.panel27.TabIndex = 17;
-            // 
-            // lblPendingSHS
-            // 
-            this.lblPendingSHS.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblPendingSHS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPendingSHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingSHS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPendingSHS.Location = new System.Drawing.Point(125, 0);
-            this.lblPendingSHS.Name = "lblPendingSHS";
-            this.lblPendingSHS.Size = new System.Drawing.Size(57, 36);
-            this.lblPendingSHS.TabIndex = 14;
-            this.lblPendingSHS.Text = "0";
-            this.lblPendingSHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label43
-            // 
-            this.label43.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label43.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label43.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label43.Location = new System.Drawing.Point(0, 0);
-            this.label43.Name = "label43";
-            this.label43.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label43.Size = new System.Drawing.Size(125, 36);
-            this.label43.TabIndex = 10;
-            this.label43.Text = "Pending";
-            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel28
-            // 
-            this.panel28.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel28.Controls.Add(this.lblEnrolledSHS);
-            this.panel28.Controls.Add(this.label45);
-            this.panel28.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel28.Location = new System.Drawing.Point(0, 60);
-            this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(182, 36);
-            this.panel28.TabIndex = 11;
-            // 
-            // lblEnrolledSHS
-            // 
-            this.lblEnrolledSHS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEnrolledSHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnrolledSHS.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblEnrolledSHS.Location = new System.Drawing.Point(125, 0);
-            this.lblEnrolledSHS.Name = "lblEnrolledSHS";
-            this.lblEnrolledSHS.Size = new System.Drawing.Size(57, 36);
-            this.lblEnrolledSHS.TabIndex = 14;
-            this.lblEnrolledSHS.Text = "0";
-            this.lblEnrolledSHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label45
-            // 
-            this.label45.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label45.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label45.Location = new System.Drawing.Point(0, 0);
-            this.label45.Name = "label45";
-            this.label45.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label45.Size = new System.Drawing.Size(125, 36);
-            this.label45.TabIndex = 10;
-            this.label45.Text = "Enrolled";
-            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.Gainsboro;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button9.Location = new System.Drawing.Point(0, 168);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(182, 36);
-            this.button9.TabIndex = 16;
-            this.button9.Text = "View in Chart";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // panel29
-            // 
-            this.panel29.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel29.Controls.Add(this.lblTargetSHS);
-            this.panel29.Controls.Add(this.label47);
-            this.panel29.Controls.Add(this.label48);
-            this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel29.Location = new System.Drawing.Point(0, 0);
-            this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(182, 60);
-            this.panel29.TabIndex = 9;
-            // 
-            // lblTargetSHS
-            // 
-            this.lblTargetSHS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTargetSHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTargetSHS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTargetSHS.Location = new System.Drawing.Point(125, 25);
-            this.lblTargetSHS.Name = "lblTargetSHS";
-            this.lblTargetSHS.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblTargetSHS.Size = new System.Drawing.Size(57, 35);
-            this.lblTargetSHS.TabIndex = 12;
-            this.lblTargetSHS.Text = "0%";
-            this.lblTargetSHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label47
-            // 
-            this.label47.BackColor = System.Drawing.Color.Gainsboro;
-            this.label47.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label47.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label47.Location = new System.Drawing.Point(125, 0);
-            this.label47.Name = "label47";
-            this.label47.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label47.Size = new System.Drawing.Size(57, 25);
-            this.label47.TabIndex = 13;
-            this.label47.Text = "Target";
-            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label48
-            // 
-            this.label48.BackColor = System.Drawing.Color.Silver;
-            this.label48.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label48.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label48.Location = new System.Drawing.Point(0, 0);
-            this.label48.Name = "label48";
-            this.label48.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.label48.Size = new System.Drawing.Size(125, 60);
-            this.label48.TabIndex = 11;
-            this.label48.Text = "SENIOR HIGH";
-            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label4.Location = new System.Drawing.Point(104, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 25);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "TOTAL";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTotalPending
+            // 
+            this.lblTotalPending.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPending.ForeColor = System.Drawing.Color.Gray;
+            this.lblTotalPending.Location = new System.Drawing.Point(108, 146);
+            this.lblTotalPending.Name = "lblTotalPending";
+            this.lblTotalPending.Size = new System.Drawing.Size(56, 25);
+            this.lblTotalPending.TabIndex = 17;
+            this.lblTotalPending.Text = "0";
+            this.lblTotalPending.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTotalEnrolled
+            // 
+            this.lblTotalEnrolled.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEnrolled.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblTotalEnrolled.Location = new System.Drawing.Point(104, 96);
+            this.lblTotalEnrolled.Name = "lblTotalEnrolled";
+            this.lblTotalEnrolled.Size = new System.Drawing.Size(60, 25);
+            this.lblTotalEnrolled.TabIndex = 16;
+            this.lblTotalEnrolled.Text = "0";
+            this.lblTotalEnrolled.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chartEnrolled
+            // 
+            this.chartEnrolled.BackColor = System.Drawing.Color.Empty;
+            this.chartEnrolled.BorderlineColor = System.Drawing.Color.Black;
+            chartArea2.Name = "ChartArea1";
+            this.chartEnrolled.ChartAreas.Add(chartArea2);
+            this.chartEnrolled.Dock = System.Windows.Forms.DockStyle.Left;
+            this.chartEnrolled.Location = new System.Drawing.Point(0, 0);
+            this.chartEnrolled.Name = "chartEnrolled";
+            this.chartEnrolled.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series3.BorderColor = System.Drawing.Color.White;
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.Name = "Series1";
+            series3.YValuesPerPoint = 6;
+            this.chartEnrolled.Series.Add(series3);
+            this.chartEnrolled.Size = new System.Drawing.Size(267, 265);
+            this.chartEnrolled.TabIndex = 15;
+            this.chartEnrolled.Text = "chart1";
             // 
             // panel30
             // 
@@ -1211,60 +499,773 @@
             this.label57.Text = "COLLEGE";
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chartEnrolled
+            // panel25
             // 
-            this.chartEnrolled.BackColor = System.Drawing.Color.Empty;
-            this.chartEnrolled.BorderlineColor = System.Drawing.Color.Black;
-            chartArea20.Name = "ChartArea1";
-            this.chartEnrolled.ChartAreas.Add(chartArea20);
-            this.chartEnrolled.Dock = System.Windows.Forms.DockStyle.Left;
-            this.chartEnrolled.Location = new System.Drawing.Point(0, 0);
-            this.chartEnrolled.Name = "chartEnrolled";
-            this.chartEnrolled.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series30.BorderColor = System.Drawing.Color.White;
-            series30.BorderWidth = 3;
-            series30.ChartArea = "ChartArea1";
-            series30.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series30.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series30.Name = "Series1";
-            series30.YValuesPerPoint = 6;
-            this.chartEnrolled.Series.Add(series30);
-            this.chartEnrolled.Size = new System.Drawing.Size(267, 265);
-            this.chartEnrolled.TabIndex = 15;
-            this.chartEnrolled.Text = "chart1";
+            this.panel25.BackColor = System.Drawing.Color.White;
+            this.panel25.Controls.Add(this.panel26);
+            this.panel25.Controls.Add(this.panel27);
+            this.panel25.Controls.Add(this.panel28);
+            this.panel25.Controls.Add(this.button9);
+            this.panel25.Controls.Add(this.panel29);
+            this.panel25.Location = new System.Drawing.Point(888, 33);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(182, 204);
+            this.panel25.TabIndex = 13;
             // 
-            // lblTotalEnrolled
+            // panel26
             // 
-            this.lblTotalEnrolled.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalEnrolled.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTotalEnrolled.Location = new System.Drawing.Point(104, 96);
-            this.lblTotalEnrolled.Name = "lblTotalEnrolled";
-            this.lblTotalEnrolled.Size = new System.Drawing.Size(60, 25);
-            this.lblTotalEnrolled.TabIndex = 16;
-            this.lblTotalEnrolled.Text = "0";
-            this.lblTotalEnrolled.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel26.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel26.Controls.Add(this.lblTotalSHS);
+            this.panel26.Controls.Add(this.label41);
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel26.Location = new System.Drawing.Point(0, 132);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(182, 36);
+            this.panel26.TabIndex = 18;
             // 
-            // lblTotalPending
+            // lblTotalSHS
             // 
-            this.lblTotalPending.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPending.ForeColor = System.Drawing.Color.Gray;
-            this.lblTotalPending.Location = new System.Drawing.Point(108, 146);
-            this.lblTotalPending.Name = "lblTotalPending";
-            this.lblTotalPending.Size = new System.Drawing.Size(56, 25);
-            this.lblTotalPending.TabIndex = 17;
-            this.lblTotalPending.Text = "0";
-            this.lblTotalPending.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTotalSHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalSHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalSHS.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalSHS.Location = new System.Drawing.Point(125, 0);
+            this.lblTotalSHS.Name = "lblTotalSHS";
+            this.lblTotalSHS.Size = new System.Drawing.Size(57, 36);
+            this.lblTotalSHS.TabIndex = 14;
+            this.lblTotalSHS.Text = "0";
+            this.lblTotalSHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // label41
             // 
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label4.Location = new System.Drawing.Point(104, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 25);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "TOTAL";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label41.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label41.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.Black;
+            this.label41.Location = new System.Drawing.Point(0, 0);
+            this.label41.Name = "label41";
+            this.label41.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label41.Size = new System.Drawing.Size(125, 36);
+            this.label41.TabIndex = 10;
+            this.label41.Text = "Total";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel27
+            // 
+            this.panel27.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel27.Controls.Add(this.lblPendingSHS);
+            this.panel27.Controls.Add(this.label43);
+            this.panel27.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel27.Location = new System.Drawing.Point(0, 96);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(182, 36);
+            this.panel27.TabIndex = 17;
+            // 
+            // lblPendingSHS
+            // 
+            this.lblPendingSHS.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblPendingSHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPendingSHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingSHS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPendingSHS.Location = new System.Drawing.Point(125, 0);
+            this.lblPendingSHS.Name = "lblPendingSHS";
+            this.lblPendingSHS.Size = new System.Drawing.Size(57, 36);
+            this.lblPendingSHS.TabIndex = 14;
+            this.lblPendingSHS.Text = "0";
+            this.lblPendingSHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label43
+            // 
+            this.label43.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label43.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label43.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label43.Location = new System.Drawing.Point(0, 0);
+            this.label43.Name = "label43";
+            this.label43.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label43.Size = new System.Drawing.Size(125, 36);
+            this.label43.TabIndex = 10;
+            this.label43.Text = "Pending";
+            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel28
+            // 
+            this.panel28.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel28.Controls.Add(this.lblEnrolledSHS);
+            this.panel28.Controls.Add(this.label45);
+            this.panel28.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel28.Location = new System.Drawing.Point(0, 60);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(182, 36);
+            this.panel28.TabIndex = 11;
+            // 
+            // lblEnrolledSHS
+            // 
+            this.lblEnrolledSHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblEnrolledSHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnrolledSHS.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblEnrolledSHS.Location = new System.Drawing.Point(125, 0);
+            this.lblEnrolledSHS.Name = "lblEnrolledSHS";
+            this.lblEnrolledSHS.Size = new System.Drawing.Size(57, 36);
+            this.lblEnrolledSHS.TabIndex = 14;
+            this.lblEnrolledSHS.Text = "0";
+            this.lblEnrolledSHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label45
+            // 
+            this.label45.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label45.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label45.Location = new System.Drawing.Point(0, 0);
+            this.label45.Name = "label45";
+            this.label45.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label45.Size = new System.Drawing.Size(125, 36);
+            this.label45.TabIndex = 10;
+            this.label45.Text = "Enrolled";
+            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.Gainsboro;
+            this.button9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button9.Location = new System.Drawing.Point(0, 168);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(182, 36);
+            this.button9.TabIndex = 16;
+            this.button9.Text = "View in Chart";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // panel29
+            // 
+            this.panel29.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel29.Controls.Add(this.lblTargetSHS);
+            this.panel29.Controls.Add(this.label47);
+            this.panel29.Controls.Add(this.label48);
+            this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel29.Location = new System.Drawing.Point(0, 0);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(182, 60);
+            this.panel29.TabIndex = 9;
+            // 
+            // lblTargetSHS
+            // 
+            this.lblTargetSHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTargetSHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTargetSHS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblTargetSHS.Location = new System.Drawing.Point(125, 25);
+            this.lblTargetSHS.Name = "lblTargetSHS";
+            this.lblTargetSHS.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lblTargetSHS.Size = new System.Drawing.Size(57, 35);
+            this.lblTargetSHS.TabIndex = 12;
+            this.lblTargetSHS.Text = "0%";
+            this.lblTargetSHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label47
+            // 
+            this.label47.BackColor = System.Drawing.Color.Gainsboro;
+            this.label47.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label47.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label47.Location = new System.Drawing.Point(125, 0);
+            this.label47.Name = "label47";
+            this.label47.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.label47.Size = new System.Drawing.Size(57, 25);
+            this.label47.TabIndex = 13;
+            this.label47.Text = "Target";
+            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label48
+            // 
+            this.label48.BackColor = System.Drawing.Color.Silver;
+            this.label48.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label48.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label48.Location = new System.Drawing.Point(0, 0);
+            this.label48.Name = "label48";
+            this.label48.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label48.Size = new System.Drawing.Size(125, 60);
+            this.label48.TabIndex = 11;
+            this.label48.Text = "SENIOR HIGH";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.White;
+            this.panel14.Controls.Add(this.panel15);
+            this.panel14.Controls.Add(this.panel22);
+            this.panel14.Controls.Add(this.panel23);
+            this.panel14.Controls.Add(this.button8);
+            this.panel14.Controls.Add(this.panel24);
+            this.panel14.Location = new System.Drawing.Point(700, 33);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(182, 204);
+            this.panel14.TabIndex = 12;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel15.Controls.Add(this.lblTotalJHS);
+            this.panel15.Controls.Add(this.label31);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.Location = new System.Drawing.Point(0, 132);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(182, 36);
+            this.panel15.TabIndex = 18;
+            // 
+            // lblTotalJHS
+            // 
+            this.lblTotalJHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalJHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalJHS.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalJHS.Location = new System.Drawing.Point(125, 0);
+            this.lblTotalJHS.Name = "lblTotalJHS";
+            this.lblTotalJHS.Size = new System.Drawing.Size(57, 36);
+            this.lblTotalJHS.TabIndex = 14;
+            this.lblTotalJHS.Text = "0";
+            this.lblTotalJHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label31
+            // 
+            this.label31.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label31.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.Black;
+            this.label31.Location = new System.Drawing.Point(0, 0);
+            this.label31.Name = "label31";
+            this.label31.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label31.Size = new System.Drawing.Size(125, 36);
+            this.label31.TabIndex = 10;
+            this.label31.Text = "Total";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel22.Controls.Add(this.lblPendingJHS);
+            this.panel22.Controls.Add(this.label34);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel22.Location = new System.Drawing.Point(0, 96);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(182, 36);
+            this.panel22.TabIndex = 17;
+            // 
+            // lblPendingJHS
+            // 
+            this.lblPendingJHS.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblPendingJHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPendingJHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingJHS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPendingJHS.Location = new System.Drawing.Point(125, 0);
+            this.lblPendingJHS.Name = "lblPendingJHS";
+            this.lblPendingJHS.Size = new System.Drawing.Size(57, 36);
+            this.lblPendingJHS.TabIndex = 14;
+            this.lblPendingJHS.Text = "0";
+            this.lblPendingJHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label34
+            // 
+            this.label34.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label34.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label34.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label34.Location = new System.Drawing.Point(0, 0);
+            this.label34.Name = "label34";
+            this.label34.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label34.Size = new System.Drawing.Size(125, 36);
+            this.label34.TabIndex = 10;
+            this.label34.Text = "Pending";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel23.Controls.Add(this.lblEnrolledJHS);
+            this.panel23.Controls.Add(this.label36);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel23.Location = new System.Drawing.Point(0, 60);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(182, 36);
+            this.panel23.TabIndex = 11;
+            // 
+            // lblEnrolledJHS
+            // 
+            this.lblEnrolledJHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblEnrolledJHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnrolledJHS.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblEnrolledJHS.Location = new System.Drawing.Point(125, 0);
+            this.lblEnrolledJHS.Name = "lblEnrolledJHS";
+            this.lblEnrolledJHS.Size = new System.Drawing.Size(57, 36);
+            this.lblEnrolledJHS.TabIndex = 14;
+            this.lblEnrolledJHS.Text = "0";
+            this.lblEnrolledJHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label36
+            // 
+            this.label36.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label36.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label36.Location = new System.Drawing.Point(0, 0);
+            this.label36.Name = "label36";
+            this.label36.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label36.Size = new System.Drawing.Size(125, 36);
+            this.label36.TabIndex = 10;
+            this.label36.Text = "Enrolled";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Gainsboro;
+            this.button8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button8.Location = new System.Drawing.Point(0, 168);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(182, 36);
+            this.button8.TabIndex = 16;
+            this.button8.Text = "View in Chart";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel24.Controls.Add(this.lblTargetJHS);
+            this.panel24.Controls.Add(this.label38);
+            this.panel24.Controls.Add(this.label39);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel24.Location = new System.Drawing.Point(0, 0);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(182, 60);
+            this.panel24.TabIndex = 9;
+            // 
+            // lblTargetJHS
+            // 
+            this.lblTargetJHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTargetJHS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTargetJHS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblTargetJHS.Location = new System.Drawing.Point(125, 25);
+            this.lblTargetJHS.Name = "lblTargetJHS";
+            this.lblTargetJHS.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lblTargetJHS.Size = new System.Drawing.Size(57, 35);
+            this.lblTargetJHS.TabIndex = 12;
+            this.lblTargetJHS.Text = "0%";
+            this.lblTargetJHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label38
+            // 
+            this.label38.BackColor = System.Drawing.Color.Gainsboro;
+            this.label38.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label38.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label38.Location = new System.Drawing.Point(125, 0);
+            this.label38.Name = "label38";
+            this.label38.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.label38.Size = new System.Drawing.Size(57, 25);
+            this.label38.TabIndex = 13;
+            this.label38.Text = "Target";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label39
+            // 
+            this.label39.BackColor = System.Drawing.Color.Silver;
+            this.label39.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label39.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label39.Location = new System.Drawing.Point(0, 0);
+            this.label39.Name = "label39";
+            this.label39.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label39.Size = new System.Drawing.Size(125, 60);
+            this.label39.TabIndex = 11;
+            this.label39.Text = "JUNIOR HIGH";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.Controls.Add(this.panel10);
+            this.panel8.Controls.Add(this.panel11);
+            this.panel8.Controls.Add(this.panel12);
+            this.panel8.Controls.Add(this.button7);
+            this.panel8.Controls.Add(this.panel13);
+            this.panel8.Location = new System.Drawing.Point(512, 33);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(182, 204);
+            this.panel8.TabIndex = 11;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel10.Controls.Add(this.lblTotalElementary);
+            this.panel10.Controls.Add(this.label18);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 132);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(182, 36);
+            this.panel10.TabIndex = 18;
+            // 
+            // lblTotalElementary
+            // 
+            this.lblTotalElementary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalElementary.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalElementary.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalElementary.Location = new System.Drawing.Point(125, 0);
+            this.lblTotalElementary.Name = "lblTotalElementary";
+            this.lblTotalElementary.Size = new System.Drawing.Size(57, 36);
+            this.lblTotalElementary.TabIndex = 14;
+            this.lblTotalElementary.Text = "0";
+            this.lblTotalElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            this.label18.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label18.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(0, 0);
+            this.label18.Name = "label18";
+            this.label18.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label18.Size = new System.Drawing.Size(125, 36);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "Total";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel11.Controls.Add(this.lblPendingElementary);
+            this.panel11.Controls.Add(this.label21);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(0, 96);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(182, 36);
+            this.panel11.TabIndex = 17;
+            // 
+            // lblPendingElementary
+            // 
+            this.lblPendingElementary.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblPendingElementary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPendingElementary.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingElementary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPendingElementary.Location = new System.Drawing.Point(125, 0);
+            this.lblPendingElementary.Name = "lblPendingElementary";
+            this.lblPendingElementary.Size = new System.Drawing.Size(57, 36);
+            this.lblPendingElementary.TabIndex = 14;
+            this.lblPendingElementary.Text = "0";
+            this.lblPendingElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label21.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label21.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label21.Location = new System.Drawing.Point(0, 0);
+            this.label21.Name = "label21";
+            this.label21.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label21.Size = new System.Drawing.Size(125, 36);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "Pending";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel12.Controls.Add(this.lblEnrolledElementary);
+            this.panel12.Controls.Add(this.label24);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 60);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(182, 36);
+            this.panel12.TabIndex = 11;
+            // 
+            // lblEnrolledElementary
+            // 
+            this.lblEnrolledElementary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblEnrolledElementary.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnrolledElementary.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblEnrolledElementary.Location = new System.Drawing.Point(125, 0);
+            this.lblEnrolledElementary.Name = "lblEnrolledElementary";
+            this.lblEnrolledElementary.Size = new System.Drawing.Size(57, 36);
+            this.lblEnrolledElementary.TabIndex = 14;
+            this.lblEnrolledElementary.Text = "0";
+            this.lblEnrolledElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label24
+            // 
+            this.label24.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label24.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label24.Location = new System.Drawing.Point(0, 0);
+            this.label24.Name = "label24";
+            this.label24.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label24.Size = new System.Drawing.Size(125, 36);
+            this.label24.TabIndex = 10;
+            this.label24.Text = "Enrolled";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Gainsboro;
+            this.button7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button7.Location = new System.Drawing.Point(0, 168);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(182, 36);
+            this.button7.TabIndex = 16;
+            this.button7.Text = "View in Chart";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel13.Controls.Add(this.lblTargetElem);
+            this.panel13.Controls.Add(this.label27);
+            this.panel13.Controls.Add(this.label28);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(182, 60);
+            this.panel13.TabIndex = 9;
+            // 
+            // lblTargetElem
+            // 
+            this.lblTargetElem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTargetElem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTargetElem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblTargetElem.Location = new System.Drawing.Point(125, 25);
+            this.lblTargetElem.Name = "lblTargetElem";
+            this.lblTargetElem.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lblTargetElem.Size = new System.Drawing.Size(57, 35);
+            this.lblTargetElem.TabIndex = 12;
+            this.lblTargetElem.Text = "0%";
+            this.lblTargetElem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label27
+            // 
+            this.label27.BackColor = System.Drawing.Color.Gainsboro;
+            this.label27.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label27.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label27.Location = new System.Drawing.Point(125, 0);
+            this.label27.Name = "label27";
+            this.label27.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.label27.Size = new System.Drawing.Size(57, 25);
+            this.label27.TabIndex = 13;
+            this.label27.Text = "Target";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label28
+            // 
+            this.label28.BackColor = System.Drawing.Color.Silver;
+            this.label28.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label28.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label28.Location = new System.Drawing.Point(0, 0);
+            this.label28.Name = "label28";
+            this.label28.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label28.Size = new System.Drawing.Size(125, 60);
+            this.label28.TabIndex = 11;
+            this.label28.Text = "ELEMENTARY";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.panel7);
+            this.panel4.Controls.Add(this.panel6);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.button6);
+            this.panel4.Controls.Add(this.panel3);
+            this.panel4.Location = new System.Drawing.Point(324, 33);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(182, 204);
+            this.panel4.TabIndex = 10;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel7.Controls.Add(this.lblTotalPreElementary);
+            this.panel7.Controls.Add(this.label16);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 132);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(182, 36);
+            this.panel7.TabIndex = 18;
+            // 
+            // lblTotalPreElementary
+            // 
+            this.lblTotalPreElementary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalPreElementary.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPreElementary.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalPreElementary.Location = new System.Drawing.Point(125, 0);
+            this.lblTotalPreElementary.Name = "lblTotalPreElementary";
+            this.lblTotalPreElementary.Size = new System.Drawing.Size(57, 36);
+            this.lblTotalPreElementary.TabIndex = 14;
+            this.lblTotalPreElementary.Text = "0";
+            this.lblTotalPreElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label16
+            // 
+            this.label16.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label16.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(0, 0);
+            this.label16.Name = "label16";
+            this.label16.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label16.Size = new System.Drawing.Size(125, 36);
+            this.label16.TabIndex = 10;
+            this.label16.Text = "Total";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel6.Controls.Add(this.lblPendingPreElementary);
+            this.panel6.Controls.Add(this.label14);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 96);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(182, 36);
+            this.panel6.TabIndex = 17;
+            // 
+            // lblPendingPreElementary
+            // 
+            this.lblPendingPreElementary.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblPendingPreElementary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPendingPreElementary.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingPreElementary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPendingPreElementary.Location = new System.Drawing.Point(125, 0);
+            this.lblPendingPreElementary.Name = "lblPendingPreElementary";
+            this.lblPendingPreElementary.Size = new System.Drawing.Size(57, 36);
+            this.lblPendingPreElementary.TabIndex = 14;
+            this.lblPendingPreElementary.Text = "0";
+            this.lblPendingPreElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label14.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label14.Location = new System.Drawing.Point(0, 0);
+            this.label14.Name = "label14";
+            this.label14.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label14.Size = new System.Drawing.Size(125, 36);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Pending";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel5.Controls.Add(this.lblEnrolledPreElementary);
+            this.panel5.Controls.Add(this.label12);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 60);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(182, 36);
+            this.panel5.TabIndex = 11;
+            // 
+            // lblEnrolledPreElementary
+            // 
+            this.lblEnrolledPreElementary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblEnrolledPreElementary.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnrolledPreElementary.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblEnrolledPreElementary.Location = new System.Drawing.Point(125, 0);
+            this.lblEnrolledPreElementary.Name = "lblEnrolledPreElementary";
+            this.lblEnrolledPreElementary.Size = new System.Drawing.Size(57, 36);
+            this.lblEnrolledPreElementary.TabIndex = 14;
+            this.lblEnrolledPreElementary.Text = "0";
+            this.lblEnrolledPreElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label12.Location = new System.Drawing.Point(0, 0);
+            this.label12.Name = "label12";
+            this.label12.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label12.Size = new System.Drawing.Size(125, 36);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Enrolled";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Gainsboro;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button6.Location = new System.Drawing.Point(0, 168);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(182, 36);
+            this.button6.TabIndex = 16;
+            this.button6.Text = "View in Chart";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel3.Controls.Add(this.lblTargetPreElem);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(182, 60);
+            this.panel3.TabIndex = 9;
+            // 
+            // lblTargetPreElem
+            // 
+            this.lblTargetPreElem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTargetPreElem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTargetPreElem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblTargetPreElem.Location = new System.Drawing.Point(125, 25);
+            this.lblTargetPreElem.Name = "lblTargetPreElem";
+            this.lblTargetPreElem.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lblTargetPreElem.Size = new System.Drawing.Size(57, 35);
+            this.lblTargetPreElem.TabIndex = 12;
+            this.lblTargetPreElem.Text = "0%";
+            this.lblTargetPreElem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Gainsboro;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label10.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label10.Location = new System.Drawing.Point(125, 0);
+            this.label10.Name = "label10";
+            this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.label10.Size = new System.Drawing.Size(57, 25);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Target";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Silver;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label7.Size = new System.Drawing.Size(125, 60);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "PRE ELEMENTARY";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UC_DashBoard
             // 
@@ -1280,32 +1281,32 @@
             this.panelBreakdown.ResumeLayout(false);
             this.panelBreakdown.PerformLayout();
             this.panelEnrolled.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel14.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
-            this.panel23.ResumeLayout(false);
-            this.panel24.ResumeLayout(false);
-            this.panel25.ResumeLayout(false);
-            this.panel26.ResumeLayout(false);
-            this.panel27.ResumeLayout(false);
-            this.panel28.ResumeLayout(false);
-            this.panel29.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartEnrolled)).EndInit();
             this.panel30.ResumeLayout(false);
             this.panel31.ResumeLayout(false);
             this.panel32.ResumeLayout(false);
             this.panel33.ResumeLayout(false);
             this.panel34.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartEnrolled)).EndInit();
+            this.panel25.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
+            this.panel27.ResumeLayout(false);
+            this.panel28.ResumeLayout(false);
+            this.panel29.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel23.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -15,7 +15,9 @@ using COLM_SYSTEM.User_Folder;
 using COLM_SYSTEM_LIBRARY.model;
 using SEMS.Settings_Folder;
 using System;
+using System.Collections.Generic;
 using System.Deployment.Application;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM
@@ -51,8 +53,7 @@ namespace COLM_SYSTEM
             lblSchoolYear.Text = Utilties.GetActiveSchoolYearInfo().ToUpper();
             lblSemester.Text = Utilties.GetActiveSchoolSemesterInfo().ToUpper();
 
-            //SchoolInfo school = SchoolInfo.GetSchoolInfo();
-            //pbLogo.Image = Utilties.ConvertByteToImage(school.Logo);
+            CheckNotifications();
 
             string role = Utilties.user.UserRole.RoleName.ToLower();
             if (role.Equals("information"))
@@ -315,6 +316,24 @@ namespace COLM_SYSTEM
             frm_settings frm = new frm_settings(new uc_settings_target());
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+        }
+
+        private async void CheckNotifications()
+        {
+            Task<List<StudentInfoOnline>> task = new Task<List<StudentInfoOnline>>(StudentInfoOnline.GetOnlineApplications);
+            task.Start();
+            await task;
+            lblNotificationCount.Text = Convert.ToString(task.Result.Count);
+        }
+
+        private void ApplicationsTimer_Tick(object sender, EventArgs e)
+        {
+            CheckNotifications();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_student_information_list_online());
         }
     }
 }

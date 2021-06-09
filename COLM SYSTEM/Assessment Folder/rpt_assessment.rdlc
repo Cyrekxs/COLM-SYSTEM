@@ -2735,7 +2735,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
             <Top>8.4675in</Top>
-            <Left>5.17566in</Left>
+            <Left>6.05066in</Left>
             <Height>0.25in</Height>
             <Width>1.79963in</Width>
             <ZIndex>12</ZIndex>
@@ -2755,7 +2755,7 @@
             <Value>facebooklogo</Value>
             <Sizing>FitProportional</Sizing>
             <Top>8.4675in</Top>
-            <Left>4.89788in</Left>
+            <Left>5.77288in</Left>
             <Height>0.30161in</Height>
             <Width>0.25in</Width>
             <ZIndex>13</ZIndex>
@@ -2804,7 +2804,7 @@
             <Top>8.47744in</Top>
             <Left>0.44426in</Left>
             <Height>0.25in</Height>
-            <Width>4.32167in</Width>
+            <Width>5.25918in</Width>
             <ZIndex>15</ZIndex>
             <Style>
               <Border>

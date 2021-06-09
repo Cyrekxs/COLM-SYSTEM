@@ -58,8 +58,66 @@ namespace SEMS.Settings_Folder
             }
         }
 
+        private bool HasPicture(PictureBox pictureBox)
+        {
+            return pictureBox == null || pictureBox.Image == null;
+        }
+
+        private bool isValidForm()
+        {
+            if (pictureBox3.Image == null)
+            {
+                MessageBox.Show("Please select image", "No Image", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (pictureBox2.Image == null)
+            {
+                MessageBox.Show("Please select image", "No Image", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtMainHeader.Text) == true)
+            {
+                MessageBox.Show("Please fill up main header", "No Main Header", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtSchoolRegistrar.Text) == true)
+            {
+                MessageBox.Show("Please enter your registrar name", "No Registrar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtSchoolPolicies.Text) == true)
+            {
+                MessageBox.Show("Please enter your policies", "School Policies", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtFooterContact.Text) == true)
+            {
+                MessageBox.Show("Please enter your school contact information", "School Contact No", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtFooterFacebook.Text) == true)
+            {
+                MessageBox.Show("Please enter your school facebook page", "School Facebook Page", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
+
+            if (isValidForm() == false)
+            {
+                return;
+            }
+
             info.MainHeader = txtMainHeader.Text;
             info.SubHeader1 = txtFirstSubHeader.Text;
             info.SubHeader2 = txtSecondSubHeader.Text;

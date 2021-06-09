@@ -214,9 +214,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(9, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(261, 18);
+            this.label3.Size = new System.Drawing.Size(278, 18);
             this.label3.TabIndex = 2;
-            this.label3.Text = "MASTERLIST OF ONLINE APPLICANTS";
+            this.label3.Text = "MASTERLIST OF ONLINE APPLICATIONS";
             // 
             // label1
             // 

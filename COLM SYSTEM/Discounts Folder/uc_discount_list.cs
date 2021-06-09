@@ -1,6 +1,8 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
+using SEMS;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Discounts
@@ -18,15 +20,28 @@ namespace COLM_SYSTEM.Discounts
 
         private void LoadDiscounts()
         {
-            _Discounts = Discount.GetDiscounts();
-            dataGridView3.Rows.Clear();
 
+            Task<List<Discount>> task_discounts = new Task<List<Discount>>(Discount.GetDiscounts);
+            task_discounts.Start();
+
+            frm_loading frm = new frm_loading(task_discounts);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+
+            _Discounts = task_discounts.Result;
+
+
+            dataGridView3.Rows.Clear();
             foreach (var item in _Discounts)
             {
-                if (item.Type == "PERCENTAGE")
-                    dataGridView3.Rows.Add(item.DiscountID, item.DiscountCode, item.Type, item.TotalValue, item.TFee, item.MFee, item.OFee, item.YearLevels.Count.ToString(), item.DateCreated);
-                else
-                    dataGridView3.Rows.Add(item.DiscountID, item.DiscountCode, item.Type, item.TotalValue.ToString("n"), item.TFee * 100, item.MFee * 100, item.OFee * 100, item.YearLevels.Count.ToString(), item.DateCreated);
+                dataGridView3.Rows.Add(item.DiscountID, item.DiscountCode, item.Type, item.TotalValue, item.YearLevels.Count.ToString(), item.DateCreated);
+                //if (item.Type == "PERCENTAGE")
+                    
+                //else
+                //{
+                //    dataGridView3.Rows.Add(item.DiscountID, item.DiscountCode, item.Type, item.TotalValue.ToString("n"), item.YearLevels.Count.ToString(), item.DateCreated);
+                //}
+
             }
         }
 
@@ -44,11 +59,6 @@ namespace COLM_SYSTEM.Discounts
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             LoadDiscounts();
-        }
-
-        private void pERCENTAGEDISCOUNTToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)

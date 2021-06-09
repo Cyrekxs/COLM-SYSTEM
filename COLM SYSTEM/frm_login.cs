@@ -13,11 +13,14 @@ namespace COLM_SYSTEM
         {
             InitializeComponent();
 
-            SchoolInfo school = SchoolInfo.GetSchoolInfo();
-            pictureBox1.Image = Utilties.ConvertByteToImage(school.Logo);
 
+            //version;
             string GetVersion = ApplicationDeployment.IsNetworkDeployed ?  ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString() :  Application.ProductVersion;
             lblVersion.Text = GetVersion;
+
+            //school logo;
+            SchoolInfo school = SchoolInfo.GetSchoolInfo();
+            pictureBox1.Image = Utilties.ConvertByteToImage(school.Logo);
 
             if (SEMSSettings.HasSetted() == false)
             {
