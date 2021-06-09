@@ -4,3 +4,4 @@ Local and Online Connection
 
 Check Publish Location
 Check Publish Update Location
+Check Bank Account

@@ -160,7 +160,7 @@
             // 
             // reportViewer2
             // 
-            this.reportViewer2.LocalReport.ReportEmbeddedResource = "COLM_SYSTEM.Assessment Folder.rpt_payment_attachments.rdlc";
+            this.reportViewer2.LocalReport.ReportEmbeddedResource = "SEMS.Assessment Folder.rpt_payment_attachments_stda.rdlc";
             this.reportViewer2.Location = new System.Drawing.Point(957, 120);
             this.reportViewer2.Name = "reportViewer2";
             this.reportViewer2.ServerReport.BearerToken = null;
@@ -289,7 +289,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 603);
+            this.ClientSize = new System.Drawing.Size(689, 603);
             this.ControlBox = false;
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label4);

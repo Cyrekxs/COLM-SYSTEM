@@ -44,7 +44,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(30, 204);
+            this.checkBox1.Location = new System.Drawing.Point(30, 196);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(112, 19);
             this.checkBox1.TabIndex = 13;
@@ -54,7 +54,7 @@
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(30, 175);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(30, 167);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(276, 23);
             this.txtConfirmPassword.TabIndex = 12;
@@ -63,7 +63,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 157);
+            this.label3.Location = new System.Drawing.Point(27, 149);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 15);
             this.label3.TabIndex = 11;
@@ -71,7 +71,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(30, 131);
+            this.txtPassword.Location = new System.Drawing.Point(30, 123);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(276, 23);
             this.txtPassword.TabIndex = 10;
@@ -79,7 +79,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(30, 87);
+            this.txtEmail.Location = new System.Drawing.Point(30, 79);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(276, 23);
             this.txtEmail.TabIndex = 9;
@@ -87,7 +87,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 113);
+            this.label2.Location = new System.Drawing.Point(27, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 15);
             this.label2.TabIndex = 8;
@@ -96,7 +96,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 69);
+            this.label1.Location = new System.Drawing.Point(27, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 7;
@@ -120,7 +120,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(442, 265);
+            this.button1.Location = new System.Drawing.Point(442, 198);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 30);
             this.button1.TabIndex = 38;
@@ -154,7 +154,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "uc_settings_mail";
-            this.Size = new System.Drawing.Size(540, 310);
+            this.Size = new System.Drawing.Size(540, 243);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

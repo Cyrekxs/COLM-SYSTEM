@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\SEMS DEPLOYMENT\COLM\</PublishUrl>
+    <PublishUrl>D:\SEMS DEPLOYMENT\STDA\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>http://colm.edu.ph/SEMS/</UpdateUrl>
-    <ApplicationRevision>43</ApplicationRevision>
+    <UpdateUrl>http://stdabulacan.edu.ph/SEMS/</UpdateUrl>
+    <ApplicationRevision>46</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -430,6 +430,12 @@
     <Compile Include="Settings Folder\uc_settings_mail.Designer.cs">
       <DependentUpon>uc_settings_mail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings Folder\uc_settings_mail_info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\uc_settings_mail_info.Designer.cs">
+      <DependentUpon>uc_settings_mail_info.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings Folder\uc_settings_school_information.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -567,6 +573,7 @@
     <EmbeddedResource Include="Assessment Folder\rpt_assessment.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assessment Folder\rpt_payment_attachments_stda.rdlc" />
     <EmbeddedResource Include="Assessment Folder\uc_assessment_list.resx">
       <DependentUpon>uc_assessment_list.cs</DependentUpon>
     </EmbeddedResource>
@@ -708,6 +715,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings Folder\uc_settings_mail.resx">
       <DependentUpon>uc_settings_mail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\uc_settings_mail_info.resx">
+      <DependentUpon>uc_settings_mail_info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings Folder\uc_settings_school_information.resx">
       <DependentUpon>uc_settings_school_information.cs</DependentUpon>

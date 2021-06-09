@@ -87,6 +87,18 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
         }
 
+        private bool SaveLandBank()
+        {
+            if (File.Exists(GCashPath))
+                return true;
+            else
+            {
+                byte[] bytes = reportViewer2.LocalReport.Render(format: "pdf", deviceInfo: "");
+                File.WriteAllBytes(GCashPath, bytes);
+                return true;
+            }
+        }
+
         private bool EmailStudent()
         {
             List<Attachment> attachments = new List<Attachment>();
@@ -116,12 +128,12 @@ namespace COLM_SYSTEM.Assessment_Folder
             btnSendMail.Enabled = false;
             await TaskPDFSaving;
 
-            //if (assessment.Summary.TotalDue > 0)
-            //{
-            //    Task<bool> TaskGCashSaving = new Task<bool>(SaveGCash);
-            //    TaskGCashSaving.Start();
-            //    await TaskGCashSaving;
-            //}
+            if (assessment.Summary.TotalDue > 0)
+            {
+                Task<bool> TaskGCashSaving = new Task<bool>(SaveGCash);
+                TaskGCashSaving.Start();
+                await TaskGCashSaving;
+            }
 
             if (TaskPDFSaving.Result == true)
             {
