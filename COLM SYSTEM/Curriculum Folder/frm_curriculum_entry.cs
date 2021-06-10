@@ -19,7 +19,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
         List<SchoolSemester> semesters = SchoolSemester.GetSchoolSemesters();
         private int SelectedRow = -1;
         //EDIT
-        public frm_curriculum_entry(Curriculum c, List<CurriculumSubject> subjects)
+        public frm_curriculum_entry(Curriculum c, List<CurriculumSubject> CurriculumSubjects)
         {
             InitializeComponent();
             savingoption = "EDIT";
@@ -31,16 +31,24 @@ namespace COLM_SYSTEM.Curriculum_Folder
             dataGridView1.DataError += DataGridview_DataError;
 
             _curriculum = c;
-            _curriculumSubjects = subjects;
+            _curriculumSubjects = CurriculumSubjects;
 
             cmbEducationLevel.Text = c.EducationLevel;
             cmbCourseStrand.Text = c.CourseStrand;
             txtCurriculumCode.Text = c.Code;
             txtDescription.Text = c.Description;
 
-            foreach (var item in subjects)
+
+            LoadSubjects(CurriculumSubjects);
+        }
+
+        private void LoadSubjects(List<CurriculumSubject> CurriculumSubjects)
+        {
+            List<Subject> subjects = Subject.GetSubjects();
+            List<YearLevel> yearLevels = YearLevel.GetYearLevels();
+            foreach (var item in CurriculumSubjects)
             {
-                Subject subject = Subject.GetSubject(item.SubjectID);
+                Subject subject = subjects.Where(r => r.SubjID == item.SubjectID).FirstOrDefault();
                 dataGridView1.Rows.Add(
                     item.CurriculumSubjectID,
                     item.SubjectID,
@@ -50,10 +58,9 @@ namespace COLM_SYSTEM.Curriculum_Folder
                     subject.LabUnit,
                     subject.Unit,
                     item.IsBridging,
-                    YearLevel.GetYearLevel(item.YearLevelID).YearLvl,
+                    yearLevels.Where(r => r.YearLevelID == item.YearLevelID).FirstOrDefault().YearLvl,
                     SchoolSemester.GetSchoolSemester(item.SemesterID).Semester);
             }
-
         }
 
         //ADD

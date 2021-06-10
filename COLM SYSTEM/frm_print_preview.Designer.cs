@@ -33,6 +33,9 @@
             // 
             // reportViewer1
             // 
+            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.reportViewer1.Location = new System.Drawing.Point(12, 12);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
@@ -45,8 +48,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 745);
             this.Controls.Add(this.reportViewer1);
+            this.MinimizeBox = false;
             this.Name = "frm_print_preview";
-            this.Text = "frm_print_preview";
+            this.Text = "REPORT PREVIEW";
             this.Load += new System.EventHandler(this.frm_print_preview_Load);
             this.ResumeLayout(false);
 

@@ -1,12 +1,10 @@
-﻿using COLM_SYSTEM_LIBRARY.model.Payment_Folder;
+﻿using COLM_SYSTEM;
+using COLM_SYSTEM_LIBRARY.model.Payment_Folder;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SEMS.Reports_Folder
@@ -125,6 +123,73 @@ namespace SEMS.Reports_Folder
         private void cmbORStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadBreakdown();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ReportParameter param_printedDate = new ReportParameter("printedDate",DateTime.Now.ToString("MM-dd-yyyy hh:mm tt"));
+            ReportParameter param_reportDate = new ReportParameter("reportDate", string.Concat("From: ", dtFrom.Text, " To: ", dtTo.Text));
+            ReportParameter param_feeCategory = new ReportParameter("feeCategory", cmbFeeCategory.Text);
+
+            ReportParameter param_totalOR = new ReportParameter("totalOR", lblTotalOR.Text);
+            ReportParameter param_totalAmount = new ReportParameter("totalAmount", lblTotalAmount.Text);
+
+            ReportParameter param_cashOR = new ReportParameter("cashOR", lblCashOR.Text);
+            ReportParameter param_cashAmount = new ReportParameter("cashAmount", lblCashAmount.Text);
+
+            ReportParameter param_chequeOR = new ReportParameter("chequeOR", lblChequeOR.Text);
+            ReportParameter param_chequeAmount = new ReportParameter("chequeAmount", lblChequeAmount.Text);
+
+            ReportParameter param_centerOR = new ReportParameter("centerOR", lblCenterOR.Text);
+            ReportParameter param_centerAmount = new ReportParameter("centerAmount", lblCenterAmount.Text);
+
+            ReportParameter param_cancelledOR = new ReportParameter("cancelledOR", lblCancelledOR.Text);
+            ReportParameter param_cancelledAmount = new ReportParameter("cancelledAmount", lblCancelledAmount.Text);
+
+
+            DataSet_CollectionReport ds = new DataSet_CollectionReport();
+            DataRow dr;
+
+            var tbl = ds.Tables["DT_CollectionBreakdown"];
+
+            tbl.Rows.Clear();
+
+            foreach (var item in payments)
+            {
+                var studentname = string.Concat(item.Firstname, " ", item.Lastname);
+
+                dr = tbl.NewRow();
+                dr["ORNumber"] = item.ORNumber.ToString();
+                dr["ORStatus"] = item.PaymentStatus.ToString();
+                dr["Payment"] = item.PaymentCategory.ToString();
+                dr["Category"] = item.FeeCategory.ToString();
+                dr["Amount"] = item.AmountPaid.ToString("n");
+                dr["Date"] = item.PaymentDate.ToString("MM-dd hh:mm tt");
+                dr["StudentName"] = studentname.ToString();
+                dr["Education"] = item.EducationLevel.ToString();
+                dr["CourseStrand"] = item.CourseStrand.ToString();
+                tbl.Rows.Add(dr);
+            }
+
+            List<ReportParameter> reportParameters = new List<ReportParameter>();
+            reportParameters.AddRange(new List<ReportParameter>() {
+                param_printedDate, param_reportDate, param_feeCategory,
+                param_totalOR,param_totalAmount,
+                param_cashOR, param_cashAmount,
+                param_chequeOR, param_chequeAmount,
+                param_centerOR,param_centerAmount,
+                param_cancelledOR,param_cancelledAmount
+            });
+
+            frm_print_preview frm = new frm_print_preview();
+            ReportDataSource dataSource = new ReportDataSource("dsCollectionBreakdown", tbl);
+            frm.reportViewer1.LocalReport.DataSources.Clear();
+            frm.reportViewer1.LocalReport.DataSources.Add(dataSource);
+            frm.reportViewer1.LocalReport.ReportEmbeddedResource = "SEMS.Reports_Folder.rpt_CollectionReport.rdlc";
+            frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());
+            frm.reportViewer1.RefreshReport();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

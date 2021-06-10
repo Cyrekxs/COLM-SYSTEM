@@ -76,7 +76,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void PrintReport(int AssessmentID)
         {
             //get school information and settings
-            SchoolInfo school = SchoolInfo.GetSchoolInfo();
+            SchoolInfo school = SchoolInfo.GetSchoolInfoAsync().Result;
 
             //get student assessment information
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
@@ -205,7 +205,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void EmailStudent(int AssessmentID)
         {
             //get school information and settings
-            SchoolInfo school = SchoolInfo.GetSchoolInfo();
+            SchoolInfo school = SchoolInfo.GetSchoolInfoAsync().Result;
             //get student assessment information
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
             DataSet1 ds = new DataSet1();
@@ -323,6 +323,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.reportViewer1.LocalReport.DataSources.Add(dsSubjects);
             frm.reportViewer1.LocalReport.DataSources.Add(dsReportProperties);
             frm.reportViewer1.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_assessment.rdlc";
+            //attachments
             frm.reportViewer2.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_payment_attachments_stda.rdlc";
             frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());
             frm.reportViewer1.RefreshReport();

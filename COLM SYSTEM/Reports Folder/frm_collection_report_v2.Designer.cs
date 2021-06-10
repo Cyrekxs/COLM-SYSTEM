@@ -91,19 +91,19 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
             this.dtTo = new System.Windows.Forms.DateTimePicker();
             this.dtFrom = new System.Windows.Forms.DateTimePicker();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.clmORNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmORStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFeeCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmORDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -509,7 +509,7 @@
             this.clmPayment,
             this.clmFeeCategory,
             this.clmAmount,
-            this.clmORDate,
+            this.clmDate,
             this.clmStudentName,
             this.clmEducationLevel,
             this.clmCourseStrand});
@@ -808,6 +808,36 @@
             this.panel18.Size = new System.Drawing.Size(1160, 70);
             this.panel18.TabIndex = 50;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(1026, 7);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 60);
+            this.button2.TabIndex = 53;
+            this.button2.Text = "PRINT REPORT";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Silver;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(704, 35);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 23);
+            this.button1.TabIndex = 52;
+            this.button1.Text = "GENERATE";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label35
             // 
             this.label35.AutoSize = true;
@@ -859,35 +889,6 @@
             this.label33.TabIndex = 47;
             this.label33.Text = "COLLECTION REPORT";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Silver;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(704, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 23);
-            this.button1.TabIndex = 52;
-            this.button1.Text = "GENERATE";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(1026, 7);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 60);
-            this.button2.TabIndex = 53;
-            this.button2.Text = "PRINT REPORT";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // clmORNumber
             // 
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -934,13 +935,13 @@
             this.clmAmount.ReadOnly = true;
             this.clmAmount.Width = 74;
             // 
-            // clmORDate
+            // clmDate
             // 
-            this.clmORDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmORDate.HeaderText = "Date";
-            this.clmORDate.Name = "clmORDate";
-            this.clmORDate.ReadOnly = true;
-            this.clmORDate.Width = 57;
+            this.clmDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmDate.HeaderText = "Date";
+            this.clmDate.Name = "clmDate";
+            this.clmDate.ReadOnly = true;
+            this.clmDate.Width = 57;
             // 
             // clmStudentName
             // 
@@ -1074,7 +1075,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPayment;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmORDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmStudentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCourseStrand;

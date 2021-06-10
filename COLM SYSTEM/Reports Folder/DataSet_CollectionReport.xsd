@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_CollectionReport" targetNamespace="http://tempuri.org/DataSet_CollectionReport.xsd" xmlns:mstns="http://tempuri.org/DataSet_CollectionReport.xsd" xmlns="http://tempuri.org/DataSet_CollectionReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_CollectionReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_CollectionReport" msprop:Generator_UserDSName="DataSet_CollectionReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DT_CollectionBreakdown" msprop:Generator_TableClassName="DT_CollectionBreakdownDataTable" msprop:Generator_TableVarName="tableDT_CollectionBreakdown" msprop:Generator_TablePropName="DT_CollectionBreakdown" msprop:Generator_RowDeletingName="DT_CollectionBreakdownRowDeleting" msprop:Generator_RowChangingName="DT_CollectionBreakdownRowChanging" msprop:Generator_RowEvHandlerName="DT_CollectionBreakdownRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_CollectionBreakdownRowDeleted" msprop:Generator_UserTableName="DT_CollectionBreakdown" msprop:Generator_RowChangedName="DT_CollectionBreakdownRowChanged" msprop:Generator_RowEvArgName="DT_CollectionBreakdownRowChangeEvent" msprop:Generator_RowClassName="DT_CollectionBreakdownRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ORNumber" msprop:Generator_ColumnVarNameInTable="columnORNumber" msprop:Generator_ColumnPropNameInRow="ORNumber" msprop:Generator_ColumnPropNameInTable="ORNumberColumn" msprop:Generator_UserColumnName="ORNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="ORStatus" msprop:Generator_ColumnVarNameInTable="columnORStatus" msprop:Generator_ColumnPropNameInRow="ORStatus" msprop:Generator_ColumnPropNameInTable="ORStatusColumn" msprop:Generator_UserColumnName="ORStatus" type="xs:string" minOccurs="0" />
+              <xs:element name="Payment" msprop:Generator_ColumnVarNameInTable="columnPayment" msprop:Generator_ColumnPropNameInRow="Payment" msprop:Generator_ColumnPropNameInTable="PaymentColumn" msprop:Generator_UserColumnName="Payment" type="xs:string" minOccurs="0" />
+              <xs:element name="Category" msprop:Generator_ColumnVarNameInTable="columnCategory" msprop:Generator_ColumnPropNameInRow="Category" msprop:Generator_ColumnPropNameInTable="CategoryColumn" msprop:Generator_UserColumnName="Category" type="xs:string" minOccurs="0" />
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:string" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentName" msprop:Generator_ColumnVarNameInTable="columnStudentName" msprop:Generator_ColumnPropNameInRow="StudentName" msprop:Generator_ColumnPropNameInTable="StudentNameColumn" msprop:Generator_UserColumnName="StudentName" type="xs:string" minOccurs="0" />
+              <xs:element name="Education" msprop:Generator_ColumnVarNameInTable="columnEducation" msprop:Generator_ColumnPropNameInRow="Education" msprop:Generator_ColumnPropNameInTable="EducationColumn" msprop:Generator_UserColumnName="Education" type="xs:string" minOccurs="0" />
+              <xs:element name="CourseStrand" msprop:Generator_ColumnVarNameInTable="columnCourseStrand" msprop:Generator_ColumnPropNameInRow="CourseStrand" msprop:Generator_ColumnPropNameInTable="CourseStrandColumn" msprop:Generator_UserColumnName="CourseStrand" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

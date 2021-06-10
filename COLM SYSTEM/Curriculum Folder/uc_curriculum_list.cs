@@ -13,6 +13,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
 {
     public partial class uc_curriculum_list : UserControl
     {
+        List<Curriculum> Curriculums = new List<Curriculum>();
         public uc_curriculum_list()
         {
             InitializeComponent();
@@ -21,12 +22,23 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
         private void LoadCurriculums()
         {
+            Curriculums = Curriculum.GetCurriculums();
+
             dataGridView3.Rows.Clear();
-            List<Curriculum> Curriculums = Curriculum.GetCurriculums();
-            SchoolYear sy = new SchoolYear();
+            string syname = Utilties.GetActiveSchoolYearInfo();
             foreach (var item in Curriculums)
             {
-                dataGridView3.Rows.Add(item.CurriculumID, item.Code, item.Description, item.EducationLevel, item.CourseStrand, SchoolYear.GetSchoolYear(item.SchoolYearID).Name, item.Status,item.DateCreated.ToString("MM-dd-yyyy hh:mm tt"));
+                dataGridView3.Rows.Add(
+                    item.CurriculumID, 
+                    item.Code, 
+                    item.Description, 
+                    item.EducationLevel, 
+                    item.CourseStrand,
+                    syname, 
+                    item.Status,
+                    item.DateCreated.ToString("MM-dd-yyyy hh:mm tt"));
+
+                dataGridView3.Rows[dataGridView3.Rows.Count - 1].Tag = item;
             }
             
         }
@@ -43,7 +55,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
         {
             if (e.ColumnIndex == clmEdit.Index)
             {
-                Curriculum c = Curriculum.GetCurriculum((int) dataGridView3.Rows[e.RowIndex].Cells["clmCurriculumID"].Value);
+                Curriculum c = dataGridView3.Rows[e.RowIndex].Tag as Curriculum;
                 List<CurriculumSubject> curriculumSubjects = Curriculum.GetCurriculumSubjects(c.CurriculumID);
                 frm_curriculum_entry frm = new frm_curriculum_entry(c,curriculumSubjects);
                 frm.StartPosition = FormStartPosition.CenterParent;

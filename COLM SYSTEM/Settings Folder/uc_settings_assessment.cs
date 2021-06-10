@@ -14,7 +14,7 @@ namespace SEMS.Settings_Folder
 {
     public partial class uc_settings_assessment : UserControl
     {
-        SchoolInfo info = SchoolInfo.GetSchoolInfo();
+        SchoolInfo info = SchoolInfo.GetSchoolInfoAsync().Result;
 
         public uc_settings_assessment()
         {

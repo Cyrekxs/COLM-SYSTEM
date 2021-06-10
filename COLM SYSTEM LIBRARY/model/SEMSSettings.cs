@@ -47,35 +47,101 @@ namespace COLM_SYSTEM_LIBRARY.model
             return settings;
         }
 
-        public static bool HasSetted()
+        public static async Task<SEMSSettings> GetSettingsAsync()
         {
-            bool result = false;    
-            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            SEMSSettings settings = new SEMSSettings();
+            await Task.Run(async () => 
             {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.sems", conn))
+                using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
                 {
-                    using (SqlDataReader reader = comm.ExecuteReader())
+                    await conn.OpenAsync();
+                    using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.sems", conn))
                     {
-                        if (reader.HasRows)
+                        using (SqlDataReader reader = comm.ExecuteReader())
                         {
-                            result = true;
-                        }
-                        else
-                        {
-                            result = false;
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    settings = new SEMSSettings()
+                                    {
+                                        LoginWallpaper = (byte[]) reader["LoginWallpaper"]
+                                    };
+
+                                }
+                            }
+                            else
+                            {
+                                settings = new SEMSSettings()
+                                {
+                                    LoginWallpaper = null
+                                };
+                            }
                         }
                     }
                 }
-            }
+            });
+           
+            return settings;
+        }
+
+        //public static bool HasSetted()
+        //{
+        //    bool result = false;    
+        //    using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+        //    {
+        //        conn.Open();
+        //        using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.sems", conn))
+        //        {
+        //            using (SqlDataReader reader = comm.ExecuteReader())
+        //            {
+        //                if (reader.HasRows)
+        //                {
+        //                    result = true;
+        //                }
+        //                else
+        //                {
+        //                    result = false;
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return result;
+        //}
+
+        public static async Task<bool> HasSettedAsync()
+        {
+            bool result = false;
+            await Task.Run(async () =>
+            {
+                using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+                {
+                    await conn.OpenAsync();
+                    using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.sems", conn))
+                    {
+                        using (SqlDataReader reader = comm.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                result = true;
+                            }
+                            else
+                            {
+                                result = false;
+                            }
+                        }
+                    }
+                }
+            });            
             return result;
         }
 
         public static int SaveSettings(SEMSSettings settings)
         {
             string query = string.Empty;
+            var HasSetted = HasSettedAsync();
 
-            if (HasSetted() == false)
+            if (HasSetted.Result == false)
                 query = "INSERT INTO settings.sems VALUES (@LoginWallpaper)";
             else
                 query = "UPDATE settings.sems SET LoginWallpaper = @LoginWallpaper";

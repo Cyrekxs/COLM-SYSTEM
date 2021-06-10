@@ -5,6 +5,7 @@ using SEMS.Payment_Folder;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Payment_Folder
@@ -19,6 +20,7 @@ namespace COLM_SYSTEM.Payment_Folder
         {
             InitializeComponent();
 
+            //this will get assessment information of student;
             LoadAssessmentInformation(AssessmentID);
 
             //get registration information
@@ -26,10 +28,11 @@ namespace COLM_SYSTEM.Payment_Folder
             //get yearlevel information
             studentYearLevel = YearLevel.GetYearLevel(assessment.Summary.YearLevelID);
 
-            //Display Student Information
-            StudentInfo student = StudentInfo.GetStudent(studentRegistered.StudentID);
-            txtLRN.Text = student.LRN;
-            txtStudentName.Text = student.StudentName;
+            ////Display Student Information
+            //StudentInfo student = StudentInfo.GetStudent(studentRegistered.StudentID);
+
+            txtLRN.Text = studentRegistered.LRN;
+            txtStudentName.Text = studentRegistered.StudentName;
             txtEducationLevel.Text = studentRegistered.EducationLevel;
             txtCourseStrand.Text = studentRegistered.CourseStrand;
             txtYearLevel.Text = studentYearLevel.YearLvl;

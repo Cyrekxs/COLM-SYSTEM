@@ -2,43 +2,29 @@
 using SEMS.Settings_Folder;
 using System;
 using System.Deployment.Application;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM
 {
     public partial class frm_login : Form
     {
-        
+        //school logo;
+        SchoolInfo school = new SchoolInfo();
         public frm_login()
         {
             InitializeComponent();
-
-
             //version;
             string GetVersion = ApplicationDeployment.IsNetworkDeployed ?  ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString() :  Application.ProductVersion;
             lblVersion.Text = GetVersion;
-
-            //school logo;
-            SchoolInfo school = SchoolInfo.GetSchoolInfo();
-            pictureBox1.Image = Utilties.ConvertByteToImage(school.Logo);
-
-            if (SEMSSettings.HasSetted() == false)
-            {
-                frm_system_settings frm = new frm_system_settings();
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-                LoadWallpaper();
-            }
-            else
-            {
-                LoadWallpaper();
-            }
+            PanelControls.Enabled = false;
         }
 
-        private void LoadWallpaper()
+        private async Task LoadWallpaper()
         {
-            SEMSSettings settings = SEMSSettings.GetSettings();
+            SEMSSettings settings = await SEMSSettings.GetSettingsAsync();
             pictureBox2.Image = Utilties.ConvertByteToImage(settings.LoginWallpaper);
+            lblLoading.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -93,14 +79,24 @@ namespace COLM_SYSTEM
             }
         }
 
-        private void frm_login_Load(object sender, EventArgs e)
+        private async void frm_login_Load(object sender, EventArgs e)
         {
+            school = await SchoolInfo.GetSchoolInfoAsync();
+            pictureBox1.Image = Utilties.ConvertByteToImage(school.Logo);
+            var IsSetted = await SEMSSettings.HasSettedAsync();
+            if (IsSetted == false)
+            {
+                frm_system_settings frm = new frm_system_settings();
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                LoadWallpaper();
+            }
+            else
+            {
+                LoadWallpaper();
+            }
+            PanelControls.Enabled = true;
             txtUsername.Focus();
-        }
-
-        private void buttonRounded1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click_1(object sender, EventArgs e)

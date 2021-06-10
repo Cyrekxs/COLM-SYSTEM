@@ -513,7 +513,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             DataRow dr;
 
             //get school information and settings
-            SchoolInfo school = SchoolInfo.GetSchoolInfo();
+            SchoolInfo school = SchoolInfo.GetSchoolInfoAsync().Result;
 
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
 

@@ -1,5 +1,4 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
-using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
+﻿using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using SEMS;
 using System;
 using System.Collections.Generic;
@@ -17,18 +16,18 @@ namespace COLM_SYSTEM.Payment_Folder
             InitializeComponent();
             cmbEducationLevel.Text = "All";
             LoadAssessments();
+
         }
 
         private void LoadAssessments()
         {
-
             Task<List<AssessmentSummary>> task = new Task<List<AssessmentSummary>>(Assessment.GetAssessments);
             task.Start();
-            using (frm_loading frm = new frm_loading(task))
-            {
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-            }
+
+            frm_loading frm = new frm_loading(task);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+
 
             List<AssessmentSummary> assessmentLists = task.Result;
 
@@ -50,7 +49,7 @@ namespace COLM_SYSTEM.Payment_Folder
             foreach (var item in assessmentLists)
             {
                 double balance = item.TotalDue - item.TotalPaidTuition;
-                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel,item.EnrollmentStatus, item.TotalDue.ToString("n"), item.TotalPaidTuition.ToString("n"), balance.ToString("n"), item.Assessor, item.AssessmentDate);
+                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.EnrollmentStatus, item.TotalDue.ToString("n"), item.TotalPaidTuition.ToString("n"), balance.ToString("n"), item.Assessor, item.AssessmentDate);
             }
         }
 
