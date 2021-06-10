@@ -73,10 +73,10 @@ namespace COLM_SYSTEM.Assessment_Folder
             LoadAssessments();
         }
 
-        private void PrintReport(int AssessmentID)
+        private async Task PrintReport(int AssessmentID)
         {
             //get school information and settings
-            SchoolInfo school = SchoolInfo.GetSchoolInfoAsync().Result;
+            SchoolInfo school = await SchoolInfo.GetSchoolInfoAsync();
 
             //get student assessment information
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
@@ -202,10 +202,11 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
-        private void EmailStudent(int AssessmentID)
+        private async Task EmailStudent(int AssessmentID)
         {
             //get school information and settings
-            SchoolInfo school = SchoolInfo.GetSchoolInfoAsync().Result;
+            var result = await SchoolInfo.GetSchoolInfoAsync();
+            SchoolInfo school = result;
             //get student assessment information
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
             DataSet1 ds = new DataSet1();
@@ -323,10 +324,12 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.reportViewer1.LocalReport.DataSources.Add(dsSubjects);
             frm.reportViewer1.LocalReport.DataSources.Add(dsReportProperties);
             frm.reportViewer1.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_assessment.rdlc";
-            //attachments
-            frm.reportViewer2.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_payment_attachments_stda.rdlc";
             frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());
             frm.reportViewer1.RefreshReport();
+
+            //attachments
+            frm.reportViewer2.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_payment_attachments_stda.rdlc";
+            //frm.reportViewer2.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_payment_attachments.rdlc";
             frm.reportViewer2.RefreshReport();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();

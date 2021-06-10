@@ -87,18 +87,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
         }
 
-        private bool SaveLandBank()
-        {
-            if (File.Exists(GCashPath))
-                return true;
-            else
-            {
-                byte[] bytes = reportViewer2.LocalReport.Render(format: "pdf", deviceInfo: "");
-                File.WriteAllBytes(GCashPath, bytes);
-                return true;
-            }
-        }
-
         private bool EmailStudent()
         {
             List<Attachment> attachments = new List<Attachment>();
@@ -142,6 +130,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 btnCancel.Enabled = false;
                 btnSendMail.Text = "Sending";
                 await TaskEmailStudent;
+
                 if (TaskEmailStudent.Result == true)
                 {
                     MessageBox.Show("Email has been successfully sent!", "Email Sent Successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -321,5 +321,10 @@ namespace COLM_SYSTEM
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
+
+        private void cLOSEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClearUserControls();
+        }
     }
 }

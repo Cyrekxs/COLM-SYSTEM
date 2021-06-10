@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Assessment_Folder
@@ -193,7 +194,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             //Display Tuition Fee
             foreach (var item in subjects)
             {
-                dgSubjects.Rows.Add(item.SubjPriceID, item.SubjID, item.SubjCode, item.SubjDesc,  item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType);
+                dgSubjects.Rows.Add(item.SubjPriceID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType);
                 List<AssessmentSubjectAdditionalFee> subjectAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
                 //loop on each additional fee and convert it into AssessmentSubjectAdditionalFee for tagging
                 foreach (var fee in item.AdditionalFees)
@@ -506,14 +507,14 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         }
 
-        private void PrintAssessment(int AssessmentID)
+        private async Task PrintAssessment(int AssessmentID)
         {
 
             DataSet1 ds = new DataSet1();
             DataRow dr;
 
             //get school information and settings
-            SchoolInfo school = SchoolInfo.GetSchoolInfoAsync().Result;
+            SchoolInfo school = await SchoolInfo.GetSchoolInfoAsync();
 
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
 
@@ -627,7 +628,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.reportViewer1.LocalReport.DataSources.Add(dsReportProperties);
             frm.reportViewer1.LocalReport.DataSources.Add(dsPaymentSchedule);
             frm.reportViewer1.LocalReport.DataSources.Add(dsSubjects);
-            string AssemblyNameSpaces = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
             frm.reportViewer1.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_assessment.rdlc";
 
             frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());
@@ -753,7 +753,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             return true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
 
             //verify validations
@@ -862,7 +862,8 @@ namespace COLM_SYSTEM.Assessment_Folder
             if (result > 0)
             {
                 MessageBox.Show("Assessment Successfully saved!", "Student Assessment", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                PrintAssessment(result);
+                //print report
+                await PrintAssessment(result);
                 Close();
                 Dispose();
             }
@@ -920,7 +921,7 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frm_assessment_subject_browser frm = new frm_assessment_subject_browser(registeredStudent,dgSubjects);
+            frm_assessment_subject_browser frm = new frm_assessment_subject_browser(registeredStudent, dgSubjects);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             CalculateFeeSummary();

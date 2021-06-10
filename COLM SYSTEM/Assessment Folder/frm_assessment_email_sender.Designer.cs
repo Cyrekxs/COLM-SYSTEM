@@ -38,7 +38,6 @@
             this.btnSendMail = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.txtYearLevel = new System.Windows.Forms.TextBox();
@@ -51,6 +50,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -108,10 +108,10 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Location = new System.Drawing.Point(722, 120);
+            this.reportViewer1.Location = new System.Drawing.Point(725, 32);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(219, 187);
+            this.reportViewer1.Size = new System.Drawing.Size(459, 187);
             this.reportViewer1.TabIndex = 6;
             // 
             // btnSendMail
@@ -157,15 +157,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(666, 421);
             this.panel1.TabIndex = 22;
-            // 
-            // reportViewer2
-            // 
-            this.reportViewer2.LocalReport.ReportEmbeddedResource = "SEMS.Assessment Folder.rpt_payment_attachments_stda.rdlc";
-            this.reportViewer2.Location = new System.Drawing.Point(957, 120);
-            this.reportViewer2.Name = "reportViewer2";
-            this.reportViewer2.ServerReport.BearerToken = null;
-            this.reportViewer2.Size = new System.Drawing.Size(197, 187);
-            this.reportViewer2.TabIndex = 23;
             // 
             // panel2
             // 
@@ -285,23 +276,30 @@
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // reportViewer2
+            // 
+            this.reportViewer2.Location = new System.Drawing.Point(725, 241);
+            this.reportViewer2.Name = "reportViewer2";
+            this.reportViewer2.ServerReport.BearerToken = null;
+            this.reportViewer2.Size = new System.Drawing.Size(459, 187);
+            this.reportViewer2.TabIndex = 26;
+            // 
             // frm_assessment_email_sender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 603);
+            this.ClientSize = new System.Drawing.Size(697, 603);
             this.ControlBox = false;
+            this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSendMail);
             this.Controls.Add(this.reportViewer1);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_assessment_email_sender";
@@ -328,7 +326,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel panel1;
         public Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        public Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -341,5 +338,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtEducationlevel;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        public Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
     }
 }
