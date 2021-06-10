@@ -20,6 +20,11 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Enrolled_DS.GetEnrolledStudents();
         }
 
+        public static EnrolledStudent GetEnrolledStudent(int RegisteredStudentID,int SchoolYearID,int SemesterID)
+        {
+            return Enrolled_DS.GetEnrolledStudents().Where(r => r.RegisteredStudentID == RegisteredStudentID && r.SchoolYearID == SchoolYearID && r.SemesterID == SemesterID).FirstOrDefault();
+        }
+
         public static List<EnrolledStudent> GetEnrolledStudents(int SchoolYearID,int SemesterID)
         {
             return Enrolled_DS.GetEnrolledStudents(SchoolYearID,SemesterID);
@@ -28,6 +33,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static int EnrollStudent(EnrolledStudent student)
         {
             return Enrolled_DS.EnrollStudent(student);
+        }
+
+        public static int UnenrollStudent(EnrolledStudent student)
+        {
+            return Enrolled_DS.UnenrollStudent(student);
         }
 
         public static bool IsStudentEnrolled(int RegisteredStudentID,int SchoolYearID, int SemesterID)

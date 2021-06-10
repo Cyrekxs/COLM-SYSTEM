@@ -17,7 +17,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM students.enrolled", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.enrolled", conn))
                 {
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -49,6 +49,19 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm.Parameters.AddWithValue("@RegisteredStudentID", student.RegisteredStudentID);
                     comm.Parameters.AddWithValue("@SchoolYearID", student.SchoolYearID);
                     comm.Parameters.AddWithValue("@SemesterID", student.SemesterID);
+                    return comm.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static int UnenrollStudent(EnrolledStudent student)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("DELETE FROM student.enrolled WHERE EnrolledID = @EnrolledID", conn))
+                {
+                    comm.Parameters.AddWithValue("@EnrolledID", student.EnrolledID);
                     return comm.ExecuteNonQuery();
                 }
             }

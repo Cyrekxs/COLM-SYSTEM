@@ -175,6 +175,77 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return cheque;
         }
 
+        public static int InsertPaymentCenter(Payment payment, PaymentCenter center)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlTransaction t = conn.BeginTransaction())
+                {
+                    using (SqlCommand comm = new SqlCommand("EXEC sp_set_payment @RegisteredStudentID,@SchoolYearID,@SemesterID,@ORNumber,@FeeCategory,@PaymentCategory,@AmountPaid,@UserID", conn, t))
+                    {
+                        comm.Parameters.AddWithValue("@RegisteredStudentID", payment.RegisteredStudentID);
+                        comm.Parameters.AddWithValue("@SchoolYearID", payment.SchoolYearID);
+                        comm.Parameters.AddWithValue("@SemesterID", payment.SemesterID);
+                        comm.Parameters.AddWithValue("@ORNumber", payment.ORNumber);
+                        comm.Parameters.AddWithValue("@FeeCategory", payment.FeeCategory);
+                        comm.Parameters.AddWithValue("@PaymentCategory", payment.PaymentCategory);
+                        comm.Parameters.AddWithValue("@AmountPaid", payment.AmountPaid);
+                        comm.Parameters.AddWithValue("@UserID", payment.UserID);
+                        comm.ExecuteNonQuery();
+                    }
+
+                    int PaymentID = 0;
+                    using (SqlCommand comm = new SqlCommand("SELECT PaymentID FROM assessment.payment (NOLOCK) WHERE ORNumber = @ORNumber", conn, t))
+                    {
+                        comm.Parameters.AddWithValue("@ORNumber", payment.ORNumber);
+                        PaymentID = Convert.ToInt32(comm.ExecuteScalar());
+                    }
+
+                    using (SqlCommand comm = new SqlCommand("INSERT INTO assessment.payment_center VALUES (@PaymentID,@Center,@ReferenceNo,@Amount)", conn, t))
+                    {
+                        comm.Parameters.AddWithValue("@PaymentID", PaymentID);
+                        comm.Parameters.AddWithValue("@Center", center.Center);
+                        comm.Parameters.AddWithValue("@ReferenceNo", center.ReferenceNo);
+                        comm.Parameters.AddWithValue("@Amount", center.Amount);
+                        comm.ExecuteNonQuery();
+                    }
+                    t.Commit();
+                    return 1;
+                }
+
+            }
+        }
+
+        public static PaymentCenter GetPaymentCenter(int PaymentID)
+        {
+            PaymentCenter center = new PaymentCenter();
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM assessment.payment_center WHERE PaymentID = @PaymentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@PaymentID", PaymentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            center = new PaymentCenter()
+                            {
+                                PaymentCenterID = Convert.ToInt32(reader["PaymentCenterID"]),
+                                PaymentID = Convert.ToInt32(reader["PaymentID"]),
+                                Center = Convert.ToString(reader["Center"]),
+                                ReferenceNo = Convert.ToString(reader["ReferenceNo"]),
+                                Amount = Convert.ToDouble(reader["Amount"])
+                            };
+                        }
+                    }
+                }
+            }
+            return center;
+        }
+
+
         public static bool IsValidORnumber(string ORNumber)
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))

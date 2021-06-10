@@ -55,11 +55,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtEducationLevel = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.linkMarkEnrolled = new System.Windows.Forms.LinkLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.linkUnenroll = new System.Windows.Forms.LinkLabel();
+            this.linkEnroll = new System.Windows.Forms.LinkLabel();
             this.button6 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtTotalPaymentTuition = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -98,10 +101,12 @@
             this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiViewCheque = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiViewCenter = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCancel = new System.Windows.Forms.ToolStripMenuItem();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBreakdown)).BeginInit();
@@ -119,7 +124,7 @@
             this.panel7.Location = new System.Drawing.Point(12, 12);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(1);
-            this.panel7.Size = new System.Drawing.Size(850, 98);
+            this.panel7.Size = new System.Drawing.Size(850, 110);
             this.panel7.TabIndex = 12;
             // 
             // panel9
@@ -140,7 +145,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(1, 35);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(848, 62);
+            this.panel9.Size = new System.Drawing.Size(848, 74);
             this.panel9.TabIndex = 4;
             // 
             // txtSection
@@ -261,7 +266,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.SlateGray;
-            this.panel8.Controls.Add(this.linkMarkEnrolled);
+            this.panel8.Controls.Add(this.panel1);
             this.panel8.Controls.Add(this.button6);
             this.panel8.Controls.Add(this.label19);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
@@ -270,18 +275,44 @@
             this.panel8.Size = new System.Drawing.Size(848, 34);
             this.panel8.TabIndex = 3;
             // 
-            // linkMarkEnrolled
+            // panel1
             // 
-            this.linkMarkEnrolled.AutoSize = true;
-            this.linkMarkEnrolled.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkMarkEnrolled.LinkColor = System.Drawing.Color.DarkBlue;
-            this.linkMarkEnrolled.Location = new System.Drawing.Point(652, 9);
-            this.linkMarkEnrolled.Name = "linkMarkEnrolled";
-            this.linkMarkEnrolled.Size = new System.Drawing.Size(144, 15);
-            this.linkMarkEnrolled.TabIndex = 27;
-            this.linkMarkEnrolled.TabStop = true;
-            this.linkMarkEnrolled.Text = "Mark Student as Enrolled";
-            this.linkMarkEnrolled.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.panel1.Controls.Add(this.linkUnenroll);
+            this.panel1.Controls.Add(this.linkEnroll);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(574, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(228, 34);
+            this.panel1.TabIndex = 4;
+            // 
+            // linkUnenroll
+            // 
+            this.linkUnenroll.Dock = System.Windows.Forms.DockStyle.Right;
+            this.linkUnenroll.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkUnenroll.LinkColor = System.Drawing.Color.DarkRed;
+            this.linkUnenroll.Location = new System.Drawing.Point(8, 0);
+            this.linkUnenroll.Name = "linkUnenroll";
+            this.linkUnenroll.Size = new System.Drawing.Size(110, 34);
+            this.linkUnenroll.TabIndex = 28;
+            this.linkUnenroll.TabStop = true;
+            this.linkUnenroll.Text = "Unenroll Student";
+            this.linkUnenroll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkUnenroll.VisitedLinkColor = System.Drawing.Color.Red;
+            this.linkUnenroll.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUnenroll_LinkClicked);
+            // 
+            // linkEnroll
+            // 
+            this.linkEnroll.Dock = System.Windows.Forms.DockStyle.Right;
+            this.linkEnroll.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkEnroll.LinkColor = System.Drawing.Color.DarkBlue;
+            this.linkEnroll.Location = new System.Drawing.Point(118, 0);
+            this.linkEnroll.Name = "linkEnroll";
+            this.linkEnroll.Size = new System.Drawing.Size(110, 34);
+            this.linkEnroll.TabIndex = 27;
+            this.linkEnroll.TabStop = true;
+            this.linkEnroll.Text = "Enroll Student";
+            this.linkEnroll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkEnroll.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // button6
             // 
@@ -315,14 +346,16 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(13, 116);
+            this.tabControl1.Location = new System.Drawing.Point(13, 128);
             this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(6, 6);
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(849, 376);
             this.tabControl1.TabIndex = 13;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button7);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.txtTotalPaymentTuition);
             this.tabPage1.Controls.Add(this.label6);
@@ -331,13 +364,28 @@
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.dgBreakdown);
             this.tabPage1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(841, 348);
+            this.tabPage1.Size = new System.Drawing.Size(841, 342);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "FEES";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(259, 306);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(120, 30);
+            this.button7.TabIndex = 27;
+            this.button7.Text = "PAYMENT CENTER";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label7
             // 
@@ -384,9 +432,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(168, 306);
+            this.button1.Location = new System.Drawing.Point(134, 306);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 30);
+            this.button1.Size = new System.Drawing.Size(120, 30);
             this.button1.TabIndex = 22;
             this.button1.Text = "CHEQUE PAYMENT";
             this.button1.UseVisualStyleBackColor = false;
@@ -401,7 +449,7 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(9, 306);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 30);
+            this.button2.Size = new System.Drawing.Size(120, 30);
             this.button2.TabIndex = 21;
             this.button2.Text = "CASH PAYMENT";
             this.button2.UseVisualStyleBackColor = false;
@@ -478,24 +526,24 @@
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.dgAdditionalFees);
             this.tabPage2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(841, 348);
+            this.tabPage2.Size = new System.Drawing.Size(841, 342);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "ADDITIONAL FEES";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button5.BackColor = System.Drawing.Color.Gray;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Location = new System.Drawing.Point(8, 306);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(153, 30);
+            this.button5.Size = new System.Drawing.Size(120, 30);
             this.button5.TabIndex = 33;
             this.button5.Text = "ADD FEE";
             this.button5.UseVisualStyleBackColor = false;
@@ -508,9 +556,9 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(326, 306);
+            this.button3.Location = new System.Drawing.Point(260, 306);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(153, 30);
+            this.button3.Size = new System.Drawing.Size(120, 30);
             this.button3.TabIndex = 32;
             this.button3.Text = "CHECK PAYMENT";
             this.button3.UseVisualStyleBackColor = false;
@@ -522,9 +570,9 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(167, 306);
+            this.button4.Location = new System.Drawing.Point(134, 306);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 30);
+            this.button4.Size = new System.Drawing.Size(120, 30);
             this.button4.TabIndex = 31;
             this.button4.Text = "CASH PAYMENT";
             this.button4.UseVisualStyleBackColor = false;
@@ -645,10 +693,10 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dgPaymentHistory);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(841, 348);
+            this.tabPage3.Size = new System.Drawing.Size(841, 342);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "PAYMENT HISTORY";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -750,21 +798,32 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiViewCheque,
+            this.tsmiViewCenter,
             this.tsmiCancel});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(174, 70);
             // 
             // tsmiViewCheque
             // 
+            this.tsmiViewCheque.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tsmiViewCheque.Name = "tsmiViewCheque";
-            this.tsmiViewCheque.Size = new System.Drawing.Size(180, 22);
+            this.tsmiViewCheque.Size = new System.Drawing.Size(173, 22);
             this.tsmiViewCheque.Text = "View Cheque Info";
             this.tsmiViewCheque.Click += new System.EventHandler(this.tsmiViewCheque_Click);
             // 
+            // tsmiViewCenter
+            // 
+            this.tsmiViewCenter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.tsmiViewCenter.Name = "tsmiViewCenter";
+            this.tsmiViewCenter.Size = new System.Drawing.Size(173, 22);
+            this.tsmiViewCenter.Text = "View Payment Info";
+            this.tsmiViewCenter.Click += new System.EventHandler(this.tsmiViewCenter_Click);
+            // 
             // tsmiCancel
             // 
+            this.tsmiCancel.ForeColor = System.Drawing.Color.Red;
             this.tsmiCancel.Name = "tsmiCancel";
-            this.tsmiCancel.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCancel.Size = new System.Drawing.Size(173, 22);
             this.tsmiCancel.Text = "Cancel OR";
             this.tsmiCancel.Click += new System.EventHandler(this.cancelPaymentToolStripMenuItem_Click);
             // 
@@ -772,7 +831,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 499);
+            this.ClientSize = new System.Drawing.Size(870, 516);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel7);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -786,6 +845,7 @@
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -849,7 +909,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBalanceAdditional;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmCheckToAddAdditional;
-        private System.Windows.Forms.LinkLabel linkMarkEnrolled;
+        private System.Windows.Forms.LinkLabel linkEnroll;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmORNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentCategory;
@@ -861,5 +921,9 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmiCancel;
         private System.Windows.Forms.ToolStripMenuItem tsmiViewCheque;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.LinkLabel linkUnenroll;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiViewCenter;
     }
 }

@@ -13,6 +13,7 @@ using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM.subject;
 using COLM_SYSTEM.User_Folder;
 using COLM_SYSTEM_LIBRARY.model;
+using SEMS.Reports_Folder;
 using SEMS.Settings_Folder;
 using System;
 using System.Collections.Generic;
@@ -247,7 +248,7 @@ namespace COLM_SYSTEM
 
         private void cOLLECTIONREPORTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_collection_report frm = new frm_collection_report();
+            frm_collection_report_v2 frm = new frm_collection_report_v2();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

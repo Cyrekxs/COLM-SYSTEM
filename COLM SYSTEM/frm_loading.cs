@@ -83,11 +83,6 @@ namespace SEMS
                     Dispose();
                 }
             }
-
-
-            //task.Start();
-            //await task;
-            //Close();
         }
     }
 }

@@ -23,15 +23,14 @@ namespace COLM_SYSTEM.Registration_Folder
 
         private void LoadRegisteredStudents()
         {
-            dataGridView1.Rows.Clear();
-            Task<List<StudentRegistered>> task = new Task<List<StudentRegistered>>(StudentRegistered.GetRegisteredStudents);
-            task.Start();
+            //Task<List<StudentRegistered>> task = new Task<List<StudentRegistered>>(StudentRegistered.GetRegisteredStudents);
+            //task.Start();
 
-            frm_loading frm = new frm_loading(task);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
+            //frm_loading frm = new frm_loading(task);
+            //frm.StartPosition = FormStartPosition.CenterParent;
+            //frm.ShowDialog();
 
-            List<StudentRegistered> _RegisteredStudents =task.Result;
+            List<StudentRegistered> _RegisteredStudents = StudentRegistered.GetRegisteredStudents();
 
             if (textBox1.Text != string.Empty)
             {
@@ -43,6 +42,7 @@ namespace COLM_SYSTEM.Registration_Folder
                 _RegisteredStudents = _RegisteredStudents.Where(item => item.EducationLevel.ToLower().Equals(cmbEducationLevel.Text.ToLower())).ToList();
             }
 
+            dataGridView1.Rows.Clear();
             foreach (var item in _RegisteredStudents)
             {
                 dataGridView1.Rows.Add(

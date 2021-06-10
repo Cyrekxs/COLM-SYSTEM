@@ -41,6 +41,17 @@ namespace COLM_SYSTEM_LIBRARY.model.Payment_Folder
             return Payment_DS.GetCheque(PaymentID);
         }
 
+        public static int InsertPaymentCenter(Payment payment, PaymentCenter center)
+        {
+            return Payment_DS.InsertPaymentCenter(payment, center);
+        }
+
+        public static PaymentCenter GetPaymentCenter(int PaymentID)
+        {
+            return Payment_DS.GetPaymentCenter(PaymentID);
+        }
+
+
         public static bool IsValidORNumber(string ORNumber)
         {
             return Payment_DS.IsValidORnumber(ORNumber);
