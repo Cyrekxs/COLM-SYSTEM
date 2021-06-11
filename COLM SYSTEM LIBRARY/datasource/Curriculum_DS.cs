@@ -48,6 +48,25 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return result;
         }
 
+        public static bool HasSection(int CurriculumID)
+        {
+            int result = 0;
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT COUNT(SectionID) AS Sections FROM settings.yearlevel_sections WHERE CurriculumID = @CurriculmID", conn))
+                {
+                    comm.Parameters.AddWithValue("@CurriculumID", CurriculumID);
+                    result = Convert.ToInt16(comm.ExecuteScalar());
+                }
+            }
+
+            if (result > 0)
+                return true;
+            else
+                return false;
+        }
+
         public static int DeleteCurriculum(Curriculum curriculum)
         {
             int RegisteredStudents = 0;
