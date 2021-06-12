@@ -14,28 +14,13 @@ namespace SEMS.Settings_Folder
 {
     public partial class uc_settings_assessment : UserControl
     {
-        SchoolInfo info = SchoolInfo.GetSchoolInfoAsync().Result;
+        SchoolInfo info = new SchoolInfo();
 
         public uc_settings_assessment()
         {
             InitializeComponent();
 
-            txtMainHeader.Text = info.MainHeader;
-            txtFirstSubHeader.Text = info.SubHeader1;
-            txtSecondSubHeader.Text = info.SubHeader2;
-            txtFooterContact.Text = info.FooterContact;
-            txtFooterFacebook.Text = info.FooterFacebook;
-            txtSchoolRegistrar.Text = info.SchoolRegistrar;
-            txtSchoolPolicies.Text = info.Policies;
 
-            if (info.Sign != null)
-            {
-                pictureBox2.Image = Utilties.ConvertByteToImage(info.Sign);
-            }
-            if (info.WaterMark != null)
-            {
-                pictureBox3.Image = Utilties.ConvertByteToImage(info.WaterMark);
-            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -131,6 +116,28 @@ namespace SEMS.Settings_Folder
                 MessageBox.Show("Assessment Settings has been successfully saved and setted", "Assessment Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Assessment Settings saving failed!", "School Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private async void uc_settings_assessment_Load(object sender, EventArgs e)
+        {
+            info = await SchoolInfo.GetSchoolInfoAsync();
+
+            txtMainHeader.Text = info.MainHeader;
+            txtFirstSubHeader.Text = info.SubHeader1;
+            txtSecondSubHeader.Text = info.SubHeader2;
+            txtFooterContact.Text = info.FooterContact;
+            txtFooterFacebook.Text = info.FooterFacebook;
+            txtSchoolRegistrar.Text = info.SchoolRegistrar;
+            txtSchoolPolicies.Text = info.Policies;
+
+            if (info.Sign != null)
+            {
+                pictureBox2.Image = Utilties.ConvertByteToImage(info.Sign);
+            }
+            if (info.WaterMark != null)
+            {
+                pictureBox3.Image = Utilties.ConvertByteToImage(info.WaterMark);
+            }
         }
     }
 }

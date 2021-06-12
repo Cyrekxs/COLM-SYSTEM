@@ -386,6 +386,7 @@ namespace COLM_SYSTEM.fees_folder
             frm_tuition_entry_browse_subject frm = new frm_tuition_entry_browse_subject(txtCurriculumCode.Text, dgTuition);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+
         }
 
         private void button3_Click(object sender, EventArgs e)

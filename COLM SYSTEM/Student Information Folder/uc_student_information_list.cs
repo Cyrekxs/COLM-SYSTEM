@@ -112,6 +112,10 @@ namespace COLM_SYSTEM.student_information
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("This student is registered you cannot delete this student!", "Delete Student Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

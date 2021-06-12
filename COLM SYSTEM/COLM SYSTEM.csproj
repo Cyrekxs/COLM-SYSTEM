@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>H:\COLM SYSTEM 2021\</PublishUrl>
+    <PublishUrl>D:\SEMS DEPLOYMENT\STDA\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>http://colm.edu.ph/SEMS/</UpdateUrl>
-    <ApplicationRevision>50</ApplicationRevision>
+    <UpdateUrl>http://stdabulacan.edu.ph/SEMS/</UpdateUrl>
+    <ApplicationRevision>51</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -429,6 +429,12 @@
     <Compile Include="Settings Folder\frm_assessment_payment_mode_list.Designer.cs">
       <DependentUpon>frm_assessment_payment_mode_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings Folder\frm_attachment_viewer_image.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\frm_attachment_viewer_image.Designer.cs">
+      <DependentUpon>frm_attachment_viewer_image.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings Folder\frm_settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -453,11 +459,17 @@
     <Compile Include="Settings Folder\uc_settings_mail.Designer.cs">
       <DependentUpon>uc_settings_mail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings Folder\uc_settings_mail_info.cs">
+    <Compile Include="Settings Folder\uc_settings_mail_templates_entry.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Settings Folder\uc_settings_mail_info.Designer.cs">
-      <DependentUpon>uc_settings_mail_info.cs</DependentUpon>
+    <Compile Include="Settings Folder\uc_settings_mail_templates_entry.Designer.cs">
+      <DependentUpon>uc_settings_mail_templates_entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings Folder\uc_settings_mail_template_lists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\uc_settings_mail_template_lists.Designer.cs">
+      <DependentUpon>uc_settings_mail_template_lists.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings Folder\uc_settings_school_information.cs">
       <SubType>UserControl</SubType>
@@ -737,6 +749,9 @@
     <EmbeddedResource Include="Settings Folder\frm_assessment_payment_mode_list.resx">
       <DependentUpon>frm_assessment_payment_mode_list.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\frm_attachment_viewer_image.resx">
+      <DependentUpon>frm_attachment_viewer_image.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings Folder\frm_settings.resx">
       <DependentUpon>frm_settings.cs</DependentUpon>
     </EmbeddedResource>
@@ -749,8 +764,11 @@
     <EmbeddedResource Include="Settings Folder\uc_settings_mail.resx">
       <DependentUpon>uc_settings_mail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings Folder\uc_settings_mail_info.resx">
-      <DependentUpon>uc_settings_mail_info.cs</DependentUpon>
+    <EmbeddedResource Include="Settings Folder\uc_settings_mail_templates_entry.resx">
+      <DependentUpon>uc_settings_mail_templates_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\uc_settings_mail_template_lists.resx">
+      <DependentUpon>uc_settings_mail_template_lists.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings Folder\uc_settings_school_information.resx">
       <DependentUpon>uc_settings_school_information.cs</DependentUpon>

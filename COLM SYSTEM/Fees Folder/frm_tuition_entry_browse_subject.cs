@@ -58,7 +58,8 @@ namespace COLM_SYSTEM.Fees_Folder
 
                 if (isSelectedExist == false)
                 {
-                    dglocation.Rows.Add(0, selectedsubject.CurriculumSubjID,selectedsubject.SubjCode,selectedsubject.SubjDesc,selectedsubject.LecUnit,selectedsubject.LabUnit,selectedsubject.Unit);
+                    dglocation.Rows.Add(0, selectedsubject.CurriculumSubjID,"Regular",selectedsubject.SubjCode,selectedsubject.SubjDesc,selectedsubject.LecUnit,selectedsubject.LabUnit,selectedsubject.Unit,"0.00");
+                    dglocation.Rows[dglocation.Rows.Count - 1].Tag = new List<SubjectSettedAddtionalFee>();
                 }
                 else
                 {

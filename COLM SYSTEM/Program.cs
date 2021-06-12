@@ -2,8 +2,10 @@
 using COLM_SYSTEM.Curriculum_Folder;
 using COLM_SYSTEM.Fees_Folder;
 using COLM_SYSTEM.Reports_Folder;
+using COLM_SYSTEM.Settings_Folder;
 using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM.subject;
+using SEMS.Settings_Folder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +24,7 @@ namespace COLM_SYSTEM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_login());
+            Application.Run(new frm_settings(new uc_settings_mail_template_lists()));
             //Application.Run(new frm_enrollees_masterlist("College"));
         }
     }

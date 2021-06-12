@@ -302,6 +302,7 @@
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "uc_settings_assessment";
             this.Size = new System.Drawing.Size(781, 667);
+            this.Load += new System.EventHandler(this.uc_settings_assessment_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

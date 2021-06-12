@@ -328,8 +328,8 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.reportViewer1.RefreshReport();
 
             //attachments
-            //frm.reportViewer2.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_payment_attachments_stda.rdlc";
-            frm.reportViewer2.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_payment_attachments.rdlc";
+            frm.reportViewer2.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_payment_attachments_stda.rdlc";
+            //frm.reportViewer2.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_payment_attachments.rdlc";
             frm.reportViewer2.RefreshReport();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
