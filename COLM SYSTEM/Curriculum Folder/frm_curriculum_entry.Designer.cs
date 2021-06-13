@@ -345,6 +345,7 @@
             this.cHANGESUBJECTToolStripMenuItem.Name = "cHANGESUBJECTToolStripMenuItem";
             this.cHANGESUBJECTToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.cHANGESUBJECTToolStripMenuItem.Text = "Change Subject";
+            this.cHANGESUBJECTToolStripMenuItem.Visible = false;
             this.cHANGESUBJECTToolStripMenuItem.Click += new System.EventHandler(this.cHANGESUBJECTToolStripMenuItem_Click);
             // 
             // rEMOVESUBJECTToolStripMenuItem

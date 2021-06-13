@@ -5,7 +5,10 @@ using COLM_SYSTEM.Reports_Folder;
 using COLM_SYSTEM.Settings_Folder;
 using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM.subject;
+using SEMS;
+using SEMS.Custom_Controls;
 using SEMS.Settings_Folder;
+using SEMS.Student_Information_Folder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +27,8 @@ namespace COLM_SYSTEM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_login());
-            //Application.Run(new frm_enrollees_masterlist("College"));
+            //Application.Run(new frm_login());
+            Application.Run(new frm_student_requirement_entry("College"));
         }
     }
 }

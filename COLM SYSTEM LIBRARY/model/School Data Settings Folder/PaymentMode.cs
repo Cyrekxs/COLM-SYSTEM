@@ -34,5 +34,9 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return PaymentType_DS.UpdatePaymentType(mode, items);
         }
+        public static bool IsValidPaymentMode(PaymentMode payment)
+        {
+            return PaymentType_DS.IsValidPaymentMode(payment);
+        }
     }
 }

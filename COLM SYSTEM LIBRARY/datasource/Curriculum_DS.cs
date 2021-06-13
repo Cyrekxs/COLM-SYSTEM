@@ -276,6 +276,25 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return result;
         }
 
+       public static bool IsCurriculumSubjectSetted(int CurriculumSubjID)
+        {
+            int count = 0;
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT COUNT(*) FROM settings.curriculum_subjects_setted WHERE CurriculumSubjectID = @CurriculumSubjectID", conn))
+                {
+                    comm.Parameters.AddWithValue("@CurriculumSubjectID", CurriculumSubjID);
+                    count = Convert.ToInt32(comm.ExecuteScalar());
+                }
+            }
+
+            if (count > 0)
+                return true;
+            else
+                return false;
+        }
+
         public static int RemoveCurriculumSubject(int CurriculumSubjID)
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))

@@ -33,6 +33,11 @@ namespace COLM_SYSTEM_LIBRARY.model
             return SubjectSetted_DS.InsertSubject(subjects);
         }
 
+        public static bool IsSubjectHasStudents(int SubjectPriceID)
+        {
+            return SubjectSetted_DS.IsSubjectHasStudents(SubjectPriceID);
+        }
+
         public static int RemoveSubject(int SubjectPriceID)
         {
             return SubjectSetted_DS.RemoveSubject(SubjectPriceID);

@@ -70,6 +70,17 @@ namespace COLM_SYSTEM.Settings_Folder
             payment.SchoolYearID = Utilties.GetActiveSchoolYear();
             payment.SemesterID = Utilties.GetActiveSemester();
 
+
+            bool IsValidPaymentMode = PaymentMode.IsValidPaymentMode(payment);
+            if (SavingStatus == "ADD")
+            {
+                if (IsValidPaymentMode == false)
+                {
+                    MessageBox.Show("Existing payment mode detected!", "Existing Payment Mode", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             List<PaymentModeItem> paymentitems = new List<PaymentModeItem>();
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
@@ -88,6 +99,8 @@ namespace COLM_SYSTEM.Settings_Folder
 
             if (SavingStatus == "ADD")
             {
+
+
                 PaymentMode.InsertPaymentMode(payment, paymentitems);
                 MessageBox.Show("Payment mode has been successfully saved", "Payment Mode Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();

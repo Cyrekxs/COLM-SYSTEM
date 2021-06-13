@@ -197,6 +197,12 @@
     <Compile Include="Custom Controls\ButtonRounded.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Custom Controls\uc_student.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\uc_student.Designer.cs">
+      <DependentUpon>uc_student.cs</DependentUpon>
+    </Compile>
     <Compile Include="Discounts Folder\frm_discount_entry_amount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -454,6 +460,18 @@
     <Compile Include="Settings Folder\frm_system_settings.Designer.cs">
       <DependentUpon>frm_system_settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings Folder\uc_requirements_entry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\uc_requirements_entry.Designer.cs">
+      <DependentUpon>uc_requirements_entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings Folder\uc_requirement_lists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings Folder\uc_requirement_lists.Designer.cs">
+      <DependentUpon>uc_requirement_lists.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings Folder\uc_settings_assessment.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -503,6 +521,12 @@
     <Compile Include="Student Information Folder\frm_student_information_online_entry_1.Designer.cs">
       <DependentUpon>frm_student_information_online_entry_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student Information Folder\frm_student_requirement_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student Information Folder\frm_student_requirement_entry.Designer.cs">
+      <DependentUpon>frm_student_requirement_entry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student Information Folder\uc_student_information_list.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -538,6 +562,12 @@
     </Compile>
     <Compile Include="UC_DashBoard.Designer.cs">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_student_lists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_student_lists.Designer.cs">
+      <DependentUpon>uc_student_lists.cs</DependentUpon>
     </Compile>
     <Compile Include="User Folder\frm_setup_email.cs">
       <SubType>Form</SubType>
@@ -627,6 +657,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Curriculum Folder\uc_curriculum_list.resx">
       <DependentUpon>uc_curriculum_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\uc_student.resx">
+      <DependentUpon>uc_student.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Discounts Folder\frm_discount_entry_amount.resx">
       <DependentUpon>frm_discount_entry_amount.cs</DependentUpon>
@@ -768,6 +801,12 @@
     <EmbeddedResource Include="Settings Folder\frm_system_settings.resx">
       <DependentUpon>frm_system_settings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\uc_requirements_entry.resx">
+      <DependentUpon>uc_requirements_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings Folder\uc_requirement_lists.resx">
+      <DependentUpon>uc_requirement_lists.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings Folder\uc_settings_assessment.resx">
       <DependentUpon>uc_settings_assessment.cs</DependentUpon>
     </EmbeddedResource>
@@ -795,6 +834,9 @@
     <EmbeddedResource Include="Student Information Folder\frm_student_information_online_entry_1.resx">
       <DependentUpon>frm_student_information_online_entry_1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Student Information Folder\frm_student_requirement_entry.resx">
+      <DependentUpon>frm_student_requirement_entry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\uc_student_information_list.resx">
       <DependentUpon>uc_student_information_list.cs</DependentUpon>
     </EmbeddedResource>
@@ -812,6 +854,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_DashBoard.resx">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_student_lists.resx">
+      <DependentUpon>uc_student_lists.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Folder\frm_setup_email.resx">
       <DependentUpon>frm_setup_email.cs</DependentUpon>
@@ -932,6 +977,11 @@
     <Content Include="Programmers Info\Notes.txt" />
     <Content Include="Programmers Info\What I Did.txt" />
     <None Include="Resources\Loading Image.jpg" />
+    <None Include="Resources\Check.png" />
+    <None Include="Resources\Close.png" />
+    <None Include="Resources\Female.png" />
+    <None Include="Resources\Male.png" />
+    <None Include="Resources\Warning.png" />
     <Content Include="sems.ico" />
     <None Include="Resources\NONITA NABONG.jpg" />
     <None Include="Resources\Logout.png" />

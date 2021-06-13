@@ -102,6 +102,11 @@ namespace COLM_SYSTEM_LIBRARY.model
             return ID;
         }
 
+        public static bool IsCurriculumSubjectSetted(int CurriculumSubjID)
+        {
+            return Curriculum_DS.IsCurriculumSubjectSetted(CurriculumSubjID);
+        }
+
         public static int RemoveCurriculumSubject(int CurriculumSubjID)
         {
             return Curriculum_DS.RemoveCurriculumSubject(CurriculumSubjID);

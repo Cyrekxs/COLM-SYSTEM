@@ -1,12 +1,8 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Curriculum_Folder
@@ -288,10 +284,17 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
         private void rEMOVESUBJECTToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int CurriculumSubjectID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmCurriculumSubjectID"].Value);
+            bool IsSetted = Curriculum.IsCurriculumSubjectSetted(CurriculumSubjectID);
+
+            if (IsSetted == true)
+            {
+                MessageBox.Show("You cannot delete this subject because the subject is already setted in the tuition fee!", "Delete Curriculum Subject Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (MessageBox.Show("Are you sure you want to remove this subject on this curriculum?", "Remove Subject", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int CurriculumSubjectID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmCurriculumSubjectID"].Value);
-
                 //if not yet saved in the database
                 if (CurriculumSubjectID <= 0)
                 {

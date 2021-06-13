@@ -74,6 +74,23 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return result;
         }
 
+        public static bool IsSubjectHasStudents(int SubjectPriceID)
+        {
+            int result = 0;
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT COUNT(*) FROM assessment.subjects AS MAIN WHERE SubjectPriceID = @SubjectPriceID AND EXISTS (SELECT * FROM assessment.summary WHERE AssessmentID = MAIN.AssessmentID AND AssessmentStatus = 'ACTIVE')", conn))
+                {
+                    comm.Parameters.AddWithValue("@SubjectPriceID", SubjectPriceID);
+                    result = Convert.ToInt32(comm.ExecuteScalar());
+                }
+            }
+            if (result > 0)
+                return true;
+            else
+                return false;
+        }
         public static int RemoveSubject(int SubjectPriceID)
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))

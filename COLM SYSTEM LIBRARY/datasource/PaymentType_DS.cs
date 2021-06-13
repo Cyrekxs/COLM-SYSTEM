@@ -73,6 +73,28 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return assessmentTypeItems;
         }
 
+        public static bool IsValidPaymentMode(PaymentMode payment)
+        {
+            int result = 0;
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.assessment_payments WHERE EducationLevel = @EducationLevel AND PaymentMode = @PaymentMode AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
+                {
+                    comm.Parameters.AddWithValue("@EducationLevel", payment.EducationLevel);
+                    comm.Parameters.AddWithValue("@PaymentMode", payment.PaymentName);
+                    comm.Parameters.AddWithValue("@SchoolYearID", payment.SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", payment.SemesterID);
+                    result = comm.ExecuteNonQuery();
+                }
+            }
+
+            if (result > 0)
+                return false;
+            else
+                return true;
+        }
+
         public static int InsertPaymentType(PaymentMode payment, List<PaymentModeItem> paymentItems)
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))

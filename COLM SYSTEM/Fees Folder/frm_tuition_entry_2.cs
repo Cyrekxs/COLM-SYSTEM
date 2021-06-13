@@ -12,7 +12,7 @@ namespace COLM_SYSTEM.fees_folder
         public string SavingFlag { get; set; }
 
         //constructor that will marks saving flag as add
-        public frm_tuition_entry_2(string EducationLevel,string CurriculumCode,string CourseStrand,string YearLevel)
+        public frm_tuition_entry_2(string EducationLevel, string CurriculumCode, string CourseStrand, string YearLevel)
         {
             InitializeComponent();
             SavingFlag = "ADD";
@@ -51,7 +51,7 @@ namespace COLM_SYSTEM.fees_folder
                 dgTuition.Rows.Clear();
                 foreach (var item in subjects)
                 {
-                    dgTuition.Rows.Add(0, item.CurriculumSubjID,item.SubjType, item.SubjCode, item.SubjDesc, item.LecUnit, item.LabUnit, item.Unit, 0.ToString("n"));
+                    dgTuition.Rows.Add(0, item.CurriculumSubjID, item.SubjType, item.SubjCode, item.SubjDesc, item.LecUnit, item.LabUnit, item.Unit, 0.ToString("n"));
                 }
             }
         }
@@ -252,9 +252,17 @@ namespace COLM_SYSTEM.fees_folder
             }
             else if (e.ColumnIndex == clmRemove.Index)
             {
+                int SubjectPriceID = Convert.ToInt16(dgTuition.Rows[e.RowIndex].Cells["clmSubjPriceID"].Value);
+                bool HasStudents = SubjectSetted.IsSubjectHasStudents(SubjectPriceID);
+
+                if (HasStudents == true)
+                {
+                    MessageBox.Show("You cannot remove this subject in tuition fee because there was student taking this subject!", "Cannot Remove Subject", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 if (MessageBox.Show("Remove this subject?", "Remove Subject", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int SubjectPriceID = Convert.ToInt16(dgTuition.Rows[e.RowIndex].Cells["clmSubjPriceID"].Value);
                     int result = SubjectSetted.RemoveSubject(SubjectPriceID);
                     dgTuition.Rows.Remove(dgTuition.Rows[e.RowIndex]);
                 }
