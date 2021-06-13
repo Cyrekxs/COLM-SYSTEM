@@ -217,6 +217,7 @@
             this.MinimizeBox = false;
             this.Name = "frm_section_lists";
             this.Text = "SECTION LISTS";
+            this.Load += new System.EventHandler(this.frm_section_lists_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

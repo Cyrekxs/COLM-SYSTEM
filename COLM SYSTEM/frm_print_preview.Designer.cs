@@ -39,8 +39,12 @@
             this.reportViewer1.Location = new System.Drawing.Point(12, 12);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.ShowBackButton = false;
+            this.reportViewer1.ShowFindControls = false;
+            this.reportViewer1.ShowStopButton = false;
             this.reportViewer1.Size = new System.Drawing.Size(964, 721);
             this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
             // 
             // frm_print_preview
             // 
@@ -51,6 +55,7 @@
             this.MinimizeBox = false;
             this.Name = "frm_print_preview";
             this.Text = "REPORT PREVIEW";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_print_preview_Load);
             this.ResumeLayout(false);
 

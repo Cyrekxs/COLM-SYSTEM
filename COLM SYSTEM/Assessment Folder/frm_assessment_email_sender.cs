@@ -1,8 +1,13 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
+using COLM_SYSTEM_LIBRARY.model.General_Settings_Folder;
+using SEMS;
+using SEMS.Settings_Folder;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,89 +16,101 @@ namespace COLM_SYSTEM.Assessment_Folder
 {
     public partial class frm_assessment_email_sender : Form
     {
-        string CORPath = @"C:\Users\Cyrekxs\Documents\Attachments\Certificate of Registration.pdf";
-        string GCashPath = "";
+        string CORAttachment = string.Empty;
+        string AttachmentPath = Path.GetDirectoryName(Application.ExecutablePath);
+
         Assessment assessment = new Assessment();
+        List<MessageTemplate> MessageTemplates = new List<MessageTemplate>();
+
         public frm_assessment_email_sender(Assessment assessment)
         {
             InitializeComponent();
-            CORPath = string.Concat(Path.GetDirectoryName(Application.ExecutablePath), @"\Certificate of Registration.pdf");
-            GCashPath = string.Concat(Path.GetDirectoryName(Application.ExecutablePath), @"\Payment Options.pdf");
+            this.assessment = assessment;
+        }
+
+        private async Task LoadMessageTemplates()
+        {
+            MessageTemplates = await Task.Run(() => { return MessageTemplate.GetTemplatesSummary(); });
+            cmbMessageTemplates.Items.Clear();
+            foreach (var item in MessageTemplates)
+            {
+                cmbMessageTemplates.Items.Add(item.TemplateName);
+            }
+        }
+
+        private async void frm_assessment_email_sender_Load(object sender, EventArgs e)
+        {
+
+            await LoadMessageTemplates();
+
+            CORAttachment = string.Concat(AttachmentPath, @"\Certificate of Registration.pdf");
 
             txtStudentName.Text = assessment.Summary.StudentName;
             txtEducationlevel.Text = assessment.Summary.EducationLevel;
             txtCourseStrand.Text = assessment.Summary.CourseStrand;
             txtYearLevel.Text = assessment.Summary.YearLevel;
-
-            this.assessment = assessment;
-            string MessageBody = string.Concat(
-                "Hi ", assessment.Summary.Firstname, ",",
-                Environment.NewLine, Environment.NewLine,
-                "Your application was successfully verified. Attached herewith is your Certificate of Registration(COR).",
-                Environment.NewLine, Environment.NewLine,
-                "Please submit the following requirements in this email address with your name as the e-mail message subject",
-                Environment.NewLine,
-                Environment.NewLine, "\t", "1. Clear scanned copy of your PAS Birth Certificate",
-                Environment.NewLine, "\t", "2. Clear Scanned copy of report card (SF9) / Transcript of Record (TOR)",
-                Environment.NewLine, "\t", "3. 2x2 Picture with white background for the ID",
-                Environment.NewLine,
-                ExtraMessage(),
-                Environment.NewLine, Environment.NewLine,
-                "Thank you and we look forward to see you this coming school year",
-                Environment.NewLine, Environment.NewLine,
-                "Warm Regards,",
-                Environment.NewLine, Environment.NewLine,
-                "Admission Office");
-
             txtTo.Text = assessment.Summary.EmailAddress;
-            txtSubject.Text = "Admission Status";
-            txtBody.Text = MessageBody;
 
-        }
-
-        private string ExtraMessage()
-        {
-            if (assessment.Summary.TotalDue > 0)
-                return string.Concat(Environment.NewLine, "Attached is the QR Code and the Bank Details for payment. Please send a screen shot of the proof of payment");
-            else
-                return "";
-        }
-
-        private void frm_assessment_email_sender_Load(object sender, EventArgs e)
-        {
             reportViewer1.RefreshReport();
-            reportViewer2.RefreshReport();
         }
 
-        private bool SavePDF()
+        private async Task<bool> SavePDF()
         {
             byte[] bytes = reportViewer1.LocalReport.Render(format: "pdf", deviceInfo: "");
-            File.WriteAllBytes(CORPath, bytes);
-            if (File.Exists(CORPath))
-                return true;
-            else
-                return false;
+            await Task.Run(() => { File.WriteAllBytes(CORAttachment, bytes); });
+            return true;
         }
 
-        private bool SaveGCash()
+        private async Task<bool> SaveAttachments()
         {
-            if (File.Exists(GCashPath))
-                return true;
-            else
+            foreach (DataGridViewRow item in dataGridView1.Rows)
             {
-                byte[] bytes = reportViewer2.LocalReport.Render(format: "pdf", deviceInfo: "");
-                File.WriteAllBytes(GCashPath, bytes);
-                return true;
+                //identify if the user included the attachment
+                if (Convert.ToBoolean(item.Cells["clmAttach"].Value) == true)
+                {
+                    //process attachment file
+                    byte[] image_attachment = item.Tag as byte[];
+                    string FileName = item.Cells["clmAttachment"].Value.ToString();
+                    string attachment = string.Concat(AttachmentPath, @"\", FileName);
+                    if (File.Exists(attachment) == false)
+                    {
+                        await Task.Run(() =>
+                        {
+                            File.WriteAllBytes(string.Concat(AttachmentPath, @"\", FileName), image_attachment);
+                        });
+                    }
+                }
+
             }
+            return true;
         }
 
-        private bool EmailStudent()
+        private async Task<bool> EmailStudent()
         {
             List<Attachment> attachments = new List<Attachment>();
-            attachments.Add(new Attachment(CORPath));
-            if (assessment.Summary.TotalDue > 0)
-                attachments.Add(new Attachment(GCashPath));
 
+            //identify if the user wants to send the cor
+            if (checkBox1.Checked == true)
+            {
+                bool isPDFSaved = await SavePDF();
+                //add cor attachment
+                attachments.Add(new Attachment(CORAttachment));
+            }
+
+
+            //add all other attachments
+            bool isAttachmentsSaved = await SaveAttachments();
+            foreach (DataGridViewRow item in dataGridView1.Rows)
+            {
+                //identify if the user wants to send specific attachment
+                if (Convert.ToBoolean(item.Cells["clmAttach"].Value) == true)
+                {
+                    string attachment = string.Concat(AttachmentPath, @"\", item.Cells["clmAttachment"].Value.ToString());
+                    attachments.Add(new Attachment(attachment));
+                }
+            }
+
+            //set email info and attachments
             EmailModel email = new EmailModel()
             {
                 To = txtTo.Text,
@@ -102,47 +119,31 @@ namespace COLM_SYSTEM.Assessment_Folder
                 attachments = attachments
             };
 
-            if (EmailModel.IsValidEmail(email.To) == true)
-                return EmailModel.SendMail(email, EmailCredential.GetDefaultEmail());
-            else
-                return false;
+            //initizialized emailing
+            bool result = await Task.Run(() =>
+            {
+                if (EmailModel.IsValidEmail(email.To) == true)
+                    return EmailModel.SendMail(email, EmailCredential.GetDefaultEmail());
+                else
+                    return false;
+            });
+
+            return result;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
-            Task<bool> TaskPDFSaving = new Task<bool>(SavePDF);
-            TaskPDFSaving.Start();
-            btnSendMail.Enabled = false;
-            await TaskPDFSaving;
-
-            if (assessment.Summary.TotalDue > 0)
+            List<Task> tasks = new List<Task>();
+            tasks.Add(EmailStudent());
+            using (frm_loading_v2 frm = new frm_loading_v2(tasks))
             {
-                Task<bool> TaskGCashSaving = new Task<bool>(SaveGCash);
-                TaskGCashSaving.Start();
-                await TaskGCashSaving;
-            }
-
-            if (TaskPDFSaving.Result == true)
-            {
-                Task<bool> TaskEmailStudent = new Task<bool>(EmailStudent);
-                TaskEmailStudent.Start();
-                btnCancel.Enabled = false;
-                btnSendMail.Text = "Sending";
-                await TaskEmailStudent;
-
-                if (TaskEmailStudent.Result == true)
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
                 {
                     MessageBox.Show("Email has been successfully sent!", "Email Sent Successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
-                    Dispose();
-                }
-                else
-                {
-                    MessageBox.Show("Sending Email failed possible scenario is invalid email or lost internet connection", "Email Sending Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    btnCancel.Enabled = true;
-                    btnSendMail.Text = "SEND MAIL";
-                    btnSendMail.Enabled = true;
+                    this.Close();
+                    this.Dispose();
                 }
             }
         }
@@ -160,6 +161,39 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.ShowDialog();
             StudentInfo.GetStudent(student.StudentID);
             txtTo.Text = StudentInfo.GetStudent(student.StudentID).EmailAddress;
+        }
+
+        private void cmbMessageTemplates_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageTemplate template = MessageTemplates.Where(item => item.TemplateName.ToLower() == cmbMessageTemplates.Text.ToLower()).FirstOrDefault();
+
+            template.TemplateMessage = template.TemplateMessage.Replace("<Student Name>", assessment.Summary.StudentName);
+            template.TemplateMessage = template.TemplateMessage.Replace("<Last Name>", assessment.Summary.Lastname);
+            template.TemplateMessage = template.TemplateMessage.Replace("<First Name>", assessment.Summary.Firstname);
+
+            txtSubject.Text = template.TemplateSubject;
+            txtBody.Text = template.TemplateMessage;
+
+            template.Attachments = MessageTemplate.GetMessageAttachments(template.TemplateID);
+
+            dataGridView1.Rows.Clear();
+            foreach (var item in template.Attachments)
+            {
+                dataGridView1.Rows.Add(true, item.AttachmentID, item.Name, item.FileType);
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item.Attachement;
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == clmAction.Index)
+            {
+                Image img;
+                img = Utilties.ConvertByteToImage(dataGridView1.Rows[e.RowIndex].Tag as byte[]);
+                frm_attachment_viewer_image frm = new frm_attachment_viewer_image(img);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
         }
     }
 }

@@ -308,13 +308,6 @@ namespace COLM_SYSTEM
             frm.ShowDialog();
         }
 
-        private void emailSettingsToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            frm_settings frm = new frm_settings(new uc_settings_mail());
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-        }
-
         private void targetStudentSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_settings frm = new frm_settings(new uc_settings_target());
@@ -325,6 +318,20 @@ namespace COLM_SYSTEM
         private void cLOSEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClearUserControls();
+        }
+
+        private void emailerAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_settings frm = new frm_settings(new uc_settings_mail());
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void messageTemplatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_settings frm = new frm_settings(new uc_settings_mail_template_lists());
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

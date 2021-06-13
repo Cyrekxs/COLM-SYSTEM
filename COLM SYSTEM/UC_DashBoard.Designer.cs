@@ -40,9 +40,6 @@
             this.lblChartBreakDownNotifier = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelEnrolled = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblTotalPending = new System.Windows.Forms.Label();
-            this.lblTotalEnrolled = new System.Windows.Forms.Label();
             this.chartEnrolled = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel30 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
@@ -119,6 +116,15 @@
             this.lblTargetPreElem = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.lblTotalEnrolled = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTotalPending = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.lblTotalTarget = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panelBreakdown.SuspendLayout();
             this.panelEnrolled.SuspendLayout();
@@ -148,6 +154,9 @@
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
@@ -156,19 +165,23 @@
             chartArea1.Area3DStyle.Rotation = 130;
             chartArea1.AxisX.Interval = 1D;
             chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.LabelAutoFitMinFontSize = 8;
+            chartArea1.AxisX.LabelAutoFitMinFontSize = 10;
+            chartArea1.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45)));
             chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea1.AxisX.MaximumAutoSize = 100F;
+            chartArea1.AxisX.ScaleView.MinSize = 0D;
+            chartArea1.AxisX.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
+            chartArea1.AxisX.ScrollBar.Size = 10D;
             chartArea1.AxisX.TitleFont = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.Empty;
-            chartArea1.AxisY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea1.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea1.AxisY.IsLabelAutoFit = false;
             chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.AxisY.LabelStyle.Format = "# Students";
             chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea1.AxisY.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
+            chartArea1.AxisY.ScrollBar.Size = 10D;
             chartArea1.BackColor = System.Drawing.Color.WhiteSmoke;
             chartArea1.BackSecondaryColor = System.Drawing.Color.Navy;
             chartArea1.Name = "ChartArea1";
@@ -194,7 +207,7 @@
             series2.Name = "Pending";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(1311, 300);
+            this.chart1.Size = new System.Drawing.Size(1306, 300);
             this.chart1.TabIndex = 11;
             this.chart1.Text = "chart1";
             this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseClick);
@@ -205,10 +218,10 @@
             this.panelBreakdown.Controls.Add(this.label2);
             this.panelBreakdown.Controls.Add(this.lblChartBreakDownNotifier);
             this.panelBreakdown.Controls.Add(this.chart1);
-            this.panelBreakdown.Location = new System.Drawing.Point(15, 285);
+            this.panelBreakdown.Location = new System.Drawing.Point(15, 293);
             this.panelBreakdown.Name = "panelBreakdown";
             this.panelBreakdown.Padding = new System.Windows.Forms.Padding(5);
-            this.panelBreakdown.Size = new System.Drawing.Size(1321, 310);
+            this.panelBreakdown.Size = new System.Drawing.Size(1316, 310);
             this.panelBreakdown.TabIndex = 12;
             // 
             // label2
@@ -238,9 +251,9 @@
             // panelEnrolled
             // 
             this.panelEnrolled.BackColor = System.Drawing.Color.White;
-            this.panelEnrolled.Controls.Add(this.label4);
-            this.panelEnrolled.Controls.Add(this.lblTotalPending);
-            this.panelEnrolled.Controls.Add(this.lblTotalEnrolled);
+            this.panelEnrolled.Controls.Add(this.panel9);
+            this.panelEnrolled.Controls.Add(this.panel2);
+            this.panelEnrolled.Controls.Add(this.panel16);
             this.panelEnrolled.Controls.Add(this.chartEnrolled);
             this.panelEnrolled.Controls.Add(this.panel30);
             this.panelEnrolled.Controls.Add(this.panel25);
@@ -249,41 +262,8 @@
             this.panelEnrolled.Controls.Add(this.panel4);
             this.panelEnrolled.Location = new System.Drawing.Point(15, 14);
             this.panelEnrolled.Name = "panelEnrolled";
-            this.panelEnrolled.Size = new System.Drawing.Size(1321, 265);
+            this.panelEnrolled.Size = new System.Drawing.Size(1316, 251);
             this.panelEnrolled.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label4.Location = new System.Drawing.Point(104, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 25);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "TOTAL";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTotalPending
-            // 
-            this.lblTotalPending.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPending.ForeColor = System.Drawing.Color.Gray;
-            this.lblTotalPending.Location = new System.Drawing.Point(108, 146);
-            this.lblTotalPending.Name = "lblTotalPending";
-            this.lblTotalPending.Size = new System.Drawing.Size(56, 25);
-            this.lblTotalPending.TabIndex = 17;
-            this.lblTotalPending.Text = "0";
-            this.lblTotalPending.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTotalEnrolled
-            // 
-            this.lblTotalEnrolled.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalEnrolled.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTotalEnrolled.Location = new System.Drawing.Point(104, 96);
-            this.lblTotalEnrolled.Name = "lblTotalEnrolled";
-            this.lblTotalEnrolled.Size = new System.Drawing.Size(60, 25);
-            this.lblTotalEnrolled.TabIndex = 16;
-            this.lblTotalEnrolled.Text = "0";
-            this.lblTotalEnrolled.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chartEnrolled
             // 
@@ -300,10 +280,10 @@
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series3.Name = "Series1";
+            series3.Name = "s1";
             series3.YValuesPerPoint = 6;
             this.chartEnrolled.Series.Add(series3);
-            this.chartEnrolled.Size = new System.Drawing.Size(267, 265);
+            this.chartEnrolled.Size = new System.Drawing.Size(241, 251);
             this.chartEnrolled.TabIndex = 15;
             this.chartEnrolled.Text = "chart1";
             // 
@@ -315,9 +295,9 @@
             this.panel30.Controls.Add(this.panel33);
             this.panel30.Controls.Add(this.button10);
             this.panel30.Controls.Add(this.panel34);
-            this.panel30.Location = new System.Drawing.Point(1076, 33);
+            this.panel30.Location = new System.Drawing.Point(1123, 31);
             this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(184, 204);
+            this.panel30.Size = new System.Drawing.Size(176, 204);
             this.panel30.TabIndex = 14;
             // 
             // panel31
@@ -328,7 +308,7 @@
             this.panel31.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel31.Location = new System.Drawing.Point(0, 132);
             this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(184, 36);
+            this.panel31.Size = new System.Drawing.Size(176, 36);
             this.panel31.TabIndex = 18;
             // 
             // lblTotalCollege
@@ -338,7 +318,7 @@
             this.lblTotalCollege.ForeColor = System.Drawing.Color.Black;
             this.lblTotalCollege.Location = new System.Drawing.Point(125, 0);
             this.lblTotalCollege.Name = "lblTotalCollege";
-            this.lblTotalCollege.Size = new System.Drawing.Size(59, 36);
+            this.lblTotalCollege.Size = new System.Drawing.Size(51, 36);
             this.lblTotalCollege.TabIndex = 14;
             this.lblTotalCollege.Text = "0";
             this.lblTotalCollege.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -364,7 +344,7 @@
             this.panel32.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel32.Location = new System.Drawing.Point(0, 96);
             this.panel32.Name = "panel32";
-            this.panel32.Size = new System.Drawing.Size(184, 36);
+            this.panel32.Size = new System.Drawing.Size(176, 36);
             this.panel32.TabIndex = 17;
             // 
             // lblPendingCollege
@@ -375,7 +355,7 @@
             this.lblPendingCollege.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblPendingCollege.Location = new System.Drawing.Point(125, 0);
             this.lblPendingCollege.Name = "lblPendingCollege";
-            this.lblPendingCollege.Size = new System.Drawing.Size(59, 36);
+            this.lblPendingCollege.Size = new System.Drawing.Size(51, 36);
             this.lblPendingCollege.TabIndex = 14;
             this.lblPendingCollege.Text = "0";
             this.lblPendingCollege.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -402,7 +382,7 @@
             this.panel33.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel33.Location = new System.Drawing.Point(0, 60);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(184, 36);
+            this.panel33.Size = new System.Drawing.Size(176, 36);
             this.panel33.TabIndex = 11;
             // 
             // lblEnrolledCollege
@@ -412,7 +392,7 @@
             this.lblEnrolledCollege.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblEnrolledCollege.Location = new System.Drawing.Point(125, 0);
             this.lblEnrolledCollege.Name = "lblEnrolledCollege";
-            this.lblEnrolledCollege.Size = new System.Drawing.Size(59, 36);
+            this.lblEnrolledCollege.Size = new System.Drawing.Size(51, 36);
             this.lblEnrolledCollege.TabIndex = 14;
             this.lblEnrolledCollege.Text = "0";
             this.lblEnrolledCollege.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -440,7 +420,7 @@
             this.button10.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.button10.Location = new System.Drawing.Point(0, 168);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(184, 36);
+            this.button10.Size = new System.Drawing.Size(176, 36);
             this.button10.TabIndex = 16;
             this.button10.Text = "View in Chart";
             this.button10.UseVisualStyleBackColor = false;
@@ -455,7 +435,7 @@
             this.panel34.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel34.Location = new System.Drawing.Point(0, 0);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(184, 60);
+            this.panel34.Size = new System.Drawing.Size(176, 60);
             this.panel34.TabIndex = 9;
             // 
             // lblTargetCollege
@@ -466,7 +446,7 @@
             this.lblTargetCollege.Location = new System.Drawing.Point(125, 25);
             this.lblTargetCollege.Name = "lblTargetCollege";
             this.lblTargetCollege.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblTargetCollege.Size = new System.Drawing.Size(59, 35);
+            this.lblTargetCollege.Size = new System.Drawing.Size(51, 35);
             this.lblTargetCollege.TabIndex = 12;
             this.lblTargetCollege.Text = "0%";
             this.lblTargetCollege.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -480,7 +460,7 @@
             this.label56.Location = new System.Drawing.Point(125, 0);
             this.label56.Name = "label56";
             this.label56.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label56.Size = new System.Drawing.Size(59, 25);
+            this.label56.Size = new System.Drawing.Size(51, 25);
             this.label56.TabIndex = 13;
             this.label56.Text = "Target";
             this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -507,9 +487,9 @@
             this.panel25.Controls.Add(this.panel28);
             this.panel25.Controls.Add(this.button9);
             this.panel25.Controls.Add(this.panel29);
-            this.panel25.Location = new System.Drawing.Point(888, 33);
+            this.panel25.Location = new System.Drawing.Point(943, 31);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(182, 204);
+            this.panel25.Size = new System.Drawing.Size(174, 204);
             this.panel25.TabIndex = 13;
             // 
             // panel26
@@ -520,7 +500,7 @@
             this.panel26.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel26.Location = new System.Drawing.Point(0, 132);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(182, 36);
+            this.panel26.Size = new System.Drawing.Size(174, 36);
             this.panel26.TabIndex = 18;
             // 
             // lblTotalSHS
@@ -530,7 +510,7 @@
             this.lblTotalSHS.ForeColor = System.Drawing.Color.Black;
             this.lblTotalSHS.Location = new System.Drawing.Point(125, 0);
             this.lblTotalSHS.Name = "lblTotalSHS";
-            this.lblTotalSHS.Size = new System.Drawing.Size(57, 36);
+            this.lblTotalSHS.Size = new System.Drawing.Size(49, 36);
             this.lblTotalSHS.TabIndex = 14;
             this.lblTotalSHS.Text = "0";
             this.lblTotalSHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -556,7 +536,7 @@
             this.panel27.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel27.Location = new System.Drawing.Point(0, 96);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(182, 36);
+            this.panel27.Size = new System.Drawing.Size(174, 36);
             this.panel27.TabIndex = 17;
             // 
             // lblPendingSHS
@@ -567,7 +547,7 @@
             this.lblPendingSHS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblPendingSHS.Location = new System.Drawing.Point(125, 0);
             this.lblPendingSHS.Name = "lblPendingSHS";
-            this.lblPendingSHS.Size = new System.Drawing.Size(57, 36);
+            this.lblPendingSHS.Size = new System.Drawing.Size(49, 36);
             this.lblPendingSHS.TabIndex = 14;
             this.lblPendingSHS.Text = "0";
             this.lblPendingSHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -594,7 +574,7 @@
             this.panel28.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel28.Location = new System.Drawing.Point(0, 60);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(182, 36);
+            this.panel28.Size = new System.Drawing.Size(174, 36);
             this.panel28.TabIndex = 11;
             // 
             // lblEnrolledSHS
@@ -604,7 +584,7 @@
             this.lblEnrolledSHS.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblEnrolledSHS.Location = new System.Drawing.Point(125, 0);
             this.lblEnrolledSHS.Name = "lblEnrolledSHS";
-            this.lblEnrolledSHS.Size = new System.Drawing.Size(57, 36);
+            this.lblEnrolledSHS.Size = new System.Drawing.Size(49, 36);
             this.lblEnrolledSHS.TabIndex = 14;
             this.lblEnrolledSHS.Text = "0";
             this.lblEnrolledSHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -632,7 +612,7 @@
             this.button9.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.button9.Location = new System.Drawing.Point(0, 168);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(182, 36);
+            this.button9.Size = new System.Drawing.Size(174, 36);
             this.button9.TabIndex = 16;
             this.button9.Text = "View in Chart";
             this.button9.UseVisualStyleBackColor = false;
@@ -647,7 +627,7 @@
             this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel29.Location = new System.Drawing.Point(0, 0);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(182, 60);
+            this.panel29.Size = new System.Drawing.Size(174, 60);
             this.panel29.TabIndex = 9;
             // 
             // lblTargetSHS
@@ -658,7 +638,7 @@
             this.lblTargetSHS.Location = new System.Drawing.Point(125, 25);
             this.lblTargetSHS.Name = "lblTargetSHS";
             this.lblTargetSHS.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblTargetSHS.Size = new System.Drawing.Size(57, 35);
+            this.lblTargetSHS.Size = new System.Drawing.Size(49, 35);
             this.lblTargetSHS.TabIndex = 12;
             this.lblTargetSHS.Text = "0%";
             this.lblTargetSHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -672,7 +652,7 @@
             this.label47.Location = new System.Drawing.Point(125, 0);
             this.label47.Name = "label47";
             this.label47.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label47.Size = new System.Drawing.Size(57, 25);
+            this.label47.Size = new System.Drawing.Size(49, 25);
             this.label47.TabIndex = 13;
             this.label47.Text = "Target";
             this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -699,9 +679,9 @@
             this.panel14.Controls.Add(this.panel23);
             this.panel14.Controls.Add(this.button8);
             this.panel14.Controls.Add(this.panel24);
-            this.panel14.Location = new System.Drawing.Point(700, 33);
+            this.panel14.Location = new System.Drawing.Point(763, 31);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(182, 204);
+            this.panel14.Size = new System.Drawing.Size(174, 204);
             this.panel14.TabIndex = 12;
             // 
             // panel15
@@ -712,7 +692,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel15.Location = new System.Drawing.Point(0, 132);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(182, 36);
+            this.panel15.Size = new System.Drawing.Size(174, 36);
             this.panel15.TabIndex = 18;
             // 
             // lblTotalJHS
@@ -722,7 +702,7 @@
             this.lblTotalJHS.ForeColor = System.Drawing.Color.Black;
             this.lblTotalJHS.Location = new System.Drawing.Point(125, 0);
             this.lblTotalJHS.Name = "lblTotalJHS";
-            this.lblTotalJHS.Size = new System.Drawing.Size(57, 36);
+            this.lblTotalJHS.Size = new System.Drawing.Size(49, 36);
             this.lblTotalJHS.TabIndex = 14;
             this.lblTotalJHS.Text = "0";
             this.lblTotalJHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -748,7 +728,7 @@
             this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel22.Location = new System.Drawing.Point(0, 96);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(182, 36);
+            this.panel22.Size = new System.Drawing.Size(174, 36);
             this.panel22.TabIndex = 17;
             // 
             // lblPendingJHS
@@ -759,7 +739,7 @@
             this.lblPendingJHS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblPendingJHS.Location = new System.Drawing.Point(125, 0);
             this.lblPendingJHS.Name = "lblPendingJHS";
-            this.lblPendingJHS.Size = new System.Drawing.Size(57, 36);
+            this.lblPendingJHS.Size = new System.Drawing.Size(49, 36);
             this.lblPendingJHS.TabIndex = 14;
             this.lblPendingJHS.Text = "0";
             this.lblPendingJHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -786,7 +766,7 @@
             this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel23.Location = new System.Drawing.Point(0, 60);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(182, 36);
+            this.panel23.Size = new System.Drawing.Size(174, 36);
             this.panel23.TabIndex = 11;
             // 
             // lblEnrolledJHS
@@ -796,7 +776,7 @@
             this.lblEnrolledJHS.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblEnrolledJHS.Location = new System.Drawing.Point(125, 0);
             this.lblEnrolledJHS.Name = "lblEnrolledJHS";
-            this.lblEnrolledJHS.Size = new System.Drawing.Size(57, 36);
+            this.lblEnrolledJHS.Size = new System.Drawing.Size(49, 36);
             this.lblEnrolledJHS.TabIndex = 14;
             this.lblEnrolledJHS.Text = "0";
             this.lblEnrolledJHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -824,7 +804,7 @@
             this.button8.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.button8.Location = new System.Drawing.Point(0, 168);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(182, 36);
+            this.button8.Size = new System.Drawing.Size(174, 36);
             this.button8.TabIndex = 16;
             this.button8.Text = "View in Chart";
             this.button8.UseVisualStyleBackColor = false;
@@ -839,7 +819,7 @@
             this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel24.Location = new System.Drawing.Point(0, 0);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(182, 60);
+            this.panel24.Size = new System.Drawing.Size(174, 60);
             this.panel24.TabIndex = 9;
             // 
             // lblTargetJHS
@@ -850,7 +830,7 @@
             this.lblTargetJHS.Location = new System.Drawing.Point(125, 25);
             this.lblTargetJHS.Name = "lblTargetJHS";
             this.lblTargetJHS.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblTargetJHS.Size = new System.Drawing.Size(57, 35);
+            this.lblTargetJHS.Size = new System.Drawing.Size(49, 35);
             this.lblTargetJHS.TabIndex = 12;
             this.lblTargetJHS.Text = "0%";
             this.lblTargetJHS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -864,7 +844,7 @@
             this.label38.Location = new System.Drawing.Point(125, 0);
             this.label38.Name = "label38";
             this.label38.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label38.Size = new System.Drawing.Size(57, 25);
+            this.label38.Size = new System.Drawing.Size(49, 25);
             this.label38.TabIndex = 13;
             this.label38.Text = "Target";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -891,9 +871,9 @@
             this.panel8.Controls.Add(this.panel12);
             this.panel8.Controls.Add(this.button7);
             this.panel8.Controls.Add(this.panel13);
-            this.panel8.Location = new System.Drawing.Point(512, 33);
+            this.panel8.Location = new System.Drawing.Point(583, 31);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(182, 204);
+            this.panel8.Size = new System.Drawing.Size(174, 204);
             this.panel8.TabIndex = 11;
             // 
             // panel10
@@ -904,7 +884,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 132);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(182, 36);
+            this.panel10.Size = new System.Drawing.Size(174, 36);
             this.panel10.TabIndex = 18;
             // 
             // lblTotalElementary
@@ -914,7 +894,7 @@
             this.lblTotalElementary.ForeColor = System.Drawing.Color.Black;
             this.lblTotalElementary.Location = new System.Drawing.Point(125, 0);
             this.lblTotalElementary.Name = "lblTotalElementary";
-            this.lblTotalElementary.Size = new System.Drawing.Size(57, 36);
+            this.lblTotalElementary.Size = new System.Drawing.Size(49, 36);
             this.lblTotalElementary.TabIndex = 14;
             this.lblTotalElementary.Text = "0";
             this.lblTotalElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -940,7 +920,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 96);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(182, 36);
+            this.panel11.Size = new System.Drawing.Size(174, 36);
             this.panel11.TabIndex = 17;
             // 
             // lblPendingElementary
@@ -951,7 +931,7 @@
             this.lblPendingElementary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblPendingElementary.Location = new System.Drawing.Point(125, 0);
             this.lblPendingElementary.Name = "lblPendingElementary";
-            this.lblPendingElementary.Size = new System.Drawing.Size(57, 36);
+            this.lblPendingElementary.Size = new System.Drawing.Size(49, 36);
             this.lblPendingElementary.TabIndex = 14;
             this.lblPendingElementary.Text = "0";
             this.lblPendingElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -978,7 +958,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 60);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(182, 36);
+            this.panel12.Size = new System.Drawing.Size(174, 36);
             this.panel12.TabIndex = 11;
             // 
             // lblEnrolledElementary
@@ -988,7 +968,7 @@
             this.lblEnrolledElementary.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblEnrolledElementary.Location = new System.Drawing.Point(125, 0);
             this.lblEnrolledElementary.Name = "lblEnrolledElementary";
-            this.lblEnrolledElementary.Size = new System.Drawing.Size(57, 36);
+            this.lblEnrolledElementary.Size = new System.Drawing.Size(49, 36);
             this.lblEnrolledElementary.TabIndex = 14;
             this.lblEnrolledElementary.Text = "0";
             this.lblEnrolledElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1016,7 +996,7 @@
             this.button7.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.button7.Location = new System.Drawing.Point(0, 168);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(182, 36);
+            this.button7.Size = new System.Drawing.Size(174, 36);
             this.button7.TabIndex = 16;
             this.button7.Text = "View in Chart";
             this.button7.UseVisualStyleBackColor = false;
@@ -1031,7 +1011,7 @@
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(0, 0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(182, 60);
+            this.panel13.Size = new System.Drawing.Size(174, 60);
             this.panel13.TabIndex = 9;
             // 
             // lblTargetElem
@@ -1042,7 +1022,7 @@
             this.lblTargetElem.Location = new System.Drawing.Point(125, 25);
             this.lblTargetElem.Name = "lblTargetElem";
             this.lblTargetElem.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblTargetElem.Size = new System.Drawing.Size(57, 35);
+            this.lblTargetElem.Size = new System.Drawing.Size(49, 35);
             this.lblTargetElem.TabIndex = 12;
             this.lblTargetElem.Text = "0%";
             this.lblTargetElem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1056,7 +1036,7 @@
             this.label27.Location = new System.Drawing.Point(125, 0);
             this.label27.Name = "label27";
             this.label27.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label27.Size = new System.Drawing.Size(57, 25);
+            this.label27.Size = new System.Drawing.Size(49, 25);
             this.label27.TabIndex = 13;
             this.label27.Text = "Target";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1083,9 +1063,9 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.button6);
             this.panel4.Controls.Add(this.panel3);
-            this.panel4.Location = new System.Drawing.Point(324, 33);
+            this.panel4.Location = new System.Drawing.Point(403, 31);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(182, 204);
+            this.panel4.Size = new System.Drawing.Size(174, 204);
             this.panel4.TabIndex = 10;
             // 
             // panel7
@@ -1096,7 +1076,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 132);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(182, 36);
+            this.panel7.Size = new System.Drawing.Size(174, 36);
             this.panel7.TabIndex = 18;
             // 
             // lblTotalPreElementary
@@ -1106,7 +1086,7 @@
             this.lblTotalPreElementary.ForeColor = System.Drawing.Color.Black;
             this.lblTotalPreElementary.Location = new System.Drawing.Point(125, 0);
             this.lblTotalPreElementary.Name = "lblTotalPreElementary";
-            this.lblTotalPreElementary.Size = new System.Drawing.Size(57, 36);
+            this.lblTotalPreElementary.Size = new System.Drawing.Size(49, 36);
             this.lblTotalPreElementary.TabIndex = 14;
             this.lblTotalPreElementary.Text = "0";
             this.lblTotalPreElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1132,7 +1112,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 96);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(182, 36);
+            this.panel6.Size = new System.Drawing.Size(174, 36);
             this.panel6.TabIndex = 17;
             // 
             // lblPendingPreElementary
@@ -1143,7 +1123,7 @@
             this.lblPendingPreElementary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblPendingPreElementary.Location = new System.Drawing.Point(125, 0);
             this.lblPendingPreElementary.Name = "lblPendingPreElementary";
-            this.lblPendingPreElementary.Size = new System.Drawing.Size(57, 36);
+            this.lblPendingPreElementary.Size = new System.Drawing.Size(49, 36);
             this.lblPendingPreElementary.TabIndex = 14;
             this.lblPendingPreElementary.Text = "0";
             this.lblPendingPreElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1170,7 +1150,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 60);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(182, 36);
+            this.panel5.Size = new System.Drawing.Size(174, 36);
             this.panel5.TabIndex = 11;
             // 
             // lblEnrolledPreElementary
@@ -1180,7 +1160,7 @@
             this.lblEnrolledPreElementary.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblEnrolledPreElementary.Location = new System.Drawing.Point(125, 0);
             this.lblEnrolledPreElementary.Name = "lblEnrolledPreElementary";
-            this.lblEnrolledPreElementary.Size = new System.Drawing.Size(57, 36);
+            this.lblEnrolledPreElementary.Size = new System.Drawing.Size(49, 36);
             this.lblEnrolledPreElementary.TabIndex = 14;
             this.lblEnrolledPreElementary.Text = "0";
             this.lblEnrolledPreElementary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1208,7 +1188,7 @@
             this.button6.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.button6.Location = new System.Drawing.Point(0, 168);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(182, 36);
+            this.button6.Size = new System.Drawing.Size(174, 36);
             this.button6.TabIndex = 16;
             this.button6.Text = "View in Chart";
             this.button6.UseVisualStyleBackColor = false;
@@ -1223,7 +1203,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(182, 60);
+            this.panel3.Size = new System.Drawing.Size(174, 60);
             this.panel3.TabIndex = 9;
             // 
             // lblTargetPreElem
@@ -1234,7 +1214,7 @@
             this.lblTargetPreElem.Location = new System.Drawing.Point(125, 25);
             this.lblTargetPreElem.Name = "lblTargetPreElem";
             this.lblTargetPreElem.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblTargetPreElem.Size = new System.Drawing.Size(57, 35);
+            this.lblTargetPreElem.Size = new System.Drawing.Size(49, 35);
             this.lblTargetPreElem.TabIndex = 12;
             this.lblTargetPreElem.Text = "0%";
             this.lblTargetPreElem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1248,7 +1228,7 @@
             this.label10.Location = new System.Drawing.Point(125, 0);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label10.Size = new System.Drawing.Size(57, 25);
+            this.label10.Size = new System.Drawing.Size(49, 25);
             this.label10.TabIndex = 13;
             this.label10.Text = "Target";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1267,6 +1247,113 @@
             this.label7.Text = "PRE ELEMENTARY";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel9.Controls.Add(this.lblTotalEnrolled);
+            this.panel9.Controls.Add(this.label5);
+            this.panel9.Location = new System.Drawing.Point(247, 155);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(144, 36);
+            this.panel9.TabIndex = 17;
+            // 
+            // lblTotalEnrolled
+            // 
+            this.lblTotalEnrolled.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTotalEnrolled.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalEnrolled.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEnrolled.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalEnrolled.Location = new System.Drawing.Point(83, 0);
+            this.lblTotalEnrolled.Name = "lblTotalEnrolled";
+            this.lblTotalEnrolled.Size = new System.Drawing.Size(61, 36);
+            this.lblTotalEnrolled.TabIndex = 14;
+            this.lblTotalEnrolled.Text = "0";
+            this.lblTotalEnrolled.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label5.Size = new System.Drawing.Size(83, 36);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Enrolled";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.lblTotalPending);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(247, 113);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(144, 36);
+            this.panel2.TabIndex = 18;
+            // 
+            // lblTotalPending
+            // 
+            this.lblTotalPending.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalPending.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPending.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalPending.Location = new System.Drawing.Point(83, 0);
+            this.lblTotalPending.Name = "lblTotalPending";
+            this.lblTotalPending.Size = new System.Drawing.Size(61, 36);
+            this.lblTotalPending.TabIndex = 14;
+            this.lblTotalPending.Text = "0";
+            this.lblTotalPending.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label3.Size = new System.Drawing.Size(83, 36);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Pending";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel16.Controls.Add(this.lblTotalTarget);
+            this.panel16.Controls.Add(this.label8);
+            this.panel16.Location = new System.Drawing.Point(247, 71);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(144, 36);
+            this.panel16.TabIndex = 11;
+            // 
+            // lblTotalTarget
+            // 
+            this.lblTotalTarget.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalTarget.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalTarget.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblTotalTarget.Location = new System.Drawing.Point(83, 0);
+            this.lblTotalTarget.Name = "lblTotalTarget";
+            this.lblTotalTarget.Size = new System.Drawing.Size(61, 36);
+            this.lblTotalTarget.TabIndex = 14;
+            this.lblTotalTarget.Text = "0";
+            this.lblTotalTarget.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Name = "label8";
+            this.label8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label8.Size = new System.Drawing.Size(83, 36);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Target";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // UC_DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1275,7 +1362,7 @@
             this.Controls.Add(this.panelBreakdown);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_DashBoard";
-            this.Size = new System.Drawing.Size(1346, 608);
+            this.Size = new System.Drawing.Size(1345, 608);
             this.Load += new System.EventHandler(this.UC_DashBoard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panelBreakdown.ResumeLayout(false);
@@ -1307,6 +1394,9 @@
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1394,8 +1484,14 @@
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartEnrolled;
+        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label lblTotalEnrolled;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblTotalPending;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label lblTotalTarget;
+        private System.Windows.Forms.Label label8;
     }
 }

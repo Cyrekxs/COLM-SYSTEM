@@ -333,7 +333,7 @@
             this.emailStudentToolStripMenuItem.Name = "emailStudentToolStripMenuItem";
             this.emailStudentToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.emailStudentToolStripMenuItem.Text = "Email Student";
-            this.emailStudentToolStripMenuItem.Click += new System.EventHandler(this.emailStudentToolStripMenuItem_Click);
+            this.emailStudentToolStripMenuItem.Click += new System.EventHandler(this.emailStudentToolStripMenuItem_ClickAsync);
             // 
             // printAssessmentToolStripMenuItem
             // 

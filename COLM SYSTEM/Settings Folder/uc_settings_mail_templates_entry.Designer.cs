@@ -292,19 +292,21 @@
             this.showAttachmentToolStripMenuItem,
             this.removeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(170, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             // 
             // showAttachmentToolStripMenuItem
             // 
+            this.showAttachmentToolStripMenuItem.ForeColor = System.Drawing.Color.RoyalBlue;
             this.showAttachmentToolStripMenuItem.Name = "showAttachmentToolStripMenuItem";
-            this.showAttachmentToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.showAttachmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showAttachmentToolStripMenuItem.Text = "Show Attachment";
             this.showAttachmentToolStripMenuItem.Click += new System.EventHandler(this.showAttachmentToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
+            this.removeToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 

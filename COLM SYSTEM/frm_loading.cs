@@ -45,8 +45,6 @@ namespace SEMS
             task3 = t3;
         }
 
-
-
         private async void frm_loading_Load(object sender, EventArgs e)
         {
             if (TaskNum == 1)

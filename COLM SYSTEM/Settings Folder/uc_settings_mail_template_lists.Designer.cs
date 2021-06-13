@@ -29,18 +29,16 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.button1 = new System.Windows.Forms.Button();
             this.clmTemplateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTemplateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTemplateSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmMessage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAttachment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +61,6 @@
             this.clmTemplateName,
             this.clmTemplateSubject,
             this.clmMessage,
-            this.clmAttachment,
             this.clmAction});
             this.dataGridView1.Location = new System.Drawing.Point(17, 56);
             this.dataGridView1.Name = "dataGridView1";
@@ -96,6 +93,22 @@
             this.label4.TabIndex = 37;
             this.label4.Text = "List of Message Templates";
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(729, 11);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(138, 30);
+            this.button1.TabIndex = 58;
+            this.button1.Text = "(+) NEW TEMPLATE";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // clmTemplateID
             // 
             this.clmTemplateID.HeaderText = "TemplateID";
@@ -124,14 +137,6 @@
             this.clmMessage.Name = "clmMessage";
             this.clmMessage.ReadOnly = true;
             // 
-            // clmAttachment
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmAttachment.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmAttachment.HeaderText = "Attachments";
-            this.clmAttachment.Name = "clmAttachment";
-            this.clmAttachment.ReadOnly = true;
-            // 
             // clmAction
             // 
             this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -143,22 +148,6 @@
             this.clmAction.Text = "View";
             this.clmAction.UseColumnTextForButtonValue = true;
             this.clmAction.Width = 66;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(729, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 30);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "(+) NEW TEMPLATE";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // uc_settings_mail_template_lists
             // 
@@ -181,13 +170,12 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTemplateID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTemplateName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTemplateSubject;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmMessage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmAttachment;
         private System.Windows.Forms.DataGridViewButtonColumn clmAction;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button button1;
     }
 }

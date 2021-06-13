@@ -1,5 +1,4 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
-using SEMS;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,27 +13,20 @@ namespace COLM_SYSTEM.Section_Folder
         public frm_section_lists()
         {
             InitializeComponent();
-            LoadSections();
         }
 
-        private void LoadSections()
+        private async Task LoadSections()
         {
+            List<Section> sections = await Task.Run(
+                () =>
+                {
+                    return Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+                });
 
-            Task<List<Section>> task_getsections = new Task<List<Section>>(() => Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester()));
-            task_getsections.Start();
-            List<Section> sections = task_getsections.Result; // Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
-
-            Task<List<YearLevel>> task_getyearlevels = new Task<List<YearLevel>>(YearLevel.GetYearLevels);
-            task_getyearlevels.Start();
-            List<YearLevel> yearLevels = task_getyearlevels.Result;
+            List<YearLevel> yearLevels = await Task.Run(() => { return YearLevel.GetYearLevels(); });
 
 
-            Task task_display = new Task(() => DisplaySections(sections, yearLevels));
-            task_display.Start();
-
-            frm_loading frm = new frm_loading(task_getsections, task_getyearlevels, task_display);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
+            DisplaySections(sections,yearLevels);
         }
 
         private void DisplaySections(List<Section> sections, List<YearLevel> yearLevels)
@@ -52,15 +44,15 @@ namespace COLM_SYSTEM.Section_Folder
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             frm_section_entry frm = new frm_section_entry();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
-            LoadSections();
+            await LoadSections();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == clmSchedule.Index)
             {
@@ -69,8 +61,13 @@ namespace COLM_SYSTEM.Section_Folder
                 frm_section_schedule_entry frm = new frm_section_schedule_entry(section);
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-                LoadSections();
+                await LoadSections();
             }
+        }
+
+        private async void frm_section_lists_Load(object sender, EventArgs e)
+        {
+            await LoadSections();
         }
     }
 }

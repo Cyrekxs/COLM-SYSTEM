@@ -38,6 +38,10 @@
             this.btnSendMail = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cmbMessageTemplates = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.txtYearLevel = new System.Windows.Forms.TextBox();
@@ -50,15 +54,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.clmAttach = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clmAttachmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAttachment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 15);
+            this.label1.Location = new System.Drawing.Point(89, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(22, 15);
             this.label1.TabIndex = 0;
@@ -67,22 +76,22 @@
             // txtTo
             // 
             this.txtTo.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtTo.Location = new System.Drawing.Point(12, 33);
+            this.txtTo.Location = new System.Drawing.Point(119, 44);
             this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(642, 23);
+            this.txtTo.Size = new System.Drawing.Size(535, 23);
             this.txtTo.TabIndex = 1;
             // 
             // txtSubject
             // 
-            this.txtSubject.Location = new System.Drawing.Point(12, 77);
+            this.txtSubject.Location = new System.Drawing.Point(119, 73);
             this.txtSubject.Name = "txtSubject";
-            this.txtSubject.Size = new System.Drawing.Size(642, 23);
+            this.txtSubject.Size = new System.Drawing.Size(535, 23);
             this.txtSubject.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 59);
+            this.label2.Location = new System.Drawing.Point(61, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 15);
             this.label2.TabIndex = 2;
@@ -90,17 +99,17 @@
             // 
             // txtBody
             // 
-            this.txtBody.Location = new System.Drawing.Point(12, 121);
+            this.txtBody.Location = new System.Drawing.Point(12, 128);
             this.txtBody.Multiline = true;
             this.txtBody.Name = "txtBody";
             this.txtBody.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBody.Size = new System.Drawing.Size(642, 284);
+            this.txtBody.Size = new System.Drawing.Size(642, 199);
             this.txtBody.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 103);
+            this.label3.Location = new System.Drawing.Point(9, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 4;
@@ -121,7 +130,7 @@
             this.btnSendMail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSendMail.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSendMail.ForeColor = System.Drawing.Color.White;
-            this.btnSendMail.Location = new System.Drawing.Point(572, 547);
+            this.btnSendMail.Location = new System.Drawing.Point(572, 613);
             this.btnSendMail.Name = "btnSendMail";
             this.btnSendMail.Size = new System.Drawing.Size(108, 36);
             this.btnSendMail.TabIndex = 20;
@@ -136,7 +145,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Firebrick;
-            this.btnCancel.Location = new System.Drawing.Point(458, 547);
+            this.btnCancel.Location = new System.Drawing.Point(458, 613);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 36);
             this.btnCancel.TabIndex = 21;
@@ -147,6 +156,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.cmbMessageTemplates);
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtTo);
             this.panel1.Controls.Add(this.label2);
@@ -155,8 +168,63 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(14, 120);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(666, 421);
+            this.panel1.Size = new System.Drawing.Size(666, 487);
             this.panel1.TabIndex = 22;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmAttach,
+            this.clmAttachmentID,
+            this.clmAttachment,
+            this.clmType,
+            this.clmAction});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 358);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(642, 114);
+            this.dataGridView1.TabIndex = 31;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(12, 333);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(93, 19);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Attach C.O.R";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // cmbMessageTemplates
+            // 
+            this.cmbMessageTemplates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMessageTemplates.FormattingEnabled = true;
+            this.cmbMessageTemplates.Location = new System.Drawing.Point(119, 15);
+            this.cmbMessageTemplates.Name = "cmbMessageTemplates";
+            this.cmbMessageTemplates.Size = new System.Drawing.Size(535, 23);
+            this.cmbMessageTemplates.TabIndex = 7;
+            this.cmbMessageTemplates.SelectedIndexChanged += new System.EventHandler(this.cmbMessageTemplates_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(15, 18);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 15);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Select Template:";
             // 
             // panel2
             // 
@@ -276,21 +344,52 @@
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // reportViewer2
+            // clmAttach
             // 
-            this.reportViewer2.Location = new System.Drawing.Point(725, 241);
-            this.reportViewer2.Name = "reportViewer2";
-            this.reportViewer2.ServerReport.BearerToken = null;
-            this.reportViewer2.Size = new System.Drawing.Size(459, 187);
-            this.reportViewer2.TabIndex = 26;
+            this.clmAttach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmAttach.HeaderText = "Attach";
+            this.clmAttach.Name = "clmAttach";
+            this.clmAttach.Width = 48;
+            // 
+            // clmAttachmentID
+            // 
+            this.clmAttachmentID.HeaderText = "AttachmentID";
+            this.clmAttachmentID.Name = "clmAttachmentID";
+            this.clmAttachmentID.ReadOnly = true;
+            this.clmAttachmentID.Visible = false;
+            // 
+            // clmAttachment
+            // 
+            this.clmAttachment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmAttachment.HeaderText = "Attachment";
+            this.clmAttachment.Name = "clmAttachment";
+            this.clmAttachment.ReadOnly = true;
+            // 
+            // clmType
+            // 
+            this.clmType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmType.HeaderText = "Type";
+            this.clmType.Name = "clmType";
+            this.clmType.ReadOnly = true;
+            this.clmType.Width = 56;
+            // 
+            // clmAction
+            // 
+            this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmAction.HeaderText = "Action";
+            this.clmAction.Name = "clmAction";
+            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmAction.Text = "View";
+            this.clmAction.UseColumnTextForButtonValue = true;
+            this.clmAction.Width = 66;
             // 
             // frm_assessment_email_sender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 603);
+            this.ClientSize = new System.Drawing.Size(699, 661);
             this.ControlBox = false;
-            this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
@@ -303,10 +402,11 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_assessment_email_sender";
-            this.Text = "ASSESSMENT EMAIL SENDER";
+            this.Text = "EMAIL SENDER";
             this.Load += new System.EventHandler(this.frm_assessment_email_sender_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -338,6 +438,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtEducationlevel;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        public Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbMessageTemplates;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmAttach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAttachmentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAttachment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmType;
+        private System.Windows.Forms.DataGridViewButtonColumn clmAction;
     }
 }

@@ -28,6 +28,7 @@ namespace SEMS.Settings_Folder
         public uc_settings_mail_templates_entry(MessageTemplate template)
         {
             this.template = template;
+            template.Attachments = MessageTemplate.GetMessageAttachments(template.TemplateID);
             DisplayTemplate();
         }
 
@@ -66,18 +67,20 @@ namespace SEMS.Settings_Folder
             List<MessageAttachment> attachments = new List<MessageAttachment>();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                Image img = Image.FromFile(row.Tag.ToString());
-                MessageAttachment attachment = new MessageAttachment()
+                if (Convert.ToInt16(row.Cells["clmAttachmentID"].Value) == 0)
                 {
-                    Name = row.Cells["clmAttachment"].Value.ToString(),
-                    FileType = row.Cells["clmType"].Value.ToString(),
-                    Attachement = Utilties.ConvertImageToByte(img),
-                };
-
-                attachments.Add(attachment);
+                    Image img = Image.FromFile(row.Tag.ToString());
+                    MessageAttachment attachment = new MessageAttachment()
+                    {
+                        Name = row.Cells["clmAttachment"].Value.ToString(),
+                        FileType = row.Cells["clmType"].Value.ToString(),
+                        Attachement = Utilties.ConvertImageToByte(img),
+                    };
+                    attachments.Add(attachment);
+                }
             }
 
-            MessageTemplate template = new MessageTemplate();
+
             template.TemplateName = txtTemplateName.Text;
             template.TemplateSubject = txtTemplateSubject.Text;
             template.TemplateMessage = txtTemplateBody.Text;
@@ -89,7 +92,11 @@ namespace SEMS.Settings_Folder
             if (result > 0)
             {
                 MessageBox.Show("Template has been successfully saved!", "Message Template", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var parent = Parent as Form;
+                parent.Close();
+                parent.Dispose();
             }
+
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -124,9 +131,9 @@ namespace SEMS.Settings_Folder
         {
             if (MessageBox.Show("Are you sure you want to remove this attachment?", "Remove Attachment", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                int result = MessageTemplate.DeleteAttachment(Convert.ToInt16( dataGridView1.Rows[SelectedRow].Cells["clmAttachmentID"].Value));
                 dataGridView1.Rows.Remove(dataGridView1.Rows[SelectedRow]);
             }
-
         }
 
         private void showAttachmentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -134,7 +141,7 @@ namespace SEMS.Settings_Folder
             Image img;
             try
             {
-                 img = Utilties.ConvertByteToImage((byte[])dataGridView1.Rows[SelectedRow].Tag);
+                img = Utilties.ConvertByteToImage((byte[])dataGridView1.Rows[SelectedRow].Tag);
             }
             catch (Exception)
             {

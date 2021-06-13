@@ -17,16 +17,17 @@ namespace SEMS.Settings_Folder
         List<MessageTemplate> templates = new List<MessageTemplate>();
         public uc_settings_mail_template_lists()
         {
-            InitializeComponent();
-            templates = MessageTemplate.GetTemplates();
+            InitializeComponent();            
             LoadTemplates();
         }
 
         private void LoadTemplates()
         {
+            templates = MessageTemplate.GetTemplatesSummary();
+            dataGridView1.Rows.Clear();
             foreach (var item in templates)
             {
-                dataGridView1.Rows.Add(item.TemplateID, item.TemplateName, item.TemplateSubject, item.TemplateMessage, item.Attachments.Count.ToString());
+                dataGridView1.Rows.Add(item.TemplateID, item.TemplateName, item.TemplateSubject, item.TemplateMessage);
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
             }
         }
@@ -46,6 +47,7 @@ namespace SEMS.Settings_Folder
                 frm_settings frm = new frm_settings(new uc_settings_mail_templates_entry(template));
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
+                LoadTemplates();
             }
         }
     }

@@ -17,8 +17,6 @@ namespace COLM_SYSTEM_LIBRARY.model.General_Settings_Folder
         public string TemplateMessage { get; set; }
         public List<MessageAttachment> Attachments { get; set; } = new List<MessageAttachment>();
 
-
-
         public static int SaveMessageTemplate(MessageTemplate template)
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
@@ -26,30 +24,46 @@ namespace COLM_SYSTEM_LIBRARY.model.General_Settings_Folder
                 conn.Open();
                 using (SqlTransaction t = conn.BeginTransaction())
                 {
-                    using (SqlCommand comm = new SqlCommand("INSERT INTO settings.email_message_templates VALUES (@TemplateName,@TemplateSubject,@TemplateMessage)", conn, t))
+                    string query = string.Empty;
+
+                    if (template.TemplateID == 0)
+                        query = "INSERT INTO settings.email_message_templates VALUES (@TemplateName,@TemplateSubject,@TemplateMessage)";
+                    else
+                        query = "UPDATE settings.email_message_templates SET TemplateName = @TemplateName, TemplateSubject = @TemplateSubject, TemplateMessage = @TemplateMessage WHERE TemplateID = @TemplateID";
+
+                    using (SqlCommand comm = new SqlCommand(query, conn, t))
                     {
+                        comm.Parameters.AddWithValue("@TemplateID", template.TemplateID);
                         comm.Parameters.AddWithValue("@TemplateName", template.TemplateName);
                         comm.Parameters.AddWithValue("@TemplateSubject", template.TemplateSubject);
                         comm.Parameters.AddWithValue("@TemplateMessage", template.TemplateMessage);
                         comm.ExecuteNonQuery();
                     }
 
-                    using (SqlCommand comm = new SqlCommand("SELECT TemplateID FROM settings.email_message_templates (NOLOCK) WHERE TemplateName = @TemplateName", conn, t))
+                    if (template.TemplateID == 0)
                     {
-                        comm.Parameters.AddWithValue("@TemplateName", template.TemplateName);
-                        template.TemplateID = Convert.ToInt32(comm.ExecuteScalar());
+                        using (SqlCommand comm = new SqlCommand("SELECT TemplateID FROM settings.email_message_templates (NOLOCK) WHERE TemplateName = @TemplateName", conn, t))
+                        {
+                            comm.Parameters.AddWithValue("@TemplateName", template.TemplateName);
+                            template.TemplateID = Convert.ToInt32(comm.ExecuteScalar());
+                        }
                     }
 
+
+                    //loop on each attachments and save attachment if the attachment id is 0
                     foreach (var item in template.Attachments)
                     {
-                        using (SqlCommand comm = new SqlCommand("INSERT INTO settings.email_message_template_attachments VALUES (@TemplateID,@Name,@FileType,@Attachment)", conn, t))
+                        if (item.AttachmentID == 0)
                         {
-                            comm.Parameters.AddWithValue("@TemplateID", template.TemplateID);
-                            comm.Parameters.AddWithValue("@Name", item.Name);
-                            comm.Parameters.AddWithValue("@FileType", item.FileType);
-                            comm.Parameters.Add("@Attachment",SqlDbType.Image);
-                            comm.Parameters["@Attachment"].Value = item.Attachement;
-                            comm.ExecuteNonQuery();
+                            using (SqlCommand comm = new SqlCommand("INSERT INTO settings.email_message_template_attachments VALUES (@TemplateID,@Name,@FileType,@Attachment)", conn, t))
+                            {
+                                comm.Parameters.AddWithValue("@TemplateID", template.TemplateID);
+                                comm.Parameters.AddWithValue("@Name", item.Name);
+                                comm.Parameters.AddWithValue("@FileType", item.FileType);
+                                comm.Parameters.Add("@Attachment", SqlDbType.Image);
+                                comm.Parameters["@Attachment"].Value = item.Attachement;
+                                comm.ExecuteNonQuery();
+                            }
                         }
                     }
 
@@ -59,7 +73,7 @@ namespace COLM_SYSTEM_LIBRARY.model.General_Settings_Folder
             }
         }
 
-        public static List<MessageTemplate> GetTemplates()
+        public static List<MessageTemplate> GetTemplatesSummary()
         {
             List<MessageTemplate> templates = new List<MessageTemplate>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
@@ -77,31 +91,10 @@ namespace COLM_SYSTEM_LIBRARY.model.General_Settings_Folder
                             template.TemplateName = Convert.ToString(reader["TemplateName"]);
                             template.TemplateSubject = Convert.ToString(reader["TemplateSubject"]);
                             template.TemplateMessage = Convert.ToString(reader["TemplateMessage"]);
+                            templates.Add(template);
                         }
                     }
                 }
-
-                //get attachemnts;
-                List<MessageAttachment> attachments = new List<MessageAttachment>();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.email_message_template_attachments WHERE TemplateID = @TemplateID", conn))
-                {
-                    comm.Parameters.AddWithValue("@TemplateID",template.TemplateID);
-                    using (SqlDataReader reader = comm.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            attachments.Add(new MessageAttachment()
-                            {
-                                AttachmentID = Convert.ToInt32(reader["AttachmentID"]),
-                                Name = Convert.ToString(reader["Name"]),
-                                FileType = Convert.ToString(reader["FileType"]),
-                                Attachement = (byte[])reader["Attachment"]
-                            });
-                        }
-                    }
-                }
-                template.Attachments = attachments;
-                templates.Add(template);
             }
             return templates;
         }
@@ -153,6 +146,47 @@ namespace COLM_SYSTEM_LIBRARY.model.General_Settings_Folder
             return template;
         }
 
-        
+        public static List<MessageAttachment> GetMessageAttachments(int TemplateID)
+        {
+            //get attachemnts;
+            List<MessageAttachment> attachments = new List<MessageAttachment>();
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.email_message_template_attachments WHERE TemplateID = @TemplateID", conn))
+                {
+                    comm.Parameters.AddWithValue("@TemplateID", TemplateID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            attachments.Add(new MessageAttachment()
+                            {
+                                AttachmentID = Convert.ToInt32(reader["AttachmentID"]),
+                                Name = Convert.ToString(reader["Name"]),
+                                FileType = Convert.ToString(reader["FileType"]),
+                                Attachement = (byte[])reader["Attachment"]
+                            });
+                        }
+                    }
+
+                }
+            }
+
+            return attachments;
+        }
+
+        public static int DeleteAttachment(int AttachmentID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("DELETE FROM settings.email_message_template_attachments WHERE AttachmentID = @AttachmentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@AttachmentID", AttachmentID);
+                    return comm.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

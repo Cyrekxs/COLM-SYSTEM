@@ -80,10 +80,13 @@
             this.schoolInformationSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assessmentReportSettingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.emailSettingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.emailerAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.messageTemplatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.targetStudentSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginWallpaperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miReports = new System.Windows.Forms.ToolStripMenuItem();
             this.miCollectionReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.cLOSEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subjectsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.curriculumToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.facultiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,7 +109,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ApplicationsTimer = new System.Windows.Forms.Timer(this.components);
-            this.cLOSEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -467,7 +469,7 @@
             // 
             this.miStudentApplicants.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentApplicants.Name = "miStudentApplicants";
-            this.miStudentApplicants.Size = new System.Drawing.Size(180, 22);
+            this.miStudentApplicants.Size = new System.Drawing.Size(173, 22);
             this.miStudentApplicants.Text = "Online Applicants";
             this.miStudentApplicants.Click += new System.EventHandler(this.onlineApplicantsToolStripMenuItem_Click_1);
             // 
@@ -475,7 +477,7 @@
             // 
             this.miStudentInformation.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentInformation.Name = "miStudentInformation";
-            this.miStudentInformation.Size = new System.Drawing.Size(180, 22);
+            this.miStudentInformation.Size = new System.Drawing.Size(173, 22);
             this.miStudentInformation.Text = "Information";
             this.miStudentInformation.Click += new System.EventHandler(this.informationToolStripMenuItem_Click_1);
             // 
@@ -483,7 +485,7 @@
             // 
             this.miStudentRegistration.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentRegistration.Name = "miStudentRegistration";
-            this.miStudentRegistration.Size = new System.Drawing.Size(180, 22);
+            this.miStudentRegistration.Size = new System.Drawing.Size(173, 22);
             this.miStudentRegistration.Text = "Registration";
             this.miStudentRegistration.Click += new System.EventHandler(this.registrationToolStripMenuItem_Click_1);
             // 
@@ -491,7 +493,7 @@
             // 
             this.miStudentAssessment.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentAssessment.Name = "miStudentAssessment";
-            this.miStudentAssessment.Size = new System.Drawing.Size(180, 22);
+            this.miStudentAssessment.Size = new System.Drawing.Size(173, 22);
             this.miStudentAssessment.Text = "Assessment";
             this.miStudentAssessment.Click += new System.EventHandler(this.assessmentToolStripMenuItem_Click_1);
             // 
@@ -499,7 +501,7 @@
             // 
             this.miStudentPayment.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentPayment.Name = "miStudentPayment";
-            this.miStudentPayment.Size = new System.Drawing.Size(180, 22);
+            this.miStudentPayment.Size = new System.Drawing.Size(173, 22);
             this.miStudentPayment.Text = "Payment";
             this.miStudentPayment.Click += new System.EventHandler(this.paymentToolStripMenuItem_Click_1);
             // 
@@ -620,7 +622,7 @@
             // usersToolStripMenuItem1
             // 
             this.usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
+            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.usersToolStripMenuItem1.Text = "Users";
             this.usersToolStripMenuItem1.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
             // 
@@ -633,7 +635,7 @@
             this.targetStudentSettingsToolStripMenuItem,
             this.loginWallpaperToolStripMenuItem});
             this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
-            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
+            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
             // 
             // schoolInformationSettingsToolStripMenuItem
@@ -652,10 +654,26 @@
             // 
             // emailSettingsToolStripMenuItem1
             // 
+            this.emailSettingsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.emailerAccountToolStripMenuItem,
+            this.messageTemplatesToolStripMenuItem});
             this.emailSettingsToolStripMenuItem1.Name = "emailSettingsToolStripMenuItem1";
             this.emailSettingsToolStripMenuItem1.Size = new System.Drawing.Size(224, 22);
             this.emailSettingsToolStripMenuItem1.Text = "Email Settings";
-            this.emailSettingsToolStripMenuItem1.Click += new System.EventHandler(this.emailSettingsToolStripMenuItem1_Click);
+            // 
+            // emailerAccountToolStripMenuItem
+            // 
+            this.emailerAccountToolStripMenuItem.Name = "emailerAccountToolStripMenuItem";
+            this.emailerAccountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.emailerAccountToolStripMenuItem.Text = "Emailer Account";
+            this.emailerAccountToolStripMenuItem.Click += new System.EventHandler(this.emailerAccountToolStripMenuItem_Click);
+            // 
+            // messageTemplatesToolStripMenuItem
+            // 
+            this.messageTemplatesToolStripMenuItem.Name = "messageTemplatesToolStripMenuItem";
+            this.messageTemplatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.messageTemplatesToolStripMenuItem.Text = "Message Templates";
+            this.messageTemplatesToolStripMenuItem.Click += new System.EventHandler(this.messageTemplatesToolStripMenuItem_Click);
             // 
             // targetStudentSettingsToolStripMenuItem
             // 
@@ -685,9 +703,20 @@
             // 
             this.miCollectionReport.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miCollectionReport.Name = "miCollectionReport";
-            this.miCollectionReport.Size = new System.Drawing.Size(180, 22);
+            this.miCollectionReport.Size = new System.Drawing.Size(168, 22);
             this.miCollectionReport.Text = "Collection Report";
             this.miCollectionReport.Click += new System.EventHandler(this.collectionReportToolStripMenuItem_Click_1);
+            // 
+            // cLOSEToolStripMenuItem
+            // 
+            this.cLOSEToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.cLOSEToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cLOSEToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
+            this.cLOSEToolStripMenuItem.Name = "cLOSEToolStripMenuItem";
+            this.cLOSEToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4, 0, 20, 0);
+            this.cLOSEToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.cLOSEToolStripMenuItem.Text = "(X) CLOSE";
+            this.cLOSEToolStripMenuItem.Click += new System.EventHandler(this.cLOSEToolStripMenuItem_Click);
             // 
             // subjectsToolStripMenuItem1
             // 
@@ -823,17 +852,6 @@
             this.ApplicationsTimer.Interval = 120000;
             this.ApplicationsTimer.Tick += new System.EventHandler(this.ApplicationsTimer_Tick);
             // 
-            // cLOSEToolStripMenuItem
-            // 
-            this.cLOSEToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.cLOSEToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cLOSEToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
-            this.cLOSEToolStripMenuItem.Name = "cLOSEToolStripMenuItem";
-            this.cLOSEToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4, 0, 20, 0);
-            this.cLOSEToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
-            this.cLOSEToolStripMenuItem.Text = "(X) CLOSE";
-            this.cLOSEToolStripMenuItem.Click += new System.EventHandler(this.cLOSEToolStripMenuItem_Click);
-            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -943,5 +961,7 @@
         private System.Windows.Forms.ToolStripMenuItem loginWallpaperToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miCollectionReport;
         private System.Windows.Forms.ToolStripMenuItem cLOSEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem emailerAccountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem messageTemplatesToolStripMenuItem;
     }
 }

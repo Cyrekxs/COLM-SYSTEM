@@ -91,9 +91,9 @@ namespace COLM_SYSTEM
             TargetPreElem = ((EnrolledPreElem + PendingPreElem) / TargetPreElem) * 100;
             TargetElem = ((EnrolledElem + PendingElem) / TargetElem) * 100;
             TargetJHS = ((EnrolledJHS + PendingJHS) / TargetJHS) * 100;
-            TargetSHS = ((EnrolledSHS + PendingSHS) / TargetSHS  ) * 100;
-            TargetCollege = ((EnrolledCollege + PendingCollege) / TargetCollege ) * 100;
-            TargetTotal = ((TotalEnrolled + TotalPending) / TargetTotal) * 100;
+            TargetSHS = ((EnrolledSHS + PendingSHS) / TargetSHS) * 100;
+            TargetCollege = ((EnrolledCollege + PendingCollege) / TargetCollege) * 100;
+            //((TotalEnrolled + TotalPending) / TargetTotal) * 100;
 
 
             //display enrolled charts
@@ -130,35 +130,31 @@ namespace COLM_SYSTEM
 
 
 
-            double TotalStudents = TotalEnrolled + TotalPending;
+            //double TotalStudents = TotalEnrolled + TotalPending;
             lblTotalEnrolled.Text = TotalEnrolled.ToString();
             lblTotalPending.Text = TotalPending.ToString();
-            double TotalPendingPercent = (TotalPending / TotalStudents) * 100;
-            double TotalEnrolledPercent = (TotalEnrolled / TotalStudents) * 100;
+            lblTotalTarget.Text = TargetTotal.ToString();
+            double TotalPendingPercent = (TotalPending / TargetTotal) * 100;
+            double TotalEnrolledPercent = (TotalEnrolled / TargetTotal) * 100;
+            double TotalTargetPercent = 100 - (TotalPendingPercent + TotalEnrolledPercent);
 
-            if (TotalPending == 0 && TotalEnrolled == 0)
-            {
-                chartEnrolled.Series["Series1"].Points.AddXY("No Enrolled", 1);
-                int chartpoint = chartEnrolled.Series["Series1"].Points.Count - 1;
-                chartEnrolled.Series["Series1"].Points[chartpoint].LabelForeColor = Color.White;
-                chartEnrolled.Series["Series1"].Points[chartpoint].Color = Color.Gray;
-            }
+            //target
+            chartEnrolled.Series["s1"].Points.AddXY(string.Concat("Target", Environment.NewLine, TotalTargetPercent.ToString("0.##"), "%"), TargetTotal / 3);
+            int chartpoint = chartEnrolled.Series["s1"].Points.Count - 1;
+            chartEnrolled.Series["s1"].Points[chartpoint].LabelForeColor = Color.Black;
+            chartEnrolled.Series["s1"].Points[chartpoint].Color = Color.Gainsboro;
 
-            if (TotalPending > 0)
-            {
-                chartEnrolled.Series["Series1"].Points.AddXY(string.Concat("Pending",Environment.NewLine,TotalPendingPercent.ToString("0.##"),"%"), TotalPending.ToString());
-                int chartpoint = chartEnrolled.Series["Series1"].Points.Count - 1;
-                chartEnrolled.Series["Series1"].Points[chartpoint].LabelForeColor = Color.White;
-                chartEnrolled.Series["Series1"].Points[chartpoint].Color = Color.Gray;
-            }
+            //pending
+            chartEnrolled.Series["s1"].Points.AddXY(string.Concat("Pending", Environment.NewLine, TotalPendingPercent.ToString("0.##"), "%"), TotalPending);
+            chartpoint = chartEnrolled.Series["s1"].Points.Count - 1;
+            chartEnrolled.Series["s1"].Points[chartpoint].LabelForeColor = Color.White;
+            chartEnrolled.Series["s1"].Points[chartpoint].Color = Color.Gray;
 
-            if (TotalEnrolled > 0)
-            {
-                chartEnrolled.Series["Series1"].Points.AddXY(string.Concat("Enrolled",Environment.NewLine,TotalEnrolledPercent.ToString("0.##"),"%"), TotalEnrolled.ToString());
-                int chartpoint = chartEnrolled.Series["Series1"].Points.Count - 1;
-                chartEnrolled.Series["Series1"].Points[chartpoint].LabelForeColor = Color.White;
-                chartEnrolled.Series["Series1"].Points[chartpoint].Color = Color.DarkSlateGray;
-            }
+            //enrolled
+            chartEnrolled.Series["s1"].Points.AddXY(string.Concat("Enrolled", Environment.NewLine, TotalEnrolledPercent.ToString("0.##"), "%"), TotalEnrolled);
+            chartpoint = chartEnrolled.Series["s1"].Points.Count - 1;
+            chartEnrolled.Series["s1"].Points[chartpoint].LabelForeColor = Color.White;
+            chartEnrolled.Series["s1"].Points[chartpoint].Color = Color.DarkSlateGray;
         }
 
         private void LoadChartBreakdown(string EducationLevel)
@@ -166,6 +162,7 @@ namespace COLM_SYSTEM
             try
             {
                 List<Enrollees> enrollees = Enrollees.GetEnrollees();
+
                 enrollees = enrollees.Where(model => model.EducationLevel.ToLower() == EducationLevel.ToLower()).ToList();
 
                 List<string> CourseStrands = enrollees.Select(r => r.CourseStrand).Distinct().ToList();
@@ -187,9 +184,9 @@ namespace COLM_SYSTEM
                         if (cs.ToLower() == "junior high" || cs.ToLower() == "elementary" || cs.ToLower() == "pre elementary")
                             pname = yl;
                         else
-                            pname = string.Concat(cs, " ", yl.Replace("Year",""));
+                            pname = string.Concat(cs, " ", yl.Replace("Year", ""));
 
-                        
+
 
                         chart1.Series["Enrolled"].Points.AddXY(pname, EnrolledCount);
                         chart1.Series["Enrolled"].Points[s1].Tag = cs;
@@ -200,6 +197,7 @@ namespace COLM_SYSTEM
                         s1++;
                     }
                 }
+
 
                 DisplayChartBreakDownNotifier();
             }

@@ -24,7 +24,7 @@ namespace COLM_SYSTEM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_settings(new uc_settings_mail_template_lists()));
+            Application.Run(new frm_login());
             //Application.Run(new frm_enrollees_masterlist("College"));
         }
     }
