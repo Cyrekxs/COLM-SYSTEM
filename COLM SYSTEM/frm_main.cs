@@ -157,7 +157,14 @@ namespace COLM_SYSTEM
 
         private async Task<string> CheckNotifications()
         {
-            return await Task.Run(() => StudentInfoOnline.GetOnlineApplications().Count.ToString());
+            try
+            {
+                return await Task.Run(() => StudentInfoOnline.GetOnlineApplications().Count.ToString());
+            }
+            catch (Exception)
+            {
+                return await Task.Run(() => { return 0.ToString(); });
+            }
         }
 
         private async void ApplicationsTimer_Tick(object sender, EventArgs e)
@@ -330,6 +337,13 @@ namespace COLM_SYSTEM
         private void messageTemplatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_settings frm = new frm_settings(new uc_settings_mail_template_lists());
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void studentRequirementsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_settings frm = new frm_settings(new uc_requirement_lists());
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

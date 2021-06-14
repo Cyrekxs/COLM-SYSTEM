@@ -7,14 +7,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using COLM_SYSTEM_LIBRARY.model.Student_Folder;
 
 namespace SEMS.Custom_Controls
 {
     public partial class uc_student : UserControl
     {
-        public uc_student()
+
+        public string LRN { get; set; }
+        public string Lastname { get; set; }
+        public string Firstname { get; set; }
+        public string Gender { get; set; }
+        public string CurriculumCode { get; set; }
+        public int RequirementPassed { get; set; }
+        public int RequirementNeeded { get; set; }
+        public int AssessmentID { get; set; }
+        public string EnrollmentStatus { get; set; }
+
+        public uc_student(StudentMaster master)
         {
             InitializeComponent();
+
+            LRN = master.LRN;
+            Lastname = master.Lastname;
+            Firstname = master.Firstname;
+            Gender = master.Gender;
+            CurriculumCode = master.CurriculumCode;
+            RequirementPassed = master.RequirementsPassed;
+            RequirementNeeded = master.RequirementsNeeded;
+            AssessmentID = master.AssessmentID;
+            EnrollmentStatus = master.EnrollmentStatus;
+
+            txtLRN.Text = LRN;
+            txtStudentName.Text = string.Concat(Firstname, " ", Lastname);
+            if (Gender.ToLower() == "male")
+                imgGender.Image = Properties.Resources.Male;
+            else
+                imgGender.Image = Properties.Resources.Female;
+
+            txtCurriculumCode.Text = CurriculumCode;
+
+            if (RequirementNeeded == RequirementPassed)
+                imgRequirements.Image = Properties.Resources.complete;
+            else if (RequirementNeeded > RequirementPassed)
+                imgRequirements.Image = Properties.Resources.pending;
+            else
+                imgRequirements.Image = Properties.Resources.no_data;
+
+
+
 
 
             foreach (Control ctrl1 in MainPanel.Controls)

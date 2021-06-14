@@ -109,6 +109,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ApplicationsTimer = new System.Windows.Forms.Timer(this.components);
+            this.studentRequirementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -287,11 +288,11 @@
             // 
             this.lblNotificationCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNotificationCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblNotificationCount.Font = new System.Drawing.Font("Source Sans Pro", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotificationCount.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNotificationCount.ForeColor = System.Drawing.Color.White;
             this.lblNotificationCount.Location = new System.Drawing.Point(832, 5);
             this.lblNotificationCount.Name = "lblNotificationCount";
-            this.lblNotificationCount.Size = new System.Drawing.Size(22, 21);
+            this.lblNotificationCount.Size = new System.Drawing.Size(25, 21);
             this.lblNotificationCount.TabIndex = 9;
             this.lblNotificationCount.Text = "0";
             this.lblNotificationCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -523,7 +524,8 @@
             this.subjectsToolStripMenuItem,
             this.curriculumsToolStripMenuItem,
             this.facultiesToolStripMenuItem1,
-            this.sectionAndSchedulesToolStripMenuItem1});
+            this.sectionAndSchedulesToolStripMenuItem1,
+            this.studentRequirementsToolStripMenuItem});
             this.miSchoolData.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miSchoolData.Name = "miSchoolData";
             this.miSchoolData.Size = new System.Drawing.Size(180, 22);
@@ -622,7 +624,7 @@
             // usersToolStripMenuItem1
             // 
             this.usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.usersToolStripMenuItem1.Text = "Users";
             this.usersToolStripMenuItem1.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
             // 
@@ -635,7 +637,7 @@
             this.targetStudentSettingsToolStripMenuItem,
             this.loginWallpaperToolStripMenuItem});
             this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
-            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
             // 
             // schoolInformationSettingsToolStripMenuItem
@@ -852,6 +854,13 @@
             this.ApplicationsTimer.Interval = 120000;
             this.ApplicationsTimer.Tick += new System.EventHandler(this.ApplicationsTimer_Tick);
             // 
+            // studentRequirementsToolStripMenuItem
+            // 
+            this.studentRequirementsToolStripMenuItem.Name = "studentRequirementsToolStripMenuItem";
+            this.studentRequirementsToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.studentRequirementsToolStripMenuItem.Text = "Student Requirements";
+            this.studentRequirementsToolStripMenuItem.Click += new System.EventHandler(this.studentRequirementsToolStripMenuItem_Click);
+            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -963,5 +972,6 @@
         private System.Windows.Forms.ToolStripMenuItem cLOSEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem emailerAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem messageTemplatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentRequirementsToolStripMenuItem;
     }
 }

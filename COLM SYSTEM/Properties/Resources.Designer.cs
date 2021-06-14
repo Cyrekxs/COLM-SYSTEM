@@ -73,16 +73,6 @@ namespace SEMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Assessment {
-            get {
-                object obj = ResourceManager.GetObject("Assessment", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap Bell {
             get {
                 object obj = ResourceManager.GetObject("Bell", resourceCulture);
@@ -111,26 +101,6 @@ namespace SEMS.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap colm_logo {
-            get {
-                object obj = ResourceManager.GetObject("colm_logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap colm_logo_watermark {
-            get {
-                object obj = ResourceManager.GetObject("colm_logo_watermark", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         public static System.Drawing.Icon colm_system_icon {
@@ -143,9 +113,9 @@ namespace SEMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap colm_wallpaper {
+        public static System.Drawing.Bitmap complete {
             get {
-                object obj = ResourceManager.GetObject("colm_wallpaper", resourceCulture);
+                object obj = ResourceManager.GetObject("complete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,16 +163,6 @@ namespace SEMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Filter {
-            get {
-                object obj = ResourceManager.GetObject("Filter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap Filter_Standard {
             get {
                 object obj = ResourceManager.GetObject("Filter_Standard", resourceCulture);
@@ -216,26 +176,6 @@ namespace SEMS.Properties {
         public static System.Drawing.Bitmap Garbage {
             get {
                 object obj = ResourceManager.GetObject("Garbage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap gcash {
-            get {
-                object obj = ResourceManager.GetObject("gcash", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap Home {
-            get {
-                object obj = ResourceManager.GetObject("Home", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,6 +263,16 @@ namespace SEMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap no_data {
+            get {
+                object obj = ResourceManager.GetObject("no_data", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Nodes {
             get {
                 object obj = ResourceManager.GetObject("Nodes", resourceCulture);
@@ -333,19 +283,9 @@ namespace SEMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Nodes1 {
+        public static System.Drawing.Bitmap pending {
             get {
-                object obj = ResourceManager.GetObject("Nodes1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap NONITA_NABONG {
-            get {
-                object obj = ResourceManager.GetObject("NONITA_NABONG", resourceCulture);
+                object obj = ResourceManager.GetObject("pending", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -376,16 +316,6 @@ namespace SEMS.Properties {
         public static System.Drawing.Bitmap Settings_02 {
             get {
                 object obj = ResourceManager.GetObject("Settings_02", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap stda_logo_watermark {
-            get {
-                object obj = ResourceManager.GetObject("stda_logo_watermark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

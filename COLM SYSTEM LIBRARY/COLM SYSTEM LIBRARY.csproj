@@ -75,6 +75,7 @@
     <Compile Include="model\Payment Folder\PaymentCheque.cs" />
     <Compile Include="model\School Data Settings Folder\Requirement.cs" />
     <Compile Include="model\School Data Settings Folder\RequirementEducationLevel.cs" />
+    <Compile Include="model\Student Folder\StudentMaster.cs" />
     <Compile Include="model\Student Folder\StudentRequirement.cs" />
     <Compile Include="model\User Folder\Role.cs" />
     <Compile Include="model\General Settings Folder\SchoolInfo.cs" />

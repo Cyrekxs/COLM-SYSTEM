@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_student));
             this.MainPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.SchoolDataPanel = new System.Windows.Forms.Panel();
@@ -47,7 +48,7 @@
             this.StudentPanel = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtLRN = new System.Windows.Forms.TextBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.imgGender = new System.Windows.Forms.PictureBox();
             this.txtStudentName = new System.Windows.Forms.TextBox();
             this.lblStudentInformation = new System.Windows.Forms.Label();
             this.MainPanel.SuspendLayout();
@@ -62,7 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgAssessment)).BeginInit();
             this.StudentPanel.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgGender)).BeginInit();
             this.SuspendLayout();
             // 
             // MainPanel
@@ -75,7 +76,7 @@
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.MainPanel.Size = new System.Drawing.Size(994, 92);
+            this.MainPanel.Size = new System.Drawing.Size(975, 92);
             this.MainPanel.TabIndex = 13;
             // 
             // button1
@@ -86,7 +87,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.Location = new System.Drawing.Point(875, 5);
+            this.button1.Location = new System.Drawing.Point(856, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 82);
             this.button1.TabIndex = 18;
@@ -120,18 +121,18 @@
             // 
             this.panel9.Controls.Add(this.imgRequirements);
             this.panel9.Controls.Add(this.label8);
-            this.panel9.Location = new System.Drawing.Point(255, 13);
+            this.panel9.Location = new System.Drawing.Point(283, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(85, 30);
+            this.panel9.Size = new System.Drawing.Size(85, 46);
             this.panel9.TabIndex = 20;
             // 
             // imgRequirements
             // 
             this.imgRequirements.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imgRequirements.Image = global::SEMS.Properties.Resources.Warning;
+            this.imgRequirements.Image = ((System.Drawing.Image)(resources.GetObject("imgRequirements.Image")));
             this.imgRequirements.Location = new System.Drawing.Point(0, 0);
             this.imgRequirements.Name = "imgRequirements";
-            this.imgRequirements.Size = new System.Drawing.Size(85, 15);
+            this.imgRequirements.Size = new System.Drawing.Size(85, 31);
             this.imgRequirements.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgRequirements.TabIndex = 8;
             this.imgRequirements.TabStop = false;
@@ -140,7 +141,8 @@
             // 
             this.label8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label8.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(0, 15);
+            this.label8.ForeColor = System.Drawing.Color.Gray;
+            this.label8.Location = new System.Drawing.Point(0, 31);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 15);
             this.label8.TabIndex = 7;
@@ -172,18 +174,18 @@
             // 
             this.panel8.Controls.Add(this.imgEnrolled);
             this.panel8.Controls.Add(this.label6);
-            this.panel8.Location = new System.Drawing.Point(437, 13);
+            this.panel8.Location = new System.Drawing.Point(465, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(85, 30);
+            this.panel8.Size = new System.Drawing.Size(85, 46);
             this.panel8.TabIndex = 19;
             // 
             // imgEnrolled
             // 
             this.imgEnrolled.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imgEnrolled.Image = global::SEMS.Properties.Resources.Close;
+            this.imgEnrolled.Image = global::SEMS.Properties.Resources.no_data;
             this.imgEnrolled.Location = new System.Drawing.Point(0, 0);
             this.imgEnrolled.Name = "imgEnrolled";
-            this.imgEnrolled.Size = new System.Drawing.Size(85, 15);
+            this.imgEnrolled.Size = new System.Drawing.Size(85, 31);
             this.imgEnrolled.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgEnrolled.TabIndex = 8;
             this.imgEnrolled.TabStop = false;
@@ -192,7 +194,8 @@
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(0, 15);
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(0, 31);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 15);
             this.label6.TabIndex = 7;
@@ -203,18 +206,18 @@
             // 
             this.panel7.Controls.Add(this.imgAssessment);
             this.panel7.Controls.Add(this.label7);
-            this.panel7.Location = new System.Drawing.Point(346, 13);
+            this.panel7.Location = new System.Drawing.Point(374, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(85, 30);
+            this.panel7.Size = new System.Drawing.Size(85, 46);
             this.panel7.TabIndex = 21;
             // 
             // imgAssessment
             // 
             this.imgAssessment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imgAssessment.Image = global::SEMS.Properties.Resources.Check;
+            this.imgAssessment.Image = global::SEMS.Properties.Resources.no_data;
             this.imgAssessment.Location = new System.Drawing.Point(0, 0);
             this.imgAssessment.Name = "imgAssessment";
-            this.imgAssessment.Size = new System.Drawing.Size(85, 15);
+            this.imgAssessment.Size = new System.Drawing.Size(85, 31);
             this.imgAssessment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgAssessment.TabIndex = 8;
             this.imgAssessment.TabStop = false;
@@ -223,7 +226,8 @@
             // 
             this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(0, 15);
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(0, 31);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 15);
             this.label7.TabIndex = 7;
@@ -257,7 +261,7 @@
             this.panel5.AutoSize = true;
             this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel5.Controls.Add(this.txtLRN);
-            this.panel5.Controls.Add(this.pictureBox5);
+            this.panel5.Controls.Add(this.imgGender);
             this.panel5.Controls.Add(this.txtStudentName);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 30);
@@ -277,16 +281,16 @@
             this.txtLRN.TabIndex = 20;
             this.txtLRN.Text = "123-456-789-123";
             // 
-            // pictureBox5
+            // imgGender
             // 
-            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox5.Image = global::SEMS.Properties.Resources.Female;
-            this.pictureBox5.Location = new System.Drawing.Point(243, 10);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(30, 32);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 13;
-            this.pictureBox5.TabStop = false;
+            this.imgGender.Dock = System.Windows.Forms.DockStyle.Right;
+            this.imgGender.Image = global::SEMS.Properties.Resources.Male;
+            this.imgGender.Location = new System.Drawing.Point(243, 10);
+            this.imgGender.Name = "imgGender";
+            this.imgGender.Size = new System.Drawing.Size(30, 32);
+            this.imgGender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgGender.TabIndex = 13;
+            this.imgGender.TabStop = false;
             // 
             // txtStudentName
             // 
@@ -319,7 +323,7 @@
             this.Controls.Add(this.MainPanel);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "uc_student";
-            this.Size = new System.Drawing.Size(994, 94);
+            this.Size = new System.Drawing.Size(975, 95);
             this.MainPanel.ResumeLayout(false);
             this.SchoolDataPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -334,7 +338,7 @@
             this.StudentPanel.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgGender)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -346,7 +350,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label txtCurriculumCode;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox imgGender;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox imgEnrolled;
         private System.Windows.Forms.Label label6;

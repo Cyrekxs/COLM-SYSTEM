@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\SEMS DEPLOYMENT\STDA\</PublishUrl>
+    <PublishUrl>H:\COLM SYSTEM 2021\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>http://stdabulacan.edu.ph/SEMS/</UpdateUrl>
-    <ApplicationRevision>54</ApplicationRevision>
+    <UpdateUrl>http://colm.edu.ph/SEMS/</UpdateUrl>
+    <ApplicationRevision>55</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -982,6 +982,9 @@
     <None Include="Resources\Female.png" />
     <None Include="Resources\Male.png" />
     <None Include="Resources\Warning.png" />
+    <None Include="Resources\pending.png" />
+    <None Include="Resources\complete.png" />
+    <None Include="Resources\no data.png" />
     <Content Include="sems.ico" />
     <None Include="Resources\NONITA NABONG.jpg" />
     <None Include="Resources\Logout.png" />
