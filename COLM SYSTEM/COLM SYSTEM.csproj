@@ -371,6 +371,11 @@
     <Compile Include="Payment Folder\uc_payers.Designer.cs">
       <DependentUpon>uc_payers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Registration Folder\frm_grade_encode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -614,12 +619,6 @@
     <Compile Include="Registration Folder\frm_student_browse.Designer.cs">
       <DependentUpon>frm_student_browse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student Information Folder\frm_student_information_entry.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Student Information Folder\frm_student_information_entry.Designer.cs">
-      <DependentUpon>frm_student_information_entry.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Assessment Folder\frm_assessment_additional_fee_viewer.resx">
       <DependentUpon>frm_assessment_additional_fee_viewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -753,14 +752,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Registration Folder\frm_grade_encode.resx">
       <DependentUpon>frm_grade_encode.cs</DependentUpon>
     </EmbeddedResource>
@@ -836,9 +830,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\frm_online_importer_processor.resx">
       <DependentUpon>frm_online_importer_processor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Student Information Folder\frm_student_information_entry.resx">
-      <DependentUpon>frm_student_information_entry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\frm_student_information_online_entry_1.resx">
       <DependentUpon>frm_student_information_online_entry_1.cs</DependentUpon>
@@ -927,58 +918,7 @@
     <None Include="Resources\colm logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\User Settings.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Bell.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Groups.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\User-Group.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Registration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Assessment.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Information.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\DashBoard.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Filter.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Filter-Standard.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Menu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Wrench.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Settings-02.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Data-Edit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Data-Information.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Garbage.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Need to check before publish.txt" />
@@ -994,24 +934,27 @@
     <None Include="Resources\pending.png" />
     <None Include="Resources\complete.png" />
     <None Include="Resources\no data.png" />
-    <None Include="Resources\Anthony Quijano.jpg" />
     <None Include="Resources\User.png" />
+    <None Include="Resources\Attachment.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\Open.png" />
+    <None Include="Resources\Send.png" />
+    <None Include="Resources\Data.png" />
+    <None Include="Resources\Data Process.png" />
+    <None Include="Resources\Data Delete.png" />
+    <None Include="Resources\Nodes.png" />
+    <None Include="Resources\User Settings.png" />
+    <None Include="Resources\Logout.png" />
     <Content Include="sems.ico" />
     <None Include="Resources\NONITA NABONG.jpg" />
-    <None Include="Resources\Logout.png" />
-    <None Include="Resources\AccountSettings.png" />
     <None Include="Resources\Message.png" />
     <None Include="Resources\Nodes1.png" />
-    <None Include="Resources\Nodes.png" />
     <None Include="Resources\stda logo watermark.png" />
-    <None Include="Resources\colm logo watermark.png" />
     <None Include="Resources\Minus.png" />
-    <None Include="Resources\COLM Pulilan digital qr.png" />
     <None Include="Resources\colm-system-icon.ico" />
     <None Include="Resources\login background.png" />
     <None Include="Resources\colm system icon.ico" />
     <None Include="Resources\login.png" />
-    <None Include="Resources\colm wallpaper.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SqlServerTypes\x64\" />

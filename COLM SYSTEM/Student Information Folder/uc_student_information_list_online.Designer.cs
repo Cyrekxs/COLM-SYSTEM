@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_student_information_list_online));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clmApplicationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmApplicationStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,18 +49,18 @@
             this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmApplicationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmAction = new System.Windows.Forms.DataGridViewImageColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.processApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblCount = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.processApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -66,8 +69,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -87,13 +90,29 @@
             this.clmYearLevel,
             this.clmApplicationDate,
             this.clmAction});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(12, 43);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 48);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1090, 535);
             this.dataGridView1.TabIndex = 6;
@@ -112,7 +131,6 @@
             this.clmApplicationStatus.HeaderText = "Application";
             this.clmApplicationStatus.Name = "clmApplicationStatus";
             this.clmApplicationStatus.ReadOnly = true;
-            this.clmApplicationStatus.Width = 95;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -130,12 +148,12 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn4.HeaderText = "Gender";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 71;
+            this.dataGridViewTextBoxColumn4.Width = 76;
             // 
             // clmEmail
             // 
@@ -143,7 +161,7 @@
             this.clmEmail.HeaderText = "Email";
             this.clmEmail.Name = "clmEmail";
             this.clmEmail.ReadOnly = true;
-            this.clmEmail.Width = 63;
+            this.clmEmail.Width = 68;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -151,7 +169,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Contact No";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 85;
+            this.dataGridViewTextBoxColumn6.Width = 90;
             // 
             // clmEducationLevel
             // 
@@ -162,8 +180,8 @@
             // 
             // clmCourseStrand
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmCourseStrand.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmCourseStrand.DefaultCellStyle = dataGridViewCellStyle10;
             this.clmCourseStrand.HeaderText = "Course / Strand";
             this.clmCourseStrand.Name = "clmCourseStrand";
             this.clmCourseStrand.ReadOnly = true;
@@ -171,8 +189,8 @@
             // 
             // clmYearLevel
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmYearLevel.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmYearLevel.DefaultCellStyle = dataGridViewCellStyle11;
             this.clmYearLevel.HeaderText = "Year Level";
             this.clmYearLevel.Name = "clmYearLevel";
             this.clmYearLevel.ReadOnly = true;
@@ -188,12 +206,46 @@
             // clmAction
             // 
             this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmAction.ContextMenuStrip = this.contextMenuStrip1;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle12.NullValue")));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmAction.DefaultCellStyle = dataGridViewCellStyle12;
+            this.clmAction.Description = "Menu";
             this.clmAction.HeaderText = "Action";
+            this.clmAction.Image = global::SEMS.Properties.Resources.Data;
+            this.clmAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.clmAction.Name = "clmAction";
             this.clmAction.ReadOnly = true;
-            this.clmAction.Text = "Action";
-            this.clmAction.UseColumnTextForButtonValue = true;
-            this.clmAction.Width = 47;
+            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmAction.Width = 52;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(25, 25);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.processApplicationToolStripMenuItem,
+            this.deleteApplicationToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(188, 68);
+            // 
+            // processApplicationToolStripMenuItem
+            // 
+            this.processApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.processApplicationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("processApplicationToolStripMenuItem.Image")));
+            this.processApplicationToolStripMenuItem.Name = "processApplicationToolStripMenuItem";
+            this.processApplicationToolStripMenuItem.Size = new System.Drawing.Size(187, 32);
+            this.processApplicationToolStripMenuItem.Text = "Process Application";
+            this.processApplicationToolStripMenuItem.Click += new System.EventHandler(this.processApplicationToolStripMenuItem_Click);
+            // 
+            // deleteApplicationToolStripMenuItem
+            // 
+            this.deleteApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.Firebrick;
+            this.deleteApplicationToolStripMenuItem.Image = global::SEMS.Properties.Resources.Data_Delete;
+            this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
+            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(187, 32);
+            this.deleteApplicationToolStripMenuItem.Text = "Delete Application";
+            this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -245,36 +297,12 @@
             this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCount.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCount.ForeColor = System.Drawing.Color.Red;
-            this.lblCount.Location = new System.Drawing.Point(947, 584);
+            this.lblCount.Location = new System.Drawing.Point(947, 581);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(155, 30);
             this.lblCount.TabIndex = 25;
-            this.lblCount.Text = "Record Count(s) :";
+            this.lblCount.Text = "Records : 0";
             this.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.processApplicationToolStripMenuItem,
-            this.deleteApplicationToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(179, 48);
-            // 
-            // processApplicationToolStripMenuItem
-            // 
-            this.processApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.processApplicationToolStripMenuItem.Name = "processApplicationToolStripMenuItem";
-            this.processApplicationToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.processApplicationToolStripMenuItem.Text = "Process Application";
-            this.processApplicationToolStripMenuItem.Click += new System.EventHandler(this.processApplicationToolStripMenuItem_Click);
-            // 
-            // deleteApplicationToolStripMenuItem
-            // 
-            this.deleteApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.Firebrick;
-            this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
-            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.deleteApplicationToolStripMenuItem.Text = "Delete Application";
-            this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_Click);
             // 
             // uc_student_information_list_online
             // 
@@ -287,9 +315,9 @@
             this.Name = "uc_student_information_list_online";
             this.Size = new System.Drawing.Size(1106, 623);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -316,6 +344,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCourseStrand;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmApplicationDate;
-        private System.Windows.Forms.DataGridViewButtonColumn clmAction;
+        private System.Windows.Forms.DataGridViewImageColumn clmAction;
     }
 }

@@ -12,6 +12,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 {
     public class StudentInfoOnline
     {
+        #region Properties
         public int ApplicationID { get; set; }
         public string LRN { get; set; }
         public string Lastname { get; set; }
@@ -46,8 +47,9 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string EducationLevel { get; set; }
         public string CourseStrand { get; set; }
         public string YearLevel { get; set; }
-
         public DateTime ApplicationDate { get; set; }
+        #endregion
+
 
         static TextInfo text = CultureInfo.CurrentCulture.TextInfo;
 
@@ -89,8 +91,6 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static List<StudentInfoOnline> GetOnlineApplications()
         {
             List<StudentInfoOnline> Applicants = new List<StudentInfoOnline>();
-
-
             using (SqlConnection conn = new SqlConnection(GetOnlineConnectionString()))
             {
                 conn.Open();
@@ -104,7 +104,7 @@ namespace COLM_SYSTEM_LIBRARY.model
                             {
                                 ApplicationID = Convert.ToInt32(reader["ApplicationID"]),
                                 LRN = Convert.ToString(reader["LRN"]),
-                                Lastname = text.ToTitleCase( Convert.ToString(reader["Lastname"]).ToLower()),
+                                Lastname = text.ToTitleCase(Convert.ToString(reader["Lastname"]).ToLower()),
                                 Firstname = text.ToTitleCase(Convert.ToString(reader["Firstname"]).ToLower()),
                                 Middlename = text.ToTitleCase(Convert.ToString(reader["Middlename"]).ToLower()),
                                 BirthDate = Convert.ToDateTime(reader["BirthDate"]),
@@ -122,8 +122,8 @@ namespace COLM_SYSTEM_LIBRARY.model
                                 FatherMobile = Convert.ToString(reader["FatherMobile"]),
                                 GuardianName = text.ToTitleCase(Convert.ToString(reader["GuardianName"]).ToLower()),
                                 GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
-                                EmergencyName= text.ToTitleCase(Convert.ToString(reader["EmergencyName"]).ToLower()),
-                                EmergencyMobile =Convert.ToString(reader["EmergencyMobile"]),
+                                EmergencyName = text.ToTitleCase(Convert.ToString(reader["EmergencyName"]).ToLower()),
+                                EmergencyMobile = Convert.ToString(reader["EmergencyMobile"]),
                                 EmergencyRelation = text.ToTitleCase(Convert.ToString(reader["EmergencyRelation"]).ToLower()),
 
                                 SchoolName = text.ToTitleCase(Convert.ToString(reader["SchoolName"]).ToLower()),
@@ -137,16 +137,16 @@ namespace COLM_SYSTEM_LIBRARY.model
                                 YearLevel = Convert.ToString(reader["YearLevel"]),
                                 ApplicationDate = Convert.ToDateTime(reader["ApplicationDate"])
                             };
-                            Applicants.Add(applicant);
-                        }
+                        Applicants.Add(applicant);
                     }
                 }
             }
+        }
 
 
-            //check and remove processed applicants
-            List<StudentInfoOnlineProcessed> ProcessedApplicants = GetProcessedApplicants();
-            List<StudentInfoOnline> ApplicantsToRemove = new List<StudentInfoOnline>();
+        //check and remove processed applicants
+        List<StudentInfoOnlineProcessed> ProcessedApplicants = GetProcessedApplicants();
+        List<StudentInfoOnline> ApplicantsToRemove = new List<StudentInfoOnline>();
             foreach (var applicant in Applicants)
             {
                 foreach (var processed in ProcessedApplicants)
@@ -155,7 +155,7 @@ namespace COLM_SYSTEM_LIBRARY.model
                     {
                         ApplicantsToRemove.Add(applicant);
                     }
-                }
+}
             }
 
             foreach (var item in ApplicantsToRemove)
@@ -167,67 +167,67 @@ namespace COLM_SYSTEM_LIBRARY.model
         }
 
         public static int InsertInfoToOnline(StudentInfo model)
+{
+    using (SqlConnection conn = new SqlConnection(GetOnlineConnectionString()))
+    {
+        conn.Open();
+        using (SqlCommand comm = new SqlCommand("EXEC sp_set_student_information_online @LRN,@Lastname,@Firstname,@Middlename,@BirthDate,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@EmergencyName,@EmergencyRelation,@EmergencyMobile,@SchoolName,@SchoolAddress,@SchoolStatus,@ESCGuarantee,@StudentStatus,@EducationLevel,@CourseStrand,@YearLevel", conn))
         {
-            using (SqlConnection conn = new SqlConnection(GetOnlineConnectionString()))
-            {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("EXEC sp_set_student_information_online @LRN,@Lastname,@Firstname,@Middlename,@BirthDate,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@EmergencyName,@EmergencyRelation,@EmergencyMobile,@SchoolName,@SchoolAddress,@SchoolStatus,@ESCGuarantee,@StudentStatus,@EducationLevel,@CourseStrand,@YearLevel", conn))
-                {
-                    comm.Parameters.AddWithValue("@LRN", model.LRN);
-                    comm.Parameters.AddWithValue("@Lastname", model.Lastname);
-                    comm.Parameters.AddWithValue("@Firstname", model.Firstname);
-                    comm.Parameters.AddWithValue("@Middlename", model.Middlename);
-                    comm.Parameters.AddWithValue("@BirthDate", model.BirthDate);
-                    comm.Parameters.AddWithValue("@Gender", model.Gender);
-                    comm.Parameters.AddWithValue("@Street", model.Street);
-                    comm.Parameters.AddWithValue("@Barangay", model.Barangay);
-                    comm.Parameters.AddWithValue("@City", model.City);
-                    comm.Parameters.AddWithValue("@Province", model.Province);
-                    comm.Parameters.AddWithValue("@MobileNo", model.MobileNo);
-                    comm.Parameters.AddWithValue("@EmailAddress", model.EmailAddress);
+            comm.Parameters.AddWithValue("@LRN", model.LRN);
+            comm.Parameters.AddWithValue("@Lastname", model.Lastname);
+            comm.Parameters.AddWithValue("@Firstname", model.Firstname);
+            comm.Parameters.AddWithValue("@Middlename", model.Middlename);
+            comm.Parameters.AddWithValue("@BirthDate", model.BirthDate);
+            comm.Parameters.AddWithValue("@Gender", model.Gender);
+            comm.Parameters.AddWithValue("@Street", model.Street);
+            comm.Parameters.AddWithValue("@Barangay", model.Barangay);
+            comm.Parameters.AddWithValue("@City", model.City);
+            comm.Parameters.AddWithValue("@Province", model.Province);
+            comm.Parameters.AddWithValue("@MobileNo", model.MobileNo);
+            comm.Parameters.AddWithValue("@EmailAddress", model.EmailAddress);
 
-                    comm.Parameters.AddWithValue("@MotherName", model.MotherName);
-                    comm.Parameters.AddWithValue("@MotherMobile", model.MotherMobile);
-                    comm.Parameters.AddWithValue("@FatherName", model.FatherName);
-                    comm.Parameters.AddWithValue("@FatherMobile", model.FatherMobile);
-                    comm.Parameters.AddWithValue("@GuardianName", model.GuardianName);
-                    comm.Parameters.AddWithValue("@GuardianMobile", model.GuardianMobile);
-                    comm.Parameters.AddWithValue("@EmergencyName", model.EmergencyName);
-                    comm.Parameters.AddWithValue("@EmergencyRelation", model.EmergencyRelation);
-                    comm.Parameters.AddWithValue("@EmergencyMobile", model.EmergencyMobile);
+            comm.Parameters.AddWithValue("@MotherName", model.MotherName);
+            comm.Parameters.AddWithValue("@MotherMobile", model.MotherMobile);
+            comm.Parameters.AddWithValue("@FatherName", model.FatherName);
+            comm.Parameters.AddWithValue("@FatherMobile", model.FatherMobile);
+            comm.Parameters.AddWithValue("@GuardianName", model.GuardianName);
+            comm.Parameters.AddWithValue("@GuardianMobile", model.GuardianMobile);
+            comm.Parameters.AddWithValue("@EmergencyName", model.EmergencyName);
+            comm.Parameters.AddWithValue("@EmergencyRelation", model.EmergencyRelation);
+            comm.Parameters.AddWithValue("@EmergencyMobile", model.EmergencyMobile);
 
-                    comm.Parameters.AddWithValue("@SchoolName", model.SchoolName);
-                    comm.Parameters.AddWithValue("@SchoolAddress", model.SchoolAddress);
-                    comm.Parameters.AddWithValue("@SchoolStatus", model.SchoolStatus);
-                    comm.Parameters.AddWithValue("@ESCGuarantee", model.ESCGuarantee);
+            comm.Parameters.AddWithValue("@SchoolName", model.SchoolName);
+            comm.Parameters.AddWithValue("@SchoolAddress", model.SchoolAddress);
+            comm.Parameters.AddWithValue("@SchoolStatus", model.SchoolStatus);
+            comm.Parameters.AddWithValue("@ESCGuarantee", model.ESCGuarantee);
 
-                    comm.Parameters.AddWithValue("@StudentStatus", model.StudentStatus);
-                    comm.Parameters.AddWithValue("@EducationLevel", model.EducationLevel);
-                    comm.Parameters.AddWithValue("@CourseStrand", model.CourseStrand);
-                    comm.Parameters.AddWithValue("@Yearlevel", model.YearLevel);
+            comm.Parameters.AddWithValue("@StudentStatus", model.StudentStatus);
+            comm.Parameters.AddWithValue("@EducationLevel", model.EducationLevel);
+            comm.Parameters.AddWithValue("@CourseStrand", model.CourseStrand);
+            comm.Parameters.AddWithValue("@Yearlevel", model.YearLevel);
 
-                    return comm.ExecuteNonQuery();
-                }
-            }
+            return comm.ExecuteNonQuery();
         }
+    }
+}
 
-        public static int InsertOnlineApplicant(int ApplicantID, int StudentID)
+public static int InsertOnlineApplicant(int ApplicantID, int StudentID)
+{
+    return StudentInfo_DS.InsertOnlineApplicant(ApplicantID, StudentID);
+}
+
+public static int RemoveOnlineApplication(int ApplicationID)
+{
+    using (SqlConnection conn = new SqlConnection(GetOnlineConnectionString()))
+    {
+        conn.Open();
+        using (SqlCommand comm = new SqlCommand("DELETE FROM student.information_online WHERE ApplicationID = @ApplicationID", conn))
         {
-            return StudentInfo_DS.InsertOnlineApplicant(ApplicantID, StudentID);
+            comm.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            return comm.ExecuteNonQuery();
         }
-
-        public static int RemoveOnlineApplication(int ApplicationID)
-        {
-            using (SqlConnection conn = new SqlConnection(GetOnlineConnectionString()))
-            {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("DELETE FROM student.information_online WHERE ApplicationID = @ApplicationID", conn))
-                {
-                    comm.Parameters.AddWithValue("@ApplicationID", ApplicationID);
-                    return comm.ExecuteNonQuery();
-                }
-            }
-        }
+    }
+}
 
     }
 

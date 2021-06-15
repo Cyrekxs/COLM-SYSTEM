@@ -36,16 +36,12 @@
             this.lblVersion = new System.Windows.Forms.Label();
             this.lblSemester = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.lblNotificationCount = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lblAccountName = new System.Windows.Forms.Label();
@@ -68,6 +64,7 @@
             this.curriculumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facultiesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sectionAndSchedulesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentRequirementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tuitionFeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.additionalFeeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -109,19 +106,29 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ApplicationsTimer = new System.Windows.Forms.Timer(this.components);
-            this.studentRequirementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSchoolYear
             // 
             this.lblSchoolYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSchoolYear.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSchoolYear.ForeColor = System.Drawing.Color.Gray;
-            this.lblSchoolYear.Location = new System.Drawing.Point(701, 33);
+            this.lblSchoolYear.ForeColor = System.Drawing.Color.Black;
+            this.lblSchoolYear.Location = new System.Drawing.Point(642, 15);
             this.lblSchoolYear.Name = "lblSchoolYear";
             this.lblSchoolYear.Size = new System.Drawing.Size(117, 19);
             this.lblSchoolYear.TabIndex = 0;
@@ -131,23 +138,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.pbLogo);
+            this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.lblVersion);
-            this.panel1.Controls.Add(this.lblSemester);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.lblSchoolYear);
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.lblNotificationCount);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -156,11 +155,12 @@
             // 
             // pbLogo
             // 
+            this.pbLogo.BackgroundImage = global::SEMS.Properties.Resources.Nodes;
+            this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbLogo.Image = global::SEMS.Properties.Resources.Nodes;
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(72, 67);
+            this.pbLogo.Size = new System.Drawing.Size(70, 67);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 7;
             this.pbLogo.TabStop = false;
@@ -180,8 +180,8 @@
             // 
             this.lblSemester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSemester.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSemester.ForeColor = System.Drawing.Color.Gray;
-            this.lblSemester.Location = new System.Drawing.Point(710, 10);
+            this.lblSemester.ForeColor = System.Drawing.Color.Black;
+            this.lblSemester.Location = new System.Drawing.Point(765, 15);
             this.lblSemester.Name = "lblSemester";
             this.lblSemester.Size = new System.Drawing.Size(108, 19);
             this.lblSemester.TabIndex = 12;
@@ -190,94 +190,56 @@
             // 
             // button4
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Red;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(951, 5);
+            this.button4.Location = new System.Drawing.Point(0, 0);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(47, 50);
+            this.button4.Size = new System.Drawing.Size(71, 41);
             this.button4.TabIndex = 17;
             this.button4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(956, 52);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 11);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "MINIMIZE";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label4.ForeColor = System.Drawing.Color.SlateGray;
             this.label4.Location = new System.Drawing.Point(76, 4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 25);
             this.label4.TabIndex = 16;
             this.label4.Text = "S.E.M.S";
             // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(1009, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 11);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "LOGOUT";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(904, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 11);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "ACCOUNT";
-            // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(837, 52);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(0, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 11);
+            this.label1.Size = new System.Drawing.Size(71, 22);
             this.label1.TabIndex = 13;
             this.label1.Text = "APPLICANTS";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button3
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackgroundImage = global::SEMS.Properties.Resources.Logout;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.Red;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(1003, 5);
+            this.button3.Image = global::SEMS.Properties.Resources.Logout;
+            this.button3.Location = new System.Drawing.Point(0, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(48, 43);
+            this.button3.Size = new System.Drawing.Size(71, 39);
             this.button3.TabIndex = 12;
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -290,7 +252,7 @@
             this.lblNotificationCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.lblNotificationCount.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNotificationCount.ForeColor = System.Drawing.Color.White;
-            this.lblNotificationCount.Location = new System.Drawing.Point(832, 5);
+            this.lblNotificationCount.Location = new System.Drawing.Point(3, 1);
             this.lblNotificationCount.Name = "lblNotificationCount";
             this.lblNotificationCount.Size = new System.Drawing.Size(25, 21);
             this.lblNotificationCount.TabIndex = 9;
@@ -299,16 +261,15 @@
             // 
             // button2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackgroundImage = global::SEMS.Properties.Resources.AccountSettings;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(899, 6);
+            this.button2.Image = global::SEMS.Properties.Resources.User_Settings;
+            this.button2.Location = new System.Drawing.Point(0, 0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(48, 46);
+            this.button2.Size = new System.Drawing.Size(71, 39);
             this.button2.TabIndex = 11;
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -324,15 +285,6 @@
             this.label14.Size = new System.Drawing.Size(1060, 5);
             this.label14.TabIndex = 10;
             // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.BackColor = System.Drawing.Color.LightGray;
-            this.label13.Location = new System.Drawing.Point(824, 1);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(2, 62);
-            this.label13.TabIndex = 9;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -346,17 +298,16 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::SEMS.Properties.Resources.Message;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(837, 5);
+            this.button1.Image = global::SEMS.Properties.Resources.Message;
+            this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 46);
+            this.button1.Size = new System.Drawing.Size(71, 39);
             this.button1.TabIndex = 9;
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -376,7 +327,7 @@
             // lblPosition
             // 
             this.lblPosition.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosition.ForeColor = System.Drawing.Color.Gray;
+            this.lblPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblPosition.Location = new System.Drawing.Point(12, 19);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(200, 25);
@@ -387,6 +338,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.lblSemester);
+            this.panel2.Controls.Add(this.lblSchoolYear);
             this.panel2.Controls.Add(this.lblDateTime);
             this.panel2.Controls.Add(this.lblAccountName);
             this.panel2.Controls.Add(this.label15);
@@ -401,7 +354,7 @@
             // 
             this.lblDateTime.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblDateTime.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateTime.ForeColor = System.Drawing.Color.Gray;
+            this.lblDateTime.ForeColor = System.Drawing.Color.Black;
             this.lblDateTime.Location = new System.Drawing.Point(879, 5);
             this.lblDateTime.Name = "lblDateTime";
             this.lblDateTime.Size = new System.Drawing.Size(181, 39);
@@ -528,7 +481,7 @@
             this.studentRequirementsToolStripMenuItem});
             this.miSchoolData.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miSchoolData.Name = "miSchoolData";
-            this.miSchoolData.Size = new System.Drawing.Size(180, 22);
+            this.miSchoolData.Size = new System.Drawing.Size(145, 22);
             this.miSchoolData.Text = "School Data";
             // 
             // subjectsToolStripMenuItem
@@ -563,6 +516,13 @@
             this.sectionAndSchedulesToolStripMenuItem1.Text = "Section and Schedules";
             this.sectionAndSchedulesToolStripMenuItem1.Click += new System.EventHandler(this.sectionAndSchedulesToolStripMenuItem1_Click);
             // 
+            // studentRequirementsToolStripMenuItem
+            // 
+            this.studentRequirementsToolStripMenuItem.Name = "studentRequirementsToolStripMenuItem";
+            this.studentRequirementsToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.studentRequirementsToolStripMenuItem.Text = "Student Requirements";
+            this.studentRequirementsToolStripMenuItem.Click += new System.EventHandler(this.studentRequirementsToolStripMenuItem_Click);
+            // 
             // feesToolStripMenuItem
             // 
             this.feesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -573,7 +533,7 @@
             this.discountsToolStripMenuItem1});
             this.feesToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.feesToolStripMenuItem.Name = "feesToolStripMenuItem";
-            this.feesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.feesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.feesToolStripMenuItem.Text = "Fees";
             // 
             // tuitionFeeToolStripMenuItem
@@ -618,7 +578,7 @@
             this.miscellaneousToolStripMenuItem1});
             this.managementToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            this.managementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.managementToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.managementToolStripMenuItem.Text = "Management";
             // 
             // usersToolStripMenuItem1
@@ -854,12 +814,86 @@
             this.ApplicationsTimer.Interval = 120000;
             this.ApplicationsTimer.Tick += new System.EventHandler(this.ApplicationsTimer_Tick);
             // 
-            // studentRequirementsToolStripMenuItem
+            // label2
             // 
-            this.studentRequirementsToolStripMenuItem.Name = "studentRequirementsToolStripMenuItem";
-            this.studentRequirementsToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.studentRequirementsToolStripMenuItem.Text = "Student Requirements";
-            this.studentRequirementsToolStripMenuItem.Click += new System.EventHandler(this.studentRequirementsToolStripMenuItem_Click);
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(0, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 22);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "ACCOUNT";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(0, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 20);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "MINIMIZE";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(0, 39);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 22);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "LOG OUT";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.button3);
+            this.panel3.Location = new System.Drawing.Point(986, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(71, 61);
+            this.panel3.TabIndex = 20;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.button2);
+            this.panel4.Location = new System.Drawing.Point(832, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(71, 61);
+            this.panel4.TabIndex = 21;
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.button4);
+            this.panel5.Location = new System.Drawing.Point(909, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(71, 61);
+            this.panel5.TabIndex = 22;
+            // 
+            // panel6
+            // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel6.Controls.Add(this.lblNotificationCount);
+            this.panel6.Controls.Add(this.label1);
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Location = new System.Drawing.Point(755, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(71, 61);
+            this.panel6.TabIndex = 23;
             // 
             // frm_main
             // 
@@ -886,6 +920,10 @@
             this.panel2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -901,7 +939,6 @@
         private System.Windows.Forms.Label lblAccountName;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblNotificationCount;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button2;
@@ -915,14 +952,11 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem dEFAULTFEESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aDMINToolStripMenuItem;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem importUsersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miscellaneousToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem assessmentPaymentModesToolStripMenuItem1;
@@ -973,5 +1007,12 @@
         private System.Windows.Forms.ToolStripMenuItem emailerAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem messageTemplatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentRequirementsToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
     }
 }

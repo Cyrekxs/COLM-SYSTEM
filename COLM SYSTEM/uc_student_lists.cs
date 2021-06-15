@@ -17,6 +17,15 @@ namespace SEMS
         List<StudentMaster> masters = new List<StudentMaster>();
         Color c = Color.White;
         UserControl select_usercontrol = new UserControl();
+
+        private const int totalRecords = 50;
+        private const int pageSize = 10;
+
+        class Record
+        {
+            public int Index { get; set; }
+        }
+
         public uc_student_lists()
         {
             InitializeComponent();
@@ -26,32 +35,8 @@ namespace SEMS
         {
             Progress<StudentMaster> report = new Progress<StudentMaster>();
             report.ProgressChanged += DisplayData;
-
             masters = await Task.Run(() => { return StudentMaster.GetStudentMasterLists(report); });
-            foreach (UserControl item in PanelMain.Controls)
-            {
-                if (c == Color.White)
-                    c = Color.WhiteSmoke;
-                else
-                    c = Color.White;
-
-                item.BackColor = c;
-            }
-
-
-            foreach (UserControl item in PanelMain.Controls)
-            {
-                select_usercontrol = item;
-                item.MouseClick += Activate;
-               
-            }
         }
-
-        private void Activate(object sender, MouseEventArgs e)
-        {
-            select_usercontrol.BackColor = Color.Gray;
-        }
-
         private void DisplayData(object sender, StudentMaster e)
         {
             UserControl uc = new uc_student_v2(e);

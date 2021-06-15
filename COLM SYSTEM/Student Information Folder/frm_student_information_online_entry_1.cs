@@ -284,6 +284,9 @@ namespace COLM_SYSTEM.Student_Information_Folder
                 YearLevel = txtYearLevel.Text
             };
 
+            if (MessageBox.Show("Are you sure you want to process this application?", "Online Student Application", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
 
             if (SavingStatus != "UPDATE")
             {
@@ -291,20 +294,14 @@ namespace COLM_SYSTEM.Student_Information_Folder
                 if (student_existing.StudentID != 0)
                 {
                     if (MessageBox.Show("Program Detected that there was an existing student information in the database do you want to update his / her information with this new information?", "Possible Duplicate Detected", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
                         model.StudentID = student_existing.StudentID;
-                    }
                 }
                 //No existing student
                 else
-                {
                     model.StudentID = 0;
-                }
             }
             else
-            {
                 model.StudentID = Convert.ToInt32(txtLRN.Tag);
-            }
 
 
 
@@ -334,21 +331,6 @@ namespace COLM_SYSTEM.Student_Information_Folder
                 Dispose();
             }
 
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(1);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(0);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(2);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

@@ -161,7 +161,6 @@
             // 
             // button2
             // 
-            this.button2.BackgroundImage = global::SEMS.Properties.Resources.login;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -174,7 +173,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::SEMS.Properties.Resources.Loading_Image;
             this.pictureBox1.Location = new System.Drawing.Point(138, 48);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 71);

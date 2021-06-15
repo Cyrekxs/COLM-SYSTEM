@@ -119,7 +119,6 @@
             // 
             this.toolStripMenuItem1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripMenuItem1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.toolStripMenuItem1.Image = global::SEMS.Properties.Resources.Data_Edit;
             this.toolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
@@ -135,7 +134,6 @@
             // 
             this.toolStripMenuItem2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripMenuItem2.ForeColor = System.Drawing.Color.IndianRed;
-            this.toolStripMenuItem2.Image = global::SEMS.Properties.Resources.Garbage;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
             this.toolStripMenuItem2.Text = "Delete";
@@ -166,7 +164,6 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewImageColumn1.HeaderText = "MENU";
-            this.dataGridViewImageColumn1.Image = global::SEMS.Properties.Resources.Data_Edit;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -253,7 +250,6 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.clmEdit.DefaultCellStyle = dataGridViewCellStyle5;
             this.clmEdit.HeaderText = "Menu";
-            this.clmEdit.Image = global::SEMS.Properties.Resources.Data_Information;
             this.clmEdit.Name = "clmEdit";
             this.clmEdit.ReadOnly = true;
             this.clmEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
