@@ -203,6 +203,12 @@
     <Compile Include="Custom Controls\uc_student.Designer.cs">
       <DependentUpon>uc_student.cs</DependentUpon>
     </Compile>
+    <Compile Include="Custom Controls\uc_student_v2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\uc_student_v2.Designer.cs">
+      <DependentUpon>uc_student_v2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Discounts Folder\frm_discount_entry_amount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -661,6 +667,9 @@
     <EmbeddedResource Include="Custom Controls\uc_student.resx">
       <DependentUpon>uc_student.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\uc_student_v2.resx">
+      <DependentUpon>uc_student_v2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Discounts Folder\frm_discount_entry_amount.resx">
       <DependentUpon>frm_discount_entry_amount.cs</DependentUpon>
     </EmbeddedResource>
@@ -985,6 +994,8 @@
     <None Include="Resources\pending.png" />
     <None Include="Resources\complete.png" />
     <None Include="Resources\no data.png" />
+    <None Include="Resources\Anthony Quijano.jpg" />
+    <None Include="Resources\User.png" />
     <Content Include="sems.ico" />
     <None Include="Resources\NONITA NABONG.jpg" />
     <None Include="Resources\Logout.png" />

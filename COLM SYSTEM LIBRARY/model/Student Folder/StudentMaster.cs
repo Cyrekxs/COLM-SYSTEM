@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace COLM_SYSTEM_LIBRARY.model.Student_Folder
@@ -37,10 +35,12 @@ namespace COLM_SYSTEM_LIBRARY.model.Student_Folder
         public string YearLevel { get; set; }
         public int SectionID { get; set; }
         public string Section { get; set; }
+        public double TotalDiscount { get; set; }
         public double TotalDue { get; set; }
         public string EnrollmentStatus { get; set; }
         public int AssessmentSchoolYearID { get; set; }
         public int AssessmentSemesterID { get; set; }
+        public string Assessor { get; set; }
         #endregion
 
         public static List<StudentMaster> GetStudentMasterLists()
@@ -71,20 +71,20 @@ namespace COLM_SYSTEM_LIBRARY.model.Student_Folder
                                 RequirementsNeeded = Convert.ToInt32(reader["RequirementNeeded"]),
                                 RegisteredID = string.IsNullOrEmpty(reader["RegisteredID"].ToString()) == false ? Convert.ToInt32(reader["RegisteredID"]) : 0,
                                 CurriculumID = string.IsNullOrEmpty(reader["CurriculumID"].ToString()) == false ? Convert.ToInt32(reader["CurriculumID"]) : 0,
-                                CurriculumCode = string.IsNullOrEmpty(reader["Code"].ToString()) == false ? Convert.ToString(reader["Code"]) : "",
-                                EducationLevel = string.IsNullOrEmpty(reader["EducationLevel"].ToString()) == false ? Convert.ToString(reader["EducationLevel"]) : "",
-                                CourseStrand = string.IsNullOrEmpty(reader["CourseStrand"].ToString()) == false ? Convert.ToString(reader["CourseStrand"]) : "",
+                                CurriculumCode = string.IsNullOrEmpty(reader["Code"].ToString()) == false ? Convert.ToString(reader["Code"]) : "-",
+                                EducationLevel = string.IsNullOrEmpty(reader["EducationLevel"].ToString()) == false ? Convert.ToString(reader["EducationLevel"]) : "-",
+                                CourseStrand = string.IsNullOrEmpty(reader["CourseStrand"].ToString()) == false ? Convert.ToString(reader["CourseStrand"]) : "-",
                                 DateRegistered = string.IsNullOrEmpty(reader["DateRegistered"].ToString()) == false ? Convert.ToDateTime(reader["DateRegistered"]) : DateTime.Now,
                                 RegisteredSchoolYearID = string.IsNullOrEmpty(reader["RegisteredSchoolYearID"].ToString()) == false ? Convert.ToInt32(reader["RegisteredSchoolYearID"]) : 0,
                                 RegisteredSemesterID = string.IsNullOrEmpty(reader["RegisteredSemesterID"].ToString()) == false ? Convert.ToInt32(reader["RegisteredSemesterID"]) : 0,
-                                StudentStatus = string.IsNullOrEmpty(reader["StudentStatus"].ToString()) == false ? Convert.ToString(reader["StudentStatus"]) : "",
+                                StudentStatus = string.IsNullOrEmpty(reader["StudentStatus"].ToString()) == false ? Convert.ToString(reader["StudentStatus"]) : "-",
                                 AssessmentID = string.IsNullOrEmpty(reader["AssessmentID"].ToString()) == false ? Convert.ToInt32(reader["AssessmentID"]) : 0,
                                 YearLevelID = string.IsNullOrEmpty(reader["YearLevelID"].ToString()) == false ? Convert.ToInt32(reader["YearLevelID"]) : 0,
-                                YearLevel = string.IsNullOrEmpty(reader["YearLevel"].ToString()) == false ? Convert.ToString(reader["YearLevel"]) : "",
+                                YearLevel = string.IsNullOrEmpty(reader["YearLevel"].ToString()) == false ? Convert.ToString(reader["YearLevel"]) : "-",
                                 SectionID = string.IsNullOrEmpty(reader["SectionID"].ToString()) == false ? Convert.ToInt32(reader["SectionID"]) : 0,
-                                Section = string.IsNullOrEmpty(reader["Section"].ToString()) == false ? Convert.ToString(reader["Section"]) : "",
+                                Section = string.IsNullOrEmpty(reader["Section"].ToString()) == false ? Convert.ToString(reader["Section"]) : "-",
                                 TotalDue = string.IsNullOrEmpty(reader["TotalDue"].ToString()) == false ? Convert.ToDouble(reader["TotalDue"]) : 0,
-                                EnrollmentStatus = string.IsNullOrEmpty(reader["EnrollmentStatus"].ToString()) == false ? Convert.ToString(reader["EnrollmentStatus"]) : "",
+                                EnrollmentStatus = string.IsNullOrEmpty(reader["EnrollmentStatus"].ToString()) == false ? Convert.ToString(reader["EnrollmentStatus"]) : "-",
                                 AssessmentSchoolYearID = string.IsNullOrEmpty(reader["AssessmentSchoolYearID"].ToString()) == false ? Convert.ToInt32(reader["AssessmentSchoolYearID"]) : 0,
                                 AssessmentSemesterID = string.IsNullOrEmpty(reader["AssessmentSemesterID"].ToString()) == false ? Convert.ToInt32(reader["AssessmentSemesterID"]) : 0,
                             });
@@ -94,5 +94,65 @@ namespace COLM_SYSTEM_LIBRARY.model.Student_Folder
             }
             return masters;
         }
+
+        public async static Task<List<StudentMaster>> GetStudentMasterLists(IProgress<StudentMaster> progress)
+        {
+            List<StudentMaster> masters = new List<StudentMaster>();
+            await Task.Run(() =>
+            {
+                using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+                {
+                    conn.Open();
+                    using (SqlCommand comm = new SqlCommand("SELECT TOP 50 * FROM dbo.fn_list_student_masterlists() WHERE AssessmentID IS NOT NULL", conn))
+                    {
+                        using (SqlDataReader reader = comm.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                StudentMaster master = new StudentMaster()
+                                {
+                                    StudentID = Convert.ToInt32(reader["StudentID"]),
+                                    LRN = Convert.ToString(reader["LRN"]),
+                                    Lastname = Convert.ToString(reader["Lastname"]),
+                                    Firstname = Convert.ToString(reader["Firstname"]),
+                                    Gender = Convert.ToString(reader["Gender"]),
+                                    MobileNo = Convert.ToString(reader["MobileNo"]),
+                                    EmailAddress = Convert.ToString(reader["EmailAddress"]),
+                                    EmergencyName = Convert.ToString(reader["EmergencyName"]),
+                                    EmergencyRelation = Convert.ToString(reader["EmergencyRelation"]),
+                                    EmergencyMobile = Convert.ToString(reader["EmergencyMobile"]),
+                                    RequirementsPassed = Convert.ToInt32(reader["RequirementPassed"]),
+                                    RequirementsNeeded = Convert.ToInt32(reader["RequirementNeeded"]),
+                                    RegisteredID = string.IsNullOrEmpty(reader["RegisteredID"].ToString()) == false ? Convert.ToInt32(reader["RegisteredID"]) : 0,
+                                    CurriculumID = string.IsNullOrEmpty(reader["CurriculumID"].ToString()) == false ? Convert.ToInt32(reader["CurriculumID"]) : 0,
+                                    CurriculumCode = string.IsNullOrEmpty(reader["Code"].ToString()) == false ? Convert.ToString(reader["Code"]) : "-",
+                                    EducationLevel = string.IsNullOrEmpty(reader["EducationLevel"].ToString()) == false ? Convert.ToString(reader["EducationLevel"]) : "-",
+                                    CourseStrand = string.IsNullOrEmpty(reader["CourseStrand"].ToString()) == false ? Convert.ToString(reader["CourseStrand"]) : "-",
+                                    DateRegistered = string.IsNullOrEmpty(reader["DateRegistered"].ToString()) == false ? Convert.ToDateTime(reader["DateRegistered"]) : DateTime.Now,
+                                    RegisteredSchoolYearID = string.IsNullOrEmpty(reader["RegisteredSchoolYearID"].ToString()) == false ? Convert.ToInt32(reader["RegisteredSchoolYearID"]) : 0,
+                                    RegisteredSemesterID = string.IsNullOrEmpty(reader["RegisteredSemesterID"].ToString()) == false ? Convert.ToInt32(reader["RegisteredSemesterID"]) : 0,
+                                    StudentStatus = string.IsNullOrEmpty(reader["StudentStatus"].ToString()) == false ? Convert.ToString(reader["StudentStatus"]) : "-",
+                                    AssessmentID = string.IsNullOrEmpty(reader["AssessmentID"].ToString()) == false ? Convert.ToInt32(reader["AssessmentID"]) : 0,
+                                    YearLevelID = string.IsNullOrEmpty(reader["YearLevelID"].ToString()) == false ? Convert.ToInt32(reader["YearLevelID"]) : 0,
+                                    YearLevel = string.IsNullOrEmpty(reader["YearLevel"].ToString()) == false ? Convert.ToString(reader["YearLevel"]) : "-",
+                                    SectionID = string.IsNullOrEmpty(reader["SectionID"].ToString()) == false ? Convert.ToInt32(reader["SectionID"]) : 0,
+                                    Section = string.IsNullOrEmpty(reader["Section"].ToString()) == false ? Convert.ToString(reader["Section"]) : "-",
+                                    TotalDiscount = string.IsNullOrEmpty(reader["DiscountAmount"].ToString()) == false ? Convert.ToDouble(reader["DiscountAmount"]) : 0,
+                                    TotalDue = string.IsNullOrEmpty(reader["TotalDue"].ToString()) == false ? Convert.ToDouble(reader["TotalDue"]) : 0,
+                                    EnrollmentStatus = string.IsNullOrEmpty(reader["EnrollmentStatus"].ToString()) == false ? Convert.ToString(reader["EnrollmentStatus"]) : "-",
+                                    AssessmentSchoolYearID = string.IsNullOrEmpty(reader["AssessmentSchoolYearID"].ToString()) == false ? Convert.ToInt32(reader["AssessmentSchoolYearID"]) : 0,
+                                    AssessmentSemesterID = string.IsNullOrEmpty(reader["AssessmentSemesterID"].ToString()) == false ? Convert.ToInt32(reader["AssessmentSemesterID"]) : 0,
+                                    Assessor = string.IsNullOrEmpty(reader["Assessor"].ToString()) == false ? Convert.ToString(reader["Assessor"]) : "-"
+                                };
+                                masters.Add(master);
+                                progress.Report(master);
+                            }
+                        }
+                    }
+                }
+            });
+            return masters;
+        }
+
     }
 }

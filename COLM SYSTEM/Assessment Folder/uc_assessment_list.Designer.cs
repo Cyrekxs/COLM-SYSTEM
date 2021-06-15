@@ -29,24 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clmAssessmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmRegisteredStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmLRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTotalDue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPaymentMode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAssessor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAssessmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEnrollmentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,6 +47,19 @@
             this.printAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reAssessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clmAssessmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmRegisteredStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotalDue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPaymentMode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAssessor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAssessmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEnrollmentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -71,8 +71,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -100,112 +100,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1196, 469);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // clmAssessmentID
-            // 
-            this.clmAssessmentID.HeaderText = "AssessmentID";
-            this.clmAssessmentID.Name = "clmAssessmentID";
-            this.clmAssessmentID.ReadOnly = true;
-            this.clmAssessmentID.Visible = false;
-            // 
-            // clmRegisteredStudentID
-            // 
-            this.clmRegisteredStudentID.HeaderText = "RegisteredStudentID";
-            this.clmRegisteredStudentID.Name = "clmRegisteredStudentID";
-            this.clmRegisteredStudentID.ReadOnly = true;
-            this.clmRegisteredStudentID.Visible = false;
-            // 
-            // clmLRN
-            // 
-            this.clmLRN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmLRN.HeaderText = "LRN";
-            this.clmLRN.Name = "clmLRN";
-            this.clmLRN.ReadOnly = true;
-            this.clmLRN.Width = 52;
-            // 
-            // clmStudentName
-            // 
-            this.clmStudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmStudentName.HeaderText = "Student Name";
-            this.clmStudentName.Name = "clmStudentName";
-            this.clmStudentName.ReadOnly = true;
-            // 
-            // clmEducationLevel
-            // 
-            this.clmEducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmEducationLevel.HeaderText = "Education";
-            this.clmEducationLevel.Name = "clmEducationLevel";
-            this.clmEducationLevel.ReadOnly = true;
-            this.clmEducationLevel.Width = 86;
-            // 
-            // clmCourseStrand
-            // 
-            this.clmCourseStrand.HeaderText = "Course / Strand";
-            this.clmCourseStrand.Name = "clmCourseStrand";
-            this.clmCourseStrand.ReadOnly = true;
-            this.clmCourseStrand.Width = 120;
-            // 
-            // clmYearLevel
-            // 
-            this.clmYearLevel.HeaderText = "Year Level";
-            this.clmYearLevel.Name = "clmYearLevel";
-            this.clmYearLevel.ReadOnly = true;
-            this.clmYearLevel.Width = 85;
-            // 
-            // clmTotalDue
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmTotalDue.DefaultCellStyle = dataGridViewCellStyle6;
-            this.clmTotalDue.HeaderText = "Total Due";
-            this.clmTotalDue.Name = "clmTotalDue";
-            this.clmTotalDue.ReadOnly = true;
-            this.clmTotalDue.Width = 85;
-            // 
-            // clmPaymentMode
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmPaymentMode.DefaultCellStyle = dataGridViewCellStyle7;
-            this.clmPaymentMode.HeaderText = "Payment Mode";
-            this.clmPaymentMode.Name = "clmPaymentMode";
-            this.clmPaymentMode.ReadOnly = true;
-            this.clmPaymentMode.Width = 115;
-            // 
-            // clmAssessor
-            // 
-            this.clmAssessor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmAssessor.HeaderText = "Assessor";
-            this.clmAssessor.Name = "clmAssessor";
-            this.clmAssessor.ReadOnly = true;
-            this.clmAssessor.Width = 81;
-            // 
-            // clmAssessmentDate
-            // 
-            this.clmAssessmentDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmAssessmentDate.HeaderText = "Date";
-            this.clmAssessmentDate.Name = "clmAssessmentDate";
-            this.clmAssessmentDate.ReadOnly = true;
-            this.clmAssessmentDate.Width = 57;
-            // 
-            // clmEnrollmentStatus
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmEnrollmentStatus.DefaultCellStyle = dataGridViewCellStyle8;
-            this.clmEnrollmentStatus.HeaderText = "Enrollment Status";
-            this.clmEnrollmentStatus.Name = "clmEnrollmentStatus";
-            this.clmEnrollmentStatus.ReadOnly = true;
-            this.clmEnrollmentStatus.Width = 130;
-            // 
-            // clmAction
-            // 
-            this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.clmAction.HeaderText = "Action";
-            this.clmAction.Name = "clmAction";
-            this.clmAction.ReadOnly = true;
-            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmAction.Text = "Action";
-            this.clmAction.UseColumnTextForButtonValue = true;
-            this.clmAction.Width = 66;
             // 
             // label1
             // 
@@ -358,6 +252,112 @@
             this.removeAssessmentToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.removeAssessmentToolStripMenuItem.Text = "Remove Assessment";
             this.removeAssessmentToolStripMenuItem.Click += new System.EventHandler(this.removeAssessmentToolStripMenuItem_Click);
+            // 
+            // clmAssessmentID
+            // 
+            this.clmAssessmentID.HeaderText = "AssessmentID";
+            this.clmAssessmentID.Name = "clmAssessmentID";
+            this.clmAssessmentID.ReadOnly = true;
+            this.clmAssessmentID.Visible = false;
+            // 
+            // clmRegisteredStudentID
+            // 
+            this.clmRegisteredStudentID.HeaderText = "RegisteredStudentID";
+            this.clmRegisteredStudentID.Name = "clmRegisteredStudentID";
+            this.clmRegisteredStudentID.ReadOnly = true;
+            this.clmRegisteredStudentID.Visible = false;
+            // 
+            // clmLRN
+            // 
+            this.clmLRN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmLRN.HeaderText = "LRN";
+            this.clmLRN.Name = "clmLRN";
+            this.clmLRN.ReadOnly = true;
+            this.clmLRN.Width = 52;
+            // 
+            // clmStudentName
+            // 
+            this.clmStudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmStudentName.HeaderText = "Student Name";
+            this.clmStudentName.Name = "clmStudentName";
+            this.clmStudentName.ReadOnly = true;
+            // 
+            // clmEducationLevel
+            // 
+            this.clmEducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmEducationLevel.HeaderText = "Education";
+            this.clmEducationLevel.Name = "clmEducationLevel";
+            this.clmEducationLevel.ReadOnly = true;
+            this.clmEducationLevel.Width = 86;
+            // 
+            // clmCourseStrand
+            // 
+            this.clmCourseStrand.HeaderText = "Course / Strand";
+            this.clmCourseStrand.Name = "clmCourseStrand";
+            this.clmCourseStrand.ReadOnly = true;
+            this.clmCourseStrand.Width = 120;
+            // 
+            // clmYearLevel
+            // 
+            this.clmYearLevel.HeaderText = "Year Level";
+            this.clmYearLevel.Name = "clmYearLevel";
+            this.clmYearLevel.ReadOnly = true;
+            this.clmYearLevel.Width = 85;
+            // 
+            // clmTotalDue
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmTotalDue.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmTotalDue.HeaderText = "Total Due";
+            this.clmTotalDue.Name = "clmTotalDue";
+            this.clmTotalDue.ReadOnly = true;
+            this.clmTotalDue.Width = 85;
+            // 
+            // clmPaymentMode
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmPaymentMode.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmPaymentMode.HeaderText = "Payment Mode";
+            this.clmPaymentMode.Name = "clmPaymentMode";
+            this.clmPaymentMode.ReadOnly = true;
+            this.clmPaymentMode.Width = 115;
+            // 
+            // clmAssessor
+            // 
+            this.clmAssessor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmAssessor.HeaderText = "Assessor";
+            this.clmAssessor.Name = "clmAssessor";
+            this.clmAssessor.ReadOnly = true;
+            this.clmAssessor.Width = 81;
+            // 
+            // clmAssessmentDate
+            // 
+            this.clmAssessmentDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmAssessmentDate.HeaderText = "Date";
+            this.clmAssessmentDate.Name = "clmAssessmentDate";
+            this.clmAssessmentDate.ReadOnly = true;
+            this.clmAssessmentDate.Width = 57;
+            // 
+            // clmEnrollmentStatus
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmEnrollmentStatus.DefaultCellStyle = dataGridViewCellStyle4;
+            this.clmEnrollmentStatus.HeaderText = "Enrollment Status";
+            this.clmEnrollmentStatus.Name = "clmEnrollmentStatus";
+            this.clmEnrollmentStatus.ReadOnly = true;
+            this.clmEnrollmentStatus.Width = 130;
+            // 
+            // clmAction
+            // 
+            this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmAction.HeaderText = "Action";
+            this.clmAction.Name = "clmAction";
+            this.clmAction.ReadOnly = true;
+            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmAction.Text = "Action";
+            this.clmAction.UseColumnTextForButtonValue = true;
+            this.clmAction.Width = 66;
             // 
             // uc_assessment_list
             // 

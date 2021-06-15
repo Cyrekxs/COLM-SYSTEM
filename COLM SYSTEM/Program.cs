@@ -27,9 +27,9 @@ namespace COLM_SYSTEM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frm_login());
+            Application.Run(new frm_login());
             //Application.Run(new frm_student_requirement_entry("College"));
-            Application.Run(new frm_settings(new uc_student_lists()));
+            //Application.Run(new frm_settings(new uc_student_lists()));
         }
     }
 }

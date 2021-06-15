@@ -35,7 +35,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.PanelMain = new System.Windows.Forms.Panel();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +49,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1010, 40);
+            this.panel1.Size = new System.Drawing.Size(1250, 40);
             this.panel1.TabIndex = 23;
             // 
             // label3
@@ -77,7 +76,7 @@
             "Junior High",
             "Senior High",
             "College"});
-            this.cmbEducationLevel.Location = new System.Drawing.Point(862, 14);
+            this.cmbEducationLevel.Location = new System.Drawing.Point(1102, 14);
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(145, 23);
             this.cmbEducationLevel.TabIndex = 4;
@@ -88,7 +87,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(664, 1);
+            this.label1.Location = new System.Drawing.Point(904, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 13);
             this.label1.TabIndex = 1;
@@ -98,7 +97,7 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(667, 14);
+            this.textBox1.Location = new System.Drawing.Point(907, 14);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(189, 23);
             this.textBox1.TabIndex = 2;
@@ -109,7 +108,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(859, 0);
+            this.label2.Location = new System.Drawing.Point(1099, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 3;
@@ -121,15 +120,8 @@
             this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMain.Location = new System.Drawing.Point(0, 40);
             this.PanelMain.Name = "PanelMain";
-            this.PanelMain.Size = new System.Drawing.Size(1010, 542);
+            this.PanelMain.Size = new System.Drawing.Size(1250, 660);
             this.PanelMain.TabIndex = 24;
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.WorkerReportsProgress = true;
-            this.backgroundWorker1.WorkerSupportsCancellation = true;
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             // 
             // uc_student_lists
             // 
@@ -140,7 +132,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "uc_student_lists";
-            this.Size = new System.Drawing.Size(1010, 582);
+            this.Size = new System.Drawing.Size(1250, 700);
             this.Load += new System.EventHandler(this.uc_student_lists_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -156,6 +148,5 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel PanelMain;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
