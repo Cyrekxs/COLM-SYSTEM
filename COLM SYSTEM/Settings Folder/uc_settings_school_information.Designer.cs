@@ -165,6 +165,7 @@
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "uc_settings_school_information";
             this.Size = new System.Drawing.Size(540, 332);
+            this.Load += new System.EventHandler(this.uc_settings_school_information_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

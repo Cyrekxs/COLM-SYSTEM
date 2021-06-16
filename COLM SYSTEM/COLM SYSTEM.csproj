@@ -927,7 +927,6 @@
     <Content Include="Programmers Info\What I Did.txt" />
     <None Include="Resources\Loading Image.jpg" />
     <None Include="Resources\Check.png" />
-    <None Include="Resources\Close.png" />
     <None Include="Resources\Female.png" />
     <None Include="Resources\Male.png" />
     <None Include="Resources\Warning.png" />
@@ -948,6 +947,15 @@
     <None Include="Resources\Print.png" />
     <None Include="Resources\Document Edit.png" />
     <None Include="Resources\Document Delete.png" />
+    <None Include="Resources\View.png" />
+    <None Include="Resources\Report.png" />
+    <None Include="Resources\Settings.png" />
+    <None Include="Resources\Process.png" />
+    <None Include="Resources\Chart.png" />
+    <None Include="Resources\Close.png" />
+    <None Include="Resources\Account.png" />
+    <None Include="Resources\Duplicate.png" />
+    <None Include="Resources\Schedule.png" />
     <Content Include="sems.ico" />
     <None Include="Resources\NONITA NABONG.jpg" />
     <None Include="Resources\Message.png" />

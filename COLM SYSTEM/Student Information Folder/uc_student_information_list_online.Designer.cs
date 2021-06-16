@@ -219,28 +219,28 @@
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(25, 25);
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.processApplicationToolStripMenuItem,
             this.deleteApplicationToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(188, 68);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(193, 76);
             // 
             // processApplicationToolStripMenuItem
             // 
-            this.processApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.processApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.processApplicationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("processApplicationToolStripMenuItem.Image")));
             this.processApplicationToolStripMenuItem.Name = "processApplicationToolStripMenuItem";
-            this.processApplicationToolStripMenuItem.Size = new System.Drawing.Size(187, 32);
+            this.processApplicationToolStripMenuItem.Size = new System.Drawing.Size(192, 36);
             this.processApplicationToolStripMenuItem.Text = "Process Application";
             this.processApplicationToolStripMenuItem.Click += new System.EventHandler(this.processApplicationToolStripMenuItem_Click);
             // 
             // deleteApplicationToolStripMenuItem
             // 
-            this.deleteApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.Firebrick;
+            this.deleteApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.deleteApplicationToolStripMenuItem.Image = global::SEMS.Properties.Resources.Data_Delete;
             this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
-            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(187, 32);
+            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(192, 36);
             this.deleteApplicationToolStripMenuItem.Text = "Delete Application";
             this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_Click);
             // 

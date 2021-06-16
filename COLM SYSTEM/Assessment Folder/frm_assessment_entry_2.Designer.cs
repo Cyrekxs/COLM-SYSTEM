@@ -80,6 +80,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.tbpAssessmentInfo = new System.Windows.Forms.TabPage();
+            this.btnSaveEmail = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAddDiscount = new System.Windows.Forms.Button();
             this.btnSavePrint = new System.Windows.Forms.Button();
@@ -94,6 +95,10 @@
             this.cmbPaymentMode = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.dgBreakdown = new System.Windows.Forms.DataGridView();
+            this.clmAssessmentBreakDownID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBreakDownCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBreakDownAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBreakDownDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTotalDue = new System.Windows.Forms.TextBox();
             this.cmbDiscount = new System.Windows.Forms.ComboBox();
@@ -126,11 +131,6 @@
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAdditionalFeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.clmAssessmentBreakDownID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmBreakDownCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmBreakDownAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmBreakDownDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSaveEmail = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tbpSubjects.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -599,6 +599,21 @@
             this.tbpAssessmentInfo.Text = "SUMMARY";
             this.tbpAssessmentInfo.UseVisualStyleBackColor = true;
             // 
+            // btnSaveEmail
+            // 
+            this.btnSaveEmail.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnSaveEmail.FlatAppearance.BorderSize = 0;
+            this.btnSaveEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveEmail.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveEmail.ForeColor = System.Drawing.Color.White;
+            this.btnSaveEmail.Location = new System.Drawing.Point(655, 354);
+            this.btnSaveEmail.Name = "btnSaveEmail";
+            this.btnSaveEmail.Size = new System.Drawing.Size(143, 38);
+            this.btnSaveEmail.TabIndex = 22;
+            this.btnSaveEmail.Text = "SAVE && EMAIL";
+            this.btnSaveEmail.UseVisualStyleBackColor = false;
+            this.btnSaveEmail.Click += new System.EventHandler(this.button3_Click_1);
+            // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -772,6 +787,43 @@
             this.dgBreakdown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgBreakdown.Size = new System.Drawing.Size(453, 337);
             this.dgBreakdown.TabIndex = 14;
+            // 
+            // clmAssessmentBreakDownID
+            // 
+            this.clmAssessmentBreakDownID.HeaderText = "AssessmentBreakdownID";
+            this.clmAssessmentBreakDownID.Name = "clmAssessmentBreakDownID";
+            this.clmAssessmentBreakDownID.ReadOnly = true;
+            this.clmAssessmentBreakDownID.Visible = false;
+            // 
+            // clmBreakDownCode
+            // 
+            this.clmBreakDownCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmBreakDownCode.HeaderText = "Code";
+            this.clmBreakDownCode.Name = "clmBreakDownCode";
+            this.clmBreakDownCode.ReadOnly = true;
+            this.clmBreakDownCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clmBreakDownAmount
+            // 
+            this.clmBreakDownAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBreakDownAmount.DefaultCellStyle = dataGridViewCellStyle11;
+            this.clmBreakDownAmount.HeaderText = "Amount";
+            this.clmBreakDownAmount.Name = "clmBreakDownAmount";
+            this.clmBreakDownAmount.ReadOnly = true;
+            this.clmBreakDownAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmBreakDownAmount.Width = 55;
+            // 
+            // clmBreakDownDueDate
+            // 
+            this.clmBreakDownDueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBreakDownDueDate.DefaultCellStyle = dataGridViewCellStyle12;
+            this.clmBreakDownDueDate.HeaderText = "Due Date";
+            this.clmBreakDownDueDate.Name = "clmBreakDownDueDate";
+            this.clmBreakDownDueDate.ReadOnly = true;
+            this.clmBreakDownDueDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmBreakDownDueDate.Width = 62;
             // 
             // label10
             // 
@@ -1069,89 +1121,40 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.removeToolStripMenuItem,
             this.viewAdditionalFeeToolStripMenuItem,
             this.removeToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.ShowImageMargin = false;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(193, 112);
             // 
             // removeToolStripMenuItem
             // 
-            this.removeToolStripMenuItem.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.removeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.removeToolStripMenuItem.Image = global::SEMS.Properties.Resources.Schedule;
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(192, 36);
             this.removeToolStripMenuItem.Text = "Pick Schedule";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // viewAdditionalFeeToolStripMenuItem
             // 
-            this.viewAdditionalFeeToolStripMenuItem.ForeColor = System.Drawing.Color.Green;
+            this.viewAdditionalFeeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.viewAdditionalFeeToolStripMenuItem.Image = global::SEMS.Properties.Resources.View;
             this.viewAdditionalFeeToolStripMenuItem.Name = "viewAdditionalFeeToolStripMenuItem";
-            this.viewAdditionalFeeToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.viewAdditionalFeeToolStripMenuItem.Size = new System.Drawing.Size(192, 36);
             this.viewAdditionalFeeToolStripMenuItem.Text = "View Additional Fee";
             this.viewAdditionalFeeToolStripMenuItem.Click += new System.EventHandler(this.viewAdditionalFeeToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem1
             // 
-            this.removeToolStripMenuItem1.ForeColor = System.Drawing.Color.Firebrick;
+            this.removeToolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
+            this.removeToolStripMenuItem1.Image = global::SEMS.Properties.Resources.Delete;
             this.removeToolStripMenuItem1.Name = "removeToolStripMenuItem1";
-            this.removeToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.removeToolStripMenuItem1.Size = new System.Drawing.Size(192, 36);
             this.removeToolStripMenuItem1.Text = "Remove";
             this.removeToolStripMenuItem1.Click += new System.EventHandler(this.removeToolStripMenuItem1_Click);
-            // 
-            // clmAssessmentBreakDownID
-            // 
-            this.clmAssessmentBreakDownID.HeaderText = "AssessmentBreakdownID";
-            this.clmAssessmentBreakDownID.Name = "clmAssessmentBreakDownID";
-            this.clmAssessmentBreakDownID.ReadOnly = true;
-            this.clmAssessmentBreakDownID.Visible = false;
-            // 
-            // clmBreakDownCode
-            // 
-            this.clmBreakDownCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmBreakDownCode.HeaderText = "Code";
-            this.clmBreakDownCode.Name = "clmBreakDownCode";
-            this.clmBreakDownCode.ReadOnly = true;
-            this.clmBreakDownCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // clmBreakDownAmount
-            // 
-            this.clmBreakDownAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBreakDownAmount.DefaultCellStyle = dataGridViewCellStyle11;
-            this.clmBreakDownAmount.HeaderText = "Amount";
-            this.clmBreakDownAmount.Name = "clmBreakDownAmount";
-            this.clmBreakDownAmount.ReadOnly = true;
-            this.clmBreakDownAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clmBreakDownAmount.Width = 55;
-            // 
-            // clmBreakDownDueDate
-            // 
-            this.clmBreakDownDueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBreakDownDueDate.DefaultCellStyle = dataGridViewCellStyle12;
-            this.clmBreakDownDueDate.HeaderText = "Due Date";
-            this.clmBreakDownDueDate.Name = "clmBreakDownDueDate";
-            this.clmBreakDownDueDate.ReadOnly = true;
-            this.clmBreakDownDueDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clmBreakDownDueDate.Width = 62;
-            // 
-            // btnSaveEmail
-            // 
-            this.btnSaveEmail.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnSaveEmail.FlatAppearance.BorderSize = 0;
-            this.btnSaveEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveEmail.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveEmail.ForeColor = System.Drawing.Color.White;
-            this.btnSaveEmail.Location = new System.Drawing.Point(655, 354);
-            this.btnSaveEmail.Name = "btnSaveEmail";
-            this.btnSaveEmail.Size = new System.Drawing.Size(143, 38);
-            this.btnSaveEmail.TabIndex = 22;
-            this.btnSaveEmail.Text = "SAVE && EMAIL";
-            this.btnSaveEmail.UseVisualStyleBackColor = false;
-            this.btnSaveEmail.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // frm_assessment_entry_2
             // 

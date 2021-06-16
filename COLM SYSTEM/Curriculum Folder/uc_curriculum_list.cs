@@ -13,6 +13,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
 {
     public partial class uc_curriculum_list : UserControl
     {
+        int SelectedRow = -1;
         List<Curriculum> Curriculums = new List<Curriculum>();
         public uc_curriculum_list()
         {
@@ -53,24 +54,32 @@ namespace COLM_SYSTEM.Curriculum_Folder
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == clmEdit.Index)
+
+            if (e.ColumnIndex == clmAction.Index)
             {
-                Curriculum c = dataGridView3.Rows[e.RowIndex].Tag as Curriculum;
-                List<CurriculumSubject> curriculumSubjects = Curriculum.GetCurriculumSubjects(c.CurriculumID);
-                frm_curriculum_entry frm = new frm_curriculum_entry(c,curriculumSubjects);
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-                LoadCurriculums();
+                SelectedRow = e.RowIndex;
+                contextMenuStrip1.Show(new Point(Cursor.Position.X, Cursor.Position.Y));
             }
-            else if (e.ColumnIndex == clmDuplicate.Index)
-            {
-                Curriculum c = Curriculum.GetCurriculum((int)dataGridView3.Rows[e.RowIndex].Cells["clmCurriculumID"].Value);
-                List<CurriculumSubject> curriculumSubjects = Curriculum.GetCurriculumSubjects(c.CurriculumID);
-                frm_curriculum_entry frm = new frm_curriculum_entry(c, curriculumSubjects,"DUPLICATE");
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-                LoadCurriculums();
-            }
+        }
+
+        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Curriculum c = dataGridView3.Rows[SelectedRow].Tag as Curriculum;
+            List<CurriculumSubject> curriculumSubjects = Curriculum.GetCurriculumSubjects(c.CurriculumID);
+            frm_curriculum_entry frm = new frm_curriculum_entry(c, curriculumSubjects);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            LoadCurriculums();
+        }
+
+        private void duplicateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Curriculum c = Curriculum.GetCurriculum((int)dataGridView3.Rows[SelectedRow].Cells["clmCurriculumID"].Value);
+            List<CurriculumSubject> curriculumSubjects = Curriculum.GetCurriculumSubjects(c.CurriculumID);
+            frm_curriculum_entry frm = new frm_curriculum_entry(c, curriculumSubjects, "DUPLICATE");
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            LoadCurriculums();
         }
     }
 }

@@ -13,19 +13,11 @@ namespace COLM_SYSTEM.Settings_Folder
 {
     public partial class uc_settings_school_information : UserControl
     {
-        SchoolInfo info = SchoolInfo.GetSchoolInfoAsync().Result;
+        SchoolInfo info;
         public uc_settings_school_information()
         {
             InitializeComponent();
             //for header and footers
-            txtSchoolID.Text = info.SchoolID;
-            txtSchoolName.Text = info.SchoolName;
-
-            if (info.Logo != null)
-            {
-                pictureBox1.Image = Utilties.ConvertByteToImage(info.Logo);
-            }
-
         }
 
         private bool IsValid()
@@ -75,5 +67,17 @@ namespace COLM_SYSTEM.Settings_Folder
             }
         }
 
+        private async void uc_settings_school_information_Load(object sender, EventArgs e)
+        {
+            info = await SchoolInfo.GetSchoolInfoAsync();
+
+            txtSchoolID.Text = info.SchoolID;
+            txtSchoolName.Text = info.SchoolName;
+
+            if (info.Logo != null)
+            {
+                pictureBox1.Image = Utilties.ConvertByteToImage(info.Logo);
+            }
+        }
     }
 }

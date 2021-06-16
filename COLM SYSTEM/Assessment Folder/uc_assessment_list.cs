@@ -26,7 +26,6 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void LoadAssessments()
         {
 
-
             Task<List<AssessmentSummary>> task = new Task<List<AssessmentSummary>>(Assessment.GetAssessments);
             task.Start();
 
