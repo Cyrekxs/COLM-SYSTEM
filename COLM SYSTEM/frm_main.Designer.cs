@@ -905,6 +905,7 @@
             // 
             // panel7
             // 
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.BackColor = System.Drawing.Color.SlateGray;
             this.panel7.Location = new System.Drawing.Point(743, 4);
             this.panel7.Name = "panel7";

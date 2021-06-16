@@ -1,4 +1,5 @@
 ﻿using COLM_SYSTEM.registration;
+using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM_LIBRARY.model;
 using SEMS;
 using System;
@@ -124,6 +125,16 @@ namespace COLM_SYSTEM.Registration_Folder
         private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadRegisteredStudents();
+        }
+
+        private void viewInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int SelectedStudentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmStudentID"].Value);
+            using (frm_student_information_online_entry_1 frm = new frm_student_information_online_entry_1(SelectedStudentID))
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
         }
     }
 }

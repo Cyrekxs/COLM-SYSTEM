@@ -1,6 +1,7 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using Microsoft.Reporting.WinForms;
+using SEMS;
 using SEMS.Assessment_Folder;
 using SEMS.Assessment_Folder.DataSets;
 using System;
@@ -728,7 +729,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             return result;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             //verify validations
             if (IsValidEntry() == false)
@@ -738,11 +739,16 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             int AssessmentID = SaveAssessment();
 
+
+
             if (AssessmentID > 0)
             {
                 MessageBox.Show("Assessment Successfully saved!", "Student Assessment", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //print report
-                await AssessmentReport.PrintAssessment(AssessmentID);            
+                frm_loading_v2 frm = new frm_loading_v2(AssessmentReport.PrintAssessment(AssessmentID));
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+
                 Close();
                 Dispose();
             }
@@ -754,7 +760,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
         }
 
-        private async void button3_Click_1(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
             //verify validations
             if (IsValidEntry() == false)
@@ -768,7 +774,9 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 MessageBox.Show("Assessment Successfully saved!", "Student Assessment", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //email student
-                await AssessmentReport.EmailStudent(AssessmentID);
+                frm_loading_v2 frm = new frm_loading_v2(AssessmentReport.EmailStudent(AssessmentID));
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
                 Close();
                 Dispose();
             }

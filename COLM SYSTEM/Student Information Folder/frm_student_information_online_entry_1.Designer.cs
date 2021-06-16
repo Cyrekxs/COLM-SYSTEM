@@ -120,12 +120,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.label55 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label54 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
+            this.label54 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -1093,6 +1093,15 @@
             this.panel7.Size = new System.Drawing.Size(480, 45);
             this.panel7.TabIndex = 45;
             // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.LightSlateGray;
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel10.Location = new System.Drawing.Point(20, 41);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(440, 4);
+            this.panel10.TabIndex = 45;
+            // 
             // label55
             // 
             this.label55.AutoSize = true;
@@ -1155,6 +1164,15 @@
             this.panel5.Size = new System.Drawing.Size(480, 45);
             this.panel5.TabIndex = 44;
             // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.LightSlateGray;
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.Location = new System.Drawing.Point(20, 41);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(440, 4);
+            this.panel9.TabIndex = 45;
+            // 
             // label54
             // 
             this.label54.AutoSize = true;
@@ -1165,24 +1183,6 @@
             this.label54.Size = new System.Drawing.Size(179, 23);
             this.label54.TabIndex = 1;
             this.label54.Text = "Guardian Information";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.LightSlateGray;
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(20, 41);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(440, 4);
-            this.panel9.TabIndex = 45;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.LightSlateGray;
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(20, 41);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(440, 4);
-            this.panel10.TabIndex = 45;
             // 
             // frm_student_information_online_entry_1
             // 
@@ -1195,7 +1195,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_student_information_online_entry_1";
-            this.Text = "ONLINE PROCESSOR";
+            this.Text = "STUDENT INFORMATION";
             this.Load += new System.EventHandler(this.frm_student_information_online_entry_1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

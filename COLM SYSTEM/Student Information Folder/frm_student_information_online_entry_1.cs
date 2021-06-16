@@ -16,71 +16,37 @@ namespace COLM_SYSTEM.Student_Information_Folder
         List<Address> addresses = Address.GetAddresses();
         List<string> Schools = StudentInfo.GetSchools();
         List<string> SchoolAddresses = StudentInfo.GetSchoolAddresses();
+        StudentInfo model = new StudentInfo();
 
-        private string SavingStatus;
+        private SavingOptions SavingStatus;
+
+        enum SavingOptions
+        {
+            INSERT,
+            UPDATE,
+            ONLINE,
+            VIEW
+        }
+
         //ADD NEW STUDENT
         public frm_student_information_online_entry_1()
         {
             InitializeComponent();
-            SavingStatus = "INSERT";
+            SavingStatus = SavingOptions.INSERT;
         }
         //UPDATE STUDENT INFORMATION
         public frm_student_information_online_entry_1(int StudentID)
         {
             InitializeComponent();
-            SavingStatus = "UPDATE";
+            SavingStatus = SavingOptions.UPDATE;
             StudentInfo model = StudentInfo.GetStudent(StudentID);
-            txtLRN.Tag = model.StudentID;
-            txtLRN.Text = model.LRN;
-            txtFirstname.Text = model.Firstname;
-            txtMiddlename.Text = model.Middlename;
-            txtLastname.Text = model.Lastname;
-            txtBirthDate.Text = model.BirthDate.ToString();
-            cmbGender.Text = model.Gender;
-
-            txtStreet.Text = model.Street;
-            txtProvince.Text = model.Province;
-            txtCity.Text = model.City;
-            txtBarangay.Text = model.Barangay;
-
-            txtMobileNo.Text = model.MobileNo;
-            txtEmailAddress.Text = model.EmailAddress;
-
-            txtMotherName.Text = model.MotherName;
-            txtMotherMobile.Text = model.MobileNo;
-            txtFatherName.Text = model.FatherName;
-            txtFatherMobile.Text = model.FatherMobile;
-            txtGuardianName.Text = model.GuardianName;
-            txtGuardianMobile.Text = model.GuardianMobile;
-            txtEmergencyName.Text = model.EmergencyName;
-            txtEmergencyRelation.Text = model.EmergencyRelation;
-            txtEmergencyMobile.Text = model.EmergencyMobile;
-
-            txtSchoolName.Text = model.SchoolName;
-            txtSchoolAddress.Text = model.SchoolAddress;
-            cmbSchoolStatus.Text = model.SchoolStatus;
-            cmbESCGuarantee.Text = model.ESCGuarantee;
-
-            cmbStudentStatus.Text = model.StudentStatus;
-            txtEducationLevel.Text = model.EducationLevel;
-            txtCourseStrand.Text = model.CourseStrand;
-            txtYearLevel.Text = model.YearLevel;
-
-
-            if (txtEmergencyName.Text == txtMotherName.Text)
-                checkBox1.Checked = true;
-            else if (txtEmergencyName.Text == txtFatherName.Text)
-                checkBox2.Checked = true;
-            else if (txtEmergencyName.Text == txtGuardianName.Text)
-                checkBox3.Checked = true;
-
+            DisplayStudentInfo();
         }
-
         //IMPORT ONLINE APPLICANT TO CREATE NEW STUDENT
         public frm_student_information_online_entry_1(StudentInfoOnline model)
         {
             InitializeComponent();
-            SavingStatus = "ONLINE";
+            SavingStatus = SavingOptions.ONLINE;
 
             txtLRN.Tag = model.ApplicationID;
             txtLRN.Text = model.LRN;
@@ -125,6 +91,52 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
         }
 
+        private void DisplayStudentInfo()
+        {
+            txtLRN.Tag = model.StudentID;
+            txtLRN.Text = model.LRN;
+            txtFirstname.Text = model.Firstname;
+            txtMiddlename.Text = model.Middlename;
+            txtLastname.Text = model.Lastname;
+            txtBirthDate.Text = model.BirthDate.ToString();
+            cmbGender.Text = model.Gender;
+
+            txtStreet.Text = model.Street;
+            txtProvince.Text = model.Province;
+            txtCity.Text = model.City;
+            txtBarangay.Text = model.Barangay;
+
+            txtMobileNo.Text = model.MobileNo;
+            txtEmailAddress.Text = model.EmailAddress;
+
+            txtMotherName.Text = model.MotherName;
+            txtMotherMobile.Text = model.MobileNo;
+            txtFatherName.Text = model.FatherName;
+            txtFatherMobile.Text = model.FatherMobile;
+            txtGuardianName.Text = model.GuardianName;
+            txtGuardianMobile.Text = model.GuardianMobile;
+            txtEmergencyName.Text = model.EmergencyName;
+            txtEmergencyRelation.Text = model.EmergencyRelation;
+            txtEmergencyMobile.Text = model.EmergencyMobile;
+
+            txtSchoolName.Text = model.SchoolName;
+            txtSchoolAddress.Text = model.SchoolAddress;
+            cmbSchoolStatus.Text = model.SchoolStatus;
+            cmbESCGuarantee.Text = model.ESCGuarantee;
+
+            cmbStudentStatus.Text = model.StudentStatus;
+            txtEducationLevel.Text = model.EducationLevel;
+            txtCourseStrand.Text = model.CourseStrand;
+            txtYearLevel.Text = model.YearLevel;
+
+
+            if (txtEmergencyName.Text == txtMotherName.Text)
+                checkBox1.Checked = true;
+            else if (txtEmergencyName.Text == txtFatherName.Text)
+                checkBox2.Checked = true;
+            else if (txtEmergencyName.Text == txtGuardianName.Text)
+                checkBox3.Checked = true;
+        }
 
         private bool IsValidForm()
         {
@@ -197,7 +209,6 @@ namespace COLM_SYSTEM.Student_Information_Folder
             return true;
         }
 
-
         private void LoadSuggestionSchools()
         {
             foreach (var item in Schools)
@@ -248,7 +259,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
 
             StudentInfo student_existing = StudentInfo.IsStudentExist(txtLastname.Text, txtFirstname.Text);
-            StudentInfo model = new StudentInfo()
+            model = new StudentInfo()
             {
                 StudentID = student_existing.StudentID,
                 LRN = txtLRN.Text,
@@ -288,7 +299,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
                 return;
 
 
-            if (SavingStatus != "UPDATE")
+            if (SavingStatus != SavingOptions.UPDATE)
             {
                 //Program detected existing student
                 if (student_existing.StudentID != 0)
@@ -304,13 +315,11 @@ namespace COLM_SYSTEM.Student_Information_Folder
                 model.StudentID = Convert.ToInt32(txtLRN.Tag);
 
 
-
-
             //insert new student information
             StudentInfo.InsertUpdateStudentInformation(model);
 
             //if the application is online the save the application id into process table
-            if (SavingStatus == "ONLINE")
+            if (SavingStatus == SavingOptions.ONLINE)
             {
                 //get the newly inserted student information
                 model = StudentInfo.IsStudentExist(txtLastname.Text, txtFirstname.Text);
