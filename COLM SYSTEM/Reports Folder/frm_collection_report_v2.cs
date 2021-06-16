@@ -28,7 +28,7 @@ namespace SEMS.Reports_Folder
             payments = payments.Where(item => item.FeeCategory.ToLower().Equals(cmbFeeCategory.Text.ToLower())).ToList();
             //filter payment by date
             DateTime from = Convert.ToDateTime(string.Concat(dtFrom.Text, " 12:00:01 AM"));
-            DateTime to = Convert.ToDateTime(string.Concat(dtTo.Text, " 12:00:59 PM"));
+            DateTime to = Convert.ToDateTime(string.Concat(dtTo.Text, " 11:59:59 PM"));
             payments = payments.Where(r => r.PaymentDate > from && r.PaymentDate < to).ToList();
 
             LoadSummary();
