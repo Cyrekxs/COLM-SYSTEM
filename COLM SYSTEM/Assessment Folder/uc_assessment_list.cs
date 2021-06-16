@@ -90,7 +90,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
         }
 
-
         private void reAssessToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int AssessmentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmAssessmentID"].Value);
@@ -114,77 +113,10 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
         }
 
-        private async Task PrintAssessment(int AssessmentID)
-        {
-            Assessment assessment = await Task.Run(() => { return Assessment.GetAssessment(AssessmentID); });
-
-            ReportViewer report = await AssessmentReport.GetAssessmentReport(assessment);
-            frm_print_preview frm = new frm_print_preview();
-
-            await Task.Run(() =>
-            {
-                frm.reportViewer1.LocalReport.ReportEmbeddedResource = report.LocalReport.ReportEmbeddedResource;
-                frm.reportViewer1.LocalReport.DataSources.Clear();
-                foreach (var item in report.LocalReport.DataSources)
-                {
-                    frm.reportViewer1.LocalReport.DataSources.Add(item);
-                }
-                List<ReportParameter> parameters = new List<ReportParameter>();
-                foreach (var item in report.LocalReport.GetParameters())
-                {
-                    parameters.Add(new ReportParameter(item.Name, item.Values[0]));
-                }
-                frm.reportViewer1.LocalReport.SetParameters(parameters);
-            });
-
-
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-        }
-
         private void printAssessmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int AssessmentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmAssessmentID"].Value);
-            frm_loading_v2 frm = new frm_loading_v2( PrintAssessment(AssessmentID));
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-        }
-
-        private async Task EmailStudent(int AssessmentID)
-        {
-            //get assessment information
-            Assessment assessment = await Task.Run(() => { return Assessment.GetAssessment(AssessmentID); });
-
-            //get report
-            ReportViewer report = await AssessmentReport.GetAssessmentReport(assessment);
-
-            //initialized report form
-            frm_assessment_email_sender frm = new frm_assessment_email_sender(assessment);
-
-            //set forms data
-            await Task.Run(() =>
-            {
-                //set report embedded source
-                frm.reportViewer1.LocalReport.ReportEmbeddedResource = report.LocalReport.ReportEmbeddedResource;
-
-                //clear and set report data source
-                frm.reportViewer1.LocalReport.DataSources.Clear();
-                foreach (var item in report.LocalReport.DataSources)
-                {
-                    frm.reportViewer1.LocalReport.DataSources.Add(item);
-                }
-
-                //set report parameters
-                List<ReportParameter> parameters = new List<ReportParameter>();
-                foreach (var item in report.LocalReport.GetParameters())
-                {
-                    parameters.Add(new ReportParameter(item.Name, item.Values[0]));
-                }
-                frm.reportViewer1.LocalReport.SetParameters(parameters.ToArray());
-            });
-
-
-
+            frm_loading_v2 frm = new frm_loading_v2(AssessmentReport.PrintAssessment(AssessmentID));
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
@@ -192,7 +124,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void emailStudentToolStripMenuItem_ClickAsync(object sender, EventArgs e)
         {
             int AssessmentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmAssessmentID"].Value);
-            frm_loading_v2 frm = new frm_loading_v2(EmailStudent(AssessmentID));
+            frm_loading_v2 frm = new frm_loading_v2(AssessmentReport.EmailStudent(AssessmentID));
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

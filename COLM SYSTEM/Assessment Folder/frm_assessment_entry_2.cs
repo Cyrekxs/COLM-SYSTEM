@@ -508,26 +508,7 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         }
 
-        private async Task PrintAssessment(int AssessmentID)
-        {
-            Assessment assessment = Assessment.GetAssessment(AssessmentID);
-            ReportViewer report = await AssessmentReport.GetAssessmentReport(assessment);
-            frm_print_preview frm = new frm_print_preview();
-            frm.reportViewer1.LocalReport.ReportEmbeddedResource = report.LocalReport.ReportEmbeddedResource;
-            frm.reportViewer1.LocalReport.DataSources.Clear();
-            foreach (var item in report.LocalReport.DataSources)
-            {
-                frm.reportViewer1.LocalReport.DataSources.Add(item);
-            }
-            List<ReportParameter> parameters = new List<ReportParameter>();
-            foreach (var item in report.LocalReport.GetParameters())
-            {
-                parameters.Add(new ReportParameter(item.Name, item.Values[0]));
-            }
-            frm.reportViewer1.LocalReport.SetParameters(parameters);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-        }
+
         private void btnAddDiscount_Click(object sender, System.EventArgs e)
         {
             if (cmbDiscount.Text != string.Empty)
@@ -646,15 +627,8 @@ namespace COLM_SYSTEM.Assessment_Folder
             return true;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private int SaveAssessment()
         {
-
-            //verify validations
-            if (IsValidEntry() == false)
-            {
-                return;
-            }
-
 
             //get assessment type id
             List<PaymentMode> assessmentTypes = cmbPaymentMode.Tag as List<PaymentMode>;
@@ -751,12 +725,50 @@ namespace COLM_SYSTEM.Assessment_Folder
             };
 
             int result = Assessment.InsertAssessment(entry);
+            return result;
+        }
 
-            if (result > 0)
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            //verify validations
+            if (IsValidEntry() == false)
+            {
+                return;
+            }
+
+            int AssessmentID = SaveAssessment();
+
+            if (AssessmentID > 0)
             {
                 MessageBox.Show("Assessment Successfully saved!", "Student Assessment", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //print report
-                await PrintAssessment(result);
+                await AssessmentReport.PrintAssessment(AssessmentID);            
+                Close();
+                Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Assessment Unsuccessfull!", "Student Assessment Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+                Dispose();
+            }
+        }
+
+        private async void button3_Click_1(object sender, EventArgs e)
+        {
+            //verify validations
+            if (IsValidEntry() == false)
+            {
+                return;
+            }
+
+            int AssessmentID = SaveAssessment();
+
+            if (AssessmentID > 0)
+            {
+                MessageBox.Show("Assessment Successfully saved!", "Student Assessment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //email student
+                await AssessmentReport.EmailStudent(AssessmentID);
                 Close();
                 Dispose();
             }
@@ -866,5 +878,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 CalculateFeeSummary();
             }
         }
+
+
     }
 }

@@ -215,6 +215,16 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return assessmentLists;
         }
+
+        /// <summary>
+        /// This will return assessment id of inserted assessment
+        /// </summary>
+        /// <param name="summary"></param>
+        /// <param name="subjects"></param>
+        /// <param name="fees"></param>
+        /// <param name="discounts"></param>
+        /// <param name="breakdown"></param>
+        /// <returns></returns>
         public static int InsertAssessment(AssessmentSummary summary, List<AssessmentSubject> subjects, List<AssessmentFee> fees, List<AssessmentDiscount> discounts, List<AssessmentBreakdown> breakdown)
         {         
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))

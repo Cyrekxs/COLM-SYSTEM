@@ -1,4 +1,5 @@
 ﻿using COLM_SYSTEM;
+using COLM_SYSTEM.Assessment_Folder;
 using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using Microsoft.Reporting.WinForms;
@@ -9,6 +10,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SEMS.Assessment_Folder
 {
@@ -139,6 +141,68 @@ namespace SEMS.Assessment_Folder
             report.LocalReport.SetParameters(reportParameters.ToArray());
             report.RefreshReport();
             return report;
+        }
+
+        //email assessment
+        public static async Task EmailStudent(int AssessmentID)
+        {
+            //get assessment information
+            Assessment assessment = await Task.Run(() => { return Assessment.GetAssessment(AssessmentID); });
+
+            //get report
+            ReportViewer report = await GetAssessmentReport(assessment);
+
+            //initialized report form
+            frm_assessment_email_sender frm = new frm_assessment_email_sender(assessment);
+
+            //set forms data
+            await Task.Run(() =>
+            {
+                //set report embedded source
+                frm.reportViewer1.LocalReport.ReportEmbeddedResource = report.LocalReport.ReportEmbeddedResource;
+
+                //clear and set report data source
+                frm.reportViewer1.LocalReport.DataSources.Clear();
+                foreach (var item in report.LocalReport.DataSources)
+                {
+                    frm.reportViewer1.LocalReport.DataSources.Add(item);
+                }
+
+                //set report parameters
+                List<ReportParameter> parameters = new List<ReportParameter>();
+                foreach (var item in report.LocalReport.GetParameters())
+                {
+                    parameters.Add(new ReportParameter(item.Name, item.Values[0]));
+                }
+                frm.reportViewer1.LocalReport.SetParameters(parameters.ToArray());
+            });
+
+
+
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        //print assessment
+        public static async Task PrintAssessment(int AssessmentID)
+        {
+            Assessment assessment = Assessment.GetAssessment(AssessmentID);
+            ReportViewer report = await GetAssessmentReport(assessment);
+            frm_print_preview frm = new frm_print_preview();
+            frm.reportViewer1.LocalReport.ReportEmbeddedResource = report.LocalReport.ReportEmbeddedResource;
+            frm.reportViewer1.LocalReport.DataSources.Clear();
+            foreach (var item in report.LocalReport.DataSources)
+            {
+                frm.reportViewer1.LocalReport.DataSources.Add(item);
+            }
+            List<ReportParameter> parameters = new List<ReportParameter>();
+            foreach (var item in report.LocalReport.GetParameters())
+            {
+                parameters.Add(new ReportParameter(item.Name, item.Values[0]));
+            }
+            frm.reportViewer1.LocalReport.SetParameters(parameters);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

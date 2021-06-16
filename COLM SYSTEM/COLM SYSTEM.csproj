@@ -945,6 +945,9 @@
     <None Include="Resources\Nodes.png" />
     <None Include="Resources\User Settings.png" />
     <None Include="Resources\Logout.png" />
+    <None Include="Resources\Print.png" />
+    <None Include="Resources\Document Edit.png" />
+    <None Include="Resources\Document Delete.png" />
     <Content Include="sems.ico" />
     <None Include="Resources\NONITA NABONG.jpg" />
     <None Include="Resources\Message.png" />

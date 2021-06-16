@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -43,10 +44,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblCount = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.removeAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.emailStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reAssessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clmAssessmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmRegisteredStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmLRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +61,7 @@
             this.clmAssessor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssessmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEnrollmentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmAction = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -92,10 +94,19 @@
             this.clmAssessmentDate,
             this.clmEnrollmentStatus,
             this.clmAction});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Location = new System.Drawing.Point(9, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1196, 469);
             this.dataGridView1.TabIndex = 0;
@@ -211,6 +222,7 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(25, 25);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.emailStudentToolStripMenuItem,
             this.printAssessmentToolStripMenuItem,
@@ -218,40 +230,54 @@
             this.removeAssessmentToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.contextMenuStrip1.ShowImageMargin = false;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(158, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(192, 132);
+            // 
+            // removeAssessmentToolStripMenuItem
+            // 
+            this.removeAssessmentToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.removeAssessmentToolStripMenuItem.Image = global::SEMS.Properties.Resources.Document_Delete;
+            this.removeAssessmentToolStripMenuItem.Name = "removeAssessmentToolStripMenuItem";
+            this.removeAssessmentToolStripMenuItem.Size = new System.Drawing.Size(191, 32);
+            this.removeAssessmentToolStripMenuItem.Text = "Remove Assessment";
+            this.removeAssessmentToolStripMenuItem.Click += new System.EventHandler(this.removeAssessmentToolStripMenuItem_Click);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewImageColumn1.HeaderText = "Action";
+            this.dataGridViewImageColumn1.Image = global::SEMS.Properties.Resources.Data;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 62;
             // 
             // emailStudentToolStripMenuItem
             // 
-            this.emailStudentToolStripMenuItem.ForeColor = System.Drawing.Color.Green;
+            this.emailStudentToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.emailStudentToolStripMenuItem.Image = global::SEMS.Properties.Resources.Send;
             this.emailStudentToolStripMenuItem.Name = "emailStudentToolStripMenuItem";
-            this.emailStudentToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.emailStudentToolStripMenuItem.Size = new System.Drawing.Size(191, 32);
             this.emailStudentToolStripMenuItem.Text = "Email Student";
             this.emailStudentToolStripMenuItem.Click += new System.EventHandler(this.emailStudentToolStripMenuItem_ClickAsync);
             // 
             // printAssessmentToolStripMenuItem
             // 
-            this.printAssessmentToolStripMenuItem.ForeColor = System.Drawing.Color.Green;
+            this.printAssessmentToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.printAssessmentToolStripMenuItem.Image = global::SEMS.Properties.Resources.Print;
             this.printAssessmentToolStripMenuItem.Name = "printAssessmentToolStripMenuItem";
-            this.printAssessmentToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.printAssessmentToolStripMenuItem.Size = new System.Drawing.Size(191, 32);
             this.printAssessmentToolStripMenuItem.Text = "Print Assessment";
             this.printAssessmentToolStripMenuItem.Click += new System.EventHandler(this.printAssessmentToolStripMenuItem_Click);
             // 
             // reAssessToolStripMenuItem
             // 
-            this.reAssessToolStripMenuItem.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.reAssessToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.reAssessToolStripMenuItem.Image = global::SEMS.Properties.Resources.Document_Edit;
             this.reAssessToolStripMenuItem.Name = "reAssessToolStripMenuItem";
-            this.reAssessToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.reAssessToolStripMenuItem.Size = new System.Drawing.Size(191, 32);
             this.reAssessToolStripMenuItem.Text = "View / Reassess";
             this.reAssessToolStripMenuItem.Click += new System.EventHandler(this.reAssessToolStripMenuItem_Click);
-            // 
-            // removeAssessmentToolStripMenuItem
-            // 
-            this.removeAssessmentToolStripMenuItem.ForeColor = System.Drawing.Color.Firebrick;
-            this.removeAssessmentToolStripMenuItem.Name = "removeAssessmentToolStripMenuItem";
-            this.removeAssessmentToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.removeAssessmentToolStripMenuItem.Text = "Remove Assessment";
-            this.removeAssessmentToolStripMenuItem.Click += new System.EventHandler(this.removeAssessmentToolStripMenuItem_Click);
             // 
             // clmAssessmentID
             // 
@@ -285,10 +311,10 @@
             // clmEducationLevel
             // 
             this.clmEducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmEducationLevel.HeaderText = "Education";
+            this.clmEducationLevel.HeaderText = "Education Level";
             this.clmEducationLevel.Name = "clmEducationLevel";
             this.clmEducationLevel.ReadOnly = true;
-            this.clmEducationLevel.Width = 86;
+            this.clmEducationLevel.Width = 106;
             // 
             // clmCourseStrand
             // 
@@ -351,12 +377,12 @@
             // 
             this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.clmAction.HeaderText = "Action";
+            this.clmAction.Image = global::SEMS.Properties.Resources.Data;
+            this.clmAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.clmAction.Name = "clmAction";
             this.clmAction.ReadOnly = true;
             this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.clmAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmAction.Text = "Action";
-            this.clmAction.UseColumnTextForButtonValue = true;
             this.clmAction.Width = 66;
             // 
             // uc_assessment_list
@@ -394,6 +420,7 @@
         private System.Windows.Forms.ToolStripMenuItem reAssessToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem emailStudentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeAssessmentToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRegisteredStudentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmLRN;
@@ -406,6 +433,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessor;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEnrollmentStatus;
-        private System.Windows.Forms.DataGridViewButtonColumn clmAction;
+        private System.Windows.Forms.DataGridViewImageColumn clmAction;
     }
 }
