@@ -8,14 +8,15 @@ namespace SEMS
     public partial class frm_loading_v2 : Form
     {
         public List<Task> Tasks { get; set; } = new List<Task>();
-        public Task task { get; }
+        public Task task { get; set; }
         private bool IsMultipleTask = false;
+
 
         public frm_loading_v2(List<Task> tasks)
         {
             InitializeComponent();
             Tasks = tasks;
-            IsMultipleTask = true;            
+            IsMultipleTask = true;
 
         }
         public frm_loading_v2(Task t)
@@ -30,13 +31,14 @@ namespace SEMS
             if (IsMultipleTask == true)
             {
                 await Task.WhenAll(Tasks);
+
                 DialogResult = DialogResult.OK;
                 Hide();
                 Close();
             }
             else
             {
-                await task;
+                await task;               
                 DialogResult = DialogResult.OK;
                 Hide();
                 Close();

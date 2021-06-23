@@ -9,6 +9,8 @@ namespace COLM_SYSTEM_LIBRARY.model
 {
     public class StudentInfo
     {
+
+        #region Properties
         public int StudentID { get; set; }
         public string LRN { get; set; }
         public string Lastname { get; set; }
@@ -46,7 +48,8 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string CourseStrand { get; set; }
         public string YearLevel { get; set; }
 
-        public DateTime Encoded { get; set; }
+        public DateTime Encoded { get; set; } 
+        #endregion
 
         public string ApplicationInfo
         {
@@ -66,14 +69,9 @@ namespace COLM_SYSTEM_LIBRARY.model
             return StudentInfo_DS.GetStudentsToImport();
         }
 
-        public static async Task<List<StudentInfo>> GetStudentsAsync()
+        public static async Task<List<StudentInfo>> GetStudents()
         {
-            return await StudentInfo_DS.GetStudentsAsync();
-        }
-
-        public static List<StudentInfo> GetStudents()
-        {
-            return StudentInfo_DS.GetStudents();
+            return await Task.Run(() => StudentInfo_DS.GetStudents());
         }
 
         public static StudentInfo GetStudent(int StudentID)
@@ -99,8 +97,6 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return StudentInfo_DS.RemoveStudent(StudentID);
         }
-
-
 
         public static int UpdateStudentEmail(int StudentID, string Email)
         {

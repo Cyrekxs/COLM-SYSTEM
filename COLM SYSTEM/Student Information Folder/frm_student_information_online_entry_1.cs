@@ -39,7 +39,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
         {
             InitializeComponent();
             SavingStatus = SavingOptions.UPDATE;
-            StudentInfo model = StudentInfo.GetStudent(StudentID);
+            model = StudentInfo.GetStudent(StudentID);
             DisplayStudentInfo();
         }
         //IMPORT ONLINE APPLICANT TO CREATE NEW STUDENT
@@ -211,27 +211,24 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
         private void LoadSuggestionSchools()
         {
-            foreach (var item in Schools)
-            {
-                txtSchoolName.AutoCompleteCustomSource.Add(item);
-            }
+            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+            collection.AddRange(Schools.ToArray());
+            txtSchoolName.AutoCompleteCustomSource = collection;
         }
 
         private void LoadSuggestionSchoolAddresses()
         {
-            foreach (var item in SchoolAddresses)
-            {
-                txtSchoolAddress.AutoCompleteCustomSource.Add(item);
-            }
+            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+            collection.AddRange(SchoolAddresses.ToArray());
+            txtSchoolAddress.AutoCompleteCustomSource = collection;
         }
 
         private void LoadSuggestionProvince()
         {
             List<string> Provinces = addresses.Select(r => r.Province).Distinct().ToList();
-            foreach (var item in Provinces)
-            {
-                txtProvince.AutoCompleteCustomSource.Add(item);
-            }
+            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+            collection.AddRange(addresses.Select(r => r.Province).Distinct().ToList().ToArray());
+            txtProvince.AutoCompleteCustomSource = collection;
         }
 
         private void LoadSuggestionCities()
@@ -254,10 +251,11 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //validate form
             if (IsValidForm() == false)
                 return;
 
-
+            //verify if the student is existing
             StudentInfo student_existing = StudentInfo.IsStudentExist(txtLastname.Text, txtFirstname.Text);
             model = new StudentInfo()
             {

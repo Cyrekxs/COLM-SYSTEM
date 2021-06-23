@@ -1,5 +1,7 @@
 ﻿using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using COLM_SYSTEM_LIBRARY.model.Reports_Folder;
+using Microsoft.Reporting.WinForms;
+using SEMS.Reports_Folder;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,12 +15,15 @@ namespace COLM_SYSTEM.Reports_Folder
     public partial class frm_enrollees_masterlist : Form
     {
         List<AssessmentSummary> summary = Assessment.GetAssessments();
-        public frm_enrollees_masterlist(string EducationLevel,string CourseStrand,string YearLevel)
+        public frm_enrollees_masterlist(string EducationLevel, string CourseStrand, string YearLevel)
         {
             InitializeComponent();
-            summary = summary.Where(r => r.EducationLevel.ToLower() == EducationLevel.ToLower() && r.CourseStrand.ToLower() == CourseStrand.ToLower() && r.YearLevel.ToLower() == YearLevel.ToLower()).OrderBy(r=> r.YearLevelID).ToList();
+            summary = summary.Where(r => r.EducationLevel.ToLower() == EducationLevel.ToLower() && r.CourseStrand.ToLower() == CourseStrand.ToLower() && r.YearLevel.ToLower() == YearLevel.ToLower()).OrderBy(r => r.YearLevelID).ToList();
             cmbFilter.Text = "All";
             LoadSummary();
+
+            lblEducationInfo.Text = string.Concat(EducationLevel, " | ", CourseStrand, " | ", YearLevel);
+
             lblEnrolled.Text = summary.Where(r => r.EnrollmentStatus.ToLower() == "enrolled").ToList().Count().ToString();
             lblPending.Text = summary.Where(r => r.EnrollmentStatus.ToLower() == "not enrolled").ToList().Count().ToString();
         }
@@ -40,9 +45,28 @@ namespace COLM_SYSTEM.Reports_Folder
 
             ListToDisplay = ListToDisplay.OrderBy(r => r.StudentName).ToList();
 
+
+            int male = 0;
+            int female = 0;
             foreach (var student in ListToDisplay)
             {
-                dataGridView1.Rows.Add(student.LRN, student.StudentName,student.MobileNo, student.EducationLevel, student.CourseStrand, student.YearLevel, student.EnrollmentStatus);
+                string gender = "-";
+
+                try
+                {
+                    gender = student.Gender.Substring(0, 1).ToUpper(); 
+                }
+                catch
+                { }
+                
+
+                if (gender.ToLower() == "m")
+                    male++;
+                else if (gender.ToString() == "f")
+                    female++;
+
+
+                dataGridView1.Rows.Add(student.LRN, student.StudentName, gender, student.MobileNo, student.EnrollmentStatus);
                 if (student.EnrollmentStatus.ToLower() == "enrolled")
                 {
                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.DarkSlateGray;
@@ -52,6 +76,8 @@ namespace COLM_SYSTEM.Reports_Folder
                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.Firebrick;
                 }
             }
+            lblMale.Text = male.ToString();
+            lblFemale.Text = female.ToString();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -68,6 +94,50 @@ namespace COLM_SYSTEM.Reports_Folder
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadSummary();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataSet_Masterlist ds = new DataSet_Masterlist();
+            DataRow dr;
+
+            var tbl = ds.Tables["DT_Dashboard_List"];
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                dr = tbl.NewRow();
+                dr["LRN"] = row.Cells["clmLRN"].Value.ToString();
+                dr["StudentName"] = row.Cells["clmStudentName"].Value.ToString();
+                dr["Gender"] = row.Cells["clmGender"].Value.ToString();
+                dr["MobileNo"] = row.Cells["clmMobileNo"].Value.ToString();
+                dr["EnrollmentStatus"] = row.Cells["clmEnrollmentStatus"].Value.ToString();
+                tbl.Rows.Add(dr);
+            }
+
+            ReportParameter param_EducationInfo = new ReportParameter("EducationInfo", lblEducationInfo.Text);
+            ReportParameter param_Male = new ReportParameter("Male", lblMale.Text);
+            ReportParameter param_Female = new ReportParameter("Female", lblFemale.Text);
+            ReportParameter param_Enrolled = new ReportParameter("Enrolled", lblEnrolled.Text);
+            ReportParameter param_Pending = new ReportParameter("Pending", lblPending.Text);
+
+            List<ReportParameter> reportParameters = new List<ReportParameter>();
+            reportParameters.Add(param_EducationInfo);
+            reportParameters.Add(param_Male);
+            reportParameters.Add(param_Female);
+            reportParameters.Add(param_Enrolled);
+            reportParameters.Add(param_Pending);
+
+            frm_print_preview frm = new frm_print_preview();
+            frm.reportViewer1.LocalReport.ReportEmbeddedResource = "SEMS.Reports_Folder.rpt_masterlist.rdlc";
+            frm.reportViewer1.LocalReport.DataSources.Clear();
+            ReportDataSource dataSource = new ReportDataSource("DataSet1", ds.Tables["DT_Dashboard_List"]);
+            frm.reportViewer1.LocalReport.DataSources.Add(dataSource);
+            frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());
+            frm.reportViewer1.RefreshReport();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+
+
         }
     }
 }

@@ -17,45 +17,56 @@ namespace COLM_SYSTEM.student_information
     public partial class uc_student_information_list : UserControl
     {
         private int SelectedRow = 0;
+        List<StudentInfo> students = new List<StudentInfo>();
         public uc_student_information_list()
         {
             InitializeComponent();
-            LoadStudents();
-        }
 
-        private void LoadStudents()
-        {
-            Task<List<StudentInfo>> task = new Task<List<StudentInfo>>(StudentInfo.GetStudents);
-            task.Start();
-            frm_loading frm = new frm_loading(task);
+            dataGridView1.AutoGenerateColumns = false;
+            Task<List<StudentInfo>> t = StudentInfo.GetStudents();
+            frm_loading_v2 frm = new frm_loading_v2(t);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+            students = t.Result;
+            Task.Run(() => LoadStudent());
+        }
 
-
-            List<StudentInfo> students = task.Result;
-            dataGridView1.Rows.Clear();
+        private void LoadStudent()
+        {
+            var ListToDisplay = students;
 
             if (txtSearch.Text != string.Empty)
             {
-                students = students.Where(item => item.StudentName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+                ListToDisplay = students.Where(item => item.StudentName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
             }
+            dataGridView1.RowCount = ListToDisplay.Count;
 
-
-            foreach (var item in students)
-            {
-                dataGridView1.Rows.Add(item.StudentID, item.LRN, item.StudentName, item.Gender, item.BirthDate.ToString("MM - dd - yyyy"), item.MobileNo, item.GuardianName, item.GuardianMobile,item.ApplicationInfo,item.Encoded.ToString("MM-dd-yyyy hh:mm tt"));
-            }
+            dataGridView1.DataSource = ListToDisplay;
+            //foreach (var item in students)
+            //{
+            //    dataGridView1.Rows.Add(
+            //        item.StudentID, 
+            //        item.LRN, 
+            //        item.StudentName, 
+            //        item.Gender,
+            //        item.BirthDate.ToString("MM - dd - yyyy"), 
+            //        item.MobileNo, 
+            //        item.GuardianName,
+            //        item.GuardianMobile,
+            //        item.ApplicationInfo, 
+            //        item.Encoded.ToString("MM-dd-yyyy hh:mm tt"));
+            //}
 
             lblCount.Text = "Record Count(s): " + dataGridView1.Rows.Count.ToString();
         }
 
-        private void button1_ClickAsync(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             using (frm_student_information_online_entry_1 frm = new frm_student_information_online_entry_1())
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-                LoadStudents();
+                LoadStudent();
             }
         }
 
@@ -72,13 +83,13 @@ namespace COLM_SYSTEM.student_information
         {
             if (e.KeyCode == Keys.Enter)
             {
-                LoadStudents();
+                LoadStudent();
             }
             else if (e.KeyCode == Keys.Back)
             {
                 if (txtSearch.Text == string.Empty)
                 {
-                    LoadStudents();
+                    LoadStudent();
                 }
             }
         }
@@ -90,7 +101,7 @@ namespace COLM_SYSTEM.student_information
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-                LoadStudents();
+                LoadStudent();
             }
         }
 
@@ -108,7 +119,7 @@ namespace COLM_SYSTEM.student_information
                     if (result > 0)
                     {
                         MessageBox.Show("Student has been successfully deleted!", "Delete Successfull!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadStudents();
+                        LoadStudent();
                     }
                 }
             }
@@ -116,6 +127,11 @@ namespace COLM_SYSTEM.student_information
             {
                 MessageBox.Show("This student is registered you cannot delete this student!", "Delete Student Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void uc_student_information_list_LoadAsync(object sender, EventArgs e)
+        {
+
         }
     }
 }

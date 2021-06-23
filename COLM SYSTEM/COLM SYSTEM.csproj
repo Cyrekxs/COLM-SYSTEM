@@ -393,11 +393,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_CollectionReport.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports Folder\frm_collection_report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports Folder\frm_collection_report.Designer.cs">
-      <DependentUpon>frm_collection_report.cs</DependentUpon>
+    <Compile Include="Reports Folder\DataSet_Masterlist.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_Masterlist.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reports Folder\frm_collection_report_v2.cs">
       <SubType>Form</SubType>
@@ -767,9 +766,6 @@
     <EmbeddedResource Include="Registration Folder\uc_registered_students_list.resx">
       <DependentUpon>uc_registered_students_list.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports Folder\frm_collection_report.resx">
-      <DependentUpon>frm_collection_report.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports Folder\frm_collection_report_v2.resx">
       <DependentUpon>frm_collection_report_v2.cs</DependentUpon>
     </EmbeddedResource>
@@ -777,6 +773,7 @@
       <DependentUpon>frm_enrollees_masterlist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports Folder\rpt_CollectionReport.rdlc" />
+    <EmbeddedResource Include="Reports Folder\rpt_masterlist.rdlc" />
     <EmbeddedResource Include="Section Folder\frm_browse_unlisted_subjects.resx">
       <DependentUpon>frm_browse_unlisted_subjects.cs</DependentUpon>
     </EmbeddedResource>
@@ -914,6 +911,17 @@
     </None>
     <None Include="Reports Folder\DataSet_CollectionReport.xss">
       <DependentUpon>DataSet_CollectionReport.xsd</DependentUpon>
+    </None>
+    <None Include="Reports Folder\DataSet_Masterlist.xsc">
+      <DependentUpon>DataSet_Masterlist.xsd</DependentUpon>
+    </None>
+    <None Include="Reports Folder\DataSet_Masterlist.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_Masterlist.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports Folder\DataSet_Masterlist.xss">
+      <DependentUpon>DataSet_Masterlist.xsd</DependentUpon>
     </None>
     <None Include="Resources\colm logo.png" />
   </ItemGroup>

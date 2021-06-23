@@ -124,63 +124,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return students;
         }
 
-        public static async Task<List<StudentInfo>> GetStudentsAsync()
-        {
-            List<StudentInfo> students = new List<StudentInfo>();
-            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
-            {
-                await conn.OpenAsync();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information ORDER BY Lastname,Firstname ASC", conn))
-                {
-                    using (SqlDataReader reader = await comm.ExecuteReaderAsync())
-                    {
-                        while (await reader.ReadAsync())
-                        {
-                            StudentInfo student = new StudentInfo()
-                            {
-                                StudentID = Convert.ToInt32(reader["StudentID"]),
-                                LRN = Convert.ToString(reader["LRN"]),
-                                Lastname = text.ToTitleCase(Convert.ToString(reader["Lastname"]).ToLower()),
-                                Firstname = text.ToTitleCase(Convert.ToString(reader["Firstname"]).ToLower()),
-                                Middlename = text.ToTitleCase(Convert.ToString(reader["Middlename"]).ToLower()),
-                                BirthDate = Convert.ToDateTime(reader["BirthDate"]),
-                                Gender = text.ToTitleCase(Convert.ToString(reader["Gender"]).ToLower()),
-                                Street = text.ToTitleCase(Convert.ToString(reader["Street"]).ToLower()),
-                                Barangay = text.ToTitleCase(Convert.ToString(reader["Barangay"]).ToLower()),
-                                City = text.ToTitleCase(Convert.ToString(reader["City"]).ToLower()),
-                                Province = text.ToTitleCase(Convert.ToString(reader["Province"]).ToLower()),
-                                EmailAddress = Convert.ToString(reader["EmailAddress"]),
-                                MobileNo = Convert.ToString(reader["MobileNo"]),
-
-                                MotherName = text.ToTitleCase(Convert.ToString(reader["MotherName"]).ToLower()),
-                                MotherMobile = Convert.ToString(reader["MotherMobile"]),
-                                FatherName = text.ToTitleCase(Convert.ToString(reader["FatherName"]).ToLower()),
-                                FatherMobile = Convert.ToString(reader["FatherMobile"]),
-                                GuardianName = text.ToTitleCase(Convert.ToString(reader["GuardianName"]).ToLower()),
-                                GuardianMobile = Convert.ToString(reader["GuardianMobile"]),
-                                EmergencyName = text.ToTitleCase(Convert.ToString(reader["EmergencyName"]).ToLower()),
-                                EmergencyMobile = Convert.ToString(reader["EmergencyMobile"]),
-                                EmergencyRelation = text.ToTitleCase(Convert.ToString(reader["EmergencyRelation"]).ToLower()),
-
-                                SchoolName = text.ToTitleCase(Convert.ToString(reader["SchoolName"]).ToLower()),
-                                SchoolAddress = text.ToTitleCase(Convert.ToString(reader["SchoolAddress"]).ToLower()),
-                                SchoolStatus = text.ToTitleCase(Convert.ToString(reader["SchoolStatus"]).ToLower()),
-                                ESCGuarantee = Convert.ToString(reader["ESCGuarantee"]),
-
-                                StudentStatus = Convert.ToString(reader["StudentStatus"]),
-                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
-                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
-                                YearLevel = Convert.ToString(reader["YearLevel"]),
-                                Encoded = Convert.ToDateTime(reader["DateEncoded"])
-                            };
-
-                            students.Add(student);
-                        }
-                    }
-                }
-            }
-            return students;
-        }
+        
         public static StudentInfo GetStudent(int StudentID)
         {
             StudentInfo student = new StudentInfo();
@@ -374,7 +318,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return student;
         }
-
         public static bool HasRegistration(int StudentID)
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
@@ -416,7 +359,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
             }
         }
-
         public static List<string> GetSchools()
         {
             List<string> Schools = new List<string>();
@@ -436,7 +378,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return Schools;
         }
-
         public static List<string> GetSchoolAddresses()
         {
             List<string> SchoolAddresses = new List<string>();

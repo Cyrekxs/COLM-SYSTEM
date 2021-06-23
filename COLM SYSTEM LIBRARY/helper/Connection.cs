@@ -29,10 +29,10 @@
         /// STDA SYSTEM
         /// </summary>
 
-        //////local connection STDA //ns51.win.hostgator.com
-        ////public static string LStringConnection { get { return @"Server=ns51.win.hostgator.com;Database=stda_server;User Id=stda_sysadmin;Password=stda.admin2o21"; } }
-        //////online connection STDA
-        ////public static string OStringConnection { get { return @"Server=ns51.win.hostgator.com;Database=stda_server_registration;User Id=stda_sysadmin;Password=stda.admin2o21;"; } }
+        ////local connection STDA //ns51.win.hostgator.com
+        //public static string LStringConnection { get { return @"Server=ns51.win.hostgator.com;Database=stda_server;User Id=stda_sysadmin;Password=stda.admin2o21"; } }
+        ////online connection STDA
+        //public static string OStringConnection { get { return @"Server=ns51.win.hostgator.com;Database=stda_server_registration;User Id=stda_sysadmin;Password=stda.admin2o21;"; } }
 
     }
 }

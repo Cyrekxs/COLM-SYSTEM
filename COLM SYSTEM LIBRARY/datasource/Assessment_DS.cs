@@ -176,7 +176,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         while (reader.Read())
                         {
                             AssessmentSummary assessment = new AssessmentSummary()
-                            {                                
+                            {
                                 AssessmentID = Convert.ToInt32(reader["AssessmentID"]),
                                 RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
                                 EnrollmentStatus = Convert.ToString(reader["EnrollmentStatus"]),
@@ -184,6 +184,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 Lastname = text.ToTitleCase(Convert.ToString(reader["Lastname"]).ToLower()),
                                 Firstname = text.ToTitleCase(Convert.ToString(reader["Firstname"]).ToLower()),
                                 StudentName = text.ToTitleCase(Convert.ToString(reader["StudentName"]).ToLower()),
+                                Gender = Convert.ToString(reader["Gender"]),
                                 EmailAddress = Convert.ToString(reader["EmailAddress"]),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),

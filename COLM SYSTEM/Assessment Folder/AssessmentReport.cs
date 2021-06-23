@@ -133,11 +133,11 @@ namespace SEMS.Assessment_Folder
             ReportDataSource dsReportProperties = new ReportDataSource("dsReportProperties", ds.Tables["dtReportProperties"]);
             ReportDataSource dsPaymentSchedule = new ReportDataSource("dsPaymentSchedule", ds.Tables["DTPaymentSchedule"]);
             ReportDataSource dsSubjects = new ReportDataSource("dsSubjects", ds.Tables["DTSubjects"]);
+            report.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_assessment.rdlc";
             report.LocalReport.DataSources.Clear();
             report.LocalReport.DataSources.Add(dsPaymentSchedule);
             report.LocalReport.DataSources.Add(dsSubjects);
             report.LocalReport.DataSources.Add(dsReportProperties);
-            report.LocalReport.ReportEmbeddedResource = "SEMS.Assessment_Folder.rpt_assessment.rdlc";
             report.LocalReport.SetParameters(reportParameters.ToArray());
             report.RefreshReport();
             return report;
