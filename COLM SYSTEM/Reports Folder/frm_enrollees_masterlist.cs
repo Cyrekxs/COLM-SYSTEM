@@ -22,7 +22,26 @@ namespace COLM_SYSTEM.Reports_Folder
             cmbFilter.Text = "All";
             LoadSummary();
 
-            lblEducationInfo.Text = string.Concat(EducationLevel, " | ", CourseStrand, " | ", YearLevel);
+            string educationinfo = string.Empty;
+            switch (CourseStrand.ToLower())
+            {
+                case "pre elementary":
+                    educationinfo = string.Concat(EducationLevel, " | ", YearLevel);
+                    break;
+                case "elementary":
+                    educationinfo = string.Concat(EducationLevel, " | ", YearLevel);
+                    CourseStrand = "";
+                    break;
+                case "junior high":
+                    educationinfo = string.Concat(EducationLevel, " | ", YearLevel);
+                    CourseStrand = "";
+                    break;
+                default:
+                    educationinfo = string.Concat(EducationLevel, " | ", CourseStrand, " | ", YearLevel);
+                    break;
+            }
+
+            lblEducationInfo.Text = educationinfo;
 
             lblEnrolled.Text = summary.Where(r => r.EnrollmentStatus.ToLower() == "enrolled").ToList().Count().ToString();
             lblPending.Text = summary.Where(r => r.EnrollmentStatus.ToLower() == "not enrolled").ToList().Count().ToString();
@@ -54,7 +73,7 @@ namespace COLM_SYSTEM.Reports_Folder
 
                 try
                 {
-                    gender = student.Gender.Substring(0, 1).ToUpper(); 
+                    gender = student.Gender.Substring(0, 1).ToLower(); 
                 }
                 catch
                 { }
@@ -66,7 +85,7 @@ namespace COLM_SYSTEM.Reports_Folder
                     female++;
 
 
-                dataGridView1.Rows.Add(student.LRN, student.StudentName, gender, student.MobileNo, student.EnrollmentStatus);
+                dataGridView1.Rows.Add(student.LRN, student.StudentName, gender.ToUpper(), student.MobileNo, student.EnrollmentStatus);
                 if (student.EnrollmentStatus.ToLower() == "enrolled")
                 {
                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.DarkSlateGray;

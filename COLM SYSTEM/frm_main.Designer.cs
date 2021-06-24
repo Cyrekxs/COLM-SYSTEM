@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             this.lblSchoolYear = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblNotificationCount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -113,7 +114,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ApplicationsTimer = new System.Windows.Forms.Timer(this.components);
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -154,6 +155,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1060, 72);
             this.panel1.TabIndex = 6;
+            // 
+            // panel7
+            // 
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel7.BackColor = System.Drawing.Color.SlateGray;
+            this.panel7.Location = new System.Drawing.Point(743, 4);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(5, 60);
+            this.panel7.TabIndex = 0;
             // 
             // panel6
             // 
@@ -497,7 +507,8 @@
             this.miStudentInformation,
             this.miStudentRegistration,
             this.miStudentAssessment,
-            this.miStudentPayment});
+            this.miStudentPayment,
+            this.importToolStripMenuItem});
             this.miTransactions.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miTransactions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.miTransactions.Image = global::SEMS.Properties.Resources.Process;
@@ -509,7 +520,7 @@
             // 
             this.miStudentApplicants.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentApplicants.Name = "miStudentApplicants";
-            this.miStudentApplicants.Size = new System.Drawing.Size(173, 22);
+            this.miStudentApplicants.Size = new System.Drawing.Size(180, 22);
             this.miStudentApplicants.Text = "Online Applicants";
             this.miStudentApplicants.Click += new System.EventHandler(this.onlineApplicantsToolStripMenuItem_Click_1);
             // 
@@ -517,7 +528,7 @@
             // 
             this.miStudentInformation.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentInformation.Name = "miStudentInformation";
-            this.miStudentInformation.Size = new System.Drawing.Size(173, 22);
+            this.miStudentInformation.Size = new System.Drawing.Size(180, 22);
             this.miStudentInformation.Text = "Information";
             this.miStudentInformation.Click += new System.EventHandler(this.informationToolStripMenuItem_Click_1);
             // 
@@ -525,7 +536,7 @@
             // 
             this.miStudentRegistration.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentRegistration.Name = "miStudentRegistration";
-            this.miStudentRegistration.Size = new System.Drawing.Size(173, 22);
+            this.miStudentRegistration.Size = new System.Drawing.Size(180, 22);
             this.miStudentRegistration.Text = "Registration";
             this.miStudentRegistration.Click += new System.EventHandler(this.registrationToolStripMenuItem_Click_1);
             // 
@@ -533,7 +544,7 @@
             // 
             this.miStudentAssessment.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentAssessment.Name = "miStudentAssessment";
-            this.miStudentAssessment.Size = new System.Drawing.Size(173, 22);
+            this.miStudentAssessment.Size = new System.Drawing.Size(180, 22);
             this.miStudentAssessment.Text = "Assessment";
             this.miStudentAssessment.Click += new System.EventHandler(this.assessmentToolStripMenuItem_Click_1);
             // 
@@ -541,7 +552,7 @@
             // 
             this.miStudentPayment.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentPayment.Name = "miStudentPayment";
-            this.miStudentPayment.Size = new System.Drawing.Size(173, 22);
+            this.miStudentPayment.Size = new System.Drawing.Size(180, 22);
             this.miStudentPayment.Text = "Payment";
             this.miStudentPayment.Click += new System.EventHandler(this.paymentToolStripMenuItem_Click_1);
             // 
@@ -753,7 +764,7 @@
             // 
             this.miCollectionReport.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miCollectionReport.Name = "miCollectionReport";
-            this.miCollectionReport.Size = new System.Drawing.Size(168, 22);
+            this.miCollectionReport.Size = new System.Drawing.Size(180, 22);
             this.miCollectionReport.Text = "Collection Report";
             this.miCollectionReport.Click += new System.EventHandler(this.collectionReportToolStripMenuItem_Click_1);
             // 
@@ -903,14 +914,13 @@
             this.ApplicationsTimer.Interval = 120000;
             this.ApplicationsTimer.Tick += new System.EventHandler(this.ApplicationsTimer_Tick);
             // 
-            // panel7
+            // importToolStripMenuItem
             // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel7.BackColor = System.Drawing.Color.SlateGray;
-            this.panel7.Location = new System.Drawing.Point(743, 4);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(5, 60);
-            this.panel7.TabIndex = 0;
+            this.importToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importToolStripMenuItem.Text = "Import";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // frm_main
             // 
@@ -1032,5 +1042,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
     }
 }

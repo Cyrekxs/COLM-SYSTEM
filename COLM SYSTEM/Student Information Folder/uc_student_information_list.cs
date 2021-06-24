@@ -23,39 +23,25 @@ namespace COLM_SYSTEM.student_information
             InitializeComponent();
 
             dataGridView1.AutoGenerateColumns = false;
+           
+        }
+
+        private async Task LoadStudent()
+        {
             Task<List<StudentInfo>> t = StudentInfo.GetStudents();
             frm_loading_v2 frm = new frm_loading_v2(t);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             students = t.Result;
-            Task.Run(() => LoadStudent());
-        }
 
-        private void LoadStudent()
-        {
             var ListToDisplay = students;
 
             if (txtSearch.Text != string.Empty)
             {
                 ListToDisplay = students.Where(item => item.StudentName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
             }
-            dataGridView1.RowCount = ListToDisplay.Count;
-
             dataGridView1.DataSource = ListToDisplay;
-            //foreach (var item in students)
-            //{
-            //    dataGridView1.Rows.Add(
-            //        item.StudentID, 
-            //        item.LRN, 
-            //        item.StudentName, 
-            //        item.Gender,
-            //        item.BirthDate.ToString("MM - dd - yyyy"), 
-            //        item.MobileNo, 
-            //        item.GuardianName,
-            //        item.GuardianMobile,
-            //        item.ApplicationInfo, 
-            //        item.Encoded.ToString("MM-dd-yyyy hh:mm tt"));
-            //}
+
 
             lblCount.Text = "Record Count(s): " + dataGridView1.Rows.Count.ToString();
         }
@@ -129,9 +115,31 @@ namespace COLM_SYSTEM.student_information
             }
         }
 
-        private void uc_student_information_list_LoadAsync(object sender, EventArgs e)
+        private async void uc_student_information_list_LoadAsync(object sender, EventArgs e)
         {
-
+           await LoadStudent();
         }
     }
 }
+
+
+
+
+
+
+
+
+//foreach (var item in students)
+//{
+//    dataGridView1.Rows.Add(
+//        item.StudentID, 
+//        item.LRN, 
+//        item.StudentName, 
+//        item.Gender,
+//        item.BirthDate.ToString("MM - dd - yyyy"), 
+//        item.MobileNo, 
+//        item.GuardianName,
+//        item.GuardianMobile,
+//        item.ApplicationInfo, 
+//        item.Encoded.ToString("MM-dd-yyyy hh:mm tt"));
+//}

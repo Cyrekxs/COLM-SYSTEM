@@ -347,5 +347,12 @@ namespace COLM_SYSTEM
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_online_importer_processor frm = new frm_online_importer_processor();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }
