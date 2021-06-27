@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://colm.edu.ph/SEMS/</UpdateUrl>
-    <ApplicationRevision>56</ApplicationRevision>
+    <ApplicationRevision>57</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -537,6 +537,12 @@
     <Compile Include="Student Information Folder\frm_student_requirement_entry.Designer.cs">
       <DependentUpon>frm_student_requirement_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student Information Folder\frm_student_requirement_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student Information Folder\frm_student_requirement_list.Designer.cs">
+      <DependentUpon>frm_student_requirement_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student Information Folder\uc_student_information_list.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -833,6 +839,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\frm_student_requirement_entry.resx">
       <DependentUpon>frm_student_requirement_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student Information Folder\frm_student_requirement_list.resx">
+      <DependentUpon>frm_student_requirement_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\uc_student_information_list.resx">
       <DependentUpon>uc_student_information_list.cs</DependentUpon>

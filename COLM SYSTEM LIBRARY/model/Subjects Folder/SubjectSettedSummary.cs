@@ -20,10 +20,14 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string CourseStrand { get; set; }
         public int YearLevelID { get; set; }
         public string YearLevel { get; set; }
-        public int RegSubjectsCount { get; set; }
-        public int IrregSubjectsCount { get; set; }
-        public double RegTuition { get; set; }
-        public double IrregTuition { get; set; }
+        public int RegularSubjects { get; set; }
+        public int BridgingSubjects { get; set; }
+
+        public int IrregularSubjects { get; set; }
+        public double RegularTuition { get; set; }
+        public double IrregularTuition { get; set; }
+        public double BridgingTuition { get; set; }
+
         public double Miscellaneous { get; set; }
         public double OtherFees { get; set; }
 
@@ -51,10 +55,12 @@ namespace COLM_SYSTEM_LIBRARY.model
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 YearLevelID = Convert.ToInt32(reader["YearLevelID"]),
                                 YearLevel = Convert.ToString(reader["YearLevel"]),
-                                RegSubjectsCount = Convert.ToInt32(reader["RegSubjects"]),
-                                IrregSubjectsCount = Convert.ToInt16(reader["IrregSubjects"]),
-                                RegTuition = Convert.ToDouble(reader["RegTuition"]),
-                                IrregTuition = Convert.ToDouble(reader["IrregTuition"]),
+                                RegularSubjects = Convert.ToInt32(reader["RegSubjects"]),
+                                BridgingSubjects = Convert.ToInt16(reader["BridgingSubjects"]),
+                                IrregularSubjects = Convert.ToInt16(reader["IrregSubjects"]),
+                                RegularTuition = Convert.ToDouble(reader["RegTuition"]),
+                                BridgingTuition = Convert.ToDouble(reader["BridgingTuition"]),
+                                IrregularTuition = Convert.ToDouble(reader["IrregTuition"]),
                                 Miscellaneous = Convert.ToDouble(reader["MiscellaneousFees"]),
                                 OtherFees = Convert.ToDouble(reader["OtherFees"])
                             };

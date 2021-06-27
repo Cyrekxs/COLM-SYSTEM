@@ -36,6 +36,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,14 +45,16 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.clmCurriculumID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCurriculumCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEducationLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmYearLevelID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSubjects = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmIrregSubj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCurriculumCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmRegularSubjects = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBridgingSubjects = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmIrregularSubj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTuition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBridgingTuition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmIrregTuition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmMiscellaneous = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,14 +99,16 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCurriculumID,
-            this.clmCurriculumCode,
             this.clmEducationLevel,
             this.clmCourseStrand,
             this.clmYearLevelID,
             this.clmYearLevel,
-            this.clmSubjects,
-            this.clmIrregSubj,
+            this.clmCurriculumCode,
+            this.clmRegularSubjects,
+            this.clmBridgingSubjects,
+            this.clmIrregularSubj,
             this.clmTuition,
+            this.clmBridgingTuition,
             this.clmIrregTuition,
             this.clmMiscellaneous,
             this.Column1,
@@ -177,13 +183,6 @@
             this.clmCurriculumID.ReadOnly = true;
             this.clmCurriculumID.Visible = false;
             // 
-            // clmCurriculumCode
-            // 
-            this.clmCurriculumCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmCurriculumCode.HeaderText = "Curriculum Code";
-            this.clmCurriculumCode.Name = "clmCurriculumCode";
-            this.clmCurriculumCode.ReadOnly = true;
-            // 
             // clmEducationLevel
             // 
             this.clmEducationLevel.HeaderText = "Education Level";
@@ -212,51 +211,78 @@
             this.clmYearLevel.ReadOnly = true;
             this.clmYearLevel.Width = 85;
             // 
-            // clmSubjects
+            // clmCurriculumCode
             // 
-            this.clmSubjects.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmCurriculumCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmCurriculumCode.HeaderText = "Curriculum Code";
+            this.clmCurriculumCode.Name = "clmCurriculumCode";
+            this.clmCurriculumCode.ReadOnly = true;
+            // 
+            // clmRegularSubjects
+            // 
+            this.clmRegularSubjects.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmSubjects.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmSubjects.HeaderText = "Reg Subj";
-            this.clmSubjects.Name = "clmSubjects";
-            this.clmSubjects.ReadOnly = true;
-            this.clmSubjects.Width = 78;
+            this.clmRegularSubjects.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmRegularSubjects.HeaderText = "Regular Subjects";
+            this.clmRegularSubjects.Name = "clmRegularSubjects";
+            this.clmRegularSubjects.ReadOnly = true;
+            this.clmRegularSubjects.Width = 113;
             // 
-            // clmIrregSubj
+            // clmBridgingSubjects
             // 
-            this.clmIrregSubj.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmBridgingSubjects.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmIrregSubj.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmIrregSubj.HeaderText = "Irreg Subj";
-            this.clmIrregSubj.Name = "clmIrregSubj";
-            this.clmIrregSubj.ReadOnly = true;
-            this.clmIrregSubj.Width = 85;
+            this.clmBridgingSubjects.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmBridgingSubjects.HeaderText = "Bridging Subjects";
+            this.clmBridgingSubjects.Name = "clmBridgingSubjects";
+            this.clmBridgingSubjects.ReadOnly = true;
+            this.clmBridgingSubjects.Width = 116;
+            // 
+            // clmIrregularSubj
+            // 
+            this.clmIrregularSubj.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmIrregularSubj.DefaultCellStyle = dataGridViewCellStyle4;
+            this.clmIrregularSubj.HeaderText = "Irregular Subjects";
+            this.clmIrregularSubj.Name = "clmIrregularSubj";
+            this.clmIrregularSubj.ReadOnly = true;
+            this.clmIrregularSubj.Width = 119;
             // 
             // clmTuition
             // 
             this.clmTuition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmTuition.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clmTuition.HeaderText = "Reg Tuition";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmTuition.DefaultCellStyle = dataGridViewCellStyle5;
+            this.clmTuition.HeaderText = "Regular Tuition";
             this.clmTuition.Name = "clmTuition";
             this.clmTuition.ReadOnly = true;
-            this.clmTuition.Width = 91;
+            this.clmTuition.Width = 105;
+            // 
+            // clmBridgingTuition
+            // 
+            this.clmBridgingTuition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBridgingTuition.DefaultCellStyle = dataGridViewCellStyle6;
+            this.clmBridgingTuition.HeaderText = "Bridging Tuition";
+            this.clmBridgingTuition.Name = "clmBridgingTuition";
+            this.clmBridgingTuition.ReadOnly = true;
+            this.clmBridgingTuition.Width = 108;
             // 
             // clmIrregTuition
             // 
             this.clmIrregTuition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmIrregTuition.DefaultCellStyle = dataGridViewCellStyle5;
-            this.clmIrregTuition.HeaderText = "Irreg Tuition";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmIrregTuition.DefaultCellStyle = dataGridViewCellStyle7;
+            this.clmIrregTuition.HeaderText = "Irregular Tuition";
             this.clmIrregTuition.Name = "clmIrregTuition";
             this.clmIrregTuition.ReadOnly = true;
-            this.clmIrregTuition.Width = 98;
+            this.clmIrregTuition.Width = 111;
             // 
             // clmMiscellaneous
             // 
             this.clmMiscellaneous.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmMiscellaneous.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmMiscellaneous.DefaultCellStyle = dataGridViewCellStyle8;
             this.clmMiscellaneous.HeaderText = "Miscellaneous";
             this.clmMiscellaneous.Name = "clmMiscellaneous";
             this.clmMiscellaneous.ReadOnly = true;
@@ -265,18 +291,18 @@
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column1.HeaderText = "Other Fees";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 90;
+            this.Column1.Width = 83;
             // 
             // clmTotal
             // 
             this.clmTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmTotal.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmTotal.DefaultCellStyle = dataGridViewCellStyle10;
             this.clmTotal.HeaderText = "Total";
             this.clmTotal.Name = "clmTotal";
             this.clmTotal.ReadOnly = true;
@@ -319,14 +345,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEducationLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCourseStrand;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevelID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmYearLevel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjects;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmIrregSubj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmRegularSubjects;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmBridgingSubjects;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmIrregularSubj;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTuition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmBridgingTuition;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmIrregTuition;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmMiscellaneous;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
