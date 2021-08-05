@@ -1,6 +1,6 @@
 ﻿namespace SEMS.Student_Information_Folder
 {
-    partial class uc_student_information_list_online_registered
+    partial class uc_student_information_list_online_processed
     {
         /// <summary> 
         /// Required designer variable.

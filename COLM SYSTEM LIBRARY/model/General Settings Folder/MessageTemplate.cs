@@ -79,7 +79,6 @@ namespace COLM_SYSTEM_LIBRARY.model.General_Settings_Folder
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                MessageTemplate template = new MessageTemplate();
                 //get template information
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.email_message_templates", conn))
                 {
@@ -87,6 +86,7 @@ namespace COLM_SYSTEM_LIBRARY.model.General_Settings_Folder
                     {
                         while (reader.Read())
                         {
+                            MessageTemplate template = new MessageTemplate();
                             template.TemplateID = Convert.ToInt32(reader["TemplateID"]);
                             template.TemplateName = Convert.ToString(reader["TemplateName"]);
                             template.TemplateSubject = Convert.ToString(reader["TemplateSubject"]);

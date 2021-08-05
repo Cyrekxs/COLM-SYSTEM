@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SEMS.Student_Information_Folder
 {
-    public partial class uc_student_information_list_online_registered : UserControl
+    public partial class uc_student_information_list_online_processed : UserControl
     {
-        public uc_student_information_list_online_registered()
+        public uc_student_information_list_online_processed()
         {
             InitializeComponent();
         }

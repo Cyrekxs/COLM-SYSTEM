@@ -41,6 +41,7 @@ namespace COLM_SYSTEM.Section_Folder
                                                           && r.Code.ToLower() == cmbCurriculum.Text.ToLower()
                                                           select r).ToList();
 
+            cmbYearLevel.Items.Clear();
             foreach (var item in settedSummaries)
             {
                 cmbYearLevel.Items.Add(item.YearLevel);

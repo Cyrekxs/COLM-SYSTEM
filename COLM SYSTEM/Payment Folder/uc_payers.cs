@@ -55,14 +55,22 @@ namespace COLM_SYSTEM.Payment_Folder
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int AssessmentID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmAssessmentID"].Value);
-            if (e.ColumnIndex == clmPayment.Index)
+            try
             {
-                frm_payment frm = new frm_payment(AssessmentID);
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-                LoadAssessments();
+                int AssessmentID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmAssessmentID"].Value);
+                if (e.ColumnIndex == clmPayment.Index)
+                {
+                    frm_payment frm = new frm_payment(AssessmentID);
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    LoadAssessments();
+                }
             }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)

@@ -121,25 +121,3 @@ namespace COLM_SYSTEM.student_information
         }
     }
 }
-
-
-
-
-
-
-
-
-//foreach (var item in students)
-//{
-//    dataGridView1.Rows.Add(
-//        item.StudentID, 
-//        item.LRN, 
-//        item.StudentName, 
-//        item.Gender,
-//        item.BirthDate.ToString("MM - dd - yyyy"), 
-//        item.MobileNo, 
-//        item.GuardianName,
-//        item.GuardianMobile,
-//        item.ApplicationInfo, 
-//        item.Encoded.ToString("MM-dd-yyyy hh:mm tt"));
-//}
