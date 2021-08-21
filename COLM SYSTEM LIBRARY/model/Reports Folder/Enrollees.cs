@@ -13,6 +13,8 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
         public int SchoolYearID { get; set; }
         public int SemesterID { get; set; }
         public string EducationLevel { get; set; }
+        public string DepartmentCode { get; set; }
+
         public string CourseStrand { get; set; }
         public string YearLevel { get; set; }
         public string EnrollmentStatus { get; set; }
@@ -36,6 +38,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 SemesterID = Convert.ToInt32(reader["SemesterID"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                DepartmentCode = Convert.ToString(reader["DepartmentCode"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 YearLevel = Convert.ToString(reader["YearLevel"]),
                                 EnrollmentStatus = Convert.ToString(reader["EnrollmentStatus"]),

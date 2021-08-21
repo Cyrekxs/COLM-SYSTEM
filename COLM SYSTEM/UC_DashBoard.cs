@@ -88,11 +88,17 @@ namespace COLM_SYSTEM
             TotalPending = PendingPreElem + PendingElem + PendingJHS + PendingSHS + PendingCollege;
 
 
-            TargetPreElem = ((EnrolledPreElem + PendingPreElem) / TargetPreElem) * 100;
-            TargetElem = ((EnrolledElem + PendingElem) / TargetElem) * 100;
-            TargetJHS = ((EnrolledJHS + PendingJHS) / TargetJHS) * 100;
-            TargetSHS = ((EnrolledSHS + PendingSHS) / TargetSHS) * 100;
-            TargetCollege = ((EnrolledCollege + PendingCollege) / TargetCollege) * 100;
+            //TargetPreElem = ((EnrolledPreElem + PendingPreElem) / TargetPreElem) * 100;
+            //TargetElem = ((EnrolledElem + PendingElem) / TargetElem) * 100;
+            //TargetJHS = ((EnrolledJHS + PendingJHS) / TargetJHS) * 100;
+            //TargetSHS = ((EnrolledSHS + PendingSHS) / TargetSHS) * 100;
+            //TargetCollege = ((EnrolledCollege + PendingCollege) / TargetCollege) * 100;
+
+            TargetPreElem = ((EnrolledPreElem) / TargetPreElem) * 100;
+            TargetElem = ((EnrolledElem) / TargetElem) * 100;
+            TargetJHS = ((EnrolledJHS) / TargetJHS) * 100;
+            TargetSHS = ((EnrolledSHS) / TargetSHS) * 100;
+            TargetCollege = ((EnrolledCollege) / TargetCollege) * 100;
             //((TotalEnrolled + TotalPending) / TargetTotal) * 100;
 
 
@@ -165,12 +171,26 @@ namespace COLM_SYSTEM
 
                 enrollees = enrollees.Where(model => model.EducationLevel.ToLower() == EducationLevel.ToLower()).ToList();
 
+                List<string> Departments = enrolledCounts.Select(r => r.DepartmentCode).Distinct().ToList();
                 List<string> CourseStrands = enrollees.Select(r => r.CourseStrand).Distinct().ToList();
                 List<string> YearLevels = enrollees.Select(r => r.YearLevel).Distinct().ToList();
 
                 chart1.Series["Enrolled"].Points.Clear();
                 chart1.Series["Pending"].Points.Clear();
 
+
+                //int s1 = 0;
+                //foreach (var dept in Departments)
+                //{
+                //    int EnrolledCount = enrollees.Where(r => r.DepartmentCode == dept && r.EnrollmentStatus.ToLower() == "enrolled").Select(r => r.ResultCount).FirstOrDefault();
+                //    int PendingCount = enrollees.Where(r => r.DepartmentCode == dept && r.EnrollmentStatus.ToLower() == "not enrolled").Select(r => r.ResultCount).FirstOrDefault();
+
+                //    chart1.Series["Enrolled"].Points.AddXY(dept, EnrolledCount);
+                //    chart1.Series["Enrolled"].Points[s1].Tag = dept;
+
+                //    chart1.Series["Pending"].Points.AddXY(dept, PendingCount);
+                //    chart1.Series["Pending"].Points[s1].Tag = dept;
+                //}
 
                 int s1 = 0;
                 foreach (var cs in CourseStrands)

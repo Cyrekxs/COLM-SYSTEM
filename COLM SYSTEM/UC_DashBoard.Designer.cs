@@ -29,20 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelBreakdown = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblChartBreakDownNotifier = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelEnrolled = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lblTotalEnrolled = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -131,7 +128,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panelBreakdown.SuspendLayout();
             this.panelEnrolled.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -165,52 +161,52 @@
             // 
             // chart1
             // 
-            chartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.None;
-            chartArea1.Area3DStyle.Rotation = 130;
-            chartArea1.AxisX.Interval = 1D;
-            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisX.LabelAutoFitMinFontSize = 10;
-            chartArea1.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+            chartArea5.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.None;
+            chartArea5.Area3DStyle.Rotation = 130;
+            chartArea5.AxisX.Interval = 1D;
+            chartArea5.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea5.AxisX.LabelAutoFitMinFontSize = 10;
+            chartArea5.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45)));
-            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.MaximumAutoSize = 100F;
-            chartArea1.AxisX.ScaleView.MinSize = 0D;
-            chartArea1.AxisX.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
-            chartArea1.AxisX.ScrollBar.Size = 10D;
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.Empty;
-            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisY.LabelStyle.Format = "# Students";
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea1.AxisY.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
-            chartArea1.AxisY.ScrollBar.Size = 10D;
-            chartArea1.BackColor = System.Drawing.Color.WhiteSmoke;
-            chartArea1.BackSecondaryColor = System.Drawing.Color.Navy;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.ShadowColor = System.Drawing.Color.Empty;
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea5.AxisX.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea5.AxisX.MajorGrid.Enabled = false;
+            chartArea5.AxisX.MaximumAutoSize = 100F;
+            chartArea5.AxisX.ScaleView.MinSize = 0D;
+            chartArea5.AxisX.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
+            chartArea5.AxisX.ScrollBar.Size = 10D;
+            chartArea5.AxisX.TitleFont = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea5.AxisX2.MajorGrid.LineColor = System.Drawing.Color.Empty;
+            chartArea5.AxisY.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea5.AxisY.LabelStyle.Format = "# Students";
+            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea5.AxisY.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
+            chartArea5.AxisY.ScrollBar.Size = 10D;
+            chartArea5.BackColor = System.Drawing.Color.WhiteSmoke;
+            chartArea5.BackSecondaryColor = System.Drawing.Color.Navy;
+            chartArea5.Name = "ChartArea1";
+            chartArea5.ShadowColor = System.Drawing.Color.Empty;
+            this.chart1.ChartAreas.Add(chartArea5);
             this.chart1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.Location = new System.Drawing.Point(5, 5);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.DarkSlateGray;
-            series1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.IsValueShownAsLabel = true;
-            series1.IsVisibleInLegend = false;
-            series1.MarkerBorderColor = System.Drawing.Color.Red;
-            series1.Name = "Enrolled";
-            series2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Percent25;
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.Gray;
-            series2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.IsValueShownAsLabel = true;
-            series2.IsVisibleInLegend = false;
-            series2.Name = "Pending";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
+            series7.ChartArea = "ChartArea1";
+            series7.Color = System.Drawing.Color.DarkSlateGray;
+            series7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series7.IsValueShownAsLabel = true;
+            series7.IsVisibleInLegend = false;
+            series7.MarkerBorderColor = System.Drawing.Color.Red;
+            series7.Name = "Enrolled";
+            series8.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Percent25;
+            series8.ChartArea = "ChartArea1";
+            series8.Color = System.Drawing.Color.Gray;
+            series8.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series8.IsValueShownAsLabel = true;
+            series8.IsVisibleInLegend = false;
+            series8.Name = "Pending";
+            this.chart1.Series.Add(series7);
+            this.chart1.Series.Add(series8);
             this.chart1.Size = new System.Drawing.Size(1306, 300);
             this.chart1.TabIndex = 11;
             this.chart1.Text = "chart1";
@@ -255,7 +251,6 @@
             // panelEnrolled
             // 
             this.panelEnrolled.BackColor = System.Drawing.Color.White;
-            this.panelEnrolled.Controls.Add(this.panel1);
             this.panelEnrolled.Controls.Add(this.panel9);
             this.panelEnrolled.Controls.Add(this.panel2);
             this.panelEnrolled.Controls.Add(this.panel16);
@@ -270,49 +265,12 @@
             this.panelEnrolled.Size = new System.Drawing.Size(1316, 251);
             this.panelEnrolled.TabIndex = 13;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.lblTotal);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(251, 167);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(144, 36);
-            this.panel1.TabIndex = 19;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.Black;
-            this.lblTotal.Location = new System.Drawing.Point(83, 0);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(61, 36);
-            this.lblTotal.TabIndex = 14;
-            this.lblTotal.Text = "0";
-            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(83, 36);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Total";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel9.Controls.Add(this.lblTotalEnrolled);
             this.panel9.Controls.Add(this.label5);
-            this.panel9.Location = new System.Drawing.Point(251, 128);
+            this.panel9.Location = new System.Drawing.Point(253, 111);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(144, 36);
             this.panel9.TabIndex = 17;
@@ -349,7 +307,7 @@
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.lblTotalPending);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(251, 86);
+            this.panel2.Location = new System.Drawing.Point(253, 153);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(144, 36);
             this.panel2.TabIndex = 18;
@@ -384,7 +342,7 @@
             this.panel16.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel16.Controls.Add(this.lblTotalTarget);
             this.panel16.Controls.Add(this.label8);
-            this.panel16.Location = new System.Drawing.Point(251, 44);
+            this.panel16.Location = new System.Drawing.Point(253, 69);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(144, 36);
             this.panel16.TabIndex = 11;
@@ -418,20 +376,20 @@
             // 
             this.chartEnrolled.BackColor = System.Drawing.Color.Empty;
             this.chartEnrolled.BorderlineColor = System.Drawing.Color.Black;
-            chartArea2.Name = "ChartArea1";
-            this.chartEnrolled.ChartAreas.Add(chartArea2);
+            chartArea6.Name = "ChartArea1";
+            this.chartEnrolled.ChartAreas.Add(chartArea6);
             this.chartEnrolled.Dock = System.Windows.Forms.DockStyle.Left;
             this.chartEnrolled.Location = new System.Drawing.Point(0, 0);
             this.chartEnrolled.Name = "chartEnrolled";
             this.chartEnrolled.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series3.BorderColor = System.Drawing.Color.White;
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series3.Name = "s1";
-            series3.YValuesPerPoint = 6;
-            this.chartEnrolled.Series.Add(series3);
+            series9.BorderColor = System.Drawing.Color.White;
+            series9.BorderWidth = 3;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series9.Name = "s1";
+            series9.YValuesPerPoint = 6;
+            this.chartEnrolled.Series.Add(series9);
             this.chartEnrolled.Size = new System.Drawing.Size(241, 251);
             this.chartEnrolled.TabIndex = 15;
             this.chartEnrolled.Text = "chart1";
@@ -1410,7 +1368,6 @@
             this.panelBreakdown.ResumeLayout(false);
             this.panelBreakdown.PerformLayout();
             this.panelEnrolled.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
@@ -1536,8 +1493,5 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label lblTotalTarget;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Label label4;
     }
 }
