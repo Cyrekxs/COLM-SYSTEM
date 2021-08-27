@@ -14,10 +14,13 @@ namespace COLM_SYSTEM.Reports_Folder
 {
     public partial class frm_enrollees_masterlist : Form
     {
-        List<AssessmentSummary> summary = Assessment.GetAssessments();
+        List<AssessmentSummary> summary;
+
         public frm_enrollees_masterlist(string EducationLevel, string CourseStrand, string YearLevel)
         {
             InitializeComponent();
+            summary = Assessment.GetAssessments(EducationLevel);
+
             summary = summary.Where(r => r.EducationLevel.ToLower() == EducationLevel.ToLower() && r.CourseStrand.ToLower() == CourseStrand.ToLower() && r.YearLevel.ToLower() == YearLevel.ToLower()).OrderBy(r => r.YearLevelID).ToList();
             cmbFilter.Text = "All";
             LoadSummary();

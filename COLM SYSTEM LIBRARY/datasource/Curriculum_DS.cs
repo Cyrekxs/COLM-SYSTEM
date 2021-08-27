@@ -100,7 +100,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return CurriculumID;
         }
 
-        public static List<Curriculum> GetCurriculums(string EducationLevel)
+        public static List<Curriculum> GetCurriculumsByEducationLevel(string EducationLevel)
         {
             List<Curriculum> Curriculums = new List<Curriculum>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
@@ -119,6 +119,39 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 Code = Convert.ToString(reader["Code"]),
                                 Description = Convert.ToString(reader["Description"]),
                                 EducationLevel = EducationLevel,
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                Status = Convert.ToString(reader["Status"]),
+                                DepartmentID = Convert.ToInt16(reader["DepartmentID"]),
+                                DateCreated = Convert.ToDateTime(reader["DateCreated"])
+                            };
+                            Curriculums.Add(c);
+                        }
+                    }
+                }
+            }
+            return Curriculums;
+        }
+
+        public static List<Curriculum> GetCurriculumsByDepartment(string DepartmentCode)
+        {
+            List<Curriculum> Curriculums = new List<Curriculum>();
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_curriculums() WHERE DepartmentCode = @DepartmentCode", conn))
+                {
+                    comm.Parameters.AddWithValue("@DepartmentCode", DepartmentCode);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Curriculum c = new Curriculum()
+                            {
+                                CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
+                                Code = Convert.ToString(reader["Code"]),
+                                Description = Convert.ToString(reader["Description"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 Status = Convert.ToString(reader["Status"]),

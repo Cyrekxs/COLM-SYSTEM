@@ -58,8 +58,9 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.viewInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.viewRequirementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblTotalRecords = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -120,7 +121,7 @@
             "Junior High",
             "Senior High",
             "College"});
-            this.cmbEducationLevel.Location = new System.Drawing.Point(938, 14);
+            this.cmbEducationLevel.Location = new System.Drawing.Point(741, 13);
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(145, 23);
             this.cmbEducationLevel.TabIndex = 4;
@@ -132,7 +133,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(740, 1);
+            this.label1.Location = new System.Drawing.Point(889, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 13);
             this.label1.TabIndex = 1;
@@ -142,7 +143,7 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(743, 14);
+            this.textBox1.Location = new System.Drawing.Point(892, 14);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(189, 23);
             this.textBox1.TabIndex = 2;
@@ -154,20 +155,20 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(935, 1);
+            this.label2.Location = new System.Drawing.Point(738, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.Size = new System.Drawing.Size(111, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Filter";
+            this.label2.Text = "Filter : Education Level";
             // 
             // lblCount
             // 
             this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCount.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCount.ForeColor = System.Drawing.Color.Red;
-            this.lblCount.Location = new System.Drawing.Point(1107, 578);
+            this.lblCount.Location = new System.Drawing.Point(743, 578);
             this.lblCount.Name = "lblCount";
-            this.lblCount.Size = new System.Drawing.Size(141, 30);
+            this.lblCount.Size = new System.Drawing.Size(505, 30);
             this.lblCount.TabIndex = 27;
             this.lblCount.Text = "Record(s) : ";
             this.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -209,13 +210,13 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 48);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 76);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1235, 525);
+            this.dataGridView1.Size = new System.Drawing.Size(1235, 497);
             this.dataGridView1.TabIndex = 25;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -360,6 +361,14 @@
             this.deleteApplicationToolStripMenuItem.Text = "Delete Registration";
             this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_Click);
             // 
+            // viewRequirementsToolStripMenuItem
+            // 
+            this.viewRequirementsToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.viewRequirementsToolStripMenuItem.Image = global::SEMS.Properties.Resources.Document_Edit;
+            this.viewRequirementsToolStripMenuItem.Name = "viewRequirementsToolStripMenuItem";
+            this.viewRequirementsToolStripMenuItem.Size = new System.Drawing.Size(189, 36);
+            this.viewRequirementsToolStripMenuItem.Text = "View Requirements";
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -371,18 +380,22 @@
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // viewRequirementsToolStripMenuItem
+            // lblTotalRecords
             // 
-            this.viewRequirementsToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.viewRequirementsToolStripMenuItem.Image = global::SEMS.Properties.Resources.Document_Edit;
-            this.viewRequirementsToolStripMenuItem.Name = "viewRequirementsToolStripMenuItem";
-            this.viewRequirementsToolStripMenuItem.Size = new System.Drawing.Size(189, 36);
-            this.viewRequirementsToolStripMenuItem.Text = "View Requirements";
+            this.lblTotalRecords.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRecords.ForeColor = System.Drawing.Color.Red;
+            this.lblTotalRecords.Location = new System.Drawing.Point(10, 43);
+            this.lblTotalRecords.Name = "lblTotalRecords";
+            this.lblTotalRecords.Size = new System.Drawing.Size(451, 30);
+            this.lblTotalRecords.TabIndex = 28;
+            this.lblTotalRecords.Text = "The sort function is modified by encoded then by student name for optimization";
+            this.lblTotalRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // uc_registered_students_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblTotalRecords);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
@@ -428,5 +441,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewImageColumn clmAction;
         private System.Windows.Forms.ToolStripMenuItem viewRequirementsToolStripMenuItem;
+        private System.Windows.Forms.Label lblTotalRecords;
     }
 }

@@ -74,9 +74,14 @@ namespace COLM_SYSTEM_LIBRARY.model
             return Curriculum_DS.DeleteCurriculum(curriculum);
         }
 
-        public static List<Curriculum> GetCurriculums(string EducationLevel)
+        public static List<Curriculum> GetCurriculumsByEducationLevel(string EducationLevel)
         {
-            return Curriculum_DS.GetCurriculums(EducationLevel);
+            return Curriculum_DS.GetCurriculumsByEducationLevel(EducationLevel);
+        }
+
+        public static List<Curriculum> GetCurriculumsByDepartment(string DepartmentCode)
+        {
+            return Curriculum_DS.GetCurriculumsByDepartment(DepartmentCode);
         }
 
         public static List<Curriculum> GetCurriculums()

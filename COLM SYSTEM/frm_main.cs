@@ -12,8 +12,10 @@ using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM.subject;
 using COLM_SYSTEM.User_Folder;
 using COLM_SYSTEM_LIBRARY.model;
+using SEMS;
 using SEMS.Reports_Folder;
 using SEMS.Settings_Folder;
+using SEMS.Student_Information_Folder;
 using System;
 using System.Deployment.Application;
 using System.Threading.Tasks;
@@ -222,7 +224,7 @@ namespace COLM_SYSTEM
 
         private void onlineApplicantsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            DisplayControl(new uc_student_information_list_online());
+            
         }
 
         private void assessmentToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -351,6 +353,23 @@ namespace COLM_SYSTEM
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_online_importer_processor frm = new frm_online_importer_processor();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void onlineApplicantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_student_information_list_online());
+        }
+
+        private void unregisteredOnlineApplicantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_student_applicants_unregistered());
+        }
+
+        private void uPDATESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_whatsnew frm = new frm_whatsnew();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

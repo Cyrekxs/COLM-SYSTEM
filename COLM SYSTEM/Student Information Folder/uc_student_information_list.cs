@@ -26,24 +26,39 @@ namespace COLM_SYSTEM.student_information
            
         }
 
-        private async Task LoadStudent()
+        private void LoadStudent()
         {
-            Task<List<StudentInfo>> t = StudentInfo.GetStudents();
-            frm_loading_v2 frm = new frm_loading_v2(t);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            students = t.Result;
-
-            var ListToDisplay = students;
-
-            if (txtSearch.Text != string.Empty)
+            Task<List<StudentInfo>> task = StudentInfo.GetStudents();            
+            using (frm_loading frm = new frm_loading(task))
             {
-                ListToDisplay = students.Where(item => item.StudentName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.ShowDialog();
             }
-            dataGridView1.DataSource = ListToDisplay;
 
+            students = task.Result;
+            students = students.OrderByDescending(r => r.Encoded.Date).ThenBy(r => r.StudentName).ToList();
 
-            lblCount.Text = "Record Count(s): " + dataGridView1.Rows.Count.ToString();
+            if (string.IsNullOrEmpty(txtSearch.Text) == false)
+            {
+                students = students.Where(r => r.StudentName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+            }
+
+            dataGridView1.Rows.Clear();
+            foreach (var item in students.Take(200).ToList())
+            {
+                try
+                {
+                    string gender = item.Gender.Substring(0, 1);
+                    dataGridView1.Rows.Add(item.StudentID, item.LRN, item.StudentName, gender, item.BirthDate.ToString("MM-dd-yyyy"), item.MobileNo, item.EmergencyName, item.EmergencyMobile, item.ApplicationInfo, item.Encoded.ToString("MM-dd-yyyy"));
+                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
+                }
+                catch (Exception)
+                {
+
+                }
+
+            }
+            lblCount.Text = string.Concat("Total Records in the Database : ",task.Result.Count.ToString()," Record Count(s):", dataGridView1.Rows.Count);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -115,9 +130,9 @@ namespace COLM_SYSTEM.student_information
             }
         }
 
-        private async void uc_student_information_list_LoadAsync(object sender, EventArgs e)
+        private void uc_student_information_list_LoadAsync(object sender, EventArgs e)
         {
-           await LoadStudent();
+           LoadStudent();
         }
     }
 }

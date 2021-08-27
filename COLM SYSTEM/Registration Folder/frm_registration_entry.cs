@@ -18,9 +18,9 @@ namespace COLM_SYSTEM.registration
             InitializeComponent();
         }
 
-        private void LoadCurriculums(string EducationLevel)
+        private void LoadCurriculums(string DepartmentCode)
         {
-            _Curriculums = Curriculum.GetCurriculums(EducationLevel);
+            _Curriculums = Curriculum.GetCurriculumsByDepartment(DepartmentCode);
             _Curriculums = _Curriculums.OrderBy(item => item.Code).ToList();
             cmbCurriculum.Items.Clear();
             foreach (var item in _Curriculums)
@@ -29,9 +29,23 @@ namespace COLM_SYSTEM.registration
             }
         }
 
+        private void LoadDepartments(string EducationLevel)
+        {
+            List<Department> departments = Department.GetDepartments().Where(r => r.EducationLevel == EducationLevel).ToList();
+
+            cmbDepartment.Items.Clear();
+            foreach (var item in departments)
+            {
+                cmbDepartment.Items.Add(item.DepartmentCode);
+            }
+
+            if (cmbDepartment.Items.Count == 1)
+                cmbDepartment.SelectedIndex = 0;
+        }
+
         private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadCurriculums(cmbEducationLevel.Text);
+            LoadDepartments(cmbEducationLevel.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -108,6 +122,11 @@ namespace COLM_SYSTEM.registration
         {
             Close();
             Dispose();
+        }
+
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadCurriculums(cmbDepartment.Text);
         }
     }
 }

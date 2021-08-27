@@ -70,7 +70,7 @@ namespace COLM_SYSTEM.Fees_Folder
 
             cmbCurriculumCode.Items.Clear();
 
-            List<Curriculum> curriculums = Curriculum.GetCurriculums(cmbEducationLevel.Text).Where(item =>item.DepartmentID == dept.DepartmentID).ToList();
+            List<Curriculum> curriculums = Curriculum.GetCurriculumsByEducationLevel(cmbEducationLevel.Text).Where(item =>item.DepartmentID == dept.DepartmentID).ToList();
             foreach (var item in curriculums)
             {
                 cmbCurriculumCode.Items.Add(item.Code);

@@ -49,6 +49,8 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -112,7 +114,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Firebrick;
-            this.button2.Location = new System.Drawing.Point(168, 226);
+            this.button2.Location = new System.Drawing.Point(168, 270);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(105, 30);
             this.button2.TabIndex = 7;
@@ -146,7 +148,7 @@
             // 
             this.cmbCurriculum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCurriculum.FormattingEnabled = true;
-            this.cmbCurriculum.Location = new System.Drawing.Point(15, 121);
+            this.cmbCurriculum.Location = new System.Drawing.Point(15, 166);
             this.cmbCurriculum.Name = "cmbCurriculum";
             this.cmbCurriculum.Size = new System.Drawing.Size(369, 23);
             this.cmbCurriculum.TabIndex = 4;
@@ -155,7 +157,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 104);
+            this.label6.Location = new System.Drawing.Point(12, 149);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 15);
             this.label6.TabIndex = 9;
@@ -168,7 +170,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(279, 226);
+            this.button1.Location = new System.Drawing.Point(279, 270);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 30);
             this.button1.TabIndex = 6;
@@ -229,7 +231,7 @@
             this.cmbRegistrationStatus.Items.AddRange(new object[] {
             "With Bridging",
             "Without Bridging"});
-            this.cmbRegistrationStatus.Location = new System.Drawing.Point(15, 165);
+            this.cmbRegistrationStatus.Location = new System.Drawing.Point(15, 210);
             this.cmbRegistrationStatus.Name = "cmbRegistrationStatus";
             this.cmbRegistrationStatus.Size = new System.Drawing.Size(369, 23);
             this.cmbRegistrationStatus.TabIndex = 5;
@@ -237,7 +239,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 147);
+            this.label5.Location = new System.Drawing.Point(12, 192);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 15);
             this.label5.TabIndex = 23;
@@ -289,6 +291,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.cmbDepartment);
             this.panel3.Controls.Add(this.cmbRegistrationStatus);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label5);
@@ -301,14 +305,33 @@
             this.panel3.Controls.Add(this.cmbCurriculum);
             this.panel3.Location = new System.Drawing.Point(15, 209);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(395, 270);
+            this.panel3.Size = new System.Drawing.Size(395, 313);
             this.panel3.TabIndex = 27;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 105);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 15);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Department";
+            // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(15, 123);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(369, 23);
+            this.cmbDepartment.TabIndex = 25;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // frm_registration_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 508);
+            this.ClientSize = new System.Drawing.Size(428, 548);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -351,5 +374,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbDepartment;
     }
 }

@@ -69,9 +69,9 @@ namespace COLM_SYSTEM_LIBRARY.model
             return StudentInfo_DS.GetStudentsToImport();
         }
 
-        public static async Task<List<StudentInfo>> GetStudents()
+        public static Task<List<StudentInfo>> GetStudents()
         {
-            return await Task.Run(() => StudentInfo_DS.GetStudents());
+            return Task.Run(() => StudentInfo_DS.GetStudents());
         }
 
         public static StudentInfo GetStudent(int StudentID)
@@ -96,6 +96,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static int RemoveStudent(int StudentID)
         {
             return StudentInfo_DS.RemoveStudent(StudentID);
+        }
+
+        public static int RemoveStudentInformationAndApplication(int StudentID)
+        {
+            return StudentInfo_DS.RemoveStudentInfoAndApplication(StudentID);
         }
 
         public static int UpdateStudentEmail(int StudentID, string Email)

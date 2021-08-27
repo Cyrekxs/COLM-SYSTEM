@@ -18,6 +18,10 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string RegistrationStatus { get; set; }
         public DateTime DateRegistered { get; set; }
 
+        public static List<StudentInfo> GetUnregisteredOnlineApplications()
+        {
+            return StudentRegistration_DS.GetUnregisteredOnlineApplicants();
+        }
 
         public static bool RegisterStudent(StudentRegistration student)
         {

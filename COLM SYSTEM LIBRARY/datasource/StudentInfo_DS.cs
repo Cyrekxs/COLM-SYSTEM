@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
-using System.Threading.Tasks;
 namespace COLM_SYSTEM_LIBRARY.datasource
 {
     class StudentInfo_DS
@@ -124,7 +123,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return students;
         }
 
-        
         public static StudentInfo GetStudent(int StudentID)
         {
             StudentInfo student = new StudentInfo();
@@ -356,6 +354,29 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 else
                 {
                     return 0;
+                }
+            }
+        }
+
+        public static int RemoveStudentInfoAndApplication(int StudentID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlTransaction t = conn.BeginTransaction())
+                {
+                    using (SqlCommand comm = new SqlCommand("DELETE FROM student.information WHERE StudentID = @StudentID", conn, t))
+                    {
+                        comm.Parameters.AddWithValue("@StudentID", StudentID);
+                        comm.ExecuteNonQuery();
+                    }
+
+                    using (SqlCommand comm = new SqlCommand("DELETE FROM student.applicant WHERE StudentId = @StudentID", conn, t))
+                    {
+                        comm.Parameters.AddWithValue("@StudentID", StudentID);
+                    }
+                    t.Commit();
+                    return 1;
                 }
             }
         }

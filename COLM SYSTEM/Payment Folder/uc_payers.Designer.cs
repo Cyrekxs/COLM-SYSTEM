@@ -54,6 +54,8 @@
             this.clmAssessor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssessmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPayment = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblCount = new System.Windows.Forms.Label();
+            this.lblTotalRecords = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -172,12 +174,12 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 50);
+            this.dataGridView1.Location = new System.Drawing.Point(7, 76);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1103, 613);
+            this.dataGridView1.Size = new System.Drawing.Size(1103, 551);
             this.dataGridView1.TabIndex = 24;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -288,10 +290,36 @@
             this.clmPayment.ReadOnly = true;
             this.clmPayment.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // lblCount
+            // 
+            this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCount.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCount.ForeColor = System.Drawing.Color.Red;
+            this.lblCount.Location = new System.Drawing.Point(605, 630);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(505, 30);
+            this.lblCount.TabIndex = 28;
+            this.lblCount.Text = "Record(s) : ";
+            this.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalRecords
+            // 
+            this.lblTotalRecords.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRecords.ForeColor = System.Drawing.Color.Red;
+            this.lblTotalRecords.Location = new System.Drawing.Point(10, 43);
+            this.lblTotalRecords.Name = "lblTotalRecords";
+            this.lblTotalRecords.Size = new System.Drawing.Size(497, 30);
+            this.lblTotalRecords.TabIndex = 29;
+            this.lblTotalRecords.Text = "The sort function is modified by assessment date then by student name for optimiz" +
+    "ation";
+            this.lblTotalRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // uc_payers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblTotalRecords);
+            this.Controls.Add(this.lblCount);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -327,5 +355,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessor;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentDate;
         private System.Windows.Forms.DataGridViewImageColumn clmPayment;
+        private System.Windows.Forms.Label lblCount;
+        private System.Windows.Forms.Label lblTotalRecords;
     }
 }

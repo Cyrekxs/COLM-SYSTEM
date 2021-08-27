@@ -15,6 +15,7 @@ namespace COLM_SYSTEM.Registration_Folder
     public partial class uc_registered_students_list : UserControl
     {
         int SelectedRow = 0;
+        List<StudentRegistered> RegisteredStudents;
         public uc_registered_students_list()
         {
             InitializeComponent();
@@ -24,27 +25,30 @@ namespace COLM_SYSTEM.Registration_Folder
 
         private void LoadRegisteredStudents()
         {
-            //Task<List<StudentRegistered>> task = new Task<List<StudentRegistered>>(StudentRegistered.GetRegisteredStudents);
-            //task.Start();
+            Task<List<StudentRegistered>> task = new Task<List<StudentRegistered>>(StudentRegistered.GetRegisteredStudents);
+            task.Start();
 
-            //frm_loading frm = new frm_loading(task);
-            //frm.StartPosition = FormStartPosition.CenterParent;
-            //frm.ShowDialog();
+            using (frm_loading frm = new frm_loading(task))
+            {
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.ShowDialog();
+            }
 
-            List<StudentRegistered> _RegisteredStudents = StudentRegistered.GetRegisteredStudents();
+            RegisteredStudents = task.Result;
+            RegisteredStudents = RegisteredStudents.OrderByDescending(r => r.DateRegistered.Date).ThenBy(r => r.StudentName).ToList();
 
             if (textBox1.Text != string.Empty)
             {
-                _RegisteredStudents = _RegisteredStudents.Where(item => item.StudentName.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                RegisteredStudents = RegisteredStudents.Where(item => item.StudentName.ToLower().Contains(textBox1.Text.ToLower())).ToList();
             }
 
             if (cmbEducationLevel.Text != "All")
             {
-                _RegisteredStudents = _RegisteredStudents.Where(item => item.EducationLevel.ToLower().Equals(cmbEducationLevel.Text.ToLower())).ToList();
+                RegisteredStudents = RegisteredStudents.Where(item => item.EducationLevel.ToLower().Equals(cmbEducationLevel.Text.ToLower())).ToList();
             }
 
             dataGridView1.Rows.Clear();
-            foreach (var item in _RegisteredStudents)
+            foreach (var item in RegisteredStudents.Take(200).ToList())
             {
                 dataGridView1.Rows.Add(
                     item.RegisteredID,
@@ -60,10 +64,10 @@ namespace COLM_SYSTEM.Registration_Folder
                     item.StudentStatus,
                     item.RegistrationStatus,
                     item.SchoolYear,
-                    item.DateRegistered
+                    item.DateRegistered.ToString("MM-dd-yyyy")
                     );
             }
-            lblCount.Text = string.Concat("Record(s): ", dataGridView1.Rows.Count);
+            lblCount.Text = string.Concat("Total Records in the Database : ", task.Result.Count.ToString(), " Record Count(s):", dataGridView1.Rows.Count);
         }
 
         private void button2_Click(object sender, EventArgs e)

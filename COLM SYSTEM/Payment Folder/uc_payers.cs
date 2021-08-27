@@ -43,14 +43,16 @@ namespace COLM_SYSTEM.Payment_Folder
                 assessmentLists = assessmentLists.Where(item => item.EducationLevel.ToLower().Equals(cmbEducationLevel.Text.ToLower())).ToList();
             }
 
-            assessmentLists = assessmentLists.OrderBy(item => item.StudentName).ToList();
+            assessmentLists = assessmentLists.OrderByDescending(r => r.AssessmentDate).ThenBy(r => r.StudentName).ToList();
 
             dataGridView1.Rows.Clear();
-            foreach (var item in assessmentLists)
+            foreach (var item in assessmentLists.Take(200).ToList())
             {
                 double balance = item.TotalDue - item.TotalPaidTuition;
                 dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.EnrollmentStatus, item.TotalDue.ToString("n"), item.TotalPaidTuition.ToString("n"), balance.ToString("n"), item.Assessor, item.AssessmentDate);
             }
+
+            lblCount.Text = string.Concat("Total Records in the Database : ", task.Result.Count.ToString(), " Record Count(s):", dataGridView1.Rows.Count);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

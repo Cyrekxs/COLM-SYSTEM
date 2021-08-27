@@ -226,4 +226,10 @@
   <data name="Schedule" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Schedule.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Message_Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Message-Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Computer_Desktop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Computer-Desktop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

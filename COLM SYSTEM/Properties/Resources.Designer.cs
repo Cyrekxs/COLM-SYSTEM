@@ -133,6 +133,16 @@ namespace SEMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Computer_Desktop {
+            get {
+                object obj = ResourceManager.GetObject("Computer_Desktop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Data {
             get {
                 object obj = ResourceManager.GetObject("Data", resourceCulture);
@@ -266,6 +276,16 @@ namespace SEMS.Properties {
         public static System.Drawing.Bitmap Message {
             get {
                 object obj = ResourceManager.GetObject("Message", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Message_Edit {
+            get {
+                object obj = ResourceManager.GetObject("Message_Edit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

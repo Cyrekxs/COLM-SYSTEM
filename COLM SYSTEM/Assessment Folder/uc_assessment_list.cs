@@ -37,6 +37,8 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             List<AssessmentSummary> assessmentLists = task.Result;
 
+            assessmentLists = assessmentLists.OrderByDescending(r => r.AssessmentDate.Date).ThenBy(r => r.StudentName).ToList();
+
             if (textBox1.Text != string.Empty)
             {
                 assessmentLists = (from r in assessmentLists
@@ -51,16 +53,14 @@ namespace COLM_SYSTEM.Assessment_Folder
                                    select r).ToList();
             }
 
-            dataGridView1.Rows.Clear();
+            dataGridView1.Rows.Clear();            
 
-            assessmentLists = assessmentLists.OrderBy(r => r.EducationLevel).ThenBy(r => r.StudentName).ToList();
-
-            foreach (var item in assessmentLists)
+            foreach (var item in assessmentLists.Take(200).ToList())
             {
-                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.PaymentMode, item.Assessor, item.AssessmentDate, item.EnrollmentStatus);
+                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.PaymentMode, item.Assessor, item.AssessmentDate.ToString("MM-dd-yyyy"), item.EnrollmentStatus);
             }
 
-            lblCount.Text = string.Concat("Record Count(s) :", dataGridView1.Rows.Count);
+            lblCount.Text = string.Concat("Total Records in the Database : ", task.Result.Count.ToString(), " Record Count(s):", dataGridView1.Rows.Count);
         }
 
         private void button1_Click(object sender, EventArgs e)

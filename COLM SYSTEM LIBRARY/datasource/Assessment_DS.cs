@@ -163,14 +163,19 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 return assessment;
             }
         }
-        public static List<AssessmentSummary> GetAssessmentLists()
+        public static List<AssessmentSummary> GetAssessmentLists(string EducationLevel = "")
         {
             List<AssessmentSummary> assessmentLists = new List<AssessmentSummary>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_student_assessment()", conn))
+                string qry = "SELECT * FROM fn_list_student_assessment()";
+                if (EducationLevel != "")
+                    qry = "SELECT * FROM fn_list_student_assessment() WHERE EducationLevel = @EducationLevel";
+
+                using (SqlCommand comm = new SqlCommand(qry, conn))
                 {
+                    comm.Parameters.AddWithValue("@EducationLevel", EducationLevel);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         while (reader.Read())

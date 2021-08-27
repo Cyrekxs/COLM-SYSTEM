@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://colm.edu.ph/SEMS/</UpdateUrl>
-    <ApplicationRevision>61</ApplicationRevision>
+    <ApplicationRevision>63</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -317,6 +317,12 @@
     <Compile Include="frm_update_student_email.Designer.cs">
       <DependentUpon>frm_update_student_email.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_whatsnew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_whatsnew.Designer.cs">
+      <DependentUpon>frm_whatsnew.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payment Folder\frm_browse_fees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -543,6 +549,12 @@
     <Compile Include="Student Information Folder\frm_student_requirement_list.Designer.cs">
       <DependentUpon>frm_student_requirement_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student Information Folder\uc_student_applicants_unregistered.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student Information Folder\uc_student_applicants_unregistered.Designer.cs">
+      <DependentUpon>uc_student_applicants_unregistered.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student Information Folder\uc_student_information_list.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -554,12 +566,6 @@
     </Compile>
     <Compile Include="Student Information Folder\uc_student_information_list_online.Designer.cs">
       <DependentUpon>uc_student_information_list_online.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Student Information Folder\uc_student_information_list_online_processed.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Student Information Folder\uc_student_information_list_online_processed.Designer.cs">
-      <DependentUpon>uc_student_information_list_online_processed.cs</DependentUpon>
     </Compile>
     <Compile Include="Subject Folder\frm_subject_entry.cs">
       <SubType>Form</SubType>
@@ -734,6 +740,9 @@
     <EmbeddedResource Include="frm_update_student_email.resx">
       <DependentUpon>frm_update_student_email.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_whatsnew.resx">
+      <DependentUpon>frm_whatsnew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\frm_browse_fees.resx">
       <DependentUpon>frm_browse_fees.cs</DependentUpon>
     </EmbeddedResource>
@@ -849,14 +858,14 @@
     <EmbeddedResource Include="Student Information Folder\frm_student_requirement_list.resx">
       <DependentUpon>frm_student_requirement_list.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Student Information Folder\uc_student_applicants_unregistered.resx">
+      <DependentUpon>uc_student_applicants_unregistered.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\uc_student_information_list.resx">
       <DependentUpon>uc_student_information_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\uc_student_information_list_online.resx">
       <DependentUpon>uc_student_information_list_online.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Student Information Folder\uc_student_information_list_online_processed.resx">
-      <DependentUpon>uc_student_information_list_online_processed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subject Folder\frm_subject_entry.resx">
       <DependentUpon>frm_subject_entry.cs</DependentUpon>
@@ -982,6 +991,8 @@
     <None Include="Resources\Account.png" />
     <None Include="Resources\Duplicate.png" />
     <None Include="Resources\Schedule.png" />
+    <None Include="Resources\Message-Edit.png" />
+    <None Include="Resources\Computer-Desktop.png" />
     <Content Include="sems.ico" />
     <None Include="Resources\NONITA NABONG.jpg" />
     <None Include="Resources\Message.png" />
