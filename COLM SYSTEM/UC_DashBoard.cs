@@ -88,11 +88,18 @@ namespace COLM_SYSTEM
             TotalPending = PendingPreElem + PendingElem + PendingJHS + PendingSHS + PendingCollege;
 
 
-            TargetPreElem = ((EnrolledPreElem + PendingPreElem) / TargetPreElem) * 100;
-            TargetElem = ((EnrolledElem + PendingElem) / TargetElem) * 100;
-            TargetJHS = ((EnrolledJHS + PendingJHS) / TargetJHS) * 100;
-            TargetSHS = ((EnrolledSHS + PendingSHS) / TargetSHS) * 100;
-            TargetCollege = ((EnrolledCollege + PendingCollege) / TargetCollege) * 100;
+            //TargetPreElem = ((EnrolledPreElem + PendingPreElem) / TargetPreElem) * 100;
+            //TargetElem = ((EnrolledElem + PendingElem) / TargetElem) * 100;
+            //TargetJHS = ((EnrolledJHS + PendingJHS) / TargetJHS) * 100;
+            //TargetSHS = ((EnrolledSHS + PendingSHS) / TargetSHS) * 100;
+            //TargetCollege = ((EnrolledCollege + PendingCollege) / TargetCollege) * 100;
+
+            TargetPreElem = (EnrolledPreElem / TargetPreElem * 100);
+            TargetElem = (EnrolledElem / TargetElem) * 100;
+            TargetJHS = (EnrolledJHS / TargetJHS) * 100;
+            TargetSHS = (EnrolledSHS / TargetSHS) * 100;
+            TargetCollege = (EnrolledCollege / TargetCollege) * 100;
+
             //((TotalEnrolled + TotalPending) / TargetTotal) * 100;
 
 
@@ -205,42 +212,6 @@ namespace COLM_SYSTEM
             {
 
             }
-
-        }
-
-        private void chartEnrolled_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UC_DashBoard_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
 
         }
 
