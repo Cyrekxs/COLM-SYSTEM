@@ -12,7 +12,7 @@ using SEMS.Custom_Controls;
 
 namespace SEMS
 {
-    public partial class uc_student_lists : UserControl
+    public partial class uc_transaction_dashboard : UserControl
     {
         List<StudentMaster> masters = new List<StudentMaster>();
         Color c = Color.White;
@@ -26,7 +26,7 @@ namespace SEMS
             public int Index { get; set; }
         }
 
-        public uc_student_lists()
+        public uc_transaction_dashboard()
         {
             InitializeComponent();
         }
@@ -53,6 +53,11 @@ namespace SEMS
                     progress.Report(item);
                 }
             }));
+        }
+
+        private void PanelMain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

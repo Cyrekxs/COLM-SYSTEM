@@ -117,29 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBox1.Text" xml:space="preserve">
-    <value>*1.0.0.64
-
-   -The Student Registration can now change
-        *Requirements
-           # if you want to change the student registration make sure that it that the student no current assessment
-
-   -Preparation for new Dashboard in Information, Registration and Assessment
-
-   -Minimal Optimization on loading speed
-
-   -Added Department in Curriculum
-
-*1.0.0.63
-
-   -Optimized the loading speed of information, assessment, registration and payment list
-
-   -Added department selection to easily select curriculum in new registration form
-
-   -Added a list of unregistered applicants for the users who forgot the name of on process student
-
-   -Modified System Dashboard specially the College chart due to data
-
-   -Remove the decimal value on the target in the Dashboard</value>
-  </data>
 </root>

@@ -140,5 +140,27 @@ namespace COLM_SYSTEM.Registration_Folder
                 frm.ShowDialog();
             }
         }
+
+        private void changeRegistrationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int RegistrationID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmRegisteredStudentID"].Value);
+
+            //verify if has assessment
+            bool HasAssessment = StudentRegistration.HasAssessment(RegistrationID);
+            if (HasAssessment == true)
+            {
+                MessageBox.Show("This student has a record on the assessment you cannot change this registration info", "Student Has Assessment", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                using (frm_registration_entry frm = new frm_registration_entry(RegistrationID))
+                {
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    LoadRegisteredStudents();
+                }
+            }
+        }
     }
 }

@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelBreakdown = new System.Windows.Forms.Panel();
+            this.lblActive = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblChartBreakDownNotifier = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelEnrolled = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -50,7 +51,7 @@
             this.lblTotalTarget = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.chartEnrolled = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel30 = new System.Windows.Forms.Panel();
+            this.panelCollege = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
             this.lblTotalCollege = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
@@ -65,7 +66,7 @@
             this.lblTargetCollege = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
-            this.panel25 = new System.Windows.Forms.Panel();
+            this.panelSHS = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.lblTotalSHS = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
@@ -80,7 +81,7 @@
             this.lblTargetSHS = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
+            this.panelJHS = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.lblTotalJHS = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -95,7 +96,7 @@
             this.lblTargetJHS = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.panelElem = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.lblTotalElementary = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -110,7 +111,7 @@
             this.lblTargetElem = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panelPreElem = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lblTotalPreElementary = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -132,27 +133,27 @@
             this.panel2.SuspendLayout();
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartEnrolled)).BeginInit();
-            this.panel30.SuspendLayout();
+            this.panelCollege.SuspendLayout();
             this.panel31.SuspendLayout();
             this.panel32.SuspendLayout();
             this.panel33.SuspendLayout();
             this.panel34.SuspendLayout();
-            this.panel25.SuspendLayout();
+            this.panelSHS.SuspendLayout();
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel29.SuspendLayout();
-            this.panel14.SuspendLayout();
+            this.panelJHS.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel24.SuspendLayout();
-            this.panel8.SuspendLayout();
+            this.panelElem.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panelPreElem.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -161,52 +162,52 @@
             // 
             // chart1
             // 
-            chartArea5.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.None;
-            chartArea5.Area3DStyle.Rotation = 130;
-            chartArea5.AxisX.Interval = 1D;
-            chartArea5.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea5.AxisX.LabelAutoFitMinFontSize = 10;
-            chartArea5.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+            chartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.None;
+            chartArea1.Area3DStyle.Rotation = 130;
+            chartArea1.AxisX.Interval = 1D;
+            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisX.LabelAutoFitMinFontSize = 10;
+            chartArea1.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45)));
-            chartArea5.AxisX.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisX.MajorGrid.Enabled = false;
-            chartArea5.AxisX.MaximumAutoSize = 100F;
-            chartArea5.AxisX.ScaleView.MinSize = 0D;
-            chartArea5.AxisX.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
-            chartArea5.AxisX.ScrollBar.Size = 10D;
-            chartArea5.AxisX.TitleFont = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisX2.MajorGrid.LineColor = System.Drawing.Color.Empty;
-            chartArea5.AxisY.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisY.LabelStyle.Format = "# Students";
-            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea5.AxisY.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
-            chartArea5.AxisY.ScrollBar.Size = 10D;
-            chartArea5.BackColor = System.Drawing.Color.WhiteSmoke;
-            chartArea5.BackSecondaryColor = System.Drawing.Color.Navy;
-            chartArea5.Name = "ChartArea1";
-            chartArea5.ShadowColor = System.Drawing.Color.Empty;
-            this.chart1.ChartAreas.Add(chartArea5);
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.MaximumAutoSize = 100F;
+            chartArea1.AxisX.ScaleView.MinSize = 0D;
+            chartArea1.AxisX.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
+            chartArea1.AxisX.ScrollBar.Size = 10D;
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.Empty;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.LabelStyle.Format = "# Students";
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea1.AxisY.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
+            chartArea1.AxisY.ScrollBar.Size = 10D;
+            chartArea1.BackColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.BackSecondaryColor = System.Drawing.Color.Navy;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.ShadowColor = System.Drawing.Color.Empty;
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart1.Location = new System.Drawing.Point(5, 5);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.chart1.Location = new System.Drawing.Point(5, 27);
             this.chart1.Name = "chart1";
-            series7.ChartArea = "ChartArea1";
-            series7.Color = System.Drawing.Color.DarkSlateGray;
-            series7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series7.IsValueShownAsLabel = true;
-            series7.IsVisibleInLegend = false;
-            series7.MarkerBorderColor = System.Drawing.Color.Red;
-            series7.Name = "Enrolled";
-            series8.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Percent25;
-            series8.ChartArea = "ChartArea1";
-            series8.Color = System.Drawing.Color.Gray;
-            series8.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series8.IsValueShownAsLabel = true;
-            series8.IsVisibleInLegend = false;
-            series8.Name = "Pending";
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.DarkSlateGray;
+            series1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
+            series1.IsVisibleInLegend = false;
+            series1.MarkerBorderColor = System.Drawing.Color.Red;
+            series1.Name = "Enrolled";
+            series2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Percent25;
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.Gray;
+            series2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.IsValueShownAsLabel = true;
+            series2.IsVisibleInLegend = false;
+            series2.Name = "Pending";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1306, 300);
             this.chart1.TabIndex = 11;
             this.chart1.Text = "chart1";
@@ -215,14 +216,25 @@
             // panelBreakdown
             // 
             this.panelBreakdown.BackColor = System.Drawing.Color.White;
+            this.panelBreakdown.Controls.Add(this.lblActive);
             this.panelBreakdown.Controls.Add(this.label2);
-            this.panelBreakdown.Controls.Add(this.lblChartBreakDownNotifier);
+            this.panelBreakdown.Controls.Add(this.label1);
             this.panelBreakdown.Controls.Add(this.chart1);
-            this.panelBreakdown.Location = new System.Drawing.Point(15, 293);
+            this.panelBreakdown.Location = new System.Drawing.Point(15, 271);
             this.panelBreakdown.Name = "panelBreakdown";
             this.panelBreakdown.Padding = new System.Windows.Forms.Padding(5);
-            this.panelBreakdown.Size = new System.Drawing.Size(1316, 310);
+            this.panelBreakdown.Size = new System.Drawing.Size(1316, 332);
             this.panelBreakdown.TabIndex = 12;
+            // 
+            // lblActive
+            // 
+            this.lblActive.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActive.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblActive.Location = new System.Drawing.Point(763, 24);
+            this.lblActive.Name = "lblActive";
+            this.lblActive.Size = new System.Drawing.Size(174, 19);
+            this.lblActive.TabIndex = 15;
+            this.lblActive.Text = "None";
             // 
             // label2
             // 
@@ -230,23 +242,23 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Firebrick;
-            this.label2.Location = new System.Drawing.Point(391, 5);
+            this.label2.Location = new System.Drawing.Point(441, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(496, 15);
             this.label2.TabIndex = 13;
             this.label2.Text = "Note you can click the column to view the list of Enrolled and Pending Students M" +
     "asterlist";
             // 
-            // lblChartBreakDownNotifier
+            // label1
             // 
-            this.lblChartBreakDownNotifier.AutoSize = true;
-            this.lblChartBreakDownNotifier.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblChartBreakDownNotifier.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChartBreakDownNotifier.Location = new System.Drawing.Point(498, 127);
-            this.lblChartBreakDownNotifier.Name = "lblChartBreakDownNotifier";
-            this.lblChartBreakDownNotifier.Size = new System.Drawing.Size(259, 19);
-            this.lblChartBreakDownNotifier.TabIndex = 12;
-            this.lblChartBreakDownNotifier.Text = "Try to Click View to Show Chart Here";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(562, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(195, 19);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Active Dashboard on chart:";
             // 
             // panelEnrolled
             // 
@@ -255,11 +267,11 @@
             this.panelEnrolled.Controls.Add(this.panel2);
             this.panelEnrolled.Controls.Add(this.panel16);
             this.panelEnrolled.Controls.Add(this.chartEnrolled);
-            this.panelEnrolled.Controls.Add(this.panel30);
-            this.panelEnrolled.Controls.Add(this.panel25);
-            this.panelEnrolled.Controls.Add(this.panel14);
-            this.panelEnrolled.Controls.Add(this.panel8);
-            this.panelEnrolled.Controls.Add(this.panel4);
+            this.panelEnrolled.Controls.Add(this.panelCollege);
+            this.panelEnrolled.Controls.Add(this.panelSHS);
+            this.panelEnrolled.Controls.Add(this.panelJHS);
+            this.panelEnrolled.Controls.Add(this.panelElem);
+            this.panelEnrolled.Controls.Add(this.panelPreElem);
             this.panelEnrolled.Location = new System.Drawing.Point(15, 14);
             this.panelEnrolled.Name = "panelEnrolled";
             this.panelEnrolled.Size = new System.Drawing.Size(1316, 251);
@@ -376,36 +388,36 @@
             // 
             this.chartEnrolled.BackColor = System.Drawing.Color.Empty;
             this.chartEnrolled.BorderlineColor = System.Drawing.Color.Black;
-            chartArea6.Name = "ChartArea1";
-            this.chartEnrolled.ChartAreas.Add(chartArea6);
+            chartArea2.Name = "ChartArea1";
+            this.chartEnrolled.ChartAreas.Add(chartArea2);
             this.chartEnrolled.Dock = System.Windows.Forms.DockStyle.Left;
             this.chartEnrolled.Location = new System.Drawing.Point(0, 0);
             this.chartEnrolled.Name = "chartEnrolled";
             this.chartEnrolled.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series9.BorderColor = System.Drawing.Color.White;
-            series9.BorderWidth = 3;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series9.Name = "s1";
-            series9.YValuesPerPoint = 6;
-            this.chartEnrolled.Series.Add(series9);
+            series3.BorderColor = System.Drawing.Color.White;
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.Name = "s1";
+            series3.YValuesPerPoint = 6;
+            this.chartEnrolled.Series.Add(series3);
             this.chartEnrolled.Size = new System.Drawing.Size(241, 251);
             this.chartEnrolled.TabIndex = 15;
             this.chartEnrolled.Text = "chart1";
             // 
-            // panel30
+            // panelCollege
             // 
-            this.panel30.BackColor = System.Drawing.Color.White;
-            this.panel30.Controls.Add(this.panel31);
-            this.panel30.Controls.Add(this.panel32);
-            this.panel30.Controls.Add(this.panel33);
-            this.panel30.Controls.Add(this.button10);
-            this.panel30.Controls.Add(this.panel34);
-            this.panel30.Location = new System.Drawing.Point(1123, 9);
-            this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(176, 234);
-            this.panel30.TabIndex = 14;
+            this.panelCollege.BackColor = System.Drawing.Color.White;
+            this.panelCollege.Controls.Add(this.panel31);
+            this.panelCollege.Controls.Add(this.panel32);
+            this.panelCollege.Controls.Add(this.panel33);
+            this.panelCollege.Controls.Add(this.button10);
+            this.panelCollege.Controls.Add(this.panel34);
+            this.panelCollege.Location = new System.Drawing.Point(1123, 9);
+            this.panelCollege.Name = "panelCollege";
+            this.panelCollege.Size = new System.Drawing.Size(176, 234);
+            this.panelCollege.TabIndex = 14;
             // 
             // panel31
             // 
@@ -586,18 +598,18 @@
             this.label57.Text = "COLLEGE";
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel25
+            // panelSHS
             // 
-            this.panel25.BackColor = System.Drawing.Color.White;
-            this.panel25.Controls.Add(this.panel26);
-            this.panel25.Controls.Add(this.panel27);
-            this.panel25.Controls.Add(this.panel28);
-            this.panel25.Controls.Add(this.button9);
-            this.panel25.Controls.Add(this.panel29);
-            this.panel25.Location = new System.Drawing.Point(943, 9);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(174, 234);
-            this.panel25.TabIndex = 13;
+            this.panelSHS.BackColor = System.Drawing.Color.White;
+            this.panelSHS.Controls.Add(this.panel26);
+            this.panelSHS.Controls.Add(this.panel27);
+            this.panelSHS.Controls.Add(this.panel28);
+            this.panelSHS.Controls.Add(this.button9);
+            this.panelSHS.Controls.Add(this.panel29);
+            this.panelSHS.Location = new System.Drawing.Point(943, 9);
+            this.panelSHS.Name = "panelSHS";
+            this.panelSHS.Size = new System.Drawing.Size(174, 234);
+            this.panelSHS.TabIndex = 13;
             // 
             // panel26
             // 
@@ -778,18 +790,18 @@
             this.label48.Text = "SENIOR HIGH";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel14
+            // panelJHS
             // 
-            this.panel14.BackColor = System.Drawing.Color.White;
-            this.panel14.Controls.Add(this.panel15);
-            this.panel14.Controls.Add(this.panel22);
-            this.panel14.Controls.Add(this.panel23);
-            this.panel14.Controls.Add(this.button8);
-            this.panel14.Controls.Add(this.panel24);
-            this.panel14.Location = new System.Drawing.Point(763, 9);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(174, 234);
-            this.panel14.TabIndex = 12;
+            this.panelJHS.BackColor = System.Drawing.Color.White;
+            this.panelJHS.Controls.Add(this.panel15);
+            this.panelJHS.Controls.Add(this.panel22);
+            this.panelJHS.Controls.Add(this.panel23);
+            this.panelJHS.Controls.Add(this.button8);
+            this.panelJHS.Controls.Add(this.panel24);
+            this.panelJHS.Location = new System.Drawing.Point(763, 9);
+            this.panelJHS.Name = "panelJHS";
+            this.panelJHS.Size = new System.Drawing.Size(174, 234);
+            this.panelJHS.TabIndex = 12;
             // 
             // panel15
             // 
@@ -970,18 +982,18 @@
             this.label39.Text = "JUNIOR HIGH";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel8
+            // panelElem
             // 
-            this.panel8.BackColor = System.Drawing.Color.White;
-            this.panel8.Controls.Add(this.panel10);
-            this.panel8.Controls.Add(this.panel11);
-            this.panel8.Controls.Add(this.panel12);
-            this.panel8.Controls.Add(this.button7);
-            this.panel8.Controls.Add(this.panel13);
-            this.panel8.Location = new System.Drawing.Point(583, 9);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(174, 234);
-            this.panel8.TabIndex = 11;
+            this.panelElem.BackColor = System.Drawing.Color.White;
+            this.panelElem.Controls.Add(this.panel10);
+            this.panelElem.Controls.Add(this.panel11);
+            this.panelElem.Controls.Add(this.panel12);
+            this.panelElem.Controls.Add(this.button7);
+            this.panelElem.Controls.Add(this.panel13);
+            this.panelElem.Location = new System.Drawing.Point(583, 9);
+            this.panelElem.Name = "panelElem";
+            this.panelElem.Size = new System.Drawing.Size(174, 234);
+            this.panelElem.TabIndex = 11;
             // 
             // panel10
             // 
@@ -1162,18 +1174,18 @@
             this.label28.Text = "ELEMENTARY";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel4
+            // panelPreElem
             // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.panel7);
-            this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.button6);
-            this.panel4.Controls.Add(this.panel3);
-            this.panel4.Location = new System.Drawing.Point(403, 9);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(174, 234);
-            this.panel4.TabIndex = 10;
+            this.panelPreElem.BackColor = System.Drawing.Color.White;
+            this.panelPreElem.Controls.Add(this.panel7);
+            this.panelPreElem.Controls.Add(this.panel6);
+            this.panelPreElem.Controls.Add(this.panel5);
+            this.panelPreElem.Controls.Add(this.button6);
+            this.panelPreElem.Controls.Add(this.panel3);
+            this.panelPreElem.Location = new System.Drawing.Point(403, 9);
+            this.panelPreElem.Name = "panelPreElem";
+            this.panelPreElem.Size = new System.Drawing.Size(174, 234);
+            this.panelPreElem.TabIndex = 10;
             // 
             // panel7
             // 
@@ -1371,27 +1383,27 @@
             this.panel2.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartEnrolled)).EndInit();
-            this.panel30.ResumeLayout(false);
+            this.panelCollege.ResumeLayout(false);
             this.panel31.ResumeLayout(false);
             this.panel32.ResumeLayout(false);
             this.panel33.ResumeLayout(false);
             this.panel34.ResumeLayout(false);
-            this.panel25.ResumeLayout(false);
+            this.panelSHS.ResumeLayout(false);
             this.panel26.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
-            this.panel14.ResumeLayout(false);
+            this.panelJHS.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
+            this.panelElem.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.panelPreElem.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -1403,13 +1415,12 @@
         #endregion
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Panel panelBreakdown;
-        private System.Windows.Forms.Label lblChartBreakDownNotifier;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelEnrolled;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panelPreElem;
         private System.Windows.Forms.Label lblTargetPreElem;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
@@ -1422,7 +1433,7 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label lblTotalPreElementary;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Panel panelSHS;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Label lblTotalSHS;
         private System.Windows.Forms.Label label41;
@@ -1437,7 +1448,7 @@
         private System.Windows.Forms.Label lblTargetSHS;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panelJHS;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label lblTotalJHS;
         private System.Windows.Forms.Label label31;
@@ -1452,7 +1463,7 @@
         private System.Windows.Forms.Label lblTargetJHS;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panelElem;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label lblTotalElementary;
         private System.Windows.Forms.Label label18;
@@ -1467,7 +1478,7 @@
         private System.Windows.Forms.Label lblTargetElem;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.Panel panelCollege;
         private System.Windows.Forms.Panel panel31;
         private System.Windows.Forms.Label lblTotalCollege;
         private System.Windows.Forms.Label label50;
@@ -1492,5 +1503,7 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label lblTotalTarget;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblActive;
     }
 }
