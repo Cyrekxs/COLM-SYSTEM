@@ -11,6 +11,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
     {
         string savingoption = "";
         Curriculum _curriculum = new Curriculum();
+        List<Department> Departments = Department.GetDepartments();
         List<CurriculumSubject> _curriculumSubjects = new List<CurriculumSubject>();
         List<SchoolSemester> semesters = SchoolSemester.GetSchoolSemesters();
         private int SelectedRow = -1;
@@ -23,6 +24,8 @@ namespace COLM_SYSTEM.Curriculum_Folder
             btnDelete.Visible = true;
 
             DisplaySemestersOnCombobox();
+            DisplayDepartments();
+
             //Handle Data Error Event
             dataGridView1.DataError += DataGridview_DataError;
 
@@ -34,6 +37,9 @@ namespace COLM_SYSTEM.Curriculum_Folder
             txtCurriculumCode.Text = c.Code;
             txtDescription.Text = c.Description;
 
+            cmbDepartment.Text = (from r in Departments
+                                  where r.DepartmentID == c.DepartmentID
+                                  select r.DepartmentCode).FirstOrDefault();
 
             LoadSubjects(CurriculumSubjects);
         }
@@ -67,7 +73,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
             btnDelete.Visible = false;
             savingoption = "ADD";
             DisplaySemestersOnCombobox();
-
+            DisplayDepartments();
 
             //Handle Data Error Event
             dataGridView1.DataError += DataGridview_DataError;
@@ -106,6 +112,15 @@ namespace COLM_SYSTEM.Curriculum_Folder
                     SchoolSemester.GetSchoolSemester(item.SemesterID).Semester);
             }
 
+        }
+
+        private void DisplayDepartments()
+        {
+            cmbDepartment.Items.Clear();
+            foreach (var item in Departments)
+            {
+                cmbDepartment.Items.Add(item.DepartmentCode);
+            }
         }
 
         private void DisplaySemestersOnCombobox()
@@ -192,6 +207,10 @@ namespace COLM_SYSTEM.Curriculum_Folder
                     curriculum.Code = txtCurriculumCode.Text;
                     curriculum.Description = txtDescription.Text;
                     curriculum.EducationLevel = cmbEducationLevel.Text;
+                    curriculum.DepartmentID = (from r in Departments
+                                               where r.DepartmentCode == cmbDepartment.Text
+                                               select r.DepartmentID).FirstOrDefault();
+
                     curriculum.CourseStrand = cmbCourseStrand.Text;
                     curriculum.SchoolYearID = SchoolYear.GetActiveSchoolYear().SchoolYearID;
 
@@ -226,6 +245,10 @@ namespace COLM_SYSTEM.Curriculum_Folder
                     curriculum.Code = txtCurriculumCode.Text;
                     curriculum.Description = txtDescription.Text;
                     curriculum.EducationLevel = cmbEducationLevel.Text;
+                    curriculum.DepartmentID = (from r in Departments
+                                               where r.DepartmentCode == cmbDepartment.Text
+                                               select r.DepartmentID).FirstOrDefault();
+
                     curriculum.CourseStrand = cmbCourseStrand.Text;
 
                     List<CurriculumSubject> curriculumSubjects = new List<CurriculumSubject>();

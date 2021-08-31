@@ -26,19 +26,6 @@ namespace COLM_SYSTEM
             panelBreakdown.Location = new Point(this.ClientSize.Width / 2 - panelBreakdown.Size.Width / 2, 280);
             panelBreakdown.Anchor = AnchorStyles.None;
             LoadCharts();
-
-            DisplayChartBreakDownNotifier();
-        }
-        private void DisplayChartBreakDownNotifier()
-        {
-            if (chart1.Series["Enrolled"].Points.Count == 0 && chart1.Series["Pending"].Points.Count == 0)
-            {
-                lblChartBreakDownNotifier.Visible = true;
-            }
-            else
-            {
-                lblChartBreakDownNotifier.Visible = false;
-            }
         }
 
         private void LoadEnrolledStudentCount()
@@ -219,9 +206,7 @@ namespace COLM_SYSTEM
                             }
                         }
                         break;
-                }
-                             
-                DisplayChartBreakDownNotifier();
+                }                            
             }
             catch
             {
@@ -253,30 +238,35 @@ namespace COLM_SYSTEM
 
         private void button6_Click(object sender, EventArgs e)
         {
+            lblActive.Text = "Pre Elementary";
             LoadChartBreakdown("Pre Elementary");
             SelectedEducationLevel = "Pre Elementary";
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            lblActive.Text = "Elementary";
             LoadChartBreakdown("Elementary");
             SelectedEducationLevel = "Elementary";
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            lblActive.Text = "Junior High";
             LoadChartBreakdown("Junior High");
             SelectedEducationLevel = "Junior High";
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+            lblActive.Text = "Senior High";
             LoadChartBreakdown("Senior High");
             SelectedEducationLevel = "Senior High";
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
+            lblActive.Text = "College";
             LoadChartBreakdown("College");
             SelectedEducationLevel = "College";
         }

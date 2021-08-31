@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAction = new System.Windows.Forms.DataGridViewImageColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.changeRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewRequirementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -179,8 +180,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -202,14 +203,14 @@
             this.clmSchoolYear,
             this.Column1,
             this.clmAction});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Location = new System.Drawing.Point(13, 76);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -338,17 +339,26 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeRegistrationToolStripMenuItem,
             this.viewInformationToolStripMenuItem,
             this.deleteApplicationToolStripMenuItem,
             this.viewRequirementsToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(190, 112);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(196, 170);
+            // 
+            // changeRegistrationToolStripMenuItem
+            // 
+            this.changeRegistrationToolStripMenuItem.Image = global::SEMS.Properties.Resources.Document_Edit;
+            this.changeRegistrationToolStripMenuItem.Name = "changeRegistrationToolStripMenuItem";
+            this.changeRegistrationToolStripMenuItem.Size = new System.Drawing.Size(195, 36);
+            this.changeRegistrationToolStripMenuItem.Text = "Change Registration";
+            this.changeRegistrationToolStripMenuItem.Click += new System.EventHandler(this.changeRegistrationToolStripMenuItem_Click);
             // 
             // viewInformationToolStripMenuItem
             // 
             this.viewInformationToolStripMenuItem.Image = global::SEMS.Properties.Resources.View;
             this.viewInformationToolStripMenuItem.Name = "viewInformationToolStripMenuItem";
-            this.viewInformationToolStripMenuItem.Size = new System.Drawing.Size(189, 36);
+            this.viewInformationToolStripMenuItem.Size = new System.Drawing.Size(195, 36);
             this.viewInformationToolStripMenuItem.Text = "View Information";
             this.viewInformationToolStripMenuItem.Click += new System.EventHandler(this.viewInformationToolStripMenuItem_Click);
             // 
@@ -357,16 +367,16 @@
             this.deleteApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.deleteApplicationToolStripMenuItem.Image = global::SEMS.Properties.Resources.Document_Delete;
             this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
-            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(189, 36);
+            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(195, 36);
             this.deleteApplicationToolStripMenuItem.Text = "Delete Registration";
             this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_Click);
             // 
             // viewRequirementsToolStripMenuItem
             // 
             this.viewRequirementsToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.viewRequirementsToolStripMenuItem.Image = global::SEMS.Properties.Resources.Document_Edit;
+            this.viewRequirementsToolStripMenuItem.Image = global::SEMS.Properties.Resources.Report;
             this.viewRequirementsToolStripMenuItem.Name = "viewRequirementsToolStripMenuItem";
-            this.viewRequirementsToolStripMenuItem.Size = new System.Drawing.Size(189, 36);
+            this.viewRequirementsToolStripMenuItem.Size = new System.Drawing.Size(195, 36);
             this.viewRequirementsToolStripMenuItem.Text = "View Requirements";
             // 
             // dataGridViewImageColumn1
@@ -442,5 +452,6 @@
         private System.Windows.Forms.DataGridViewImageColumn clmAction;
         private System.Windows.Forms.ToolStripMenuItem viewRequirementsToolStripMenuItem;
         private System.Windows.Forms.Label lblTotalRecords;
+        private System.Windows.Forms.ToolStripMenuItem changeRegistrationToolStripMenuItem;
     }
 }

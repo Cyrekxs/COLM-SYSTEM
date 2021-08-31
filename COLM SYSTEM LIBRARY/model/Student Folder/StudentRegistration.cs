@@ -28,9 +28,9 @@ namespace COLM_SYSTEM_LIBRARY.model
             return StudentRegistration_DS.RegisterStudent(student);
         }
 
-        public static bool UpdateStudentRegistration(StudentRegistration student)
+        public static bool UpdateStudentRegistration(StudentRegistration model)
         {
-            return StudentRegistration_DS.UpdateStudentRegistration(student);
+            return StudentRegistration_DS.UpdateStudentRegistration(model);
         }
 
         public static bool HasAssessment(int RegistrationID)

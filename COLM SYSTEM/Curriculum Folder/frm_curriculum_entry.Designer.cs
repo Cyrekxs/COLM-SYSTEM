@@ -63,6 +63,8 @@
             this.cLOSEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -72,6 +74,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.cmbDepartment);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.cmbCourseStrand);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
@@ -96,7 +100,7 @@
             "JUNIOR HIGH",
             "SENIOR HIGH",
             "COLLEGE"});
-            this.cmbCourseStrand.Location = new System.Drawing.Point(161, 25);
+            this.cmbCourseStrand.Location = new System.Drawing.Point(308, 26);
             this.cmbCourseStrand.Name = "cmbCourseStrand";
             this.cmbCourseStrand.Size = new System.Drawing.Size(142, 23);
             this.cmbCourseStrand.TabIndex = 7;
@@ -105,7 +109,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(158, 8);
+            this.label4.Location = new System.Drawing.Point(305, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 15);
             this.label4.TabIndex = 6;
@@ -114,7 +118,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(476, 8);
+            this.label2.Location = new System.Drawing.Point(631, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 15);
             this.label2.TabIndex = 3;
@@ -122,22 +126,22 @@
             // 
             // txtCurriculumCode
             // 
-            this.txtCurriculumCode.Location = new System.Drawing.Point(309, 26);
+            this.txtCurriculumCode.Location = new System.Drawing.Point(464, 26);
             this.txtCurriculumCode.Name = "txtCurriculumCode";
             this.txtCurriculumCode.Size = new System.Drawing.Size(164, 23);
             this.txtCurriculumCode.TabIndex = 1;
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(479, 26);
+            this.txtDescription.Location = new System.Drawing.Point(634, 26);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(475, 23);
+            this.txtDescription.Size = new System.Drawing.Size(320, 23);
             this.txtDescription.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(306, 8);
+            this.label1.Location = new System.Drawing.Point(461, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 15);
             this.label1.TabIndex = 0;
@@ -392,6 +396,30 @@
             this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Items.AddRange(new object[] {
+            "PRE ELEMENTARY",
+            "ELEMENTARY",
+            "JUNIOR HIGH",
+            "SENIOR HIGH",
+            "COLLEGE"});
+            this.cmbDepartment.Location = new System.Drawing.Point(160, 26);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(142, 23);
+            this.cmbDepartment.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(157, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 15);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Department";
+            // 
             // frm_curriculum_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -452,5 +480,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn clmSemester;
         private System.Windows.Forms.DataGridViewButtonColumn clmAction;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ComboBox cmbDepartment;
+        private System.Windows.Forms.Label label5;
     }
 }

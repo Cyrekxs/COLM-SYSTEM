@@ -27,7 +27,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 RegisteredID = Convert.ToInt32(reader["RegisteredID"]),
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
                                 LRN = Convert.ToString(reader["LRN"]),
-                                StudentName = text.ToTitleCase( Convert.ToString(reader["StudentName"]).ToLower()),
+                                StudentName = text.ToTitleCase(Convert.ToString(reader["StudentName"]).ToLower()),
                                 Gender = text.ToTitleCase(Convert.ToString(reader["Gender"]).ToLower()),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
@@ -66,7 +66,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             {
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
                                 LRN = Convert.ToString(reader["LRN"]),
-                                Lastname = text.ToTitleCase( Convert.ToString(reader["Lastname"]).ToLower()),
+                                Lastname = text.ToTitleCase(Convert.ToString(reader["Lastname"]).ToLower()),
                                 Firstname = text.ToTitleCase(Convert.ToString(reader["Firstname"]).ToLower()),
                                 Middlename = text.ToTitleCase(Convert.ToString(reader["Middlename"]).ToLower()),
                                 BirthDate = Convert.ToDateTime(reader["BirthDate"]),
@@ -165,6 +165,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 Gender = text.ToTitleCase(Convert.ToString(reader["Gender"]).ToLower()),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                DepartmentCode = Convert.ToString(reader["DepartmentCode"]),
                                 CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
                                 CurriculumCode = Convert.ToString(reader["Code"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),
@@ -191,6 +192,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             {
                 conn.Open();
 
+                //identify if the student is already registered
                 using (SqlCommand comm_verify = new SqlCommand("SELECT * FROM student.registered WHERE StudentID = @StudentID AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
                 {
                     comm_verify.Parameters.AddWithValue("@StudentID", model.StudentID);
@@ -198,14 +200,15 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     comm_verify.Parameters.AddWithValue("@SemesterID", model.SemesterID);
                     using (SqlDataReader reader = comm_verify.ExecuteReader())
                     {
-                        if (reader.HasRows == true)
-                            HasRecord = true;
-                        else
+                        if (reader.HasRows == false)
                             HasRecord = false;
+                        else
+                            HasRecord = true;
+
                     }
                 }
 
-
+                //this function will identify what command to use after checking the identity of the registered student
                 if (HasRecord == false)
                 {
                     using (SqlCommand comm = new SqlCommand("INSERT INTO student.registered VALUES (@StudentID,@CurriculumID,@SchoolYearID,@SemesterID,@StudentStatus,@RegistrationStatus,GETDATE())", conn))
@@ -229,22 +232,23 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 
         public static bool UpdateStudentRegistration(StudentRegistration model)
         {
+            bool IsSuccess;
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE student.registered SET CurriculumID = @CurriculumID, RegistrationStatus = @RegistrationStatus, StudentStatus = @StudentStatus, WHERE RegisteredStudentID = @RegisteredStudentID", conn))
+                using (SqlCommand comm = new SqlCommand("UPDATE student.registered SET CurriculumID = @CurriculumID, StudentStatus = @StudentStatus, RegistrationStatus = @RegistrationStatus WHERE RegisteredID = @RegisteredID", conn))
                 {
-                    comm.Parameters.AddWithValue("@RegisteredStudentID", model.RegistrationID);
-                    comm.Parameters.AddWithValue("@StudentID", model.StudentID);
+                    comm.Parameters.AddWithValue("@RegisteredID", model.RegistrationID);
                     comm.Parameters.AddWithValue("@CurriculumID", model.CurriculumID);
                     comm.Parameters.AddWithValue("@StudentStatus", model.StudentStatus);
                     comm.Parameters.AddWithValue("@RegistrationStatus", model.RegistrationStatus);
                     if (comm.ExecuteNonQuery() > 0)
-                        return true;
+                        IsSuccess = true;
                     else
-                        return false;
+                        IsSuccess = false;
                 }
             }
+            return IsSuccess;
         }
 
         public static bool HasAssessment(int RegistrationID)
@@ -321,6 +325,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                                 Gender = text.ToTitleCase(Convert.ToString(reader["Gender"]).ToLower()),
                                 MobileNo = Convert.ToString(reader["MobileNo"]),
                                 EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                DepartmentCode = Convert.ToString(reader["DepartmentCode"]),
                                 CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
                                 CurriculumCode = Convert.ToString(reader["Code"]),
                                 CourseStrand = Convert.ToString(reader["CourseStrand"]),

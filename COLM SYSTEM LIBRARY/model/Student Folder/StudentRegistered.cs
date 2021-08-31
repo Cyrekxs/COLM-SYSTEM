@@ -15,9 +15,11 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string StudentName { get; set; }
         public string Gender { get; set; }
         public string MobileNo { get; set; }
+        public string EducationLevel { get; set; }
+        public string DepartmentCode { get; set; }
+
         public int CurriculumID { get; set; }
         public string CurriculumCode { get; set; }
-        public string EducationLevel { get; set; }
         public string CourseStrand { get; set; }
         public string StudentStatus { get; set; }
         public string RegistrationStatus { get; set; }

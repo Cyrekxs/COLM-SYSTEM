@@ -13,9 +13,35 @@ namespace COLM_SYSTEM.registration
         StudentInfo _StudentInfo = new StudentInfo();
         List<Curriculum> _Curriculums = new List<Curriculum>();
         List<YearLevel> _YearLevels = new List<YearLevel>();
+        private SavingOptions Saving;
+        int RegisteredStudentID = 0;
         public frm_registration_entry()
         {
             InitializeComponent();
+            Saving = SavingOptions.INSERT;
+            btnRegister.Text = "REGISTER";
+            btnBrowse.Visible = true;
+        }
+
+        public frm_registration_entry(int RegisteredStudentID)
+        {
+            InitializeComponent();
+            this.RegisteredStudentID = RegisteredStudentID;
+            Saving = SavingOptions.UPDATE;
+            btnRegister.Text = "UPDATE";
+            btnBrowse.Visible = false;
+
+            StudentRegistered registered = StudentRegistered.GetRegisteredStudent(RegisteredStudentID);
+
+            txtLRN.Text = registered.LRN;
+            txtStudentName.Text = registered.StudentName;
+
+
+            cmbStudentStatus.Text = registered.StudentStatus;
+            cmbEducationLevel.Text = registered.EducationLevel;
+            cmbDepartment.Text = registered.DepartmentCode;
+            cmbCurriculum.Text = registered.CurriculumCode;
+            cmbRegistrationStatus.Text = registered.RegistrationStatus;
         }
 
         private void LoadCurriculums(string DepartmentCode)
@@ -53,7 +79,7 @@ namespace COLM_SYSTEM.registration
             int CurriculumID = Curriculum.GetCurriculumID(cmbCurriculum.Text, _Curriculums);
             StudentRegistration model = new StudentRegistration()
             {
-                RegistrationID = 0,
+                RegistrationID = RegisteredStudentID,
                 StudentID = _StudentInfo.StudentID,
                 CurriculumID = CurriculumID,
                 SchoolYearID = Utilties.GetActiveSchoolYear(),
@@ -62,16 +88,22 @@ namespace COLM_SYSTEM.registration
                 RegistrationStatus = cmbRegistrationStatus.Text
             };
 
-            if (StudentRegistration.RegisterStudent(model) == true)
+            bool result = false;
+            string msg = string.Empty;
+            if (Saving == SavingOptions.INSERT)
             {
-                EmailModel emailInfo = new EmailModel()
-                {
-                    To = _StudentInfo.EmailAddress,
-                    Subject = "COLM System Registration",
-                    Body = string.Concat("Hello ", _StudentInfo.StudentName, " we want to notify you that your account is now successfully registered to our system and now queued to Assessment")
-                };
+                result = StudentRegistration.RegisterStudent(model);
+                msg = "Student information has been successfully registered!";
+            }
+            else if(Saving == SavingOptions.UPDATE)
+            {
+                result = StudentRegistration.UpdateStudentRegistration(model);
+                msg = "Student Registration has been successfully updated!";
+            }
 
-                MessageBox.Show("Student information has been successfully registered!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (result == true)
+            {
+                MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
                 Dispose();
             }
@@ -93,11 +125,6 @@ namespace COLM_SYSTEM.registration
                     txtStudentName.Text = _StudentInfo.StudentName;
                 }
             }
-        }
-
-        private void cmbCurriculum_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
