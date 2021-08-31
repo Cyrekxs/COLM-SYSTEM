@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbFilter = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,26 +45,27 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblFemale = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblMale = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblEducationInfo = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblEducationInfo = new System.Windows.Forms.Label();
             this.clmLRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmMobileNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEnrollmentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblMale = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblFemale = new System.Windows.Forms.Label();
+            this.clmAssessmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -164,8 +165,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -176,7 +177,8 @@
             this.clmStudentName,
             this.clmGender,
             this.clmMobileNo,
-            this.clmEnrollmentStatus});
+            this.clmEnrollmentStatus,
+            this.clmAssessmentDate});
             this.dataGridView1.Location = new System.Drawing.Point(14, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -262,77 +264,58 @@
             this.panel2.Size = new System.Drawing.Size(1106, 54);
             this.panel2.TabIndex = 38;
             // 
-            // label9
+            // label11
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label9.Location = new System.Drawing.Point(496, 6);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 18);
-            this.label9.TabIndex = 38;
-            this.label9.Text = "Enrolled";
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(361, 27);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(47, 15);
+            this.label11.TabIndex = 44;
+            this.label11.Text = "Female";
             // 
-            // panel3
+            // lblFemale
             // 
-            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(12, 115);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1106, 473);
-            this.panel3.TabIndex = 39;
+            this.lblFemale.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFemale.Location = new System.Drawing.Point(414, 27);
+            this.lblFemale.Name = "lblFemale";
+            this.lblFemale.Size = new System.Drawing.Size(41, 15);
+            this.lblFemale.TabIndex = 43;
+            this.lblFemale.Text = "0";
+            this.lblFemale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblEducationInfo
+            // label10
             // 
-            this.lblEducationInfo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEducationInfo.Location = new System.Drawing.Point(11, 27);
-            this.lblEducationInfo.Name = "lblEducationInfo";
-            this.lblEducationInfo.Size = new System.Drawing.Size(253, 15);
-            this.lblEducationInfo.TabIndex = 39;
-            this.lblEducationInfo.Text = "-";
-            this.lblEducationInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(274, 27);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 15);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "Male";
             // 
-            // clmLRN
+            // lblMale
             // 
-            this.clmLRN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmLRN.HeaderText = "LRN";
-            this.clmLRN.Name = "clmLRN";
-            this.clmLRN.ReadOnly = true;
-            this.clmLRN.Width = 52;
+            this.lblMale.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMale.Location = new System.Drawing.Point(314, 27);
+            this.lblMale.Name = "lblMale";
+            this.lblMale.Size = new System.Drawing.Size(41, 15);
+            this.lblMale.TabIndex = 41;
+            this.lblMale.Text = "0";
+            this.lblMale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // clmStudentName
+            // label6
             // 
-            this.clmStudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmStudentName.HeaderText = "Student Name";
-            this.clmStudentName.Name = "clmStudentName";
-            this.clmStudentName.ReadOnly = true;
-            // 
-            // clmGender
-            // 
-            this.clmGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmGender.DefaultCellStyle = dataGridViewCellStyle17;
-            this.clmGender.HeaderText = "Gender";
-            this.clmGender.Name = "clmGender";
-            this.clmGender.ReadOnly = true;
-            this.clmGender.Width = 71;
-            // 
-            // clmMobileNo
-            // 
-            this.clmMobileNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmMobileNo.HeaderText = "Mobile No";
-            this.clmMobileNo.Name = "clmMobileNo";
-            this.clmMobileNo.ReadOnly = true;
-            this.clmMobileNo.Width = 89;
-            // 
-            // clmEnrollmentStatus
-            // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmEnrollmentStatus.DefaultCellStyle = dataGridViewCellStyle18;
-            this.clmEnrollmentStatus.HeaderText = "Enrollment Status";
-            this.clmEnrollmentStatus.Name = "clmEnrollmentStatus";
-            this.clmEnrollmentStatus.ReadOnly = true;
-            this.clmEnrollmentStatus.Width = 130;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(274, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 18);
+            this.label6.TabIndex = 40;
+            this.label6.Text = "Gender";
             // 
             // panel4
             // 
@@ -355,58 +338,85 @@
             this.label4.Text = "Print";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // lblEducationInfo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(274, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 18);
-            this.label6.TabIndex = 40;
-            this.label6.Text = "Gender";
+            this.lblEducationInfo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEducationInfo.Location = new System.Drawing.Point(11, 27);
+            this.lblEducationInfo.Name = "lblEducationInfo";
+            this.lblEducationInfo.Size = new System.Drawing.Size(253, 15);
+            this.lblEducationInfo.TabIndex = 39;
+            this.lblEducationInfo.Text = "-";
+            this.lblEducationInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblMale
+            // label9
             // 
-            this.lblMale.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMale.Location = new System.Drawing.Point(314, 27);
-            this.lblMale.Name = "lblMale";
-            this.lblMale.Size = new System.Drawing.Size(41, 15);
-            this.lblMale.TabIndex = 41;
-            this.lblMale.Text = "0";
-            this.lblMale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label9.Location = new System.Drawing.Point(496, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 18);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "Enrolled";
             // 
-            // label10
+            // panel3
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(274, 27);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 15);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "Male";
+            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Location = new System.Drawing.Point(12, 115);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1106, 473);
+            this.panel3.TabIndex = 39;
             // 
-            // label11
+            // clmLRN
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(361, 27);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 15);
-            this.label11.TabIndex = 44;
-            this.label11.Text = "Female";
+            this.clmLRN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmLRN.HeaderText = "LRN";
+            this.clmLRN.Name = "clmLRN";
+            this.clmLRN.ReadOnly = true;
+            this.clmLRN.Width = 52;
             // 
-            // lblFemale
+            // clmStudentName
             // 
-            this.lblFemale.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFemale.Location = new System.Drawing.Point(414, 27);
-            this.lblFemale.Name = "lblFemale";
-            this.lblFemale.Size = new System.Drawing.Size(41, 15);
-            this.lblFemale.TabIndex = 43;
-            this.lblFemale.Text = "0";
-            this.lblFemale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.clmStudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmStudentName.HeaderText = "Student Name";
+            this.clmStudentName.Name = "clmStudentName";
+            this.clmStudentName.ReadOnly = true;
+            // 
+            // clmGender
+            // 
+            this.clmGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmGender.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmGender.HeaderText = "Gender";
+            this.clmGender.Name = "clmGender";
+            this.clmGender.ReadOnly = true;
+            this.clmGender.Width = 71;
+            // 
+            // clmMobileNo
+            // 
+            this.clmMobileNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmMobileNo.HeaderText = "Mobile No";
+            this.clmMobileNo.Name = "clmMobileNo";
+            this.clmMobileNo.ReadOnly = true;
+            this.clmMobileNo.Width = 89;
+            // 
+            // clmEnrollmentStatus
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmEnrollmentStatus.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmEnrollmentStatus.HeaderText = "Enrollment Status";
+            this.clmEnrollmentStatus.Name = "clmEnrollmentStatus";
+            this.clmEnrollmentStatus.ReadOnly = true;
+            this.clmEnrollmentStatus.Width = 130;
+            // 
+            // clmAssessmentDate
+            // 
+            this.clmAssessmentDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.clmAssessmentDate.HeaderText = "Assessment Date";
+            this.clmAssessmentDate.Name = "clmAssessmentDate";
+            this.clmAssessmentDate.ReadOnly = true;
+            this.clmAssessmentDate.Width = 114;
             // 
             // frm_enrollees_masterlist
             // 
@@ -427,8 +437,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -452,11 +462,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblEducationInfo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmLRN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmStudentName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmGender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmMobileNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmEnrollmentStatus;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
@@ -464,5 +469,11 @@
         private System.Windows.Forms.Label lblFemale;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblMale;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLRN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmStudentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmGender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmMobileNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmEnrollmentStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentDate;
     }
 }

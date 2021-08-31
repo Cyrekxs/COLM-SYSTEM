@@ -24,7 +24,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string Province { get; set; }
         public string MobileNo { get; set; }
         public string EmailAddress { get; set; }
-        public string StudentName { get { return string.Concat(Lastname, " ", Firstname); } } //for displaying purposes only
+        public string StudentName { get { return string.Concat(Lastname, " ", Firstname," ",Middlename); } } //for displaying purposes only
 
         public string MotherName { get; set; }
         public string MotherMobile { get; set; }

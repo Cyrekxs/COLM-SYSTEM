@@ -289,6 +289,10 @@ namespace SEMS.Reports_Folder {
             
             private global::System.Data.DataColumn columnEnrollmentStatus;
             
+            private global::System.Data.DataColumn columnNo;
+            
+            private global::System.Data.DataColumn columnAssessmentDate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DT_Dashboard_ListDataTable() {
@@ -364,6 +368,22 @@ namespace SEMS.Reports_Folder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn NoColumn {
+                get {
+                    return this.columnNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn AssessmentDateColumn {
+                get {
+                    return this.columnAssessmentDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -399,14 +419,16 @@ namespace SEMS.Reports_Folder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DT_Dashboard_ListRow AddDT_Dashboard_ListRow(string LRN, string StudentName, string Gender, string MobileNo, string EnrollmentStatus) {
+            public DT_Dashboard_ListRow AddDT_Dashboard_ListRow(string LRN, string StudentName, string Gender, string MobileNo, string EnrollmentStatus, string No, string AssessmentDate) {
                 DT_Dashboard_ListRow rowDT_Dashboard_ListRow = ((DT_Dashboard_ListRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         LRN,
                         StudentName,
                         Gender,
                         MobileNo,
-                        EnrollmentStatus};
+                        EnrollmentStatus,
+                        No,
+                        AssessmentDate};
                 rowDT_Dashboard_ListRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDT_Dashboard_ListRow);
                 return rowDT_Dashboard_ListRow;
@@ -434,6 +456,8 @@ namespace SEMS.Reports_Folder {
                 this.columnGender = base.Columns["Gender"];
                 this.columnMobileNo = base.Columns["MobileNo"];
                 this.columnEnrollmentStatus = base.Columns["EnrollmentStatus"];
+                this.columnNo = base.Columns["No"];
+                this.columnAssessmentDate = base.Columns["AssessmentDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -449,6 +473,10 @@ namespace SEMS.Reports_Folder {
                 base.Columns.Add(this.columnMobileNo);
                 this.columnEnrollmentStatus = new global::System.Data.DataColumn("EnrollmentStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEnrollmentStatus);
+                this.columnNo = new global::System.Data.DataColumn("No", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNo);
+                this.columnAssessmentDate = new global::System.Data.DataColumn("AssessmentDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAssessmentDate);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -671,6 +699,38 @@ namespace SEMS.Reports_Folder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string No {
+                get {
+                    try {
+                        return ((string)(this[this.tableDT_Dashboard_List.NoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'No\' in table \'DT_Dashboard_List\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDT_Dashboard_List.NoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string AssessmentDate {
+                get {
+                    try {
+                        return ((string)(this[this.tableDT_Dashboard_List.AssessmentDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AssessmentDate\' in table \'DT_Dashboard_List\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDT_Dashboard_List.AssessmentDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsLRNNull() {
                 return this.IsNull(this.tableDT_Dashboard_List.LRNColumn);
             }
@@ -727,6 +787,30 @@ namespace SEMS.Reports_Folder {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEnrollmentStatusNull() {
                 this[this.tableDT_Dashboard_List.EnrollmentStatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsNoNull() {
+                return this.IsNull(this.tableDT_Dashboard_List.NoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetNoNull() {
+                this[this.tableDT_Dashboard_List.NoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsAssessmentDateNull() {
+                return this.IsNull(this.tableDT_Dashboard_List.AssessmentDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetAssessmentDateNull() {
+                this[this.tableDT_Dashboard_List.AssessmentDateColumn] = global::System.Convert.DBNull;
             }
         }
         

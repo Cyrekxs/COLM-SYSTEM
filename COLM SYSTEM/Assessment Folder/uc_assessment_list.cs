@@ -23,7 +23,14 @@ namespace COLM_SYSTEM.Assessment_Folder
             LoadAssessments();
         }
 
-        private void LoadAssessments()
+        public uc_assessment_list(string SearchFilter)
+        {
+            InitializeComponent();
+            cmbEducationLevel.Text = "All";
+            LoadAssessments(SearchFilter);
+        }
+
+        private void LoadAssessments(string SearchFilter = "")
         {
 
             Task<List<AssessmentSummary>> task = new Task<List<AssessmentSummary>>(Assessment.GetAssessments);
@@ -38,6 +45,9 @@ namespace COLM_SYSTEM.Assessment_Folder
             List<AssessmentSummary> assessmentLists = task.Result;
 
             assessmentLists = assessmentLists.OrderByDescending(r => r.AssessmentDate.Date).ThenBy(r => r.StudentName).ToList();
+
+            if (SearchFilter != "")
+                textBox1.Text = SearchFilter;
 
             if (textBox1.Text != string.Empty)
             {
@@ -128,7 +138,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.ShowDialog();
         }
 
-        private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbEducationLevel_SelectionChangeCommitted(object sender, EventArgs e)
         {
             LoadAssessments();
         }

@@ -373,5 +373,10 @@ namespace COLM_SYSTEM
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
+
+        private void transactionDashboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_transaction_dashboard());
+        }
     }
 }

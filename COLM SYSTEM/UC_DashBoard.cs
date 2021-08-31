@@ -100,14 +100,6 @@ namespace COLM_SYSTEM
             lblPendingCollege.Text = PendingCollege.ToString();
 
 
-            //display total in charts
-            lblTotalPreElementary.Text = (EnrolledPreElem + PendingPreElem).ToString();
-            lblTotalElementary.Text = (EnrolledElem + PendingElem).ToString();
-            lblTotalJHS.Text = (EnrolledJHS + PendingJHS).ToString();
-            lblTotalSHS.Text = (EnrolledSHS + PendingSHS).ToString();
-            lblTotalCollege.Text = (EnrolledCollege + PendingCollege).ToString();
-
-
             //display target
             lblTargetPreElem.Text = TargetPreElem.ToString("0.##") + "%";
             lblTargetElem.Text = TargetElem.ToString("0.##") + "%";
@@ -123,7 +115,7 @@ namespace COLM_SYSTEM
             lblTotalTarget.Text = TargetTotal.ToString();
             double TotalPendingPercent = (TotalPending / TargetTotal) * 100;
             double TotalEnrolledPercent = (TotalEnrolled / TargetTotal) * 100;
-            double TotalTargetPercent = 100 - (TotalPendingPercent + TotalEnrolledPercent);
+            double TotalTargetPercent = 100 - (TotalEnrolledPercent);
 
             TotalPendingPercent = Math.Round(TotalPendingPercent, MidpointRounding.AwayFromZero);
             TotalEnrolledPercent = Math.Round(TotalEnrolledPercent, MidpointRounding.AwayFromZero);
@@ -134,12 +126,6 @@ namespace COLM_SYSTEM
             int chartpoint = chartEnrolled.Series["s1"].Points.Count - 1;
             chartEnrolled.Series["s1"].Points[chartpoint].LabelForeColor = Color.Black;
             chartEnrolled.Series["s1"].Points[chartpoint].Color = Color.Gainsboro;
-
-            //pending
-            chartEnrolled.Series["s1"].Points.AddXY(string.Concat("Pending", Environment.NewLine, TotalPendingPercent.ToString("0.##"), "%"), TotalPending);
-            chartpoint = chartEnrolled.Series["s1"].Points.Count - 1;
-            chartEnrolled.Series["s1"].Points[chartpoint].LabelForeColor = Color.White;
-            chartEnrolled.Series["s1"].Points[chartpoint].Color = Color.Gray;
 
             //enrolled
             chartEnrolled.Series["s1"].Points.AddXY(string.Concat("Enrolled", Environment.NewLine, TotalEnrolledPercent.ToString("0.##"), "%"), TotalEnrolled);

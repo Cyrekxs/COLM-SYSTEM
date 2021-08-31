@@ -61,6 +61,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dASHBOARDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miTransactions = new System.Windows.Forms.ToolStripMenuItem();
+            this.transactionDashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miStudentApplicants = new System.Windows.Forms.ToolStripMenuItem();
             this.onlineApplicantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unregisteredOnlineApplicantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -507,6 +508,7 @@
             // miTransactions
             // 
             this.miTransactions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.transactionDashboardToolStripMenuItem,
             this.miStudentApplicants,
             this.miStudentInformation,
             this.miStudentRegistration,
@@ -520,6 +522,14 @@
             this.miTransactions.Size = new System.Drawing.Size(133, 34);
             this.miTransactions.Text = "TRANSACTIONS";
             // 
+            // transactionDashboardToolStripMenuItem
+            // 
+            this.transactionDashboardToolStripMenuItem.Name = "transactionDashboardToolStripMenuItem";
+            this.transactionDashboardToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.transactionDashboardToolStripMenuItem.Text = "Transaction Dashboard";
+            this.transactionDashboardToolStripMenuItem.Visible = false;
+            this.transactionDashboardToolStripMenuItem.Click += new System.EventHandler(this.transactionDashboardToolStripMenuItem_Click);
+            // 
             // miStudentApplicants
             // 
             this.miStudentApplicants.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -527,7 +537,7 @@
             this.unregisteredOnlineApplicantsToolStripMenuItem});
             this.miStudentApplicants.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentApplicants.Name = "miStudentApplicants";
-            this.miStudentApplicants.Size = new System.Drawing.Size(183, 22);
+            this.miStudentApplicants.Size = new System.Drawing.Size(196, 22);
             this.miStudentApplicants.Text = "Online Applications";
             this.miStudentApplicants.Click += new System.EventHandler(this.onlineApplicantsToolStripMenuItem_Click_1);
             // 
@@ -549,7 +559,7 @@
             // 
             this.miStudentInformation.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentInformation.Name = "miStudentInformation";
-            this.miStudentInformation.Size = new System.Drawing.Size(183, 22);
+            this.miStudentInformation.Size = new System.Drawing.Size(196, 22);
             this.miStudentInformation.Text = "Information";
             this.miStudentInformation.Click += new System.EventHandler(this.informationToolStripMenuItem_Click_1);
             // 
@@ -557,7 +567,7 @@
             // 
             this.miStudentRegistration.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentRegistration.Name = "miStudentRegistration";
-            this.miStudentRegistration.Size = new System.Drawing.Size(183, 22);
+            this.miStudentRegistration.Size = new System.Drawing.Size(196, 22);
             this.miStudentRegistration.Text = "Registration";
             this.miStudentRegistration.Click += new System.EventHandler(this.registrationToolStripMenuItem_Click_1);
             // 
@@ -565,7 +575,7 @@
             // 
             this.miStudentAssessment.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentAssessment.Name = "miStudentAssessment";
-            this.miStudentAssessment.Size = new System.Drawing.Size(183, 22);
+            this.miStudentAssessment.Size = new System.Drawing.Size(196, 22);
             this.miStudentAssessment.Text = "Assessment";
             this.miStudentAssessment.Click += new System.EventHandler(this.assessmentToolStripMenuItem_Click_1);
             // 
@@ -573,7 +583,7 @@
             // 
             this.miStudentPayment.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miStudentPayment.Name = "miStudentPayment";
-            this.miStudentPayment.Size = new System.Drawing.Size(183, 22);
+            this.miStudentPayment.Size = new System.Drawing.Size(196, 22);
             this.miStudentPayment.Text = "Payment";
             this.miStudentPayment.Click += new System.EventHandler(this.paymentToolStripMenuItem_Click_1);
             // 
@@ -581,7 +591,7 @@
             // 
             this.importToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Visible = false;
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
@@ -951,7 +961,7 @@
             // ApplicationsTimer
             // 
             this.ApplicationsTimer.Enabled = true;
-            this.ApplicationsTimer.Interval = 120000;
+            this.ApplicationsTimer.Interval = 60000;
             this.ApplicationsTimer.Tick += new System.EventHandler(this.ApplicationsTimer_Tick);
             // 
             // frm_main
@@ -1078,5 +1088,6 @@
         private System.Windows.Forms.ToolStripMenuItem onlineApplicantsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem unregisteredOnlineApplicantsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uPDATESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transactionDashboardToolStripMenuItem;
     }
 }

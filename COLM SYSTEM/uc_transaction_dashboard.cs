@@ -9,55 +9,45 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using COLM_SYSTEM_LIBRARY.model.Student_Folder;
 using SEMS.Custom_Controls;
+using COLM_SYSTEM.Assessment_Folder;
 
 namespace SEMS
 {
     public partial class uc_transaction_dashboard : UserControl
     {
-        List<StudentMaster> masters = new List<StudentMaster>();
-        Color c = Color.White;
-        UserControl select_usercontrol = new UserControl();
-
-        private const int totalRecords = 50;
-        private const int pageSize = 10;
-
-        class Record
-        {
-            public int Index { get; set; }
-        }
 
         public uc_transaction_dashboard()
         {
             InitializeComponent();
         }
 
-        private async void uc_student_lists_Load(object sender, EventArgs e)
+        private void DisplayControl(UserControl uc)
         {
-            Progress<StudentMaster> report = new Progress<StudentMaster>();
-            report.ProgressChanged += DisplayData;
-            masters = await Task.Run(() => { return StudentMaster.GetStudentMasterLists(report); });
-        }
-        private void DisplayData(object sender, StudentMaster e)
-        {
-            UserControl uc = new uc_student_v2(e);
-            uc.Dock = DockStyle.Top;
-            PanelMain.Controls.Add(uc);
+            ClearUserControls();
+            uc.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(uc);
         }
 
-        private async Task TakeStudents(IProgress<StudentMaster> progress)
+        private void ClearUserControls()
         {
-            await (Task.Run(() =>
+            //remove all user controls in panel main first before display new user control
+            foreach (UserControl item in panelMain.Controls)
             {
-                foreach (var item in masters.Take(50))
-                {
-                    progress.Report(item);
-                }
-            }));
+                panelMain.Controls.Remove(item);
+            }
         }
 
-        private void PanelMain_Paint(object sender, PaintEventArgs e)
+        private void txtSearchAssessment_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DisplayControl(new uc_assessment_list(txtSearchAssessment.Text));
+            }
+        }
 
+        private void button9_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new uc_assessment_list(txtSearchAssessment.Text));
         }
     }
 }

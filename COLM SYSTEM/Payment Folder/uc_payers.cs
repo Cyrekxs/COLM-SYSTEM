@@ -83,7 +83,7 @@ namespace COLM_SYSTEM.Payment_Folder
             }
         }
 
-        private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbEducationLevel_SelectionChangeCommitted(object sender, EventArgs e)
         {
             LoadAssessments();
         }

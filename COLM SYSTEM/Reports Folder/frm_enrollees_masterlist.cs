@@ -55,6 +55,7 @@ namespace COLM_SYSTEM.Reports_Folder
             dataGridView1.Rows.Clear();
             var ListToDisplay = summary;
 
+
             if (txtSearch.Text != string.Empty)
             {
                 ListToDisplay = summary.Where(r => r.StudentName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
@@ -65,8 +66,7 @@ namespace COLM_SYSTEM.Reports_Folder
                 ListToDisplay = ListToDisplay.Where(r => r.EnrollmentStatus.ToLower() == cmbFilter.Text.ToLower()).ToList();
             }
 
-            ListToDisplay = ListToDisplay.OrderBy(r => r.StudentName).ToList();
-
+            ListToDisplay = ListToDisplay.OrderByDescending(r => r.AssessmentDate).ThenBy(r => r.StudentName).ToList();
 
             int male = 0;
             int female = 0;
@@ -88,7 +88,7 @@ namespace COLM_SYSTEM.Reports_Folder
                     female++;
 
 
-                dataGridView1.Rows.Add(student.LRN, student.StudentName, gender.ToUpper(), student.MobileNo, student.EnrollmentStatus);
+                dataGridView1.Rows.Add(student.LRN, student.StudentName, gender.ToUpper(), student.MobileNo, student.EnrollmentStatus,student.AssessmentDate.ToString("MM-dd-yyyy"));
                 if (student.EnrollmentStatus.ToLower() == "enrolled")
                 {
                     dataGridView1.Rows[dataGridView1.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.DarkSlateGray;
@@ -125,15 +125,19 @@ namespace COLM_SYSTEM.Reports_Folder
 
             var tbl = ds.Tables["DT_Dashboard_List"];
 
+            int i = 1;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 dr = tbl.NewRow();
+                dr["No"] = i;
                 dr["LRN"] = row.Cells["clmLRN"].Value.ToString();
                 dr["StudentName"] = row.Cells["clmStudentName"].Value.ToString();
                 dr["Gender"] = row.Cells["clmGender"].Value.ToString();
                 dr["MobileNo"] = row.Cells["clmMobileNo"].Value.ToString();
                 dr["EnrollmentStatus"] = row.Cells["clmEnrollmentStatus"].Value.ToString();
+                dr["AssessmentDate"] = row.Cells["clmAssessmentDate"].Value.ToString();
                 tbl.Rows.Add(dr);
+                i++;
             }
 
             ReportParameter param_EducationInfo = new ReportParameter("EducationInfo", lblEducationInfo.Text);
