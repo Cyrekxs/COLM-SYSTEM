@@ -63,9 +63,16 @@ namespace COLM_SYSTEM.Assessment_Folder
                                    select r).ToList();
             }
 
+            if (cmbEnrollmentStatus.Text.ToLower() != "all")
+            {
+                assessmentLists = (from r in assessmentLists
+                                   where r.EnrollmentStatus.ToLower().Contains(cmbEnrollmentStatus.Text.ToLower())
+                                   select r).ToList();
+            }
+
             dataGridView1.Rows.Clear();            
 
-            foreach (var item in assessmentLists.Take(200).ToList())
+            foreach (var item in assessmentLists.Take(300).ToList())
             {
                 dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.PaymentMode, item.Assessor, item.AssessmentDate.ToString("MM-dd-yyyy"), item.EnrollmentStatus);
             }
@@ -139,6 +146,11 @@ namespace COLM_SYSTEM.Assessment_Folder
         }
 
         private void cmbEducationLevel_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            LoadAssessments();
+        }
+
+        private void cmbEnrollmentStatus_SelectionChangeCommitted(object sender, EventArgs e)
         {
             LoadAssessments();
         }

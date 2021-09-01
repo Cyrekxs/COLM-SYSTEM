@@ -156,8 +156,8 @@ namespace COLM_SYSTEM
 
                         foreach (var dept in Departments)
                         {
-                            int EnrolledCount = enrollees.Where(r => r.DepartmentCode == dept && r.EnrollmentStatus.ToLower() == "enrolled").Select(r => r.ResultCount).FirstOrDefault();
-                            int PendingCount = enrollees.Where(r => r.DepartmentCode == dept && r.EnrollmentStatus.ToLower() == "not enrolled").Select(r => r.ResultCount).FirstOrDefault();
+                            int EnrolledCount = enrollees.Where(r => r.DepartmentCode == dept && r.EnrollmentStatus.ToLower() == "enrolled").Sum(r => r.ResultCount);
+                            int PendingCount = enrollees.Where(r => r.DepartmentCode == dept && r.EnrollmentStatus.ToLower() == "not enrolled").Sum(r => r.ResultCount);
 
                             chart1.Series["Enrolled"].Points.AddXY(dept, EnrolledCount);
                             chart1.Series["Enrolled"].Points[s1].Tag = dept;

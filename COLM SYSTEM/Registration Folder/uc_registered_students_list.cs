@@ -48,7 +48,7 @@ namespace COLM_SYSTEM.Registration_Folder
             }
 
             dataGridView1.Rows.Clear();
-            foreach (var item in RegisteredStudents.Take(200).ToList())
+            foreach (var item in RegisteredStudents.Take(300).ToList())
             {
                 dataGridView1.Rows.Add(
                     item.RegisteredID,

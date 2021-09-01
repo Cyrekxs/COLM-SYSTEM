@@ -44,7 +44,7 @@ namespace COLM_SYSTEM.student_information
             }
 
             dataGridView1.Rows.Clear();
-            foreach (var item in students.Take(200).ToList())
+            foreach (var item in students.Take(300).ToList())
             {
                 try
                 {
