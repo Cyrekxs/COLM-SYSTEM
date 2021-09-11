@@ -24,8 +24,9 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://colm.edu.ph/SEMS/</UpdateUrl>
-    <ApplicationRevision>67</ApplicationRevision>
-    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
+    <MinimumRequiredVersion>1.0.0.71</MinimumRequiredVersion>
+    <ApplicationRevision>72</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -404,6 +405,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_Masterlist.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports Folder\DataSet_StudentMasterListPerSubject.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_StudentMasterListPerSubject.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports Folder\frm_collection_report_v2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -525,6 +531,12 @@
       <DependentUpon>uc_settings_target.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Student Curriculum\uc_student_tracklist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student Curriculum\uc_student_tracklist.Designer.cs">
+      <DependentUpon>uc_student_tracklist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student Information Folder\frm_online_importer_processor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -799,8 +811,12 @@
     <EmbeddedResource Include="Reports Folder\frm_enrollees_masterlist.resx">
       <DependentUpon>frm_enrollees_masterlist.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports Folder\frm_subject_master_list.resx">
+      <DependentUpon>frm_subject_master_list.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports Folder\rpt_CollectionReport.rdlc" />
     <EmbeddedResource Include="Reports Folder\rpt_masterlist.rdlc" />
+    <EmbeddedResource Include="Reports Folder\rpt_masterlist_per_subject.rdlc" />
     <EmbeddedResource Include="Section Folder\frm_browse_unlisted_subjects.resx">
       <DependentUpon>frm_browse_unlisted_subjects.cs</DependentUpon>
     </EmbeddedResource>
@@ -851,6 +867,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings Folder\uc_settings_target.resx">
       <DependentUpon>uc_settings_target.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student Curriculum\uc_student_tracklist.resx">
+      <DependentUpon>uc_student_tracklist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\frm_online_importer_processor.resx">
       <DependentUpon>frm_online_importer_processor.cs</DependentUpon>
@@ -958,6 +977,17 @@
     </None>
     <None Include="Reports Folder\DataSet_Masterlist.xss">
       <DependentUpon>DataSet_Masterlist.xsd</DependentUpon>
+    </None>
+    <None Include="Reports Folder\DataSet_StudentMasterListPerSubject.xsc">
+      <DependentUpon>DataSet_StudentMasterListPerSubject.xsd</DependentUpon>
+    </None>
+    <None Include="Reports Folder\DataSet_StudentMasterListPerSubject.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_StudentMasterListPerSubject.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports Folder\DataSet_StudentMasterListPerSubject.xss">
+      <DependentUpon>DataSet_StudentMasterListPerSubject.xsd</DependentUpon>
     </None>
     <None Include="Resources\colm logo.png" />
   </ItemGroup>

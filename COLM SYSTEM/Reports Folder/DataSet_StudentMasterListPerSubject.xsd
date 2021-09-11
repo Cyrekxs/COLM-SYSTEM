@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_StudentMasterListPerSubject" targetNamespace="http://tempuri.org/DataSet_StudentMasterListPerSubject.xsd" xmlns:mstns="http://tempuri.org/DataSet_StudentMasterListPerSubject.xsd" xmlns="http://tempuri.org/DataSet_StudentMasterListPerSubject.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_StudentMasterListPerSubject" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_StudentMasterListPerSubject" msprop:Generator_UserDSName="DataSet_StudentMasterListPerSubject">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DTStudentMasterList" msprop:Generator_TableClassName="DTStudentMasterListDataTable" msprop:Generator_TableVarName="tableDTStudentMasterList" msprop:Generator_TablePropName="DTStudentMasterList" msprop:Generator_RowDeletingName="DTStudentMasterListRowDeleting" msprop:Generator_RowChangingName="DTStudentMasterListRowChanging" msprop:Generator_RowEvHandlerName="DTStudentMasterListRowChangeEventHandler" msprop:Generator_RowDeletedName="DTStudentMasterListRowDeleted" msprop:Generator_UserTableName="DTStudentMasterList" msprop:Generator_RowChangedName="DTStudentMasterListRowChanged" msprop:Generator_RowEvArgName="DTStudentMasterListRowChangeEvent" msprop:Generator_RowClassName="DTStudentMasterListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="No" msprop:Generator_ColumnVarNameInTable="columnNo" msprop:Generator_ColumnPropNameInRow="No" msprop:Generator_ColumnPropNameInTable="NoColumn" msprop:Generator_UserColumnName="No" type="xs:string" minOccurs="0" />
+              <xs:element name="LRN" msprop:Generator_ColumnVarNameInTable="columnLRN" msprop:Generator_ColumnPropNameInRow="LRN" msprop:Generator_ColumnPropNameInTable="LRNColumn" msprop:Generator_UserColumnName="LRN" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentName" msprop:Generator_ColumnVarNameInTable="columnStudentName" msprop:Generator_ColumnPropNameInRow="StudentName" msprop:Generator_ColumnPropNameInTable="StudentNameColumn" msprop:Generator_UserColumnName="StudentName" type="xs:string" minOccurs="0" />
+              <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" type="xs:string" minOccurs="0" />
+              <xs:element name="CourseStrand" msprop:Generator_ColumnVarNameInTable="columnCourseStrand" msprop:Generator_ColumnPropNameInRow="CourseStrand" msprop:Generator_ColumnPropNameInTable="CourseStrandColumn" msprop:Generator_UserColumnName="CourseStrand" type="xs:string" minOccurs="0" />
+              <xs:element name="YearLevel" msprop:Generator_ColumnVarNameInTable="columnYearLevel" msprop:Generator_ColumnPropNameInRow="YearLevel" msprop:Generator_ColumnPropNameInTable="YearLevelColumn" msprop:Generator_UserColumnName="YearLevel" type="xs:string" minOccurs="0" />
+              <xs:element name="AssessmentDate" msprop:Generator_ColumnVarNameInTable="columnAssessmentDate" msprop:Generator_ColumnPropNameInRow="AssessmentDate" msprop:Generator_ColumnPropNameInTable="AssessmentDateColumn" msprop:Generator_UserColumnName="AssessmentDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

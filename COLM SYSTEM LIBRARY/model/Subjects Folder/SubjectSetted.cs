@@ -73,5 +73,10 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return SubjectSetted_DS.GetSubjectSetted(SubjectPriceID);
         }
+
+        public static List<SubjectSetted> GetSubjectSetteds()
+        {
+            return SubjectSetted_DS.GetSubjectSetteds();
+        }
     }
 }

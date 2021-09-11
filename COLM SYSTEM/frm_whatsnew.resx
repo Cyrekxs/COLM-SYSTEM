@@ -118,7 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>*1.0.0.66
+    <value>*1.0.0.70
+   -Added Master list per subject
+   -System Optimizations
+
+*1.0.0.67
+   -Dashboard on College is now function
+   -Fixed Curriculum Entry
+
+*1.0.0.66
    -Fix Dashboard Chart counting
    -Added Enrollment Status Filter in Assessment List
 

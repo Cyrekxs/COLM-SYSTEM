@@ -31,12 +31,13 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum @CurriculumID,@Code,@Desc,@EducationLevel,@CourseStrand,@SchoolYearID", conn))
+                using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum @CurriculumID,@Code,@Desc,@EducationLevel,@DepartmentID,@CourseStrand,@SchoolYearID", conn))
                 {
                     comm.Parameters.AddWithValue("@CurriculumID", curriculum.CurriculumID);
                     comm.Parameters.AddWithValue("@code", curriculum.Code);
                     comm.Parameters.AddWithValue("@desc", curriculum.Description);
                     comm.Parameters.AddWithValue("@educationlevel", curriculum.EducationLevel);
+                    comm.Parameters.AddWithValue("@DepartmentID", curriculum.DepartmentID);
                     comm.Parameters.AddWithValue("@CourseStrand", curriculum.CourseStrand);
                     comm.Parameters.AddWithValue("@SchoolYearID", curriculum.SchoolYearID);
                     if (comm.ExecuteNonQuery() > 0)

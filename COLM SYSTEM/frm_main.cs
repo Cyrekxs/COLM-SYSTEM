@@ -5,6 +5,7 @@ using COLM_SYSTEM.Faculty_Folder;
 using COLM_SYSTEM.Fees_Folder;
 using COLM_SYSTEM.Payment_Folder;
 using COLM_SYSTEM.Registration_Folder;
+using COLM_SYSTEM.Reports_Folder;
 using COLM_SYSTEM.Section_Folder;
 using COLM_SYSTEM.Settings_Folder;
 using COLM_SYSTEM.student_information;
@@ -48,6 +49,10 @@ namespace COLM_SYSTEM
                 //transaction
                 miStudentApplicants.Visible = true;
                 miStudentInformation.Visible = true;
+                //reports
+                miReports.Visible = true;
+                miCollectionReport.Visible = false;
+                miMasterList.Visible = true;
             }
 
             else if (role.Equals("assessor"))
@@ -58,6 +63,10 @@ namespace COLM_SYSTEM
                 miStudentInformation.Visible = true;
                 miStudentRegistration.Visible = true;
                 miStudentAssessment.Visible = true;
+                //reports
+                miReports.Visible = true;
+                miCollectionReport.Visible = false;
+                miMasterList.Visible = true;
             }
 
             else if (role.Equals("registrar"))
@@ -71,6 +80,10 @@ namespace COLM_SYSTEM
                 //settings
                 miSettings.Visible = true;
                 miSchoolData.Visible = true;
+                //reports
+                miReports.Visible = true;
+                miCollectionReport.Visible = false;
+                miMasterList.Visible = true;
             }
 
             else if (role.Equals("cashier"))
@@ -80,6 +93,7 @@ namespace COLM_SYSTEM
                 miStudentPayment.Visible = true;
                 miReports.Visible = true;
                 miCollectionReport.Visible = true;
+                miMasterList.Visible = false;
             }
             DisplayControl(new UC_DashBoard());
         }
@@ -377,6 +391,13 @@ namespace COLM_SYSTEM
         private void transactionDashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayControl(new uc_transaction_dashboard());
+        }
+
+        private void perSubjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_subject_master_list frm = new frm_subject_master_list();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

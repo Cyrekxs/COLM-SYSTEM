@@ -95,12 +95,6 @@ namespace COLM_SYSTEM.User_Folder
                 return false;
             }
 
-            if (txtEmailPassword.Text == string.Empty)
-            {
-                MessageBox.Show("Password name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
             return true;
         }
         private void button1_Click(object sender, EventArgs e)
@@ -152,17 +146,6 @@ namespace COLM_SYSTEM.User_Folder
             }
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox2.Checked == true)
-            {
-                txtEmailPassword.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                txtEmailPassword.UseSystemPasswordChar = true;
-            }
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {

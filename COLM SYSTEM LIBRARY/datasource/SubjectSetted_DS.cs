@@ -245,6 +245,35 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return subjects;
         }
 
+        public static List<SubjectSetted> GetSubjectSetteds()
+        {
+            List<SubjectSetted> subjects = new List<SubjectSetted>();
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT DISTINCT SubjID,SubjCode,SubjDesc FROM [dbo].[fn_subjects_setted_breakdown]() WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
+                {
+                    comm.Parameters.AddWithValue("@SchoolYearID", 1);
+                    comm.Parameters.AddWithValue("@SemesterID", 1);
+
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            SubjectSetted subject = new SubjectSetted()
+                            {
+                                SubjID = Convert.ToInt16(reader["SubjID"]),
+                                SubjCode = Convert.ToString(reader["SubjCode"]),
+                                SubjDesc = Convert.ToString(reader["SubjDesc"]),
+                            };
+                            subjects.Add(subject);
+                        }
+                    }
+                }
+            }
+            return subjects;
+        }
+
         //Get subject setted via subject price id
         public static SubjectSetted GetSubjectSetted(int SubjectPriceID)
         {

@@ -164,6 +164,7 @@ namespace COLM_SYSTEM
 
                             chart1.Series["Pending"].Points.AddXY(dept, PendingCount);
                             chart1.Series["Pending"].Points[s1].Tag = dept;
+                            s1++;
                         }
                         break;
                     default:
@@ -198,7 +199,6 @@ namespace COLM_SYSTEM
             {
 
             }
-
         }
 
         private void chart1_MouseClick(object sender, MouseEventArgs e)
@@ -211,9 +211,55 @@ namespace COLM_SYSTEM
                 switch (SelectedEducationLevel)
                 {
                     case "College":
+
+                        List<Enrollees> enrollees = Enrollees.GetEnrollees();
+
+                        enrollees = enrollees.Where(model => model.EducationLevel.ToLower() == "college" && model.DepartmentCode == enrolled.Tag.ToString()).ToList();
+
+                        List<string> CourseStrands = enrollees.Where(r=> r.DepartmentCode == enrolled.Tag.ToString()).Select(r => r.CourseStrand).Distinct().ToList();
+                        List<string> YearLevels = enrollees.Select(r => r.YearLevel).Distinct().ToList();
+
+                        chart1.Series["Enrolled"].Points.Clear();
+                        chart1.Series["Pending"].Points.Clear();
+
+                        int s1 = 0;
+                        foreach (var cs in CourseStrands)
+                        {
+                            foreach (var yl in YearLevels)
+                            {
+                                int EnrolledCount = enrollees.Where(r => r.CourseStrand == cs && r.YearLevel == yl && r.EnrollmentStatus.ToLower() == "enrolled").Select(r => r.ResultCount).FirstOrDefault();
+                                int PendingCount = enrollees.Where(r => r.CourseStrand == cs && r.YearLevel == yl && r.EnrollmentStatus.ToLower() == "not enrolled").Select(r => r.ResultCount).FirstOrDefault();
+
+                                string pname = string.Empty;
+                                if (cs.ToLower() == "junior high" || cs.ToLower() == "elementary" || cs.ToLower() == "pre elementary")
+                                    pname = yl;
+                                else
+                                    pname = string.Concat(cs, " ", yl.Replace("Year", ""));
+
+
+                                chart1.Series["Enrolled"].Points.AddXY(pname, EnrolledCount);
+                                chart1.Series["Enrolled"].Points[s1].Tag = cs;
+
+
+                                chart1.Series["Pending"].Points.AddXY(pname, PendingCount);
+                                chart1.Series["Pending"].Points[s1].Tag = yl;
+                                s1++;
+                            }
+                        }
+
+                        lblActive.Text = string.Concat("College", " ", enrolled.Tag.ToString());
+                        //reset selected education level to do not satisfy the switch condition in case "college"
+                        SelectedEducationLevel = string.Empty;
                         break;
+
+                    case "" :
+                        frm_enrollees_masterlist frm = new frm_enrollees_masterlist("College", enrolled.Tag.ToString(), pending.Tag.ToString());
+                        frm.StartPosition = FormStartPosition.CenterParent;
+                        frm.ShowDialog();
+                        break;
+
                     default:
-                        frm_enrollees_masterlist frm = new frm_enrollees_masterlist(SelectedEducationLevel, enrolled.Tag.ToString(), pending.Tag.ToString());
+                        frm = new frm_enrollees_masterlist(SelectedEducationLevel, enrolled.Tag.ToString(), pending.Tag.ToString());
                         frm.StartPosition = FormStartPosition.CenterParent;
                         frm.ShowDialog();
                         break;

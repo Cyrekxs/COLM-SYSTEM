@@ -68,6 +68,7 @@
     <Compile Include="model\Assessment Folder\OldAssessmentModel.cs" />
     <Compile Include="model\General Settings Folder\MessageAttachment.cs" />
     <Compile Include="model\General Settings Folder\MessageTemplate.cs" />
+    <Compile Include="model\Reports Folder\Masterlist.cs" />
     <Compile Include="model\School Data Settings Folder\Department.cs" />
     <Compile Include="model\Email Folder\EmailCredential.cs" />
     <Compile Include="model\Email Folder\EmailModel.cs" />
