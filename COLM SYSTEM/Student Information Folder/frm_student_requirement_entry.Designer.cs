@@ -67,18 +67,20 @@
             // txtFile
             // 
             this.txtFile.Location = new System.Drawing.Point(32, 89);
+            this.txtFile.Multiline = true;
             this.txtFile.Name = "txtFile";
             this.txtFile.ReadOnly = true;
-            this.txtFile.Size = new System.Drawing.Size(225, 23);
+            this.txtFile.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtFile.Size = new System.Drawing.Size(225, 90);
             this.txtFile.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(166, 118);
+            this.button1.Location = new System.Drawing.Point(32, 185);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 23);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Upload File";
+            this.button1.Text = "Browse File";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -88,11 +90,11 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(166, 175);
+            this.button2.Location = new System.Drawing.Point(166, 244);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(91, 30);
             this.button2.TabIndex = 50;
-            this.button2.Text = "Save";
+            this.button2.Text = "Upload";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -105,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 235);
+            this.ClientSize = new System.Drawing.Size(285, 291);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtFile);

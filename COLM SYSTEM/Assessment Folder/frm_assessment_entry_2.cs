@@ -21,11 +21,14 @@ namespace COLM_SYSTEM.Assessment_Folder
         private List<Discount> AddedDiscounts = new List<Discount>();
         private int SelectedSubjectRow = -1;
 
+        private AssessmentOptions AssessmentStatus = AssessmentOptions.Create;
 
         //for new assessment entry
         public frm_assessment_entry_2(StudentRegistered student, YearLevel yearLevel)
         {
             InitializeComponent();
+
+            AssessmentStatus = AssessmentOptions.Create;
 
             registeredStudent = student;
             studentYearLevel = yearLevel;
@@ -44,13 +47,16 @@ namespace COLM_SYSTEM.Assessment_Folder
             LoadSections();
             LoadDiscounts();
             CalculateFeeSummary();
+            IdentityAssessmentOptions();
         }
         //for reassessment
-        public frm_assessment_entry_2(int AssessmentID)
+        public frm_assessment_entry_2(int AssessmentID, AssessmentOptions assessmentOptions)
         {
             InitializeComponent();
             //Put assessment into private AssessmentID;
             _AssessmentID = AssessmentID;
+            //Set the Assessment Status
+            AssessmentStatus = assessmentOptions;
             //get assessment information
             Assessment assessment = Assessment.GetAssessment(AssessmentID);
 
@@ -176,7 +182,63 @@ namespace COLM_SYSTEM.Assessment_Folder
             //Calculate Fee Summary
             CalculateFeeSummary();
 
+            IdentityAssessmentOptions();
         }
+        private void IdentityAssessmentOptions()
+        {
+            switch (AssessmentStatus)
+            {
+                case AssessmentOptions.View:
+                    //information
+                    cmbSection.Enabled = false;
+                    //subjects
+                    btnAddSubject.Visible = false;
+                    clmAction.Visible = false;
+                    clmFeeRemove.Visible = false;
+                    //summary
+                    cmbPaymentMode.Enabled = false;
+                    cmbDiscount.Enabled = false;
+                    btnAddDiscount.Visible = false;
+                    clmRemoveDiscount.Visible = false;
+                    btnCancel.Visible = true;
+                    btnSaveEmail.Visible = false;
+                    btnSavePrint.Visible = false;
+                    break;
+                case AssessmentOptions.Create:
+                    //information
+                    cmbSection.Enabled = true;
+                    //subjects
+                    btnAddSubject.Visible = true;
+                    clmAction.Visible = true;
+                    clmFeeRemove.Visible = true;
+                    //summary
+                    cmbPaymentMode.Enabled = true;
+                    cmbDiscount.Enabled = true;
+                    btnAddDiscount.Visible = true;
+                    btnCancel.Visible = true;
+                    btnSaveEmail.Visible = true;
+                    btnSavePrint.Visible = true;
+                    break;
+                case AssessmentOptions.Update:
+                    //information
+                    cmbSection.Enabled = true;
+                    //subjects
+                    btnAddSubject.Visible = true;
+                    clmAction.Visible = true;
+                    clmFeeRemove.Visible = true;
+                    //summary
+                    cmbPaymentMode.Enabled = true;
+                    cmbDiscount.Enabled = true;
+                    btnAddDiscount.Visible = true;
+                    btnCancel.Visible = true;
+                    btnSaveEmail.Visible = true;
+                    btnSavePrint.Visible = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void LoadDefaultFees() // this function will trigger upon initialization
         {
             dgSubjects.Rows.Clear();
@@ -508,8 +570,6 @@ namespace COLM_SYSTEM.Assessment_Folder
 
 
         }
-
-
         private void btnAddDiscount_Click(object sender, System.EventArgs e)
         {
             if (cmbDiscount.Text != string.Empty)
@@ -538,7 +598,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
             CalculateFeeSummary();
         }
-
         private void cmbAssessmentType_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             List<PaymentMode> assessmentTypes = cmbPaymentMode.Tag as List<PaymentMode>;
@@ -571,7 +630,6 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             CalculateFeeSummary();
         }
-
         private void dgFees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == clmFeeRemove.Index)
@@ -580,12 +638,10 @@ namespace COLM_SYSTEM.Assessment_Folder
                 CalculateFeeSummary();
             }
         }
-
         private void cmbSection_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadSectionSchedule();
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to cancel this assessment entry?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -594,7 +650,6 @@ namespace COLM_SYSTEM.Assessment_Folder
                 Dispose();
             }
         }
-
         //validations
         private bool IsValidEntry()
         {
@@ -627,7 +682,6 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             return true;
         }
-
         private int SaveAssessment()
         {
 
@@ -728,7 +782,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             int result = Assessment.InsertAssessment(entry);
             return result;
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             //verify validations
@@ -759,7 +812,6 @@ namespace COLM_SYSTEM.Assessment_Folder
                 Dispose();
             }
         }
-
         private void button3_Click_1(object sender, EventArgs e)
         {
             //verify validations
@@ -787,7 +839,6 @@ namespace COLM_SYSTEM.Assessment_Folder
                 Dispose();
             }
         }
-
         private void dgDiscounts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == clmRemoveDiscount.Index)
@@ -802,19 +853,16 @@ namespace COLM_SYSTEM.Assessment_Folder
                 }
             }
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblCount.Text = string.Concat("Total Subjects: ", dgSubjects.Rows.Count);
         }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frm_update_student_email frm = new frm_update_student_email(registeredStudent.StudentID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
-
         private void button2_Click_1(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to close assessment viewing / reassessment?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -823,7 +871,6 @@ namespace COLM_SYSTEM.Assessment_Folder
                 Dispose();
             }
         }
-
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             StudentInfo student = StudentInfo.GetStudent(registeredStudent.StudentID);
@@ -831,7 +878,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
-
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frm_assessment_subject_browser frm = new frm_assessment_subject_browser(registeredStudent, dgSubjects);
@@ -839,7 +885,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.ShowDialog();
             CalculateFeeSummary();
         }
-
         private void viewAdditionalFeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string SubjCode = dgSubjects.Rows[SelectedSubjectRow].Cells["clmSubjectDesc"].Value.ToString();
@@ -860,7 +905,6 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
         }
-
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int SubjectID = Convert.ToInt16(dgSubjects.Rows[SelectedSubjectRow].Cells["clmSubjID"].Value);
@@ -876,7 +920,6 @@ namespace COLM_SYSTEM.Assessment_Folder
                 }
             }
         }
-
         private void removeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             //other code here..
@@ -887,6 +930,35 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            //verify validations
+            if (IsValidEntry() == false)
+            {
+                return;
+            }
 
+            int AssessmentID = SaveAssessment();
+
+            if (AssessmentID > 0)
+            {
+                MessageBox.Show("Assessment Successfully saved!", "Student Assessment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+                Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Assessment Unsuccessfull! Please try again.", "Student Assessment Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+                Dispose();
+            }
+        }
+    }
+
+    public enum AssessmentOptions
+    {
+        View,
+        Create,
+        Update
     }
 }

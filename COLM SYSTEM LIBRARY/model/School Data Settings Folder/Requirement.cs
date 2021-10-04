@@ -93,6 +93,31 @@ namespace COLM_SYSTEM_LIBRARY.model.School_Data_Settings_Folder
             return requirements;
         }
 
+        public static Requirement GetRequirement(int RequirementID)
+        {
+            Requirement requirement = new Requirement();
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm =new SqlCommand("SELECT * FROM settings.requirements WHERE RequirementID = @RequirementID",conn))
+                {
+                    comm.Parameters.AddWithValue("@RequirementID", RequirementID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            requirement = new Requirement()
+                            {
+                                RequirementID = Convert.ToInt32(reader["RequirementID"]),
+                                RequirementName = Convert.ToString(reader["Requirement"])
+                            };
+                        }
+                    }
+                }
+            }
+            return requirement;
+        }
+
         public static List<RequirementEducationLevel> GetRequirementEducationLevels(int RequirementID)
         {
             List<RequirementEducationLevel> educationLevels = new List<RequirementEducationLevel>();

@@ -40,10 +40,39 @@ namespace COLM_SYSTEM_LIBRARY.model.Student_Folder
                     comm.Parameters.Add("@FileAttach", SqlDbType.Image);
                     comm.Parameters["@FileAttach"].Value = studentRequirement.FileAttach;
 
-                   return comm.ExecuteNonQuery();
+                    return comm.ExecuteNonQuery();
                 }
             }
         }
 
+        public static List<StudentRequirement> GetStudentRequirements(int StudentID)
+        {
+            List<StudentRequirement> requirements = new List<StudentRequirement>();
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.requirements WHERE StudentID = @StudentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@StudentID", StudentID);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            StudentRequirement requirement = new StudentRequirement()
+                            {
+                                StudentRequirementID = Convert.ToInt32(reader["StudentRequirementID"]),
+                                StudentID = StudentID,
+                                Requirement = Requirement.GetRequirement(Convert.ToInt32(reader["RequirementID"])),
+                                FileName = Convert.ToString(reader["FileName"]),
+                                FileType = Convert.ToString(reader["FileType"]),
+                                FileAttach = (byte[])reader["FileAttach"]
+                            };
+                            requirements.Add(requirement);
+                        }
+                    }
+                }
+            }
+            return requirements;
+        }
     }
 }

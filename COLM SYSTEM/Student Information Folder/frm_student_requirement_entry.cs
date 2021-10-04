@@ -1,4 +1,5 @@
 ﻿using COLM_SYSTEM;
+using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.School_Data_Settings_Folder;
 using COLM_SYSTEM_LIBRARY.model.Student_Folder;
 using System;
@@ -18,10 +19,12 @@ namespace SEMS.Student_Information_Folder
     {
         StudentRequirement studentRequirement = new StudentRequirement();
         List<Requirement> requirements = new List<Requirement>();
-        public frm_student_requirement_entry(string EducationLevel)
+        StudentRegistered registered;
+        public frm_student_requirement_entry(int RegistrationID)
         {
-            InitializeComponent();
-            requirements = Requirement.GetRequirements(EducationLevel);
+            InitializeComponent();            
+            registered = StudentRegistered.GetRegisteredStudent(RegistrationID);
+            requirements = Requirement.GetRequirements(registered.EducationLevel);
             DisplayRequirements();
         }
 
@@ -35,7 +38,7 @@ namespace SEMS.Student_Information_Folder
 
         private void button2_Click(object sender, EventArgs e)
         {
-            studentRequirement.StudentID = 1;
+            studentRequirement.StudentID = registered.StudentID;
 
             Requirement requirement = requirements.Where(item => item.RequirementName == cmbRequirement.Text).FirstOrDefault();
             studentRequirement.Requirement = requirement;

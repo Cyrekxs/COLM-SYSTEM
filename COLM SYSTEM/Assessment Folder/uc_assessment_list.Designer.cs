@@ -54,6 +54,8 @@
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbEnrollmentStatus = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblCount = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -63,8 +65,7 @@
             this.removeAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.lblTotalRecords = new System.Windows.Forms.Label();
-            this.cmbEnrollmentStatus = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.viewAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -307,6 +308,34 @@
             this.panel1.Size = new System.Drawing.Size(1212, 40);
             this.panel1.TabIndex = 22;
             // 
+            // cmbEnrollmentStatus
+            // 
+            this.cmbEnrollmentStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbEnrollmentStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEnrollmentStatus.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEnrollmentStatus.FormattingEnabled = true;
+            this.cmbEnrollmentStatus.Items.AddRange(new object[] {
+            "All",
+            "Enrolled",
+            "Not Enrolled"});
+            this.cmbEnrollmentStatus.Location = new System.Drawing.Point(718, 14);
+            this.cmbEnrollmentStatus.Name = "cmbEnrollmentStatus";
+            this.cmbEnrollmentStatus.Size = new System.Drawing.Size(145, 23);
+            this.cmbEnrollmentStatus.TabIndex = 23;
+            this.cmbEnrollmentStatus.SelectionChangeCommitted += new System.EventHandler(this.cmbEnrollmentStatus_SelectionChangeCommitted);
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(715, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Enrollment Status";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -337,11 +366,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.emailStudentToolStripMenuItem,
             this.printAssessmentToolStripMenuItem,
+            this.viewAssessmentToolStripMenuItem,
             this.reAssessToolStripMenuItem,
             this.removeAssessmentToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(192, 132);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(192, 186);
             // 
             // emailStudentToolStripMenuItem
             // 
@@ -367,7 +397,7 @@
             this.reAssessToolStripMenuItem.Image = global::SEMS.Properties.Resources.Document_Edit;
             this.reAssessToolStripMenuItem.Name = "reAssessToolStripMenuItem";
             this.reAssessToolStripMenuItem.Size = new System.Drawing.Size(191, 32);
-            this.reAssessToolStripMenuItem.Text = "View / Reassess";
+            this.reAssessToolStripMenuItem.Text = "Re-Assessment";
             this.reAssessToolStripMenuItem.Click += new System.EventHandler(this.reAssessToolStripMenuItem_Click);
             // 
             // removeAssessmentToolStripMenuItem
@@ -401,33 +431,14 @@
     "ation";
             this.lblTotalRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cmbEnrollmentStatus
+            // viewAssessmentToolStripMenuItem
             // 
-            this.cmbEnrollmentStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbEnrollmentStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEnrollmentStatus.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEnrollmentStatus.FormattingEnabled = true;
-            this.cmbEnrollmentStatus.Items.AddRange(new object[] {
-            "All",
-            "Enrolled",
-            "Not Enrolled"});
-            this.cmbEnrollmentStatus.Location = new System.Drawing.Point(718, 14);
-            this.cmbEnrollmentStatus.Name = "cmbEnrollmentStatus";
-            this.cmbEnrollmentStatus.Size = new System.Drawing.Size(145, 23);
-            this.cmbEnrollmentStatus.TabIndex = 23;
-            this.cmbEnrollmentStatus.SelectionChangeCommitted += new System.EventHandler(this.cmbEnrollmentStatus_SelectionChangeCommitted);
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(715, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Enrollment Status";
+            this.viewAssessmentToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.viewAssessmentToolStripMenuItem.Image = global::SEMS.Properties.Resources.View;
+            this.viewAssessmentToolStripMenuItem.Name = "viewAssessmentToolStripMenuItem";
+            this.viewAssessmentToolStripMenuItem.Size = new System.Drawing.Size(191, 32);
+            this.viewAssessmentToolStripMenuItem.Text = "View Assessment";
+            this.viewAssessmentToolStripMenuItem.Click += new System.EventHandler(this.viewAssessmentToolStripMenuItem_Click);
             // 
             // uc_assessment_list
             // 
@@ -482,5 +493,6 @@
         private System.Windows.Forms.Label lblTotalRecords;
         private System.Windows.Forms.ComboBox cmbEnrollmentStatus;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem viewAssessmentToolStripMenuItem;
     }
 }

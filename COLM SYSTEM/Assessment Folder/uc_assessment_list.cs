@@ -109,7 +109,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void reAssessToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int AssessmentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmAssessmentID"].Value);
-            frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID);
+            frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID, AssessmentOptions.Update);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             LoadAssessments();
@@ -152,6 +152,15 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private void cmbEnrollmentStatus_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            LoadAssessments();
+        }
+
+        private void viewAssessmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int AssessmentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmAssessmentID"].Value);
+            frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID, AssessmentOptions.View);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
             LoadAssessments();
         }
     }

@@ -2,6 +2,7 @@
 using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM_LIBRARY.model;
 using SEMS;
+using SEMS.Student_Information_Folder;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -161,6 +162,18 @@ namespace COLM_SYSTEM.Registration_Folder
                     LoadRegisteredStudents();
                 }
             }
+        }
+
+        private void viewRequirementsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int RegistrationID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmRegisteredStudentID"].Value);
+
+            using (frm_student_requirement_list frm = new frm_student_requirement_list(RegistrationID))
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
+
         }
     }
 }
