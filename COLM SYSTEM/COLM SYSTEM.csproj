@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://colm.edu.ph/SEMS/</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.71</MinimumRequiredVersion>
-    <ApplicationRevision>74</ApplicationRevision>
+    <ApplicationRevision>75</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -323,6 +323,11 @@
     </Compile>
     <Compile Include="frm_whatsnew.Designer.cs">
       <DependentUpon>frm_whatsnew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment Folder\DataSet_PaymentReceipt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_PaymentReceipt.xsd</DependentUpon>
     </Compile>
     <Compile Include="Payment Folder\frm_browse_fees.cs">
       <SubType>Form</SubType>
@@ -785,6 +790,7 @@
     <EmbeddedResource Include="Payment Folder\frm_payment_cheque_info.resx">
       <DependentUpon>frm_payment_cheque_info.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Payment Folder\rpt_payment_receipt.rdlc" />
     <EmbeddedResource Include="Payment Folder\uc_payers.resx">
       <DependentUpon>uc_payers.cs</DependentUpon>
     </EmbeddedResource>
@@ -935,6 +941,17 @@
     </None>
     <None Include="COLM SYSTEM_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Payment Folder\DataSet_PaymentReceipt.xsc">
+      <DependentUpon>DataSet_PaymentReceipt.xsd</DependentUpon>
+    </None>
+    <None Include="Payment Folder\DataSet_PaymentReceipt.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_PaymentReceipt.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Payment Folder\DataSet_PaymentReceipt.xss">
+      <DependentUpon>DataSet_PaymentReceipt.xsd</DependentUpon>
+    </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

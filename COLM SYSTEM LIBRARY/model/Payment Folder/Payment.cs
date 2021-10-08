@@ -67,9 +67,10 @@ namespace COLM_SYSTEM_LIBRARY.model.Payment_Folder
             return Payment_DS.GetAdditionalFees(RegisteredStudentID, SchoolYearID, SemesterID);
         }
 
-        public static int InsertAdditionalFeePayment(int AssessmentAdditionalFeeID,double Payment)
+
+        public static int InsertAdditionalFeePayment(Payment payment, List<AdditionalFeePayment> additionalFeePayments)
         {
-            return Payment_DS.InsertAdditionalFeePayment(AssessmentAdditionalFeeID, Payment);
+            return Payment_DS.InsertAdditionalFeePayment(payment,additionalFeePayments);
         }
 
         public static int CancelReciept(string ORNumber)

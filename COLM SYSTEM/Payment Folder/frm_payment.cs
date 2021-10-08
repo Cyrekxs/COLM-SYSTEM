@@ -1,9 +1,11 @@
 ﻿using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using COLM_SYSTEM_LIBRARY.model.Payment_Folder;
+using Microsoft.Reporting.WinForms;
 using SEMS.Payment_Folder;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -251,7 +253,7 @@ namespace COLM_SYSTEM.Payment_Folder
 
 
                     contextMenuStrip1.Show(new Point(Cursor.Position.X, Cursor.Position.Y));
-                    
+
                 }
             }
             catch (Exception)
@@ -298,15 +300,15 @@ namespace COLM_SYSTEM.Payment_Folder
 
         private void cancelPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                if (dgPaymentHistory.Rows[SelectedOR].Cells["clmPaymentStatus"].Value.ToString().ToLower() == "active")
+            if (dgPaymentHistory.Rows[SelectedOR].Cells["clmPaymentStatus"].Value.ToString().ToLower() == "active")
+            {
+                if (MessageBox.Show("Are you sure you want cancel this reciept?", "Cancel Reciept", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (MessageBox.Show("Are you sure you want cancel this reciept?", "Cancel Reciept", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        string ORNumber = dgPaymentHistory.Rows[SelectedOR].Cells["clmORNumber"].Value.ToString();
-                        int result = Payment.CancelReciept(ORNumber);
-                        LoadAssessmentInformation();
-                    }
+                    string ORNumber = dgPaymentHistory.Rows[SelectedOR].Cells["clmORNumber"].Value.ToString();
+                    int result = Payment.CancelReciept(ORNumber);
+                    LoadAssessmentInformation();
                 }
+            }
         }
 
         private void tsmiViewCheque_Click(object sender, EventArgs e)
@@ -348,7 +350,7 @@ namespace COLM_SYSTEM.Payment_Folder
             if (MessageBox.Show("If you click yes this will mark the student as not enrolled?", "Unenroll Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 EnrolledStudent student = EnrolledStudent.GetEnrolledStudent(studentRegistered.RegisteredID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
-                
+
                 int result = EnrolledStudent.UnenrollStudent(student);
                 if (result > 0)
                 {
@@ -356,6 +358,56 @@ namespace COLM_SYSTEM.Payment_Folder
                     LoadAssessmentInformation();
                 }
             }
+        }
+
+        private void printORToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataSet_PaymentReceipt ds = new DataSet_PaymentReceipt();
+            DataRow dr;
+
+            var tbl = ds.Tables["DSPaymentItems"];
+
+            double TotalPaymentAmount = 0;
+            if (dgPaymentHistory.Rows[SelectedOR].Cells["clmFeeCategory"].Value.ToString().ToLower() == "tuition")
+            {
+                dr = tbl.NewRow();
+                dr["Item"] = "Tuition Fee Payment";
+                TotalPaymentAmount = Convert.ToDouble(dgPaymentHistory.Rows[SelectedOR].Cells["clmPaymentAmount"].Value);
+                dr["Amount"] = TotalPaymentAmount.ToString("n");
+                tbl.Rows.Add(dr);
+            }
+            else
+            {
+
+            }
+
+
+            //foreach (DataGridViewRow row in dataGridView2.Rows)
+            //{
+            //    dr = tbl.NewRow();
+            //    dr["Item"] = i;
+            //    dr["Amount"] = row.Cells["clmLRN"].Value.ToString();
+            //    tbl.Rows.Add(dr);
+            //}
+
+            ReportParameter param_PaymentDate = new ReportParameter("PaymentDate", DateTime.Now.ToShortDateString());
+            ReportParameter param_StudentName = new ReportParameter("StudentName", txtStudentName.Text);
+            ReportParameter param_TotalAmount = new ReportParameter("TotalAmount", TotalPaymentAmount.ToString("n"));
+
+            List<ReportParameter> reportParameters = new List<ReportParameter>();
+            reportParameters.Add(param_PaymentDate);
+            reportParameters.Add(param_StudentName);
+            reportParameters.Add(param_TotalAmount);
+
+            frm_print_preview frm = new frm_print_preview();
+            frm.reportViewer1.LocalReport.ReportEmbeddedResource = "SEMS.Payment_Folder.rpt_payment_receipt.rdlc";
+            frm.reportViewer1.LocalReport.DataSources.Clear();
+            ReportDataSource dataSource = new ReportDataSource("DataSet1", tbl);
+            frm.reportViewer1.LocalReport.DataSources.Add(dataSource);
+            frm.reportViewer1.LocalReport.SetParameters(reportParameters.ToArray());
+            frm.reportViewer1.RefreshReport();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

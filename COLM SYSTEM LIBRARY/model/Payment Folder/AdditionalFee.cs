@@ -19,6 +19,11 @@ namespace COLM_SYSTEM_LIBRARY.model.Payment_Folder
         public double TotalAmount { get; set; }
         public double TotalPayment { get; set; } //for displaying purposes only
         public DateTime DateAdded { get; set; }
+    }
 
+    public class AdditionalFeePayment
+    {
+        public int AssessmentAdditionalFeeID { get; set; }
+        public double AmountToPay { get; set; }
     }
 }

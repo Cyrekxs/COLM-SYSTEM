@@ -325,16 +325,62 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return fees;
         }
 
-        public static int InsertAdditionalFeePayment(int AssessmentAdditionalFeeID, double Payment)
+        public static int InsertAdditionalFeePayment(int AssessmentAdditionalFeeID, double Payment, string ORNumber)
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO assessment.payment_additional_fees VALUES (@AssessmentAdditionalFeeID,@AmountPaid)", conn))
+                using (SqlCommand comm = new SqlCommand("INSERT INTO assessment.payment_additional_fees VALUES (@AssessmentAdditionalFeeID,@AmountPaid,@ORNumber)", conn))
                 {
                     comm.Parameters.AddWithValue("@AssessmentAdditionalFeeID", AssessmentAdditionalFeeID);
                     comm.Parameters.AddWithValue("@AmountPaid", Payment);
+                    comm.Parameters.AddWithValue("@ORNumber", ORNumber);
                     return comm.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static int InsertAdditionalFeePayment(Payment payment,List<AdditionalFeePayment> additionalFeePayments)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlTransaction t = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        using (SqlCommand comm = new SqlCommand("EXEC sp_set_payment @RegisteredStudentID,@SchoolYearID,@SemesterID,@ORNumber,@FeeCategory,@PaymentCategory,@AmountPaid,@UserID", conn,t))
+                        {
+                            comm.Parameters.AddWithValue("@RegisteredStudentID", payment.RegisteredStudentID);
+                            comm.Parameters.AddWithValue("@SchoolYearID", payment.SchoolYearID);
+                            comm.Parameters.AddWithValue("@SemesterID", payment.SemesterID);
+                            comm.Parameters.AddWithValue("@ORNumber", payment.ORNumber);
+                            comm.Parameters.AddWithValue("@FeeCategory", payment.FeeCategory);
+                            comm.Parameters.AddWithValue("@PaymentCategory", payment.PaymentCategory);
+                            comm.Parameters.AddWithValue("@AmountPaid", payment.AmountPaid);
+                            comm.Parameters.AddWithValue("@UserID", payment.UserID);
+                            comm.ExecuteNonQuery();
+                        }
+
+                        foreach (var item in additionalFeePayments)
+                        {
+                            using (SqlCommand comm = new SqlCommand("INSERT INTO assessment.payment_additional_fees VALUES (@AssessmentAdditionalFeeID,@AmountPaid,@ORNumber)", conn,t))
+                            {
+                                comm.Parameters.AddWithValue("@AssessmentAdditionalFeeID", item.AssessmentAdditionalFeeID);
+                                comm.Parameters.AddWithValue("@AmountPaid", item.AmountToPay);
+                                comm.Parameters.AddWithValue("@ORNumber", payment.ORNumber);
+                                comm.ExecuteNonQuery();
+                            }
+                        }
+
+                        t.Commit();
+                        return 1;
+                    }
+                    catch (Exception)
+                    {
+                        t.Rollback();
+                        return 0;
+                    }
                 }
             }
         }

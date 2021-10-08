@@ -96,44 +96,46 @@ namespace COLM_SYSTEM.Payment_Folder
             }
 
 
-            int AdditionalPaymentResult = 0;
+            Payment payment = new Payment()
+            {
+                RegisteredStudentID = studentRegistered.RegisteredID,
+                SchoolYearID = Utilties.GetActiveSchoolYear(),
+                SemesterID = Utilties.GetActiveSemester(),
+                ORNumber = txtORNumber.Text,
+                FeeCategory = "Additional",
+                PaymentCategory = "Cash",
+                AmountPaid = Convert.ToDouble(txtAmount.Text)
+            };
+
+            List<AdditionalFeePayment> additionalFeePayments = new List<AdditionalFeePayment>();
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
                 int AssessmentAdditionalFeeID = Convert.ToInt16(item.Cells["clmAssessmentAdditionalFeeID"].Value);
                 double AmountoPay = Convert.ToDouble(item.Cells["clmAmountToPay"].Value);
-                AdditionalPaymentResult += Payment.InsertAdditionalFeePayment(AssessmentAdditionalFeeID, AmountoPay);
+
+                AdditionalFeePayment additionalFeePayment = new AdditionalFeePayment();
+                additionalFeePayment.AssessmentAdditionalFeeID = AssessmentAdditionalFeeID;
+                additionalFeePayment.AmountToPay = AmountoPay;
+                additionalFeePayments.Add(additionalFeePayment);
             }
 
-            if (AdditionalPaymentResult == dataGridView1.Rows.Count)
+            int result = Payment.InsertAdditionalFeePayment(payment, additionalFeePayments);
+
+            if (result > 0)
             {
-                Payment payment = new Payment()
-                {
-                    RegisteredStudentID = studentRegistered.RegisteredID,
-                    SchoolYearID = Utilties.GetActiveSchoolYear(),
-                    SemesterID = Utilties.GetActiveSemester(),
-                    ORNumber = txtORNumber.Text,
-                    FeeCategory = "Additional",
-                    PaymentCategory = "Cash",
-                    AmountPaid = Convert.ToDouble(txtAmount.Text)
-                };
-
-
-                int result = Payment.InsertPaymentCash(payment);
-
-                if (result > 0)
-                {
-                    MessageBox.Show("Payment Successfull", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
-                    Dispose();
-                }
+                MessageBox.Show("Payment Successfull", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+                Dispose();
             }
-
         }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
             Close();
             Dispose();
         }
+
     }
+
 }
