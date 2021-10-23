@@ -4,13 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.Threading.Tasks;
+
 namespace COLM_SYSTEM_LIBRARY.datasource
 {
     class StudentInfo_DS
     {
         static TextInfo text = CultureInfo.CurrentCulture.TextInfo;
 
-        public static List<StudentInfo> GetStudents()
+        public static async Task<List<StudentInfo>> GetStudents()
         {
             List<StudentInfo> students = new List<StudentInfo>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
@@ -18,9 +20,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information ORDER BY Lastname,Firstname ASC", conn))
                 {
-                    using (SqlDataReader reader = comm.ExecuteReader())
+                    using (SqlDataReader reader = await comm.ExecuteReaderAsync())
                     {
-                        while (reader.Read())
+                        while (await reader.ReadAsync())
                         {
                             StudentInfo student = new StudentInfo()
                             {

@@ -43,6 +43,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string SchoolStatus { get; set; }
         public string ESCGuarantee { get; set; }
 
+
         public string StudentStatus { get; set; }
         public string EducationLevel { get; set; }
         public string CourseStrand { get; set; }
@@ -69,9 +70,9 @@ namespace COLM_SYSTEM_LIBRARY.model
             return StudentInfo_DS.GetStudentsToImport();
         }
 
-        public static Task<List<StudentInfo>> GetStudents()
+        public static async Task<List<StudentInfo>> GetStudentsAsync()
         {
-            return Task.Run(() => StudentInfo_DS.GetStudents());
+            return await StudentInfo_DS.GetStudents();
         }
 
         public static StudentInfo GetStudent(int StudentID)
