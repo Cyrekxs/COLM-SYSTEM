@@ -1,4 +1,5 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.Controller;
+using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -38,11 +39,11 @@ namespace SEMS.Student_Information_Folder
             }
         }
 
-        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deleteApplicationToolStripMenuItem_ClickAsync(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to delete this unregistered online application?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                StudentInfo.RemoveStudentInformationAndApplication(Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmStudentID"].Value));
+                await new StudentController().RemoveStudentInformationAndApplication(Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmStudentID"].Value));
                 dataGridView1.Rows.Remove(dataGridView1.Rows[SelectedRow]);
             }
         }

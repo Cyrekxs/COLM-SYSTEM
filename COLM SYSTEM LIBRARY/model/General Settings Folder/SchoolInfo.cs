@@ -1,4 +1,5 @@
 ﻿using COLM_SYSTEM_LIBRARY.helper;
+using Dapper;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -11,8 +12,8 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string SchoolID { get; set; }
         public string SchoolName { get; set; }
         public string MainHeader { get; set; }
-        public string SubHeader1 { get; set; }
-        public string SubHeader2 { get; set; }
+        public string FirstSubHeader { get; set; }
+        public string SecondSubHeader { get; set; }
         public string FooterContact { get; set; }
         public string FooterFacebook { get; set; }
         public string SchoolRegistrar { get; set; }
@@ -39,8 +40,8 @@ namespace COLM_SYSTEM_LIBRARY.model
                     comm.Parameters.AddWithValue("@SchoolID", info.SchoolID);
                     comm.Parameters.AddWithValue("@SchoolName", info.SchoolName);
                     comm.Parameters.AddWithValue("@MainHeader", info.MainHeader);
-                    comm.Parameters.AddWithValue("@FirstSubHeader", info.SubHeader1);
-                    comm.Parameters.AddWithValue("@SecondSubHeader", info.SubHeader2);
+                    comm.Parameters.AddWithValue("@FirstSubHeader", info.FirstSubHeader);
+                    comm.Parameters.AddWithValue("@SecondSubHeader", info.SecondSubHeader);
                     comm.Parameters.AddWithValue("@FooterContact", info.FooterContact);
                     comm.Parameters.AddWithValue("@FooterFacebook", info.FooterFacebook);
                     comm.Parameters.AddWithValue("@SchoolRegistrar", info.SchoolRegistrar);
@@ -60,57 +61,57 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static async Task<SchoolInfo> GetSchoolInfoAsync()
         {
             SchoolInfo info = new SchoolInfo();
-            await Task.Run( async () =>
-             {
-                 using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
-                 {
-                     await conn.OpenAsync();
-                     using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.school_info", conn))
-                     {
-                         using (SqlDataReader reader = comm.ExecuteReader())
-                         {
-                             while (reader.Read())
-                             {
-                                 byte[] img_logo;
-                                 if (string.IsNullOrEmpty(reader["Logo"].ToString()))
-                                     img_logo = null;
-                                 else
-                                     img_logo = (byte[])reader["Logo"];
 
-                                 byte[] img_sign;
-                                 if (string.IsNullOrEmpty(reader["Sign"].ToString()))
-                                     img_sign = null;
-                                 else
-                                     img_sign = (byte[])reader["Sign"];
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                await conn.OpenAsync();
+                string sql = "SELECT * FROM settings.school_info";
+                info = await conn.QueryFirstAsync<SchoolInfo>(sql);
+                //using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.school_info", conn))
+                //{
+                //    using (SqlDataReader reader = await comm.ExecuteReaderAsync())
+                //    {
+                //        while (await reader.ReadAsync())
+                //        {
+                //            byte[] img_logo;
+                //            if (string.IsNullOrEmpty(reader["Logo"].ToString()))
+                //                img_logo = null;
+                //            else
+                //                img_logo = (byte[])reader["Logo"];
 
-                                 byte[] img_watermark;
-                                 if (string.IsNullOrEmpty(reader["WaterMark"].ToString()))
-                                     img_watermark = null;
-                                 else
-                                     img_watermark = (byte[])reader["WaterMark"];
+                //            byte[] img_sign;
+                //            if (string.IsNullOrEmpty(reader["Sign"].ToString()))
+                //                img_sign = null;
+                //            else
+                //                img_sign = (byte[])reader["Sign"];
 
-                                 info = new SchoolInfo()
-                                 {
-                                     SchoolID = Convert.ToString(reader["SchoolID"]),
-                                     SchoolName = Convert.ToString(reader["SchoolName"]),
-                                     MainHeader = Convert.ToString(reader["MainHeader"]),
-                                     SubHeader1 = Convert.ToString(reader["FirstSubHeader"]),
-                                     SubHeader2 = Convert.ToString(reader["SecondSubHeader"]),
-                                     FooterContact = Convert.ToString(reader["FooterContact"]),
-                                     FooterFacebook = Convert.ToString(reader["FooterFacebook"]),
-                                     SchoolRegistrar = Convert.ToString(reader["SchoolRegistrar"]),
-                                     Policies = Convert.ToString(reader["Policies"]),
-                                     Logo = img_logo,
-                                     Sign = img_sign,
-                                     WaterMark = img_watermark
-                                 };
-                             }
-                         }
-                     }
-                 }
+                //            byte[] img_watermark;
+                //            if (string.IsNullOrEmpty(reader["WaterMark"].ToString()))
+                //                img_watermark = null;
+                //            else
+                //                img_watermark = (byte[])reader["WaterMark"];
 
-             });
-           
+                //            info = new SchoolInfo()
+                //            {
+                //                SchoolID = Convert.ToString(reader["SchoolID"]),
+                //                SchoolName = Convert.ToString(reader["SchoolName"]),
+                //                MainHeader = Convert.ToString(reader["MainHeader"]),
+                //                FirstSubHeader = Convert.ToString(reader["FirstSubHeader"]),
+                //                SecondSubHeader = Convert.ToString(reader["SecondSubHeader"]),
+                //                FooterContact = Convert.ToString(reader["FooterContact"]),
+                //                FooterFacebook = Convert.ToString(reader["FooterFacebook"]),
+                //                SchoolRegistrar = Convert.ToString(reader["SchoolRegistrar"]),
+                //                Policies = Convert.ToString(reader["Policies"]),
+                //                Logo = img_logo,
+                //                Sign = img_sign,
+                //                WaterMark = img_watermark
+                //            };
+                //        }
+                //    }
+                //}
+            }
+
+
             return info;
         }
 

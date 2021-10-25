@@ -178,7 +178,7 @@
             this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
             this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(265, 36);
             this.deleteApplicationToolStripMenuItem.Text = "Delete Selected Unregistered Data";
-            this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_Click);
+            this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_ClickAsync);
             // 
             // clmStudentID
             // 

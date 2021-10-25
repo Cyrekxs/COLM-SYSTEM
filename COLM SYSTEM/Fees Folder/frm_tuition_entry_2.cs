@@ -84,7 +84,7 @@ namespace COLM_SYSTEM.fees_folder
             foreach (var item in subjectSetteds)
             {
                 dgTuition.Rows.Add(
-                    item.SubjPriceID,
+                    item.SubjectPriceID,
                     item.CurriculumSubjID,
                     item.SubjType,
                     item.SubjCode,
@@ -155,7 +155,7 @@ namespace COLM_SYSTEM.fees_folder
             {
                 SubjectSetted subject = new SubjectSetted()
                 {
-                    SubjPriceID = Convert.ToInt32(item.Cells["clmSubjPriceID"].Value),
+                    SubjectPriceID = Convert.ToInt32(item.Cells["clmSubjPriceID"].Value),
                     CurriculumID = CurriculumID,
                     YearLevelID = yearLevel.YearLevelID,
                     CurriculumSubjID = Convert.ToInt32(item.Cells["clmCurriculumSubjID"].Value),

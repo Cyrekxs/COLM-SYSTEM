@@ -800,7 +800,7 @@
             this.btnProcess.TabIndex = 36;
             this.btnProcess.Text = "PROCESS APPLICATION";
             this.btnProcess.UseVisualStyleBackColor = false;
-            this.btnProcess.Click += new System.EventHandler(this.button1_Click);
+            this.btnProcess.Click += new System.EventHandler(this.button1_ClickAsync);
             // 
             // label38
             // 

@@ -1,4 +1,5 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.Controller;
+using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,12 +18,12 @@ namespace COLM_SYSTEM.Student_Information_Folder
         public frm_online_importer_processor()
         {
             InitializeComponent();
-            LoadStudentsToImport();
+            LoadStudentsToImportAsync();
         }
 
-        private void LoadStudentsToImport()
+        private async void LoadStudentsToImportAsync()
         {
-            List<StudentInfo> students = StudentInfo.GetStudentsToImport();
+            List<StudentInfo> students = await new StudentController().GetStudentsToImportAsync();
             foreach (var item in students)
             {
                 dataGridView1.Rows.Add(

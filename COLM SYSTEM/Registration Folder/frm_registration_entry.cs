@@ -1,4 +1,5 @@
 ﻿using COLM_SYSTEM.Student_Information_Folder;
+using COLM_SYSTEM_LIBRARY.Controller;
 using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
@@ -127,12 +128,12 @@ namespace COLM_SYSTEM.registration
             }
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void linkLabel1_LinkClickedAsync(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frm_update_student_email frm = new frm_update_student_email(_StudentInfo.StudentID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
-            _StudentInfo = StudentInfo.GetStudent(_StudentInfo.StudentID);
+            _StudentInfo = await new StudentController().GetStudentAsync(_StudentInfo.StudentID);
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

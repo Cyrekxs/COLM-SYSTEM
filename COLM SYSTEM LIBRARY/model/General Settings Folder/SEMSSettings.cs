@@ -1,12 +1,8 @@
 ﻿using COLM_SYSTEM_LIBRARY.helper;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-
+using Dapper;
 namespace COLM_SYSTEM_LIBRARY.model
 {
     public class SEMSSettings
@@ -50,90 +46,31 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static async Task<SEMSSettings> GetSettingsAsync()
         {
             SEMSSettings settings = new SEMSSettings();
-            await Task.Run(async () => 
-            {
-                using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
-                {
-                    await conn.OpenAsync();
-                    using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.sems", conn))
-                    {
-                        using (SqlDataReader reader = comm.ExecuteReader())
-                        {
-                            if (reader.HasRows)
-                            {
-                                while (reader.Read())
-                                {
-                                    settings = new SEMSSettings()
-                                    {
-                                        LoginWallpaper = (byte[]) reader["LoginWallpaper"]
-                                    };
-
-                                }
-                            }
-                            else
-                            {
-                                settings = new SEMSSettings()
-                                {
-                                    LoginWallpaper = null
-                                };
-                            }
-                        }
-                    }
-                }
-            });
-           
-            return settings;
-        }
-
-        //public static bool HasSetted()
-        //{
-        //    bool result = false;    
-        //    using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
-        //    {
-        //        conn.Open();
-        //        using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.sems", conn))
-        //        {
-        //            using (SqlDataReader reader = comm.ExecuteReader())
-        //            {
-        //                if (reader.HasRows)
-        //                {
-        //                    result = true;
-        //                }
-        //                else
-        //                {
-        //                    result = false;
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return result;
-        //}
-
-        public static async Task<bool> HasSettedAsync()
-        {
-            bool result = false;
             await Task.Run(async () =>
             {
                 using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
                 {
                     await conn.OpenAsync();
-                    using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.sems", conn))
-                    {
-                        using (SqlDataReader reader = comm.ExecuteReader())
-                        {
-                            if (reader.HasRows)
-                            {
-                                result = true;
-                            }
-                            else
-                            {
-                                result = false;
-                            }
-                        }
-                    }
+                    string sql = "SELECT * FROM settings.sems";
+                    settings = await conn.QueryFirstAsync<SEMSSettings>(sql);
                 }
-            });            
-            return result;
+            });
+
+            return settings;
+        }
+
+        public static async Task<bool> HasSettedAsync()
+        {
+            bool hasSetted = false;
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                await conn.OpenAsync();
+                var result = await conn.QueryFirstAsync("SELECT * FROM settings.sems");
+                if (result != null)
+                    hasSetted = true;   
+            }
+
+            return hasSetted;
         }
 
         public static int SaveSettings(SEMSSettings settings)
@@ -149,7 +86,7 @@ namespace COLM_SYSTEM_LIBRARY.model
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using(SqlCommand comm = new SqlCommand(query, conn))
+                using (SqlCommand comm = new SqlCommand(query, conn))
                 {
                     comm.Parameters.Add("@LoginWallpaper", SqlDbType.Image);
                     comm.Parameters["@LoginWallpaper"].Value = settings.LoginWallpaper;

@@ -58,11 +58,6 @@ namespace COLM_SYSTEM
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -86,14 +81,10 @@ namespace COLM_SYSTEM
             var IsSetted = await SEMSSettings.HasSettedAsync();
             if (IsSetted == false)
             {
+                LoadWallpaper();
                 frm_system_settings frm = new frm_system_settings();
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-                LoadWallpaper();
-            }
-            else
-            {
-                LoadWallpaper();
             }
             PanelControls.Enabled = true;
             txtUsername.Focus();

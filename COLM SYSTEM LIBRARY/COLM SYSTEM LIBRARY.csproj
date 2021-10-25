@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.90\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
@@ -42,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\StudentController.cs" />
     <Compile Include="datasource\Address_DS.cs" />
+    <Compile Include="Interaces\IStudentRepository.cs" />
     <Compile Include="datasource\PaymentType_DS.cs" />
     <Compile Include="datasource\Assessment_DS.cs" />
     <Compile Include="datasource\Curriculum_DS.cs" />
@@ -54,7 +59,7 @@
     <Compile Include="datasource\Schedule_DS.cs" />
     <Compile Include="datasource\SchoolYearSemester_DS.cs" />
     <Compile Include="datasource\Section_DS.cs" />
-    <Compile Include="datasource\StudentInfo_DS.cs" />
+    <Compile Include="datasource\StudentRepository.cs" />
     <Compile Include="datasource\StudentRegistration_DS.cs" />
     <Compile Include="datasource\SubjectSettedAdditionalFee_DS.cs" />
     <Compile Include="datasource\SubjectSetted_DS.cs" />
@@ -64,6 +69,7 @@
     <Compile Include="helper\Enums.cs" />
     <Compile Include="helper\Globals.cs" />
     <Compile Include="helper\SQLHelper.cs" />
+    <Compile Include="Interaces\IEnrollmentList.cs" />
     <Compile Include="model\Address.cs" />
     <Compile Include="model\Assessment Folder\OldAssessmentModel.cs" />
     <Compile Include="model\EnrollmentList.cs" />
@@ -125,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Database\colmpulilan_server" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

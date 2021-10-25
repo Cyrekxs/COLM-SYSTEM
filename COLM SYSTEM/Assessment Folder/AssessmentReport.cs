@@ -86,8 +86,8 @@ namespace SEMS.Assessment_Folder
 
             //report properties
             ReportParameter param_MainHeader = new ReportParameter("MainHeader", school.MainHeader);
-            ReportParameter param_SubHeader1 = new ReportParameter("SubHeader1", school.SubHeader1);
-            ReportParameter param_SubHeader2 = new ReportParameter("SubHeader2", school.SubHeader2);
+            ReportParameter param_SubHeader1 = new ReportParameter("SubHeader1", school.FirstSubHeader);
+            ReportParameter param_SubHeader2 = new ReportParameter("SubHeader2", school.SecondSubHeader);
             ReportParameter param_Contact = new ReportParameter("footerContact", school.FooterContact);
             ReportParameter param_Facebook = new ReportParameter("footerFacebook", school.FooterFacebook);
             ReportParameter param_Registrar = new ReportParameter("SchoolRegistrar", school.SchoolRegistrar);

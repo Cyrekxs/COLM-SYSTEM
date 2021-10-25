@@ -1,4 +1,5 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.Controller;
+using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using Microsoft.Reporting.WinForms;
 using SEMS;
@@ -66,7 +67,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             studentYearLevel = YearLevel.GetYearLevel(assessment.Summary.YearLevelID);
 
             //Display Student Information
-            StudentInfo student = StudentInfo.GetStudent(registeredStudent.StudentID);
+            StudentInfo student = new StudentController().GetStudentAsync(registeredStudent.StudentID).GetAwaiter().GetResult();
             txtLRN.Text = student.LRN;
             txtStudentName.Text = student.StudentName;
             txtCurriculumCode.Text = registeredStudent.CurriculumCode;
@@ -104,9 +105,9 @@ namespace COLM_SYSTEM.Assessment_Folder
             foreach (var item in subjects)
             {
                 //get the last assessment schedule by subject
-                Schedule schedule = Schedule.GetScheduleByScheduleID(assessment.Subjects.Where(r => r.SubjectPriceID == item.SubjPriceID).Select(r => r.ScheduleID).FirstOrDefault());
+                Schedule schedule = Schedule.GetScheduleByScheduleID(assessment.Subjects.Where(r => r.SubjectPriceID == item.SubjectPriceID).Select(r => r.ScheduleID).FirstOrDefault());
                 //display data into datagridview
-                dgSubjects.Rows.Add(item.SubjPriceID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType, schedule.ScheduleID, schedule.ScheduleInfo);
+                dgSubjects.Rows.Add(item.SubjectPriceID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType, schedule.ScheduleID, schedule.ScheduleInfo);
 
                 List<AssessmentSubjectAdditionalFee> subjectAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
                 foreach (var fee in item.AdditionalFees)
@@ -184,6 +185,8 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             IdentityAssessmentOptions();
         }
+
+
         private void IdentityAssessmentOptions()
         {
             switch (AssessmentStatus)
@@ -258,7 +261,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             //Display Tuition Fee
             foreach (var item in subjects)
             {
-                dgSubjects.Rows.Add(item.SubjPriceID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType);
+                dgSubjects.Rows.Add(item.SubjectPriceID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType);
                 List<AssessmentSubjectAdditionalFee> subjectAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
                 //loop on each additional fee and convert it into AssessmentSubjectAdditionalFee for tagging
                 foreach (var fee in item.AdditionalFees)
@@ -871,9 +874,9 @@ namespace COLM_SYSTEM.Assessment_Folder
                 Dispose();
             }
         }
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void linkLabel3_LinkClickedAsync(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            StudentInfo student = StudentInfo.GetStudent(registeredStudent.StudentID);
+            StudentInfo student = await new StudentController().GetStudentAsync(registeredStudent.StudentID);
             frm_assessment_old_peeker frm = new frm_assessment_old_peeker(student.Lastname, student.Firstname);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();

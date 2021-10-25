@@ -49,7 +49,7 @@ namespace COLM_SYSTEM.Section_Folder
         {
             foreach (var item in DefaultSubjects)
             {
-                dataGridView1.Rows.Add(0, item.SubjPriceID, item.SubjCode, item.SubjDesc, item.Unit,"-", "-", "-", "-");
+                dataGridView1.Rows.Add(0, item.SubjectPriceID, item.SubjCode, item.SubjDesc, item.Unit,"-", "-", "-", "-");
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
             }
         }

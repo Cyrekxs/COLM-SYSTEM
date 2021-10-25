@@ -342,7 +342,7 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Update Student Email";
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClickedAsync);
             // 
             // clmAttach
             // 

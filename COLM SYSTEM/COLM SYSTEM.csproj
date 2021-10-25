@@ -282,6 +282,23 @@
     <Compile Include="Fees Folder\uc_tuition_list.Designer.cs">
       <DependentUpon>uc_tuition_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_loading_v3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_loading_v3.Designer.cs">
+      <DependentUpon>frm_loading_v3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports Folder\DS_EnrollmentLists.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_EnrollmentLists.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports Folder\Enrollment List\frm_enrollment_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports Folder\Enrollment List\frm_enrollment_list.Designer.cs">
+      <DependentUpon>frm_enrollment_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_loading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -745,6 +762,12 @@
     <EmbeddedResource Include="Fees Folder\uc_tuition_list.resx">
       <DependentUpon>uc_tuition_list.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_loading_v3.resx">
+      <DependentUpon>frm_loading_v3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports Folder\Enrollment List\frm_enrollment_list.resx">
+      <DependentUpon>frm_enrollment_list.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_loading.resx">
       <DependentUpon>frm_loading.cs</DependentUpon>
     </EmbeddedResource>
@@ -821,6 +844,7 @@
       <DependentUpon>frm_subject_master_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports Folder\rpt_CollectionReport.rdlc" />
+    <EmbeddedResource Include="Reports Folder\rpt_enrollmentlists.rdlc" />
     <EmbeddedResource Include="Reports Folder\rpt_masterlist.rdlc" />
     <EmbeddedResource Include="Reports Folder\rpt_masterlist_per_subject.rdlc" />
     <EmbeddedResource Include="Section Folder\frm_browse_unlisted_subjects.resx">
@@ -1005,6 +1029,17 @@
     </None>
     <None Include="Reports Folder\DataSet_StudentMasterListPerSubject.xss">
       <DependentUpon>DataSet_StudentMasterListPerSubject.xsd</DependentUpon>
+    </None>
+    <None Include="Reports Folder\DS_EnrollmentLists.xsc">
+      <DependentUpon>DS_EnrollmentLists.xsd</DependentUpon>
+    </None>
+    <None Include="Reports Folder\DS_EnrollmentLists.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_EnrollmentLists.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports Folder\DS_EnrollmentLists.xss">
+      <DependentUpon>DS_EnrollmentLists.xsd</DependentUpon>
     </None>
     <None Include="Resources\colm logo.png" />
   </ItemGroup>

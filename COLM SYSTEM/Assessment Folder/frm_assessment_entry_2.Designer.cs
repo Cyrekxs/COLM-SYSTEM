@@ -1032,7 +1032,7 @@
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "Peek Old Assessment";
             this.linkLabel3.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClickedAsync);
             // 
             // button2
             // 

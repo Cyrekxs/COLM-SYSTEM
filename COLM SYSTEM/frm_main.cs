@@ -399,5 +399,12 @@ namespace COLM_SYSTEM
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
+
+        private void eLReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_enrollment_list frm = new frm_enrollment_list();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

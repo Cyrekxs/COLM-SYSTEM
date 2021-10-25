@@ -1,42 +1,31 @@
-﻿using System;
+﻿using COLM_SYSTEM.Student_Information_Folder;
+using COLM_SYSTEM_LIBRARY.Controller;
+using COLM_SYSTEM_LIBRARY.model;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using COLM_SYSTEM_LIBRARY.model;
-using COLM_SYSTEM.Student_Information_Folder;
-using System.Globalization;
-using SEMS;
 
 namespace COLM_SYSTEM.student_information
 {
     public partial class uc_student_information_list : UserControl
     {
+        StudentController controller = new StudentController();
+
         private int SelectedRow = 0;
         List<StudentInfo> students = new List<StudentInfo>();
+
         public uc_student_information_list()
         {
             InitializeComponent();
-
-            dataGridView1.AutoGenerateColumns = false;
-           
         }
 
         private async Task LoadStudentAsync()
         {
-          List<StudentInfo> Students = await StudentInfo.GetStudentsAsync();            
-            //using (frm_loading frm = new frm_loading(Students))
-            //{
-            //    frm.StartPosition = FormStartPosition.CenterScreen;
-            //    frm.ShowDialog();
-            //}
-
-            
-            students = Students.OrderByDescending(r => r.Encoded.Date).ThenBy(r => r.StudentName).ToList();
+            students = await controller.GetStudentsAsync();
 
             if (string.IsNullOrEmpty(txtSearch.Text) == false)
             {
@@ -44,21 +33,14 @@ namespace COLM_SYSTEM.student_information
             }
 
             dataGridView1.Rows.Clear();
-            foreach (var item in students.Take(300).ToList())
+            foreach (var item in students)
             {
-                try
-                {
-                    string gender = item.Gender.Substring(0, 1);
-                    dataGridView1.Rows.Add(item.StudentID, item.LRN, item.StudentName, gender, item.BirthDate.ToString("MM-dd-yyyy"), item.MobileNo, item.EmergencyName, item.EmergencyMobile, item.ApplicationInfo, item.Encoded.ToString("MM-dd-yyyy"));
-                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
-                }
-                catch (Exception)
-                {
-
-                }
-
+                string gender = item.Gender.Substring(0, 1);
+                dataGridView1.Rows.Add(item.StudentID, item.LRN, item.StudentName, gender, item.BirthDate.ToString("MM-dd-yyyy"), item.MobileNo, item.EmergencyName, item.EmergencyMobile, item.ApplicationInfo, item.Encoded.ToString("MM-dd-yyyy"));
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
             }
-            lblCount.Text = string.Concat("Total Records in the Database : ",students.Count.ToString()," Record Count(s):", dataGridView1.Rows.Count);
+
+            lblCount.Text = string.Concat("Total Records in the Database : ", students.Count.ToString(), " Record Count(s):", dataGridView1.Rows.Count);
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -90,7 +72,7 @@ namespace COLM_SYSTEM.student_information
             {
                 if (txtSearch.Text == string.Empty)
                 {
-                   await  LoadStudentAsync();
+                    await LoadStudentAsync();
                 }
             }
         }
@@ -110,12 +92,12 @@ namespace COLM_SYSTEM.student_information
         {
             //this function will check if the current student id has a registration info.. if it has a registration id then it will not continue to delete student info
             int SelectedStudentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmStudentID"].Value);
-            bool HasRegistration = StudentInfo.HasRegistration(SelectedStudentID);
+            bool HasRegistration = await controller.HasRegistration(SelectedStudentID);
             if (HasRegistration == false)
             {
                 if (MessageBox.Show("Are you sure you want to delete this student information?", "Delete Student Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int result = StudentInfo.RemoveStudent(SelectedStudentID);
+                    int result = await controller.RemoveStudent(SelectedStudentID);
 
                     if (result > 0)
                     {
@@ -132,7 +114,7 @@ namespace COLM_SYSTEM.student_information
 
         private async void uc_student_information_list_LoadAsync(object sender, EventArgs e)
         {
-          await LoadStudentAsync();
+            await LoadStudentAsync();
         }
     }
 }

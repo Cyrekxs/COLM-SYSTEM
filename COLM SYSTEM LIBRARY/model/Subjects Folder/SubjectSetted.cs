@@ -9,7 +9,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 {
     public class SubjectSetted
     {
-        public int SubjPriceID { get; set; }
+        public int SubjectPriceID { get; set; }
         public int CurriculumID { get; set; }
         public int CurriculumSubjID { get; set; }
         public int YearLevelID { get; set; }
@@ -24,7 +24,7 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public bool Bridging { get; set; }
         public double SubjPrice { get; set; }
-        public List<SubjectSettedAddtionalFee> AdditionalFees { get; set; }
+        public List<SubjectSettedAddtionalFee> AdditionalFees { get; set; } = new List<SubjectSettedAddtionalFee>();
 
         public string SubjType { get; set; }
 

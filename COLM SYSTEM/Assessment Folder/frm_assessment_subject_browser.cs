@@ -59,7 +59,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 foreach (var item in availableSubjects)
                 {
                     YearLevel level = YearLevel.GetYearLevel(item.YearLevelID);
-                    dgAvailableSubjects.Rows.Add(item.SubjPriceID, level.CourseStrand, level.YearLvl,item.SubjType, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"));
+                    dgAvailableSubjects.Rows.Add(item.SubjectPriceID, level.CourseStrand, level.YearLvl,item.SubjType, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"));
                     dgAvailableSubjects.Rows[dgAvailableSubjects.Rows.Count - 1].Tag = item;
                 }
             }
@@ -93,7 +93,7 @@ namespace COLM_SYSTEM.Assessment_Folder
 
                 if (MessageBox.Show("Are you sure you want to add this subject in the list?","Add Subject?",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    _dg.Rows.Add(item.SubjPriceID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType);
+                    _dg.Rows.Add(item.SubjectPriceID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType);
 
                     List<AssessmentSubjectAdditionalFee> subjectAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
                     //loop on each additional fee and convert it into AssessmentSubjectAdditionalFee for tagging

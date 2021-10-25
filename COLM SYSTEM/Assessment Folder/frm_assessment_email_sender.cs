@@ -1,4 +1,5 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.Controller;
+using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using COLM_SYSTEM_LIBRARY.model.General_Settings_Folder;
 using SEMS;
@@ -153,14 +154,16 @@ namespace COLM_SYSTEM.Assessment_Folder
             Close();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void linkLabel1_LinkClickedAsync(object sender, LinkLabelLinkClickedEventArgs e)
         {
             StudentRegistered student = StudentRegistered.GetRegisteredStudent(assessment.Summary.RegisteredStudentID);
             frm_update_student_email frm = new frm_update_student_email(student.StudentID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
-            StudentInfo.GetStudent(student.StudentID);
-            txtTo.Text = StudentInfo.GetStudent(student.StudentID).EmailAddress;
+
+            StudentController controller = new StudentController();
+            var studentinfo = await controller.GetStudentAsync(student.StudentID);
+            txtTo.Text = studentinfo.EmailAddress;
         }
 
         private void cmbMessageTemplates_SelectedIndexChanged(object sender, EventArgs e)

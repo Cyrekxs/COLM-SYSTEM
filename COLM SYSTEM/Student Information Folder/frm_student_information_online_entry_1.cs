@@ -1,11 +1,9 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.Controller;
+using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,10 +11,11 @@ namespace COLM_SYSTEM.Student_Information_Folder
 {
     public partial class frm_student_information_online_entry_1 : Form
     {
+        StudentController controller = new StudentController();
         List<Address> addresses = Address.GetAddresses();
-        List<string> Schools = StudentInfo.GetSchools();
-        List<string> SchoolAddresses = StudentInfo.GetSchoolAddresses();
-        StudentInfo model = new StudentInfo();
+        List<string> Schools = new List<string>();
+        List<string> SchoolAddresses = new List<string>();
+        StudentInfo student = new StudentInfo();
 
         private SavingOptions SavingStatus;
 
@@ -33,19 +32,22 @@ namespace COLM_SYSTEM.Student_Information_Folder
         {
             InitializeComponent();
             SavingStatus = SavingOptions.INSERT;
+            LoadSchoolsandSchoolAddress();
         }
         //UPDATE STUDENT INFORMATION
         public frm_student_information_online_entry_1(int StudentID)
         {
             InitializeComponent();
             SavingStatus = SavingOptions.UPDATE;
-            model = StudentInfo.GetStudent(StudentID);
+            LoadSchoolsandSchoolAddress();
+            student = controller.GetStudentAsync(StudentID).GetAwaiter().GetResult();
             DisplayStudentInfo();
         }
         //IMPORT ONLINE APPLICANT TO CREATE NEW STUDENT
         public frm_student_information_online_entry_1(StudentInfoOnline model)
         {
             InitializeComponent();
+            LoadSchoolsandSchoolAddress();
             SavingStatus = SavingOptions.ONLINE;
 
             txtLRN.Tag = model.ApplicationID;
@@ -91,43 +93,49 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
         }
 
+        private async Task LoadSchoolsandSchoolAddress()
+        {
+            Schools = await controller.GetSchools();
+            SchoolAddresses = await controller.GetSchoolAddresses();
+        }
+
         private void DisplayStudentInfo()
         {
-            txtLRN.Tag = model.StudentID;
-            txtLRN.Text = model.LRN;
-            txtFirstname.Text = model.Firstname;
-            txtMiddlename.Text = model.Middlename;
-            txtLastname.Text = model.Lastname;
-            txtBirthDate.Text = model.BirthDate.ToString();
-            cmbGender.Text = model.Gender;
+            txtLRN.Tag = student.StudentID;
+            txtLRN.Text = student.LRN;
+            txtFirstname.Text = student.Firstname;
+            txtMiddlename.Text = student.Middlename;
+            txtLastname.Text = student.Lastname;
+            txtBirthDate.Text = student.BirthDate.ToString();
+            cmbGender.Text = student.Gender;
 
-            txtStreet.Text = model.Street;
-            txtProvince.Text = model.Province;
-            txtCity.Text = model.City;
-            txtBarangay.Text = model.Barangay;
+            txtStreet.Text = student.Street;
+            txtProvince.Text = student.Province;
+            txtCity.Text = student.City;
+            txtBarangay.Text = student.Barangay;
 
-            txtMobileNo.Text = model.MobileNo;
-            txtEmailAddress.Text = model.EmailAddress;
+            txtMobileNo.Text = student.MobileNo;
+            txtEmailAddress.Text = student.EmailAddress;
 
-            txtMotherName.Text = model.MotherName;
-            txtMotherMobile.Text = model.MobileNo;
-            txtFatherName.Text = model.FatherName;
-            txtFatherMobile.Text = model.FatherMobile;
-            txtGuardianName.Text = model.GuardianName;
-            txtGuardianMobile.Text = model.GuardianMobile;
-            txtEmergencyName.Text = model.EmergencyName;
-            txtEmergencyRelation.Text = model.EmergencyRelation;
-            txtEmergencyMobile.Text = model.EmergencyMobile;
+            txtMotherName.Text = student.MotherName;
+            txtMotherMobile.Text = student.MobileNo;
+            txtFatherName.Text = student.FatherName;
+            txtFatherMobile.Text = student.FatherMobile;
+            txtGuardianName.Text = student.GuardianName;
+            txtGuardianMobile.Text = student.GuardianMobile;
+            txtEmergencyName.Text = student.EmergencyName;
+            txtEmergencyRelation.Text = student.EmergencyRelation;
+            txtEmergencyMobile.Text = student.EmergencyMobile;
 
-            txtSchoolName.Text = model.SchoolName;
-            txtSchoolAddress.Text = model.SchoolAddress;
-            cmbSchoolStatus.Text = model.SchoolStatus;
-            cmbESCGuarantee.Text = model.ESCGuarantee;
+            txtSchoolName.Text = student.SchoolName;
+            txtSchoolAddress.Text = student.SchoolAddress;
+            cmbSchoolStatus.Text = student.SchoolStatus;
+            cmbESCGuarantee.Text = student.ESCGuarantee;
 
-            cmbStudentStatus.Text = model.StudentStatus;
-            txtEducationLevel.Text = model.EducationLevel;
-            txtCourseStrand.Text = model.CourseStrand;
-            txtYearLevel.Text = model.YearLevel;
+            cmbStudentStatus.Text = student.StudentStatus;
+            txtEducationLevel.Text = student.EducationLevel;
+            txtCourseStrand.Text = student.CourseStrand;
+            txtYearLevel.Text = student.YearLevel;
 
 
             if (txtEmergencyName.Text == txtMotherName.Text)
@@ -249,49 +257,49 @@ namespace COLM_SYSTEM.Student_Information_Folder
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_ClickAsync(object sender, EventArgs e)
         {
             //validate form
             if (IsValidForm() == false)
                 return;
 
             //verify if the student is existing
-            StudentInfo student_existing = StudentInfo.IsStudentExist(txtLastname.Text, txtFirstname.Text);
-            model = new StudentInfo()
-            {
-                StudentID = student_existing.StudentID,
-                LRN = txtLRN.Text,
-                Lastname = txtLastname.Text,
-                Firstname = txtFirstname.Text,
-                Middlename = txtMiddlename.Text,
-                BirthDate = txtBirthDate.Value,
-                Gender = cmbGender.Text,
-                Street = txtStreet.Text,
-                Barangay = txtBarangay.Text,
-                City = txtCity.Text,
-                Province = txtProvince.Text,
-                MobileNo = txtMobileNo.Text,
-                EmailAddress = txtEmailAddress.Text,
+            StudentInfo student_existing = await new StudentController().IsStudentExist(txtLastname.Text, txtFirstname.Text);
+            student = new StudentInfo();
+            if (student_existing != null)
+                student.StudentID = student_existing.StudentID;
 
-                MotherName = txtMotherName.Text,
-                MotherMobile = txtMotherMobile.Text,
-                FatherName = txtFatherName.Text,
-                FatherMobile = txtFatherMobile.Text,
-                GuardianName = txtGuardianName.Text,
-                GuardianMobile = txtGuardianMobile.Text,
-                EmergencyName = txtGuardianName.Text,
-                EmergencyRelation = txtEmergencyRelation.Text,
-                EmergencyMobile = txtEmergencyMobile.Text,
+            student.LRN = txtLRN.Text;
+            student.Lastname = txtLastname.Text;
+            student.Firstname = txtFirstname.Text;
+            student.Middlename = txtMiddlename.Text;
+            student.BirthDate = txtBirthDate.Value;
+            student.Gender = cmbGender.Text;
+            student.Street = txtStreet.Text;
+            student.Barangay = txtBarangay.Text;
+            student.City = txtCity.Text;
+            student.Province = txtProvince.Text;
+            student.MobileNo = txtMobileNo.Text;
+            student.EmailAddress = txtEmailAddress.Text;
 
-                SchoolName = txtSchoolName.Text,
-                SchoolAddress = txtSchoolAddress.Text,
-                SchoolStatus = cmbSchoolStatus.Text,
-                ESCGuarantee = cmbESCGuarantee.Text,
-                StudentStatus = cmbStudentStatus.Text,
-                EducationLevel = txtEducationLevel.Text,
-                CourseStrand = txtCourseStrand.Text,
-                YearLevel = txtYearLevel.Text
-            };
+            student.MotherName = txtMotherName.Text;
+            student.MotherMobile = txtMotherMobile.Text;
+            student.FatherName = txtFatherName.Text;
+            student.FatherMobile = txtFatherMobile.Text;
+            student.GuardianName = txtGuardianName.Text;
+            student.GuardianMobile = txtGuardianMobile.Text;
+            student.EmergencyName = txtGuardianName.Text;
+            student.EmergencyRelation = txtEmergencyRelation.Text;
+            student.EmergencyMobile = txtEmergencyMobile.Text;
+
+            student.SchoolName = txtSchoolName.Text;
+            student.SchoolAddress = txtSchoolAddress.Text;
+            student.SchoolStatus = cmbSchoolStatus.Text;
+            student.ESCGuarantee = cmbESCGuarantee.Text;
+            student.StudentStatus = cmbStudentStatus.Text;
+            student.EducationLevel = txtEducationLevel.Text;
+            student.CourseStrand = txtCourseStrand.Text;
+            student.YearLevel = txtYearLevel.Text;
 
             if (MessageBox.Show("Are you sure you want to process this application?", "Online Student Application", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.No)
                 return;
@@ -303,26 +311,26 @@ namespace COLM_SYSTEM.Student_Information_Folder
                 if (student_existing.StudentID != 0)
                 {
                     if (MessageBox.Show("Program Detected that there was an existing student information in the database do you want to update his / her information with this new information?", "Possible Duplicate Detected", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        model.StudentID = student_existing.StudentID;
+                        student.StudentID = student_existing.StudentID;
                 }
                 //No existing student
                 else
-                    model.StudentID = 0;
+                    student.StudentID = 0;
             }
             else
-                model.StudentID = Convert.ToInt32(txtLRN.Tag);
+                student.StudentID = Convert.ToInt32(txtLRN.Tag);
 
 
             //insert new student information
-            StudentInfo.InsertUpdateStudentInformation(model);
+            await controller.InsertUpdateStudentInformation(student);
 
             //if the application is online the save the application id into process table
             if (SavingStatus == SavingOptions.ONLINE)
             {
                 //get the newly inserted student information
-                model = StudentInfo.IsStudentExist(txtLastname.Text, txtFirstname.Text);
+                student = await controller.IsStudentExist(txtLastname.Text, txtFirstname.Text);
                 //insert student application
-                int result = StudentInfoOnline.InsertOnlineApplicant(Convert.ToInt16(txtLRN.Tag), model.StudentID);
+                int result = await controller.InsertOnlineApplicant(Convert.ToInt16(txtLRN.Tag), student.StudentID);
                 if (result > 0)
                 {
                     MessageBox.Show("Student Information has been successfully saved and marked as processed! you can now proceed to registration", "Information Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);

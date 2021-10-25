@@ -104,8 +104,8 @@ namespace SEMS.Settings_Folder
             }
 
             info.MainHeader = txtMainHeader.Text;
-            info.SubHeader1 = txtFirstSubHeader.Text;
-            info.SubHeader2 = txtSecondSubHeader.Text;
+            info.FirstSubHeader = txtFirstSubHeader.Text;
+            info.SecondSubHeader = txtSecondSubHeader.Text;
             info.FooterContact = txtFooterContact.Text;
             info.FooterFacebook = txtFooterFacebook.Text;
             info.SchoolRegistrar = txtSchoolRegistrar.Text;
@@ -123,8 +123,8 @@ namespace SEMS.Settings_Folder
             info = await SchoolInfo.GetSchoolInfoAsync();
 
             txtMainHeader.Text = info.MainHeader;
-            txtFirstSubHeader.Text = info.SubHeader1;
-            txtSecondSubHeader.Text = info.SubHeader2;
+            txtFirstSubHeader.Text = info.FirstSubHeader;
+            txtSecondSubHeader.Text = info.SecondSubHeader;
             txtFooterContact.Text = info.FooterContact;
             txtFooterFacebook.Text = info.FooterFacebook;
             txtSchoolRegistrar.Text = info.SchoolRegistrar;

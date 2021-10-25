@@ -38,13 +38,13 @@ namespace COLM_SYSTEM.Section_Folder
 
             foreach (var item in subjectsOnList)
             {
-                var result = DefaultSubjects.Single(r => r.SubjPriceID == item.SubjPriceID);
+                var result = DefaultSubjects.Single(r => r.SubjectPriceID == item.SubjectPriceID);
                 DefaultSubjects.Remove(result);
             }
 
             foreach (var item in DefaultSubjects)
             {
-                dataGridView1.Rows.Add(item.SubjPriceID, item.SubjCode, item.SubjDesc, item.Unit);
+                dataGridView1.Rows.Add(item.SubjectPriceID, item.SubjCode, item.SubjDesc, item.Unit);
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
             }
         }
@@ -56,7 +56,7 @@ namespace COLM_SYSTEM.Section_Folder
                 if (Convert.ToBoolean( row.Cells["clmCheck"].Value) == true)
                 {
                     SubjectSetted subject = row.Tag as SubjectSetted;
-                    _dg.Rows.Add(0, subject.SubjPriceID, subject.SubjCode, subject.SubjDesc, subject.Unit, "-", "-", "-", "-");
+                    _dg.Rows.Add(0, subject.SubjectPriceID, subject.SubjCode, subject.SubjDesc, subject.Unit, "-", "-", "-", "-");
                 }
             }
             Close();

@@ -25,7 +25,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         //save the subject
                         using (SqlCommand comm = new SqlCommand("EXEC sp_set_curriculum_subject_setted @SubjectPriceID,@CurriculumID,@YearLevelID,@CurriculumSubjectID,@SchoolYearID,@SemesterID,@SubjectPrice,@SubjectType", conn,t))
                         {
-                            comm.Parameters.AddWithValue("@SubjectPriceID", item.SubjPriceID);
+                            comm.Parameters.AddWithValue("@SubjectPriceID", item.SubjectPriceID);
                             comm.Parameters.AddWithValue("@CurriculumID", item.CurriculumID);
                             comm.Parameters.AddWithValue("@YearLevelID", item.YearLevelID);
                             comm.Parameters.AddWithValue("@CurriculumSUbjectID", item.CurriculumSubjID);
@@ -224,7 +224,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         {
                             SubjectSetted subject = new SubjectSetted()
                             {
-                                SubjPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
+                                SubjectPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
                                 CurriculumSubjID = Convert.ToInt32(reader["CurriculumSubjectID"]),
                                 SubjID = Convert.ToInt16(reader["SubjID"]),
                                 SubjCode = Convert.ToString(reader["SubjCode"]),
@@ -290,7 +290,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         {
                             subject = new SubjectSetted()
                             {
-                                SubjPriceID = Convert.ToInt32(reader["SubjectPriceID"]),                                
+                                SubjectPriceID = Convert.ToInt32(reader["SubjectPriceID"]),                                
                                 CurriculumSubjID = Convert.ToInt32(reader["CurriculumSubjectID"]),
                                 YearLevelID = Convert.ToInt16(reader["YearLevelID"]),
                                 SubjID = Convert.ToInt16(reader["SubjID"]),
@@ -329,7 +329,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         {
                             SubjectSetted subject = new SubjectSetted()
                             {
-                                SubjPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
+                                SubjectPriceID = Convert.ToInt32(reader["SubjectPriceID"]),
                                 CurriculumSubjID = Convert.ToInt32(reader["CurriculumSubjectID"]),
                                 YearLevelID = Convert.ToInt16(reader["YearLevelID"]),
                                 SubjID = Convert.ToInt16(reader["SubjID"]),

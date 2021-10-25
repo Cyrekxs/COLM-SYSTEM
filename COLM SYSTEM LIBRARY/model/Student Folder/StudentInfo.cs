@@ -65,64 +65,7 @@ namespace COLM_SYSTEM_LIBRARY.model
             }
         }
 
-        public static List<StudentInfo> GetStudentsToImport()
-        {
-            return StudentInfo_DS.GetStudentsToImport();
-        }
-
-        public static async Task<List<StudentInfo>> GetStudentsAsync()
-        {
-            return await StudentInfo_DS.GetStudents();
-        }
-
-        public static StudentInfo GetStudent(int StudentID)
-        {
-            return StudentInfo_DS.GetStudent(StudentID);
-        }
-
-        public static StudentInfo IsStudentExist(string Lastname, string Firstname)
-        {
-            return StudentInfo_DS.IsStudentExists(Lastname, Firstname);
-        }
-
-        public static bool IsLRNExists(string LRN)
-        {
-            return StudentInfo_DS.IsLRNExists(LRN);
-        }
-
-        public static bool InsertUpdateStudentInformation(StudentInfo model)
-        {
-            return StudentInfo_DS.InsertUpdateStudentInformation(model);
-        }
-        public static int RemoveStudent(int StudentID)
-        {
-            return StudentInfo_DS.RemoveStudent(StudentID);
-        }
-
-        public static int RemoveStudentInformationAndApplication(int StudentID)
-        {
-            return StudentInfo_DS.RemoveStudentInfoAndApplication(StudentID);
-        }
-
-        public static int UpdateStudentEmail(int StudentID, string Email)
-        {
-            return StudentInfo_DS.UpdateStudentEmail(StudentID, Email);
-        }
-
-        public static bool HasRegistration(int StudentID)
-        {
-            return StudentInfo_DS.HasRegistration(StudentID);
-        }
-
-        public static List<string> GetSchools()
-        {
-            return StudentInfo_DS.GetSchools();
-        }
-
-        public static List<string> GetSchoolAddresses()
-        {
-            return StudentInfo_DS.GetSchoolAddresses();
-        }
+       
 
 
     }
