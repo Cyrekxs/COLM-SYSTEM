@@ -1,10 +1,8 @@
 ﻿using COLM_SYSTEM_LIBRARY.Controller;
 using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
-using Microsoft.Reporting.WinForms;
 using SEMS;
 using SEMS.Assessment_Folder;
-using SEMS.Assessment_Folder.DataSets;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,6 +21,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private int SelectedSubjectRow = -1;
 
         private AssessmentOptions AssessmentStatus = AssessmentOptions.Create;
+
 
         //for new assessment entry
         public frm_assessment_entry_2(StudentRegistered student, YearLevel yearLevel)
@@ -67,9 +66,10 @@ namespace COLM_SYSTEM.Assessment_Folder
             studentYearLevel = YearLevel.GetYearLevel(assessment.Summary.YearLevelID);
 
             //Display Student Information
-            StudentInfo student = new StudentController().GetStudentAsync(registeredStudent.StudentID).GetAwaiter().GetResult();
-            txtLRN.Text = student.LRN;
-            txtStudentName.Text = student.StudentName;
+            StudentController controller = new StudentController();
+            Task<StudentInfo> student = Task.Run(async () => await controller.GetStudentAsync(registeredStudent.StudentID));
+            txtLRN.Text = student.Result.LRN;
+            txtStudentName.Text = student.Result.StudentName;
             txtCurriculumCode.Text = registeredStudent.CurriculumCode;
             txtEducationLevel.Text = registeredStudent.EducationLevel;
             txtCourseStrand.Text = registeredStudent.CourseStrand;
