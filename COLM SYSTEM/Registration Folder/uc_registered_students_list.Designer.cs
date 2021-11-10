@@ -62,6 +62,7 @@
             this.viewRequirementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.lblTotalRecords = new System.Windows.Forms.Label();
+            this.dROPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -340,11 +341,12 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changeRegistrationToolStripMenuItem,
+            this.dROPToolStripMenuItem,
             this.viewInformationToolStripMenuItem,
             this.deleteApplicationToolStripMenuItem,
             this.viewRequirementsToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(196, 170);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(196, 184);
             // 
             // changeRegistrationToolStripMenuItem
             // 
@@ -365,7 +367,7 @@
             // deleteApplicationToolStripMenuItem
             // 
             this.deleteApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.deleteApplicationToolStripMenuItem.Image = global::SEMS.Properties.Resources.Document_Delete;
+            this.deleteApplicationToolStripMenuItem.Image = global::SEMS.Properties.Resources.Delete;
             this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
             this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(195, 36);
             this.deleteApplicationToolStripMenuItem.Text = "Delete Registration";
@@ -401,6 +403,13 @@
             this.lblTotalRecords.TabIndex = 28;
             this.lblTotalRecords.Text = "The sort function is modified by encoded then by student name for optimization";
             this.lblTotalRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dROPToolStripMenuItem
+            // 
+            this.dROPToolStripMenuItem.Image = global::SEMS.Properties.Resources.Data_Delete;
+            this.dROPToolStripMenuItem.Name = "dROPToolStripMenuItem";
+            this.dROPToolStripMenuItem.Size = new System.Drawing.Size(195, 36);
+            this.dROPToolStripMenuItem.Text = "Drop";
             // 
             // uc_registered_students_list
             // 
@@ -454,5 +463,6 @@
         private System.Windows.Forms.ToolStripMenuItem viewRequirementsToolStripMenuItem;
         private System.Windows.Forms.Label lblTotalRecords;
         private System.Windows.Forms.ToolStripMenuItem changeRegistrationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dROPToolStripMenuItem;
     }
 }

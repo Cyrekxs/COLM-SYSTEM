@@ -33,7 +33,7 @@ namespace COLM_SYSTEM.student_information
             }
 
             dataGridView1.Rows.Clear();
-            foreach (var item in students)
+            foreach (var item in students.Take(300))
             {
                 string gender = item.Gender.Substring(0, 1);
                 dataGridView1.Rows.Add(item.StudentID, item.LRN, item.StudentName, gender, item.BirthDate.ToString("MM-dd-yyyy"), item.MobileNo, item.EmergencyName, item.EmergencyMobile, item.ApplicationInfo, item.Encoded.ToString("MM-dd-yyyy"));

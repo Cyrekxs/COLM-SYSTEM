@@ -16,7 +16,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                string sql = "SELECT TOP 300 * FROM student.information ORDER BY DateEncoded DESC,Lastname,Firstname ASC";
+                string sql = "SELECT * FROM student.information ORDER BY DateEncoded DESC,Lastname,Firstname ASC";
                 students = await conn.QueryAsync<StudentInfo>(sql);
             }
             return students.AsList();
