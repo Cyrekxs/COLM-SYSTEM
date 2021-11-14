@@ -37,13 +37,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnGenerate = new System.Windows.Forms.Button();
             this.txtpassword = new System.Windows.Forms.TextBox();
             this.txtusername = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnGenerate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -133,6 +133,21 @@
             this.panel2.Size = new System.Drawing.Size(473, 95);
             this.panel2.TabIndex = 2;
             // 
+            // btnGenerate
+            // 
+            this.btnGenerate.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnGenerate.FlatAppearance.BorderSize = 0;
+            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerate.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.ForeColor = System.Drawing.Color.White;
+            this.btnGenerate.Location = new System.Drawing.Point(16, 61);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(445, 24);
+            this.btnGenerate.TabIndex = 13;
+            this.btnGenerate.Text = "GENERATE USERNAME / EMAIL AND PASSWORD";
+            this.btnGenerate.UseVisualStyleBackColor = false;
+            this.btnGenerate.Click += new System.EventHandler(this.button2_Click);
+            // 
             // txtpassword
             // 
             this.txtpassword.Location = new System.Drawing.Point(276, 17);
@@ -153,9 +168,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(13, 43);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 15);
+            this.label6.Size = new System.Drawing.Size(112, 15);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Username / Email";
+            this.label6.Text = "Organization Email";
             // 
             // label7
             // 
@@ -190,21 +205,6 @@
             this.button1.Text = "SAVE";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnGenerate
-            // 
-            this.btnGenerate.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnGenerate.FlatAppearance.BorderSize = 0;
-            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerate.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.ForeColor = System.Drawing.Color.White;
-            this.btnGenerate.Location = new System.Drawing.Point(16, 61);
-            this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(445, 24);
-            this.btnGenerate.TabIndex = 13;
-            this.btnGenerate.Text = "GENERATE USERNAME / EMAIL AND PASSWORD";
-            this.btnGenerate.UseVisualStyleBackColor = false;
-            this.btnGenerate.Click += new System.EventHandler(this.button2_Click);
             // 
             // frm_faculty_entry
             // 

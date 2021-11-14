@@ -41,8 +41,7 @@ namespace COLM_SYSTEM.Faculty_Folder
                 Title = txtTitle.Text.Trim(),
                 Lastname = txtLastname.Text.Trim(),
                 Firstname = txtFirstname.Text.Trim(),
-                Username = txtusername.Text,
-                Userpass = txtpassword.Text
+                Username = txtusername.Text
             };
 
             var IsFacultyExists = faculties.Any(r => r.Fullname.ToLower().Contains(faculty.Fullname.ToLower()));

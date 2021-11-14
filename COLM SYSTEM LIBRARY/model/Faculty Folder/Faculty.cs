@@ -10,7 +10,6 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string Lastname { get; set; }
         public string Firstname { get; set; }
         public string Username { get; set; }
-        public string Userpass { get; set; }
 
         public string Fullname { get { return string.Concat(Title, " ", Lastname, " ", Firstname); } }
 
