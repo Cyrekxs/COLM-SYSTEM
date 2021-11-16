@@ -234,6 +234,12 @@
     <Compile Include="Faculty Folder\frm_faculty_entry.Designer.cs">
       <DependentUpon>frm_faculty_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Faculty Folder\frm_faculty_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faculty Folder\frm_faculty_list.Designer.cs">
+      <DependentUpon>frm_faculty_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fees Folder\frm_addtional_fee_entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -737,6 +743,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Faculty Folder\frm_faculty_entry.resx">
       <DependentUpon>frm_faculty_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Faculty Folder\frm_faculty_list.resx">
+      <DependentUpon>frm_faculty_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fees Folder\frm_addtional_fee_entry.resx">
       <DependentUpon>frm_addtional_fee_entry.cs</DependentUpon>

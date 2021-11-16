@@ -37,11 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnGenerate = new System.Windows.Forms.Button();
-            this.txtpassword = new System.Windows.Forms.TextBox();
             this.txtusername = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -123,43 +120,18 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.btnGenerate);
-            this.panel2.Controls.Add(this.txtpassword);
             this.panel2.Controls.Add(this.txtusername);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label7);
             this.panel2.Location = new System.Drawing.Point(15, 149);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(473, 95);
+            this.panel2.Size = new System.Drawing.Size(473, 71);
             this.panel2.TabIndex = 2;
-            // 
-            // btnGenerate
-            // 
-            this.btnGenerate.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnGenerate.FlatAppearance.BorderSize = 0;
-            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerate.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.ForeColor = System.Drawing.Color.White;
-            this.btnGenerate.Location = new System.Drawing.Point(16, 61);
-            this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(445, 24);
-            this.btnGenerate.TabIndex = 13;
-            this.btnGenerate.Text = "GENERATE USERNAME / EMAIL AND PASSWORD";
-            this.btnGenerate.UseVisualStyleBackColor = false;
-            this.btnGenerate.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // txtpassword
-            // 
-            this.txtpassword.Location = new System.Drawing.Point(276, 17);
-            this.txtpassword.Name = "txtpassword";
-            this.txtpassword.Size = new System.Drawing.Size(185, 23);
-            this.txtpassword.TabIndex = 6;
             // 
             // txtusername
             // 
             this.txtusername.Location = new System.Drawing.Point(16, 17);
             this.txtusername.Name = "txtusername";
-            this.txtusername.Size = new System.Drawing.Size(253, 23);
+            this.txtusername.Size = new System.Drawing.Size(445, 23);
             this.txtusername.TabIndex = 5;
             this.txtusername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtusername_KeyDown);
             // 
@@ -171,15 +143,6 @@
             this.label6.Size = new System.Drawing.Size(112, 15);
             this.label6.TabIndex = 3;
             this.label6.Text = "Organization Email";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(273, 43);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 15);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Password";
             // 
             // label8
             // 
@@ -198,7 +161,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(372, 253);
+            this.button1.Location = new System.Drawing.Point(372, 226);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 30);
             this.button1.TabIndex = 12;
@@ -210,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 297);
+            this.ClientSize = new System.Drawing.Size(503, 268);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel2);
@@ -242,12 +205,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtpassword;
         private System.Windows.Forms.TextBox txtusername;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnGenerate;
     }
 }

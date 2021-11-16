@@ -1,10 +1,12 @@
 ﻿using COLM_SYSTEM_LIBRARY.datasource;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace COLM_SYSTEM_LIBRARY.model
 {
     public class Faculty
     {
+        public int AccountID { get; set; } //data coming from users.accounts table
         public int FacultyID { get; set; }
         public string Title { get; set; }
         public string Lastname { get; set; }
@@ -13,14 +15,17 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public string Fullname { get { return string.Concat(Title, " ", Lastname, " ", Firstname); } }
 
-        public static int InsertUpdateFaculty(Faculty faculty)
+        public static int InsertFaculty(Faculty faculty)
         {
-            return Faculty_DS.InsertUpdateFaculty(faculty);
+            return Faculty_DS.InsertFaculty(faculty);
         }
-
-        public static List<Faculty> GetFaculties()
+        public static int UpdateFaculty(Faculty faculty)
         {
-            return Faculty_DS.GetFaculties();
+            return Faculty_DS.UpdateFaculty(faculty);
+        }
+        public async Task<List<Faculty>> GetFaculties()
+        {
+            return await new Faculty_DS().GetFaculties();
         }
 
         public static Faculty GetFaculty(int FacultyID)

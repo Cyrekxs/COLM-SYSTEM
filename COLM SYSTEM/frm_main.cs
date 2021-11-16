@@ -14,6 +14,7 @@ using COLM_SYSTEM.subject;
 using COLM_SYSTEM.User_Folder;
 using COLM_SYSTEM_LIBRARY.model;
 using SEMS;
+using SEMS.Faculty_Folder;
 using SEMS.Reports_Folder;
 using SEMS.Settings_Folder;
 using SEMS.Student_Information_Folder;
@@ -305,7 +306,7 @@ namespace COLM_SYSTEM
 
         private void facultiesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frm_faculty_entry frm = new frm_faculty_entry();
+            frm_faculty_list frm = new frm_faculty_list();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

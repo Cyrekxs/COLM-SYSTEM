@@ -14,33 +14,29 @@ namespace COLM_SYSTEM.Faculty_Folder
 {
     public partial class frm_faculty_browser : Form
     {
-        List<Faculty> _faculties = Faculty.GetFaculties();
         public Faculty faculty { get; set; }
+
+        List<Faculty> _faculties = new List<Faculty>();
+        public Faculty FacultyRepository { get; set; } = new Faculty();
 
         public frm_faculty_browser()
         {
             InitializeComponent();
-            LoadFaculties();
         }
 
-        private void LoadFaculties(string search = "")
+        private async Task LoadFaculties()
         {
-            _faculties = Faculty.GetFaculties();
+            _faculties = await FacultyRepository.GetFaculties();
+            DisplayFaculties(_faculties);
+        }
 
+        private void DisplayFaculties(List<Faculty> faculties)
+        {
             dataGridView1.Rows.Clear();
-            List<Faculty> faculties = (from r in _faculties
-                                       where r.Fullname.ToLower().Contains(search.ToLower())
-                                       select r).ToList();
-
             foreach (var item in faculties)
             {
-                dataGridView1.Rows.Add(item.FacultyID,item.Fullname);
+                dataGridView1.Rows.Add(item.FacultyID, item.Fullname);
             }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            LoadFaculties(textBox1.Text);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -52,16 +48,38 @@ namespace COLM_SYSTEM.Faculty_Folder
                            select r).FirstOrDefault();
                 DialogResult = DialogResult.OK;
                 Close();
-
             }
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frm_faculty_entry frm = new frm_faculty_entry();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
-            LoadFaculties();
+            await LoadFaculties();
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            List<Faculty> SearchResult = new List<Faculty>();
+            if (e.KeyCode == Keys.Enter)
+            {
+                foreach (var faculty in _faculties)
+                {
+                    string data = string.Concat(faculty.Lastname, " ", faculty.Firstname);
+                    if (data.ToLower().Contains(textBox1.Text.ToLower()))
+                        SearchResult.Add(faculty);
+                }
+
+                DisplayFaculties(SearchResult);
+            }
+        }
+
+
+
+        private async void frm_faculty_browser_Load(object sender, EventArgs e)
+        {
+            await LoadFaculties();
         }
     }
 }

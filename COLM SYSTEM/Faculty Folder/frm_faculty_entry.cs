@@ -13,9 +13,23 @@ namespace COLM_SYSTEM.Faculty_Folder
 {
     public partial class frm_faculty_entry : Form
     {
+        private bool IsAdd = true;
+        private Faculty _faculty = new Faculty();
         public frm_faculty_entry()
         {
             InitializeComponent();
+            IsAdd = true;
+        }
+        public frm_faculty_entry(Faculty faculty)
+        {
+            InitializeComponent();
+            IsAdd = false;
+            _faculty = faculty;
+
+            txtTitle.Text = faculty.Title;
+            txtLastname.Text = faculty.Lastname;
+            txtFirstname.Text = faculty.Firstname;
+            txtusername.Text = faculty.Username;
         }
         
         private void CreateFacultyUsername()
@@ -28,27 +42,28 @@ namespace COLM_SYSTEM.Faculty_Folder
 
             string username = string.Concat(txtLastname.Text.Trim(),".", txtFirstname.Text.Trim(),"@colm.edu.ph");
             txtusername.Text = username.ToLower().Replace(" ","");
-            txtpassword.Text = "colmfaculty";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            List<Faculty> faculties = Faculty.GetFaculties();
+            List<Faculty> faculties = await new Faculty().GetFaculties();
 
-            Faculty faculty = new Faculty()
-            {
-                FacultyID = 0,
-                Title = txtTitle.Text.Trim(),
-                Lastname = txtLastname.Text.Trim(),
-                Firstname = txtFirstname.Text.Trim(),
-                Username = txtusername.Text
-            };
+            _faculty.Title = txtTitle.Text;
+            _faculty.Lastname = txtLastname.Text;
+            _faculty.Firstname = txtFirstname.Text;
+            _faculty.Username = txtusername.Text;
 
-            var IsFacultyExists = faculties.Any(r => r.Fullname.ToLower().Contains(faculty.Fullname.ToLower()));
+
+            var IsFacultyExists = faculties.Any(r => r.Username.ToLower().Contains(_faculty.Username.ToLower()));
 
             if (IsFacultyExists == false)
             {
-                int result = Faculty.InsertUpdateFaculty(faculty);
+                int result = 0;
+                if (IsAdd == true)
+                    result = Faculty.InsertFaculty(_faculty);
+                else
+                    result = Faculty.UpdateFaculty(_faculty);
+
                 if (result > 0)
                 {
                     MessageBox.Show("New faculty has been successfully saved!", "New Faculty Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -76,7 +91,7 @@ namespace COLM_SYSTEM.Faculty_Folder
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnGenerate.PerformClick();
+
             }
         }
     }
