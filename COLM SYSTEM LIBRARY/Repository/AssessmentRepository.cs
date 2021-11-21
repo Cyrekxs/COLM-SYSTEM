@@ -18,7 +18,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                string qry = "SELECT * FROM fn_list_student_assessment()";
+                string qry = "SELECT * FROM fn_list_student_assessment() ORDER BY StudentName ASC";
 
                 using (SqlCommand comm = new SqlCommand(qry, conn))
                 {

@@ -54,13 +54,13 @@
             this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssessor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssessmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAction = new System.Windows.Forms.DataGridViewImageColumn();
             this.lblCount = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.viewAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.clmAction = new System.Windows.Forms.DataGridViewImageColumn();
+            this.viewAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -87,9 +87,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(9, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 19);
+            this.label3.Size = new System.Drawing.Size(205, 19);
             this.label3.TabIndex = 2;
-            this.label3.Text = "STUDENT LIST";
+            this.label3.Text = "LIST OF ASSESSED STUDENTS";
             // 
             // cmbEducationLevel
             // 
@@ -290,15 +290,6 @@
             this.clmAssessmentDate.ReadOnly = true;
             this.clmAssessmentDate.Width = 57;
             // 
-            // clmAction
-            // 
-            this.clmAction.HeaderText = "Action";
-            this.clmAction.Image = global::SEMS.Properties.Resources.Data;
-            this.clmAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.clmAction.Name = "clmAction";
-            this.clmAction.ReadOnly = true;
-            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // lblCount
             // 
             this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -322,6 +313,30 @@
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.contextMenuStrip1.Size = new System.Drawing.Size(157, 68);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 15000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Show Account";
+            this.dataGridViewImageColumn1.Image = global::SEMS.Properties.Resources.Account;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // clmAction
+            // 
+            this.clmAction.HeaderText = "Action";
+            this.clmAction.Image = global::SEMS.Properties.Resources.Data;
+            this.clmAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.clmAction.Name = "clmAction";
+            this.clmAction.ReadOnly = true;
+            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // viewAssessmentToolStripMenuItem
             // 
             this.viewAssessmentToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -339,21 +354,6 @@
             this.printAssessmentToolStripMenuItem.Size = new System.Drawing.Size(156, 32);
             this.printAssessmentToolStripMenuItem.Text = "Print SOA";
             this.printAssessmentToolStripMenuItem.Click += new System.EventHandler(this.printAssessmentToolStripMenuItem_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 15000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Show Account";
-            this.dataGridViewImageColumn1.Image = global::SEMS.Properties.Resources.Account;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // uc_payers
             // 
