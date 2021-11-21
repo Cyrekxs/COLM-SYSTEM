@@ -75,13 +75,13 @@ namespace SEMS.Payment_Folder
             Payment payment = new Payment()
             {
                 RegisteredStudentID = studentRegistered.RegisteredID,
-                SchoolYearID = Utilties.GetActiveSchoolYear(),
-                SemesterID = Utilties.GetActiveSemester(),
+                SchoolYearID = Utilties.GetUserSchoolYearID(),
+                SemesterID = Utilties.GetUserSemesterID(),
                 ORNumber = txtORNumber.Text,
                 FeeCategory = "Tuition",
                 PaymentCategory = "Center",
                 AmountPaid = Convert.ToDouble(txtAmountToPay.Text),
-                UserID = Utilties.user.UserID
+                UserID = Program.user.UserID
             };
 
             PaymentCenter center = new PaymentCenter()
@@ -99,8 +99,8 @@ namespace SEMS.Payment_Folder
                 EnrolledStudent student = new EnrolledStudent()
                 {
                     RegisteredStudentID = studentRegistered.RegisteredID,
-                    SchoolYearID = Utilties.GetActiveSchoolYear(),
-                    SemesterID = Utilties.GetActiveSemester()
+                    SchoolYearID = Utilties.GetUserSchoolYearID(),
+                    SemesterID = Utilties.GetUserSemesterID()
                 };
                 EnrolledStudent.EnrollStudent(student);
 

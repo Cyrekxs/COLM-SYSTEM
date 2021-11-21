@@ -19,7 +19,7 @@ namespace COLM_SYSTEM.Reports_Folder
     {
         int SelectedSubjectID = 0;
         List<SubjectSetted> subjects = SubjectSetted.GetSubjectSetteds();
-        List<AssessmentSummary> assessments = new List<AssessmentSummary>();
+        List<AssessmentSummaryEntity> assessments = new List<AssessmentSummaryEntity>();
 
         public frm_subject_master_list()
         {

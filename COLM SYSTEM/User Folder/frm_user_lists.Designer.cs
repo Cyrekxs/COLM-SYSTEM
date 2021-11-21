@@ -211,6 +211,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_user_lists";
+            this.Load += new System.EventHandler(this.frm_user_lists_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

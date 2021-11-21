@@ -9,18 +9,18 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
 {
     public class Assessment
     {
-        public AssessmentSummary Summary { get; set; }
+        public AssessmentSummaryEntity Summary { get; set; }
         public List<AssessmentSubject> Subjects { get; set; }
         public List<AssessmentFee> Fees { get; set; }
         public List<AssessmentDiscount> Discounts { get; set; }
         public List<AssessmentBreakdown> Breakdown { get; set; }
 
-        public static List<AssessmentSummary> GetAssessments(string EducationLevel = "")
+        public static List<AssessmentSummaryEntity> GetAssessments(string EducationLevel = "")
         {
             return Assessment_DS.GetAssessmentLists(EducationLevel);
         }
 
-        public static List<AssessmentSummary> GetAssessments()
+        public static List<AssessmentSummaryEntity> GetAssessments()
         {
             return Assessment_DS.GetAssessmentLists();
         }

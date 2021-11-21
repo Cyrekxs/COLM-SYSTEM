@@ -222,6 +222,7 @@
     <Compile Include="Discounts Folder\uc_discount_list.Designer.cs">
       <DependentUpon>uc_discount_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enums.cs" />
     <Compile Include="Faculty Folder\frm_faculty_browser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -293,6 +294,23 @@
     </Compile>
     <Compile Include="frm_loading_v3.Designer.cs">
       <DependentUpon>frm_loading_v3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_loading_v4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_loading_v4.Designer.cs">
+      <DependentUpon>frm_loading_v4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment Folder\DataSet_SOA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_SOA.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Payment Folder\frm_soa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment Folder\frm_soa.Designer.cs">
+      <DependentUpon>frm_soa.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports Folder\DS_EnrollmentLists.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -643,12 +661,6 @@
     <Compile Include="uc_transaction_dashboard.Designer.cs">
       <DependentUpon>uc_transaction_dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Folder\frm_setup_email.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="User Folder\frm_setup_email.Designer.cs">
-      <DependentUpon>frm_setup_email.cs</DependentUpon>
-    </Compile>
     <Compile Include="User Folder\frm_user_entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -774,6 +786,13 @@
     <EmbeddedResource Include="frm_loading_v3.resx">
       <DependentUpon>frm_loading_v3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_loading_v4.resx">
+      <DependentUpon>frm_loading_v4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment Folder\frm_soa.resx">
+      <DependentUpon>frm_soa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment Folder\rpt_soa.rdlc" />
     <EmbeddedResource Include="Reports Folder\Enrollment List\frm_enrollment_list.resx">
       <DependentUpon>frm_enrollment_list.cs</DependentUpon>
     </EmbeddedResource>
@@ -949,9 +968,6 @@
     <EmbeddedResource Include="uc_transaction_dashboard.resx">
       <DependentUpon>uc_transaction_dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Folder\frm_setup_email.resx">
-      <DependentUpon>frm_setup_email.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="User Folder\frm_user_entry.resx">
       <DependentUpon>frm_user_entry.cs</DependentUpon>
     </EmbeddedResource>
@@ -984,6 +1000,17 @@
     </None>
     <None Include="Payment Folder\DataSet_PaymentReceipt.xss">
       <DependentUpon>DataSet_PaymentReceipt.xsd</DependentUpon>
+    </None>
+    <None Include="Payment Folder\DataSet_SOA.xsc">
+      <DependentUpon>DataSet_SOA.xsd</DependentUpon>
+    </None>
+    <None Include="Payment Folder\DataSet_SOA.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_SOA.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Payment Folder\DataSet_SOA.xss">
+      <DependentUpon>DataSet_SOA.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -1094,6 +1121,7 @@
     <None Include="Resources\Message-Edit.png" />
     <None Include="Resources\Computer-Desktop.png" />
     <None Include="Resources\Search.png" />
+    <None Include="Resources\Loading.gif" />
     <Content Include="sems.ico" />
     <None Include="Resources\NONITA NABONG.jpg" />
     <None Include="Resources\Message.png" />

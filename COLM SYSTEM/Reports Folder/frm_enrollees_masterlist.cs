@@ -14,7 +14,7 @@ namespace COLM_SYSTEM.Reports_Folder
 {
     public partial class frm_enrollees_masterlist : Form
     {
-        List<AssessmentSummary> summary;
+        List<AssessmentSummaryEntity> summary;
 
         public frm_enrollees_masterlist(string EducationLevel, string CourseStrand, string YearLevel)
         {

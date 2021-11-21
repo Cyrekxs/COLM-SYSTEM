@@ -83,8 +83,8 @@ namespace COLM_SYSTEM.registration
                 RegistrationID = RegisteredStudentID,
                 StudentID = _StudentInfo.StudentID,
                 CurriculumID = CurriculumID,
-                SchoolYearID = Utilties.GetActiveSchoolYear(),
-                SemesterID = Utilties.GetActiveSemester(),
+                SchoolYearID = Utilties.GetUserSchoolYearID(),
+                SemesterID = Utilties.GetUserSemesterID(),
                 StudentStatus = cmbStudentStatus.Text,
                 RegistrationStatus = cmbRegistrationStatus.Text
             };

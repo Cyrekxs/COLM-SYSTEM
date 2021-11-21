@@ -100,8 +100,8 @@ namespace COLM_SYSTEM.Section_Folder
                     CurriculumID = tag.CurriculumID,
                     YearLevelID = tag.YearLevelID,
                     SectionName = txtSection.Text,
-                    SchoolYearID = Utilties.GetActiveSchoolYear(),
-                    SemesterID = Utilties.GetActiveSemester()
+                    SchoolYearID = Utilties.GetUserSchoolYearID(),
+                    SemesterID = Utilties.GetUserSemesterID()
                 };
 
                 bool IsSectionExists = Section.IsSectionExists(section);
@@ -112,7 +112,7 @@ namespace COLM_SYSTEM.Section_Folder
                     if (result == true)
                     {
 
-                        int SectionID = Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester()).Where(
+                        int SectionID = Section.GetSections(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID()).Where(
                             item => item.EducationLevel == cmbEducationLevel.Text && 
                             item.CurriculumID == tag.CurriculumID && 
                             item.YearLevelID == tag.YearLevelID &&

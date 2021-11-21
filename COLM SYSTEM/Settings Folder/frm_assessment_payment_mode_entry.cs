@@ -67,8 +67,8 @@ namespace COLM_SYSTEM.Settings_Folder
             payment.EducationLevel = cmbEducationLevel.Text;
             payment.PaymentName = txtPaymentMode.Text;
             payment.NumOfPayments = Convert.ToInt32(txtNumPayments.Text);
-            payment.SchoolYearID = Utilties.GetActiveSchoolYear();
-            payment.SemesterID = Utilties.GetActiveSemester();
+            payment.SchoolYearID = Utilties.GetUserSchoolYearID();
+            payment.SemesterID = Utilties.GetUserSemesterID();
 
 
             bool IsValidPaymentMode = PaymentMode.IsValidPaymentMode(payment);

@@ -1,4 +1,6 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.Interaces;
+using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +15,11 @@ namespace COLM_SYSTEM.User_Folder
 {
     public partial class frm_user_settings : Form
     {
+        IUserRepository _UserRepository = new UserRepository();
         public frm_user_settings()
         {
             InitializeComponent();
-            txtAccountName.Text = Utilties.user.AccountName;
+            txtAccountName.Text = Program.user.AccountName;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -33,7 +36,7 @@ namespace COLM_SYSTEM.User_Folder
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             if (txtNewPassword.Text.Equals(txtNewConfirmPassword.Text) == false)
             {
@@ -41,12 +44,12 @@ namespace COLM_SYSTEM.User_Folder
                 return;
             }
 
-            if (Utilties.user.Username.Equals(txtCurrentUsername.Text,StringComparison.OrdinalIgnoreCase) && Utilties.user.Password.Equals(txtCurrentPassword.Text, StringComparison.OrdinalIgnoreCase))
+            if (Program.user.Username.Equals(txtCurrentUsername.Text,StringComparison.OrdinalIgnoreCase) && Program.user.Password.Equals(txtCurrentPassword.Text, StringComparison.OrdinalIgnoreCase))
             {
-                Utilties.user.Username = txtNewUsername.Text;
-                Utilties.user.Password = txtNewConfirmPassword.Text;
+                Program.user.Username = txtNewUsername.Text;
+                Program.user.Password = txtNewConfirmPassword.Text;
 
-                var result = User.UpdateUser(Utilties.user);
+                var result = await _UserRepository.Updateuser(Program.user);
                 if (result > 0)
                 {
                     MessageBox.Show("Account has been successfully updated!", "Account Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -57,7 +60,6 @@ namespace COLM_SYSTEM.User_Folder
             else
             {
                 MessageBox.Show("Invalid Credentials", "Invalid Credentails", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
     }

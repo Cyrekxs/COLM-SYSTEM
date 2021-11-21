@@ -40,9 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtEmailPassword = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
@@ -72,7 +70,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(15, 39);
+            this.panel1.Location = new System.Drawing.Point(15, 117);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(424, 219);
             this.panel1.TabIndex = 1;
@@ -150,7 +148,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 21);
+            this.label5.Location = new System.Drawing.Point(12, 99);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 2;
@@ -159,22 +157,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.txtEmailPassword);
             this.panel2.Controls.Add(this.txtEmail);
-            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Location = new System.Drawing.Point(15, 288);
+            this.panel2.Location = new System.Drawing.Point(15, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(424, 115);
+            this.panel2.Size = new System.Drawing.Size(424, 71);
             this.panel2.TabIndex = 3;
-            // 
-            // txtEmailPassword
-            // 
-            this.txtEmailPassword.Location = new System.Drawing.Point(18, 78);
-            this.txtEmailPassword.Name = "txtEmailPassword";
-            this.txtEmailPassword.Size = new System.Drawing.Size(391, 23);
-            this.txtEmailPassword.TabIndex = 7;
-            this.txtEmailPassword.UseSystemPasswordChar = true;
             // 
             // txtEmail
             // 
@@ -182,15 +170,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(391, 23);
             this.txtEmail.TabIndex = 4;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 60);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 15);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Password (Optional)";
             // 
             // label9
             // 
@@ -205,7 +184,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(12, 272);
+            this.label10.Location = new System.Drawing.Point(12, 9);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(83, 15);
             this.label10.TabIndex = 4;
@@ -218,7 +197,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(323, 409);
+            this.btnSave.Location = new System.Drawing.Point(323, 342);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(116, 30);
             this.btnSave.TabIndex = 20;
@@ -233,7 +212,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.Location = new System.Drawing.Point(201, 409);
+            this.button3.Location = new System.Drawing.Point(201, 342);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(116, 30);
             this.button3.TabIndex = 22;
@@ -245,7 +224,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 490);
+            this.ClientSize = new System.Drawing.Size(459, 386);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label10);
@@ -279,9 +258,7 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtEmailPassword;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnSave;

@@ -5,6 +5,7 @@ using COLM_SYSTEM.Reports_Folder;
 using COLM_SYSTEM.Settings_Folder;
 using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM.subject;
+using COLM_SYSTEM_LIBRARY.model;
 using SEMS;
 using SEMS.Custom_Controls;
 using SEMS.Settings_Folder;
@@ -19,6 +20,7 @@ namespace COLM_SYSTEM
 {
     static class Program
     {
+        public static User user;
         /// <summary>
         /// The main entry point for the application.
         /// </summary> 

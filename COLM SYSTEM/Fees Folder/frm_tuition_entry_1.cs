@@ -85,7 +85,7 @@ namespace COLM_SYSTEM.Fees_Folder
             int CurriculumID = Curriculum.GetCurriculumID(cmbCurriculumCode.Text);
             int YearLevelID = YearLevel.GetYearLevelID(cmbYearLevel.Tag as List<YearLevel>, cmbEducationLevel.Text, cmbYearLevel.Text);
 
-            bool result = SubjectSetted.HasSetted(CurriculumID, YearLevelID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+            bool result = SubjectSetted.HasSetted(CurriculumID, YearLevelID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
             if (result == false)
             {
                 frm_tuition_entry_2 frm = new frm_tuition_entry_2(cmbEducationLevel.Text, cmbCurriculumCode.Text, cmbCourseStrand.Text, cmbYearLevel.Text);

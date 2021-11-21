@@ -33,7 +33,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void LoadAssessments(string SearchFilter = "")
         {
 
-            Task<List<AssessmentSummary>> task = new Task<List<AssessmentSummary>>(Assessment.GetAssessments);
+            Task<List<AssessmentSummaryEntity>> task = new Task<List<AssessmentSummaryEntity>>(Assessment.GetAssessments);
             task.Start();
 
             using (frm_loading frm = new frm_loading(task))
@@ -42,7 +42,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 frm.ShowDialog();
             }
 
-            List<AssessmentSummary> assessmentLists = task.Result;
+            List<AssessmentSummaryEntity> assessmentLists = task.Result;
 
             assessmentLists = assessmentLists.OrderByDescending(r => r.AssessmentDate.Date).ThenBy(r => r.StudentName).ToList();
 

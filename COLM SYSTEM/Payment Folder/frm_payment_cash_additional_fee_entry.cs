@@ -99,8 +99,8 @@ namespace COLM_SYSTEM.Payment_Folder
             Payment payment = new Payment()
             {
                 RegisteredStudentID = studentRegistered.RegisteredID,
-                SchoolYearID = Utilties.GetActiveSchoolYear(),
-                SemesterID = Utilties.GetActiveSemester(),
+                SchoolYearID = Utilties.GetUserSchoolYearID(),
+                SemesterID = Utilties.GetUserSemesterID(),
                 ORNumber = txtORNumber.Text,
                 FeeCategory = "Additional",
                 PaymentCategory = "Cash",

@@ -223,8 +223,8 @@ namespace COLM_SYSTEM.Discounts
                     MFee = MFee,
                     OFee = OFee,
                     HasYearLevels = hasYearLevels,
-                    SchoolYearID = Utilties.GetActiveSchoolYear(),
-                    SemesterID = Utilties.GetActiveSemester()
+                    SchoolYearID = Utilties.GetUserSchoolYearID(),
+                    SemesterID = Utilties.GetUserSemesterID()
                 };
             }
             else if (cmbDiscountType.Text == "Amount")
@@ -239,8 +239,8 @@ namespace COLM_SYSTEM.Discounts
                     MFee = Convert.ToInt16(ch_MFee.Checked),
                     OFee = Convert.ToInt16(ch_OFee.Checked),
                     HasYearLevels = hasYearLevels,
-                    SchoolYearID = Utilties.GetActiveSchoolYear(),
-                    SemesterID = Utilties.GetActiveSemester()
+                    SchoolYearID = Utilties.GetUserSchoolYearID(),
+                    SemesterID = Utilties.GetUserSemesterID()
                 };
             }
 

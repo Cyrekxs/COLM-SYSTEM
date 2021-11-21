@@ -24,7 +24,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     {
                         while (reader.Read())
                         {
-                            AssessmentSummary summary = new AssessmentSummary()
+                            AssessmentSummaryEntity summary = new AssessmentSummaryEntity()
                             {
                                 AssessmentID = Convert.ToInt32(reader["AssessmentID"]),
                                 RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
@@ -163,9 +163,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 return assessment;
             }
         }
-        public static List<AssessmentSummary> GetAssessmentLists(string EducationLevel = "")
+        public static List<AssessmentSummaryEntity> GetAssessmentLists(string EducationLevel = "")
         {
-            List<AssessmentSummary> assessmentLists = new List<AssessmentSummary>();
+            List<AssessmentSummaryEntity> assessmentLists = new List<AssessmentSummaryEntity>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
@@ -180,7 +180,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     {
                         while (reader.Read())
                         {
-                            AssessmentSummary assessment = new AssessmentSummary()
+                            AssessmentSummaryEntity assessment = new AssessmentSummaryEntity()
                             {
                                 AssessmentID = Convert.ToInt32(reader["AssessmentID"]),
                                 RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
@@ -231,7 +231,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
         /// <param name="discounts"></param>
         /// <param name="breakdown"></param>
         /// <returns></returns>
-        public static int InsertAssessment(AssessmentSummary summary, List<AssessmentSubject> subjects, List<AssessmentFee> fees, List<AssessmentDiscount> discounts, List<AssessmentBreakdown> breakdown)
+        public static int InsertAssessment(AssessmentSummaryEntity summary, List<AssessmentSubject> subjects, List<AssessmentFee> fees, List<AssessmentDiscount> discounts, List<AssessmentBreakdown> breakdown)
         {         
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {

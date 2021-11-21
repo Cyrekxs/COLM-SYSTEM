@@ -46,7 +46,7 @@ namespace COLM_SYSTEM.fees_folder
             if (SavingFlag == "ADD")
             {
                 YearLevel yearLevel = YearLevel.GetYearLevel(txtEducationLevel.Text, txtCourseStrand.Text, txtYearLevel.Text);
-                List<SubjectSetted> subjects = SubjectSetted.GetCurriculumSubjects(Curriculum.GetCurriculumID(txtCurriculumCode.Text), yearLevel.YearLevelID, Utilties.GetActiveSemester());
+                List<SubjectSetted> subjects = SubjectSetted.GetCurriculumSubjects(Curriculum.GetCurriculumID(txtCurriculumCode.Text), yearLevel.YearLevelID, Utilties.GetUserSemesterID());
 
                 dgTuition.Rows.Clear();
                 foreach (var item in subjects)
@@ -159,8 +159,8 @@ namespace COLM_SYSTEM.fees_folder
                     CurriculumID = CurriculumID,
                     YearLevelID = yearLevel.YearLevelID,
                     CurriculumSubjID = Convert.ToInt32(item.Cells["clmCurriculumSubjID"].Value),
-                    SchoolYearID = Utilties.GetActiveSchoolYear(),
-                    SemesterID = Utilties.GetActiveSemester(),
+                    SchoolYearID = Utilties.GetUserSchoolYearID(),
+                    SemesterID = Utilties.GetUserSemesterID(),
                     SubjPrice = Convert.ToDouble(item.Cells["clmSubjPrice"].Value),
                     SubjType = Convert.ToString(item.Cells["clmSubjectType"].Value),
                     AdditionalFees = item.Tag as List<SubjectSettedAddtionalFee>
@@ -178,8 +178,8 @@ namespace COLM_SYSTEM.fees_folder
                     FeeID = Convert.ToInt16(item.Cells["clmMiscFeeID"].Value),
                     CurriculumID = CurriculumID,
                     YearLeveLID = yearLevel.YearLevelID,
-                    SchoolYearID = Utilties.GetActiveSchoolYear(),
-                    SemesterID = Utilties.GetActiveSemester(),
+                    SchoolYearID = Utilties.GetUserSchoolYearID(),
+                    SemesterID = Utilties.GetUserSemesterID(),
                     FeeDesc = Convert.ToString(item.Cells["clmMiscFee"].Value),
                     FeeType = "Miscellaneous",
                     Amount = Convert.ToDouble(item.Cells["clmMiscAmount"].Value)
@@ -195,8 +195,8 @@ namespace COLM_SYSTEM.fees_folder
                     FeeID = Convert.ToInt16(item.Cells["clmOtherFeeID"].Value),
                     CurriculumID = CurriculumID,
                     YearLeveLID = yearLevel.YearLevelID,
-                    SchoolYearID = Utilties.GetActiveSchoolYear(),
-                    SemesterID = Utilties.GetActiveSemester(),
+                    SchoolYearID = Utilties.GetUserSchoolYearID(),
+                    SemesterID = Utilties.GetUserSemesterID(),
                     FeeDesc = Convert.ToString(item.Cells["clmOtherFee"].Value),
                     FeeType = "Other",
                     Amount = Convert.ToDouble(item.Cells["clmOtherAmount"].Value)

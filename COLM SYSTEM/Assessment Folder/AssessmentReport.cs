@@ -195,6 +195,7 @@ namespace SEMS.Assessment_Folder
             {
                 frm.reportViewer1.LocalReport.DataSources.Add(item);
             }
+
             List<ReportParameter> parameters = new List<ReportParameter>();
             foreach (var item in report.LocalReport.GetParameters())
             {

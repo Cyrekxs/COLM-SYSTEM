@@ -15,9 +15,9 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
     {
         static TextInfo text = CultureInfo.CurrentCulture.TextInfo;
 
-        public static List<AssessmentSummary> GetSubjectStudentMasterList(int SubjectID)
+        public static List<AssessmentSummaryEntity> GetSubjectStudentMasterList(int SubjectID)
         {
-            List<AssessmentSummary> masterlist = new List<AssessmentSummary>();
+            List<AssessmentSummaryEntity> masterlist = new List<AssessmentSummaryEntity>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
@@ -28,7 +28,7 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
                     {
                         while (reader.Read())
                         {
-                            AssessmentSummary assessment = new AssessmentSummary()
+                            AssessmentSummaryEntity assessment = new AssessmentSummaryEntity()
                             {
                                 RegisteredStudentID = Convert.ToInt32(reader["RegisteredStudentID"]),
                                 AssessmentID = Convert.ToInt32(reader["AssessmentID"]),

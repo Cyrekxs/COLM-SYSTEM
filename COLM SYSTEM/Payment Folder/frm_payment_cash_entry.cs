@@ -57,13 +57,13 @@ namespace COLM_SYSTEM.Payment_Folder
             Payment payment = new Payment()
             {
                 RegisteredStudentID = studentRegistered.RegisteredID,
-                SchoolYearID = Utilties.GetActiveSchoolYear(),
-                SemesterID = Utilties.GetActiveSemester(),
+                SchoolYearID = Utilties.GetUserSchoolYearID(),
+                SemesterID = Utilties.GetUserSemesterID(),
                 ORNumber = txtORNumber.Text,
                 FeeCategory = "Tuition",
                 PaymentCategory = "Cash",
                 AmountPaid = Convert.ToDouble(txtAmountToPay.Text),
-                UserID = Utilties.user.UserID
+                UserID = Program.user.UserID
             };
 
             int result = Payment.InsertPaymentCash(payment);
@@ -73,8 +73,8 @@ namespace COLM_SYSTEM.Payment_Folder
                 EnrolledStudent student = new EnrolledStudent()
                 {
                     RegisteredStudentID = studentRegistered.RegisteredID,
-                    SchoolYearID = Utilties.GetActiveSchoolYear(),
-                    SemesterID = Utilties.GetActiveSemester()
+                    SchoolYearID = Utilties.GetUserSchoolYearID(),
+                    SemesterID = Utilties.GetUserSemesterID()
                 };
                 EnrolledStudent.EnrollStudent(student);
 

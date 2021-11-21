@@ -11,37 +11,31 @@ namespace COLM_SYSTEM
 {
     public class Utilties
     {
-        public static User user { get; set; }
 
-        public static int GetActiveSchoolYear()
+        public static int GetUserSchoolYearID()
         {
-            if (user != null)
-                return user.SchoolYearID;
+            if (Program.user != null)
+                return Program.user.SchoolYearID;
             else
                 return 0;
         }
 
-        public static int GetActiveSemester()
+        public static int GetUserSemesterID()
         {
-            if (user != null)
-                return user.SemesterID;
+            if (Program.user != null)
+                return Program.user.SemesterID;
             else
                 return 0;
         }
 
         public static string GetActiveSchoolYearInfo()
         {
-            return SchoolYear.GetSchoolYear(user.SchoolYearID).Name;
+            return SchoolYear.GetSchoolYear(Program.user.SchoolYearID).Name;
         }
 
         public static string GetActiveSchoolSemesterInfo()
         {
-            return SchoolSemester.GetSchoolSemester(user.SemesterID).Semester;
-        }
-
-        public static string GetAssessor()
-        {
-            return user.AccountName;
+            return SchoolSemester.GetSchoolSemester(Program.user.SemesterID).Semester;
         }
 
         public static bool IsNumber(double val)

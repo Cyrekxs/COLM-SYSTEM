@@ -20,7 +20,7 @@ namespace COLM_SYSTEM.Section_Folder
             List<Section> sections = await Task.Run(
                 () =>
                 {
-                    return Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+                    return Section.GetSections(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
                 });
 
             List<YearLevel> yearLevels = await Task.Run(() => { return YearLevel.GetYearLevels(); });

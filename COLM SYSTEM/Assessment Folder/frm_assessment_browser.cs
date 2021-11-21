@@ -17,7 +17,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         public frm_assessment_browser()
         {
             InitializeComponent();
-            StudentsWithoutAssessment = StudentRegistered.GetStudentsWithNoAssessment(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+            StudentsWithoutAssessment = StudentRegistered.GetStudentsWithNoAssessment(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
             LoadStudents();
         }
 

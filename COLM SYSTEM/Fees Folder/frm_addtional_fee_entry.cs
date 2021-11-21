@@ -39,8 +39,8 @@ namespace COLM_SYSTEM.Fees_Folder
             {
                 CurriculumID = 0,
                 YearLeveLID = 0,
-                SchoolYearID = Utilties.GetActiveSchoolYear(),
-                SemesterID = Utilties.GetActiveSemester(),
+                SchoolYearID = Utilties.GetUserSchoolYearID(),
+                SemesterID = Utilties.GetUserSemesterID(),
                 FeeDesc = txtAdditionalFee.Text,
                 FeeType = "Additional",
                 Amount = Convert.ToDouble( txtAmount.Text)

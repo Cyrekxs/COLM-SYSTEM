@@ -143,8 +143,8 @@ namespace COLM_SYSTEM.Assessment_Folder
                 if (frm.DialogResult == DialogResult.OK)
                 {
                     MessageBox.Show("Email has been successfully sent!", "Email Sent Successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                    this.Dispose();
+                    Close();
+                    Dispose();
                 }
             }
         }

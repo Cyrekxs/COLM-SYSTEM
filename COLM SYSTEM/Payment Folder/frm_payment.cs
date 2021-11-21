@@ -64,7 +64,7 @@ namespace COLM_SYSTEM.Payment_Folder
 
         private void DisplayLink()
         {
-            bool IsEnrolled = EnrolledStudent.IsStudentEnrolled(studentRegistered.RegisteredID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+            bool IsEnrolled = EnrolledStudent.IsStudentEnrolled(studentRegistered.RegisteredID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
             if (IsEnrolled == true)
             {
                 linkEnroll.Visible = false;
@@ -80,7 +80,7 @@ namespace COLM_SYSTEM.Payment_Folder
         private void LoadAdditionalFees()
         {
             dgAdditionalFees.Rows.Clear();
-            List<AdditionalFee> additionalFees = Payment.GetAdditionalFees(studentRegistered.RegisteredID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+            List<AdditionalFee> additionalFees = Payment.GetAdditionalFees(studentRegistered.RegisteredID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
             foreach (var item in additionalFees)
             {
                 double balance = item.TotalAmount - item.TotalPayment;
@@ -93,7 +93,7 @@ namespace COLM_SYSTEM.Payment_Folder
         private void LoadPaymentHistory()
         {
             dgPaymentHistory.Rows.Clear();
-            List<Payment> payments = Payment.GetPayments(studentRegistered.RegisteredID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+            List<Payment> payments = Payment.GetPayments(studentRegistered.RegisteredID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
             foreach (var item in payments)
             {
                 dgPaymentHistory.Rows.Add(item.PaymentID, item.ORNumber, item.PaymentCategory, item.FeeCategory, item.AmountPaid.ToString("n"), item.PaymentStatus, item.PaymentDate.ToString("MM-dd-yyyy hh:mm tt"));
@@ -267,8 +267,8 @@ namespace COLM_SYSTEM.Payment_Folder
                 EnrolledStudent student = new EnrolledStudent()
                 {
                     RegisteredStudentID = studentRegistered.RegisteredID,
-                    SchoolYearID = Utilties.GetActiveSchoolYear(),
-                    SemesterID = Utilties.GetActiveSemester(),
+                    SchoolYearID = Utilties.GetUserSchoolYearID(),
+                    SemesterID = Utilties.GetUserSemesterID(),
                 };
 
                 int result = EnrolledStudent.EnrollStudent(student);
@@ -349,7 +349,7 @@ namespace COLM_SYSTEM.Payment_Folder
         {
             if (MessageBox.Show("If you click yes this will mark the student as not enrolled?", "Unenroll Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                EnrolledStudent student = EnrolledStudent.GetEnrolledStudent(studentRegistered.RegisteredID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+                EnrolledStudent student = EnrolledStudent.GetEnrolledStudent(studentRegistered.RegisteredID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
 
                 int result = EnrolledStudent.UnenrollStudent(student);
                 if (result > 0)

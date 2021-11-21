@@ -27,40 +27,40 @@ namespace COLM_SYSTEM.Settings_Folder
             {
                 EducationLevel = "Pre Elementary",
                 TargetCount = Convert.ToInt32(txtPreElem.Text),
-                SchoolYearID = Utilties.GetActiveSchoolYear(),
-                SemesterID = Utilties.GetActiveSemester()
+                SchoolYearID = Utilties.GetUserSchoolYearID(),
+                SemesterID = Utilties.GetUserSemesterID()
             };
 
             Target TElem = new Target()
             {
                 EducationLevel = "Elementary",
                 TargetCount = Convert.ToInt32(txtElem.Text),
-                SchoolYearID = Utilties.GetActiveSchoolYear(),
-                SemesterID = Utilties.GetActiveSemester()
+                SchoolYearID = Utilties.GetUserSchoolYearID(),
+                SemesterID = Utilties.GetUserSemesterID()
             };
 
             Target TJHS = new Target()
             {
                 EducationLevel = "Junior High",
                 TargetCount = Convert.ToInt32(txtJuniorHigh.Text),
-                SchoolYearID = Utilties.GetActiveSchoolYear(),
-                SemesterID = Utilties.GetActiveSemester()
+                SchoolYearID = Utilties.GetUserSchoolYearID(),
+                SemesterID = Utilties.GetUserSemesterID()
             };
 
             Target TSHS = new Target()
             {
                 EducationLevel = "Senior High",
                 TargetCount = Convert.ToInt32(txtSeniorHigh.Text),
-                SchoolYearID = Utilties.GetActiveSchoolYear(),
-                SemesterID = Utilties.GetActiveSemester()
+                SchoolYearID = Utilties.GetUserSchoolYearID(),
+                SemesterID = Utilties.GetUserSemesterID()
             };
 
             Target TCollege = new Target()
             {
                 EducationLevel = "College",
                 TargetCount = Convert.ToInt32(txtCollege.Text),
-                SchoolYearID = Utilties.GetActiveSchoolYear(),
-                SemesterID = Utilties.GetActiveSemester()
+                SchoolYearID = Utilties.GetUserSchoolYearID(),
+                SemesterID = Utilties.GetUserSemesterID()
             };
 
             List<Target> StudentTargets = new List<Target>();
@@ -81,7 +81,7 @@ namespace COLM_SYSTEM.Settings_Folder
 
         private void uc_settings_target_Load(object sender, EventArgs e)
         {
-            Targets = Target.GetTargets().Where(item => item.SchoolYearID == Utilties.GetActiveSchoolYear() && item.SemesterID == Utilties.GetActiveSemester()).ToList();
+            Targets = Target.GetTargets().Where(item => item.SchoolYearID == Utilties.GetUserSchoolYearID() && item.SemesterID == Utilties.GetUserSemesterID()).ToList();
 
             foreach (var item in Targets)
             {

@@ -12,6 +12,7 @@ namespace COLM_SYSTEM_LIBRARY.model
         public string Email { get; set; }
         public string Password { get; set; }
 
+
         public static EmailCredential GetDefaultEmail()
         {
             EmailCredential ec = new EmailCredential();
@@ -53,7 +54,6 @@ namespace COLM_SYSTEM_LIBRARY.model
                                 EmailID = Convert.ToInt32(reader["EmailID"]),
                                 UserID = Convert.ToInt32(reader["UserID"]),
                                 Email = Convert.ToString(reader["Email"]),
-                                Password = Convert.ToString(reader["Password"]),
                             };
                             credentials.Add(credential);
                         }
@@ -81,7 +81,6 @@ namespace COLM_SYSTEM_LIBRARY.model
                                 EmailID = Convert.ToInt32(reader["EmailID"]),
                                 UserID = Convert.ToInt32(reader["UserID"]),
                                 Email = Convert.ToString(reader["Email"]),
-                                Password = Convert.ToString(reader["Password"]),
                             };
                         }
                     }

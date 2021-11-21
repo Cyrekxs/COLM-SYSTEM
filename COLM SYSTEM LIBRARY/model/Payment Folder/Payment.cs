@@ -51,7 +51,6 @@ namespace COLM_SYSTEM_LIBRARY.model.Payment_Folder
             return Payment_DS.GetPaymentCenter(PaymentID);
         }
 
-
         public static bool IsValidORNumber(string ORNumber)
         {
             return Payment_DS.IsValidORnumber(ORNumber);

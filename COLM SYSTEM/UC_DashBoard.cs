@@ -51,11 +51,11 @@ namespace COLM_SYSTEM
             int PendingCollege = 0;
             int TotalPending = 0;
 
-            double TargetPreElem = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "pre elementary" && r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester()).TargetCount;
-            double TargetElem = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "elementary" && r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester()).TargetCount;
-            double TargetJHS = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "junior high" && r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester()).TargetCount;
-            double TargetSHS = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "senior high" && r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester()).TargetCount;
-            double TargetCollege = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "college" && r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester()).TargetCount;
+            double TargetPreElem = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "pre elementary" && r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID()).TargetCount;
+            double TargetElem = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "elementary" && r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID()).TargetCount;
+            double TargetJHS = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "junior high" && r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID()).TargetCount;
+            double TargetSHS = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "senior high" && r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID()).TargetCount;
+            double TargetCollege = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "college" && r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID()).TargetCount;
             double TargetTotal = TargetPreElem + TargetElem + TargetJHS + TargetSHS + TargetCollege;
 
             //enrolled charts

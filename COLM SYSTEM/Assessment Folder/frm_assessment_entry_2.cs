@@ -249,14 +249,14 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             int yearLevelID = studentYearLevel.YearLevelID;
             //Store Tuition Fee and subjects
-            List<SubjectSetted> subjects = SubjectSetted.GetSubjectSetteds(registeredStudent.CurriculumID, yearLevelID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+            List<SubjectSetted> subjects = SubjectSetted.GetSubjectSetteds(registeredStudent.CurriculumID, yearLevelID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
 
             if (registeredStudent.RegistrationStatus == "Without Bridging")
                 subjects = subjects.Where(item => item.Bridging == false).ToList();
 
 
             //Store Miscellaneous and Other Fees
-            List<Fee> fees = Fee.GetSettedFees(registeredStudent.CurriculumID, yearLevelID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+            List<Fee> fees = Fee.GetSettedFees(registeredStudent.CurriculumID, yearLevelID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
 
             //Display Tuition Fee
             foreach (var item in subjects)
@@ -298,7 +298,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             //get assessment type list according to education level, school year and semester and tag it into cmbassessment type
             List<PaymentMode> assessmentTypes = (from r in PaymentMode.GetAssessmentPaymentModes()
-                                                 where r.SchoolYearID == Utilties.GetActiveSchoolYear() && r.SemesterID == Utilties.GetActiveSemester() && r.EducationLevel.ToLower() == txtEducationLevel.Text.ToLower()
+                                                 where r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID() && r.EducationLevel.ToLower() == txtEducationLevel.Text.ToLower()
                                                  select r).ToList();
 
             cmbPaymentMode.Items.Clear();
@@ -310,7 +310,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         }
         private void LoadSections() // this function will trigger upon initialization
         {
-            List<Section> sections = (from r in Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester())
+            List<Section> sections = (from r in Section.GetSections(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID())
                                       where r.CurriculumID == registeredStudent.CurriculumID && r.YearLevel == txtYearLevel.Text
                                       select r).ToList();
 
@@ -335,7 +335,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             if (cmbSection.Text != "Irregular")
             {
                 //get the section id first
-                int SectionID = (from r in Section.GetSections(Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester())
+                int SectionID = (from r in Section.GetSections(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID())
                                  where r.CurriculumID == registeredStudent.CurriculumID && r.YearLevel == txtYearLevel.Text && r.SectionName == cmbSection.Text
                                  select r.SectionID).FirstOrDefault();
 
@@ -353,7 +353,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             int yearLevelID = studentYearLevel.YearLevelID;
             //get the list of discounts according to yearlevel, school year and semester
-            List<Discount> discounts = Discount.GetDiscounts().Where(item => item.SchoolYearID == Utilties.GetActiveSchoolYear() && item.SemesterID == Utilties.GetActiveSemester()).ToList();
+            List<Discount> discounts = Discount.GetDiscounts().Where(item => item.SchoolYearID == Utilties.GetUserSchoolYearID() && item.SemesterID == Utilties.GetUserSemesterID()).ToList();
             List<Discount> AvailableToAllDiscounts = discounts.Where(item => item.HasYearLevels == false).ToList();
             List<Discount> SpecificDiscounts = new List<Discount>();  //discounts.Where(item => item.YearLevels.Contains(studentYearLevel)).ToList();
 
@@ -701,7 +701,7 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             //put data into summary
             List<Section> sections = cmbSection.Tag as List<Section>;
-            AssessmentSummary assessmentSummary = new AssessmentSummary()
+            AssessmentSummaryEntity assessmentSummary = new AssessmentSummaryEntity()
             {
                 PaymentModeID = assessmentType.PaymentModeID,
                 RegisteredStudentID = registeredStudent.RegisteredID,
@@ -710,9 +710,9 @@ namespace COLM_SYSTEM.Assessment_Folder
                 TotalAmount = TotalAmount,
                 DiscountAmount = Convert.ToDouble(txtTotalDiscount.Text),
                 TotalDue = TotalAmount - Convert.ToDouble(txtTotalDiscount.Text),
-                SchoolYearID = Utilties.GetActiveSchoolYear(),
-                SemesterID = Utilties.GetActiveSemester(),
-                UserID = Utilties.user.UserID
+                SchoolYearID = Utilties.GetUserSchoolYearID(),
+                SemesterID = Utilties.GetUserSemesterID(),
+                UserID = Program.user.UserID
             };
 
             //put data into subjects

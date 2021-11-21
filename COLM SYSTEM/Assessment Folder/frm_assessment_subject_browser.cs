@@ -48,7 +48,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             try
             {
-                List<SubjectSetted> availableSubjects = SubjectSetted.GetAvailableSubjects(SelectedCurriculumSubject.SubjectID, Utilties.GetActiveSchoolYear(), Utilties.GetActiveSemester());
+                List<SubjectSetted> availableSubjects = SubjectSetted.GetAvailableSubjects(SelectedCurriculumSubject.SubjectID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
 
                 if (cmbSubjectType.Text != "All")
                 {

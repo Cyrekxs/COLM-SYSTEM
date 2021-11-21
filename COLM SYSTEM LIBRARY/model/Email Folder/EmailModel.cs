@@ -68,55 +68,6 @@ namespace COLM_SYSTEM_LIBRARY.model
             }
         }
 
-        //not working
-        public static bool IsEmailExists(string email)
-        {
-            // "gmail-smtp-in.l.google.com"
-            // "gmail-smtp-in.1.google.com"
-            try
-            {
-                TcpClient tcp = new TcpClient("gmail-smtp-in.l.google.com", 587);
-                string CRLF = @"\r\n";
-                byte[] buffer;
-                string ResponseString;
-
-
-                NetworkStream networkStream = tcp.GetStream();
-                StreamReader reader = new StreamReader(networkStream);
-                ResponseString = reader.ReadLine();
-
-                buffer = BytesFromString("check mail" + CRLF);
-                networkStream.Write(buffer, 0, buffer.Length);
-                ResponseString = reader.ReadLine();
-                buffer = BytesFromString(string.Concat("MAIL FROM:<admission@colm.edu.ph>", CRLF));
-                networkStream.Write(buffer, 0, buffer.Length);
-                ResponseString = reader.ReadLine();
-
-                buffer = BytesFromString(string.Concat("RCPT TO:<", email.Trim(), ">", CRLF));
-                networkStream.Write(buffer, 0, buffer.Length);
-                ResponseString = reader.ReadLine();
-
-                if (GetResponseCode(ResponseString) == 550)
-                {
-                    return false;
-                }
-                else
-                {
-                    buffer = BytesFromString("QUITE" + CRLF);
-                    networkStream.Write(buffer, 0, buffer.Length);
-                    tcp.Close();
-                    tcp.Dispose();
-                    return true;
-                }
-            }
-            catch
-            {
-                return false;
-               
-            }
-            
-        }
-
         private static byte[] BytesFromString(string str)
         {
             return Encoding.ASCII.GetBytes(str);

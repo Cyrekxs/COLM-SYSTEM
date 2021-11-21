@@ -1,4 +1,6 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.Interaces;
+using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.Repository;
 using SEMS.Settings_Folder;
 using System;
 using System.Deployment.Application;
@@ -9,13 +11,14 @@ namespace COLM_SYSTEM
 {
     public partial class frm_login : Form
     {
+        IUserRepository _UserRepository = new UserRepository();
         //school logo;
         SchoolInfo school = new SchoolInfo();
         public frm_login()
         {
             InitializeComponent();
             //version;
-            string GetVersion = ApplicationDeployment.IsNetworkDeployed ?  ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString() :  Application.ProductVersion;
+            string GetVersion = ApplicationDeployment.IsNetworkDeployed ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString() : Application.ProductVersion;
             lblVersion.Text = GetVersion;
             PanelControls.Enabled = false;
         }
@@ -33,9 +36,9 @@ namespace COLM_SYSTEM
             Dispose();
         }
 
-        private void VerifyCredentials(string username, string password)
+        private async Task VerifyCredentials(string username, string password)
         {
-            User user = User.login(username, password);
+            User user = await _UserRepository.Login(username, password);
 
             if (username == string.Empty)
                 txtUsername.Focus();
@@ -45,11 +48,10 @@ namespace COLM_SYSTEM
             {
                 if (user.UserID != 0)
                 {
-                    Utilties.user = user;
-                    frm_main frm = new frm_main();
+                    frm_main frm = new frm_main(user);
                     frm.StartPosition = FormStartPosition.CenterScreen;
                     frm.Show();
-                    this.Hide();
+                    Hide();
                 }
                 else
                 {
@@ -90,9 +92,9 @@ namespace COLM_SYSTEM
             txtUsername.Focus();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private async void button2_Click_1(object sender, EventArgs e)
         {
-            VerifyCredentials(txtUsername.Text, txtPassword.Text);
+           await VerifyCredentials(txtUsername.Text, txtPassword.Text);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

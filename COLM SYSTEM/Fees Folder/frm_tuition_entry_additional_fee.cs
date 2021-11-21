@@ -33,8 +33,8 @@ namespace COLM_SYSTEM.Fees_Folder
                     SubjectSettedAddtionalFee additionalFee = new SubjectSettedAddtionalFee()
                     {
                         AdditionalFeeID = Convert.ToInt32(item.Cells["clmAdditionalFeeID"].Value),
-                        SchoolYearID = Utilties.GetActiveSchoolYear(),
-                        SemesterID = Utilties.GetActiveSemester(),
+                        SchoolYearID = Utilties.GetUserSchoolYearID(),
+                        SemesterID = Utilties.GetUserSemesterID(),
                         FeeDescription = Convert.ToString(item.Cells["clmFee"].Value),
                         Amount = Convert.ToDouble(item.Cells["clmAmount"].Value),
                         FeeType = Convert.ToString(item.Cells["clmFeeType"].Value)

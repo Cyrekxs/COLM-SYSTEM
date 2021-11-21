@@ -29,12 +29,14 @@ namespace COLM_SYSTEM
     {
         //#FF004000 metro studio color use for green
 
-        public frm_main()
+        public frm_main(User user)
         {
             InitializeComponent();
 
-            lblAccountName.Text = Utilties.user.AccountName;
-            lblPosition.Text = Utilties.user.UserRole.RoleName;
+            Program.user = user;
+
+            lblAccountName.Text =user.AccountName;
+            lblPosition.Text = user.UserRole.RoleName;
             lblSchoolYear.Text = Utilties.GetActiveSchoolYearInfo().ToUpper();
             lblSemester.Text = Utilties.GetActiveSchoolSemesterInfo().ToUpper();
 
@@ -43,7 +45,7 @@ namespace COLM_SYSTEM
             lblVersion.Text = string.Concat("version ", GetVersion);
 
 
-            string role = Utilties.user.UserRole.RoleName.ToLower();
+            string role = user.UserRole.RoleName.ToLower();
             if (role.Equals("information"))
             {
                 HideAllMi();
@@ -85,6 +87,7 @@ namespace COLM_SYSTEM
                 miReports.Visible = true;
                 miCollectionReport.Visible = false;
                 miMasterList.Visible = true;
+                miELReport.Visible = true;
             }
 
             else if (role.Equals("cashier"))
@@ -95,6 +98,7 @@ namespace COLM_SYSTEM
                 miReports.Visible = true;
                 miCollectionReport.Visible = true;
                 miMasterList.Visible = false;
+                miELReport.Visible = false;
             }
             DisplayControl(new UC_DashBoard());
         }
@@ -134,7 +138,6 @@ namespace COLM_SYSTEM
             }
         }
 
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString("mmm MM-dd-yyyy hh:mm tt");
@@ -150,28 +153,22 @@ namespace COLM_SYSTEM
             }
         }
 
-
-        private async void frm_main_Load_1(object sender, EventArgs e)
+        private void frm_main_Load_1(object sender, EventArgs e)
         {
-            string ApplicantCount = await CheckNotifications();
-            lblNotificationCount.Text = ApplicantCount;
+            //string ApplicantCount = await CheckNotifications();
+            //lblNotificationCount.Text = ApplicantCount;
         }
-
 
         private void button4_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
-
         private void button2_Click(object sender, EventArgs e)
         {
             frm_user_settings frm = new frm_user_settings();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
-
-
         private async Task<string> CheckNotifications()
         {
             try

@@ -1,26 +1,28 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.Interaces;
+using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.Repository;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SEMS.Enums;
 
 namespace COLM_SYSTEM.User_Folder
 {
     public partial class frm_user_entry : Form
     {
+        IUserRepository _UserRepository = new UserRepository();
         List<Role> roles = Role.GetRoles();
         User _user = new User();
-        string SavingStatus = string.Empty;
+        SavingTypes SavingStatus = SavingTypes.Add;
+
         public frm_user_entry()
         {
             InitializeComponent();
 
-            SavingStatus = "ADD";
+            SavingStatus = SavingTypes.Add;
             btnSave.Text = "CREATE ACCOUNT";
 
             cmbRole.Tag = roles;
@@ -35,7 +37,7 @@ namespace COLM_SYSTEM.User_Folder
         {
             InitializeComponent();
 
-            SavingStatus = "UPDATE";
+            SavingStatus = SavingTypes.Update;
 
             btnSave.Text = "UPDATE ACCOUNT";
 
@@ -43,8 +45,7 @@ namespace COLM_SYSTEM.User_Folder
             txtAccountName.Text = user.AccountName;
             txtUsername.Text = user.Username;
             txtPassword.Text = user.Password;
-            txtEmail.Text = user.Credential.Email;
-            txtEmailPassword.Text = user.Credential.Password;
+            txtEmail.Text = user.Email;
 
             cmbRole.Tag = roles;
             cmbRole.Items.Clear();
@@ -54,12 +55,12 @@ namespace COLM_SYSTEM.User_Folder
             }
             cmbRole.Text = user.UserRole.RoleName;
         }
-        private bool IsValid()
+        private async Task<bool> IsValid()
         {
             if (txtAccountName.Text == string.Empty)
             {
                 MessageBox.Show("Account name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;                
+                return false;
             }
 
             if (cmbRole.Text == string.Empty)
@@ -74,9 +75,9 @@ namespace COLM_SYSTEM.User_Folder
                 return false;
             }
 
-            if (SavingStatus == "ADD")
+            if (SavingStatus == SavingTypes.Add)
             {
-                if (User.IsUsernameExists(txtUsername.Text) > 0)
+                if (await _UserRepository.IsUsernameExists(txtUsername.Text) == true)
                 {
                     MessageBox.Show("Username is already exists!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -97,9 +98,9 @@ namespace COLM_SYSTEM.User_Folder
 
             return true;
         }
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            if (IsValid() == true)
+            if (await IsValid() == true)
             {
                 Role role = roles.Where(item => item.RoleName.ToLower().Equals(cmbRole.Text.ToLower())).FirstOrDefault();
 
@@ -107,26 +108,30 @@ namespace COLM_SYSTEM.User_Folder
                 {
                     UserID = _user.UserID,
                     AccountName = txtAccountName.Text,
+                    Email = txtEmail.Text,
                     Username = txtUsername.Text,
                     Password = txtPassword.Text,
-                    SchoolYearID = Utilties.GetActiveSchoolYear(),
-                    SemesterID = Utilties.GetActiveSemester(),
-                    UserRole = role,
-                    Credential = new EmailCredential()
-                    {
-                        Email = txtEmail.Text,
-                        Password = txtPassword.Text
-                    }
+                    SchoolYearID = Utilties.GetUserSchoolYearID(),
+                    SemesterID = Utilties.GetUserSemesterID(),
+                    UserRole = role
                 };
 
-                int result = User.CreateUpdate(user);
+                int result = 0;
+                switch (SavingStatus)
+                {
+                    case SavingTypes.Add:
+                        result = await _UserRepository.CreateUser(user);
+                        break;
+                    case SavingTypes.Update:
+                        result = await _UserRepository.Updateuser(user);
+                        break;
+                    default:
+                        break;
+                }
 
                 if (result > 0)
                 {
-                    if (SavingStatus == "ADD")
-                        MessageBox.Show("New user has been successfully created!", "User Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("User has been successfully updated!", "User Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("User has been successfully save!", "User Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                     Dispose();
                 }
