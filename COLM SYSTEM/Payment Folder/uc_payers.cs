@@ -24,7 +24,7 @@ namespace COLM_SYSTEM.Payment_Folder
             InitializeComponent();
             cmbEducationLevel.Text = "All";
 
-            var frm = new frm_loading_v4(_AssessmentRepository.GetStudentAssessments());
+            var frm = new frm_loading_v4(_AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID,Program.user.SemesterID));
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             if (frm.DialogResult == DialogResult.OK)
@@ -103,7 +103,7 @@ namespace COLM_SYSTEM.Payment_Folder
 
         private async void timer1_Tick(object sender, EventArgs e)
         {
-            AssessmentLists = await _AssessmentRepository.GetStudentAssessments();
+            AssessmentLists = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID,Program.user.SemesterID);
         }
 
         private void viewAssessmentToolStripMenuItem_Click(object sender, EventArgs e)

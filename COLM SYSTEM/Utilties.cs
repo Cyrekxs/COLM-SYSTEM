@@ -1,4 +1,6 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.Interaces;
+using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.Repository;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,7 +13,7 @@ namespace COLM_SYSTEM
 {
     public class Utilties
     {
-
+        private static ISchoolYearSemesterRepository _SchoolYearRepository = new SchoolYearSemesterRepository();
         public static int GetUserSchoolYearID()
         {
             if (Program.user != null)
@@ -28,14 +30,24 @@ namespace COLM_SYSTEM
                 return 0;
         }
 
-        public static string GetActiveSchoolYearInfo()
+        public static async Task<IEnumerable<SchoolYear>> GetSchoolYears()
         {
-            return SchoolYear.GetSchoolYear(Program.user.SchoolYearID).Name;
+            return await _SchoolYearRepository.GetSchoolYears();
         }
 
-        public static string GetActiveSchoolSemesterInfo()
+        public static async Task<SchoolYear> GetActiveSchoolYear()
         {
-            return SchoolSemester.GetSchoolSemester(Program.user.SemesterID).Semester;
+            return await _SchoolYearRepository.GetActiveSchoolYear();
+        }
+
+        public static async Task<IEnumerable<SchoolSemester>> GetSchoolSemesters()
+        {
+            return await _SchoolYearRepository.GetSemesters();
+        }
+
+        public static async Task<SchoolSemester> GetActiveSemester()
+        {
+            return await _SchoolYearRepository.GetActiveSemester();
         }
 
         public static bool IsNumber(double val)

@@ -21,14 +21,17 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
         public int ResultCount { get; set; }
         
 
-        public static List<Enrollees> GetEnrollees()
+        public static List<Enrollees> GetEnrollees(int SchoolYearID, int SemesterID)
         {
             List<Enrollees> enrolledCounts = new List<Enrollees>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_enrolled_students()", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_enrolled_students() WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
                 {
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
+
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         while (reader.Read())

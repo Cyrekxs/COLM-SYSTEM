@@ -1,4 +1,6 @@
-﻿using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
+﻿using COLM_SYSTEM_LIBRARY.Interfaces;
+using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
+using COLM_SYSTEM_LIBRARY.Repository;
 using Microsoft.Reporting.WinForms;
 using SEMS;
 using SEMS.Assessment_Folder;
@@ -15,69 +17,61 @@ namespace COLM_SYSTEM.Assessment_Folder
     public partial class uc_assessment_list : UserControl
     {
         private int SelectedRow;
+        IAssessmentRepository _AssessmentRepository = new AssessmentRepository();
+        private IEnumerable<AssessmentSummaryEntity> Assessments = new List<AssessmentSummaryEntity>();
         public uc_assessment_list()
         {
             InitializeComponent();
             cmbEducationLevel.Text = "All";
-
-            LoadAssessments();
         }
 
         public uc_assessment_list(string SearchFilter)
         {
             InitializeComponent();
-            cmbEducationLevel.Text = "All";
-            LoadAssessments(SearchFilter);
+            cmbEducationLevel.Text = "All";           
         }
 
-        private void LoadAssessments(string SearchFilter = "")
+        private void DisplayAssessments(List<AssessmentSummaryEntity> assessments)
         {
-
-            Task<List<AssessmentSummaryEntity>> task = new Task<List<AssessmentSummaryEntity>>(Assessment.GetAssessments);
-            task.Start();
-
-            using (frm_loading frm = new frm_loading(task))
-            {
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-            }
-
-            List<AssessmentSummaryEntity> assessmentLists = task.Result;
-
-            assessmentLists = assessmentLists.OrderByDescending(r => r.AssessmentDate.Date).ThenBy(r => r.StudentName).ToList();
-
-            if (SearchFilter != "")
-                textBox1.Text = SearchFilter;
-
-            if (textBox1.Text != string.Empty)
-            {
-                assessmentLists = (from r in assessmentLists
-                                   where r.StudentName.ToLower().Contains(textBox1.Text.ToLower())
-                                   select r).ToList();
-            }
-
-            if (cmbEducationLevel.Text.ToLower() != "all")
-            {
-                assessmentLists = (from r in assessmentLists
-                                   where r.EducationLevel.ToLower().Contains(cmbEducationLevel.Text.ToLower())
-                                   select r).ToList();
-            }
-
-            if (cmbEnrollmentStatus.Text.ToLower() != "all")
-            {
-                assessmentLists = (from r in assessmentLists
-                                   where r.EnrollmentStatus.ToLower().Contains(cmbEnrollmentStatus.Text.ToLower())
-                                   select r).ToList();
-            }
-
-            dataGridView1.Rows.Clear();            
-
-            foreach (var item in assessmentLists.Take(300).ToList())
+            dataGridView1.Rows.Clear();
+            foreach (var item in assessments)
             {
                 dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.PaymentMode, item.Assessor, item.AssessmentDate.ToString("MM-dd-yyyy"), item.EnrollmentStatus);
             }
 
-            lblCount.Text = string.Concat("Total Records in the Database : ", task.Result.Count.ToString(), " Record Count(s):", dataGridView1.Rows.Count);
+            lblCount.Text = string.Concat("Total Records in the Database : ", Assessments.Count(), " Record Count(s):", dataGridView1.Rows.Count);
+        }
+
+        private void SearchAssessment()
+        {
+            List<AssessmentSummaryEntity> SearchedResults = new List<AssessmentSummaryEntity>();
+
+            if (cmbEducationLevel.Text.ToLower() != "all")
+            {
+                SearchedResults = (from r in Assessments
+                                   where r.EducationLevel.ToLower() == cmbEducationLevel.Text.ToLower()
+                                   select r).ToList();
+            }
+            else
+            {
+                SearchedResults = Assessments.ToList();
+            }
+            
+            if (cmbEnrollmentStatus.Text.ToLower() != "all")
+            {
+                SearchedResults = (from r in SearchedResults
+                                   where r.EnrollmentStatus.ToLower() == cmbEnrollmentStatus.Text.ToLower()
+                                   select r).ToList();
+            }
+
+            if (textBox1.Text != string.Empty)
+            {
+                SearchedResults = (from r in SearchedResults
+                                   where r.StudentName.ToLower().Contains(textBox1.Text.ToLower())
+                                   select r).ToList();
+            }
+
+            DisplayAssessments(SearchedResults);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -85,7 +79,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm_assessment_browser frm = new frm_assessment_browser();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
-            LoadAssessments();
+            SearchAssessment();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -102,7 +96,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             if (e.KeyCode == Keys.Enter)
             {
-                LoadAssessments();
+                SearchAssessment();
             }
         }
 
@@ -112,7 +106,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID, AssessmentOptions.Update);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
-            LoadAssessments();
+            SearchAssessment();
         }
 
         private void removeAssessmentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -124,7 +118,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 if (result > 0)
                 {
                     MessageBox.Show("Assessment has been successfully removed!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadAssessments();
+                    SearchAssessment();
                 }
             }
         }
@@ -147,12 +141,12 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private void cmbEducationLevel_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            LoadAssessments();
+            SearchAssessment();
         }
 
         private void cmbEnrollmentStatus_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            LoadAssessments();
+            SearchAssessment();
         }
 
         private void viewAssessmentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -161,7 +155,13 @@ namespace COLM_SYSTEM.Assessment_Folder
             frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID, AssessmentOptions.View);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
-            LoadAssessments();
+            SearchAssessment();
+        }
+
+        private async void uc_assessment_list_Load(object sender, EventArgs e)
+        {
+            Assessments = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID,Program.user.SemesterID);
+            DisplayAssessments(Assessments.ToList());
         }
     }
 }

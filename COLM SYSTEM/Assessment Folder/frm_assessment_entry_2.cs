@@ -14,14 +14,12 @@ namespace COLM_SYSTEM.Assessment_Folder
 {
     public partial class frm_assessment_entry_2 : Form
     {
-        private int _AssessmentID = 0;
-        StudentRegistered registeredStudent = new StudentRegistered();
-        YearLevel studentYearLevel = new YearLevel();
-        private List<Discount> AddedDiscounts = new List<Discount>();
+        private int _AssessmentID { get; set; } = 0;
+        private StudentRegistered registeredStudent { get; set; } = new StudentRegistered();
+        private YearLevel studentYearLevel { get; set; } = new YearLevel();
+        private List<Discount> AddedDiscounts { get; set; } = new List<Discount>();
         private int SelectedSubjectRow = -1;
-
-        private AssessmentOptions AssessmentStatus = AssessmentOptions.Create;
-
+        private AssessmentOptions AssessmentStatus { get; set; } = AssessmentOptions.Create;
 
         //for new assessment entry
         public frm_assessment_entry_2(StudentRegistered student, YearLevel yearLevel)
@@ -185,8 +183,6 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             IdentityAssessmentOptions();
         }
-
-
         private void IdentityAssessmentOptions()
         {
             switch (AssessmentStatus)
@@ -241,7 +237,6 @@ namespace COLM_SYSTEM.Assessment_Folder
                     break;
             }
         }
-
         private void LoadDefaultFees() // this function will trigger upon initialization
         {
             dgSubjects.Rows.Clear();

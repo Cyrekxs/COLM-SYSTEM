@@ -12,16 +12,18 @@ namespace COLM_SYSTEM_LIBRARY.Repository
     public class AssessmentRepository : IAssessmentRepository
     {
         TextInfo text = CultureInfo.CurrentCulture.TextInfo;
-        public async Task<IEnumerable<AssessmentSummaryEntity>> GetStudentAssessments()
+        public async Task<IEnumerable<AssessmentSummaryEntity>> GetStudentAssessments(int SchoolYearID, int SemesterID)
         {
             List<AssessmentSummaryEntity> AssessmentSummaryList = new List<AssessmentSummaryEntity>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                string qry = "SELECT * FROM fn_list_student_assessment() ORDER BY StudentName ASC";
+                string qry = "SELECT * FROM fn_list_student_assessment() WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID ORDER BY StudentName ASC";
 
                 using (SqlCommand comm = new SqlCommand(qry, conn))
                 {
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
                     using (SqlDataReader reader = await comm.ExecuteReaderAsync())
                     {
                         while (await reader.ReadAsync())

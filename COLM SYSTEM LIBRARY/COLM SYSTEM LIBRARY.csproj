@@ -47,7 +47,9 @@
   <ItemGroup>
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="datasource\Address_DS.cs" />
+    <Compile Include="Interaces\ISchoolYearSemesterRepository.cs" />
     <Compile Include="Interaces\IUserRepository.cs" />
+    <Compile Include="Repository\SchoolYearSemesterRepository.cs" />
     <Compile Include="Repository\SOARepository.cs" />
     <Compile Include="Interaces\IStudentRepository.cs" />
     <Compile Include="datasource\PaymentType_DS.cs" />

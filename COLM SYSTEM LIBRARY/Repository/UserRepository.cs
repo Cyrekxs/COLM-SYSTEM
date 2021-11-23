@@ -155,6 +155,27 @@ namespace COLM_SYSTEM_LIBRARY.Repository
             return user;
         }
 
+        public Task<int> UpdateSchoolYearSemester(User user)
+        {
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("UPDATE settings.users SET SchoolYearID = @SchoolYearID, SemesterID = @SemesterID WHERE UserID = @UserID", conn))
+                {
+                    comm.Parameters.AddWithValue("@UserID", user.UserID);
+                    comm.Parameters.AddWithValue("@Email", user.Email);
+                    comm.Parameters.AddWithValue("@Username", user.Username);
+                    comm.Parameters.AddWithValue("@Password", user.Password);
+                    comm.Parameters.AddWithValue("@AccountName", user.AccountName);
+                    comm.Parameters.AddWithValue("@SchoolYearID", user.SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", user.SemesterID);
+                    comm.Parameters.AddWithValue("@IsActive", true);
+                    return Task.FromResult(comm.ExecuteNonQuery());
+                }
+            }
+        }
+
         public Task<int> Updateuser(User user)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -192,7 +213,6 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                         t.Rollback();
                         return Task.FromResult(0);
                     }
-                    //update user info
 
 
                 }

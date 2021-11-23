@@ -13,14 +13,17 @@ namespace COLM_SYSTEM_LIBRARY.model.Reports_Folder
         public int SchoolYearID { get; set; }
         public int SemesterID { get; set; }
 
-        public static List<Target> GetTargets()
+        public static List<Target> GetTargets(int SchoolYearID,int SemesterID)
         {
             List<Target> targets = new List<Target>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.targets ORDER BY TargetID ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.targets WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
                 {
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
+
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         while (reader.Read())

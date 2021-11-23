@@ -15,5 +15,6 @@ namespace COLM_SYSTEM_LIBRARY.Interaces
         Task<bool> IsUsernameExists(string Username);
         Task<int> CreateUser(User user);
         Task<int> Updateuser(User user);
+        Task<int> UpdateSchoolYearSemester(User user);
     }
 }

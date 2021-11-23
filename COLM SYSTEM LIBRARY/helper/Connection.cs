@@ -8,8 +8,9 @@
         /// LOCAL SYSTEM
         /// </summary>
 
-        //////local connection SYSTEM
-        public static string LStringConnection { get { return @"Data Source=colm.edu.ph;Initial Catalog=colmpulilan_server;User Id=colmpulilan_sysadmin;Password=Admin.c0lm2o18"; } }
+        //////local connection SYSTEM   
+        //public static string LStringConnection { get { return @"Data Source=colm.edu.ph;Initial Catalog=colmpulilan_server;User Id=colmpulilan_sysadmin;Password=Admin.c0lm2o18"; } }
+        public static string LStringConnection { get { return @"Data Source=COLM\SQLEXPRESS01;Initial Catalog=colmpulilan_server;Integrated Security=True"; } }
         //public static string LStringConnection { get { return @"Data Source=.\SQLEXPRESS;Initial Catalog=colmpulilan_server;Persist Security Info=True;User ID=sa;Password=sa"; } }
         //public static string LStringConnection { get { return @"Data Source=.\SQLEXPRESS01;Initial Catalog=colmpulilan_server;Integrated Security=True"; } }
         //////online connection SYSTEM

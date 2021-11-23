@@ -14,7 +14,7 @@ namespace COLM_SYSTEM
     {
         List<Enrollees> enrolledCounts;
         string SelectedEducationLevel = string.Empty;
-        List<Target> targets = Target.GetTargets();
+        private List<Target> targets { get; set; } = Target.GetTargets(Program.user.SchoolYearID, Program.user.SemesterID);
         public UC_DashBoard()
         {
             InitializeComponent();
@@ -28,117 +28,124 @@ namespace COLM_SYSTEM
             LoadCharts();
         }
 
-        private void LoadEnrolledStudentCount()
-        {
-            enrolledCounts = Enrollees.GetEnrollees();
-        }
-
         private void LoadCharts()
         {
-            LoadEnrolledStudentCount();
+            try
+            {
+                enrolledCounts = Enrollees.GetEnrollees(Program.user.SchoolYearID, Program.user.SemesterID);
 
-            int EnrolledPreElem = 0;
-            int EnrolledElem = 0;
-            int EnrolledJHS = 0;
-            int EnrolledSHS = 0;
-            int EnrolledCollege = 0;
-            int TotalEnrolled = 0;
+                int EnrolledPreElem = 0;
+                int EnrolledElem = 0;
+                int EnrolledJHS = 0;
+                int EnrolledSHS = 0;
+                int EnrolledCollege = 0;
+                int TotalEnrolled = 0;
 
-            int PendingPreElem = 0;
-            int PendingElem = 0;
-            int PendingJHS = 0;
-            int PendingSHS = 0;
-            int PendingCollege = 0;
-            int TotalPending = 0;
+                int PendingPreElem = 0;
+                int PendingElem = 0;
+                int PendingJHS = 0;
+                int PendingSHS = 0;
+                int PendingCollege = 0;
+                int TotalPending = 0;
 
-            double TargetPreElem = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "pre elementary" && r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID()).TargetCount;
-            double TargetElem = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "elementary" && r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID()).TargetCount;
-            double TargetJHS = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "junior high" && r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID()).TargetCount;
-            double TargetSHS = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "senior high" && r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID()).TargetCount;
-            double TargetCollege = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "college" && r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID()).TargetCount;
-            double TargetTotal = TargetPreElem + TargetElem + TargetJHS + TargetSHS + TargetCollege;
+                //int TargetPreElem = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "pre elementary").TargetCount;
+                //int TargetElem = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "elementary").TargetCount;
+                //int TargetJHS = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "junior high").TargetCount;
+                //int TargetSHS = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "senior high").TargetCount;
+                //int TargetCollege = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "college").TargetCount;
 
-            //enrolled charts
-            EnrolledPreElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Pre Elementary" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
-            EnrolledElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Elementary" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
-            EnrolledJHS = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Junior High" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
-            EnrolledSHS = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Senior High" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
-            EnrolledCollege = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "College" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
-            TotalEnrolled = EnrolledPreElem + EnrolledElem + EnrolledJHS + EnrolledSHS + EnrolledCollege;
+                int TargetPreElem = 0;
+                int TargetElem = 0;
+                int TargetJHS = 0;
+                int TargetSHS = 0;
+                int TargetCollege = 0;
+                int TargetTotal = TargetPreElem + TargetElem + TargetJHS + TargetSHS + TargetCollege;
 
-            //pendings charts
-            PendingPreElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Pre Elementary" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
-            PendingElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Elementary" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
-            PendingJHS = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Junior High" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
-            PendingSHS = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Senior High" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
-            PendingCollege = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "College" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
-            TotalPending = PendingPreElem + PendingElem + PendingJHS + PendingSHS + PendingCollege;
+                //enrolled charts
+                EnrolledPreElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Pre Elementary" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
+                EnrolledElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Elementary" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
+                EnrolledJHS = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Junior High" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
+                EnrolledSHS = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Senior High" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
+                EnrolledCollege = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "College" && r.EnrollmentStatus == "Enrolled").Sum(r => r.ResultCount));
+                TotalEnrolled = EnrolledPreElem + EnrolledElem + EnrolledJHS + EnrolledSHS + EnrolledCollege;
 
-
-            TargetPreElem = Math.Round(((EnrolledPreElem) / TargetPreElem) * 100,MidpointRounding.AwayFromZero);
-            TargetElem = Math.Round(((EnrolledElem) / TargetElem) * 100, MidpointRounding.AwayFromZero);
-            TargetJHS = Math.Round(((EnrolledJHS) / TargetJHS) * 100, MidpointRounding.AwayFromZero);
-            TargetSHS = Math.Round(((EnrolledSHS) / TargetSHS) * 100, MidpointRounding.AwayFromZero);
-            TargetCollege = Math.Round(((EnrolledCollege) / TargetCollege) * 100, MidpointRounding.AwayFromZero);
-            //((TotalEnrolled + TotalPending) / TargetTotal) * 100;
-
-
-            //display enrolled charts
-            lblEnrolledPreElementary.Text = EnrolledPreElem.ToString();
-            lblEnrolledElementary.Text = EnrolledElem.ToString();
-            lblEnrolledJHS.Text = EnrolledJHS.ToString();
-            lblEnrolledSHS.Text = EnrolledSHS.ToString();
-            lblEnrolledCollege.Text = EnrolledCollege.ToString();
+                //pendings charts
+                PendingPreElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Pre Elementary" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
+                PendingElem = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Elementary" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
+                PendingJHS = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Junior High" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
+                PendingSHS = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "Senior High" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
+                PendingCollege = Convert.ToInt16(enrolledCounts.Where(r => r.EducationLevel == "College" && r.EnrollmentStatus == "Not Enrolled").Sum(r => r.ResultCount));
+                TotalPending = PendingPreElem + PendingElem + PendingJHS + PendingSHS + PendingCollege;
 
 
-
-            //dispaly pendings charts
-            lblPendingPreElementary.Text = PendingPreElem.ToString();
-            lblPendingElementary.Text = PendingElem.ToString();
-            lblPendingJHS.Text = PendingJHS.ToString();
-            lblPendingSHS.Text = PendingSHS.ToString();
-            lblPendingCollege.Text = PendingCollege.ToString();
+                //TargetPreElem = (EnrolledPreElem / TargetPreElem) * 100;
+                //TargetElem = (EnrolledElem / TargetElem) * 100;
+                //TargetJHS = (EnrolledJHS / TargetJHS) * 100;
+                //TargetSHS = (EnrolledSHS / TargetSHS) * 100;
+                //TargetCollege = (EnrolledCollege / TargetCollege) * 100;
 
 
-            //display target
-            lblTargetPreElem.Text = TargetPreElem.ToString("0.##") + "%";
-            lblTargetElem.Text = TargetElem.ToString("0.##") + "%";
-            lblTargetJHS.Text = TargetJHS.ToString("0.##") + "%";
-            lblTargetSHS.Text = TargetSHS.ToString("0.##") + "%";
-            lblTargetCollege.Text = TargetCollege.ToString("0.##") + "%";
+                //display enrolled charts
+                lblEnrolledPreElementary.Text = EnrolledPreElem.ToString();
+                lblEnrolledElementary.Text = EnrolledElem.ToString();
+                lblEnrolledJHS.Text = EnrolledJHS.ToString();
+                lblEnrolledSHS.Text = EnrolledSHS.ToString();
+                lblEnrolledCollege.Text = EnrolledCollege.ToString();
 
 
+                //dispaly pendings charts
+                lblPendingPreElementary.Text = PendingPreElem.ToString();
+                lblPendingElementary.Text = PendingElem.ToString();
+                lblPendingJHS.Text = PendingJHS.ToString();
+                lblPendingSHS.Text = PendingSHS.ToString();
+                lblPendingCollege.Text = PendingCollege.ToString();
 
-            //double TotalStudents = TotalEnrolled + TotalPending;
-            lblTotalEnrolled.Text = TotalEnrolled.ToString();
-            lblTotalPending.Text = TotalPending.ToString();
-            lblTotalTarget.Text = TargetTotal.ToString();
-            double TotalPendingPercent = (TotalPending / TargetTotal) * 100;
-            double TotalEnrolledPercent = (TotalEnrolled / TargetTotal) * 100;
-            double TotalTargetPercent = 100 - (TotalEnrolledPercent);
 
-            TotalPendingPercent = Math.Round(TotalPendingPercent, MidpointRounding.AwayFromZero);
-            TotalEnrolledPercent = Math.Round(TotalEnrolledPercent, MidpointRounding.AwayFromZero);
-            TotalTargetPercent = Math.Round(TotalTargetPercent, MidpointRounding.AwayFromZero);
+                //display target
+                lblTargetPreElem.Text = TargetPreElem.ToString("0.##") + "%";
+                lblTargetElem.Text = TargetElem.ToString("0.##") + "%";
+                lblTargetJHS.Text = TargetJHS.ToString("0.##") + "%";
+                lblTargetSHS.Text = TargetSHS.ToString("0.##") + "%";
+                lblTargetCollege.Text = TargetCollege.ToString("0.##") + "%";
 
-            //target
-            chartEnrolled.Series["s1"].Points.AddXY(string.Concat("Target", Environment.NewLine, TotalTargetPercent.ToString("0.##"), "%"), TargetTotal / 3);
-            int chartpoint = chartEnrolled.Series["s1"].Points.Count - 1;
-            chartEnrolled.Series["s1"].Points[chartpoint].LabelForeColor = Color.Black;
-            chartEnrolled.Series["s1"].Points[chartpoint].Color = Color.Gainsboro;
 
-            //enrolled
-            chartEnrolled.Series["s1"].Points.AddXY(string.Concat("Enrolled", Environment.NewLine, TotalEnrolledPercent.ToString("0.##"), "%"), TotalEnrolled);
-            chartpoint = chartEnrolled.Series["s1"].Points.Count - 1;
-            chartEnrolled.Series["s1"].Points[chartpoint].LabelForeColor = Color.White;
-            chartEnrolled.Series["s1"].Points[chartpoint].Color = Color.DarkSlateGray;
+                //double TotalStudents = TotalEnrolled + TotalPending;
+                lblTotalEnrolled.Text = TotalEnrolled.ToString();
+                lblTotalPending.Text = TotalPending.ToString();
+                lblTotalTarget.Text = TargetTotal.ToString();
+                double TotalPendingPercent = 0;// (TotalPending / TargetTotal) * 100;
+                double TotalEnrolledPercent = 0;// (TotalEnrolled / TargetTotal) * 100;
+                double TotalTargetPercent = 100 - (TotalEnrolledPercent);
+
+                TotalPendingPercent = Math.Round(TotalPendingPercent, MidpointRounding.AwayFromZero);
+                TotalEnrolledPercent = Math.Round(TotalEnrolledPercent, MidpointRounding.AwayFromZero);
+                TotalTargetPercent = Math.Round(TotalTargetPercent, MidpointRounding.AwayFromZero);
+
+                //target
+                chartEnrolled.Series["s1"].Points.AddXY(string.Concat("Target", Environment.NewLine, TotalTargetPercent.ToString("0.##"), "%"), TargetTotal / 3);
+                int chartpoint = chartEnrolled.Series["s1"].Points.Count - 1;
+                chartEnrolled.Series["s1"].Points[chartpoint].LabelForeColor = Color.Black;
+                chartEnrolled.Series["s1"].Points[chartpoint].Color = Color.Gainsboro;
+
+                //enrolled
+                chartEnrolled.Series["s1"].Points.AddXY(string.Concat("Enrolled", Environment.NewLine, TotalEnrolledPercent.ToString("0.##"), "%"), TotalEnrolled);
+                chartpoint = chartEnrolled.Series["s1"].Points.Count - 1;
+                chartEnrolled.Series["s1"].Points[chartpoint].LabelForeColor = Color.White;
+                chartEnrolled.Series["s1"].Points[chartpoint].Color = Color.DarkSlateGray;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         private void LoadChartBreakdown(string EducationLevel)
         {
             try
             {
-                List<Enrollees> enrollees = Enrollees.GetEnrollees();
+                List<Enrollees> enrollees = Enrollees.GetEnrollees(Program.user.SchoolYearID,Program.user.SemesterID);
 
                 enrollees = enrollees.Where(model => model.EducationLevel.ToLower() == EducationLevel.ToLower()).ToList();
 
@@ -212,7 +219,7 @@ namespace COLM_SYSTEM
                 {
                     case "College":
 
-                        List<Enrollees> enrollees = Enrollees.GetEnrollees();
+                        List<Enrollees> enrollees = Enrollees.GetEnrollees(Program.user.SchoolYearID,Program.user.SemesterID);
 
                         enrollees = enrollees.Where(model => model.EducationLevel.ToLower() == "college" && model.DepartmentCode == enrolled.Tag.ToString()).ToList();
 

@@ -6,6 +6,6 @@ namespace COLM_SYSTEM_LIBRARY.Interfaces
 {
     public interface IAssessmentRepository
     {
-        Task<IEnumerable<AssessmentSummaryEntity>> GetStudentAssessments();
+        Task<IEnumerable<AssessmentSummaryEntity>> GetStudentAssessments(int SchoolYearID,int SemesterID);
     }
 }

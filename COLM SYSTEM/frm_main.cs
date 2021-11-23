@@ -19,7 +19,9 @@ using SEMS.Reports_Folder;
 using SEMS.Settings_Folder;
 using SEMS.Student_Information_Folder;
 using System;
+using System.Collections.Generic;
 using System.Deployment.Application;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,17 +30,13 @@ namespace COLM_SYSTEM
     public partial class frm_main : Form
     {
         //#FF004000 metro studio color use for green
+        public IEnumerable<SchoolYear> SchoolYears { get; set; } = new List<SchoolYear>();
+        public IEnumerable<SchoolSemester> SchoolSemesters { get; set; } = new List<SchoolSemester>();
 
         public frm_main(User user)
         {
             InitializeComponent();
-
             Program.user = user;
-
-            lblAccountName.Text =user.AccountName;
-            lblPosition.Text = user.UserRole.RoleName;
-            lblSchoolYear.Text = Utilties.GetActiveSchoolYearInfo().ToUpper();
-            lblSemester.Text = Utilties.GetActiveSchoolSemesterInfo().ToUpper();
 
 
             string GetVersion = ApplicationDeployment.IsNetworkDeployed ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString() : Application.ProductVersion;
@@ -103,6 +101,14 @@ namespace COLM_SYSTEM
             DisplayControl(new UC_DashBoard());
         }
 
+        private void DisplayUserInfo()
+        {
+            lblAccountName.Text = Program.user.AccountName;
+            lblPosition.Text = Program.user.UserRole.RoleName;
+            lblSchoolYear.Text = SchoolYears.First(r => r.SchoolYearID == Program.user.SchoolYearID).Name;
+            lblSemester.Text = SchoolSemesters.First(r => r.SemesterID == Program.user.SemesterID).Semester;
+        }
+
         private void HideAllMi()
         {
             HideAllMiTransactions();
@@ -153,10 +159,13 @@ namespace COLM_SYSTEM
             }
         }
 
-        private void frm_main_Load_1(object sender, EventArgs e)
+        private async void frm_main_Load_1(object sender, EventArgs e)
         {
             //string ApplicantCount = await CheckNotifications();
             //lblNotificationCount.Text = ApplicantCount;
+            SchoolYears = await Utilties.GetSchoolYears();
+            SchoolSemesters = await Utilties.GetSchoolSemesters();
+            DisplayUserInfo();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -236,7 +245,7 @@ namespace COLM_SYSTEM
 
         private void onlineApplicantsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void assessmentToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -403,6 +412,14 @@ namespace COLM_SYSTEM
             frm_enrollment_list frm = new frm_enrollment_list();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frm_user_settings_sysem frm = new frm_user_settings_sysem();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            //DisplayUserInfo();
         }
     }
 }

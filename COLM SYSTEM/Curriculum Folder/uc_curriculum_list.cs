@@ -21,12 +21,12 @@ namespace COLM_SYSTEM.Curriculum_Folder
             LoadCurriculums();
         }
 
-        private void LoadCurriculums()
+        private async void LoadCurriculums()
         {
             Curriculums = Curriculum.GetCurriculums();
 
             dataGridView3.Rows.Clear();
-            string syname = Utilties.GetActiveSchoolYearInfo();
+            var SchoolYears = await Utilties.GetSchoolYears();
             foreach (var item in Curriculums)
             {
                 dataGridView3.Rows.Add(
@@ -35,7 +35,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
                     item.Description, 
                     item.EducationLevel, 
                     item.CourseStrand,
-                    syname, 
+                    SchoolYears.First(r => r.SchoolYearID == item.SchoolYearID).Name, 
                     item.Status,
                     item.DateCreated.ToString("MM-dd-yyyy hh:mm tt"));
 
@@ -67,16 +67,6 @@ namespace COLM_SYSTEM.Curriculum_Folder
             Curriculum c = dataGridView3.Rows[SelectedRow].Tag as Curriculum;
             List<CurriculumSubject> curriculumSubjects = Curriculum.GetCurriculumSubjects(c.CurriculumID);
             frm_curriculum_entry frm = new frm_curriculum_entry(c, curriculumSubjects);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            LoadCurriculums();
-        }
-
-        private void duplicateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Curriculum c = Curriculum.GetCurriculum((int)dataGridView3.Rows[SelectedRow].Cells["clmCurriculumID"].Value);
-            List<CurriculumSubject> curriculumSubjects = Curriculum.GetCurriculumSubjects(c.CurriculumID);
-            frm_curriculum_entry frm = new frm_curriculum_entry(c, curriculumSubjects, "DUPLICATE");
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             LoadCurriculums();

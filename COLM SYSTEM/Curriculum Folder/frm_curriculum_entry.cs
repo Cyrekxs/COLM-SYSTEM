@@ -1,8 +1,11 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.Interaces;
+using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Curriculum_Folder
@@ -13,7 +16,6 @@ namespace COLM_SYSTEM.Curriculum_Folder
         Curriculum _curriculum = new Curriculum();
         List<Department> Departments = Department.GetDepartments();
         List<CurriculumSubject> _curriculumSubjects = new List<CurriculumSubject>();
-        List<SchoolSemester> semesters = SchoolSemester.GetSchoolSemesters();
         private int SelectedRow = -1;
         //EDIT
         public frm_curriculum_entry(Curriculum c, List<CurriculumSubject> CurriculumSubjects)
@@ -44,10 +46,12 @@ namespace COLM_SYSTEM.Curriculum_Folder
             LoadSubjects(CurriculumSubjects);
         }
 
-        private void LoadSubjects(List<CurriculumSubject> CurriculumSubjects)
+        private async void LoadSubjects(List<CurriculumSubject> CurriculumSubjects)
         {
             List<Subject> subjects = Subject.GetSubjects();
             List<YearLevel> yearLevels = YearLevel.GetYearLevels();
+            var Semesters = await Utilties.GetSchoolSemesters();
+
             foreach (var item in CurriculumSubjects)
             {
                 Subject subject = subjects.Where(r => r.SubjID == item.SubjectID).FirstOrDefault();
@@ -61,7 +65,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
                     subject.Unit,
                     item.IsBridging,
                     yearLevels.Where(r => r.YearLevelID == item.YearLevelID).FirstOrDefault().YearLvl,
-                    SchoolSemester.GetSchoolSemester(item.SemesterID).Semester);
+                    Semesters.FirstOrDefault(r => r.SemesterID == item.SemesterID).Semester);
             }
         }
 
@@ -79,41 +83,6 @@ namespace COLM_SYSTEM.Curriculum_Folder
             dataGridView1.DataError += DataGridview_DataError;
         }
 
-        //DUPLICATE
-        public frm_curriculum_entry(Curriculum c, List<CurriculumSubject> subjects, string status)
-        {
-            savingoption = "ADD";
-            InitializeComponent();
-            DisplaySemestersOnCombobox();
-            //Handle Data Error Event
-            dataGridView1.DataError += DataGridview_DataError;
-
-            _curriculum = c;
-            _curriculumSubjects = subjects;
-
-            cmbEducationLevel.Text = c.EducationLevel;
-            cmbCourseStrand.Text = c.CourseStrand;
-            txtCurriculumCode.Text = string.Empty;
-            txtDescription.Text = string.Empty;
-
-            foreach (var item in subjects)
-            {
-                Subject subject = Subject.GetSubject(item.SubjectID);
-                dataGridView1.Rows.Add(
-                    0,
-                    item.SubjectID,
-                    subject.SubjCode,
-                    subject.SubjDesc,
-                    subject.LecUnit,
-                    subject.LabUnit,
-                    subject.Unit,
-                    item.IsBridging,
-                    YearLevel.GetYearLevel(item.YearLevelID).YearLvl,
-                    SchoolSemester.GetSchoolSemester(item.SemesterID).Semester);
-            }
-
-        }
-
         private void DisplayDepartments()
         {
             cmbDepartment.Items.Clear();
@@ -123,8 +92,9 @@ namespace COLM_SYSTEM.Curriculum_Folder
             }
         }
 
-        private void DisplaySemestersOnCombobox()
+        private async void DisplaySemestersOnCombobox()
         {
+            var semesters = await Utilties.GetSchoolSemesters();
             foreach (var item in semesters)
             {
                 clmSemester.Items.Add(item.Semester);
@@ -197,8 +167,11 @@ namespace COLM_SYSTEM.Curriculum_Folder
             return status;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
+            var active_schoolyear = await Utilties.GetActiveSchoolYear();
+            var Semesters = await Utilties.GetSchoolSemesters();
+
             if (IsValidInformation() == true)
             {
                 if (savingoption == "ADD")
@@ -212,7 +185,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
                                                select r.DepartmentID).FirstOrDefault();
 
                     curriculum.CourseStrand = cmbCourseStrand.Text;
-                    curriculum.SchoolYearID = SchoolYear.GetActiveSchoolYear().SchoolYearID;
+                    curriculum.SchoolYearID = active_schoolyear.SchoolYearID;
 
                     List<CurriculumSubject> curriculumSubjects = new List<CurriculumSubject>();
 
@@ -222,7 +195,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
                         CurriculumSubject subject = new CurriculumSubject()
                         {
                             CurriculumSubjectID = 0,
-                            SemesterID = SchoolSemester.GetSchoolSemester(setted_semester).SemesterID,
+                            SemesterID = Semesters.FirstOrDefault(r => r.Semester == setted_semester).SemesterID,
                             SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
                             IsActive = true,
                             IsBridging = Convert.ToBoolean(item.Cells["clmBridging"].Value),
@@ -261,7 +234,7 @@ namespace COLM_SYSTEM.Curriculum_Folder
                         {
                             CurriculumSubjectID = Convert.ToInt32(item.Cells["clmCurriculumSubjectID"].Value),
                             CurriculumID = curriculum.CurriculumID,
-                            SemesterID = SchoolSemester.GetSchoolSemester(setted_semester).SemesterID,
+                            SemesterID = Semesters.FirstOrDefault(r => r.Semester == setted_semester).SemesterID,
                             SubjectID = Convert.ToInt16(item.Cells["clmSubjectID"].Value),
                             IsActive = true,
                             IsBridging = Convert.ToBoolean(item.Cells["clmBridging"].Value),

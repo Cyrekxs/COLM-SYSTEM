@@ -13,7 +13,7 @@ namespace COLM_SYSTEM.Settings_Folder
 {
     public partial class uc_settings_target : UserControl
     {
-        List<Target> Targets = new List<Target>();
+        private List<Target> Targets { get; set; } = new List<Target>();
         public uc_settings_target()
         {
             InitializeComponent();
@@ -81,8 +81,8 @@ namespace COLM_SYSTEM.Settings_Folder
 
         private void uc_settings_target_Load(object sender, EventArgs e)
         {
-            Targets = Target.GetTargets().Where(item => item.SchoolYearID == Utilties.GetUserSchoolYearID() && item.SemesterID == Utilties.GetUserSemesterID()).ToList();
-
+            //Targets = Target.GetTargets().Where(item => item.SchoolYearID == Utilties.GetUserSchoolYearID() && item.SemesterID == Utilties.GetUserSemesterID()).ToList();
+            Targets = Target.GetTargets(Program.user.SchoolYearID, Program.user.SemesterID);
             foreach (var item in Targets)
             {
                 if (item.EducationLevel.Equals("pre elementary", StringComparison.OrdinalIgnoreCase))
