@@ -21,7 +21,7 @@ namespace COLM_SYSTEM.Section_Folder
         private void LoadCurriculums()
         {
             cmbCurriculum.Items.Clear();
-            List<SubjectSettedSummary> settedSummaries = (from r in SubjectSettedSummary.GetSubjectSettedSummaries()
+            List<SubjectSettedSummary> settedSummaries = (from r in SubjectSettedSummary.GetSubjectSettedSummaries(Program.user.SchoolYearID,Program.user.SemesterID)
                                                           where r.EducationLevel.ToLower() == cmbEducationLevel.Text.ToLower()
                                                           select r).ToList();
 
@@ -36,7 +36,7 @@ namespace COLM_SYSTEM.Section_Folder
 
         private void LoadYearLevels()
         {
-            List<SubjectSettedSummary> settedSummaries = (from r in SubjectSettedSummary.GetSubjectSettedSummaries()
+            List<SubjectSettedSummary> settedSummaries = (from r in SubjectSettedSummary.GetSubjectSettedSummaries(Program.user.SchoolYearID, Program.user.SemesterID)
                                                           where r.EducationLevel.ToLower() == cmbEducationLevel.Text.ToLower()
                                                           && r.Code.ToLower() == cmbCurriculum.Text.ToLower()
                                                           select r).ToList();
@@ -143,7 +143,7 @@ namespace COLM_SYSTEM.Section_Folder
 
         private void cmbYearLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SubjectSettedSummary settedSummaries = (from r in SubjectSettedSummary.GetSubjectSettedSummaries()
+            SubjectSettedSummary settedSummaries = (from r in SubjectSettedSummary.GetSubjectSettedSummaries(Program.user.SchoolYearID, Program.user.SemesterID)
                                                     where r.EducationLevel.ToLower() == cmbEducationLevel.Text.ToLower()
                                                     && r.Code.ToLower() == cmbCurriculum.Text.ToLower()
                                                     && r.YearLevel.ToLower() == cmbYearLevel.Text.ToLower()

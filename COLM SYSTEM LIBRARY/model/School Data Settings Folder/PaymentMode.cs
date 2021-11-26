@@ -16,9 +16,9 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int SchoolYearID { get; set; }
         public int SemesterID { get; set; }
         public double Surcharge { get; set; } //for displaying purposes
-        public static List<PaymentMode> GetAssessmentPaymentModes()
+        public static List<PaymentMode> GetAssessmentPaymentModes(int SchoolYearID,int SemesterID)
         {
-            return PaymentType_DS.GetAssessmentPaymentModes();
+            return PaymentType_DS.GetAssessmentPaymentModes(SchoolYearID,SemesterID);
         }
         public static List<PaymentModeItem> GetPaymentModeItems(int PaymentTypeID)
         {

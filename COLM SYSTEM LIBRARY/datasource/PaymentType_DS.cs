@@ -11,14 +11,16 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 {
     class PaymentType_DS
     {
-        public static List<PaymentMode> GetAssessmentPaymentModes()
+        public static List<PaymentMode> GetAssessmentPaymentModes(int SchoolYearID,int SemesterID)
         {
             List<PaymentMode> assessmentTypes = new List<PaymentMode>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_assessment_payment_modes() ORDER BY PaymentModeID ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_list_assessment_payment_modes() WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID ORDER BY PaymentModeID ASC", conn))
                 {
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         while (reader.Read())

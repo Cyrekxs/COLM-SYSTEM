@@ -25,7 +25,7 @@ namespace COLM_SYSTEM.Settings_Folder
             InitializeComponent();
             SavingStatus = "UPDATE";
 
-            PaymentMode mode = PaymentMode.GetAssessmentPaymentModes().Where(item => item.PaymentModeID == PaymentModeID).FirstOrDefault();
+            PaymentMode mode = PaymentMode.GetAssessmentPaymentModes(Program.user.SchoolYearID,Program.user.SemesterID).Where(item => item.PaymentModeID == PaymentModeID).FirstOrDefault();
             List<PaymentModeItem> paymentModeItems = PaymentMode.GetPaymentModeItems(PaymentModeID);
 
             cmbEducationLevel.Enabled = false;

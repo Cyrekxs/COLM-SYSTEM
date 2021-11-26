@@ -1,4 +1,6 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.Interfaces;
+using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,16 +16,16 @@ namespace COLM_SYSTEM.Assessment_Folder
     public partial class frm_assessment_browser : Form
     {
         List<StudentRegistered> StudentsWithoutAssessment = new List<StudentRegistered>();
+        IAssessmentRepository _AssessmentRepository = new AssessmentRepository();
         public frm_assessment_browser()
         {
             InitializeComponent();
-            StudentsWithoutAssessment = StudentRegistered.GetStudentsWithNoAssessment(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
-            LoadStudents();
         }
 
-        private void LoadStudents()
+        private void DisplayData(List<StudentRegistered> ListToDisplay)
         {
-            foreach (var item in StudentsWithoutAssessment)
+            dataGridView1.Rows.Clear();
+            foreach (var item in ListToDisplay)
             {
                 dataGridView1.Rows.Add(item.RegisteredID, item.LRN, item.StudentName, item.CurriculumID,item.CurriculumCode,item.EducationLevel,item.CourseStrand);
             }
@@ -47,14 +49,40 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             if (e.KeyCode == Keys.Enter)
             {
+
+                List<StudentRegistered> SearchedResults = new List<StudentRegistered>();
+
+                if (cmbEducationLevel.Text.ToLower() != "all")
+                {
+                    SearchedResults = StudentsWithoutAssessment.Where(r => r.EducationLevel.ToLower() == cmbEducationLevel.Text.ToLower()).ToList();
+                }
+
                 if (textBox1.Text == string.Empty)
-                    LoadStudents();
+                    DisplayData(StudentsWithoutAssessment);
                 else
                 {
-                    List<StudentRegistered> searchList = (from r in StudentsWithoutAssessment
-                                                          where r.StudentName.ToLower().Contains(textBox1.Text.ToLower())
-                                                          select r).ToList();
+                    SearchedResults = StudentsWithoutAssessment.Where(r => r.StudentName.ToLower().Contains(textBox1.Text.ToLower())).ToList(); 
+                    DisplayData(SearchedResults);
                 }
+            }
+        }
+
+
+        private async void frm_assessment_browser_Load(object sender, EventArgs e)
+        {
+            var result = await _AssessmentRepository.GetNotAssessedStudents(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
+            StudentsWithoutAssessment = result.ToList();
+            DisplayData(StudentsWithoutAssessment);
+        }
+
+        private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<StudentRegistered> SearchedResults = new List<StudentRegistered>();
+
+            if (cmbEducationLevel.Text.ToLower() != "all")
+            {
+                SearchedResults = StudentsWithoutAssessment.Where(r => r.EducationLevel.ToLower() == cmbEducationLevel.Text.ToLower()).ToList();
+                DisplayData(SearchedResults);
             }
         }
     }

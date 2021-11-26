@@ -1,5 +1,6 @@
 ﻿using COLM_SYSTEM_LIBRARY.helper;
 using COLM_SYSTEM_LIBRARY.Interfaces;
+using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,50 @@ namespace COLM_SYSTEM_LIBRARY.Repository
     public class AssessmentRepository : IAssessmentRepository
     {
         TextInfo text = CultureInfo.CurrentCulture.TextInfo;
+
+        public async Task<IEnumerable<StudentRegistered>> GetNotAssessedStudents(int SchoolYearID, int SemesterID)
+        {
+            List<StudentRegistered> registeredStudents = new List<StudentRegistered>();
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_get_no_student_assessment(@SchoolYearID,@SemesterID)", conn))
+                {
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
+                    using (SqlDataReader reader = await comm.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            StudentRegistered student = new StudentRegistered()
+                            {
+                                RegisteredID = Convert.ToInt32(reader["RegisteredID"]),
+                                StudentID = Convert.ToInt32(reader["StudentID"]),
+                                LRN = Convert.ToString(reader["LRN"]),
+                                StudentName = text.ToTitleCase(Convert.ToString(reader["StudentName"]).ToLower()),
+                                Gender = text.ToTitleCase(Convert.ToString(reader["Gender"]).ToLower()),
+                                MobileNo = Convert.ToString(reader["MobileNo"]),
+                                EducationLevel = Convert.ToString(reader["EducationLevel"]),
+                                DepartmentCode = Convert.ToString(reader["DepartmentCode"]),
+                                CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
+                                CurriculumCode = Convert.ToString(reader["Code"]),
+                                CourseStrand = Convert.ToString(reader["CourseStrand"]),
+                                StudentStatus = Convert.ToString(reader["StudentStatus"]),
+                                RegistrationStatus = Convert.ToString(reader["RegistrationStatus"]),
+                                SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
+                                SchoolYear = Convert.ToString(reader["SchoolYear"]),
+                                SemesterID = Convert.ToInt16(reader["SemesterID"]),
+                                Semester = Convert.ToString(reader["Semester"]),
+                                DateRegistered = Convert.ToDateTime(reader["DateRegistered"])
+                            };
+                            registeredStudents.Add(student);
+                        }
+                    }
+                }
+            }
+            return registeredStudents;
+        }
+
         public async Task<IEnumerable<AssessmentSummaryEntity>> GetStudentAssessments(int SchoolYearID, int SemesterID)
         {
             List<AssessmentSummaryEntity> AssessmentSummaryList = new List<AssessmentSummaryEntity>();

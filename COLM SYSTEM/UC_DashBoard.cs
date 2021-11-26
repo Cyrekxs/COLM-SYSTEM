@@ -28,6 +28,22 @@ namespace COLM_SYSTEM
             LoadCharts();
         }
 
+        private int CheckTarget(string EducationLevel)
+        {
+            if (targets.Count() > 0)
+            {
+                var result = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == EducationLevel.ToLower()).TargetCount;
+                if (result > 0)
+                    return result;
+                else
+                    return 1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
         private void LoadCharts()
         {
             try
@@ -48,17 +64,12 @@ namespace COLM_SYSTEM
                 int PendingCollege = 0;
                 int TotalPending = 0;
 
-                //int TargetPreElem = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "pre elementary").TargetCount;
-                //int TargetElem = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "elementary").TargetCount;
-                //int TargetJHS = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "junior high").TargetCount;
-                //int TargetSHS = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "senior high").TargetCount;
-                //int TargetCollege = targets.FirstOrDefault(r => r.EducationLevel.ToLower() == "college").TargetCount;
+                int TargetPreElem = CheckTarget("pre elementary");
+                int TargetElem = CheckTarget("elementary");
+                int TargetJHS = CheckTarget("junior high");
+                int TargetSHS = CheckTarget("senior high");
+                int TargetCollege = CheckTarget("college");
 
-                int TargetPreElem = 0;
-                int TargetElem = 0;
-                int TargetJHS = 0;
-                int TargetSHS = 0;
-                int TargetCollege = 0;
                 int TargetTotal = TargetPreElem + TargetElem + TargetJHS + TargetSHS + TargetCollege;
 
                 //enrolled charts
@@ -78,11 +89,11 @@ namespace COLM_SYSTEM
                 TotalPending = PendingPreElem + PendingElem + PendingJHS + PendingSHS + PendingCollege;
 
 
-                //TargetPreElem = (EnrolledPreElem / TargetPreElem) * 100;
-                //TargetElem = (EnrolledElem / TargetElem) * 100;
-                //TargetJHS = (EnrolledJHS / TargetJHS) * 100;
-                //TargetSHS = (EnrolledSHS / TargetSHS) * 100;
-                //TargetCollege = (EnrolledCollege / TargetCollege) * 100;
+                TargetPreElem = (EnrolledPreElem / TargetPreElem) * 100;
+                TargetElem = (EnrolledElem / TargetElem) * 100;
+                TargetJHS = (EnrolledJHS / TargetJHS) * 100;
+                TargetSHS = (EnrolledSHS / TargetSHS) * 100;
+                TargetCollege = (EnrolledCollege / TargetCollege) * 100;
 
 
                 //display enrolled charts

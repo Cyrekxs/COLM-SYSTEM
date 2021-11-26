@@ -419,7 +419,8 @@ namespace COLM_SYSTEM
             frm_user_settings_sysem frm = new frm_user_settings_sysem();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
-            //DisplayUserInfo();
+            DisplayUserInfo();
+            DisplayControl(new UC_DashBoard());
         }
     }
 }

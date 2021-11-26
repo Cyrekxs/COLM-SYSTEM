@@ -23,7 +23,7 @@ namespace COLM_SYSTEM.Settings_Folder
         {
             dataGridView1.Rows.Clear();
 
-            List<PaymentMode> paymentModes = PaymentMode.GetAssessmentPaymentModes();
+            List<PaymentMode> paymentModes = PaymentMode.GetAssessmentPaymentModes(Program.user.SchoolYearID,Program.user.SemesterID);
             foreach (var item in paymentModes)
             {
                 dataGridView1.Rows.Add(item.PaymentModeID, item.EducationLevel, item.PaymentName, item.NumOfPayments, item.Surcharge.ToString("n"));

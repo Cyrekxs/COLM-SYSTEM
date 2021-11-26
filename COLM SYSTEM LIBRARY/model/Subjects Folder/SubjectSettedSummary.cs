@@ -32,14 +32,16 @@ namespace COLM_SYSTEM_LIBRARY.model
         public double OtherFees { get; set; }
 
 
-        public static List<SubjectSettedSummary> GetSubjectSettedSummaries()
+        public static List<SubjectSettedSummary> GetSubjectSettedSummaries(int SchoolYearID, int SemesterID)
         {
             List<SubjectSettedSummary> settedSummaries = new List<SubjectSettedSummary>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM [dbo].[fn_list_subject_setted_summary]() ORDER BY EducationLevel,CourseStrand,YearLevelID ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM [dbo].[fn_list_subject_setted_summary]() WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID ORDER BY EducationLevel,CourseStrand,YearLevelID ASC", conn))
                 {
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         while (reader.Read())

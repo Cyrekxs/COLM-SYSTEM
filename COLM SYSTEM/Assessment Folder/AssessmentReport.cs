@@ -94,16 +94,19 @@ namespace SEMS.Assessment_Folder
             ReportParameter param_Policies = new ReportParameter("Policies", school.Policies);
 
             ReportParameter param_sysem;
-            var Active_SchoolYear = await Utilties.GetActiveSchoolYear();
-            var Active_Semester = await Utilties.GetActiveSemester();
+            var SchoolYears = await Utilties.GetSchoolYears();
+            var Semesters = await Utilties.GetSchoolSemesters();
+
+            var Active_SchoolYear = SchoolYears.FirstOrDefault(r => r.SchoolYearID == Program.user.SchoolYearID).Name;// await Utilties.GetActiveSchoolYear();
+            var Active_Semester = Semesters.FirstOrDefault(r => r.SemesterID == Program.user.SemesterID).Semester; //await Utilties.GetActiveSemester();
 
             if (assessment.Summary.EducationLevel.ToLower() != "college")
             {
-                param_sysem = new ReportParameter("sysem", string.Concat("S.Y :", Active_SchoolYear.Name.ToUpper()));
+                param_sysem = new ReportParameter("sysem", string.Concat("S.Y :", Active_SchoolYear.ToUpper()));
             }
             else
             {
-                param_sysem = new ReportParameter("sysem", string.Concat("A.Y : ", Active_Semester.Semester.ToUpper(), " ", Active_SchoolYear.Name.ToUpper()));
+                param_sysem = new ReportParameter("sysem", string.Concat("A.Y : ", Active_Semester.ToUpper(), " ", Active_SchoolYear.ToUpper()));
             }
 
             List<ReportParameter> reportParameters = new List<ReportParameter>();

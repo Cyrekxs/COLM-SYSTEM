@@ -35,12 +35,6 @@ namespace COLM_SYSTEM_LIBRARY.model
             return StudentRegistration_DS.GetRegisteredStudents();
         }
 
-        //This function will return a list of students without assessment on the specific education level, schoool year and semester
-        public  static List<StudentRegistered> GetStudentsWithNoAssessment(int SchoolYearID,int SemesterID)
-        {
-            return StudentRegistration_DS.GetStudentsWithNoAssessment(SchoolYearID, SemesterID);
-        }
-
         public static StudentRegistered GetRegisteredStudent(int RegisteredID)
         {
             return StudentRegistration_DS.GetRegisteredStudent(RegisteredID);

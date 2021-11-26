@@ -17,6 +17,8 @@
         public static string OStringConnection { get { return @"Server=colm.edu.ph;Database=colmpulilan_server_registration;User Id=colmpulilan_sysadmin;Password=Admin.c0lm2o18;"; } }
 
 
+
+
         #region connections
         /// <summary>
         /// COLM SYSTEM

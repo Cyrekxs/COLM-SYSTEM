@@ -292,7 +292,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void LoadAssessmentTypes() // this function will trigger upon initialization
         {
             //get assessment type list according to education level, school year and semester and tag it into cmbassessment type
-            List<PaymentMode> assessmentTypes = (from r in PaymentMode.GetAssessmentPaymentModes()
+            List<PaymentMode> assessmentTypes = (from r in PaymentMode.GetAssessmentPaymentModes(Program.user.SchoolYearID,Program.user.SemesterID)
                                                  where r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID() && r.EducationLevel.ToLower() == txtEducationLevel.Text.ToLower()
                                                  select r).ToList();
 

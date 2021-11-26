@@ -22,7 +22,7 @@ namespace COLM_SYSTEM.Fees_Folder
 
         private void LoadTuitionSummary()
         {
-            List<SubjectSettedSummary> TuitionSummaries = SubjectSettedSummary.GetSubjectSettedSummaries();
+            List<SubjectSettedSummary> TuitionSummaries = SubjectSettedSummary.GetSubjectSettedSummaries(Program.user.SchoolYearID,Program.user.SemesterID);
             dataGridView1.Rows.Clear();
             foreach (var item in TuitionSummaries)
             {
@@ -47,11 +47,6 @@ namespace COLM_SYSTEM.Fees_Folder
 
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item; // set the item as a row tag
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

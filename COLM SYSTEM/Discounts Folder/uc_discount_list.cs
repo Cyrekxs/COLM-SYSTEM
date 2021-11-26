@@ -35,13 +35,6 @@ namespace COLM_SYSTEM.Discounts
             foreach (var item in _Discounts)
             {
                 dataGridView3.Rows.Add(item.DiscountID, item.DiscountCode, item.Type, item.TotalValue, item.YearLevels.Count.ToString(), item.DateCreated);
-                //if (item.Type == "PERCENTAGE")
-                    
-                //else
-                //{
-                //    dataGridView3.Rows.Add(item.DiscountID, item.DiscountCode, item.Type, item.TotalValue.ToString("n"), item.YearLevels.Count.ToString(), item.DateCreated);
-                //}
-
             }
         }
 

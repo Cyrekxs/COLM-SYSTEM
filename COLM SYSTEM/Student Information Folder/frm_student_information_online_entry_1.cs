@@ -15,7 +15,8 @@ namespace COLM_SYSTEM.Student_Information_Folder
         List<Address> addresses = Address.GetAddresses();
         List<string> Schools = new List<string>();
         List<string> SchoolAddresses = new List<string>();
-        StudentInfo student = new StudentInfo();
+        private int ApplicationID { get; set; } = 0;
+        private StudentInfo student { get; set; } = new StudentInfo();
 
         private SavingOptions SavingStatus;
 
@@ -32,65 +33,20 @@ namespace COLM_SYSTEM.Student_Information_Folder
         {
             InitializeComponent();
             SavingStatus = SavingOptions.INSERT;
-            LoadSchoolsandSchoolAddress();
         }
         //UPDATE STUDENT INFORMATION
         public frm_student_information_online_entry_1(int StudentID)
         {
             InitializeComponent();
             SavingStatus = SavingOptions.UPDATE;
-            LoadSchoolsandSchoolAddress();
-            student = controller.GetStudentAsync(StudentID).GetAwaiter().GetResult();
-            DisplayStudentInfo();
+            student.StudentID = StudentID;
         }
         //IMPORT ONLINE APPLICANT TO CREATE NEW STUDENT
         public frm_student_information_online_entry_1(StudentInfoOnline model)
         {
             InitializeComponent();
-            LoadSchoolsandSchoolAddress();
             SavingStatus = SavingOptions.ONLINE;
-
-            txtLRN.Tag = model.ApplicationID;
-            txtLRN.Text = model.LRN;
-            txtFirstname.Text = model.Firstname;
-            txtMiddlename.Text = model.Middlename;
-            txtLastname.Text = model.Lastname;
-            txtBirthDate.Text = model.BirthDate.ToString();
-            cmbGender.Text = model.Gender;
-
-            txtStreet.Text = model.Street;
-            txtProvince.Text = model.Province;
-            txtCity.Text = model.City;
-            txtBarangay.Text = model.Barangay;
-
-            txtMobileNo.Text = model.MobileNo;
-            txtEmailAddress.Text = model.EmailAddress;
-
-            txtMotherName.Text = model.MotherName;
-            txtMotherMobile.Text = model.MobileNo;
-            txtFatherName.Text = model.FatherName;
-            txtFatherMobile.Text = model.FatherMobile;
-            txtGuardianName.Text = model.GuardianName;
-            txtGuardianMobile.Text = model.GuardianMobile;
-            txtEmergencyName.Text = model.EmergencyName;
-            txtEmergencyRelation.Text = model.EmergencyRelation;
-            txtEmergencyMobile.Text = model.EmergencyMobile;
-
-            txtSchoolName.Text = model.SchoolName;
-            txtSchoolAddress.Text = model.SchoolAddress;
-            cmbSchoolStatus.Text = model.SchoolStatus;
-            if (model.ESCGuarantee.ToLower() == "yes")
-                cmbESCGuarantee.Text = "ESC Guaranteed";
-            else if (model.ESCGuarantee.ToLower() == "no")
-                cmbESCGuarantee.Text = "NOT ESC Guaranteed";
-            else
-                cmbESCGuarantee.Text = model.ESCGuarantee;
-
-            cmbStudentStatus.Text = model.StudentStatus;
-            txtEducationLevel.Text = model.EducationLevel;
-            txtCourseStrand.Text = model.CourseStrand;
-            txtYearLevel.Text = model.YearLevel;
-
+            ApplicationID = model.ApplicationID;
         }
 
         private async Task LoadSchoolsandSchoolAddress()
@@ -401,11 +357,18 @@ namespace COLM_SYSTEM.Student_Information_Folder
             }
         }
 
-        private void frm_student_information_online_entry_1_Load(object sender, EventArgs e)
+        private async void frm_student_information_online_entry_1_Load(object sender, EventArgs e)
         {
             LoadSuggestionProvince();
             LoadSuggestionSchools();
             LoadSuggestionSchoolAddresses();
+            await LoadSchoolsandSchoolAddress();
+            student = await controller.GetStudentAsync(student.StudentID);
+            DisplayStudentInfo();
+
+            if (SavingStatus == SavingOptions.ONLINE)
+                txtLRN.Tag = ApplicationID;
+
         }
 
         private void txtProvince_Leave(object sender, EventArgs e)

@@ -100,7 +100,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                             comm.Parameters.AddWithValue("@Username", faculty.Username);
                             comm.Parameters.AddWithValue("@Password", "colmfaculty");
                             comm.Parameters.AddWithValue("@Role", "Teacher");
-                            comm.Parameters.AddWithValue("@Mobile", "");
+                            comm.Parameters.AddWithValue("@MobileNo", "");
                             comm.Parameters.AddWithValue("@IsMobileVerified", false);
                             comm.Parameters.AddWithValue("@UserStatus", "Active");
                             comm.Parameters.AddWithValue("@IsPasswordChangeRequired", true);
@@ -109,8 +109,9 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                         t.Commit();
                         return 1;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
+                        Console.WriteLine(ex.Message);
                         t.Rollback();
                         return 0;
                     }

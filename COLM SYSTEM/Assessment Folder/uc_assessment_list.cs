@@ -23,12 +23,14 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             InitializeComponent();
             cmbEducationLevel.Text = "All";
+            cmbEnrollmentStatus.Text = "All";
         }
 
         public uc_assessment_list(string SearchFilter)
         {
             InitializeComponent();
-            cmbEducationLevel.Text = "All";           
+            cmbEducationLevel.Text = "All";
+            cmbEnrollmentStatus.Text = "All";
         }
 
         private void DisplayAssessments(List<AssessmentSummaryEntity> assessments)
