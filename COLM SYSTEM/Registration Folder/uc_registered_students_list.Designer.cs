@@ -43,7 +43,7 @@
             this.clmRegisteredStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCurriculumID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,21 +57,27 @@
             this.clmAction = new System.Windows.Forms.DataGridViewImageColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.changeRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dROPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewRequirementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.lblTotalRecords = new System.Windows.Forms.Label();
-            this.dROPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelLoading = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.panelLoading.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SlateGray;
             this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.panelLoading);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.cmbEducationLevel);
             this.panel1.Controls.Add(this.label1);
@@ -80,19 +86,21 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panel1.Size = new System.Drawing.Size(1255, 40);
             this.panel1.TabIndex = 24;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(9, 11);
+            this.label3.Location = new System.Drawing.Point(177, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(273, 18);
+            this.label3.Size = new System.Drawing.Size(273, 40);
             this.label3.TabIndex = 2;
             this.label3.Text = "MASTERLIST OF REGISTERED STUDENTS";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button2
             // 
@@ -192,7 +200,7 @@
             this.clmRegisteredStudentID,
             this.clmStudentID,
             this.Column2,
-            this.Column3,
+            this.clmStudentName,
             this.Column5,
             this.Column6,
             this.clmCurriculumID,
@@ -242,12 +250,12 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
-            // Column3
+            // clmStudentName
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Student Name";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.clmStudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmStudentName.HeaderText = "Student Name";
+            this.clmStudentName.Name = "clmStudentName";
+            this.clmStudentName.ReadOnly = true;
             // 
             // Column5
             // 
@@ -356,6 +364,13 @@
             this.changeRegistrationToolStripMenuItem.Text = "Change Registration";
             this.changeRegistrationToolStripMenuItem.Click += new System.EventHandler(this.changeRegistrationToolStripMenuItem_Click);
             // 
+            // dROPToolStripMenuItem
+            // 
+            this.dROPToolStripMenuItem.Image = global::SEMS.Properties.Resources.Data_Delete;
+            this.dROPToolStripMenuItem.Name = "dROPToolStripMenuItem";
+            this.dROPToolStripMenuItem.Size = new System.Drawing.Size(195, 36);
+            this.dROPToolStripMenuItem.Text = "Drop";
+            // 
             // viewInformationToolStripMenuItem
             // 
             this.viewInformationToolStripMenuItem.Image = global::SEMS.Properties.Resources.View;
@@ -404,12 +419,38 @@
             this.lblTotalRecords.Text = "The sort function is modified by encoded then by student name for optimization";
             this.lblTotalRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dROPToolStripMenuItem
+            // panelLoading
             // 
-            this.dROPToolStripMenuItem.Image = global::SEMS.Properties.Resources.Data_Delete;
-            this.dROPToolStripMenuItem.Name = "dROPToolStripMenuItem";
-            this.dROPToolStripMenuItem.Size = new System.Drawing.Size(195, 36);
-            this.dROPToolStripMenuItem.Text = "Drop";
+            this.panelLoading.Controls.Add(this.label5);
+            this.panelLoading.Controls.Add(this.pictureBox1);
+            this.panelLoading.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelLoading.Location = new System.Drawing.Point(10, 0);
+            this.panelLoading.Name = "panelLoading";
+            this.panelLoading.Size = new System.Drawing.Size(167, 40);
+            this.panelLoading.TabIndex = 32;
+            // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(33, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 40);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Loading data . . .";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::SEMS.Properties.Resources.buffering;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 30;
+            this.pictureBox1.TabStop = false;
             // 
             // uc_registered_students_list
             // 
@@ -422,10 +463,13 @@
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "uc_registered_students_list";
             this.Size = new System.Drawing.Size(1255, 616);
+            this.Load += new System.EventHandler(this.uc_registered_students_list_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.panelLoading.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -445,10 +489,14 @@
         private System.Windows.Forms.ToolStripMenuItem deleteApplicationToolStripMenuItem;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.ToolStripMenuItem viewInformationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewRequirementsToolStripMenuItem;
+        private System.Windows.Forms.Label lblTotalRecords;
+        private System.Windows.Forms.ToolStripMenuItem changeRegistrationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dROPToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRegisteredStudentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmStudentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmStudentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCurriculumID;
@@ -460,9 +508,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSchoolYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewImageColumn clmAction;
-        private System.Windows.Forms.ToolStripMenuItem viewRequirementsToolStripMenuItem;
-        private System.Windows.Forms.Label lblTotalRecords;
-        private System.Windows.Forms.ToolStripMenuItem changeRegistrationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dROPToolStripMenuItem;
+        private System.Windows.Forms.Panel panelLoading;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

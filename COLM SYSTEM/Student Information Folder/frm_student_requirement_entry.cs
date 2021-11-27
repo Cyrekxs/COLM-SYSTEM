@@ -1,7 +1,9 @@
 ﻿using COLM_SYSTEM;
+using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.School_Data_Settings_Folder;
 using COLM_SYSTEM_LIBRARY.model.Student_Folder;
+using COLM_SYSTEM_LIBRARY.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,15 +19,17 @@ namespace SEMS.Student_Information_Folder
 {
     public partial class frm_student_requirement_entry : Form
     {
+        ICurriculumRepository _CurriculumRepository = new CurriculumRepository();
+
         StudentRequirement studentRequirement = new StudentRequirement();
         List<Requirement> requirements = new List<Requirement>();
-        StudentRegistered registered;
-        public frm_student_requirement_entry(int RegistrationID)
+
+        public StudentRegistration StudentRegistration { get; }
+
+        public frm_student_requirement_entry(StudentRegistration StudentRegistration)
         {
-            InitializeComponent();            
-            registered = StudentRegistered.GetRegisteredStudent(RegistrationID);
-            requirements = Requirement.GetRequirements(registered.EducationLevel);
-            DisplayRequirements();
+            InitializeComponent();
+            this.StudentRegistration = StudentRegistration;
         }
 
         private void DisplayRequirements()
@@ -38,7 +42,7 @@ namespace SEMS.Student_Information_Folder
 
         private void button2_Click(object sender, EventArgs e)
         {
-            studentRequirement.StudentID = registered.StudentID;
+            studentRequirement.StudentID = StudentRegistration.StudentID;
 
             Requirement requirement = requirements.Where(item => item.RequirementName == cmbRequirement.Text).FirstOrDefault();
             studentRequirement.Requirement = requirement;
@@ -66,6 +70,13 @@ namespace SEMS.Student_Information_Folder
                 txtFile.Tag = File;
                 txtFile.Text = FileName;
             }
+        }
+
+        private async void frm_student_requirement_entry_Load(object sender, EventArgs e)
+        {
+            var curriculum = await _CurriculumRepository.GetCurriculum(StudentRegistration.CurriculumID);
+            requirements = Requirement.GetRequirements(curriculum.EducationLevel);
+            DisplayRequirements();
         }
     }
 }

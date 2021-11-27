@@ -11,13 +11,14 @@ namespace COLM_SYSTEM.Payment_Folder
 {
     public partial class frm_browse_fees : Form
     {
+        public int RegistrationID { get; }
         List<Fee> fees = Fee.GetAdditionalFees();
-        StudentRegistered student = new StudentRegistered();
-        public frm_browse_fees(StudentRegistered student)
+
+        public frm_browse_fees(int RegistrationID)
         {
             InitializeComponent();
-            this.student = student;
             LoadAdditionalFees();
+            this.RegistrationID = RegistrationID;
         }
 
         private void LoadAdditionalFees()
@@ -52,7 +53,7 @@ namespace COLM_SYSTEM.Payment_Folder
                     int FeeID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmFeeID"].Value);
                     Fee fee = GetFee(FeeID);
                     int Quantity = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["clmQuantity"].Value);
-                    int result = Payment.ChargeFee(student, fee, Quantity);
+                    int result = Payment.ChargeFee(RegistrationID, fee, Quantity);
                     if (result > 0)
                     {
                         MessageBox.Show("Fee has been successfully added to this student!", "Fee Added Successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);                        

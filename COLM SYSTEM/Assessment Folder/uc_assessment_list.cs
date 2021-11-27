@@ -38,7 +38,19 @@ namespace COLM_SYSTEM.Assessment_Folder
             dataGridView1.Rows.Clear();
             foreach (var item in assessments)
             {
-                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.TotalDue.ToString("n"), item.PaymentMode, item.Assessor, item.AssessmentDate.ToString("MM-dd-yyyy"), item.EnrollmentStatus);
+                dataGridView1.Rows.Add(
+                    item.AssessmentID, 
+                    item.RegisteredStudentID, 
+                    item.LRN, 
+                    Utilties.FormatText(item.StudentName), 
+                    item.EducationLevel, 
+                    item.CourseStrand, 
+                    item.YearLevel, 
+                    item.TotalDue.ToString("n"), 
+                    item.PaymentMode,
+                    Utilties.FormatText(item.Assessor),
+                    item.AssessmentDate.ToString("MM-dd-yyyy"), 
+                    item.EnrollmentStatus);
             }
 
             lblCount.Text = string.Concat("Total Records in the Database : ", Assessments.Count(), " Record Count(s):", dataGridView1.Rows.Count);
@@ -105,7 +117,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void reAssessToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int AssessmentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmAssessmentID"].Value);
-            frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID, AssessmentOptions.Update);
+            frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             SearchAssessment();
@@ -151,19 +163,12 @@ namespace COLM_SYSTEM.Assessment_Folder
             SearchAssessment();
         }
 
-        private void viewAssessmentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int AssessmentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmAssessmentID"].Value);
-            frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID, AssessmentOptions.View);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            SearchAssessment();
-        }
-
         private async void uc_assessment_list_Load(object sender, EventArgs e)
         {
+            panelLoading.Visible = true;
             Assessments = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID,Program.user.SemesterID);
             DisplayAssessments(Assessments.ToList());
+            panelLoading.Visible = false;
         }
     }
 }

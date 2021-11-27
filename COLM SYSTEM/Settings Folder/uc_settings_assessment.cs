@@ -9,18 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM;
+using COLM_SYSTEM_LIBRARY.Repository;
+using COLM_SYSTEM_LIBRARY.Interfaces;
 
 namespace SEMS.Settings_Folder
 {
     public partial class uc_settings_assessment : UserControl
     {
-        SchoolInfo info = new SchoolInfo();
+        IApplicationRepository _ApplicationRepository = new ApplicationRepository();
+        SystemSettings SystemSettings { get; set; } = new SystemSettings();
 
         public uc_settings_assessment()
         {
             InitializeComponent();
-
-
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -29,7 +30,7 @@ namespace SEMS.Settings_Folder
             if (result == DialogResult.OK)
             {
                 pictureBox2.Image = Image.FromFile(openFileDialog1.FileName);
-                info.Sign = Utilties.ConvertImageToByte(Image.FromFile(openFileDialog1.FileName));
+                SystemSettings.Sign = Utilties.ConvertImageToByte(Image.FromFile(openFileDialog1.FileName));
             }
         }
 
@@ -39,7 +40,7 @@ namespace SEMS.Settings_Folder
             if (result == DialogResult.OK)
             {
                 pictureBox3.Image = Image.FromFile(openFileDialog1.FileName);
-                info.WaterMark = Utilties.ConvertImageToByte(Image.FromFile(openFileDialog1.FileName));
+                SystemSettings.WaterMark = Utilties.ConvertImageToByte(Image.FromFile(openFileDialog1.FileName));
             }
         }
 
@@ -95,7 +96,7 @@ namespace SEMS.Settings_Folder
             return true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
 
             if (isValidForm() == false)
@@ -103,15 +104,15 @@ namespace SEMS.Settings_Folder
                 return;
             }
 
-            info.MainHeader = txtMainHeader.Text;
-            info.FirstSubHeader = txtFirstSubHeader.Text;
-            info.SecondSubHeader = txtSecondSubHeader.Text;
-            info.FooterContact = txtFooterContact.Text;
-            info.FooterFacebook = txtFooterFacebook.Text;
-            info.SchoolRegistrar = txtSchoolRegistrar.Text;
-            info.Policies = txtSchoolPolicies.Text;
+            SystemSettings.MainHeader = txtMainHeader.Text;
+            SystemSettings.FirstSubHeader = txtFirstSubHeader.Text;
+            SystemSettings.SecondSubHeader = txtSecondSubHeader.Text;
+            SystemSettings.FooterContact = txtFooterContact.Text;
+            SystemSettings.FooterFacebook = txtFooterFacebook.Text;
+            SystemSettings.SchoolRegistrar = txtSchoolRegistrar.Text;
+            SystemSettings.Policies = txtSchoolPolicies.Text;
 
-            int result = SchoolInfo.SaveSchoolInfo(info);
+            int result = await _ApplicationRepository.SaveSystemSettings(SystemSettings); 
             if (result > 0)
                 MessageBox.Show("Assessment Settings has been successfully saved and setted", "Assessment Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
@@ -120,23 +121,23 @@ namespace SEMS.Settings_Folder
 
         private async void uc_settings_assessment_Load(object sender, EventArgs e)
         {
-            info = await SchoolInfo.GetSchoolInfoAsync();
+            SystemSettings = await _ApplicationRepository.GetSystemSettings();
 
-            txtMainHeader.Text = info.MainHeader;
-            txtFirstSubHeader.Text = info.FirstSubHeader;
-            txtSecondSubHeader.Text = info.SecondSubHeader;
-            txtFooterContact.Text = info.FooterContact;
-            txtFooterFacebook.Text = info.FooterFacebook;
-            txtSchoolRegistrar.Text = info.SchoolRegistrar;
-            txtSchoolPolicies.Text = info.Policies;
+            txtMainHeader.Text = SystemSettings.MainHeader;
+            txtFirstSubHeader.Text = SystemSettings.FirstSubHeader;
+            txtSecondSubHeader.Text = SystemSettings.SecondSubHeader;
+            txtFooterContact.Text = SystemSettings.FooterContact;
+            txtFooterFacebook.Text = SystemSettings.FooterFacebook;
+            txtSchoolRegistrar.Text = SystemSettings.SchoolRegistrar;
+            txtSchoolPolicies.Text = SystemSettings.Policies;
 
-            if (info.Sign != null)
+            if (SystemSettings.Sign != null)
             {
-                pictureBox2.Image = Utilties.ConvertByteToImage(info.Sign);
+                pictureBox2.Image = Utilties.ConvertByteToImage(SystemSettings.Sign);
             }
-            if (info.WaterMark != null)
+            if (SystemSettings.WaterMark != null)
             {
-                pictureBox3.Image = Utilties.ConvertByteToImage(info.WaterMark);
+                pictureBox3.Image = Utilties.ConvertByteToImage(SystemSettings.WaterMark);
             }
         }
     }

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Payment_Folder
@@ -24,12 +25,7 @@ namespace COLM_SYSTEM.Payment_Folder
             InitializeComponent();
             cmbEducationLevel.Text = "All";
 
-            var frm = new frm_loading_v4(_AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID,Program.user.SemesterID));
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            if (frm.DialogResult == DialogResult.OK)
-                AssessmentLists = frm.TaskGetAssessmentLists.Result;
-            DisplayData(AssessmentLists.ToList());
+
         }
 
         private void DisplayData(List<AssessmentSummaryEntity> Data)
@@ -96,20 +92,27 @@ namespace COLM_SYSTEM.Payment_Folder
             SearchAssessment();
         }
 
-        private void uc_payers_Load(object sender, EventArgs e)
+        private async void uc_payers_Load(object sender, EventArgs e)
         {
-
+            panelLoading.Visible = true;
+            AssessmentLists = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID, Program.user.SemesterID);
+            DisplayData(AssessmentLists.ToList());
+            panelLoading.Visible = false;
         }
 
         private async void timer1_Tick(object sender, EventArgs e)
         {
+            panelLoading.Visible = true;
             AssessmentLists = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID,Program.user.SemesterID);
+            DisplayData(AssessmentLists.ToList());
+            panelLoading.Visible = false;
         }
 
-        private void viewAssessmentToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void viewAssessmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int AssessmentID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmAssessmentID"].Value);
-            frm_payment frm = new frm_payment(AssessmentID);
+            var Assessment = await _AssessmentRepository.GetStudentAssessment(AssessmentID);
+            frm_payment frm = new frm_payment(Assessment);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             SearchAssessment();

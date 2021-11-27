@@ -22,32 +22,5 @@ namespace COLM_SYSTEM_LIBRARY.model
         {
             return StudentRegistration_DS.GetUnregisteredOnlineApplicants();
         }
-
-        public static bool RegisterStudent(StudentRegistration student)
-        {
-            return StudentRegistration_DS.RegisterStudent(student);
-        }
-
-        public static bool UpdateStudentRegistration(StudentRegistration model)
-        {
-            return StudentRegistration_DS.UpdateStudentRegistration(model);
-        }
-
-        public static bool HasAssessment(int RegistrationID)
-        {
-            return StudentRegistration_DS.HasAssessment(RegistrationID);
-        }
-        public static int DeleteStudentRegistration(int RegistrationID)
-        {
-            if (StudentRegistration_DS.HasAssessment(RegistrationID) == true)
-                return -1;
-            else
-                return StudentRegistration_DS.DeleteRegistration(RegistrationID);
-        }
-
-        public static bool HasPayment(int RegistrationID)
-        {
-            return StudentRegistration_DS.HasPayment(RegistrationID);
-        }
     }
 }

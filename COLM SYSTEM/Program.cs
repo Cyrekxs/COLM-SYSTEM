@@ -5,7 +5,9 @@ using COLM_SYSTEM.Reports_Folder;
 using COLM_SYSTEM.Settings_Folder;
 using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM.subject;
+using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.Repository;
 using SEMS;
 using SEMS.Custom_Controls;
 using SEMS.Settings_Folder;
@@ -30,6 +32,7 @@ namespace COLM_SYSTEM
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frm_login());
+
         }
     }
 }

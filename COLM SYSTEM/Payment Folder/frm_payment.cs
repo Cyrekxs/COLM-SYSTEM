@@ -1,6 +1,8 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.Interfaces;
+using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using COLM_SYSTEM_LIBRARY.model.Payment_Folder;
+using COLM_SYSTEM_LIBRARY.Repository;
 using Microsoft.Reporting.WinForms;
 using SEMS.Payment_Folder;
 using System;
@@ -14,48 +16,36 @@ namespace COLM_SYSTEM.Payment_Folder
 {
     public partial class frm_payment : Form
     {
-        Assessment assessment = new Assessment();
-        StudentRegistered studentRegistered = new StudentRegistered();
+        IRegistrationRepository _RegistrationRepository = new RegistrationRepository();
+        private Assessment Assessment { get; }
+        StudentRegistration StudentRegistration { get; set; } = new StudentRegistration();
         YearLevel studentYearLevel = new YearLevel();
         int SelectedOR = -1;
-        public frm_payment(int AssessmentID)
+
+
+        public frm_payment(Assessment Assessment)
         {
             InitializeComponent();
-
-            //this will get assessment information of student;
-            LoadAssessmentInformation(AssessmentID);
-
-            //get registration information
-            studentRegistered = StudentRegistered.GetRegisteredStudent(assessment.Summary.RegisteredStudentID);
-            //get yearlevel information
-            studentYearLevel = YearLevel.GetYearLevel(assessment.Summary.YearLevelID);
-
-            ////Display Student Information
-            //StudentInfo student = StudentInfo.GetStudent(studentRegistered.StudentID);
-
-            txtLRN.Text = studentRegistered.LRN;
-            txtStudentName.Text = studentRegistered.StudentName;
-            txtEducationLevel.Text = studentRegistered.EducationLevel;
-            txtCourseStrand.Text = studentRegistered.CourseStrand;
-            txtYearLevel.Text = studentYearLevel.YearLvl;
-            txtSection.Text = assessment.Summary.Section;
-
             LoadAdditionalFees();
             LoadPaymentHistory();
             DisplayLink();
+            this.Assessment = Assessment;
+            DisplayStudentInformation();
         }
 
-        //default load
-        private void LoadAssessmentInformation(int AssessmentID)
+        private void DisplayStudentInformation()
         {
-            assessment = Assessment.GetAssessment(AssessmentID);
-            LoadAssessmentBreakdown();
+            txtLRN.Text = Assessment.Summary.LRN;
+            txtStudentName.Text = Assessment.Summary.StudentName;
+            txtEducationLevel.Text = Assessment.Summary.EducationLevel;
+            txtCourseStrand.Text = Assessment.Summary.CourseStrand;
+            txtYearLevel.Text = studentYearLevel.YearLvl;
+            txtSection.Text = Assessment.Summary.Section;
         }
 
         //reload or refresh
         private void LoadAssessmentInformation()
         {
-            assessment = Assessment.GetAssessment(assessment.Summary.AssessmentID);
             LoadAssessmentBreakdown();
             LoadAdditionalFees();
             LoadPaymentHistory();
@@ -64,7 +54,7 @@ namespace COLM_SYSTEM.Payment_Folder
 
         private void DisplayLink()
         {
-            bool IsEnrolled = EnrolledStudent.IsStudentEnrolled(studentRegistered.RegisteredID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
+            bool IsEnrolled = EnrolledStudent.IsStudentEnrolled(Assessment.Summary.RegisteredStudentID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
             if (IsEnrolled == true)
             {
                 linkEnroll.Visible = false;
@@ -80,7 +70,7 @@ namespace COLM_SYSTEM.Payment_Folder
         private void LoadAdditionalFees()
         {
             dgAdditionalFees.Rows.Clear();
-            List<AdditionalFee> additionalFees = Payment.GetAdditionalFees(studentRegistered.RegisteredID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
+            List<AdditionalFee> additionalFees = Payment.GetAdditionalFees(Assessment.Summary.RegisteredStudentID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
             foreach (var item in additionalFees)
             {
                 double balance = item.TotalAmount - item.TotalPayment;
@@ -93,7 +83,7 @@ namespace COLM_SYSTEM.Payment_Folder
         private void LoadPaymentHistory()
         {
             dgPaymentHistory.Rows.Clear();
-            List<Payment> payments = Payment.GetPayments(studentRegistered.RegisteredID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
+            List<Payment> payments = Payment.GetPayments(Assessment.Summary.RegisteredStudentID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
             foreach (var item in payments)
             {
                 dgPaymentHistory.Rows.Add(item.PaymentID, item.ORNumber, item.PaymentCategory, item.FeeCategory, item.AmountPaid.ToString("n"), item.PaymentStatus, item.PaymentDate.ToString("MM-dd-yyyy hh:mm tt"));
@@ -122,10 +112,11 @@ namespace COLM_SYSTEM.Payment_Folder
         {
 
             dgBreakdown.Rows.Clear();
-            double TotalPaidTuition = assessment.Summary.TotalPaidTuition;
+            double TotalPaidTuition = Assessment.Summary.TotalPaidTuition;
             double balance = 0;
             double TotalBalance = 0;
-            foreach (var item in assessment.Breakdown)
+
+            foreach (var item in Assessment.Breakdown)
             {
                 if (TotalPaidTuition >= item.Amount)
                 {
@@ -143,7 +134,7 @@ namespace COLM_SYSTEM.Payment_Folder
             }
 
             txtTotalBalanceTuition.Text = TotalBalance.ToString("n");
-            txtTotalPaymentTuition.Text = assessment.Summary.TotalPaidTuition.ToString("n");
+            txtTotalPaymentTuition.Text = Assessment.Summary.TotalPaidTuition.ToString("n");
 
 
             //disable enable checkbox for payment
@@ -171,7 +162,7 @@ namespace COLM_SYSTEM.Payment_Folder
                 }
             }
 
-            frm_payment_cash_entry frm = new frm_payment_cash_entry(studentRegistered, AmountToPay);
+            frm_payment_cash_entry frm = new frm_payment_cash_entry(Assessment.Summary.RegisteredStudentID, AmountToPay);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
 
@@ -186,7 +177,7 @@ namespace COLM_SYSTEM.Payment_Folder
 
         private void button5_Click(object sender, EventArgs e)
         {
-            frm_browse_fees frm = new frm_browse_fees(studentRegistered);
+            frm_browse_fees frm = new frm_browse_fees(Assessment.Summary.RegisteredStudentID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             LoadAssessmentInformation();
@@ -209,7 +200,7 @@ namespace COLM_SYSTEM.Payment_Folder
 
             if (additionalFeesToPay.Count != 0)
             {
-                frm_payment_cash_additional_fee_entry frm = new frm_payment_cash_additional_fee_entry(studentRegistered, additionalFeesToPay, AmountToPay);
+                frm_payment_cash_additional_fee_entry frm = new frm_payment_cash_additional_fee_entry(Assessment.Summary.RegisteredStudentID, additionalFeesToPay, AmountToPay);
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
 
@@ -266,7 +257,7 @@ namespace COLM_SYSTEM.Payment_Folder
             {
                 EnrolledStudent student = new EnrolledStudent()
                 {
-                    RegisteredStudentID = studentRegistered.RegisteredID,
+                    RegisteredStudentID = Assessment.Summary.RegisteredStudentID,
                     SchoolYearID = Utilties.GetUserSchoolYearID(),
                     SemesterID = Utilties.GetUserSemesterID(),
                 };
@@ -291,7 +282,7 @@ namespace COLM_SYSTEM.Payment_Folder
                 }
             }
 
-            frm_payment_cheque_entry frm = new frm_payment_cheque_entry(studentRegistered, AmountToPay);
+            frm_payment_cheque_entry frm = new frm_payment_cheque_entry(Assessment.Summary.RegisteredStudentID, AmountToPay);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
 
@@ -330,7 +321,7 @@ namespace COLM_SYSTEM.Payment_Folder
                 }
             }
 
-            frm_payment_center_entry frm = new frm_payment_center_entry(studentRegistered, AmountToPay);
+            frm_payment_center_entry frm = new frm_payment_center_entry(Assessment.Summary.RegisteredStudentID, AmountToPay);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
 
@@ -349,7 +340,7 @@ namespace COLM_SYSTEM.Payment_Folder
         {
             if (MessageBox.Show("If you click yes this will mark the student as not enrolled?", "Unenroll Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                EnrolledStudent student = EnrolledStudent.GetEnrolledStudent(studentRegistered.RegisteredID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
+                EnrolledStudent student = EnrolledStudent.GetEnrolledStudent(Assessment.Summary.RegisteredStudentID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
 
                 int result = EnrolledStudent.UnenrollStudent(student);
                 if (result > 0)
@@ -376,19 +367,6 @@ namespace COLM_SYSTEM.Payment_Folder
                 dr["Amount"] = TotalPaymentAmount.ToString("n");
                 tbl.Rows.Add(dr);
             }
-            else
-            {
-
-            }
-
-
-            //foreach (DataGridViewRow row in dataGridView2.Rows)
-            //{
-            //    dr = tbl.NewRow();
-            //    dr["Item"] = i;
-            //    dr["Amount"] = row.Cells["clmLRN"].Value.ToString();
-            //    tbl.Rows.Add(dr);
-            //}
 
             ReportParameter param_PaymentDate = new ReportParameter("PaymentDate", DateTime.Now.ToShortDateString());
             ReportParameter param_StudentName = new ReportParameter("StudentName", txtStudentName.Text);

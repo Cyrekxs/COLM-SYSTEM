@@ -20,11 +20,6 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
             return Assessment_DS.GetAssessmentLists(EducationLevel);
         }
 
-        public static List<AssessmentSummaryEntity> GetAssessments()
-        {
-            return Assessment_DS.GetAssessmentLists();
-        }
-
         public static Assessment GetAssessment(int AssessmentID)
         {
             return Assessment_DS.GetAssessment(AssessmentID);

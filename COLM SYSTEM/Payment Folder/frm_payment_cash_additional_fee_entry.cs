@@ -8,11 +8,11 @@ namespace COLM_SYSTEM.Payment_Folder
 {
     public partial class frm_payment_cash_additional_fee_entry : Form
     {
-        StudentRegistered studentRegistered = new StudentRegistered();
-        public frm_payment_cash_additional_fee_entry(StudentRegistered student, List<AdditionalFee> additionalFeesToPay, double AmountToPay)
+        public int RegistrationID { get; }
+
+        public frm_payment_cash_additional_fee_entry(int RegistrationID, List<AdditionalFee> additionalFeesToPay, double AmountToPay)
         {
             InitializeComponent();
-            studentRegistered = student;
             txtAmount.Text = AmountToPay.ToString("n");
 
             foreach (var item in additionalFeesToPay)
@@ -20,6 +20,8 @@ namespace COLM_SYSTEM.Payment_Folder
                 double balance = item.TotalAmount - item.TotalPayment;
                 dataGridView1.Rows.Add(item.AssessmentAdditionalFeeID, item.Fee, balance.ToString("n"), balance.ToString("n"));
             }
+
+            this.RegistrationID = RegistrationID;
         }
 
         private void CalculateFeesToPay()
@@ -98,7 +100,7 @@ namespace COLM_SYSTEM.Payment_Folder
 
             Payment payment = new Payment()
             {
-                RegisteredStudentID = studentRegistered.RegisteredID,
+                RegisteredStudentID = RegistrationID,
                 SchoolYearID = Utilties.GetUserSchoolYearID(),
                 SemesterID = Utilties.GetUserSemesterID(),
                 ORNumber = txtORNumber.Text,

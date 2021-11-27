@@ -47,11 +47,19 @@
   <ItemGroup>
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="datasource\Address_DS.cs" />
-    <Compile Include="Interaces\ISchoolYearSemesterRepository.cs" />
-    <Compile Include="Interaces\IUserRepository.cs" />
+    <Compile Include="Interfaces\IApplicationRepository.cs" />
+    <Compile Include="Interfaces\ICurriculumRepository.cs" />
+    <Compile Include="Interfaces\ISchoolYearSemesterRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Interfaces\IPaymentRepository.cs" />
+    <Compile Include="Interfaces\IRegistrationRepository.cs" />
+    <Compile Include="Repository\ApplicationRepository.cs" />
+    <Compile Include="Repository\CurriculumRepository.cs" />
+    <Compile Include="Repository\PaymentRepository.cs" />
+    <Compile Include="Repository\RegistrationRepository.cs" />
     <Compile Include="Repository\SchoolYearSemesterRepository.cs" />
     <Compile Include="Repository\SOARepository.cs" />
-    <Compile Include="Interaces\IStudentRepository.cs" />
+    <Compile Include="Interfaces\IStudentRepository.cs" />
     <Compile Include="datasource\PaymentType_DS.cs" />
     <Compile Include="datasource\Assessment_DS.cs" />
     <Compile Include="datasource\Curriculum_DS.cs" />
@@ -73,7 +81,7 @@
     <Compile Include="helper\Enums.cs" />
     <Compile Include="helper\Globals.cs" />
     <Compile Include="helper\SQLHelper.cs" />
-    <Compile Include="Interaces\IEnrollmentList.cs" />
+    <Compile Include="Interfaces\IEnrollmentList.cs" />
     <Compile Include="Interfaces\IAssessmentRepository.cs" />
     <Compile Include="Interfaces\ISOARepository.cs" />
     <Compile Include="model\Address.cs" />
@@ -93,7 +101,7 @@
     <Compile Include="model\Student Folder\StudentMaster.cs" />
     <Compile Include="model\Student Folder\StudentRequirement.cs" />
     <Compile Include="model\User Folder\Role.cs" />
-    <Compile Include="model\General Settings Folder\SchoolInfo.cs" />
+    <Compile Include="model\General Settings Folder\SystemSettings.cs" />
     <Compile Include="model\Payment Folder\PaymentBreakdown.cs" />
     <Compile Include="model\School Data Settings Folder\PaymentMode.cs" />
     <Compile Include="model\School Data Settings Folder\PaymentModeItem.cs" />
@@ -121,7 +129,6 @@
     <Compile Include="model\SchoolYear.cs" />
     <Compile Include="model\School Data Settings Folder\Section.cs" />
     <Compile Include="model\SchoolSemester.cs" />
-    <Compile Include="model\General Settings Folder\SEMSSettings.cs" />
     <Compile Include="model\Student Folder\StudentInfoOnline.cs" />
     <Compile Include="model\Student Folder\StudentInfoOnlineProcessed.cs" />
     <Compile Include="model\Student Folder\StudentRegistered.cs" />

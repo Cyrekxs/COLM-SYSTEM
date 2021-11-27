@@ -278,6 +278,7 @@
             this.MinimizeBox = false;
             this.Name = "frm_assessment_entry_1";
             this.Text = "ASSESSMENT ENTRY STEP 1";
+            this.Load += new System.EventHandler(this.frm_assessment_entry_1_Load);
             this.panel7.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();

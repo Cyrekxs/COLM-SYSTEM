@@ -1,12 +1,10 @@
 ﻿using COLM_SYSTEM_LIBRARY.Interaces;
 using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.Repository;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace COLM_SYSTEM
@@ -72,12 +70,37 @@ namespace COLM_SYSTEM
 
         public static Image ConvertByteToImage(byte[] image)
         {
-            Image result;
-            using (MemoryStream ms = new MemoryStream(image))
+            try
             {
-                result = Image.FromStream(ms);
+                Image result;
+                using (MemoryStream ms = new MemoryStream(image))
+                {
+                    result = Image.FromStream(ms);
+                }
+                return result;
             }
-            return result;
+            catch (System.Exception)
+            {
+                return null;
+            }
+
+
+
+        }
+
+        public static string FormatText(string value)
+        {
+            if (value != null)
+            {
+                TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
+                value = value.ToLower();
+                return ti.ToTitleCase(value);
+            }
+            else
+            {
+                return "";
+            }
+
         }
     }
 }

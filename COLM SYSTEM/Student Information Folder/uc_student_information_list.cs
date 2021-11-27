@@ -1,46 +1,54 @@
 ﻿using COLM_SYSTEM.Student_Information_Folder;
-using COLM_SYSTEM_LIBRARY.Controller;
+using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.student_information
 {
     public partial class uc_student_information_list : UserControl
     {
-        StudentController controller = new StudentController();
-
+        IStudentRepository _StudentRepository = new StudentRepository();
         private int SelectedRow = 0;
-        List<StudentInfo> students = new List<StudentInfo>();
+        List<StudentInfo> _Students = new List<StudentInfo>();
 
         public uc_student_information_list()
         {
             InitializeComponent();
         }
 
-        private async Task LoadStudentAsync()
+        private void DisplayStudents(List<StudentInfo> Students)
         {
-            students = await controller.GetStudentsAsync();
-
-            if (string.IsNullOrEmpty(txtSearch.Text) == false)
-            {
-                students = students.Where(r => r.StudentName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
-            }
-
             dataGridView1.Rows.Clear();
-            foreach (var item in students.Take(300))
+            foreach (var item in Students.Take(300).ToList())
             {
-                string gender = item.Gender.Substring(0, 1);
-                dataGridView1.Rows.Add(item.StudentID, item.LRN, item.StudentName, gender, item.BirthDate.ToString("MM-dd-yyyy"), item.MobileNo, item.EmergencyName, item.EmergencyMobile, item.ApplicationInfo, item.Encoded.ToString("MM-dd-yyyy"));
+                dataGridView1.Rows.Add(
+                    item.StudentID,
+                    item.LRN,
+                    Utilties.FormatText(item.StudentName),
+                    Utilties.FormatText(item.Gender),
+                    item.BirthDate.ToString("MM-dd-yyyy"),
+                    item.MobileNo,
+                     Utilties.FormatText(item.EmergencyName),
+                    item.EmergencyMobile,
+                    item.ApplicationInfo,
+                    item.Encoded.ToString("MM-dd-yyyy"));
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
             }
 
-            lblCount.Text = string.Concat("Total Records in the Database : ", students.Count.ToString(), " Record Count(s):", dataGridView1.Rows.Count);
+            lblCount.Text = string.Concat("Total Records in the Database : ", _Students.Count.ToString(), " Record Count(s):", dataGridView1.Rows.Count);
+        }
+
+        private void SearchStudent()
+        {
+            List<StudentInfo> SearchedResults;
+            SearchedResults = _Students.Where(r => r.StudentName.ToLower().Contains(txtSearch.Text)).ToList();
+            DisplayStudents(SearchedResults);
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -49,7 +57,13 @@ namespace COLM_SYSTEM.student_information
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-                await LoadStudentAsync();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    panelLoading.Visible = true;
+                    _Students = await _StudentRepository.GetStudentInformations();
+                    DisplayStudents(_Students);
+                    panelLoading.Visible = false;
+                }
             }
         }
 
@@ -62,18 +76,11 @@ namespace COLM_SYSTEM.student_information
             }
         }
 
-        private async void txtSearch_KeyDownAsync(object sender, KeyEventArgs e)
+        private void txtSearch_KeyDownAsync(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                await LoadStudentAsync();
-            }
-            else if (e.KeyCode == Keys.Back)
-            {
-                if (txtSearch.Text == string.Empty)
-                {
-                    await LoadStudentAsync();
-                }
+                SearchStudent();
             }
         }
 
@@ -84,7 +91,13 @@ namespace COLM_SYSTEM.student_information
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-                await LoadStudentAsync();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    panelLoading.Visible = true;
+                    _Students = await _StudentRepository.GetStudentInformations();
+                    DisplayStudents(_Students);
+                    panelLoading.Visible = false;
+                }
             }
         }
 
@@ -92,17 +105,17 @@ namespace COLM_SYSTEM.student_information
         {
             //this function will check if the current student id has a registration info.. if it has a registration id then it will not continue to delete student info
             int SelectedStudentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmStudentID"].Value);
-            bool HasRegistration = await controller.HasRegistration(SelectedStudentID);
+            bool HasRegistration = await _StudentRepository.HasRegistrationAsync(SelectedStudentID);
             if (HasRegistration == false)
             {
                 if (MessageBox.Show("Are you sure you want to delete this student information?", "Delete Student Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int result = await controller.RemoveStudent(SelectedStudentID);
+                    int result = await _StudentRepository.RemoveStudentAsync(SelectedStudentID);
 
                     if (result > 0)
                     {
                         MessageBox.Show("Student has been successfully deleted!", "Delete Successfull!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        await LoadStudentAsync();
+                        DisplayStudents(_Students);
                     }
                 }
             }
@@ -114,7 +127,11 @@ namespace COLM_SYSTEM.student_information
 
         private async void uc_student_information_list_LoadAsync(object sender, EventArgs e)
         {
-            await LoadStudentAsync();
+            panelLoading.Visible = true;
+            _Students = await _StudentRepository.GetStudentInformations();
+            DisplayStudents(_Students);
+            panelLoading.Visible = false;
         }
+
     }
 }

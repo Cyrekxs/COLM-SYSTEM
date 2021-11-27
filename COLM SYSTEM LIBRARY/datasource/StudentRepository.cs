@@ -1,4 +1,5 @@
 ﻿using COLM_SYSTEM_LIBRARY.helper;
+using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model;
 using Dapper;
 using System;
@@ -6,11 +7,11 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
-namespace COLM_SYSTEM_LIBRARY.datasource
+namespace COLM_SYSTEM_LIBRARY.Repository
 {
     public class StudentRepository : IStudentRepository
     {
-        public async Task<List<StudentInfo>> GetStudentsAsync()
+        public async Task<List<StudentInfo>> GetStudentInformations()
         {
             IEnumerable<StudentInfo> students;
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
@@ -22,7 +23,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             return students.AsList();
         }
 
-        public async Task<StudentInfo> GetStudentAsync(int StudentID)
+        public async Task<StudentInfo> GetStudentInformation(int StudentID)
         {
             StudentInfo student = new StudentInfo();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
@@ -113,54 +114,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 return result;
             }
         }
-        public async Task<bool> InsertUpdateStudentInformationAsync(StudentInfo model)
-        {
-            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
-            {
-                conn.Open();
-                using (SqlCommand comm = new SqlCommand("EXEC sp_set_student_information @StudentID,@LRN,@Lastname,@Firstname,@Middlename,@BirthDate,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@EmergencyName,@EmergencyRelation,@EmergencyMobile,@SchoolName,@SchoolAddress,@SchoolStatus,@ESCGuarantee,@StudentStatus,@EducationLevel,@CourseStrand,@YearLevel", conn))
-                {
-                    comm.Parameters.AddWithValue("@StudentID", model.StudentID);
-                    comm.Parameters.AddWithValue("@LRN", model.LRN);
-                    comm.Parameters.AddWithValue("@Lastname", model.Lastname);
-                    comm.Parameters.AddWithValue("@Firstname", model.Firstname);
-                    comm.Parameters.AddWithValue("@Middlename", model.Middlename);
-                    comm.Parameters.AddWithValue("@BirthDate", model.BirthDate);
-                    comm.Parameters.AddWithValue("@Gender", model.Gender);
-                    comm.Parameters.AddWithValue("@Street", model.Street);
-                    comm.Parameters.AddWithValue("@Barangay", model.Barangay);
-                    comm.Parameters.AddWithValue("@City", model.City);
-                    comm.Parameters.AddWithValue("@Province", model.Province);
-                    comm.Parameters.AddWithValue("@MobileNo", model.MobileNo);
-                    comm.Parameters.AddWithValue("@EmailAddress", model.EmailAddress);
-
-                    comm.Parameters.AddWithValue("@MotherName", model.MotherName);
-                    comm.Parameters.AddWithValue("@MotherMobile", model.MotherMobile);
-                    comm.Parameters.AddWithValue("@FatherName", model.FatherName);
-                    comm.Parameters.AddWithValue("@FatherMobile", model.FatherMobile);
-                    comm.Parameters.AddWithValue("@GuardianName", model.GuardianName);
-                    comm.Parameters.AddWithValue("@GuardianMobile", model.GuardianMobile);
-                    comm.Parameters.AddWithValue("@EmergencyName", model.EmergencyName);
-                    comm.Parameters.AddWithValue("@EmergencyRelation", model.EmergencyRelation);
-                    comm.Parameters.AddWithValue("@EmergencyMobile", model.EmergencyMobile);
-
-                    comm.Parameters.AddWithValue("@SchoolName", model.SchoolName);
-                    comm.Parameters.AddWithValue("@SchoolAddress", model.SchoolAddress);
-                    comm.Parameters.AddWithValue("@SchoolStatus", model.SchoolStatus);
-                    comm.Parameters.AddWithValue("@ESCGuarantee", model.ESCGuarantee);
-
-                    comm.Parameters.AddWithValue("@StudentStatus", model.StudentStatus);
-                    comm.Parameters.AddWithValue("@EducationLevel", model.EducationLevel);
-                    comm.Parameters.AddWithValue("@CourseStrand", model.CourseStrand);
-                    comm.Parameters.AddWithValue("@Yearlevel", model.YearLevel);
-                    if (await comm.ExecuteNonQueryAsync() > 0)
-                        return true;
-                    else
-                        return false;
-                }
-            }
-        }
-        public async Task<int> InsertOnlineApplicantAsync(int ApplicantID, int StudentID)
+        public async Task<int> InsertOnlineApplicant(int ApplicantID, int StudentID)
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
@@ -173,14 +127,14 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
             }
         }
-        public async Task<StudentInfo> IsStudentExistsAsync(string Lastname, string Firstname)
+        public async Task<StudentInfo> IsStudentExists(string Lastname, string Firstname, string Middlename)
         {
             StudentInfo student = new StudentInfo();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                string sql = "SELECT * FROM student.information WHERE Lastname = @Lastname AND Firstname = @Firstname";
-                student = await conn.QueryFirstOrDefaultAsync<StudentInfo>(sql, new { Firstname = Firstname, Lastname = Lastname });
+                string sql = "SELECT * FROM student.information WHERE Lastname = @Lastname AND Firstname = @Firstname AND Middlename = @Middlename";
+                student = await conn.QueryFirstOrDefaultAsync<StudentInfo>(sql, new { Firstname = Firstname, Lastname = Lastname, Middlename = Middlename });
                 if (student != null)
                     return student;
                 else
@@ -243,7 +197,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
             }
         }
-        public async Task<List<string>> GetSchoolsAsync()
+        public async Task<List<string>> GetSchools()
         {
             IEnumerable<string> Schools = new List<string>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
@@ -254,18 +208,136 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
             return Schools.AsList();
         }
-        public async Task<List<string>> GetSchoolAddressesAsync()
+        public async Task<List<string>> GetSchoolAddresses()
         {
             IEnumerable<string> SchoolAddresses = new List<string>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 string sql = "SELECT DISTINCT SchoolAddress FROM student.information ORDER BY SchoolAddress ASC";
-                SchoolAddresses = await conn.QueryAsync<string>(sql);                
+                SchoolAddresses = await conn.QueryAsync<string>(sql);
             }
             return SchoolAddresses.AsList();
         }
 
+        public Task<int> InsertStudentInformation(StudentInfo Information)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("INSERT INTO student.information OUTPUT inserted.StudentID VALUES(@StudentID,@LRN,@Lastname,@Firstname,@Middlename,@BirthDate,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@EmergencyName,@EmergencyRelation,@EmergencyMobile,@SchoolName,@SchoolAddress,@SchoolStatus,@ESCGuarantee,@StudentStatus,@EducationLevel,@CourseStrand,@YearLevel)", conn))
+                {
+                    comm.Parameters.AddWithValue("@StudentID", Information.StudentID);
+                    comm.Parameters.AddWithValue("@LRN", Information.LRN);
+                    comm.Parameters.AddWithValue("@Lastname", Information.Lastname);
+                    comm.Parameters.AddWithValue("@Firstname", Information.Firstname);
+                    comm.Parameters.AddWithValue("@Middlename", Information.Middlename);
+                    comm.Parameters.AddWithValue("@BirthDate", Information.BirthDate);
+                    comm.Parameters.AddWithValue("@Gender", Information.Gender);
+                    comm.Parameters.AddWithValue("@Street", Information.Street);
+                    comm.Parameters.AddWithValue("@Barangay", Information.Barangay);
+                    comm.Parameters.AddWithValue("@City", Information.City);
+                    comm.Parameters.AddWithValue("@Province", Information.Province);
+                    comm.Parameters.AddWithValue("@MobileNo", Information.MobileNo);
+                    comm.Parameters.AddWithValue("@EmailAddress", Information.EmailAddress);
 
+                    comm.Parameters.AddWithValue("@MotherName", Information.MotherName);
+                    comm.Parameters.AddWithValue("@MotherMobile", Information.MotherMobile);
+                    comm.Parameters.AddWithValue("@FatherName", Information.FatherName);
+                    comm.Parameters.AddWithValue("@FatherMobile", Information.FatherMobile);
+                    comm.Parameters.AddWithValue("@GuardianName", Information.GuardianName);
+                    comm.Parameters.AddWithValue("@GuardianMobile", Information.GuardianMobile);
+                    comm.Parameters.AddWithValue("@EmergencyName", Information.EmergencyName);
+                    comm.Parameters.AddWithValue("@EmergencyRelation", Information.EmergencyRelation);
+                    comm.Parameters.AddWithValue("@EmergencyMobile", Information.EmergencyMobile);
+
+                    comm.Parameters.AddWithValue("@SchoolName", Information.SchoolName);
+                    comm.Parameters.AddWithValue("@SchoolAddress", Information.SchoolAddress);
+                    comm.Parameters.AddWithValue("@SchoolStatus", Information.SchoolStatus);
+                    comm.Parameters.AddWithValue("@ESCGuarantee", Information.ESCGuarantee);
+
+                    comm.Parameters.AddWithValue("@StudentStatus", Information.StudentStatus);
+                    comm.Parameters.AddWithValue("@EducationLevel", Information.EducationLevel);
+                    comm.Parameters.AddWithValue("@CourseStrand", Information.CourseStrand);
+                    comm.Parameters.AddWithValue("@Yearlevel", Information.YearLevel);
+                    return Task.FromResult(Convert.ToInt32(comm.ExecuteScalar()));
+                }
+            }
+        }
+
+        public Task<int> UpdateStudentInformation(StudentInfo Information)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("UPDATE student.information " +
+                    "SET LRN = @LRN, " +
+                    "Lastname = @Lastname, " +
+                    "Firstname = @Firstname, " +
+                    "Middlename = @Middlename, " +
+                    "Birthdate = @BirthDate, " +
+                    "Gender = @Gender, " +
+                    "Street = @Street, " +
+                    "Barangay = @Barangay, " +
+                    "City = @City, " +
+                    "Province = @Province, " +
+                    "MobileNo = @MobileNo, " +
+                    "EmailAddress = @EmailAddress, " +
+                    "Mothername = @MotherName, " +
+                    "MotherMobile = @MotherMobile, " +
+                    "FatherName = @FatherName, " +
+                    "FatherMobile = @FatherMobile, " +
+                    "GuardianName = @GuardianName, " +
+                    "GuardianMobile = @GuardianMobile, " +
+                    "EmergencyName = @EmergencyName, " +
+                    "EmergencyRelation = @EmergencyRelation, " +
+                    "EmergencyMobile = @EmergencyMobile, " +
+                    "SchoolName = @SchoolName, " +
+                    "SchoolAddress = @SchoolAddress, " +
+                    "SchoolStatus = @SchoolStatus, " +
+                    "ESCGuarantee = @ESCGuarantee, " +
+                    "StudentStatus = @StudentStatus, " +
+                    "EducationLevel = @EducationLevel, " +
+                    "CourseStrand = @CourseStrand, " +
+                    "YearLevel = @YearLevel " +
+                    "WHERE StudentID = @StudentID", conn))
+                {
+                    comm.Parameters.AddWithValue("@StudentID", Information.StudentID);
+                    comm.Parameters.AddWithValue("@LRN", Information.LRN);
+                    comm.Parameters.AddWithValue("@Lastname", Information.Lastname);
+                    comm.Parameters.AddWithValue("@Firstname", Information.Firstname);
+                    comm.Parameters.AddWithValue("@Middlename", Information.Middlename);
+                    comm.Parameters.AddWithValue("@BirthDate", Information.BirthDate);
+                    comm.Parameters.AddWithValue("@Gender", Information.Gender);
+                    comm.Parameters.AddWithValue("@Street", Information.Street);
+                    comm.Parameters.AddWithValue("@Barangay", Information.Barangay);
+                    comm.Parameters.AddWithValue("@City", Information.City);
+                    comm.Parameters.AddWithValue("@Province", Information.Province);
+                    comm.Parameters.AddWithValue("@MobileNo", Information.MobileNo);
+                    comm.Parameters.AddWithValue("@EmailAddress", Information.EmailAddress);
+
+                    comm.Parameters.AddWithValue("@MotherName", Information.MotherName);
+                    comm.Parameters.AddWithValue("@MotherMobile", Information.MotherMobile);
+                    comm.Parameters.AddWithValue("@FatherName", Information.FatherName);
+                    comm.Parameters.AddWithValue("@FatherMobile", Information.FatherMobile);
+                    comm.Parameters.AddWithValue("@GuardianName", Information.GuardianName);
+                    comm.Parameters.AddWithValue("@GuardianMobile", Information.GuardianMobile);
+                    comm.Parameters.AddWithValue("@EmergencyName", Information.EmergencyName);
+                    comm.Parameters.AddWithValue("@EmergencyRelation", Information.EmergencyRelation);
+                    comm.Parameters.AddWithValue("@EmergencyMobile", Information.EmergencyMobile);
+
+                    comm.Parameters.AddWithValue("@SchoolName", Information.SchoolName);
+                    comm.Parameters.AddWithValue("@SchoolAddress", Information.SchoolAddress);
+                    comm.Parameters.AddWithValue("@SchoolStatus", Information.SchoolStatus);
+                    comm.Parameters.AddWithValue("@ESCGuarantee", Information.ESCGuarantee);
+
+                    comm.Parameters.AddWithValue("@StudentStatus", Information.StudentStatus);
+                    comm.Parameters.AddWithValue("@EducationLevel", Information.EducationLevel);
+                    comm.Parameters.AddWithValue("@CourseStrand", Information.CourseStrand);
+                    comm.Parameters.AddWithValue("@Yearlevel", Information.YearLevel);
+                    return Task.FromResult(comm.ExecuteNonQuery());
+                }
+            }
+        }
     }
 }

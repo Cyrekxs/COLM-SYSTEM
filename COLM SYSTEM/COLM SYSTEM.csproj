@@ -583,12 +583,6 @@
       <DependentUpon>uc_settings_target.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Student Curriculum\uc_student_tracklist.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Student Curriculum\uc_student_tracklist.Designer.cs">
-      <DependentUpon>uc_student_tracklist.cs</DependentUpon>
-    </Compile>
     <Compile Include="Student Information Folder\frm_online_importer_processor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -630,12 +624,6 @@
     </Compile>
     <Compile Include="Student Information Folder\uc_student_information_list_online.Designer.cs">
       <DependentUpon>uc_student_information_list_online.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Student Information Folder\uc_student_information_v2.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Student Information Folder\uc_student_information_v2.Designer.cs">
-      <DependentUpon>uc_student_information_v2.cs</DependentUpon>
     </Compile>
     <Compile Include="Subject Folder\frm_subject_entry.cs">
       <SubType>Form</SubType>
@@ -694,11 +682,11 @@
     <Compile Include="Registration Folder\frm_registration_entry.Designer.cs">
       <DependentUpon>frm_registration_entry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registration Folder\frm_student_browse.cs">
+    <Compile Include="Registration Folder\frm_registration_browse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registration Folder\frm_student_browse.Designer.cs">
-      <DependentUpon>frm_student_browse.cs</DependentUpon>
+    <Compile Include="Registration Folder\frm_registration_browse.Designer.cs">
+      <DependentUpon>frm_registration_browse.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Assessment Folder\frm_assessment_additional_fee_viewer.resx">
       <DependentUpon>frm_assessment_additional_fee_viewer.cs</DependentUpon>
@@ -865,8 +853,8 @@
     <EmbeddedResource Include="Registration Folder\frm_registration_entry.resx">
       <DependentUpon>frm_registration_entry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registration Folder\frm_student_browse.resx">
-      <DependentUpon>frm_student_browse.cs</DependentUpon>
+    <EmbeddedResource Include="Registration Folder\frm_registration_browse.resx">
+      <DependentUpon>frm_registration_browse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registration Folder\uc_registered_students_list.resx">
       <DependentUpon>uc_registered_students_list.cs</DependentUpon>
@@ -935,9 +923,6 @@
     <EmbeddedResource Include="Settings Folder\uc_settings_target.resx">
       <DependentUpon>uc_settings_target.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student Curriculum\uc_student_tracklist.resx">
-      <DependentUpon>uc_student_tracklist.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\frm_online_importer_processor.resx">
       <DependentUpon>frm_online_importer_processor.cs</DependentUpon>
     </EmbeddedResource>
@@ -958,9 +943,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\uc_student_information_list_online.resx">
       <DependentUpon>uc_student_information_list_online.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Student Information Folder\uc_student_information_v2.resx">
-      <DependentUpon>uc_student_information_v2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subject Folder\frm_subject_entry.resx">
       <DependentUpon>frm_subject_entry.cs</DependentUpon>
@@ -1131,6 +1113,7 @@
     <None Include="Resources\Computer-Desktop.png" />
     <None Include="Resources\Search.png" />
     <None Include="Resources\Loading.gif" />
+    <None Include="Resources\buffering.gif" />
     <Content Include="sems.ico" />
     <None Include="Resources\NONITA NABONG.jpg" />
     <None Include="Resources\Message.png" />

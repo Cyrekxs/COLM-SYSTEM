@@ -20,13 +20,14 @@ namespace COLM_SYSTEM.Assessment_Folder
         string CORAttachment = string.Empty;
         string AttachmentPath = Path.GetDirectoryName(Application.ExecutablePath);
 
-        Assessment assessment = new Assessment();
         List<MessageTemplate> MessageTemplates = new List<MessageTemplate>();
 
-        public frm_assessment_email_sender(Assessment assessment)
+        public Assessment Assessment { get; }
+
+        public frm_assessment_email_sender(Assessment Assessment)
         {
             InitializeComponent();
-            this.assessment = assessment;
+            this.Assessment = Assessment;
         }
 
         private async Task LoadMessageTemplates()
@@ -46,11 +47,11 @@ namespace COLM_SYSTEM.Assessment_Folder
 
             CORAttachment = string.Concat(AttachmentPath, @"\Certificate of Registration.pdf");
 
-            txtStudentName.Text = assessment.Summary.StudentName;
-            txtEducationlevel.Text = assessment.Summary.EducationLevel;
-            txtCourseStrand.Text = assessment.Summary.CourseStrand;
-            txtYearLevel.Text = assessment.Summary.YearLevel;
-            txtTo.Text = assessment.Summary.EmailAddress;
+            txtStudentName.Text = Assessment.Summary.StudentName;
+            txtEducationlevel.Text = Assessment.Summary.EducationLevel;
+            txtCourseStrand.Text = Assessment.Summary.CourseStrand;
+            txtYearLevel.Text = Assessment.Summary.YearLevel;
+            txtTo.Text = Assessment.Summary.EmailAddress;
 
             reportViewer1.RefreshReport();
         }
@@ -156,13 +157,12 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private async void linkLabel1_LinkClickedAsync(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            StudentRegistered student = StudentRegistered.GetRegisteredStudent(assessment.Summary.RegisteredStudentID);
-            frm_update_student_email frm = new frm_update_student_email(student.StudentID);
+            frm_update_student_email frm = new frm_update_student_email(Assessment.Summary.StudentID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
 
             StudentController controller = new StudentController();
-            var studentinfo = await controller.GetStudentAsync(student.StudentID);
+            var studentinfo = await controller.GetStudentAsync(Assessment.Summary.StudentID);
             txtTo.Text = studentinfo.EmailAddress;
         }
 
@@ -170,9 +170,9 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             MessageTemplate template = MessageTemplates.Where(item => item.TemplateName.ToLower() == cmbMessageTemplates.Text.ToLower()).FirstOrDefault();
 
-            template.TemplateMessage = template.TemplateMessage.Replace("<Student Name>", assessment.Summary.StudentName);
-            template.TemplateMessage = template.TemplateMessage.Replace("<Last Name>", assessment.Summary.Lastname);
-            template.TemplateMessage = template.TemplateMessage.Replace("<First Name>", assessment.Summary.Firstname);
+            template.TemplateMessage = template.TemplateMessage.Replace("<Student Name>", Assessment.Summary.StudentName);
+            template.TemplateMessage = template.TemplateMessage.Replace("<Last Name>", Assessment.Summary.Lastname);
+            template.TemplateMessage = template.TemplateMessage.Replace("<First Name>", Assessment.Summary.Firstname);
 
             txtSubject.Text = template.TemplateSubject;
             txtBody.Text = template.TemplateMessage;

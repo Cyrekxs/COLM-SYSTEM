@@ -57,11 +57,18 @@ namespace COLM_SYSTEM_LIBRARY.model
             get
             {
                 string info = string.Empty;
-
-                if (EducationLevel.ToLower() != "college" || EducationLevel.ToLower() != "senior high")
-                    return string.Concat(CourseStrand, " ", YearLevel);
+                if (EducationLevel != null)
+                {
+                    if (EducationLevel.ToLower() != "college" || EducationLevel.ToLower() != "senior high")
+                        return string.Concat(CourseStrand, " ", YearLevel);
+                    else
+                        return string.Concat(EducationLevel, " ", CourseStrand, " ", YearLevel);
+                }
                 else
-                    return string.Concat(EducationLevel," ", CourseStrand, " ", YearLevel);
+                {
+                    return "";
+                }
+
             }
         }
 

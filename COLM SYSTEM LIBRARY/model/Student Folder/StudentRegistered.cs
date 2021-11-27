@@ -30,20 +30,5 @@ namespace COLM_SYSTEM_LIBRARY.model
 
         public DateTime DateRegistered { get; set; }
 
-        public static List<StudentRegistered> GetRegisteredStudents()
-        {
-            return StudentRegistration_DS.GetRegisteredStudents();
-        }
-
-        public static StudentRegistered GetRegisteredStudent(int RegisteredID)
-        {
-            return StudentRegistration_DS.GetRegisteredStudent(RegisteredID);
-        }
-
-        public static List<StudentInfo> GetUnregisteredStudents()
-        {
-            return StudentRegistration_DS.GetUnregisteredStudents();
-        }
-
     }
 }

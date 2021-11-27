@@ -1,6 +1,9 @@
 ﻿using COLM_SYSTEM_LIBRARY.Controller;
+using COLM_SYSTEM_LIBRARY.datasource;
+using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
+using COLM_SYSTEM_LIBRARY.Repository;
 using SEMS;
 using SEMS.Assessment_Folder;
 using System;
@@ -14,174 +17,49 @@ namespace COLM_SYSTEM.Assessment_Folder
 {
     public partial class frm_assessment_entry_2 : Form
     {
+        IAssessmentRepository _AssessmentRepository = new AssessmentRepository();
+        IRegistrationRepository _RegistrationRepository = new RegistrationRepository();
+        IStudentRepository _StudentRepository = new StudentRepository();
+        ICurriculumRepository _CurriculumRepository = new CurriculumRepository();
+
         private int _AssessmentID { get; set; } = 0;
-        private StudentRegistered registeredStudent { get; set; } = new StudentRegistered();
-        private YearLevel studentYearLevel { get; set; } = new YearLevel();
+        private StudentRegistration StudentRegistration { get; }
+        private StudentInfo StudentInformation { get; set; }
+        public Curriculum CurriculumInformation { get; set; }
+        private YearLevel YearLevelInformation { get; set; }
         private List<Discount> AddedDiscounts { get; set; } = new List<Discount>();
         private int SelectedSubjectRow = -1;
+
         private AssessmentOptions AssessmentStatus { get; set; } = AssessmentOptions.Create;
 
         //for new assessment entry
-        public frm_assessment_entry_2(StudentRegistered student, YearLevel yearLevel)
+        public frm_assessment_entry_2(StudentRegistration StudentRegistration, YearLevel YearLevelInformation)
         {
             InitializeComponent();
 
             AssessmentStatus = AssessmentOptions.Create;
-
-            registeredStudent = student;
-            studentYearLevel = yearLevel;
-
-            //display data
-            txtLRN.Text = student.LRN;
-            txtStudentName.Text = student.StudentName;
-            txtCurriculumCode.Text = student.CurriculumCode;
-            txtEducationLevel.Text = student.EducationLevel;
-            txtCourseStrand.Text = student.CourseStrand;
-            txtYearLevel.Text = yearLevel.YearLvl;
-
-            //load data
-            LoadDefaultFees();
-            LoadAssessmentTypes();
-            LoadSections();
-            LoadDiscounts();
-            CalculateFeeSummary();
-            IdentityAssessmentOptions();
+            this.StudentRegistration = StudentRegistration;
+            this.YearLevelInformation = YearLevelInformation;
         }
         //for reassessment
-        public frm_assessment_entry_2(int AssessmentID, AssessmentOptions assessmentOptions)
+        public frm_assessment_entry_2(int AssessmentID)
         {
             InitializeComponent();
+            //Set the Assessment Status
+            AssessmentStatus = AssessmentOptions.Update;
             //Put assessment into private AssessmentID;
             _AssessmentID = AssessmentID;
-            //Set the Assessment Status
-            AssessmentStatus = assessmentOptions;
-            //get assessment information
-            Assessment assessment = Assessment.GetAssessment(AssessmentID);
+        }
 
-            //get registration information
-            registeredStudent = StudentRegistered.GetRegisteredStudent(assessment.Summary.RegisteredStudentID);
-            //get yearlevel information
-            studentYearLevel = YearLevel.GetYearLevel(assessment.Summary.YearLevelID);
-
-            //Display Student Information
-            StudentController controller = new StudentController();
-            Task<StudentInfo> student = Task.Run(async () => await controller.GetStudentAsync(registeredStudent.StudentID));
-            txtLRN.Text = student.Result.LRN;
-            txtStudentName.Text = student.Result.StudentName;
-            txtCurriculumCode.Text = registeredStudent.CurriculumCode;
-            txtEducationLevel.Text = registeredStudent.EducationLevel;
-            txtCourseStrand.Text = registeredStudent.CourseStrand;
-            txtYearLevel.Text = studentYearLevel.YearLvl;
-
-            //Get and Set Assessment Types
-            LoadAssessmentTypes();
-            List<PaymentMode> assessmentTypes = cmbPaymentMode.Tag as List<PaymentMode>;
-            cmbPaymentMode.Text = assessmentTypes.Where(r => r.PaymentModeID == assessment.Summary.PaymentModeID).Select(r => r.PaymentName).First();
-
-            //Get and Set Section
-            LoadSections();
-            List<Section> sections = cmbSection.Tag as List<Section>;
-            cmbSection.Text = sections.Where(r => r.SectionID == assessment.Summary.SectionID).Select(r => r.SectionName).First();
-
-            //convert assessment.subjects into subject setted to display data
-            List<SubjectSetted> subjects = new List<SubjectSetted>();
-            foreach (var item in assessment.Subjects)
-            {
-                //get the subject setted information
-                SubjectSetted subject = SubjectSetted.GetSubjectSetted(item.SubjectPriceID);
-                //set to last subject assessment price 
-                subject.SubjPrice = item.SubjectFee;
-                //set the last subject additional fee
-                foreach (var fee in subject.AdditionalFees)
-                {
-                    fee.Amount = item.AdditionalFees.Where(r => r.AdditionalFeeID == fee.AdditionalFeeID).Select(r => r.FeeAmount).FirstOrDefault();
-                }
-                subjects.Add(subject);
-            }
-
-            //Display Tuition Fee
-            foreach (var item in subjects)
-            {
-                //get the last assessment schedule by subject
-                Schedule schedule = Schedule.GetScheduleByScheduleID(assessment.Subjects.Where(r => r.SubjectPriceID == item.SubjectPriceID).Select(r => r.ScheduleID).FirstOrDefault());
-                //display data into datagridview
-                dgSubjects.Rows.Add(item.SubjectPriceID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType, schedule.ScheduleID, schedule.ScheduleInfo);
-
-                List<AssessmentSubjectAdditionalFee> subjectAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
-                foreach (var fee in item.AdditionalFees)
-                {
-                    AssessmentSubjectAdditionalFee additionalFee = new AssessmentSubjectAdditionalFee()
-                    {
-                        AdditionalFeeID = fee.AdditionalFeeID,
-                        FeeAmount = fee.Amount,
-                        FeeDscription = fee.FeeDescription,
-                        FeeType = fee.FeeType
-                    };
-                    subjectAdditionalFees.Add(additionalFee);
-                }
-
-                dgSubjects.Rows[dgSubjects.Rows.Count - 1].Tag = subjectAdditionalFees; //tag additional fees into row
-            }
-
-
-            //convert assessment.fees into list of fee to display data
-            List<Fee> fees = new List<Fee>();
-            foreach (var item in assessment.Fees)
-            {
-                Fee fee = new Fee()
-                {
-                    YearLeveLID = assessment.Summary.YearLevelID,
-                    FeeID = Convert.ToInt32(item.FeeID),
-                    FeeDesc = Convert.ToString(item.FeeDescription),
-                    FeeType = Convert.ToString(item.FeeType),
-                    Amount = Convert.ToDouble(item.FeeAmount)
-                };
-                fees.Add(fee);
-            }
-
-            //Display Miscellaneous Fees
-            List<Fee> mfee_list = (from r in fees where r.FeeType.ToLower() == "miscellaneous" select r).ToList();
-            foreach (var item in mfee_list)
-            {
-                if (item.YearLeveLID == assessment.Summary.YearLevelID)
-                    dgFees.Rows.Add(item.FeeID, item.FeeDesc, item.FeeType, item.Amount.ToString("n"));
-            }
-
-            //Display Other Fees
-            List<Fee> ofee_list = (from r in fees where r.FeeType.ToLower() == "other" select r).ToList();
-            foreach (var item in ofee_list)
-            {
-                if (item.YearLeveLID == assessment.Summary.YearLevelID)
-                    dgFees.Rows.Add(item.FeeID, item.FeeDesc, item.FeeType, item.Amount.ToString("n"));
-            }
-
-            //Get and Set Discounts
-            LoadDiscounts();
-            List<Discount> discounts = cmbDiscount.Tag as List<Discount>;
-            foreach (var item in assessment.Discounts)
-            {
-                Discount discount = Discount.GetDiscount(item.DiscountID);
-                discount.Type = assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.DiscountType).First();
-                discount.TotalValue = assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.Value).First();
-                discount.TFee = assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.TFee).First();
-                discount.MFee = assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.MFee).First();
-                discount.OFee = assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.OFee).First();
-
-                AddedDiscounts.Add(discount);
-                if (discount.Type.ToLower() == "percentage")
-                {
-                    dgDiscounts.Rows.Add(discount.DiscountID, discount.DiscountCode, discount.Type, discount.TotalValue, discount.TFee, discount.MFee, discount.OFee);
-                }
-                else
-                {
-                    dgDiscounts.Rows.Add(discount.DiscountID, discount.DiscountCode, discount.Type, discount.TotalValue.ToString("n"), Convert.ToBoolean(discount.TFee).ToString(), Convert.ToBoolean(discount.MFee).ToString(), Convert.ToBoolean(discount.OFee).ToString());
-                }
-            }
-
-            //Calculate Fee Summary
-            CalculateFeeSummary();
-
-            IdentityAssessmentOptions();
+        private void DisplayInformation()
+        {
+            //display data
+            txtLRN.Text = StudentInformation.LRN;
+            txtStudentName.Text = StudentInformation.StudentName;
+            txtCurriculumCode.Text = CurriculumInformation.Code;
+            txtEducationLevel.Text = StudentInformation.EducationLevel;
+            txtCourseStrand.Text = CurriculumInformation.CourseStrand;
+            txtYearLevel.Text = YearLevelInformation.YearLvl;
         }
         private void IdentityAssessmentOptions()
         {
@@ -242,16 +120,16 @@ namespace COLM_SYSTEM.Assessment_Folder
             dgSubjects.Rows.Clear();
             dgFees.Rows.Clear();
 
-            int yearLevelID = studentYearLevel.YearLevelID;
+            int yearLevelID = YearLevelInformation.YearLevelID;
             //Store Tuition Fee and subjects
-            List<SubjectSetted> subjects = SubjectSetted.GetSubjectSetteds(registeredStudent.CurriculumID, yearLevelID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
+            List<SubjectSetted> subjects = SubjectSetted.GetSubjectSetteds(StudentRegistration.CurriculumID, yearLevelID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
 
-            if (registeredStudent.RegistrationStatus == "Without Bridging")
+            if (StudentRegistration.RegistrationStatus == "Without Bridging")
                 subjects = subjects.Where(item => item.Bridging == false).ToList();
 
 
             //Store Miscellaneous and Other Fees
-            List<Fee> fees = Fee.GetSettedFees(registeredStudent.CurriculumID, yearLevelID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
+            List<Fee> fees = Fee.GetSettedFees(StudentRegistration.CurriculumID, yearLevelID, Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
 
             //Display Tuition Fee
             foreach (var item in subjects)
@@ -306,7 +184,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void LoadSections() // this function will trigger upon initialization
         {
             List<Section> sections = (from r in Section.GetSections(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID())
-                                      where r.CurriculumID == registeredStudent.CurriculumID && r.YearLevel == txtYearLevel.Text
+                                      where r.CurriculumID == StudentRegistration.CurriculumID && r.YearLevel == txtYearLevel.Text
                                       select r).ToList();
 
             Section irreg_section = new Section()
@@ -331,7 +209,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 //get the section id first
                 int SectionID = (from r in Section.GetSections(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID())
-                                 where r.CurriculumID == registeredStudent.CurriculumID && r.YearLevel == txtYearLevel.Text && r.SectionName == cmbSection.Text
+                                 where r.CurriculumID == StudentRegistration.CurriculumID && r.YearLevel == txtYearLevel.Text && r.SectionName == cmbSection.Text
                                  select r.SectionID).FirstOrDefault();
 
                 List<Schedule> schedules = Schedule.GetSchedules(SectionID);
@@ -346,7 +224,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         }
         private void LoadDiscounts() // this function will trigger upon initialization
         {
-            int yearLevelID = studentYearLevel.YearLevelID;
+            int yearLevelID = YearLevelInformation.YearLevelID;
             //get the list of discounts according to yearlevel, school year and semester
             List<Discount> discounts = Discount.GetDiscounts().Where(item => item.SchoolYearID == Utilties.GetUserSchoolYearID() && item.SemesterID == Utilties.GetUserSemesterID()).ToList();
             List<Discount> AvailableToAllDiscounts = discounts.Where(item => item.HasYearLevels == false).ToList();
@@ -699,8 +577,8 @@ namespace COLM_SYSTEM.Assessment_Folder
             AssessmentSummaryEntity assessmentSummary = new AssessmentSummaryEntity()
             {
                 PaymentModeID = assessmentType.PaymentModeID,
-                RegisteredStudentID = registeredStudent.RegisteredID,
-                YearLevelID = studentYearLevel.YearLevelID,
+                RegisteredStudentID = StudentRegistration.RegistrationID,
+                YearLevelID = YearLevelInformation.YearLevelID,
                 SectionID = sections.Where(item => item.SectionName == cmbSection.Text).Select(item => item.SectionID).First(),
                 TotalAmount = TotalAmount,
                 DiscountAmount = Convert.ToDouble(txtTotalDiscount.Text),
@@ -857,7 +735,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frm_update_student_email frm = new frm_update_student_email(registeredStudent.StudentID);
+            frm_update_student_email frm = new frm_update_student_email(StudentRegistration.StudentID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
@@ -871,14 +749,14 @@ namespace COLM_SYSTEM.Assessment_Folder
         }
         private async void linkLabel3_LinkClickedAsync(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            StudentInfo student = await new StudentController().GetStudentAsync(registeredStudent.StudentID);
+            StudentInfo student = await new StudentController().GetStudentAsync(StudentRegistration.StudentID);
             frm_assessment_old_peeker frm = new frm_assessment_old_peeker(student.Lastname, student.Firstname);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frm_assessment_subject_browser frm = new frm_assessment_subject_browser(registeredStudent, dgSubjects);
+            frm_assessment_subject_browser frm = new frm_assessment_subject_browser(StudentRegistration, dgSubjects);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             CalculateFeeSummary();
@@ -949,6 +827,135 @@ namespace COLM_SYSTEM.Assessment_Folder
                 MessageBox.Show("Assessment Unsuccessfull! Please try again.", "Student Assessment Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
                 Dispose();
+            }
+        }
+
+        private async void frm_assessment_entry_2_Load(object sender, EventArgs e)
+        {
+            StudentInformation = await _StudentRepository.GetStudentInformation(StudentRegistration.StudentID);
+            CurriculumInformation = await _CurriculumRepository.GetCurriculum(StudentRegistration.CurriculumID);
+            DisplayInformation();
+            LoadDefaultFees();
+            LoadAssessmentTypes();
+            LoadSections();
+            LoadDiscounts();
+
+            switch (AssessmentStatus)
+            {
+                case AssessmentOptions.View:
+                    break;
+                case AssessmentOptions.Create:
+
+                    break;
+                case AssessmentOptions.Update:
+                    var Assessment = await _AssessmentRepository.GetStudentAssessment(_AssessmentID);
+                    //Get and Set Assessment Types
+                    List<PaymentMode> assessmentTypes = cmbPaymentMode.Tag as List<PaymentMode>;
+                    cmbPaymentMode.Text = assessmentTypes.Where(r => r.PaymentModeID == Assessment.Summary.PaymentModeID).Select(r => r.PaymentName).First();
+
+                    //Get and Set Section
+                    List<Section> sections = cmbSection.Tag as List<Section>;
+                    cmbSection.Text = sections.Where(r => r.SectionID == Assessment.Summary.SectionID).Select(r => r.SectionName).First();
+
+                    //convert assessment.subjects into subject setted to display data
+                    List<SubjectSetted> subjects = new List<SubjectSetted>();
+                    foreach (var item in Assessment.Subjects)
+                    {
+                        //get the subject setted information
+                        SubjectSetted subject = SubjectSetted.GetSubjectSetted(item.SubjectPriceID);
+                        //set to last subject assessment price 
+                        subject.SubjPrice = item.SubjectFee;
+                        //set the last subject additional fee
+                        foreach (var fee in subject.AdditionalFees)
+                        {
+                            fee.Amount = item.AdditionalFees.Where(r => r.AdditionalFeeID == fee.AdditionalFeeID).Select(r => r.FeeAmount).FirstOrDefault();
+                        }
+                        subjects.Add(subject);
+                    }
+
+                    //Display Tuition Fee
+                    foreach (var item in subjects)
+                    {
+                        //get the last assessment schedule by subject
+                        Schedule schedule = Schedule.GetScheduleByScheduleID(Assessment.Subjects.Where(r => r.SubjectPriceID == item.SubjectPriceID).Select(r => r.ScheduleID).FirstOrDefault());
+                        //display data into datagridview
+                        dgSubjects.Rows.Add(item.SubjectPriceID, item.SubjID, item.SubjCode, item.SubjDesc, item.SubjPrice.ToString("n"), item.AdditionalFees.Sum(r => r.Amount).ToString("n"), item.SubjType, schedule.ScheduleID, schedule.ScheduleInfo);
+
+                        List<AssessmentSubjectAdditionalFee> subjectAdditionalFees = new List<AssessmentSubjectAdditionalFee>();
+                        foreach (var fee in item.AdditionalFees)
+                        {
+                            AssessmentSubjectAdditionalFee additionalFee = new AssessmentSubjectAdditionalFee()
+                            {
+                                AdditionalFeeID = fee.AdditionalFeeID,
+                                FeeAmount = fee.Amount,
+                                FeeDscription = fee.FeeDescription,
+                                FeeType = fee.FeeType
+                            };
+                            subjectAdditionalFees.Add(additionalFee);
+                        }
+
+                        dgSubjects.Rows[dgSubjects.Rows.Count - 1].Tag = subjectAdditionalFees; //tag additional fees into row
+                    }
+
+
+                    //convert assessment.fees into list of fee to display data
+                    List<Fee> fees = new List<Fee>();
+                    foreach (var item in Assessment.Fees)
+                    {
+                        Fee fee = new Fee()
+                        {
+                            YearLeveLID = Assessment.Summary.YearLevelID,
+                            FeeID = Convert.ToInt32(item.FeeID),
+                            FeeDesc = Convert.ToString(item.FeeDescription),
+                            FeeType = Convert.ToString(item.FeeType),
+                            Amount = Convert.ToDouble(item.FeeAmount)
+                        };
+                        fees.Add(fee);
+                    }
+
+                    //Display Miscellaneous Fees
+                    List<Fee> mfee_list = (from r in fees where r.FeeType.ToLower() == "miscellaneous" select r).ToList();
+                    foreach (var item in mfee_list)
+                    {
+                        if (item.YearLeveLID == Assessment.Summary.YearLevelID)
+                            dgFees.Rows.Add(item.FeeID, item.FeeDesc, item.FeeType, item.Amount.ToString("n"));
+                    }
+
+                    //Display Other Fees
+                    List<Fee> ofee_list = (from r in fees where r.FeeType.ToLower() == "other" select r).ToList();
+                    foreach (var item in ofee_list)
+                    {
+                        if (item.YearLeveLID == Assessment.Summary.YearLevelID)
+                            dgFees.Rows.Add(item.FeeID, item.FeeDesc, item.FeeType, item.Amount.ToString("n"));
+                    }
+
+                    //Get and Set Discounts
+                    List<Discount> discounts = cmbDiscount.Tag as List<Discount>;
+                    foreach (var item in Assessment.Discounts)
+                    {
+                        Discount discount = Discount.GetDiscount(item.DiscountID);
+                        discount.Type = Assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.DiscountType).First();
+                        discount.TotalValue = Assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.Value).First();
+                        discount.TFee = Assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.TFee).First();
+                        discount.MFee = Assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.MFee).First();
+                        discount.OFee = Assessment.Discounts.Where(r => r.DiscountID == discount.DiscountID).Select(r => r.OFee).First();
+
+                        AddedDiscounts.Add(discount);
+                        if (discount.Type.ToLower() == "percentage")
+                        {
+                            dgDiscounts.Rows.Add(discount.DiscountID, discount.DiscountCode, discount.Type, discount.TotalValue, discount.TFee, discount.MFee, discount.OFee);
+                        }
+                        else
+                        {
+                            dgDiscounts.Rows.Add(discount.DiscountID, discount.DiscountCode, discount.Type, discount.TotalValue.ToString("n"), Convert.ToBoolean(discount.TFee).ToString(), Convert.ToBoolean(discount.MFee).ToString(), Convert.ToBoolean(discount.OFee).ToString());
+                        }
+                    }
+
+                    //Calculate Fee Summary
+                    CalculateFeeSummary();
+                    break;
+                default:
+                    break;
             }
         }
     }

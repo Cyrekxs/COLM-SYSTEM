@@ -1,5 +1,5 @@
 ﻿using COLM_SYSTEM_LIBRARY.helper;
-using COLM_SYSTEM_LIBRARY.Interaces;
+using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model;
 using System;
 using System.Collections.Generic;

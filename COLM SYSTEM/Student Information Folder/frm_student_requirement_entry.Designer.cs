@@ -120,6 +120,7 @@
             this.MinimizeBox = false;
             this.Name = "frm_student_requirement_entry";
             this.Text = "STUDENT REQUIREMENTS ENTRY";
+            this.Load += new System.EventHandler(this.frm_student_requirement_entry_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

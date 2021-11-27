@@ -7,12 +7,13 @@ namespace COLM_SYSTEM.Payment_Folder
 {
     public partial class frm_payment_cash_entry : Form
     {
-        StudentRegistered studentRegistered = new StudentRegistered();
-        public frm_payment_cash_entry(StudentRegistered student, double AmountToPay)
+        public int RegistrationID { get; }
+
+        public frm_payment_cash_entry(int RegistrationID, double AmountToPay)
         {
             InitializeComponent();
-            studentRegistered = student;
             txtAmountToPay.Text = AmountToPay.ToString("n");
+            this.RegistrationID = RegistrationID;
         }
 
         private bool IsValidData()
@@ -56,7 +57,7 @@ namespace COLM_SYSTEM.Payment_Folder
 
             Payment payment = new Payment()
             {
-                RegisteredStudentID = studentRegistered.RegisteredID,
+                RegisteredStudentID = RegistrationID,
                 SchoolYearID = Utilties.GetUserSchoolYearID(),
                 SemesterID = Utilties.GetUserSemesterID(),
                 ORNumber = txtORNumber.Text,
@@ -72,7 +73,7 @@ namespace COLM_SYSTEM.Payment_Folder
             {
                 EnrolledStudent student = new EnrolledStudent()
                 {
-                    RegisteredStudentID = studentRegistered.RegisteredID,
+                    RegisteredStudentID = RegistrationID,
                     SchoolYearID = Utilties.GetUserSchoolYearID(),
                     SemesterID = Utilties.GetUserSemesterID()
                 };

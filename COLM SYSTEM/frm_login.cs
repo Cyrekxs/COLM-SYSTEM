@@ -1,4 +1,5 @@
 ﻿using COLM_SYSTEM_LIBRARY.Interaces;
+using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.Repository;
 using SEMS.Settings_Folder;
@@ -11,9 +12,10 @@ namespace COLM_SYSTEM
 {
     public partial class frm_login : Form
     {
+        IApplicationRepository _ApplicationRepository = new ApplicationRepository();       
         IUserRepository _UserRepository = new UserRepository();
         //school logo;
-        SchoolInfo school = new SchoolInfo();
+        SystemSettings SystemSettings { get; set; } = new SystemSettings();
         public frm_login()
         {
             InitializeComponent();
@@ -21,19 +23,6 @@ namespace COLM_SYSTEM
             string GetVersion = ApplicationDeployment.IsNetworkDeployed ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString() : Application.ProductVersion;
             lblVersion.Text = GetVersion;
             PanelControls.Enabled = false;
-        }
-
-        private async Task LoadWallpaper()
-        {
-            SEMSSettings settings = await SEMSSettings.GetSettingsAsync();
-            pictureBox2.Image = Utilties.ConvertByteToImage(settings.LoginWallpaper);
-            lblLoading.Visible = false;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-            Dispose();
         }
 
         private async Task VerifyCredentials(string username, string password)
@@ -78,18 +67,22 @@ namespace COLM_SYSTEM
 
         private async void frm_login_Load(object sender, EventArgs e)
         {
-            school = await SchoolInfo.GetSchoolInfoAsync();
-            pictureBox1.Image = Utilties.ConvertByteToImage(school.Logo);
-            var IsSetted = await SEMSSettings.HasSettedAsync();
-            if (IsSetted == false)
+            var IsSetted = await _ApplicationRepository.IsSettingsSetted();            
+            if (IsSetted == true)
             {
-                LoadWallpaper();
+                SystemSettings = await _ApplicationRepository.GetSystemSettings();
+                pictureBox1.Image = Utilties.ConvertByteToImage(SystemSettings.Logo);
+                pictureBox2.Image = Utilties.ConvertByteToImage(SystemSettings.LoginWallpaper);
+            }
+            else
+            {
                 frm_system_settings frm = new frm_system_settings();
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
             }
             PanelControls.Enabled = true;
             txtUsername.Focus();
+
         }
 
         private async void button2_Click_1(object sender, EventArgs e)

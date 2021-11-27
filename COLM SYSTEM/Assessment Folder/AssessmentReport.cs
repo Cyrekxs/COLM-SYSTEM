@@ -1,7 +1,9 @@
 ﻿using COLM_SYSTEM;
 using COLM_SYSTEM.Assessment_Folder;
+using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
+using COLM_SYSTEM_LIBRARY.Repository;
 using Microsoft.Reporting.WinForms;
 using SEMS.Assessment_Folder.DataSets;
 using System;
@@ -16,13 +18,14 @@ namespace SEMS.Assessment_Folder
 {
     public class AssessmentReport
     {
+        static IApplicationRepository _ApplicationRepository = new ApplicationRepository();
         public static async Task<ReportViewer> GetAssessmentReport(Assessment assessment)
         {
             ReportViewer report = new ReportViewer();
 
             //get school information and settings
-            var result = await SchoolInfo.GetSchoolInfoAsync();
-            SchoolInfo school = result;
+            var result = await _ApplicationRepository.GetSystemSettings();
+            SystemSettings school = result;
             //get student assessment information
             DataSet1 ds = new DataSet1();
             DataRow dr;

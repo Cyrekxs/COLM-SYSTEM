@@ -16,22 +16,27 @@ namespace SEMS.Student_Information_Folder
 {
     public partial class frm_student_requirement_list : Form
     {
-        int RegistrationID = 0;
-        StudentRegistered registered;
-        public frm_student_requirement_list(int RegistrationID)
+        private StudentRegistration StudentRegistration { get; }
+        public StudentInfo StudentInformation { get; }
+
+        public frm_student_requirement_list(StudentRegistration StudentRegistration,StudentInfo StudentInformation)
         {
             InitializeComponent();
-            this.RegistrationID = RegistrationID;
-            registered = StudentRegistered.GetRegisteredStudent(RegistrationID);
-            txtLRN.Text = registered.LRN;
-            txtStudentName.Text = registered.StudentName;
-            txtEducationLevel.Text = registered.EducationLevel;
+            this.StudentRegistration = StudentRegistration;
+            this.StudentInformation = StudentInformation;
+        }
+
+        private void DisplayStudentInformation()
+        {
+            txtLRN.Text = StudentInformation.LRN;
+            txtStudentName.Text = StudentInformation.StudentName;
+            txtEducationLevel.Text = StudentInformation.EducationLevel;
             DisplayRequirements();
         }
 
         private void DisplayRequirements()
         {
-            List<StudentRequirement> requirements = StudentRequirement.GetStudentRequirements(registered.StudentID);
+            List<StudentRequirement> requirements = StudentRequirement.GetStudentRequirements(StudentRegistration.StudentID);
             foreach (var item in requirements)
             {
                 dataGridView2.Rows.Add(item.Requirement.RequirementName, item.FileName);
@@ -41,7 +46,7 @@ namespace SEMS.Student_Information_Folder
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frm_student_requirement_entry frm = new frm_student_requirement_entry(RegistrationID);
+            frm_student_requirement_entry frm = new frm_student_requirement_entry(StudentRegistration);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

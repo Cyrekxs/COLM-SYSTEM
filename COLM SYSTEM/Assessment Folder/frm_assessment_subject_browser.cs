@@ -9,19 +9,20 @@ namespace COLM_SYSTEM.Assessment_Folder
 {
     public partial class frm_assessment_subject_browser : Form
     {
-        private StudentRegistered registeredStudent = new StudentRegistered();
         List<CurriculumSubject> curriculumSubjects = new List<CurriculumSubject>();
         CurriculumSubject SelectedCurriculumSubject = new CurriculumSubject();
         DataGridView _dg;
-        public frm_assessment_subject_browser(StudentRegistered student, DataGridView dg)
+
+        private StudentRegistration StudentRegistration { get; }
+
+        public frm_assessment_subject_browser(StudentRegistration StudentRegistration, DataGridView dg)
         {
             InitializeComponent();
-            registeredStudent = student;
+            this.StudentRegistration = StudentRegistration;
             _dg = dg;
 
-            curriculumSubjects = Curriculum.GetCurriculumSubjects(registeredStudent.CurriculumID);
+            curriculumSubjects = Curriculum.GetCurriculumSubjects(StudentRegistration.CurriculumID);
             LoadCurriculumSubjects();
-            lblCurriculumInfo.Text = string.Concat("List of Curriculum Subjects in: ", student.CurriculumCode);
             cmbSubjectType.Text = "All";
         }
 

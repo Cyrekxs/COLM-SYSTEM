@@ -159,7 +159,6 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 }
                 assessment.Breakdown = breakdowns;
 
-
                 return assessment;
             }
         }

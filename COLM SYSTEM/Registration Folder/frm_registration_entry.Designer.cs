@@ -341,6 +341,7 @@
             this.MinimizeBox = false;
             this.Name = "frm_registration_entry";
             this.Text = "REGISTRATION ENTRY";
+            this.Load += new System.EventHandler(this.frm_registration_entry_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

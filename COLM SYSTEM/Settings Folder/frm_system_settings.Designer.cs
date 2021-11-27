@@ -105,6 +105,7 @@
             this.MinimizeBox = false;
             this.Name = "frm_system_settings";
             this.Text = "SYSTEM SETTINGS";
+            this.Load += new System.EventHandler(this.frm_system_settings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,4 +1,7 @@
-﻿using COLM_SYSTEM_LIBRARY.model;
+﻿using COLM_SYSTEM_LIBRARY.datasource;
+using COLM_SYSTEM_LIBRARY.Interfaces;
+using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,18 +16,17 @@ namespace COLM_SYSTEM.Assessment_Folder
 {
     public partial class frm_assessment_entry_1 : Form
     {
-        StudentRegistered registeredStudent = new StudentRegistered();
-        public frm_assessment_entry_1(StudentRegistered student)
+        IStudentRepository _StudentRepository = new StudentRepository();
+        ICurriculumRepository _CurriculumRepository = new CurriculumRepository();
+
+        private StudentRegistration Registration { get; set; } = new StudentRegistration();
+        private Curriculum CurriculumInformation { get; set; } = new Curriculum();
+        private StudentInfo StudentInformation { get; set; } = new StudentInfo();
+
+        public frm_assessment_entry_1(StudentRegistration student)
         {
             InitializeComponent();
-            registeredStudent = student;
-
-            //display data
-            txtLRN.Text = student.LRN;
-            txtStudentName.Text = student.StudentName;
-            txtCurriculumCode.Text = student.CurriculumCode;
-            txtEducationLevel.Text = student.EducationLevel;
-            txtCourseStrand.Text = student.CourseStrand;
+            Registration = student;
 
             LoadYearLevels();
         }
@@ -33,7 +35,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             cmbYearLevel.Items.Clear();
 
-            List<YearLevel> yearLevels = Curriculum.GetCurriculumYearLevels(registeredStudent.CurriculumID);
+            List<YearLevel> yearLevels = Curriculum.GetCurriculumYearLevels(Registration.CurriculumID);
             foreach (var item in yearLevels)
             {
                 cmbYearLevel.Items.Add(item.YearLvl);
@@ -48,19 +50,29 @@ namespace COLM_SYSTEM.Assessment_Folder
                 return;
             }
 
-            YearLevel yearLevel = (from r in Curriculum.GetCurriculumYearLevels(registeredStudent.CurriculumID)
+            YearLevel yearLevel = (from r in Curriculum.GetCurriculumYearLevels(Registration.CurriculumID)
                                    where r.YearLvl.ToLower() == cmbYearLevel.Text.ToLower()
                                    select r).First();
 
 
-            //SubjectSettedSummary summary = SubjectSettedSummary.GetSubjectSettedSummaries().Where(item => item.YearLevelID == yearLevel.YearLevelID).FirstOrDefault();
 
-
-            frm_assessment_entry_2 frm = new frm_assessment_entry_2(registeredStudent, yearLevel);
+            frm_assessment_entry_2 frm = new frm_assessment_entry_2(Registration, yearLevel);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             Close();
             Dispose();
+        }
+
+        private async void frm_assessment_entry_1_Load(object sender, EventArgs e)
+        {
+            StudentInformation = await _StudentRepository.GetStudentInformation(Registration.StudentID);
+            CurriculumInformation = await _CurriculumRepository.GetCurriculum(Registration.CurriculumID);
+            //display data
+            txtLRN.Text = StudentInformation.LRN;
+            txtStudentName.Text = StudentInformation.StudentName;
+            txtCurriculumCode.Text = CurriculumInformation.Code;
+            txtEducationLevel.Text = StudentInformation.EducationLevel;
+            txtCourseStrand.Text = CurriculumInformation.CourseStrand;
         }
     }
 }

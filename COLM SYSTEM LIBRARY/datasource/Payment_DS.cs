@@ -269,14 +269,14 @@ namespace COLM_SYSTEM_LIBRARY.datasource
             }
         }
 
-        public static int ChargeFee(StudentRegistered student, Fee fee, int Quantity)
+        public static int ChargeFee(int RegistrationID, Fee fee, int Quantity)
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand("EXEC sp_set_assessment_additional_fee @RegisteredStudentID,@SchoolYearID,@SemesterID,@AdditionalFeeID,@Amount,@Quantity,@TotalAmount", conn))
                 {
-                    comm.Parameters.AddWithValue("@RegisteredStudentID", student.RegisteredID);
+                    comm.Parameters.AddWithValue("@RegisteredStudentID", RegistrationID);
                     comm.Parameters.AddWithValue("@SchoolYearID", fee.SchoolYearID);
                     comm.Parameters.AddWithValue("@SemesterID", fee.SemesterID);
                     comm.Parameters.AddWithValue("@AdditionalFeeID", fee.FeeID);

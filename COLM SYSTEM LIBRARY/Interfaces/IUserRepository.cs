@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace COLM_SYSTEM_LIBRARY.Interaces
+namespace COLM_SYSTEM_LIBRARY.Interfaces
 {
     public interface IUserRepository
     {

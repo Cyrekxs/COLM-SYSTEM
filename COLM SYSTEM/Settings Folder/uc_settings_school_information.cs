@@ -8,12 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.Repository;
+using COLM_SYSTEM_LIBRARY.Interfaces;
 
 namespace COLM_SYSTEM.Settings_Folder
 {
     public partial class uc_settings_school_information : UserControl
     {
-        SchoolInfo info;
+        IApplicationRepository _ApplicationRepository = new ApplicationRepository();
+        SystemSettings SystemSettings { get; set; } = new SystemSettings();
+
         public uc_settings_school_information()
         {
             InitializeComponent();
@@ -37,7 +41,7 @@ namespace COLM_SYSTEM.Settings_Folder
             return true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
 
             if (IsValid() == false)
@@ -45,11 +49,11 @@ namespace COLM_SYSTEM.Settings_Folder
                 return;
             }
 
-            info.SchoolID = txtSchoolID.Text;
-            info.SchoolName = txtSchoolName.Text;
+            SystemSettings.SchoolID = txtSchoolID.Text;
+            SystemSettings.SchoolName = txtSchoolName.Text;
 
 
-            int result = SchoolInfo.SaveSchoolInfo(info);
+            int result = await _ApplicationRepository.SaveSystemSettings(SystemSettings);
             if (result > 0)
                 MessageBox.Show("School Information has been successfully saved and setted", "School Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
@@ -63,20 +67,20 @@ namespace COLM_SYSTEM.Settings_Folder
             if (result == DialogResult.OK)
             {
                 pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
-                info.Logo = Utilties.ConvertImageToByte(Image.FromFile(openFileDialog1.FileName));
+                SystemSettings.Logo = Utilties.ConvertImageToByte(Image.FromFile(openFileDialog1.FileName));
             }
         }
 
         private async void uc_settings_school_information_Load(object sender, EventArgs e)
         {
-            info = await SchoolInfo.GetSchoolInfoAsync();
+            SystemSettings = await _ApplicationRepository.GetSystemSettings();
 
-            txtSchoolID.Text = info.SchoolID;
-            txtSchoolName.Text = info.SchoolName;
+            txtSchoolID.Text = SystemSettings.SchoolID;
+            txtSchoolName.Text = SystemSettings.SchoolName;
 
-            if (info.Logo != null)
+            if (SystemSettings.Logo != null)
             {
-                pictureBox1.Image = Utilties.ConvertByteToImage(info.Logo);
+                pictureBox1.Image = Utilties.ConvertByteToImage(SystemSettings.Logo);
             }
         }
     }

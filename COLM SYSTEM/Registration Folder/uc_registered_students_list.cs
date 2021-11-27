@@ -1,7 +1,9 @@
 ﻿using COLM_SYSTEM.registration;
 using COLM_SYSTEM.Student_Information_Folder;
+using COLM_SYSTEM_LIBRARY.Interaces;
+using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model;
-using SEMS;
+using COLM_SYSTEM_LIBRARY.Repository;
 using SEMS.Student_Information_Folder;
 using System;
 using System.Collections.Generic;
@@ -16,68 +18,105 @@ namespace COLM_SYSTEM.Registration_Folder
     public partial class uc_registered_students_list : UserControl
     {
         int SelectedRow = 0;
-        List<StudentRegistered> RegisteredStudents;
+        IRegistrationRepository _RegistrationRepository = new RegistrationRepository();
+        IAssessmentRepository _AssessmentRepository = new AssessmentRepository();
+        IPaymentRepository _PaymentRepository = new PaymentRepository();
+        ICurriculumRepository _CurriculumRepository = new CurriculumRepository();
+        IStudentRepository _StudentRepository = new StudentRepository();
+        ISchoolYearSemesterRepository _SchoolYearSemesterRepository = new SchoolYearSemesterRepository();
+
+        IEnumerable<StudentRegistration> RegisteredStudents = new List<StudentRegistration>();
+        IEnumerable<StudentInfo> StudentInformations = new List<StudentInfo>();
+        IEnumerable<Curriculum> Curriculums = new List<Curriculum>();
+        IEnumerable<SchoolYear> SchoolYears = new List<SchoolYear>();
+        IEnumerable<SchoolSemester> SchoolSemesters = new List<SchoolSemester>();
+
         public uc_registered_students_list()
         {
             InitializeComponent();
             cmbEducationLevel.Text = "All";
-            LoadRegisteredStudents();
         }
 
-        private void LoadRegisteredStudents()
+        private void DisplayData(List<StudentRegistration> Registrations)
         {
-            Task<List<StudentRegistered>> task = new Task<List<StudentRegistered>>(StudentRegistered.GetRegisteredStudents);
-            task.Start();
-
-            using (frm_loading frm = new frm_loading(task))
-            {
-                frm.StartPosition = FormStartPosition.CenterScreen;
-                frm.ShowDialog();
-            }
-
-            RegisteredStudents = task.Result;
-            RegisteredStudents = RegisteredStudents.OrderByDescending(r => r.DateRegistered.Date).ThenBy(r => r.StudentName).ToList();
-
-            if (textBox1.Text != string.Empty)
-            {
-                RegisteredStudents = RegisteredStudents.Where(item => item.StudentName.ToLower().Contains(textBox1.Text.ToLower())).ToList();
-            }
-
-            if (cmbEducationLevel.Text != "All")
-            {
-                RegisteredStudents = RegisteredStudents.Where(item => item.EducationLevel.ToLower().Equals(cmbEducationLevel.Text.ToLower())).ToList();
-            }
-
             dataGridView1.Rows.Clear();
-            foreach (var item in RegisteredStudents.Take(300).ToList())
+            foreach (var item in Registrations)
             {
-                dataGridView1.Rows.Add(
-                    item.RegisteredID,
-                    item.StudentID,
-                    item.LRN,
-                    item.StudentName,
-                    item.Gender,
-                    item.MobileNo,
-                    item.CurriculumID,
-                    item.CurriculumCode,
-                    item.EducationLevel,
-                    item.CourseStrand,
-                    item.StudentStatus,
-                    item.RegistrationStatus,
-                    item.SchoolYear,
-                    item.DateRegistered.ToString("MM-dd-yyyy")
-                    );
+                if (item.StudentID != 0)
+                {
+                    var studentinformation = StudentInformations.First(r => r.StudentID == item.StudentID);
+                    var curriculuminformation = Curriculums.First(r => r.CurriculumID == item.CurriculumID);
+                    var schoolyearinformation = SchoolYears.First(r => r.SchoolYearID == item.SchoolYearID);
+
+                    dataGridView1.Rows.Add(
+                        item.RegistrationID,
+                        item.StudentID,
+                        studentinformation.LRN,
+                        Utilties.FormatText(studentinformation.StudentName),
+                        Utilties.FormatText(studentinformation.Gender),
+                        studentinformation.MobileNo,
+                        item.CurriculumID,
+                        curriculuminformation.Code,
+                        curriculuminformation.EducationLevel,
+                        curriculuminformation.CourseStrand,
+                        item.StudentStatus,
+                        item.RegistrationStatus,
+                        schoolyearinformation.Name,
+                        item.DateRegistered.ToString("MM-dd-yyyy")
+                        );
+                }
+
             }
-            lblCount.Text = string.Concat("Total Records in the Database : ", task.Result.Count.ToString(), " Record Count(s):", dataGridView1.Rows.Count);
+
+            dataGridView1.Sort(clmStudentName, System.ComponentModel.ListSortDirection.Ascending);
+
+            lblCount.Text = string.Concat("Results found : ", dataGridView1.Rows.Count, " out of ", RegisteredStudents.ToList().Count);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Search()
+        {
+
+            List<StudentRegistration> FilteredResults = RegisteredStudents.ToList();
+            if (cmbEducationLevel.Text.ToLower() != "all")
+            {
+                FilteredResults.Clear();
+                var CurriculumIDs = Curriculums.Where(r => r.EducationLevel.ToLower() == cmbEducationLevel.Text.ToLower()).Select(r => r.CurriculumID).ToList();
+                foreach (var curriculumid in CurriculumIDs)
+                {
+                    FilteredResults.AddRange(RegisteredStudents.Where(r => r.CurriculumID == curriculumid).ToList());
+                }
+            }
+
+
+            List<StudentRegistration> SearchedResults = new List<StudentRegistration>();
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                SearchedResults = FilteredResults;
+            }
+            else
+            {
+                List<StudentInfo> students = StudentInformations.Where(r => r.StudentName.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                foreach (var s in students)
+                {
+                    SearchedResults.AddRange(FilteredResults.Where(r => r.StudentID == s.StudentID));
+                }
+            }
+
+
+
+            DisplayData(SearchedResults);
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
         {
             using (frm_registration_entry frm = new frm_registration_entry())
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-                LoadRegisteredStudents();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    await GetData();
+                }
             }
         }
 
@@ -85,7 +124,7 @@ namespace COLM_SYSTEM.Registration_Folder
         {
             if (e.KeyCode == Keys.Enter)
             {
-                LoadRegisteredStudents();
+                Search();
             }
         }
 
@@ -98,10 +137,10 @@ namespace COLM_SYSTEM.Registration_Folder
             }
         }
 
-        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int RegistrationID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmRegisteredStudentID"].Value);
-            bool HasPayment = StudentRegistration.HasPayment(RegistrationID);
+            bool HasPayment = await _PaymentRepository.HasPayment(RegistrationID);
 
             //verify if has payment
             if (HasPayment == true)
@@ -111,7 +150,7 @@ namespace COLM_SYSTEM.Registration_Folder
             }
 
             //verify if has assessment
-            bool HasAssessment = StudentRegistration.HasAssessment(RegistrationID);
+            bool HasAssessment = await _AssessmentRepository.HasAssessment(RegistrationID);
             if (HasAssessment == true)
             {
                 MessageBox.Show("This student has a record on the assessment you cannot delete this registration info", "Student Has Assessment", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -121,15 +160,19 @@ namespace COLM_SYSTEM.Registration_Folder
             //delete 
             if (MessageBox.Show("Are you sure you want to delete this registration? this will not be reverted", "Delete Regstration?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int deleteResult = StudentRegistration.DeleteStudentRegistration(RegistrationID);
+                int deleteResult = await _RegistrationRepository.DeleteStudentRegistration(RegistrationID);
                 if (deleteResult > 0)
-                    LoadRegisteredStudents();
+                {
+                    StudentRegistration registration = RegisteredStudents.First(r => r.RegistrationID == RegistrationID);
+                    RegisteredStudents.ToList().Remove(registration);
+                    DisplayData(RegisteredStudents.ToList());
+                }
             }
         }
 
         private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadRegisteredStudents();
+            Search();
         }
 
         private void viewInformationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -142,12 +185,12 @@ namespace COLM_SYSTEM.Registration_Folder
             }
         }
 
-        private void changeRegistrationToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void changeRegistrationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int RegistrationID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmRegisteredStudentID"].Value);
 
             //verify if has assessment
-            bool HasAssessment = StudentRegistration.HasAssessment(RegistrationID);
+            bool HasAssessment = await _AssessmentRepository.HasAssessment(RegistrationID);
             if (HasAssessment == true)
             {
                 MessageBox.Show("This student has a record on the assessment you cannot change this registration info", "Student Has Assessment", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -155,11 +198,16 @@ namespace COLM_SYSTEM.Registration_Folder
             }
             else
             {
-                using (frm_registration_entry frm = new frm_registration_entry(RegistrationID))
+                var Registration = RegisteredStudents.First(r => r.RegistrationID == RegistrationID);
+
+                using (frm_registration_entry frm = new frm_registration_entry(Registration))
                 {
                     frm.StartPosition = FormStartPosition.CenterParent;
                     frm.ShowDialog();
-                    LoadRegisteredStudents();
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        await GetData();
+                    }
                 }
             }
         }
@@ -168,12 +216,32 @@ namespace COLM_SYSTEM.Registration_Folder
         {
             int RegistrationID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmRegisteredStudentID"].Value);
 
-            using (frm_student_requirement_list frm = new frm_student_requirement_list(RegistrationID))
+            var Registration = RegisteredStudents.First(r => r.RegistrationID == RegistrationID);
+            var Information = StudentInformations.First(r => r.StudentID == Registration.StudentID);
+
+            using (frm_student_requirement_list frm = new frm_student_requirement_list(Registration, Information))
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
             }
 
+        }
+
+        private async void uc_registered_students_list_Load(object sender, EventArgs e)
+        {
+            await GetData();
+        }
+
+        private async Task GetData()
+        {
+            panelLoading.Visible = true;
+            RegisteredStudents = await _RegistrationRepository.GetRegisteredStudents();
+            StudentInformations = await _StudentRepository.GetStudentInformations();
+            Curriculums = await _CurriculumRepository.GetCurriculums();
+            SchoolYears = await _SchoolYearSemesterRepository.GetSchoolYears();
+            SchoolSemesters = await _SchoolYearSemesterRepository.GetSemesters();
+            DisplayData(RegisteredStudents.ToList());
+            panelLoading.Visible = false;
         }
     }
 }
