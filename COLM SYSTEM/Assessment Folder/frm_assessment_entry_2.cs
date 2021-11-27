@@ -23,7 +23,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         ICurriculumRepository _CurriculumRepository = new CurriculumRepository();
 
         private int _AssessmentID { get; set; } = 0;
-        private StudentRegistration StudentRegistration { get; }
+        private StudentRegistration StudentRegistration { get; set; }
         private StudentInfo StudentInformation { get; set; }
         public Curriculum CurriculumInformation { get; set; }
         private YearLevel YearLevelInformation { get; set; }
@@ -832,23 +832,36 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private async void frm_assessment_entry_2_Load(object sender, EventArgs e)
         {
-            StudentInformation = await _StudentRepository.GetStudentInformation(StudentRegistration.StudentID);
-            CurriculumInformation = await _CurriculumRepository.GetCurriculum(StudentRegistration.CurriculumID);
-            DisplayInformation();
-            LoadDefaultFees();
-            LoadAssessmentTypes();
-            LoadSections();
-            LoadDiscounts();
-
             switch (AssessmentStatus)
             {
                 case AssessmentOptions.View:
                     break;
                 case AssessmentOptions.Create:
 
+                    StudentInformation = await _StudentRepository.GetStudentInformation(StudentRegistration.StudentID);
+                    CurriculumInformation = await _CurriculumRepository.GetCurriculum(StudentRegistration.CurriculumID);
+
+                    DisplayInformation();
+                    LoadDefaultFees();
+                    LoadAssessmentTypes();
+                    LoadSections();
+                    LoadDiscounts();
                     break;
                 case AssessmentOptions.Update:
                     var Assessment = await _AssessmentRepository.GetStudentAssessment(_AssessmentID);
+                    StudentRegistration = await _RegistrationRepository.GetStudentRegistration(Assessment.Summary.RegisteredStudentID);
+                    YearLevelInformation = YearLevel.GetYearLevel(Assessment.Summary.YearLevelID);
+                    StudentInformation = await _StudentRepository.GetStudentInformation(StudentRegistration.StudentID);
+                    CurriculumInformation = await _CurriculumRepository.GetCurriculum(StudentRegistration.CurriculumID);
+
+
+                    DisplayInformation();
+                    LoadDefaultFees();
+                    LoadAssessmentTypes();
+                    LoadSections();
+                    LoadDiscounts();
+
+
                     //Get and Set Assessment Types
                     List<PaymentMode> assessmentTypes = cmbPaymentMode.Tag as List<PaymentMode>;
                     cmbPaymentMode.Text = assessmentTypes.Where(r => r.PaymentModeID == Assessment.Summary.PaymentModeID).Select(r => r.PaymentName).First();
@@ -957,6 +970,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 default:
                     break;
             }
+
         }
     }
 

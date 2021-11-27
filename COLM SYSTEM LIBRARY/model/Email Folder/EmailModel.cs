@@ -48,8 +48,9 @@ namespace COLM_SYSTEM_LIBRARY.model
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }

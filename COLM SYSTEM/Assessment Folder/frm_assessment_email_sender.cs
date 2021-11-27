@@ -133,21 +133,29 @@ namespace COLM_SYSTEM.Assessment_Folder
             return result;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            List<Task> tasks = new List<Task>();
-            tasks.Add(EmailStudent());
-            using (frm_loading_v2 frm = new frm_loading_v2(tasks))
+            if (cmbMessageTemplates.Text == string.Empty)
             {
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-                if (frm.DialogResult == DialogResult.OK)
-                {
-                    MessageBox.Show("Email has been successfully sent!", "Email Sent Successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
-                    Dispose();
-                }
+                MessageBox.Show("Please select template", "Select Template", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+
+            panelLoading.Visible = true;
+            PanelBody.Enabled = false;
+            var result = await EmailStudent();
+            panelLoading.Visible = false;
+            PanelBody.Enabled = false;
+
+            if (result == true)
+            {
+                MessageBox.Show("Email Sent", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+                Dispose();
+            }
+            else
+                MessageBox.Show("Email Sending Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

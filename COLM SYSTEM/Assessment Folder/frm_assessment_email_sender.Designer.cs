@@ -37,8 +37,13 @@
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnSendMail = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.PanelBody = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.clmAttach = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clmAttachmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAttachment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.cmbMessageTemplates = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -54,14 +59,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.clmAttach = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.clmAttachmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAttachment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel1.SuspendLayout();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panelLoading = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PanelBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panelLoading.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -153,23 +158,23 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // panel1
+            // PanelBody
             // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.cmbMessageTemplates);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtTo);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtSubject);
-            this.panel1.Controls.Add(this.txtBody);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(14, 120);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(666, 487);
-            this.panel1.TabIndex = 22;
+            this.PanelBody.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.PanelBody.Controls.Add(this.dataGridView1);
+            this.PanelBody.Controls.Add(this.checkBox1);
+            this.PanelBody.Controls.Add(this.cmbMessageTemplates);
+            this.PanelBody.Controls.Add(this.label10);
+            this.PanelBody.Controls.Add(this.label1);
+            this.PanelBody.Controls.Add(this.txtTo);
+            this.PanelBody.Controls.Add(this.label2);
+            this.PanelBody.Controls.Add(this.txtSubject);
+            this.PanelBody.Controls.Add(this.txtBody);
+            this.PanelBody.Controls.Add(this.label3);
+            this.PanelBody.Location = new System.Drawing.Point(14, 120);
+            this.PanelBody.Name = "PanelBody";
+            this.PanelBody.Size = new System.Drawing.Size(666, 487);
+            this.PanelBody.TabIndex = 22;
             // 
             // dataGridView1
             // 
@@ -192,6 +197,46 @@
             this.dataGridView1.Size = new System.Drawing.Size(642, 114);
             this.dataGridView1.TabIndex = 31;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // clmAttach
+            // 
+            this.clmAttach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmAttach.HeaderText = "Attach";
+            this.clmAttach.Name = "clmAttach";
+            this.clmAttach.Width = 48;
+            // 
+            // clmAttachmentID
+            // 
+            this.clmAttachmentID.HeaderText = "AttachmentID";
+            this.clmAttachmentID.Name = "clmAttachmentID";
+            this.clmAttachmentID.ReadOnly = true;
+            this.clmAttachmentID.Visible = false;
+            // 
+            // clmAttachment
+            // 
+            this.clmAttachment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmAttachment.HeaderText = "Attachment";
+            this.clmAttachment.Name = "clmAttachment";
+            this.clmAttachment.ReadOnly = true;
+            // 
+            // clmType
+            // 
+            this.clmType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmType.HeaderText = "Type";
+            this.clmType.Name = "clmType";
+            this.clmType.ReadOnly = true;
+            this.clmType.Width = 56;
+            // 
+            // clmAction
+            // 
+            this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmAction.HeaderText = "Action";
+            this.clmAction.Name = "clmAction";
+            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmAction.Text = "View";
+            this.clmAction.UseColumnTextForButtonValue = true;
+            this.clmAction.Width = 66;
             // 
             // checkBox1
             // 
@@ -344,45 +389,38 @@
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClickedAsync);
             // 
-            // clmAttach
+            // label11
             // 
-            this.clmAttach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.clmAttach.HeaderText = "Attach";
-            this.clmAttach.Name = "clmAttach";
-            this.clmAttach.Width = 48;
+            this.label11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label11.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(32, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(144, 36);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Sending Email . . .";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // clmAttachmentID
+            // panelLoading
             // 
-            this.clmAttachmentID.HeaderText = "AttachmentID";
-            this.clmAttachmentID.Name = "clmAttachmentID";
-            this.clmAttachmentID.ReadOnly = true;
-            this.clmAttachmentID.Visible = false;
+            this.panelLoading.Controls.Add(this.label11);
+            this.panelLoading.Controls.Add(this.pictureBox1);
+            this.panelLoading.Location = new System.Drawing.Point(14, 613);
+            this.panelLoading.Name = "panelLoading";
+            this.panelLoading.Size = new System.Drawing.Size(179, 36);
+            this.panelLoading.TabIndex = 27;
+            this.panelLoading.Visible = false;
             // 
-            // clmAttachment
+            // pictureBox1
             // 
-            this.clmAttachment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmAttachment.HeaderText = "Attachment";
-            this.clmAttachment.Name = "clmAttachment";
-            this.clmAttachment.ReadOnly = true;
-            // 
-            // clmType
-            // 
-            this.clmType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmType.HeaderText = "Type";
-            this.clmType.Name = "clmType";
-            this.clmType.ReadOnly = true;
-            this.clmType.Width = 56;
-            // 
-            // clmAction
-            // 
-            this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.clmAction.HeaderText = "Action";
-            this.clmAction.Name = "clmAction";
-            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmAction.Text = "View";
-            this.clmAction.UseColumnTextForButtonValue = true;
-            this.clmAction.Width = 66;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::SEMS.Properties.Resources.Loading_Image;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 36);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabStop = false;
             // 
             // frm_assessment_email_sender
             // 
@@ -390,11 +428,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 661);
             this.ControlBox = false;
+            this.Controls.Add(this.panelLoading);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PanelBody);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSendMail);
             this.Controls.Add(this.reportViewer1);
@@ -404,11 +443,13 @@
             this.Name = "frm_assessment_email_sender";
             this.Text = "EMAIL SENDER";
             this.Load += new System.EventHandler(this.frm_assessment_email_sender_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.PanelBody.ResumeLayout(false);
+            this.PanelBody.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panelLoading.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,7 +465,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSendMail;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PanelBody;
         public Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
@@ -447,5 +488,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAttachment;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmType;
         private System.Windows.Forms.DataGridViewButtonColumn clmAction;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panelLoading;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

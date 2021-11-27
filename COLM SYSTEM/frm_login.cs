@@ -49,19 +49,19 @@ namespace COLM_SYSTEM
             }
         }
 
-        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        private async void txtUsername_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                VerifyCredentials(txtUsername.Text, txtPassword.Text);
+               await VerifyCredentials(txtUsername.Text, txtPassword.Text);
             }
         }
 
-        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        private async void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                VerifyCredentials(txtUsername.Text, txtPassword.Text);
+               await VerifyCredentials(txtUsername.Text, txtPassword.Text);
             }
         }
 

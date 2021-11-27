@@ -42,11 +42,6 @@ namespace COLM_SYSTEM_LIBRARY.model
             return yearLevels;
         }
 
-        public static List<string> GetEducationLevels()
-        {
-            return YearLevel_DS.GetEducationLevels();
-        }
-
         /// <summary>
         /// Get a specific yearlevel by supplying education level and yearlevel string
         /// </summary>
@@ -66,18 +61,6 @@ namespace COLM_SYSTEM_LIBRARY.model
         public static YearLevel GetYearLevel(int YearLevelID)
         {
             return YearLevel_DS.GetYearLevel(YearLevelID);
-        }
-
-        /// <summary>
-        /// Get Education Level by supply a yearlevel id
-        /// </summary>
-        /// <param name="YearLevelID"></param>
-        /// <returns></returns>
-        public static string GetEducationLevelByYearLevelID(int YearLevelID)
-        {
-            return (from r in YearLevel_DS.GetYearLevels()
-                    where r.YearLevelID == YearLevelID
-                    select r.EducationLevel).ToString();
         }
 
         /// <summary>
@@ -106,24 +89,6 @@ namespace COLM_SYSTEM_LIBRARY.model
             return (from r in yearLevels
                     where r.EducationLevel.ToLower() == EducationLevel.ToLower() && r.YearLvl.ToLower() == YearLevel.ToLower()
                     select r.YearLevelID).FirstOrDefault();
-        }
-
-        public static int GetYearLevelID(string YearLevel,List<YearLevel> LocalYearLevels)
-        {
-            int ID = (from r in LocalYearLevels
-                      where YearLevel == r.YearLvl
-                      select r.YearLevelID).FirstOrDefault();
-            return ID;
-        }
-
-        /// <summary>
-        /// Get available sections of a specific yearlevel id
-        /// </summary>
-        /// <param name="YearLevelID"></param>
-        /// <returns></returns>
-        public static List<Section> GetYearLevelSections(int YearLevelID)
-        {
-            return YearLevel_DS.GetYearLevelSections(YearLevelID);
         }
 
         /// <summary>
