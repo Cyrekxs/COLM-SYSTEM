@@ -100,10 +100,10 @@
             this.clmPaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.printORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiViewCheque = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiViewCenter = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCancel = new System.Windows.Forms.ToolStripMenuItem();
-            this.printORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -803,13 +803,20 @@
             this.tsmiViewCenter,
             this.tsmiCancel});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(174, 92);
+            // 
+            // printORToolStripMenuItem
+            // 
+            this.printORToolStripMenuItem.Name = "printORToolStripMenuItem";
+            this.printORToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.printORToolStripMenuItem.Text = "Print OR";
+            this.printORToolStripMenuItem.Click += new System.EventHandler(this.printORToolStripMenuItem_Click);
             // 
             // tsmiViewCheque
             // 
             this.tsmiViewCheque.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tsmiViewCheque.Name = "tsmiViewCheque";
-            this.tsmiViewCheque.Size = new System.Drawing.Size(180, 22);
+            this.tsmiViewCheque.Size = new System.Drawing.Size(173, 22);
             this.tsmiViewCheque.Text = "View Cheque Info";
             this.tsmiViewCheque.Click += new System.EventHandler(this.tsmiViewCheque_Click);
             // 
@@ -817,7 +824,7 @@
             // 
             this.tsmiViewCenter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tsmiViewCenter.Name = "tsmiViewCenter";
-            this.tsmiViewCenter.Size = new System.Drawing.Size(180, 22);
+            this.tsmiViewCenter.Size = new System.Drawing.Size(173, 22);
             this.tsmiViewCenter.Text = "View Payment Info";
             this.tsmiViewCenter.Click += new System.EventHandler(this.tsmiViewCenter_Click);
             // 
@@ -825,16 +832,9 @@
             // 
             this.tsmiCancel.ForeColor = System.Drawing.Color.Red;
             this.tsmiCancel.Name = "tsmiCancel";
-            this.tsmiCancel.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCancel.Size = new System.Drawing.Size(173, 22);
             this.tsmiCancel.Text = "Cancel OR";
             this.tsmiCancel.Click += new System.EventHandler(this.cancelPaymentToolStripMenuItem_Click);
-            // 
-            // printORToolStripMenuItem
-            // 
-            this.printORToolStripMenuItem.Name = "printORToolStripMenuItem";
-            this.printORToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.printORToolStripMenuItem.Text = "Print OR";
-            this.printORToolStripMenuItem.Click += new System.EventHandler(this.printORToolStripMenuItem_Click);
             // 
             // frm_payment
             // 
@@ -849,6 +849,7 @@
             this.MinimizeBox = false;
             this.Name = "frm_payment";
             this.Text = "STUDENT PAYMENT";
+            this.Load += new System.EventHandler(this.frm_payment_Load);
             this.panel7.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();

@@ -84,11 +84,19 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 int RegisteredID = Convert.ToInt16(dataGridView1.Rows[e.RowIndex].Cells["clmRegisteredID"].Value);
                 StudentRegistration registration = await _RegistrationRepository.GetStudentRegistration(RegisteredID);
-                frm_assessment_entry_1 frm = new frm_assessment_entry_1(registration);
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-                Close();
-                Dispose();
+                using (frm_assessment_entry_1 frm = new frm_assessment_entry_1(registration))
+                {
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        DialogResult = DialogResult.OK;
+                        Close();
+                        Dispose();
+                    }
+
+                }
+
             }
         }
 

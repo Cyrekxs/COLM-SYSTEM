@@ -57,7 +57,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             txtLRN.Text = StudentInformation.LRN;
             txtStudentName.Text = StudentInformation.StudentName;
             txtCurriculumCode.Text = CurriculumInformation.Code;
-            txtEducationLevel.Text = StudentInformation.EducationLevel;
+            txtEducationLevel.Text = CurriculumInformation.EducationLevel;
             txtCourseStrand.Text = CurriculumInformation.CourseStrand;
             txtYearLevel.Text = YearLevelInformation.YearLvl;
         }
@@ -166,12 +166,14 @@ namespace COLM_SYSTEM.Assessment_Folder
                 if (item.YearLeveLID == yearLevelID)
                     dgFees.Rows.Add(item.FeeID, item.FeeDesc, item.FeeType, item.Amount.ToString("n"));
             }
+
+
         }
         private void LoadAssessmentTypes() // this function will trigger upon initialization
         {
             //get assessment type list according to education level, school year and semester and tag it into cmbassessment type
             List<PaymentMode> assessmentTypes = (from r in PaymentMode.GetAssessmentPaymentModes(Program.user.SchoolYearID,Program.user.SemesterID)
-                                                 where r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID() && r.EducationLevel.ToLower() == txtEducationLevel.Text.ToLower()
+                                                 where r.EducationLevel.ToLower() == txtEducationLevel.Text.ToLower()
                                                  select r).ToList();
 
             cmbPaymentMode.Items.Clear();
@@ -226,7 +228,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         {
             int yearLevelID = YearLevelInformation.YearLevelID;
             //get the list of discounts according to yearlevel, school year and semester
-            List<Discount> discounts = Discount.GetDiscounts().Where(item => item.SchoolYearID == Utilties.GetUserSchoolYearID() && item.SemesterID == Utilties.GetUserSemesterID()).ToList();
+            List<Discount> discounts = Discount.GetDiscounts(Program.user.SchoolYearID,Program.user.SemesterID);
             List<Discount> AvailableToAllDiscounts = discounts.Where(item => item.HasYearLevels == false).ToList();
             List<Discount> SpecificDiscounts = new List<Discount>();  //discounts.Where(item => item.YearLevels.Contains(studentYearLevel)).ToList();
 
@@ -677,7 +679,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 frm_loading_v2 frm = new frm_loading_v2(AssessmentReport.PrintAssessment(AssessmentID));
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-
+                DialogResult = DialogResult.OK;
                 Close();
                 Dispose();
             }
@@ -705,6 +707,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                 frm_loading_v2 frm = new frm_loading_v2(AssessmentReport.EmailStudent(AssessmentID));
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
+                DialogResult = DialogResult.OK;
                 Close();
                 Dispose();
             }
@@ -819,6 +822,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             if (AssessmentID > 0)
             {
                 MessageBox.Show("Assessment Successfully saved!", "Student Assessment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
                 Close();
                 Dispose();
             }
@@ -848,6 +852,7 @@ namespace COLM_SYSTEM.Assessment_Folder
                     LoadDiscounts();
                     break;
                 case AssessmentOptions.Update:
+
                     var Assessment = await _AssessmentRepository.GetStudentAssessment(_AssessmentID);
                     StudentRegistration = await _RegistrationRepository.GetStudentRegistration(Assessment.Summary.RegisteredStudentID);
                     YearLevelInformation = YearLevel.GetYearLevel(Assessment.Summary.YearLevelID);
@@ -856,7 +861,7 @@ namespace COLM_SYSTEM.Assessment_Folder
 
 
                     DisplayInformation();
-                    LoadDefaultFees();
+                    //LoadDefaultFees();
                     LoadAssessmentTypes();
                     LoadSections();
                     LoadDiscounts();

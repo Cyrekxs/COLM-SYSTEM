@@ -33,6 +33,7 @@ namespace SEMS
             if (result > 0)
             {
                 MessageBox.Show("School Year and Semester settings has been successfully updated!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
                 Close();
                 Dispose();
             }

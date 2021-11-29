@@ -1,14 +1,12 @@
 ﻿using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using COLM_SYSTEM_LIBRARY.Repository;
-using SEMS;
 using SEMS.Payment_Folder;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Payment_Folder
@@ -34,7 +32,20 @@ namespace COLM_SYSTEM.Payment_Folder
             foreach (var item in Data)
             {
                 double balance = item.TotalDue - item.TotalPaidTuition;
-                dataGridView1.Rows.Add(item.AssessmentID, item.RegisteredStudentID, item.LRN, item.StudentName, item.EducationLevel, item.CourseStrand, item.YearLevel, item.EnrollmentStatus, item.TotalDue.ToString("n"), item.TotalPaidTuition.ToString("n"), balance.ToString("n"), item.Assessor, item.AssessmentDate);
+                dataGridView1.Rows.Add(
+                    item.AssessmentID,
+                    item.RegisteredStudentID,
+                    item.LRN,
+                    Utilties.FormatText(item.StudentName),
+                    item.EducationLevel,
+                    item.CourseStrand,
+                    item.YearLevel,
+                    item.EnrollmentStatus,
+                    item.TotalDue.ToString("n"),
+                    item.TotalPaidTuition.ToString("n"),
+                    balance.ToString("n"),
+                    Utilties.FormatText(item.Assessor),
+                    item.AssessmentDate);
             }
             lblCount.Text = string.Concat("Total Records in the Database : ", AssessmentLists.Count(), " Record Count(s):", dataGridView1.Rows.Count);
         }
@@ -103,7 +114,7 @@ namespace COLM_SYSTEM.Payment_Folder
         private async void timer1_Tick(object sender, EventArgs e)
         {
             panelLoading.Visible = true;
-            AssessmentLists = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID,Program.user.SemesterID);
+            AssessmentLists = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID, Program.user.SemesterID);
             DisplayData(AssessmentLists.ToList());
             panelLoading.Visible = false;
         }
@@ -123,7 +134,7 @@ namespace COLM_SYSTEM.Payment_Folder
             int RegisteredStudentID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmRegisteredStudentID"].Value);
             var SOA = await _SOARepository.GetSOA(RegisteredStudentID, Program.user.SchoolYearID, Program.user.SemesterID);
             string StudentName = dataGridView1.Rows[SelectedRow].Cells["clmStudentName"].Value.ToString();
-            frm_soa frm = new frm_soa(SOA.ToList(),StudentName);
+            frm_soa frm = new frm_soa(SOA.ToList(), StudentName);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.Show();
         }

@@ -56,11 +56,19 @@ namespace COLM_SYSTEM.Assessment_Folder
 
 
 
-            frm_assessment_entry_2 frm = new frm_assessment_entry_2(Registration, yearLevel);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            Close();
-            Dispose();
+            using (frm_assessment_entry_2 frm = new frm_assessment_entry_2(Registration, yearLevel))
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    DialogResult = DialogResult.OK;
+                    Close();
+                    Dispose();
+                }
+
+            }
+
         }
 
         private async void frm_assessment_entry_1_Load(object sender, EventArgs e)

@@ -1,7 +1,6 @@
 ﻿using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model.Assessment_Folder;
 using COLM_SYSTEM_LIBRARY.Repository;
-using Microsoft.Reporting.WinForms;
 using SEMS;
 using SEMS.Assessment_Folder;
 using System;
@@ -9,7 +8,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Assessment_Folder
@@ -39,17 +37,17 @@ namespace COLM_SYSTEM.Assessment_Folder
             foreach (var item in assessments)
             {
                 dataGridView1.Rows.Add(
-                    item.AssessmentID, 
-                    item.RegisteredStudentID, 
-                    item.LRN, 
-                    Utilties.FormatText(item.StudentName), 
-                    item.EducationLevel, 
-                    item.CourseStrand, 
-                    item.YearLevel, 
-                    item.TotalDue.ToString("n"), 
+                    item.AssessmentID,
+                    item.RegisteredStudentID,
+                    item.LRN,
+                    Utilties.FormatText(item.StudentName),
+                    item.EducationLevel,
+                    item.CourseStrand,
+                    item.YearLevel,
+                    item.TotalDue.ToString("n"),
                     item.PaymentMode,
                     Utilties.FormatText(item.Assessor),
-                    item.AssessmentDate.ToString("MM-dd-yyyy"), 
+                    item.AssessmentDate.ToString("MM-dd-yyyy"),
                     item.EnrollmentStatus);
             }
 
@@ -70,7 +68,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 SearchedResults = Assessments.ToList();
             }
-            
+
             if (cmbEnrollmentStatus.Text.ToLower() != "all")
             {
                 SearchedResults = (from r in SearchedResults
@@ -88,12 +86,21 @@ namespace COLM_SYSTEM.Assessment_Folder
             DisplayAssessments(SearchedResults);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            frm_assessment_browser frm = new frm_assessment_browser();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            SearchAssessment();
+            using (frm_assessment_browser frm = new frm_assessment_browser())
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    panelLoading.Visible = true;
+                    Assessments = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID, Program.user.SemesterID);
+                    DisplayAssessments(Assessments.ToList());
+                    panelLoading.Visible = false;
+                }
+            }
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -114,13 +121,21 @@ namespace COLM_SYSTEM.Assessment_Folder
             }
         }
 
-        private void reAssessToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void reAssessToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int AssessmentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmAssessmentID"].Value);
-            frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            SearchAssessment();
+            using (frm_assessment_entry_2 frm = new frm_assessment_entry_2(AssessmentID))
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                if ( frm.DialogResult == DialogResult.OK)
+                {
+                    panelLoading.Visible = true;
+                    Assessments = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID, Program.user.SemesterID);
+                    DisplayAssessments(Assessments.ToList());
+                    panelLoading.Visible = false;
+                }
+            }
         }
 
         private void removeAssessmentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -166,7 +181,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private async void uc_assessment_list_Load(object sender, EventArgs e)
         {
             panelLoading.Visible = true;
-            Assessments = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID,Program.user.SemesterID);
+            Assessments = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID, Program.user.SemesterID);
             DisplayAssessments(Assessments.ToList());
             panelLoading.Visible = false;
         }

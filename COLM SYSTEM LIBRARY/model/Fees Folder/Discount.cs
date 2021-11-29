@@ -22,9 +22,9 @@ namespace COLM_SYSTEM_LIBRARY.model
         public int SemesterID { get; set; }
         public DateTime DateCreated { get; set; }
 
-        public static List<Discount> GetDiscounts()
+        public static List<Discount> GetDiscounts(int SchoolYearID,int SemesterID)
         {
-            return Discount_DS.GetDiscounts();
+            return Discount_DS.GetDiscounts(SchoolYearID,SemesterID);
         }
 
         public static Discount GetDiscount(int DiscountID)

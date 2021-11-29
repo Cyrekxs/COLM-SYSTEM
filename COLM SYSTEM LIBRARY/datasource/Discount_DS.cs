@@ -9,14 +9,16 @@ namespace COLM_SYSTEM_LIBRARY.datasource
 {
     class Discount_DS
     {
-        public static List<Discount> GetDiscounts()
+        public static List<Discount> GetDiscounts(int SchoolYearID, int SemesterID)
         {
             List<Discount> discounts = new List<Discount>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.discounts ORDER BY DateCreated ASC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.discounts WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID ORDER BY DateCreated ASC", conn))
                 {
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         while (reader.Read())

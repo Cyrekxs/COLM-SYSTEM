@@ -416,11 +416,17 @@ namespace COLM_SYSTEM
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frm_user_settings_sysem frm = new frm_user_settings_sysem();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            DisplayUserInfo();
-            DisplayControl(new UC_DashBoard());
+            using (frm_user_settings_sysem frm = new frm_user_settings_sysem())
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    DisplayUserInfo();
+                    DisplayControl(new UC_DashBoard());
+                }
+            }
+
         }
     }
 }

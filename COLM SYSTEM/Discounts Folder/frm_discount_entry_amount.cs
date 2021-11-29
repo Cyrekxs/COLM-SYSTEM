@@ -372,10 +372,18 @@ namespace COLM_SYSTEM.Discounts
 
         private void txtAmountValue_Leave(object sender, EventArgs e)
         {
-            if (cmbDiscountType.Text == "Amount")
-                txtAmountValue.Text = Convert.ToDouble(txtAmountValue.Text).ToString("n");
-            else if (cmbDiscountType.Text == "Percentage")
-                txtAmountValue.Text = Convert.ToDouble(txtAmountValue.Text).ToString();
+            try
+            {
+                if (cmbDiscountType.Text == "Amount")
+                    txtAmountValue.Text = Convert.ToDouble(txtAmountValue.Text).ToString("n");
+                else if (cmbDiscountType.Text == "Percentage")
+                    txtAmountValue.Text = Convert.ToDouble(txtAmountValue.Text).ToString();
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void ch_TFee_CheckedChanged(object sender, EventArgs e)

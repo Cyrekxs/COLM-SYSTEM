@@ -9,7 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Payment_Folder
@@ -19,27 +18,28 @@ namespace COLM_SYSTEM.Payment_Folder
         IRegistrationRepository _RegistrationRepository = new RegistrationRepository();
         private Assessment Assessment { get; }
         StudentRegistration StudentRegistration { get; set; } = new StudentRegistration();
-        YearLevel studentYearLevel = new YearLevel();
         int SelectedOR = -1;
 
 
         public frm_payment(Assessment Assessment)
         {
             InitializeComponent();
+            this.Assessment = Assessment;
+
+            LoadAssessmentInformation();
             LoadAdditionalFees();
             LoadPaymentHistory();
             DisplayLink();
-            this.Assessment = Assessment;
             DisplayStudentInformation();
         }
 
         private void DisplayStudentInformation()
         {
             txtLRN.Text = Assessment.Summary.LRN;
-            txtStudentName.Text = Assessment.Summary.StudentName;
+            txtStudentName.Text = Utilties.FormatText(Assessment.Summary.StudentName);
             txtEducationLevel.Text = Assessment.Summary.EducationLevel;
             txtCourseStrand.Text = Assessment.Summary.CourseStrand;
-            txtYearLevel.Text = studentYearLevel.YearLvl;
+            txtYearLevel.Text = Assessment.Summary.YearLevel;
             txtSection.Text = Assessment.Summary.Section;
         }
 
@@ -386,6 +386,11 @@ namespace COLM_SYSTEM.Payment_Folder
             frm.reportViewer1.RefreshReport();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+        }
+
+        private void frm_payment_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

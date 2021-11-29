@@ -20,17 +20,7 @@ namespace COLM_SYSTEM.Discounts
 
         private void LoadDiscounts()
         {
-
-            Task<List<Discount>> task_discounts = new Task<List<Discount>>(Discount.GetDiscounts);
-            task_discounts.Start();
-
-            frm_loading frm = new frm_loading(task_discounts);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-
-            _Discounts = task_discounts.Result;
-
-
+            _Discounts = Discount.GetDiscounts(Program.user.SchoolYearID, Program.user.SemesterID);
             dataGridView3.Rows.Clear();
             foreach (var item in _Discounts)
             {
