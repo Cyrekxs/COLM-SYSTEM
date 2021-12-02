@@ -80,7 +80,7 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                 {
                     try
                     {
-                        using (SqlCommand comm = new SqlCommand("INSERT INTO settings.faculties VALUES(@Title,@Lastname,@Firstname,@Username)", conn, t))
+                        using (SqlCommand comm = new SqlCommand("INSERT INTO settings.faculties (Title,Lastname,Firstname,Username) VALUES(@Title,@Lastname,@Firstname,@Username)", conn, t))
                         {
                             comm.Parameters.AddWithValue("@facultyid", faculty.FacultyID);
                             comm.Parameters.AddWithValue("@Title", faculty.Title);
