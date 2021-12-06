@@ -51,6 +51,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtOrganizationEmail = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -114,7 +116,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Firebrick;
-            this.button2.Location = new System.Drawing.Point(168, 270);
+            this.button2.Location = new System.Drawing.Point(168, 317);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(105, 30);
             this.button2.TabIndex = 7;
@@ -169,7 +171,7 @@
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(279, 270);
+            this.btnRegister.Location = new System.Drawing.Point(279, 317);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(105, 30);
             this.btnRegister.TabIndex = 6;
@@ -290,6 +292,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.txtOrganizationEmail);
+            this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.cmbDepartment);
             this.panel3.Controls.Add(this.cmbRegistrationStatus);
@@ -304,7 +308,7 @@
             this.panel3.Controls.Add(this.cmbCurriculum);
             this.panel3.Location = new System.Drawing.Point(15, 209);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(395, 313);
+            this.panel3.Size = new System.Drawing.Size(395, 365);
             this.panel3.TabIndex = 27;
             // 
             // label8
@@ -326,11 +330,27 @@
             this.cmbDepartment.TabIndex = 25;
             this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 236);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(182, 15);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Please Enter Organization Email";
+            // 
+            // txtOrganizationEmail
+            // 
+            this.txtOrganizationEmail.Location = new System.Drawing.Point(15, 254);
+            this.txtOrganizationEmail.Name = "txtOrganizationEmail";
+            this.txtOrganizationEmail.Size = new System.Drawing.Size(369, 23);
+            this.txtOrganizationEmail.TabIndex = 27;
+            // 
             // frm_registration_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 548);
+            this.ClientSize = new System.Drawing.Size(428, 600);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -376,5 +396,7 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbDepartment;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtOrganizationEmail;
     }
 }

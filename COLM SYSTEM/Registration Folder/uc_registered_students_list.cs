@@ -4,6 +4,7 @@ using COLM_SYSTEM_LIBRARY.Interaces;
 using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.Repository;
+using SEMS.Registration_Folder;
 using SEMS.Student_Information_Folder;
 using System;
 using System.Collections.Generic;
@@ -242,6 +243,20 @@ namespace COLM_SYSTEM.Registration_Folder
             SchoolSemesters = await _SchoolYearSemesterRepository.GetSemesters();
             DisplayData(RegisteredStudents.ToList());
             panelLoading.Visible = false;
+        }
+
+        private void updateOrganizationEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int RegistrationID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmRegisteredStudentID"].Value);
+
+            var Registration = RegisteredStudents.First(r => r.RegistrationID == RegistrationID);
+            var Information = StudentInformations.First(r => r.StudentID == Registration.StudentID);
+
+            using (frm_registration_organization_email_update frm = new frm_registration_organization_email_update(Registration))
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
         }
     }
 }

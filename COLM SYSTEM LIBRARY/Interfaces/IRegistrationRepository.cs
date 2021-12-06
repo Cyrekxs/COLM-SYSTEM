@@ -11,6 +11,7 @@ namespace COLM_SYSTEM_LIBRARY.Interfaces
     {
         Task<int> RegisterStudent(StudentRegistration registration);
         Task<int> UpdateStudentRegistration(StudentRegistration registration);
+        Task<int> UpdateRegisteredOrganizationEmail(StudentRegistration registration);
         Task<int> DeleteStudentRegistration(int RegistrationID);
 
         Task<StudentRegistration> GetStudentRegistration(int RegistrationID);

@@ -51,12 +51,38 @@ namespace COLM_SYSTEM.registration
             txtLRN.Text = _StudentInfo.LRN;
             txtStudentName.Text = _StudentInfo.StudentName;
 
-
             cmbStudentStatus.Text = StudentRegistration.StudentStatus;
             cmbEducationLevel.Text = _CurriculumInformation.EducationLevel;
             cmbDepartment.Text = _CurriculumInformation.DepartmentCode;
             cmbCurriculum.Text = _CurriculumInformation.Code;
             cmbRegistrationStatus.Text = StudentRegistration.RegistrationStatus;
+            txtOrganizationEmail.Text = StudentRegistration.OrganizationEmail;
+        }
+
+        private bool IsValidForm()
+        {
+            if (txtStudentName.Text == string.Empty)
+                return false;
+
+            if (cmbStudentStatus.Text == string.Empty)
+                return false;
+
+            if (cmbEducationLevel.Text == string.Empty)
+                return false;
+
+            if (cmbDepartment.Text == string.Empty)
+                return false;
+
+            if (cmbCurriculum.Text == string.Empty)
+                return false;
+
+            if (cmbRegistrationStatus.Text == string.Empty)
+                return false;
+
+            if (txtOrganizationEmail.Text == string.Empty)
+                return false;
+
+            return true;
         }
 
         private void LoadCurriculums(string DepartmentCode)
@@ -91,11 +117,19 @@ namespace COLM_SYSTEM.registration
 
         private async void button1_Click(object sender, EventArgs e)
         {
+
+            if(IsValidForm() == false)
+            {
+                MessageBox.Show("All fields are required to have data except LRN", "Fill up all fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             int CurriculumID = Curriculum.GetCurriculumID(cmbCurriculum.Text, _Curriculums);
             StudentRegistration RegistrationInformation = new StudentRegistration()
             {
                 RegistrationID = RegisteredStudentID,
                 StudentID = _StudentInfo.StudentID,
+                OrganizationEmail = txtOrganizationEmail.Text,
                 CurriculumID = CurriculumID,
                 SchoolYearID = Utilties.GetUserSchoolYearID(),
                 SemesterID = Utilties.GetUserSemesterID(),

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Payment_Folder
@@ -22,14 +23,12 @@ namespace COLM_SYSTEM.Payment_Folder
         {
             InitializeComponent();
             cmbEducationLevel.Text = "All";
-
-
         }
 
         private void DisplayData(List<AssessmentSummaryEntity> Data)
         {
             dataGridView1.Rows.Clear();
-            foreach (var item in Data)
+            foreach (var item in Data.Take(300).ToList())
             {
                 double balance = item.TotalDue - item.TotalPaidTuition;
                 dataGridView1.Rows.Add(
@@ -48,6 +47,11 @@ namespace COLM_SYSTEM.Payment_Folder
                     item.AssessmentDate);
             }
             lblCount.Text = string.Concat("Total Records in the Database : ", AssessmentLists.Count(), " Record Count(s):", dataGridView1.Rows.Count);
+        }
+
+        private async Task GetAssessments()
+        {
+            AssessmentLists = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID, Program.user.SemesterID);
         }
 
         private void SearchAssessment()
@@ -90,7 +94,7 @@ namespace COLM_SYSTEM.Payment_Folder
 
         }
 
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        private async void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -106,15 +110,7 @@ namespace COLM_SYSTEM.Payment_Folder
         private async void uc_payers_Load(object sender, EventArgs e)
         {
             panelLoading.Visible = true;
-            AssessmentLists = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID, Program.user.SemesterID);
-            DisplayData(AssessmentLists.ToList());
-            panelLoading.Visible = false;
-        }
-
-        private async void timer1_Tick(object sender, EventArgs e)
-        {
-            panelLoading.Visible = true;
-            AssessmentLists = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID, Program.user.SemesterID);
+            await GetAssessments();
             DisplayData(AssessmentLists.ToList());
             panelLoading.Visible = false;
         }

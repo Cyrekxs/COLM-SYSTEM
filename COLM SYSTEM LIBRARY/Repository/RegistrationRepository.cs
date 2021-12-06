@@ -37,9 +37,10 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 //this function will identify what command to use after checking the identity of the registered student
                 if (HasRecord == false)
                 {
-                    using (SqlCommand comm = new SqlCommand("INSERT INTO student.registered VALUES (@StudentID,@CurriculumID,@SchoolYearID,@SemesterID,@StudentStatus,@RegistrationStatus,@RegistrationDate)", conn))
+                    using (SqlCommand comm = new SqlCommand("INSERT INTO student.registered VALUES (@StudentID,@OrganizationEmail,@CurriculumID,@SchoolYearID,@SemesterID,@StudentStatus,@RegistrationStatus,@RegistrationDate)", conn))
                     {
                         comm.Parameters.AddWithValue("@StudentID", registration.StudentID);
+                        comm.Parameters.AddWithValue("@OrganizationEmail", registration.OrganizationEmail);
                         comm.Parameters.AddWithValue("@CurriculumID", registration.CurriculumID);
                         comm.Parameters.AddWithValue("@SchoolYearID", registration.SchoolYearID);
                         comm.Parameters.AddWithValue("@SemesterID", registration.SemesterID);
@@ -58,9 +59,10 @@ namespace COLM_SYSTEM_LIBRARY.Repository
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("UPDATE student.registered SET CurriculumID = @CurriculumID, StudentStatus = @StudentStatus, RegistrationStatus = @RegistrationStatus WHERE RegisteredID = @RegisteredID", conn))
+                using (SqlCommand comm = new SqlCommand("UPDATE student.registered SET OrganizationEmail = @OrganizationEmail, CurriculumID = @CurriculumID, StudentStatus = @StudentStatus, RegistrationStatus = @RegistrationStatus WHERE RegisteredID = @RegisteredID", conn))
                 {
                     comm.Parameters.AddWithValue("@RegisteredID", registration.RegistrationID);
+                    comm.Parameters.AddWithValue("@OrganizationEmail", registration.OrganizationEmail);
                     comm.Parameters.AddWithValue("@CurriculumID", registration.CurriculumID);
                     comm.Parameters.AddWithValue("@StudentStatus", registration.StudentStatus);
                     comm.Parameters.AddWithValue("@RegistrationStatus", registration.RegistrationStatus);
@@ -68,6 +70,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 }
             }
         }
+
         public Task<int> DeleteStudentRegistration(int RegistrationID)
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
@@ -97,6 +100,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                             {
                                 RegistrationID = Convert.ToInt32(reader["RegisteredID"]),
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
+                                OrganizationEmail = Convert.ToString(reader["OrganizationEmail"]),
                                 CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
                                 StudentStatus = Convert.ToString(reader["StudentStatus"]),
                                 RegistrationStatus = Convert.ToString(reader["RegistrationStatus"]),
@@ -126,6 +130,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                             {
                                 RegistrationID = Convert.ToInt32(reader["RegisteredID"]),
                                 StudentID = Convert.ToInt32(reader["StudentID"]),
+                                OrganizationEmail = Convert.ToString(reader["OrganizationEmail"]),
                                 CurriculumID = Convert.ToInt32(reader["CurriculumID"]),
                                 StudentStatus = Convert.ToString(reader["StudentStatus"]),
                                 RegistrationStatus = Convert.ToString(reader["RegistrationStatus"]),
@@ -174,6 +179,20 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 }
             }
             return students;
+        }
+
+        public async Task<int> UpdateRegisteredOrganizationEmail(StudentRegistration registration)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("UPDATE student.registered SET OrganizationEmail = @OrganizationEmail WHERE RegisteredID = @RegisteredID", conn))
+                {
+                    comm.Parameters.AddWithValue("@RegisteredID", registration.RegistrationID);
+                    comm.Parameters.AddWithValue("@OrganizationEmail", registration.OrganizationEmail);
+                    return await comm.ExecuteNonQueryAsync();
+                }
+            }
         }
     }
 }

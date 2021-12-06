@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://colm.edu.ph/SEMS/</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.71</MinimumRequiredVersion>
-    <ApplicationRevision>78</ApplicationRevision>
+    <ApplicationRevision>79</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -317,6 +317,12 @@
     </Compile>
     <Compile Include="Payment Folder\frm_soa.Designer.cs">
       <DependentUpon>frm_soa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registration Folder\frm_registration_organization_email_update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration Folder\frm_registration_organization_email_update.Designer.cs">
+      <DependentUpon>frm_registration_organization_email_update.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports Folder\DS_EnrollmentLists.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -790,6 +796,9 @@
       <DependentUpon>frm_soa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\rpt_soa.rdlc" />
+    <EmbeddedResource Include="Registration Folder\frm_registration_organization_email_update.resx">
+      <DependentUpon>frm_registration_organization_email_update.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports Folder\Enrollment List\frm_enrollment_list.resx">
       <DependentUpon>frm_enrollment_list.cs</DependentUpon>
     </EmbeddedResource>

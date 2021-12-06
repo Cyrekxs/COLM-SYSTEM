@@ -29,17 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panelLoading = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clmAssessmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmRegisteredStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,21 +57,17 @@
             this.clmBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssessor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssessmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAction = new System.Windows.Forms.DataGridViewImageColumn();
             this.lblCount = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.clmAction = new System.Windows.Forms.DataGridViewImageColumn();
             this.viewAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelLoading = new System.Windows.Forms.Panel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
+            this.panelLoading.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelLoading.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,18 +85,6 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panel1.Size = new System.Drawing.Size(1117, 43);
             this.panel1.TabIndex = 23;
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(177, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(214, 43);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "LIST OF ASSESSED STUDENTS";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmbEducationLevel
             // 
@@ -152,14 +139,59 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Filter";
             // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(177, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(214, 43);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "LIST OF ASSESSED STUDENTS";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panelLoading
+            // 
+            this.panelLoading.Controls.Add(this.label4);
+            this.panelLoading.Controls.Add(this.pictureBox1);
+            this.panelLoading.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelLoading.Location = new System.Drawing.Point(10, 0);
+            this.panelLoading.Name = "panelLoading";
+            this.panelLoading.Size = new System.Drawing.Size(167, 43);
+            this.panelLoading.TabIndex = 29;
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(33, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(132, 43);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Loading data . . .";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::SEMS.Properties.Resources.buffering;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 30;
+            this.pictureBox1.TabStop = false;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -180,14 +212,14 @@
             this.clmAssessor,
             this.clmAssessmentDate,
             this.clmAction});
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle55.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle55.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Location = new System.Drawing.Point(13, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -259,8 +291,8 @@
             // 
             // clmTotalDue
             // 
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmTotalDue.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmTotalDue.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmTotalDue.HeaderText = "Amount Due";
             this.clmTotalDue.Name = "clmTotalDue";
             this.clmTotalDue.ReadOnly = true;
@@ -268,16 +300,16 @@
             // 
             // clmPaid
             // 
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmPaid.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmPaid.DefaultCellStyle = dataGridViewCellStyle3;
             this.clmPaid.HeaderText = "Credit";
             this.clmPaid.Name = "clmPaid";
             this.clmPaid.ReadOnly = true;
             // 
             // clmBalance
             // 
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBalance.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBalance.DefaultCellStyle = dataGridViewCellStyle4;
             this.clmBalance.HeaderText = "Receivables";
             this.clmBalance.Name = "clmBalance";
             this.clmBalance.ReadOnly = true;
@@ -297,6 +329,15 @@
             this.clmAssessmentDate.Name = "clmAssessmentDate";
             this.clmAssessmentDate.ReadOnly = true;
             this.clmAssessmentDate.Width = 57;
+            // 
+            // clmAction
+            // 
+            this.clmAction.HeaderText = "Action";
+            this.clmAction.Image = global::SEMS.Properties.Resources.Data;
+            this.clmAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.clmAction.Name = "clmAction";
+            this.clmAction.ReadOnly = true;
+            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // lblCount
             // 
@@ -321,42 +362,6 @@
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.contextMenuStrip1.Size = new System.Drawing.Size(157, 68);
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 15000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label4
-            // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(33, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 43);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Loading data . . .";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Show Account";
-            this.dataGridViewImageColumn1.Image = global::SEMS.Properties.Resources.Account;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // clmAction
-            // 
-            this.clmAction.HeaderText = "Action";
-            this.clmAction.Image = global::SEMS.Properties.Resources.Data;
-            this.clmAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.clmAction.Name = "clmAction";
-            this.clmAction.ReadOnly = true;
-            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // viewAssessmentToolStripMenuItem
             // 
             this.viewAssessmentToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -375,26 +380,14 @@
             this.printAssessmentToolStripMenuItem.Text = "Print SOA";
             this.printAssessmentToolStripMenuItem.Click += new System.EventHandler(this.printAssessmentToolStripMenuItem_Click);
             // 
-            // pictureBox1
+            // dataGridViewImageColumn1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::SEMS.Properties.Resources.buffering;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 30;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panelLoading
-            // 
-            this.panelLoading.Controls.Add(this.label4);
-            this.panelLoading.Controls.Add(this.pictureBox1);
-            this.panelLoading.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLoading.Location = new System.Drawing.Point(10, 0);
-            this.panelLoading.Name = "panelLoading";
-            this.panelLoading.Size = new System.Drawing.Size(167, 43);
-            this.panelLoading.TabIndex = 29;
+            this.dataGridViewImageColumn1.HeaderText = "Show Account";
+            this.dataGridViewImageColumn1.Image = global::SEMS.Properties.Resources.Account;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // uc_payers
             // 
@@ -409,10 +402,10 @@
             this.Load += new System.EventHandler(this.uc_payers_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelLoading.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelLoading.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -430,7 +423,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem viewAssessmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printAssessmentToolStripMenuItem;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRegisteredStudentID;
