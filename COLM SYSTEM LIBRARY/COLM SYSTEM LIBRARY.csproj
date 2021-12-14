@@ -50,6 +50,7 @@
     <Compile Include="Interfaces\IApplicationRepository.cs" />
     <Compile Include="Interfaces\ICurriculumRepository.cs" />
     <Compile Include="Interfaces\ISchoolYearSemesterRepository.cs" />
+    <Compile Include="Interfaces\IStudentApplicantRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IPaymentRepository.cs" />
     <Compile Include="Interfaces\IRegistrationRepository.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="model\School Data Settings Folder\YearLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AssessmentRepository.cs" />
+    <Compile Include="Repository\StudentApplicantRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
