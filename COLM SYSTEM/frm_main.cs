@@ -12,7 +12,9 @@ using COLM_SYSTEM.student_information;
 using COLM_SYSTEM.Student_Information_Folder;
 using COLM_SYSTEM.subject;
 using COLM_SYSTEM.User_Folder;
+using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.Repository;
 using SEMS;
 using SEMS.Faculty_Folder;
 using SEMS.Reports_Folder;
@@ -32,7 +34,7 @@ namespace COLM_SYSTEM
         //#FF004000 metro studio color use for green
         public IEnumerable<SchoolYear> SchoolYears { get; set; } = new List<SchoolYear>();
         public IEnumerable<SchoolSemester> SchoolSemesters { get; set; } = new List<SchoolSemester>();
-
+        IStudentApplicantRepository repository = new StudentApplicantRepository();
         public frm_main(User user)
         {
             InitializeComponent();
@@ -160,9 +162,10 @@ namespace COLM_SYSTEM
         }
 
         private async void frm_main_Load_1(object sender, EventArgs e)
-        {
-            //string ApplicantCount = await CheckNotifications();
-            //lblNotificationCount.Text = ApplicantCount;
+        {           
+            var result = await repository.GetOnlineApplicants();
+            lblNotificationCount.Text = result.Count().ToString();
+
             SchoolYears = await Utilties.GetSchoolYears();
             SchoolSemesters = await Utilties.GetSchoolSemesters();
             DisplayUserInfo();
@@ -178,22 +181,11 @@ namespace COLM_SYSTEM
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
-        private async Task<string> CheckNotifications()
-        {
-            try
-            {
-                return await Task.Run(() => StudentInfoOnline.GetOnlineApplications().Count.ToString());
-            }
-            catch (Exception)
-            {
-                return await Task.Run(() => { return 0.ToString(); });
-            }
-        }
 
         private async void ApplicationsTimer_Tick(object sender, EventArgs e)
         {
-            string ApplicantCount = await CheckNotifications();
-            lblNotificationCount.Text = ApplicantCount;
+            var result = await repository.GetOnlineApplicants();
+            lblNotificationCount.Text = result.Count().ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)

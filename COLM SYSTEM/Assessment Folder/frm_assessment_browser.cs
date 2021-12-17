@@ -111,12 +111,18 @@ namespace COLM_SYSTEM.Assessment_Folder
 
         private async void frm_assessment_browser_Load(object sender, EventArgs e)
         {
+            progressBar1.Visible = true;
+            textBox1.Enabled = false;
+
             var result = await _AssessmentRepository.GetNotAssessedStudents(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
             StudentsWithoutAssessment = result.ToList();
             StudentInformations = await _StudentRepository.GetStudentInformations();
             Curriculums = await _CurriculumRepository.GetCurriculums();
-
             DisplayData(StudentsWithoutAssessment);
+
+            progressBar1.Visible = false;
+            textBox1.Enabled = true;
+
         }
 
         private void cmbEducationLevel_SelectionChangeCommitted(object sender, EventArgs e)

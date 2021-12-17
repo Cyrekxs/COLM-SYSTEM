@@ -21,13 +21,23 @@ namespace COLM_SYSTEM.Student_Information_Folder
         public uc_student_information_list_online()
         {
             InitializeComponent();
-            LoadApplicants();
         }
 
-        private void LoadApplicants()
+        private void DisplayOnlineApplications(List<StudentInfoOnline> Applicants)
         {
-            var Applicants = _StudentApplicantRepository.GetOnlineApplicants();
+            dataGridView1.Rows.Clear();
+            foreach (var applicant in Applicants)
+            {
+                string gender = applicant.Gender.Substring(0, 1);
+                dataGridView1.Rows.Add(applicant.ApplicationID, applicant.StudentStatus, applicant.LRN, applicant.StudentName, gender, applicant.EmailAddress, applicant.MobileNo, applicant.EducationLevel, applicant.CourseStrand, applicant.YearLevel, applicant.ApplicationDate.ToString("MM-dd-yyyy hh:mm tt"));
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = applicant;
+            }
+        }
 
+        private async Task LoadApplicants()
+        {
+            var result = await _StudentApplicantRepository.GetOnlineApplicants();
+            applicants = result.ToList();
 
             //try
             //{
@@ -70,22 +80,27 @@ namespace COLM_SYSTEM.Student_Information_Folder
             }
         }
 
-        private void processApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void processApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_student_information_online_entry_1 frm = new frm_student_information_online_entry_1(dataGridView1.Rows[SelectedRow].Tag as StudentInfoOnline);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
-            LoadApplicants();
+            await LoadApplicants();
+            DisplayOnlineApplications(applicants);
         }
 
-        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int ApplicationID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmApplicationID"].Value);
             if (MessageBox.Show("Are you sure you want to delete this online application? this transaction cannot be reverted", "Delete Online Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int result = StudentInfoOnline.RemoveOnlineApplication(ApplicationID);
                 if (result > 0)
-                    LoadApplicants();
+                {
+                    await LoadApplicants();
+                    DisplayOnlineApplications(applicants);
+                }
+
             }
         }
 
@@ -93,8 +108,16 @@ namespace COLM_SYSTEM.Student_Information_Folder
         {
             if (e.KeyCode == Keys.Enter)
             {
-                LoadApplicants();
+                List<StudentInfoOnline> SearchedResult = new List<StudentInfoOnline>();
+                SearchedResult = applicants.Where(r => string.Concat(r.Lastname, " ", r.Firstname, " ",r.Middlename).ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+                DisplayOnlineApplications(SearchedResult);
             }
+        }
+
+        private async void uc_student_information_list_online_Load(object sender, EventArgs e)
+        {
+            await LoadApplicants();
+            DisplayOnlineApplications(applicants);
         }
     }
 }
