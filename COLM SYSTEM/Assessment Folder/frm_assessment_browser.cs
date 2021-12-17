@@ -29,7 +29,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private void DisplayData(List<StudentRegistration> ListToDisplay)
         {
             dataGridView1.Rows.Clear();
-            foreach (var item in ListToDisplay)
+            foreach (var item in ListToDisplay.Take(300))
             {
                 var studentinformation = StudentInformations.First(r => r.StudentID == item.StudentID);
                 var curriculuminformation = Curriculums.First(r => r.CurriculumID == item.CurriculumID);
