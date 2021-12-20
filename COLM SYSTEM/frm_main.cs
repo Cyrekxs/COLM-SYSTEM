@@ -35,6 +35,10 @@ namespace COLM_SYSTEM
         public IEnumerable<SchoolYear> SchoolYears { get; set; } = new List<SchoolYear>();
         public IEnumerable<SchoolSemester> SchoolSemesters { get; set; } = new List<SchoolSemester>();
         IStudentApplicantRepository repository = new StudentApplicantRepository();
+
+        SchoolYear ActiveSchoolYear = new SchoolYear();
+        SchoolSemester ActiveSemester = new SchoolSemester();
+
         public frm_main(User user)
         {
             InitializeComponent();
@@ -162,8 +166,11 @@ namespace COLM_SYSTEM
         }
 
         private async void frm_main_Load_1(object sender, EventArgs e)
-        {           
-            var result = await repository.GetOnlineApplicants();
+        {
+            ActiveSchoolYear = await Utilties.GetActiveSchoolYear();
+            ActiveSemester = await Utilties.GetActiveSemester();
+
+            var result = await repository.GetOnlineApplicants(ActiveSchoolYear.SchoolYearID,ActiveSemester.SemesterID);
             lblNotificationCount.Text = result.Count().ToString();
 
             SchoolYears = await Utilties.GetSchoolYears();
@@ -184,7 +191,7 @@ namespace COLM_SYSTEM
 
         private async void ApplicationsTimer_Tick(object sender, EventArgs e)
         {
-            var result = await repository.GetOnlineApplicants();
+            var result = await repository.GetOnlineApplicants(ActiveSchoolYear.SchoolYearID,ActiveSemester.SemesterID);
             lblNotificationCount.Text = result.Count().ToString();
         }
 

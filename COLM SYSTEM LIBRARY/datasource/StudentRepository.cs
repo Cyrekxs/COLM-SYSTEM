@@ -114,15 +114,17 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 return result;
             }
         }
-        public async Task<int> InsertOnlineApplicant(int ApplicantID, int StudentID)
+        public async Task<int> InsertOnlineApplicant(int ApplicantID, int StudentID, int SchoolYearID, int SemesterID)
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO student.applicants VALUES (@ApplicantID,@StudentID,GETDATE())", conn))
+                using (SqlCommand comm = new SqlCommand("INSERT INTO student.applicants VALUES (@ApplicantID,@StudentID,@SchoolYearID,@SemesterID,GETDATE())", conn))
                 {
                     comm.Parameters.AddWithValue("@ApplicantID", ApplicantID);
                     comm.Parameters.AddWithValue("@StudentID", StudentID);
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
                     return await comm.ExecuteNonQueryAsync();
                 }
             }
@@ -322,6 +324,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                     comm.Parameters.AddWithValue("@FatherMobile", Information.FatherMobile);
                     comm.Parameters.AddWithValue("@GuardianName", Information.GuardianName);
                     comm.Parameters.AddWithValue("@GuardianMobile", Information.GuardianMobile);
+
                     comm.Parameters.AddWithValue("@EmergencyName", Information.EmergencyName);
                     comm.Parameters.AddWithValue("@EmergencyRelation", Information.EmergencyRelation);
                     comm.Parameters.AddWithValue("@EmergencyMobile", Information.EmergencyMobile);
@@ -335,7 +338,12 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                     comm.Parameters.AddWithValue("@EducationLevel", Information.EducationLevel);
                     comm.Parameters.AddWithValue("@CourseStrand", Information.CourseStrand);
                     comm.Parameters.AddWithValue("@Yearlevel", Information.YearLevel);
-                    return Task.FromResult(comm.ExecuteNonQuery());
+                    var result = comm.ExecuteNonQuery();
+
+                    if (result > 0)
+                        return Task.FromResult(Information.StudentID);
+                    else
+                        return Task.FromResult(0);
                 }
             }
         }

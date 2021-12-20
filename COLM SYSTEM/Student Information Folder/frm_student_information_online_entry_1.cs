@@ -21,6 +21,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
         List<string> SchoolAddresses = new List<string>();
         private int ApplicationID { get; set; } = 0;
         private StudentInfo StudentInformation { get; set; } = new StudentInfo();
+        public StudentInfoOnline OnlineInfoModel { get; }
 
         private SavingOptions SavingStatus;
 
@@ -45,12 +46,14 @@ namespace COLM_SYSTEM.Student_Information_Folder
             SavingStatus = SavingOptions.UPDATE;
             StudentInformation.StudentID = StudentID;
         }
+
         //IMPORT ONLINE APPLICANT TO CREATE NEW STUDENT
-        public frm_student_information_online_entry_1(StudentInfoOnline model)
+        public frm_student_information_online_entry_1(StudentInfoOnline onlineInfoModel)
         {
             InitializeComponent();
             SavingStatus = SavingOptions.ONLINE;
-            ApplicationID = model.ApplicationID;
+            ApplicationID = onlineInfoModel.ApplicationID;
+            OnlineInfoModel = onlineInfoModel;
         }
 
         private async Task LoadSchoolsandSchoolAddress()
@@ -61,40 +64,94 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
         private void DisplayStudentInfo()
         {
-            txtLRN.Text = StudentInformation.LRN;
-            txtFirstname.Text = StudentInformation.Firstname;
-            txtMiddlename.Text = StudentInformation.Middlename;
-            txtLastname.Text = StudentInformation.Lastname;
-            txtBirthDate.Text = StudentInformation.BirthDate.ToString();
-            cmbGender.Text = StudentInformation.Gender;
+            try
+            {
+                txtLRN.Text = StudentInformation.LRN;
+                txtFirstname.Text = StudentInformation.Firstname;
+                txtMiddlename.Text = StudentInformation.Middlename;
+                txtLastname.Text = StudentInformation.Lastname;
+                txtBirthDate.Text = StudentInformation.BirthDate.ToString();
+                cmbGender.Text = StudentInformation.Gender;
 
-            txtStreet.Text = StudentInformation.Street;
-            txtProvince.Text = StudentInformation.Province;
-            txtCity.Text = StudentInformation.City;
-            txtBarangay.Text = StudentInformation.Barangay;
+                txtStreet.Text = StudentInformation.Street;
+                txtProvince.Text = StudentInformation.Province;
+                txtCity.Text = StudentInformation.City;
+                txtBarangay.Text = StudentInformation.Barangay;
 
-            txtMobileNo.Text = StudentInformation.MobileNo;
-            txtEmailAddress.Text = StudentInformation.EmailAddress;
+                txtMobileNo.Text = StudentInformation.MobileNo;
+                txtEmailAddress.Text = StudentInformation.EmailAddress;
 
-            txtMotherName.Text = StudentInformation.MotherName;
-            txtMotherMobile.Text = StudentInformation.MobileNo;
-            txtFatherName.Text = StudentInformation.FatherName;
-            txtFatherMobile.Text = StudentInformation.FatherMobile;
-            txtGuardianName.Text = StudentInformation.GuardianName;
-            txtGuardianMobile.Text = StudentInformation.GuardianMobile;
-            txtEmergencyName.Text = StudentInformation.EmergencyName;
-            txtEmergencyRelation.Text = StudentInformation.EmergencyRelation;
-            txtEmergencyMobile.Text = StudentInformation.EmergencyMobile;
+                txtMotherName.Text = StudentInformation.MotherName;
+                txtMotherMobile.Text = StudentInformation.MobileNo;
+                txtFatherName.Text = StudentInformation.FatherName;
+                txtFatherMobile.Text = StudentInformation.FatherMobile;
+                txtGuardianName.Text = StudentInformation.GuardianName;
+                txtGuardianMobile.Text = StudentInformation.GuardianMobile;
+                txtEmergencyName.Text = StudentInformation.EmergencyName;
+                txtEmergencyRelation.Text = StudentInformation.EmergencyRelation;
+                txtEmergencyMobile.Text = StudentInformation.EmergencyMobile;
 
-            txtSchoolName.Text = StudentInformation.SchoolName;
-            txtSchoolAddress.Text = StudentInformation.SchoolAddress;
-            cmbSchoolStatus.Text = StudentInformation.SchoolStatus;
-            cmbESCGuarantee.Text = StudentInformation.ESCGuarantee;
+                txtSchoolName.Text = StudentInformation.SchoolName;
+                txtSchoolAddress.Text = StudentInformation.SchoolAddress;
+                cmbSchoolStatus.Text = StudentInformation.SchoolStatus;
+                cmbESCGuarantee.Text = StudentInformation.ESCGuarantee;
 
-            cmbStudentStatus.Text = StudentInformation.StudentStatus;
-            txtEducationLevel.Text = StudentInformation.EducationLevel;
-            txtCourseStrand.Text = StudentInformation.CourseStrand;
-            txtYearLevel.Text = StudentInformation.YearLevel;
+                cmbStudentStatus.Text = StudentInformation.StudentStatus;
+                txtEducationLevel.Text = StudentInformation.EducationLevel;
+                txtCourseStrand.Text = StudentInformation.CourseStrand;
+                txtYearLevel.Text = StudentInformation.YearLevel;
+
+
+                if (txtEmergencyName.Text == txtMotherName.Text)
+                    checkBox1.Checked = true;
+                else if (txtEmergencyName.Text == txtFatherName.Text)
+                    checkBox2.Checked = true;
+                else if (txtEmergencyName.Text == txtGuardianName.Text)
+                    checkBox3.Checked = true;
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        private void DisplayStudentInfoOnline()
+        {
+            txtLRN.Text = OnlineInfoModel.LRN;
+            txtFirstname.Text = OnlineInfoModel.Firstname;
+            txtMiddlename.Text = OnlineInfoModel.Middlename;
+            txtLastname.Text = OnlineInfoModel.Lastname;
+            txtBirthDate.Text = OnlineInfoModel.BirthDate.ToString();
+            cmbGender.Text = OnlineInfoModel.Gender;
+
+            txtStreet.Text = OnlineInfoModel.Street;
+            txtProvince.Text = OnlineInfoModel.Province;
+            txtCity.Text = OnlineInfoModel.City;
+            txtBarangay.Text = OnlineInfoModel.Barangay;
+
+            txtMobileNo.Text = OnlineInfoModel.MobileNo;
+            txtEmailAddress.Text = OnlineInfoModel.EmailAddress;
+
+            txtMotherName.Text = OnlineInfoModel.MotherName;
+            txtMotherMobile.Text = OnlineInfoModel.MobileNo;
+            txtFatherName.Text = OnlineInfoModel.FatherName;
+            txtFatherMobile.Text = OnlineInfoModel.FatherMobile;
+            txtGuardianName.Text = OnlineInfoModel.GuardianName;
+            txtGuardianMobile.Text = OnlineInfoModel.GuardianMobile;
+            txtEmergencyName.Text = OnlineInfoModel.EmergencyName;
+            txtEmergencyRelation.Text = OnlineInfoModel.EmergencyRelation;
+            txtEmergencyMobile.Text = OnlineInfoModel.EmergencyMobile;
+
+            txtSchoolName.Text = OnlineInfoModel.SchoolName;
+            txtSchoolAddress.Text = OnlineInfoModel.SchoolAddress;
+            cmbSchoolStatus.Text = OnlineInfoModel.SchoolStatus;
+            cmbESCGuarantee.Text = OnlineInfoModel.ESCGuarantee;
+
+            cmbStudentStatus.Text = OnlineInfoModel.StudentStatus;
+            txtEducationLevel.Text = OnlineInfoModel.EducationLevel;
+            txtCourseStrand.Text = OnlineInfoModel.CourseStrand;
+            txtYearLevel.Text = OnlineInfoModel.YearLevel;
 
 
             if (txtEmergencyName.Text == txtMotherName.Text)
@@ -241,7 +298,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
             StudentInformation.FatherMobile = txtFatherMobile.Text;
             StudentInformation.GuardianName = txtGuardianName.Text;
             StudentInformation.GuardianMobile = txtGuardianMobile.Text;
-            StudentInformation.EmergencyName = txtGuardianName.Text;
+            StudentInformation.EmergencyName = txtEmergencyName.Text;
             StudentInformation.EmergencyRelation = txtEmergencyRelation.Text;
             StudentInformation.EmergencyMobile = txtEmergencyMobile.Text;
 
@@ -258,35 +315,32 @@ namespace COLM_SYSTEM.Student_Information_Folder
             //verify if the student is existing
             StudentInfo student_existing = await _StudentRepository.IsStudentExists(txtLastname.Text, txtFirstname.Text, txtMiddlename.Text);
 
-
-
+            //ask user if want to proceed
             if (MessageBox.Show("Are you sure you want to process this application?", "Online Student Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
+
+            //verify saving status
             switch (SavingStatus)
             {
                 case SavingOptions.INSERT:
                     //Program detected existing student
                     if (student_existing != null)
                     {
-                        MessageBox.Show("Program Detected that there was an existing student information in the database", "Duplicat Data Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Program Detected that there was an existing student information in the database", "Duplicate Data Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     else
                     {
                         await _StudentRepository.InsertStudentInformation(StudentInformation);
-
                         MessageBox.Show("Student information has been successully saved!", "Student Information Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         DialogResult = DialogResult.OK;
                         Close();
                         Dispose();
-                        
+
                         break;
                     }
-
-
                 case SavingOptions.UPDATE:
-
                     int UpdateResult = await _StudentRepository.UpdateStudentInformation(StudentInformation);
                     if (UpdateResult > 0)
                     {
@@ -296,18 +350,32 @@ namespace COLM_SYSTEM.Student_Information_Folder
                         Dispose();
                     }
                     break;
-
                 case SavingOptions.ONLINE:
-                    //insert student application
-                    int InsertedStudentIDResult = 0;
-                    if (student_existing == null)
-                        InsertedStudentIDResult = await _StudentRepository.InsertStudentInformation(StudentInformation);
-                    else
-                        await _StudentRepository.UpdateStudentInformation(StudentInformation);
 
-                    if (InsertedStudentIDResult > 0)
+                    int StudentIDResult = 0;
+                    //verify the the student information is existing
+                    if (student_existing == null)
+                        //insert new student information if not existing
+                        StudentIDResult = await _StudentRepository.InsertStudentInformation(StudentInformation);
+                    else
                     {
-                        int result = await _StudentRepository.InsertOnlineApplicant(ApplicationID, InsertedStudentIDResult);
+                        StudentInformation.StudentID = student_existing.StudentID;
+                        if (MessageBox.Show("Program Detected that this applicant is already in the database records do you want to update his/her information with the current info provided?","Data Information Detected in Records", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                            return;
+                    }
+
+
+                    //update student information is existing
+                    StudentIDResult = await _StudentRepository.UpdateStudentInformation(StudentInformation);
+
+
+                    //identify if the insert or update is sucessfull;
+                    if (StudentIDResult > 0)
+                    {
+                        var ActiveSchoolYear = await Utilties.GetActiveSchoolYear();
+                        var ActiveSemester = await Utilties.GetActiveSemester();
+
+                        int result = await _StudentRepository.InsertOnlineApplicant(ApplicationID, StudentIDResult, ActiveSchoolYear.SchoolYearID, ActiveSemester.SemesterID);
                         if (result > 0)
                         {
                             MessageBox.Show("Student Information has been successfully saved and marked as processed! you can now proceed to registration", "Information Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -316,8 +384,6 @@ namespace COLM_SYSTEM.Student_Information_Folder
                             Dispose();
                         }
                     }
-
-
                     break;
                 default:
                     break;
@@ -395,7 +461,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
                     DisplayStudentInfo();
                     break;
                 case SavingOptions.ONLINE:
-                    DisplayStudentInfo();
+                    DisplayStudentInfoOnline();
                     break;
                 default:
                     break;

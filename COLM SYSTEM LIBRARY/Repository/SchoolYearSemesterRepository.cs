@@ -92,17 +92,18 @@ namespace COLM_SYSTEM_LIBRARY.Repository
 
         public async Task<SchoolSemester> GetActiveSemester()
         {
-            SchoolSemester Semesters = new SchoolSemester();
+            SchoolSemester Semester = new SchoolSemester();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.schoolsem WHERE Status = 'ACTIVE'", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.schoolsem WHERE Status = @status", conn))
                 {
+                    comm.Parameters.AddWithValue("@status", "Active");
                     using (SqlDataReader reader = await comm.ExecuteReaderAsync())
                     {
-                        while (reader.Read())
+                        while (await reader.ReadAsync())
                         {
-                            SchoolSemester sem = new SchoolSemester()
+                            Semester = new SchoolSemester()
                             {
                                 SemesterID = Convert.ToInt32(reader["SemesterID"]),
                                 Semester = Convert.ToString(reader["Semester"])
@@ -111,7 +112,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                     }
                 }
             }
-            return Semesters;
+            return Semester;
         }
     }
 }

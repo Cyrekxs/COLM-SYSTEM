@@ -14,15 +14,17 @@ namespace COLM_SYSTEM_LIBRARY.Repository
     public class StudentApplicantRepository : IStudentApplicantRepository
     {
         TextInfo text = CultureInfo.CurrentCulture.TextInfo;
-        public async Task<IEnumerable<StudentInfoOnline>> GetOnlineApplicants()
+        public async Task<IEnumerable<StudentInfoOnline>> GetOnlineApplicants(int SchoolYearID, int SemesterID)
         {
             List<StudentInfoOnline> OnlineApplicants = new List<StudentInfoOnline>();
 
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information_online ORDER BY ApplicationDate DESC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_online_applicants(@SchoolYearID,@SemesterID) ORDER BY ApplicationDate DESC", conn))
                 {
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
                     using (SqlDataReader reader = await comm.ExecuteReaderAsync())
                     {
                         while (await reader.ReadAsync())

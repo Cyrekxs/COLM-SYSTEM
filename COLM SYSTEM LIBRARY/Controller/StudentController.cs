@@ -10,9 +10,9 @@ namespace COLM_SYSTEM_LIBRARY.Controller
     {
         private readonly IStudentRepository repository = new StudentRepository();
 
-        public  async Task<int> InsertOnlineApplicant(int ApplicantID, int StudentID)
+        public  async Task<int> InsertOnlineApplicant(int ApplicantID, int StudentID,int SchoolYearID, int SemesterID)
         {
-            return await repository.InsertOnlineApplicant(ApplicantID, StudentID);
+            return await repository.InsertOnlineApplicant(ApplicantID, StudentID,SchoolYearID,SemesterID);
         }
 
         public async Task<List<StudentInfo>> GetStudentsToImportAsync()
