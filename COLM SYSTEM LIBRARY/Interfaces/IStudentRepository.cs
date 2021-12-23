@@ -15,7 +15,7 @@ namespace COLM_SYSTEM_LIBRARY.Interfaces
         Task<bool> HasRegistrationAsync(int StudentID);
 
 
-        Task<int> InsertOnlineApplicant(int ApplicantID, int StudentID,int SchoolYearID, int SemesterID);
+        Task<int> UpdateOnlineApplicantToProcessed(int ApplicantID, int StudentID,int SchoolYearID, int SemesterID);
         Task<int> InsertStudentInformation(StudentInfo Information);
         Task<int> UpdateStudentInformation(StudentInfo Information);
 

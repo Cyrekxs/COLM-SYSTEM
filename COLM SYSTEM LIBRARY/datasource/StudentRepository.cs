@@ -114,17 +114,14 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 return result;
             }
         }
-        public async Task<int> InsertOnlineApplicant(int ApplicantID, int StudentID, int SchoolYearID, int SemesterID)
+        public async Task<int> UpdateOnlineApplicantToProcessed(int ApplicantID, int StudentID, int SchoolYearID, int SemesterID)
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO student.applicants VALUES (@ApplicantID,@StudentID,@SchoolYearID,@SemesterID,GETDATE())", conn))
+                using (SqlCommand comm = new SqlCommand("UPDATE student.information_online SET ApplicationStatus = 'Processed' WHERE ApplicationID = @ApplicantID", conn))
                 {
                     comm.Parameters.AddWithValue("@ApplicantID", ApplicantID);
-                    comm.Parameters.AddWithValue("@StudentID", StudentID);
-                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
-                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
                     return await comm.ExecuteNonQueryAsync();
                 }
             }

@@ -36,11 +36,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
         private async Task LoadApplicants()
         {
-            var ActiveSchoolYear = await Utilties.GetActiveSchoolYear();
-            var ActiveSemester = await Utilties.GetActiveSemester();
-
-
-            var result = await _StudentApplicantRepository.GetOnlineApplicants(ActiveSchoolYear.SchoolYearID,ActiveSemester.SemesterID);
+            var result = await _StudentApplicantRepository.GetOnlineApplicants(Utilties.GetUserSchoolYearID(),Utilties.GetUserSemesterID());
             applicants = result.ToList();
         }
 

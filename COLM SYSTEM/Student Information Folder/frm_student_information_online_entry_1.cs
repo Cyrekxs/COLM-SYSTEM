@@ -360,7 +360,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
                     else
                     {
                         StudentInformation.StudentID = student_existing.StudentID;
-                        if (MessageBox.Show("Program Detected that this applicant is already in the database records do you want to update his/her information with the current info provided?","Data Information Detected in Records", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                        if (MessageBox.Show("Program Detected that this applicant is already in the database records do you want to update his/her information with the current info provided?","Data Information Detected in Records", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                             return;
                     }
 
@@ -375,7 +375,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
                         var ActiveSchoolYear = await Utilties.GetActiveSchoolYear();
                         var ActiveSemester = await Utilties.GetActiveSemester();
 
-                        int result = await _StudentRepository.InsertOnlineApplicant(ApplicationID, StudentIDResult, ActiveSchoolYear.SchoolYearID, ActiveSemester.SemesterID);
+                        int result = await _StudentRepository.UpdateOnlineApplicantToProcessed(ApplicationID, StudentIDResult, ActiveSchoolYear.SchoolYearID, ActiveSemester.SemesterID);
                         if (result > 0)
                         {
                             MessageBox.Show("Student Information has been successfully saved and marked as processed! you can now proceed to registration", "Information Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);

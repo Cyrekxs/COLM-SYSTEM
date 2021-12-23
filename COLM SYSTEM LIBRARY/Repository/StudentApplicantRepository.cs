@@ -21,7 +21,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM dbo.fn_list_online_applicants(@SchoolYearID,@SemesterID) ORDER BY ApplicationDate DESC", conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM student.information_online WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID AND ApplicationStatus = 'Pending' ORDER BY ApplicationDate DESC", conn))
                 {
                     comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
                     comm.Parameters.AddWithValue("@SemesterID", SemesterID);

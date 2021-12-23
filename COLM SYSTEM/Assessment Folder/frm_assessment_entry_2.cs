@@ -753,7 +753,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private async void linkLabel3_LinkClickedAsync(object sender, LinkLabelLinkClickedEventArgs e)
         {
             StudentInfo student = await new StudentController().GetStudentAsync(StudentRegistration.StudentID);
-            frm_assessment_old_peeker frm = new frm_assessment_old_peeker(student.Lastname, student.Firstname);
+            frm_assessment_old_peeker frm = new frm_assessment_old_peeker(StudentRegistration.RegistrationID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

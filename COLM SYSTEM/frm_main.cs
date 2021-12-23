@@ -165,13 +165,20 @@ namespace COLM_SYSTEM
             }
         }
 
+        public async Task<int> GetOnlineApplicants()
+        {
+            var result = await repository.GetOnlineApplicants(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
+            lblNotificationCount.Text = result.Count().ToString();
+            return result.Count();
+        }
+
         private async void frm_main_Load_1(object sender, EventArgs e)
         {
             ActiveSchoolYear = await Utilties.GetActiveSchoolYear();
             ActiveSemester = await Utilties.GetActiveSemester();
 
-            var result = await repository.GetOnlineApplicants(ActiveSchoolYear.SchoolYearID,ActiveSemester.SemesterID);
-            lblNotificationCount.Text = result.Count().ToString();
+            //var result = await repository.GetOnlineApplicants(ActiveSchoolYear.SchoolYearID,ActiveSemester.SemesterID);
+            await GetOnlineApplicants();
 
             SchoolYears = await Utilties.GetSchoolYears();
             SchoolSemesters = await Utilties.GetSchoolSemesters();
@@ -191,8 +198,8 @@ namespace COLM_SYSTEM
 
         private async void ApplicationsTimer_Tick(object sender, EventArgs e)
         {
-            var result = await repository.GetOnlineApplicants(ActiveSchoolYear.SchoolYearID,ActiveSemester.SemesterID);
-            lblNotificationCount.Text = result.Count().ToString();
+            //var result = await repository.GetOnlineApplicants(ActiveSchoolYear.SchoolYearID,ActiveSemester.SemesterID);
+            await GetOnlineApplicants();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -413,7 +420,7 @@ namespace COLM_SYSTEM
             frm.ShowDialog();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             using (frm_user_settings_sysem frm = new frm_user_settings_sysem())
             {
@@ -423,6 +430,7 @@ namespace COLM_SYSTEM
                 {
                     DisplayUserInfo();
                     DisplayControl(new UC_DashBoard());
+                    await GetOnlineApplicants();
                 }
             }
 
