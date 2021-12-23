@@ -130,7 +130,7 @@
     <Compile Include="model\SchoolYear.cs" />
     <Compile Include="model\School Data Settings Folder\Section.cs" />
     <Compile Include="model\SchoolSemester.cs" />
-    <Compile Include="model\Student Folder\StudentInfoOnline.cs" />
+    <Compile Include="model\Student Folder\StudentInformationOnlineModel.cs" />
     <Compile Include="model\Student Folder\StudentInfoOnlineProcessed.cs" />
     <Compile Include="model\Student Folder\StudentRegistered.cs" />
     <Compile Include="model\Student Folder\StudentInfo.cs" />

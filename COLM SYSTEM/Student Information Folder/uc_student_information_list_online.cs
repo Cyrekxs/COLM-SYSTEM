@@ -15,7 +15,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
     {
         IStudentApplicantRepository _StudentApplicantRepository = new StudentApplicantRepository();
 
-        List<StudentInfoOnline> applicants = new List<StudentInfoOnline>();
+        List<StudentInformationOnlineModel> applicants = new List<StudentInformationOnlineModel>();
         private int SelectedRow;
 
         public uc_student_information_list_online()
@@ -23,7 +23,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
             InitializeComponent();
         }
 
-        private void DisplayOnlineApplications(List<StudentInfoOnline> Applicants)
+        private void DisplayOnlineApplications(List<StudentInformationOnlineModel> Applicants)
         {
             dataGridView1.Rows.Clear();
             foreach (var applicant in Applicants)
@@ -51,7 +51,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
         private async void processApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_student_information_online_entry_1 frm = new frm_student_information_online_entry_1(dataGridView1.Rows[SelectedRow].Tag as StudentInfoOnline);
+            frm_student_information_online_entry_1 frm = new frm_student_information_online_entry_1(dataGridView1.Rows[SelectedRow].Tag as StudentInformationOnlineModel);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             await LoadApplicants();
@@ -63,7 +63,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
             int ApplicationID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmApplicationID"].Value);
             if (MessageBox.Show("Are you sure you want to delete this online application? this transaction cannot be reverted", "Delete Online Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int result = StudentInfoOnline.RemoveOnlineApplication(ApplicationID);
+                int result = await _StudentApplicantRepository.RemoveOnlineApplicant(ApplicationID);
                 if (result > 0)
                 {
                     await LoadApplicants();
@@ -77,7 +77,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
         {
             if (e.KeyCode == Keys.Enter)
             {
-                List<StudentInfoOnline> SearchedResult = new List<StudentInfoOnline>();
+                List<StudentInformationOnlineModel> SearchedResult = new List<StudentInformationOnlineModel>();
                 SearchedResult = applicants.Where(r => string.Concat(r.Lastname, " ", r.Firstname, " ",r.Middlename).ToLower().Contains(txtSearch.Text.ToLower())).ToList();
                 DisplayOnlineApplications(SearchedResult);
             }

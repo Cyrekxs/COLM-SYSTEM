@@ -21,7 +21,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
         List<string> SchoolAddresses = new List<string>();
         private int ApplicationID { get; set; } = 0;
         private StudentInfo StudentInformation { get; set; } = new StudentInfo();
-        public StudentInfoOnline OnlineInfoModel { get; }
+        public StudentInformationOnlineModel OnlineInfoModel { get; }
 
         private SavingOptions SavingStatus;
 
@@ -48,7 +48,7 @@ namespace COLM_SYSTEM.Student_Information_Folder
         }
 
         //IMPORT ONLINE APPLICANT TO CREATE NEW STUDENT
-        public frm_student_information_online_entry_1(StudentInfoOnline onlineInfoModel)
+        public frm_student_information_online_entry_1(StudentInformationOnlineModel onlineInfoModel)
         {
             InitializeComponent();
             SavingStatus = SavingOptions.ONLINE;
@@ -453,14 +453,17 @@ namespace COLM_SYSTEM.Student_Information_Folder
             switch (SavingStatus)
             {
                 case SavingOptions.INSERT:
+                    btnProcess.Text = "Save Information";
                     break;
                 case SavingOptions.UPDATE:
                     //get student information
+                    btnProcess.Text = "Update Information";
                     StudentInformation = await _StudentRepository.GetStudentInformation(StudentInformation.StudentID);
 
                     DisplayStudentInfo();
                     break;
                 case SavingOptions.ONLINE:
+                    btnProcess.Text = "Process Information";
                     DisplayStudentInfoOnline();
                     break;
                 default:

@@ -589,12 +589,6 @@
       <DependentUpon>uc_settings_target.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Student Information Folder\frm_online_importer_processor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Student Information Folder\frm_online_importer_processor.Designer.cs">
-      <DependentUpon>frm_online_importer_processor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Student Information Folder\frm_student_information_online_entry_1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -931,9 +925,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings Folder\uc_settings_target.resx">
       <DependentUpon>uc_settings_target.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Student Information Folder\frm_online_importer_processor.resx">
-      <DependentUpon>frm_online_importer_processor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Information Folder\frm_student_information_online_entry_1.resx">
       <DependentUpon>frm_student_information_online_entry_1.cs</DependentUpon>

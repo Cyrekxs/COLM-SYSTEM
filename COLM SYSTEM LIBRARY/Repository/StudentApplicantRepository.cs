@@ -14,9 +14,9 @@ namespace COLM_SYSTEM_LIBRARY.Repository
     public class StudentApplicantRepository : IStudentApplicantRepository
     {
         TextInfo text = CultureInfo.CurrentCulture.TextInfo;
-        public async Task<IEnumerable<StudentInfoOnline>> GetOnlineApplicants(int SchoolYearID, int SemesterID)
+        public async Task<IEnumerable<StudentInformationOnlineModel>> GetOnlineApplicants(int SchoolYearID, int SemesterID)
         {
-            List<StudentInfoOnline> OnlineApplicants = new List<StudentInfoOnline>();
+            List<StudentInformationOnlineModel> OnlineApplicants = new List<StudentInformationOnlineModel>();
 
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
@@ -29,7 +29,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                     {
                         while (await reader.ReadAsync())
                         {
-                            StudentInfoOnline applicant = new StudentInfoOnline()
+                            StudentInformationOnlineModel applicant = new StudentInformationOnlineModel()
                             {
                                 ApplicationID = Convert.ToInt32(reader["ApplicationID"]),
                                 LRN = Convert.ToString(reader["LRN"]),
@@ -72,6 +72,19 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 }
             }
             return OnlineApplicants;
+        }
+
+        public async Task<int> RemoveOnlineApplicant(int ApplicantID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("DELETE FROM student.information_online WHERE ApplicationID = @ApplicationID", conn))
+                {
+                    comm.Parameters.AddWithValue("@ApplicationID", ApplicantID);
+                    return await comm.ExecuteNonQueryAsync();
+                }
+            }
         }
     }
 }

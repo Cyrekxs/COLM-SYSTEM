@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.lblSchoolYear = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lblSemester = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.lblSchoolYear = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -75,7 +75,6 @@
             this.miStudentRegistration = new System.Windows.Forms.ToolStripMenuItem();
             this.miStudentAssessment = new System.Windows.Forms.ToolStripMenuItem();
             this.miStudentPayment = new System.Windows.Forms.ToolStripMenuItem();
-            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.miSchoolData = new System.Windows.Forms.ToolStripMenuItem();
             this.subjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -130,8 +129,8 @@
             this.ApplicationsTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panel5.SuspendLayout();
@@ -172,39 +171,6 @@
             this.panel10.Size = new System.Drawing.Size(239, 72);
             this.panel10.TabIndex = 6;
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.lblSchoolYear);
-            this.panel8.Controls.Add(this.label6);
-            this.panel8.Location = new System.Drawing.Point(3, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(115, 45);
-            this.panel8.TabIndex = 4;
-            // 
-            // lblSchoolYear
-            // 
-            this.lblSchoolYear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSchoolYear.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSchoolYear.ForeColor = System.Drawing.Color.Gray;
-            this.lblSchoolYear.Location = new System.Drawing.Point(0, 22);
-            this.lblSchoolYear.Name = "lblSchoolYear";
-            this.lblSchoolYear.Size = new System.Drawing.Size(115, 23);
-            this.lblSchoolYear.TabIndex = 2;
-            this.lblSchoolYear.Text = "-";
-            this.lblSchoolYear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 22);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "School Year";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel9
             // 
             this.panel9.Controls.Add(this.lblSemester);
@@ -237,6 +203,39 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Semester";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.lblSchoolYear);
+            this.panel8.Controls.Add(this.label6);
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(115, 45);
+            this.panel8.TabIndex = 4;
+            // 
+            // lblSchoolYear
+            // 
+            this.lblSchoolYear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSchoolYear.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSchoolYear.ForeColor = System.Drawing.Color.Gray;
+            this.lblSchoolYear.Location = new System.Drawing.Point(0, 22);
+            this.lblSchoolYear.Name = "lblSchoolYear";
+            this.lblSchoolYear.Size = new System.Drawing.Size(115, 23);
+            this.lblSchoolYear.TabIndex = 2;
+            this.lblSchoolYear.Text = "-";
+            this.lblSchoolYear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(115, 22);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "School Year";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // linkLabel1
             // 
@@ -591,8 +590,7 @@
             this.miStudentInformation,
             this.miStudentRegistration,
             this.miStudentAssessment,
-            this.miStudentPayment,
-            this.importToolStripMenuItem});
+            this.miStudentPayment});
             this.miTransactions.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miTransactions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.miTransactions.Image = global::SEMS.Properties.Resources.Process;
@@ -665,15 +663,6 @@
             this.miStudentPayment.Text = "Payment";
             this.miStudentPayment.Click += new System.EventHandler(this.paymentToolStripMenuItem_Click_1);
             // 
-            // importToolStripMenuItem
-            // 
-            this.importToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.importToolStripMenuItem.Text = "Import";
-            this.importToolStripMenuItem.Visible = false;
-            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
-            // 
             // miSettings
             // 
             this.miSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -697,7 +686,7 @@
             this.studentRequirementsToolStripMenuItem});
             this.miSchoolData.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miSchoolData.Name = "miSchoolData";
-            this.miSchoolData.Size = new System.Drawing.Size(145, 22);
+            this.miSchoolData.Size = new System.Drawing.Size(180, 22);
             this.miSchoolData.Text = "School Data";
             // 
             // subjectsToolStripMenuItem
@@ -749,7 +738,7 @@
             this.discountsToolStripMenuItem1});
             this.feesToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.feesToolStripMenuItem.Name = "feesToolStripMenuItem";
-            this.feesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.feesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.feesToolStripMenuItem.Text = "Fees";
             // 
             // tuitionFeeToolStripMenuItem
@@ -794,13 +783,13 @@
             this.miscellaneousToolStripMenuItem1});
             this.managementToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            this.managementToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.managementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.managementToolStripMenuItem.Text = "Management";
             // 
             // usersToolStripMenuItem1
             // 
             this.usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
+            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.usersToolStripMenuItem1.Text = "Users";
             this.usersToolStripMenuItem1.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
             // 
@@ -813,7 +802,7 @@
             this.targetStudentSettingsToolStripMenuItem,
             this.loginWallpaperToolStripMenuItem});
             this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
-            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
+            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
             // 
             // schoolInformationSettingsToolStripMenuItem
@@ -1089,8 +1078,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel10.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.panel5.ResumeLayout(false);
@@ -1187,7 +1176,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem onlineApplicantsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem unregisteredOnlineApplicantsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uPDATESToolStripMenuItem;

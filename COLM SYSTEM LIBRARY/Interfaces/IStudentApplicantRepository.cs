@@ -9,6 +9,7 @@ namespace COLM_SYSTEM_LIBRARY.Interfaces
 {
     public interface IStudentApplicantRepository
     {
-        Task<IEnumerable<StudentInfoOnline>> GetOnlineApplicants(int SchoolYearID, int SemesterID);
+        Task<IEnumerable<StudentInformationOnlineModel>> GetOnlineApplicants(int SchoolYearID, int SemesterID);
+        Task<int> RemoveOnlineApplicant(int ApplicantID);
     }
 }
