@@ -276,11 +276,11 @@
             // 
             this.lblNotificationCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNotificationCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblNotificationCount.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotificationCount.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNotificationCount.ForeColor = System.Drawing.Color.White;
             this.lblNotificationCount.Location = new System.Drawing.Point(3, 1);
             this.lblNotificationCount.Name = "lblNotificationCount";
-            this.lblNotificationCount.Size = new System.Drawing.Size(25, 21);
+            this.lblNotificationCount.Size = new System.Drawing.Size(37, 20);
             this.lblNotificationCount.TabIndex = 9;
             this.lblNotificationCount.Text = "0";
             this.lblNotificationCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -686,7 +686,7 @@
             this.studentRequirementsToolStripMenuItem});
             this.miSchoolData.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miSchoolData.Name = "miSchoolData";
-            this.miSchoolData.Size = new System.Drawing.Size(180, 22);
+            this.miSchoolData.Size = new System.Drawing.Size(145, 22);
             this.miSchoolData.Text = "School Data";
             // 
             // subjectsToolStripMenuItem
@@ -738,7 +738,7 @@
             this.discountsToolStripMenuItem1});
             this.feesToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.feesToolStripMenuItem.Name = "feesToolStripMenuItem";
-            this.feesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.feesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.feesToolStripMenuItem.Text = "Fees";
             // 
             // tuitionFeeToolStripMenuItem
@@ -783,13 +783,13 @@
             this.miscellaneousToolStripMenuItem1});
             this.managementToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            this.managementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.managementToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.managementToolStripMenuItem.Text = "Management";
             // 
             // usersToolStripMenuItem1
             // 
             this.usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.usersToolStripMenuItem1.Text = "Users";
             this.usersToolStripMenuItem1.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
             // 
@@ -802,7 +802,7 @@
             this.targetStudentSettingsToolStripMenuItem,
             this.loginWallpaperToolStripMenuItem});
             this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
-            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
             // 
             // schoolInformationSettingsToolStripMenuItem
