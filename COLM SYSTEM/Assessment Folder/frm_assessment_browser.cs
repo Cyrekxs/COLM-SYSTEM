@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COLM_SYSTEM.Assessment_Folder
@@ -17,18 +18,20 @@ namespace COLM_SYSTEM.Assessment_Folder
         ICurriculumRepository _CurriculumRepository = new CurriculumRepository();
 
         List<StudentRegistration> StudentsWithoutAssessment = new List<StudentRegistration>();
-        IEnumerable<StudentInfo> StudentInformations = new List<StudentInfo>();
+        List<StudentInfo> StudentInformations = new List<StudentInfo>();
         IEnumerable<Curriculum> Curriculums = new List<Curriculum>();
 
         public frm_assessment_browser()
         {
             InitializeComponent();
-            cmbEducationLevel.Text = "All";
+            cmbEducationLevel.Text = "College";
         }
 
         private void DisplayData(List<StudentRegistration> ListToDisplay)
         {
             dataGridView1.Rows.Clear();
+
+
             foreach (var item in ListToDisplay.Take(300))
             {
                 var studentinformation = StudentInformations.First(r => r.StudentID == item.StudentID);
@@ -75,6 +78,31 @@ namespace COLM_SYSTEM.Assessment_Folder
                 }
             }
             DisplayData(SearchedResults);
+        }
+
+        private async Task SearchDataV2()
+        {
+
+            progressBar1.Visible = true;
+            cmbEducationLevel.Enabled = false;
+            textBox1.Enabled = false;
+
+            var result = await _AssessmentRepository.GetNotAssessedStudents(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID(), cmbEducationLevel.Text, textBox1.Text);
+            StudentsWithoutAssessment = result.ToList();
+            //StudentInformations = await _StudentRepository.GetStudentInformations();
+
+
+            foreach (var item in StudentsWithoutAssessment)
+            {
+                StudentInformations.Add(await _StudentRepository.GetStudentInformation(item.StudentID));
+            }
+
+            Curriculums = await _CurriculumRepository.GetCurriculums();
+            DisplayData(StudentsWithoutAssessment);
+
+            progressBar1.Visible = false;
+            cmbEducationLevel.Enabled = true;
+            textBox1.Enabled = true;
 
         }
 
@@ -94,40 +122,61 @@ namespace COLM_SYSTEM.Assessment_Folder
                         Close();
                         Dispose();
                     }
-
                 }
-
             }
         }
 
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        private async void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
+
+
             if (e.KeyCode == Keys.Enter)
             {
-                SearchData();
+                if (string.IsNullOrEmpty(textBox1.Text))
+                {
+                    dataGridView1.Rows.Clear();
+                    lblSearchNotification.Visible = true;
+                }
+                else
+                {
+                    lblSearchNotification.Visible = false;
+                    //SearchData();
+                    await SearchDataV2();
+                }
             }
         }
 
 
         private async void frm_assessment_browser_Load(object sender, EventArgs e)
         {
-            progressBar1.Visible = true;
-            textBox1.Enabled = false;
+            //progressBar1.Visible = true;
+            //cmbEducationLevel.Enabled = false;
+            //textBox1.Enabled = false;
 
-            var result = await _AssessmentRepository.GetNotAssessedStudents(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
-            StudentsWithoutAssessment = result.ToList();
-            StudentInformations = await _StudentRepository.GetStudentInformations();
-            Curriculums = await _CurriculumRepository.GetCurriculums();
-            DisplayData(StudentsWithoutAssessment);
+            ////var result = await _AssessmentRepository.GetNotAssessedStudents(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
+            ////StudentsWithoutAssessment = result.ToList();
+            //StudentInformations = await _StudentRepository.GetStudentInformations();
+            //Curriculums = await _CurriculumRepository.GetCurriculums();
+            //DisplayData(StudentsWithoutAssessment);
 
             progressBar1.Visible = false;
-            textBox1.Enabled = true;
-
+            //cmbEducationLevel.Enabled = true;
+            //textBox1.Enabled = true;
         }
 
         private void cmbEducationLevel_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            SearchData();
+            SearchDataV2();
+        }
+
+        private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

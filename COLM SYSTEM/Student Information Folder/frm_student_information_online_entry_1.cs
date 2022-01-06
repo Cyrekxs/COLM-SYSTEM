@@ -354,19 +354,18 @@ namespace COLM_SYSTEM.Student_Information_Folder
 
                     int StudentIDResult = 0;
                     //verify the the student information is existing
-                    if (student_existing == null)
+                    if (student_existing.StudentID == 0)
                         //insert new student information if not existing
                         StudentIDResult = await _StudentRepository.InsertStudentInformation(StudentInformation);
                     else
                     {
                         StudentInformation.StudentID = student_existing.StudentID;
-                        if (MessageBox.Show("Program Detected that this applicant is already in the database records do you want to update his/her information with the current info provided?","Data Information Detected in Records", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                        if (MessageBox.Show("Program Detected that this applicant is already in the database records do you want to update his/her information with the current info provided?", "Data Information Detected in Records", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                             return;
+                        else
+                            //update student information is existing
+                            StudentIDResult = await _StudentRepository.UpdateStudentInformation(StudentInformation);
                     }
-
-
-                    //update student information is existing
-                    StudentIDResult = await _StudentRepository.UpdateStudentInformation(StudentInformation);
 
 
                     //identify if the insert or update is sucessfull;

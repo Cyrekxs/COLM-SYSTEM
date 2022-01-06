@@ -12,16 +12,22 @@ namespace COLM_SYSTEM_LIBRARY.Repository
     public class AssessmentRepository : IAssessmentRepository
     {
 
-        public async Task<IEnumerable<StudentRegistration>> GetNotAssessedStudents(int SchoolYearID, int SemesterID)
+        public async Task<IEnumerable<StudentRegistration>> GetNotAssessedStudents(int SchoolYearID, int SemesterID,string EducationLevel = "All",string Search = "")
         {
             List<StudentRegistration> RegisteredStudents = new List<StudentRegistration>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM fn_get_no_student_assessment(@SchoolYearID,@SemesterID)", conn))
+                string sql = "SELECT * FROM fn_get_no_student_assessment(@SchoolYearID,@SemesterID) WHERE StudentName LIKE @StudentName";
+                if (EducationLevel.ToLower() != "all")
+                    sql += " AND EducationLevel = @EducationLevel";
+
+                using (SqlCommand comm = new SqlCommand(sql, conn))
                 {
                     comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
                     comm.Parameters.AddWithValue("@SemesterID", SemesterID);
+                    comm.Parameters.AddWithValue("@EducationLevel", EducationLevel);
+                    comm.Parameters.AddWithValue("@StudentName","%" + Search + "%");
                     using (SqlDataReader reader = await comm.ExecuteReaderAsync())
                     {
                         while (await reader.ReadAsync())

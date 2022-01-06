@@ -18,7 +18,7 @@
         //public static string LStringConnection { get { return @"Data Source=.\SQLEXPRESS01;Initial Catalog=colmpulilan_server;Integrated Security=True"; } }
 
         //////online connection SYSTEM
-        public static string OStringConnection { get { return @"Server=colm.edu.ph;Database=colmpulilan_server_registration;User Id=colmpulilan_sysadmin;Password=Admin.c0lm2o18;"; } }
+        //public static string OStringConnection { get { return @"Server=colm.edu.ph;Database=colmpulilan_server_registration;User Id=colmpulilan_sysadmin;Password=Admin.c0lm2o18;"; } }
 
 
 

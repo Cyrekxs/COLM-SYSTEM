@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://colm.edu.ph/SEMS/</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.71</MinimumRequiredVersion>
-    <ApplicationRevision>80</ApplicationRevision>
+    <ApplicationRevision>83</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -311,6 +311,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_SOA.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Payment Folder\frm_payment_creditmemo_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment Folder\frm_payment_creditmemo_entry.Designer.cs">
+      <DependentUpon>frm_payment_creditmemo_entry.cs</DependentUpon>
     </Compile>
     <Compile Include="Payment Folder\frm_soa.cs">
       <SubType>Form</SubType>
@@ -785,6 +791,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_user_settings_sysem.resx">
       <DependentUpon>frm_user_settings_sysem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment Folder\frm_payment_creditmemo_entry.resx">
+      <DependentUpon>frm_payment_creditmemo_entry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\frm_soa.resx">
       <DependentUpon>frm_soa.cs</DependentUpon>

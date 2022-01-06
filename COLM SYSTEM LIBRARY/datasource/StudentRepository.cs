@@ -17,7 +17,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                string sql = "SELECT * FROM student.information ORDER BY DateEncoded DESC,Lastname,Firstname ASC";
+                string sql = "SELECT * FROM student.information Lastname,Firstname ASC";
                 students = await conn.QueryAsync<StudentInfo>(sql);
             }
             return students.AsList();
@@ -224,9 +224,8 @@ namespace COLM_SYSTEM_LIBRARY.Repository
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                using (SqlCommand comm = new SqlCommand("INSERT INTO student.information OUTPUT inserted.StudentID VALUES(@StudentID,@LRN,@Lastname,@Firstname,@Middlename,@BirthDate,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@EmergencyName,@EmergencyRelation,@EmergencyMobile,@SchoolName,@SchoolAddress,@SchoolStatus,@ESCGuarantee,@StudentStatus,@EducationLevel,@CourseStrand,@YearLevel)", conn))
+                using (SqlCommand comm = new SqlCommand("INSERT INTO student.information OUTPUT inserted.StudentID VALUES(@LRN,@Lastname,@Firstname,@Middlename,@BirthDate,@Gender,@Street,@Barangay,@City,@Province,@MobileNo,@EmailAddress,@MotherName,@MotherMobile,@FatherName,@FatherMobile,@GuardianName,@GuardianMobile,@EmergencyName,@EmergencyRelation,@EmergencyMobile,@SchoolName,@SchoolAddress,@SchoolStatus,@ESCGuarantee,@StudentStatus,@EducationLevel,@CourseStrand,@YearLevel,@datenow)", conn))
                 {
-                    comm.Parameters.AddWithValue("@StudentID", Information.StudentID);
                     comm.Parameters.AddWithValue("@LRN", Information.LRN);
                     comm.Parameters.AddWithValue("@Lastname", Information.Lastname);
                     comm.Parameters.AddWithValue("@Firstname", Information.Firstname);
@@ -259,8 +258,19 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                     comm.Parameters.AddWithValue("@EducationLevel", Information.EducationLevel);
                     comm.Parameters.AddWithValue("@CourseStrand", Information.CourseStrand);
                     comm.Parameters.AddWithValue("@Yearlevel", Information.YearLevel);
+                    comm.Parameters.AddWithValue("@datenow", DateTime.Now);
+                    comm.ExecuteNonQuery();
                     return Task.FromResult(Convert.ToInt32(comm.ExecuteScalar()));
                 }
+
+                //using (SqlCommand comm = new SqlCommand("SELECT TOP 1 StudentID FROM student.information Lastname = @Lastname AND Firstname = @Firstname ORDER BY StudentID DESC", conn))
+                //{
+                //    comm.Parameters.AddWithValue("@Lastname", Information.Lastname);
+                //    comm.Parameters.AddWithValue("@Firstname", Information.Firstname);
+                //    int result = Convert.ToInt32(comm.ExecuteScalar());
+                //    return Task.FromResult(result);
+                        
+                //}
             }
         }
 

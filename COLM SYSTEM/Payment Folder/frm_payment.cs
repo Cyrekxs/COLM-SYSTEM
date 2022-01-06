@@ -130,7 +130,7 @@ namespace COLM_SYSTEM.Payment_Folder
                     TotalPaidTuition = 0;
                 }
 
-                dgBreakdown.Rows.Add(item.ItemCode, item.Amount.ToString("n"), balance.ToString("n"));
+                dgBreakdown.Rows.Add(item.ItemCode, item.Amount.ToString("n"), balance.ToString("n"), item.DueDate);
             }
 
             txtTotalBalanceTuition.Text = TotalBalance.ToString("n");
@@ -391,6 +391,24 @@ namespace COLM_SYSTEM.Payment_Folder
         private void frm_payment_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            double AmountToPay = 0;
+            foreach (DataGridViewRow item in dgBreakdown.Rows)
+            {
+                if (Convert.ToBoolean(item.Cells["clmCheckToAddTuition"].Value) == true)
+                {
+                    AmountToPay += Convert.ToDouble(item.Cells["clmBalanceTuition"].Value);
+                }
+            }
+
+            frm_payment_creditmemo_entry frm = new frm_payment_creditmemo_entry(Assessment.Summary.RegisteredStudentID, AmountToPay);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+
+            LoadAssessmentInformation();
         }
     }
 }

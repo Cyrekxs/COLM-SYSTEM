@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,6 +38,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtSection = new System.Windows.Forms.TextBox();
@@ -62,6 +62,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtTotalPaymentTuition = new System.Windows.Forms.TextBox();
@@ -70,10 +71,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dgBreakdown = new System.Windows.Forms.DataGridView();
-            this.clmFeeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmBalanceTuition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCheckToAddTuition = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -104,6 +101,11 @@
             this.tsmiViewCheque = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiViewCenter = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCancel = new System.Windows.Forms.ToolStripMenuItem();
+            this.clmFeeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBalanceTuition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCheckToAddTuition = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -356,6 +358,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.button7);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.txtTotalPaymentTuition);
@@ -373,6 +376,21 @@
             this.tabPage1.Text = "FEES";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(135, 306);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(120, 30);
+            this.button8.TabIndex = 28;
+            this.button8.Text = "CREDIT MEMO";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -380,7 +398,7 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(259, 306);
+            this.button7.Location = new System.Drawing.Point(386, 306);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(120, 30);
             this.button7.TabIndex = 27;
@@ -433,7 +451,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(134, 306);
+            this.button1.Location = new System.Drawing.Point(261, 306);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 30);
             this.button1.TabIndex = 22;
@@ -470,6 +488,7 @@
             this.clmFeeCode,
             this.clmAmount,
             this.clmBalanceTuition,
+            this.clmDueDate,
             this.clmCheckToAddTuition});
             this.dgBreakdown.Location = new System.Drawing.Point(9, 6);
             this.dgBreakdown.Name = "dgBreakdown";
@@ -477,44 +496,6 @@
             this.dgBreakdown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgBreakdown.Size = new System.Drawing.Size(825, 283);
             this.dgBreakdown.TabIndex = 0;
-            // 
-            // clmFeeCode
-            // 
-            this.clmFeeCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmFeeCode.HeaderText = "Fee";
-            this.clmFeeCode.Name = "clmFeeCode";
-            this.clmFeeCode.ReadOnly = true;
-            this.clmFeeCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clmFeeCode.Width = 31;
-            // 
-            // clmAmount
-            // 
-            this.clmAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmAmount.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmAmount.HeaderText = "Amount";
-            this.clmAmount.Name = "clmAmount";
-            this.clmAmount.ReadOnly = true;
-            this.clmAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clmAmount.Width = 55;
-            // 
-            // clmBalanceTuition
-            // 
-            this.clmBalanceTuition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmBalanceTuition.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmBalanceTuition.HeaderText = "Balance";
-            this.clmBalanceTuition.Name = "clmBalanceTuition";
-            this.clmBalanceTuition.ReadOnly = true;
-            this.clmBalanceTuition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clmBalanceTuition.Width = 57;
-            // 
-            // clmCheckToAddTuition
-            // 
-            this.clmCheckToAddTuition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmCheckToAddTuition.HeaderText = "Check to add";
-            this.clmCheckToAddTuition.Name = "clmCheckToAddTuition";
-            this.clmCheckToAddTuition.Width = 83;
             // 
             // tabPage2
             // 
@@ -836,6 +817,52 @@
             this.tsmiCancel.Text = "Cancel OR";
             this.tsmiCancel.Click += new System.EventHandler(this.cancelPaymentToolStripMenuItem_Click);
             // 
+            // clmFeeCode
+            // 
+            this.clmFeeCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmFeeCode.HeaderText = "Fee";
+            this.clmFeeCode.Name = "clmFeeCode";
+            this.clmFeeCode.ReadOnly = true;
+            this.clmFeeCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmFeeCode.Width = 31;
+            // 
+            // clmAmount
+            // 
+            this.clmAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmAmount.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmAmount.HeaderText = "Amount";
+            this.clmAmount.Name = "clmAmount";
+            this.clmAmount.ReadOnly = true;
+            this.clmAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmAmount.Width = 55;
+            // 
+            // clmBalanceTuition
+            // 
+            this.clmBalanceTuition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmBalanceTuition.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmBalanceTuition.HeaderText = "Balance";
+            this.clmBalanceTuition.Name = "clmBalanceTuition";
+            this.clmBalanceTuition.ReadOnly = true;
+            this.clmBalanceTuition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmBalanceTuition.Width = 57;
+            // 
+            // clmDueDate
+            // 
+            this.clmDueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmDueDate.HeaderText = "Due Date";
+            this.clmDueDate.Name = "clmDueDate";
+            this.clmDueDate.ReadOnly = true;
+            this.clmDueDate.Width = 81;
+            // 
+            // clmCheckToAddTuition
+            // 
+            this.clmCheckToAddTuition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmCheckToAddTuition.HeaderText = "Check to add";
+            this.clmCheckToAddTuition.Name = "clmCheckToAddTuition";
+            this.clmCheckToAddTuition.Width = 83;
+            // 
             // frm_payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -909,10 +936,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmBalanceTuition;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn clmCheckToAddTuition;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAssessmentAdditionalFeeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -936,5 +959,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem tsmiViewCenter;
         private System.Windows.Forms.ToolStripMenuItem printORToolStripMenuItem;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmFeeCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmBalanceTuition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDueDate;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmCheckToAddTuition;
     }
 }

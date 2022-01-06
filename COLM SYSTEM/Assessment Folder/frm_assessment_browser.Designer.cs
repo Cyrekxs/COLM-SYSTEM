@@ -38,12 +38,13 @@
             this.clmCourseStrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAssess = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.lblSearchNotification = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -153,6 +154,14 @@
             this.panel1.Size = new System.Drawing.Size(805, 46);
             this.panel1.TabIndex = 23;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(21, 33);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(231, 7);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar1.TabIndex = 5;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -181,6 +190,7 @@
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(145, 23);
             this.cmbEducationLevel.TabIndex = 4;
+            this.cmbEducationLevel.SelectedIndexChanged += new System.EventHandler(this.cmbEducationLevel_SelectedIndexChanged);
             this.cmbEducationLevel.SelectionChangeCommitted += new System.EventHandler(this.cmbEducationLevel_SelectionChangeCommitted);
             // 
             // label1
@@ -203,6 +213,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(189, 23);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label2
@@ -217,13 +228,17 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Filter";
             // 
-            // progressBar1
+            // lblSearchNotification
             // 
-            this.progressBar1.Location = new System.Drawing.Point(21, 33);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(231, 7);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 5;
+            this.lblSearchNotification.AutoSize = true;
+            this.lblSearchNotification.BackColor = System.Drawing.Color.White;
+            this.lblSearchNotification.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchNotification.ForeColor = System.Drawing.Color.Gray;
+            this.lblSearchNotification.Location = new System.Drawing.Point(267, 221);
+            this.lblSearchNotification.Name = "lblSearchNotification";
+            this.lblSearchNotification.Size = new System.Drawing.Size(254, 26);
+            this.lblSearchNotification.TabIndex = 24;
+            this.lblSearchNotification.Text = "Please Enter Data on Search";
             // 
             // frm_assessment_browser
             // 
@@ -231,6 +246,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(805, 454);
+            this.Controls.Add(this.lblSearchNotification);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -242,6 +258,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -263,5 +280,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lblSearchNotification;
     }
 }
