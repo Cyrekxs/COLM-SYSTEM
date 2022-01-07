@@ -104,6 +104,7 @@ namespace COLM_SYSTEM
                 miMasterList.Visible = false;
                 miELReport.Visible = false;
             }
+            miELReport.Visible = true;
             DisplayControl(new UC_DashBoard());
         }
 

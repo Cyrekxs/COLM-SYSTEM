@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://colm.edu.ph/SEMS/</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.71</MinimumRequiredVersion>
-    <ApplicationRevision>83</ApplicationRevision>
+    <ApplicationRevision>87</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

@@ -17,7 +17,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                string sql = "SELECT * FROM student.information Lastname,Firstname ASC";
+                string sql = "SELECT * FROM student.information ORDER BY Lastname,Firstname ASC";
                 students = await conn.QueryAsync<StudentInfo>(sql);
             }
             return students.AsList();
