@@ -17,5 +17,7 @@ namespace COLM_SYSTEM_LIBRARY.Interfaces
         Task<StudentRegistration> GetStudentRegistration(int RegistrationID);
         Task<IEnumerable<StudentRegistration>> GetRegisteredStudents();
         Task<IEnumerable<StudentInfo>> GetUnregisteredStudents();
+
+        Task<IEnumerable<CurriculumSubject>> GetCurriculumSubjects(int RegisteredStudentID);
     }
 }

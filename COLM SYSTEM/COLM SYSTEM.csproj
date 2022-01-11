@@ -324,6 +324,12 @@
     <Compile Include="Payment Folder\frm_soa.Designer.cs">
       <DependentUpon>frm_soa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registration Folder\frm_registration_grade_report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration Folder\frm_registration_grade_report.Designer.cs">
+      <DependentUpon>frm_registration_grade_report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registration Folder\frm_registration_organization_email_update.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -446,12 +452,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Registration Folder\frm_grade_encode.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Registration Folder\frm_grade_encode.Designer.cs">
-      <DependentUpon>frm_grade_encode.cs</DependentUpon>
     </Compile>
     <Compile Include="Registration Folder\uc_registered_students_list.cs">
       <SubType>UserControl</SubType>
@@ -799,6 +799,9 @@
       <DependentUpon>frm_soa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\rpt_soa.rdlc" />
+    <EmbeddedResource Include="Registration Folder\frm_registration_grade_report.resx">
+      <DependentUpon>frm_registration_grade_report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registration Folder\frm_registration_organization_email_update.resx">
       <DependentUpon>frm_registration_organization_email_update.cs</DependentUpon>
     </EmbeddedResource>
@@ -858,9 +861,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Registration Folder\frm_grade_encode.resx">
-      <DependentUpon>frm_grade_encode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registration Folder\frm_registration_entry.resx">
       <DependentUpon>frm_registration_entry.cs</DependentUpon>

@@ -194,5 +194,10 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 }
             }
         }
+
+        public Task<IEnumerable<CurriculumSubject>> GetCurriculumSubjects(int RegisteredStudentID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

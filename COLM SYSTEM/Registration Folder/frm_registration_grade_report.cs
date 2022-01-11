@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace COLM_SYSTEM.Registration_Folder
+namespace SEMS.Registration_Folder
 {
-    public partial class frm_grade_encode : Form
+    public partial class frm_registration_grade_report : Form
     {
-        public frm_grade_encode()
+        public frm_registration_grade_report()
         {
             InitializeComponent();
         }
