@@ -94,7 +94,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                     comm.Parameters.AddWithValue("@RegisteredID", RegistrationID);
                     using (SqlDataReader reader = await comm.ExecuteReaderAsync())
                     {
-                        while(await reader.ReadAsync())
+                        while (await reader.ReadAsync())
                         {
                             registration = new StudentRegistration()
                             {
@@ -106,7 +106,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                                 RegistrationStatus = Convert.ToString(reader["RegistrationStatus"]),
                                 SchoolYearID = Convert.ToInt32(reader["SchoolYearID"]),
                                 SemesterID = Convert.ToInt16(reader["SemesterID"]),
-                                DateRegistered = Convert.ToDateTime(reader["DateRegistered"])                                
+                                DateRegistered = Convert.ToDateTime(reader["DateRegistered"])
                             };
                         }
                     }
@@ -186,6 +186,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
+
                 using (SqlCommand comm = new SqlCommand("UPDATE student.registered SET OrganizationEmail = @OrganizationEmail WHERE RegisteredID = @RegisteredID", conn))
                 {
                     comm.Parameters.AddWithValue("@RegisteredID", registration.RegistrationID);

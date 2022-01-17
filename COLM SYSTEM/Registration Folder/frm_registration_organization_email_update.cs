@@ -18,7 +18,9 @@ namespace SEMS.Registration_Folder
         private StudentRegistration StudentRegistration { get; }
         IStudentRepository _StudentRepository = new StudentRepository();
         IRegistrationRepository _RegistrationRepository = new RegistrationRepository();
+        IAccountRepository _AccountRepository = new AccountRepository();
 
+        StudentInfo info = new StudentInfo();
         public frm_registration_organization_email_update(StudentRegistration StudentRegistration)
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace SEMS.Registration_Folder
 
         private async void frm_registration_organization_email_update_Load(object sender, EventArgs e)
         {
-            var info = await _StudentRepository.GetStudentInformation(StudentRegistration.StudentID);
+            info = await _StudentRepository.GetStudentInformation(StudentRegistration.StudentID);
             txtLRN.Text = info.LRN;
             txtStudentName.Text = info.StudentName;
             txtOrganizationEmail.Text = StudentRegistration.OrganizationEmail;
@@ -39,6 +41,26 @@ namespace SEMS.Registration_Folder
             var result = await _RegistrationRepository.UpdateRegisteredOrganizationEmail(StudentRegistration);
             if (result > 0)
             {
+                var IsAccountExists = await _AccountRepository.IsAccountExists(txtOrganizationEmail.Text);
+
+                if (IsAccountExists == null)
+                {
+                    var create_account_result = await _AccountRepository.CreateUserAccount(new UserAccountModel()
+                    {
+                        Email = txtOrganizationEmail.Text,
+                        Firstname = info.Firstname,
+                        Lastname = info.Lastname,
+                        Username = txtOrganizationEmail.Text,
+                        Password = "colmstudent",
+                        Role = "Student",                        
+                    });
+
+                    if (create_account_result == 0)
+                    {
+                        MessageBox.Show("Creating account failed!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+
                 MessageBox.Show("Email has been successfully updated!", "Organization Email", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
                 Dispose();                 
