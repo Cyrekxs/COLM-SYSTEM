@@ -285,6 +285,27 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 return Task.FromResult(false);
         }
 
+        public Task<bool> HasAssessment(int RegistrationID,int SchoolYearID,int SemesterID)
+        {
+            int result = 0;
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("SELECT AssessmentID FROM assessment.summary WHERE RegisteredStudentID = @RegisteredStudentID AND AssessmentStatus = 'Active' AND SchoolYearID >= @SchoolYearID AND SemesterID >= @SemesterID", conn))
+                {
+                    comm.Parameters.AddWithValue("@RegisteredStudentID", RegistrationID);
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
+                    result = Convert.ToInt32(comm.ExecuteScalar());
+                }
+            }
+
+            if (result > 0)
+                return Task.FromResult(true);
+            else
+                return Task.FromResult(false);
+        }
+
         public async Task<IEnumerable<AssessmentSummaryEntity>> GetStudentAssessments(int RegisteredID,int SchoolYearID, int SemesterID)
         {
             List<AssessmentSummaryEntity> AssessmentSummaries = new List<AssessmentSummaryEntity>();

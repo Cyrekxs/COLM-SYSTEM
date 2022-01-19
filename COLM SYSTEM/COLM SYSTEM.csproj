@@ -324,6 +324,12 @@
     <Compile Include="Payment Folder\frm_soa.Designer.cs">
       <DependentUpon>frm_soa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registration Folder\frm_registration_curriculum_shifting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration Folder\frm_registration_curriculum_shifting.Designer.cs">
+      <DependentUpon>frm_registration_curriculum_shifting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registration Folder\frm_registration_grade_report.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -799,6 +805,9 @@
       <DependentUpon>frm_soa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment Folder\rpt_soa.rdlc" />
+    <EmbeddedResource Include="Registration Folder\frm_registration_curriculum_shifting.resx">
+      <DependentUpon>frm_registration_curriculum_shifting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registration Folder\frm_registration_grade_report.resx">
       <DependentUpon>frm_registration_grade_report.cs</DependentUpon>
     </EmbeddedResource>

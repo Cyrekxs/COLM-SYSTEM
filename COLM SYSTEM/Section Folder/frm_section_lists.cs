@@ -48,8 +48,11 @@ namespace COLM_SYSTEM.Section_Folder
         {
             frm_section_entry frm = new frm_section_entry();
             frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
-            await LoadSections();
+            var result = frm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                await LoadSections();
+            }
         }
 
         private async void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -60,8 +63,12 @@ namespace COLM_SYSTEM.Section_Folder
                 Section section = Section.GetSection(SectionID);
                 frm_section_schedule_entry frm = new frm_section_schedule_entry(section);
                 frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-                await LoadSections();
+                var result = frm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    await LoadSections();
+                }
+
             }
         }
 

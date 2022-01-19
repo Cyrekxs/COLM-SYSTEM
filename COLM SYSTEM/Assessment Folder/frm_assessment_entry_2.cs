@@ -580,6 +580,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 PaymentModeID = assessmentType.PaymentModeID,
                 RegisteredStudentID = StudentRegistration.RegistrationID,
+                CurriculumID = StudentRegistration.CurriculumID,
                 YearLevelID = YearLevelInformation.YearLevelID,
                 SectionID = sections.Where(item => item.SectionName == cmbSection.Text).Select(item => item.SectionID).First(),
                 TotalAmount = TotalAmount,

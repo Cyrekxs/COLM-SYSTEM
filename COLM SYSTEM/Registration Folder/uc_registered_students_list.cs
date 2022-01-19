@@ -43,30 +43,36 @@ namespace COLM_SYSTEM.Registration_Folder
             dataGridView1.Rows.Clear();
             foreach (var item in Registrations)
             {
-                if (item.StudentID != 0)
+                try
                 {
-                    var studentinformation = StudentInformations.First(r => r.StudentID == item.StudentID);
-                    var curriculuminformation = Curriculums.First(r => r.CurriculumID == item.CurriculumID);
-                    var schoolyearinformation = SchoolYears.First(r => r.SchoolYearID == item.SchoolYearID);
+                    if (item.StudentID != 0)
+                    {
+                        var studentinformation = StudentInformations.First(r => r.StudentID == item.StudentID);
+                        var curriculuminformation = Curriculums.First(r => r.CurriculumID == item.CurriculumID);
+                        var schoolyearinformation = SchoolYears.First(r => r.SchoolYearID == item.SchoolYearID);
 
-                    dataGridView1.Rows.Add(
-                        item.RegistrationID,
-                        item.StudentID,
-                        studentinformation.LRN,
-                        Utilties.FormatText(studentinformation.StudentName),
-                        Utilties.FormatText(studentinformation.Gender),
-                        studentinformation.MobileNo,
-                        item.CurriculumID,
-                        curriculuminformation.Code,
-                        curriculuminformation.EducationLevel,
-                        curriculuminformation.CourseStrand,
-                        item.StudentStatus,
-                        item.RegistrationStatus,
-                        schoolyearinformation.Name,
-                        item.DateRegistered.ToString("MM-dd-yyyy")
-                        );
+                        dataGridView1.Rows.Add(
+                            item.RegistrationID,
+                            item.StudentID,
+                            studentinformation.LRN,
+                            Utilties.FormatText(studentinformation.StudentName),
+                            Utilties.FormatText(studentinformation.Gender),
+                            studentinformation.MobileNo,
+                            item.CurriculumID,
+                            curriculuminformation.Code,
+                            curriculuminformation.EducationLevel,
+                            curriculuminformation.CourseStrand,
+                            item.StudentStatus,
+                            item.RegistrationStatus,
+                            schoolyearinformation.Name,
+                            item.DateRegistered.ToString("MM-dd-yyyy")
+                            );
+                    }
                 }
+                catch (Exception)
+                {
 
+                }
             }
 
             dataGridView1.Sort(clmStudentName, System.ComponentModel.ListSortDirection.Ascending);
@@ -257,6 +263,38 @@ namespace COLM_SYSTEM.Registration_Folder
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
             }
+        }
+
+        private async void shiftCurriculumToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int RegistrationID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmRegisteredStudentID"].Value);
+
+            //verify if has assessment
+            bool HasAssessment = await _AssessmentRepository.HasAssessment(RegistrationID,Utilties.GetUserSchoolYearID(),Utilties.GetUserSemesterID());
+            if (HasAssessment == true)
+            {
+                MessageBox.Show("This student has a record on the assessment you cannot shift his/her curriculum", "Student Has Assessment", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //if the student has no current assessment then show shifting form
+            else
+            {
+                var registration = RegisteredStudents.First(r => r.RegistrationID == RegistrationID);
+                using (frm_registration_curriculum_shifting frm = new frm_registration_curriculum_shifting(registration))
+                {
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                }
+            }
+
+
+
+      
+        }
+
+        private void dROPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry dropping function is not yet ready!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

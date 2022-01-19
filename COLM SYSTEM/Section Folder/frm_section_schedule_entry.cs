@@ -98,6 +98,8 @@ namespace COLM_SYSTEM.Section_Folder
                 int failed_to_save = schedule_to_save.Count - save_results.Count;
                 MessageBox.Show($"Failed to save/update {failed_to_save} of subject schedules", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            DialogResult = DialogResult.OK;
             Close();
             Dispose();
         }

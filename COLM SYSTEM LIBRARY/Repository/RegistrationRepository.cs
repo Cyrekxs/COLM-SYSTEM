@@ -200,5 +200,22 @@ namespace COLM_SYSTEM_LIBRARY.Repository
         {
             throw new NotImplementedException();
         }
+
+        public async Task<int> UpdateStudentCurriculum(StudentRegistration registration)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand("UPDATE student.registered SET CurriculumID = @CurriculumID WHERE RegisteredID = @RegisteredID", conn))
+                {
+                    comm.Parameters.AddWithValue("@RegisteredID", registration.RegistrationID);
+                    comm.Parameters.AddWithValue("@OrganizationEmail", registration.OrganizationEmail);
+                    comm.Parameters.AddWithValue("@CurriculumID", registration.CurriculumID);
+                    comm.Parameters.AddWithValue("@StudentStatus", registration.StudentStatus);
+                    comm.Parameters.AddWithValue("@RegistrationStatus", registration.RegistrationStatus);
+                    return await comm.ExecuteNonQueryAsync();
+                }
+            }
+        }
     }
 }

@@ -10,6 +10,8 @@ namespace COLM_SYSTEM_LIBRARY.model.Assessment_Folder
     {
         public int AssessmentID { get; set; }
         public int RegisteredStudentID { get; set; }
+        public int CurriculumID { get; set; }
+
         public string EnrollmentStatus { get; set; } // for displaying purposes
         public int StudentID { get; set; }
         public string LRN { get; set; }

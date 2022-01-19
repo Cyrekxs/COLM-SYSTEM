@@ -240,9 +240,10 @@ namespace COLM_SYSTEM_LIBRARY.datasource
                     try
                     {
                         //insert assessment summary
-                        using (SqlCommand comm = new SqlCommand("EXEC sp_set_assessment_summary @RegisteredStudentID,@YearLevelID,@SectionID,@PaymentModeID,@TotalAmount,@DiscountAmount,@TotalDue,@SchoolYearID,@SemesterID,@UserID", conn, t))
+                        using (SqlCommand comm = new SqlCommand("EXEC sp_set_assessment_summary @RegisteredStudentID,@CurriculumID,@YearLevelID,@SectionID,@PaymentModeID,@TotalAmount,@DiscountAmount,@TotalDue,@SchoolYearID,@SemesterID,@UserID", conn, t))
                         {
                             comm.Parameters.AddWithValue("@RegisteredStudentID", summary.RegisteredStudentID);
+                            comm.Parameters.AddWithValue("@CurriculumID", summary.CurriculumID);
                             comm.Parameters.AddWithValue("@YearLevelID", summary.YearLevelID);
                             comm.Parameters.AddWithValue("@SectionID", summary.SectionID);
                             comm.Parameters.AddWithValue("@PaymentModeID", summary.PaymentModeID);

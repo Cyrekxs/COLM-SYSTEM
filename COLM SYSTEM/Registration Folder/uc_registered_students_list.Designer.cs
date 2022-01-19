@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panelLoading = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.cmbEducationLevel = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,21 +56,23 @@
             this.clmRegistrationStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSchoolYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAction = new System.Windows.Forms.DataGridViewImageColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lblTotalRecords = new System.Windows.Forms.Label();
+            this.shiftCurriculumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.clmAction = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.updateOrganizationEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dROPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewRequirementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lblTotalRecords = new System.Windows.Forms.Label();
-            this.updateOrganizationEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panelLoading.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -124,17 +125,6 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Loading data . . .";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::SEMS.Properties.Resources.buffering;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 30;
-            this.pictureBox1.TabStop = false;
             // 
             // button2
             // 
@@ -223,8 +213,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -246,14 +236,14 @@
             this.clmSchoolYear,
             this.Column1,
             this.clmAction});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Location = new System.Drawing.Point(13, 76);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -298,6 +288,7 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Visible = false;
+            this.Column5.Width = 67;
             // 
             // Column6
             // 
@@ -306,6 +297,7 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             this.Column6.Visible = false;
+            this.Column6.Width = 80;
             // 
             // clmCurriculumID
             // 
@@ -366,6 +358,51 @@
             this.Column1.ReadOnly = true;
             this.Column1.Width = 57;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(30, 30);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateOrganizationEmailToolStripMenuItem,
+            this.changeRegistrationToolStripMenuItem,
+            this.shiftCurriculumToolStripMenuItem,
+            this.dROPToolStripMenuItem,
+            this.viewInformationToolStripMenuItem,
+            this.deleteApplicationToolStripMenuItem,
+            this.viewRequirementsToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 278);
+            // 
+            // lblTotalRecords
+            // 
+            this.lblTotalRecords.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRecords.ForeColor = System.Drawing.Color.Red;
+            this.lblTotalRecords.Location = new System.Drawing.Point(10, 43);
+            this.lblTotalRecords.Name = "lblTotalRecords";
+            this.lblTotalRecords.Size = new System.Drawing.Size(451, 30);
+            this.lblTotalRecords.TabIndex = 28;
+            this.lblTotalRecords.Text = "The sort function is modified by encoded then by student name for optimization";
+            this.lblTotalRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // shiftCurriculumToolStripMenuItem
+            // 
+            this.shiftCurriculumToolStripMenuItem.Image = global::SEMS.Properties.Resources.Data_Process;
+            this.shiftCurriculumToolStripMenuItem.Name = "shiftCurriculumToolStripMenuItem";
+            this.shiftCurriculumToolStripMenuItem.Size = new System.Drawing.Size(229, 36);
+            this.shiftCurriculumToolStripMenuItem.Text = "Shift Curriculum";
+            this.shiftCurriculumToolStripMenuItem.Click += new System.EventHandler(this.shiftCurriculumToolStripMenuItem_Click);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewImageColumn1.HeaderText = "Action";
+            this.dataGridViewImageColumn1.Image = global::SEMS.Properties.Resources.Data;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 62;
+            // 
             // clmAction
             // 
             this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -378,25 +415,32 @@
             this.clmAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.clmAction.Width = 66;
             // 
-            // contextMenuStrip1
+            // pictureBox1
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(30, 30);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateOrganizationEmailToolStripMenuItem,
-            this.changeRegistrationToolStripMenuItem,
-            this.dROPToolStripMenuItem,
-            this.viewInformationToolStripMenuItem,
-            this.deleteApplicationToolStripMenuItem,
-            this.viewRequirementsToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 242);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::SEMS.Properties.Resources.buffering;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 30;
+            this.pictureBox1.TabStop = false;
+            // 
+            // updateOrganizationEmailToolStripMenuItem
+            // 
+            this.updateOrganizationEmailToolStripMenuItem.Image = global::SEMS.Properties.Resources.Document_Edit;
+            this.updateOrganizationEmailToolStripMenuItem.Name = "updateOrganizationEmailToolStripMenuItem";
+            this.updateOrganizationEmailToolStripMenuItem.Size = new System.Drawing.Size(229, 36);
+            this.updateOrganizationEmailToolStripMenuItem.Text = "Update Organization Email";
+            this.updateOrganizationEmailToolStripMenuItem.Click += new System.EventHandler(this.updateOrganizationEmailToolStripMenuItem_Click);
             // 
             // changeRegistrationToolStripMenuItem
             // 
-            this.changeRegistrationToolStripMenuItem.Image = global::SEMS.Properties.Resources.Document_Edit;
+            this.changeRegistrationToolStripMenuItem.Image = global::SEMS.Properties.Resources.Process;
             this.changeRegistrationToolStripMenuItem.Name = "changeRegistrationToolStripMenuItem";
             this.changeRegistrationToolStripMenuItem.Size = new System.Drawing.Size(229, 36);
             this.changeRegistrationToolStripMenuItem.Text = "Change Registration";
+            this.changeRegistrationToolStripMenuItem.Visible = false;
             this.changeRegistrationToolStripMenuItem.Click += new System.EventHandler(this.changeRegistrationToolStripMenuItem_Click);
             // 
             // dROPToolStripMenuItem
@@ -405,6 +449,7 @@
             this.dROPToolStripMenuItem.Name = "dROPToolStripMenuItem";
             this.dROPToolStripMenuItem.Size = new System.Drawing.Size(229, 36);
             this.dROPToolStripMenuItem.Text = "Drop";
+            this.dROPToolStripMenuItem.Click += new System.EventHandler(this.dROPToolStripMenuItem_Click);
             // 
             // viewInformationToolStripMenuItem
             // 
@@ -432,36 +477,6 @@
             this.viewRequirementsToolStripMenuItem.Text = "View Requirements";
             this.viewRequirementsToolStripMenuItem.Click += new System.EventHandler(this.viewRequirementsToolStripMenuItem_Click);
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewImageColumn1.HeaderText = "Action";
-            this.dataGridViewImageColumn1.Image = global::SEMS.Properties.Resources.Data;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // lblTotalRecords
-            // 
-            this.lblTotalRecords.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalRecords.ForeColor = System.Drawing.Color.Red;
-            this.lblTotalRecords.Location = new System.Drawing.Point(10, 43);
-            this.lblTotalRecords.Name = "lblTotalRecords";
-            this.lblTotalRecords.Size = new System.Drawing.Size(451, 30);
-            this.lblTotalRecords.TabIndex = 28;
-            this.lblTotalRecords.Text = "The sort function is modified by encoded then by student name for optimization";
-            this.lblTotalRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // updateOrganizationEmailToolStripMenuItem
-            // 
-            this.updateOrganizationEmailToolStripMenuItem.Image = global::SEMS.Properties.Resources.Document_Edit;
-            this.updateOrganizationEmailToolStripMenuItem.Name = "updateOrganizationEmailToolStripMenuItem";
-            this.updateOrganizationEmailToolStripMenuItem.Size = new System.Drawing.Size(229, 36);
-            this.updateOrganizationEmailToolStripMenuItem.Text = "Update Organization Email";
-            this.updateOrganizationEmailToolStripMenuItem.Click += new System.EventHandler(this.updateOrganizationEmailToolStripMenuItem_Click);
-            // 
             // uc_registered_students_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -477,9 +492,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelLoading.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -522,5 +537,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem updateOrganizationEmailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem shiftCurriculumToolStripMenuItem;
     }
 }

@@ -137,5 +137,10 @@ namespace COLM_SYSTEM.Assessment_Folder
             Close();
             Dispose();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

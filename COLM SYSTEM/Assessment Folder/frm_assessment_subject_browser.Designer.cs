@@ -28,9 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgAvailableSubjects = new System.Windows.Forms.DataGridView();
+            this.clmSubjectPriceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubjectPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAdditionalFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,15 +49,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.cmbSubjectType = new System.Windows.Forms.ComboBox();
-            this.clmSubjectPriceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmYearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSubjType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSubjectPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAdditionalFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAction = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgAvailableSubjects)).BeginInit();
@@ -86,6 +86,69 @@
             this.dgAvailableSubjects.TabIndex = 2;
             this.dgAvailableSubjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAvailableSubjects_CellContentClick);
             // 
+            // clmSubjectPriceID
+            // 
+            this.clmSubjectPriceID.HeaderText = "SubjectPriceID";
+            this.clmSubjectPriceID.Name = "clmSubjectPriceID";
+            this.clmSubjectPriceID.ReadOnly = true;
+            this.clmSubjectPriceID.Visible = false;
+            // 
+            // clmCourse
+            // 
+            this.clmCourse.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmCourse.HeaderText = "Course";
+            this.clmCourse.Name = "clmCourse";
+            this.clmCourse.ReadOnly = true;
+            this.clmCourse.Width = 70;
+            // 
+            // clmYearLevel
+            // 
+            this.clmYearLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmYearLevel.HeaderText = "Year Level";
+            this.clmYearLevel.Name = "clmYearLevel";
+            this.clmYearLevel.ReadOnly = true;
+            this.clmYearLevel.Width = 85;
+            // 
+            // clmSubjType
+            // 
+            this.clmSubjType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmSubjType.HeaderText = "Type";
+            this.clmSubjType.Name = "clmSubjType";
+            this.clmSubjType.ReadOnly = true;
+            this.clmSubjType.Width = 56;
+            // 
+            // clmSubjectPrice
+            // 
+            this.clmSubjectPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmSubjectPrice.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clmSubjectPrice.HeaderText = "Amount";
+            this.clmSubjectPrice.Name = "clmSubjectPrice";
+            this.clmSubjectPrice.ReadOnly = true;
+            this.clmSubjectPrice.Width = 74;
+            // 
+            // clmAdditionalFee
+            // 
+            this.clmAdditionalFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmAdditionalFee.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmAdditionalFee.HeaderText = "Add\'l Amount";
+            this.clmAdditionalFee.Name = "clmAdditionalFee";
+            this.clmAdditionalFee.ReadOnly = true;
+            this.clmAdditionalFee.Width = 105;
+            // 
+            // clmAction
+            // 
+            this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmAction.HeaderText = "Add to list";
+            this.clmAction.Name = "clmAction";
+            this.clmAction.ReadOnly = true;
+            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmAction.Text = "Add to list";
+            this.clmAction.UseColumnTextForButtonValue = true;
+            this.clmAction.Width = 88;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -117,6 +180,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(378, 230);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // dataGridViewTextBoxColumn1
@@ -199,15 +263,6 @@
             this.panel2.Size = new System.Drawing.Size(506, 298);
             this.panel2.TabIndex = 9;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(343, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Filter Subject Type";
-            // 
             // cmbSubjectType
             // 
             this.cmbSubjectType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -222,68 +277,14 @@
             this.cmbSubjectType.TabIndex = 5;
             this.cmbSubjectType.SelectedIndexChanged += new System.EventHandler(this.cmbSubjectType_SelectedIndexChanged);
             // 
-            // clmSubjectPriceID
+            // label3
             // 
-            this.clmSubjectPriceID.HeaderText = "SubjectPriceID";
-            this.clmSubjectPriceID.Name = "clmSubjectPriceID";
-            this.clmSubjectPriceID.ReadOnly = true;
-            this.clmSubjectPriceID.Visible = false;
-            // 
-            // clmCourse
-            // 
-            this.clmCourse.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmCourse.HeaderText = "Course";
-            this.clmCourse.Name = "clmCourse";
-            this.clmCourse.ReadOnly = true;
-            this.clmCourse.Width = 70;
-            // 
-            // clmYearLevel
-            // 
-            this.clmYearLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmYearLevel.HeaderText = "Year Level";
-            this.clmYearLevel.Name = "clmYearLevel";
-            this.clmYearLevel.ReadOnly = true;
-            this.clmYearLevel.Width = 85;
-            // 
-            // clmSubjType
-            // 
-            this.clmSubjType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmSubjType.HeaderText = "Type";
-            this.clmSubjType.Name = "clmSubjType";
-            this.clmSubjType.ReadOnly = true;
-            this.clmSubjType.Width = 56;
-            // 
-            // clmSubjectPrice
-            // 
-            this.clmSubjectPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmSubjectPrice.DefaultCellStyle = dataGridViewCellStyle15;
-            this.clmSubjectPrice.HeaderText = "Amount";
-            this.clmSubjectPrice.Name = "clmSubjectPrice";
-            this.clmSubjectPrice.ReadOnly = true;
-            this.clmSubjectPrice.Width = 74;
-            // 
-            // clmAdditionalFee
-            // 
-            this.clmAdditionalFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmAdditionalFee.DefaultCellStyle = dataGridViewCellStyle16;
-            this.clmAdditionalFee.HeaderText = "Add\'l Amount";
-            this.clmAdditionalFee.Name = "clmAdditionalFee";
-            this.clmAdditionalFee.ReadOnly = true;
-            this.clmAdditionalFee.Width = 105;
-            // 
-            // clmAction
-            // 
-            this.clmAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.clmAction.HeaderText = "Add to list";
-            this.clmAction.Name = "clmAction";
-            this.clmAction.ReadOnly = true;
-            this.clmAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmAction.Text = "Add to list";
-            this.clmAction.UseColumnTextForButtonValue = true;
-            this.clmAction.Width = 88;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(343, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 15);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Filter Subject Type";
             // 
             // button1
             // 
