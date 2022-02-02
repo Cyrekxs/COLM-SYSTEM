@@ -20,5 +20,7 @@ namespace COLM_SYSTEM_LIBRARY.Interfaces
         Task<IEnumerable<StudentInfo>> GetUnregisteredStudents();
 
         Task<IEnumerable<CurriculumSubject>> GetCurriculumSubjects(int RegisteredStudentID);
+
+        Task<IEnumerable<dynamic>> GetStudentGrades(int SchoolYearID, int SemesterID, int RegisteredStudentID);
     }
 }

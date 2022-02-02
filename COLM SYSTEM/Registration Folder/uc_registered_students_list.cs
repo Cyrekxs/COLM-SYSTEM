@@ -246,7 +246,7 @@ namespace COLM_SYSTEM.Registration_Folder
             StudentInformations = await _StudentRepository.GetStudentInformations();
             Curriculums = await _CurriculumRepository.GetCurriculums();
             SchoolYears = await _SchoolYearSemesterRepository.GetSchoolYears();
-            SchoolSemesters = await _SchoolYearSemesterRepository.GetSemesters();
+            SchoolSemesters = await _SchoolYearSemesterRepository.GetSchoolSemesters();
             DisplayData(RegisteredStudents.ToList());
             panelLoading.Visible = false;
         }

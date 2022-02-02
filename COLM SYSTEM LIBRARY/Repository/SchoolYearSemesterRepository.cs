@@ -65,7 +65,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
             return SchoolYears;
         }
 
-        public async Task<IEnumerable<SchoolSemester>> GetSemesters()
+        public async Task<IEnumerable<SchoolSemester>> GetSchoolSemesters()
         {
             List<SchoolSemester> Semesters = new List<SchoolSemester>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))

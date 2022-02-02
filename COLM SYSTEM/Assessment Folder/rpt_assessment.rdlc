@@ -2582,7 +2582,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox29</rd:DefaultName>
             <Top>5.94667in</Top>
-            <Left>0.11093in</Left>
+            <Left>0.1248in</Left>
             <Height>2.45139in</Height>
             <Width>7.73407in</Width>
             <ZIndex>10</ZIndex>
@@ -2894,6 +2894,9 @@
         </ReportItems>
         <Height>8.92536in</Height>
         <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
           <BackgroundImage>
             <Source>Database</Source>
             <Value>=First(Fields!WaterMark.Value, "dsReportProperties")</Value>

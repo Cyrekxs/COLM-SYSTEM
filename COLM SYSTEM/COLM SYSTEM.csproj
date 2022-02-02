@@ -307,6 +307,23 @@
     <Compile Include="frm_user_settings_sysem.Designer.cs">
       <DependentUpon>frm_user_settings_sysem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Grading System\ds_student_grade.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_student_grade.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Grading System\frm_browse_students_registered_dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grading System\frm_browse_students_registered_dialog.Designer.cs">
+      <DependentUpon>frm_browse_students_registered_dialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Grading System\frm_student_grade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grading System\frm_student_grade.Designer.cs">
+      <DependentUpon>frm_student_grade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payment Folder\DataSet_SOA.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -798,6 +815,13 @@
     <EmbeddedResource Include="frm_user_settings_sysem.resx">
       <DependentUpon>frm_user_settings_sysem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Grading System\frm_browse_students_registered_dialog.resx">
+      <DependentUpon>frm_browse_students_registered_dialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grading System\frm_student_grade.resx">
+      <DependentUpon>frm_student_grade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grading System\rpt_student_grade.rdlc" />
     <EmbeddedResource Include="Payment Folder\frm_payment_creditmemo_entry.resx">
       <DependentUpon>frm_payment_creditmemo_entry.cs</DependentUpon>
     </EmbeddedResource>
@@ -998,6 +1022,17 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="COLM SYSTEM_TemporaryKey.pfx" />
+    <None Include="Grading System\ds_student_grade.xsc">
+      <DependentUpon>ds_student_grade.xsd</DependentUpon>
+    </None>
+    <None Include="Grading System\ds_student_grade.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_student_grade.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Grading System\ds_student_grade.xss">
+      <DependentUpon>ds_student_grade.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Payment Folder\DataSet_PaymentReceipt.xsc">
       <DependentUpon>DataSet_PaymentReceipt.xsd</DependentUpon>

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.model.Student_Folder;
 
 namespace COLM_SYSTEM_LIBRARY.Interfaces
 {
@@ -10,6 +11,8 @@ namespace COLM_SYSTEM_LIBRARY.Interfaces
         Task<List<string>> GetSchools();
         Task<StudentInfo> GetStudentInformation(int StudentID);
         Task<List<StudentInfo>> GetStudentInformations();
+        Task<IEnumerable<StudentBasicInfoModel>> GetStudentBasicInformations();
+
         Task<List<StudentInfo>> GetStudentsToImport();
 
         Task<bool> HasRegistrationAsync(int StudentID);

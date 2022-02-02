@@ -17,6 +17,7 @@ using COLM_SYSTEM_LIBRARY.model;
 using COLM_SYSTEM_LIBRARY.Repository;
 using SEMS;
 using SEMS.Faculty_Folder;
+using SEMS.Grading_System;
 using SEMS.Reports_Folder;
 using SEMS.Settings_Folder;
 using SEMS.Student_Information_Folder;
@@ -428,6 +429,13 @@ namespace COLM_SYSTEM
                 }
             }
 
+        }
+
+        private void sGRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_student_grade frm = new frm_student_grade();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
         }
     }
 }

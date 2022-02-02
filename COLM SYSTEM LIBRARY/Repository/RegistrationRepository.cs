@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using Dapper;
 
 namespace COLM_SYSTEM_LIBRARY.Repository
 {
@@ -215,6 +216,17 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                     comm.Parameters.AddWithValue("@RegistrationStatus", registration.RegistrationStatus);
                     return await comm.ExecuteNonQueryAsync();
                 }
+            }
+        }
+
+        public async Task<IEnumerable<dynamic>> GetStudentGrades(int SchoolYearID, int SemesterID, int RegisteredStudentID)
+        {
+           using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+                string sql = "SELECT * FROM fn_list_student_grades(@SchoolYearID,@SemesterID) WHERE RegisteredStudentID = @RegisteredStudentID";
+                var result = await conn.QueryAsync(sql, new { SchoolYearID, SemesterID, RegisteredStudentID });
+                return result;
             }
         }
     }

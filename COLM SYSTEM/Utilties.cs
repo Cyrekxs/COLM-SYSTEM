@@ -40,7 +40,7 @@ namespace COLM_SYSTEM
 
         public static async Task<IEnumerable<SchoolSemester>> GetSchoolSemesters()
         {
-            return await _SchoolYearRepository.GetSemesters();
+            return await _SchoolYearRepository.GetSchoolSemesters();
         }
 
         public static async Task<SchoolSemester> GetActiveSemester()

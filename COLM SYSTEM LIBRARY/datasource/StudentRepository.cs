@@ -1,6 +1,7 @@
 ﻿using COLM_SYSTEM_LIBRARY.helper;
 using COLM_SYSTEM_LIBRARY.Interfaces;
 using COLM_SYSTEM_LIBRARY.model;
+using COLM_SYSTEM_LIBRARY.model.Student_Folder;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -352,6 +353,17 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                     else
                         return Task.FromResult(0);
                 }
+            }
+        }
+
+        public async Task<IEnumerable<StudentBasicInfoModel>> GetStudentBasicInformations()
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                string sql = "SELECT StudentID,LRN,Lastname,Firstname,Middlename,Gender FROM student.information";
+                var result = await conn.QueryAsync<StudentBasicInfoModel>(sql);
+                return result;
             }
         }
     }

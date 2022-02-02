@@ -55,7 +55,7 @@ namespace COLM_SYSTEM.Assessment_Folder
         private async void frm_assessment_old_peeker_Load(object sender, EventArgs e)
         {
             SchoolYears = await _SchoolYearSemesterRepository.GetSchoolYears() as List<SchoolYear>;
-            SchoolSemesters = await _SchoolYearSemesterRepository.GetSemesters() as List<SchoolSemester>;
+            SchoolSemesters = await _SchoolYearSemesterRepository.GetSchoolSemesters() as List<SchoolSemester>;
 
             var result = await _AssessmentRepository.GetStudentAssessments(RegisteredID,Utilties.GetUserSchoolYearID(),Utilties.GetUserSemesterID());
             DisplayAssessments(result.ToList());

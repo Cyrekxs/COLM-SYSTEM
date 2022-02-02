@@ -11,7 +11,7 @@ namespace COLM_SYSTEM_LIBRARY.Interaces
     {
         Task<IEnumerable<SchoolYear>> GetSchoolYears();
         Task<SchoolYear> GetActiveSchoolYear();
-        Task<IEnumerable<SchoolSemester>> GetSemesters();
+        Task<IEnumerable<SchoolSemester>> GetSchoolSemesters();
         Task<SchoolSemester> GetActiveSemester();
     }
 }

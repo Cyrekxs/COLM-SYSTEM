@@ -55,6 +55,7 @@
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IPaymentRepository.cs" />
     <Compile Include="Interfaces\IRegistrationRepository.cs" />
+    <Compile Include="model\Student Folder\StudentBasicInfoModel.cs" />
     <Compile Include="model\UserAccountModel.cs" />
     <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\ApplicationRepository.cs" />
