@@ -49,13 +49,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtLRN = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.clmSubjCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubjDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubjUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFacultyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubjGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtLRN = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -268,6 +268,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // txtLRN
+            // 
+            this.txtLRN.Location = new System.Drawing.Point(23, 35);
+            this.txtLRN.Name = "txtLRN";
+            this.txtLRN.ReadOnly = true;
+            this.txtLRN.Size = new System.Drawing.Size(166, 23);
+            this.txtLRN.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(20, 17);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 15);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "LRN";
+            // 
             // clmSubjCode
             // 
             this.clmSubjCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -278,11 +295,10 @@
             // 
             // clmSubjDesc
             // 
-            this.clmSubjDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmSubjDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clmSubjDesc.HeaderText = "Description";
             this.clmSubjDesc.Name = "clmSubjDesc";
             this.clmSubjDesc.ReadOnly = true;
-            this.clmSubjDesc.Width = 105;
             // 
             // clmSubjUnit
             // 
@@ -311,23 +327,6 @@
             this.clmSubjGrade.Name = "clmSubjGrade";
             this.clmSubjGrade.ReadOnly = true;
             this.clmSubjGrade.Width = 118;
-            // 
-            // txtLRN
-            // 
-            this.txtLRN.Location = new System.Drawing.Point(23, 35);
-            this.txtLRN.Name = "txtLRN";
-            this.txtLRN.ReadOnly = true;
-            this.txtLRN.Size = new System.Drawing.Size(166, 23);
-            this.txtLRN.TabIndex = 8;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(20, 17);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 15);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "LRN";
             // 
             // frm_student_grade
             // 
@@ -377,12 +376,12 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtLRN;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFacultyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjGrade;
-        private System.Windows.Forms.TextBox txtLRN;
-        private System.Windows.Forms.Label label8;
     }
 }

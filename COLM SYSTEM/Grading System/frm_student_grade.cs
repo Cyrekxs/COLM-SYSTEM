@@ -53,6 +53,10 @@ namespace SEMS.Grading_System
                     txtStudentName.Text = StudentName;
                     txtEducationLevel.Text = EducationLevel;
                     txtCourseStrand.Text = CourseStrand;
+
+                    cmbSchoolYear.Text = string.Empty;
+                    cmbSchoolSemester.Text = string.Empty;
+                    dataGridView1.Rows.Clear();
                 }
             }
         }
