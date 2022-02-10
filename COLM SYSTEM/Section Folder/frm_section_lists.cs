@@ -10,23 +10,22 @@ namespace COLM_SYSTEM.Section_Folder
 {
     public partial class frm_section_lists : Form
     {
+        public List<Section> sections { get; set; }
+        public List<YearLevel> yearLevels { get; set; }
         public frm_section_lists()
         {
             InitializeComponent();
         }
 
-        private async Task LoadSections()
+        private async Task LoadSectionsAndYearLevels()
         {
-            List<Section> sections = await Task.Run(
+            sections = await Task.Run(
                 () =>
                 {
                     return Section.GetSections(Utilties.GetUserSchoolYearID(), Utilties.GetUserSemesterID());
                 });
 
-            List<YearLevel> yearLevels = await Task.Run(() => { return YearLevel.GetYearLevels(); });
-
-
-            DisplaySections(sections,yearLevels);
+           yearLevels = await Task.Run(() => { return YearLevel.GetYearLevels(); });           
         }
 
         private void DisplaySections(List<Section> sections, List<YearLevel> yearLevels)
@@ -51,7 +50,7 @@ namespace COLM_SYSTEM.Section_Folder
             var result = frm.ShowDialog();
             if (result == DialogResult.OK)
             {
-                await LoadSections();
+                await LoadSectionsAndYearLevels();
             }
         }
 
@@ -66,7 +65,7 @@ namespace COLM_SYSTEM.Section_Folder
                 var result = frm.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    await LoadSections();
+                    await LoadSectionsAndYearLevels();
                 }
 
             }
@@ -74,7 +73,20 @@ namespace COLM_SYSTEM.Section_Folder
 
         private async void frm_section_lists_Load(object sender, EventArgs e)
         {
-            await LoadSections();
+            if (sections == null)
+            {
+                await LoadSectionsAndYearLevels();
+                DisplaySections(sections, yearLevels);
+            }
+        }
+
+        private void cmbEducationLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbEducationLevel.SelectedIndex != 0)
+            {
+                List<Section> filteredResults = sections.Where(r => r.EducationLevel.ToLower() == cmbEducationLevel.Text.ToLower()).ToList();
+                DisplaySections(filteredResults, yearLevels);
+            }
         }
     }
 }

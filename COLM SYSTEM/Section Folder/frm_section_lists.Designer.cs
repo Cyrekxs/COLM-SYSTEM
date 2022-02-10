@@ -190,6 +190,7 @@
             this.cmbEducationLevel.Name = "cmbEducationLevel";
             this.cmbEducationLevel.Size = new System.Drawing.Size(145, 23);
             this.cmbEducationLevel.TabIndex = 4;
+            this.cmbEducationLevel.SelectedIndexChanged += new System.EventHandler(this.cmbEducationLevel_SelectedIndexChanged);
             // 
             // label4
             // 
