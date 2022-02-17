@@ -14,6 +14,8 @@ namespace COLM_SYSTEM_LIBRARY.Interfaces
         Task<bool> HasAssessment(int RegistrationID);
         Task<bool> HasAssessment(int RegistrationID, int SchoolYearID, int SemesterID);
 
-        //Task<int> DropStudent(int AssessmentID);
+        Task<int> DropStudent(int RegisteredStudentID, int AssessmentID, int SchoolYearID, int SemesterID, List<AssessmentBreakdown> AssessmentBreakdown);
+
+        Task<List<AssessmentBreakdown>> GetAssessmentBreakdowns(int AssessmentID);
     }
 }

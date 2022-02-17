@@ -128,7 +128,7 @@ namespace COLM_SYSTEM.Assessment_Folder
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
-                if ( frm.DialogResult == DialogResult.OK)
+                if (frm.DialogResult == DialogResult.OK)
                 {
                     panelLoading.Visible = true;
                     Assessments = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID, Program.user.SemesterID);
@@ -184,6 +184,20 @@ namespace COLM_SYSTEM.Assessment_Folder
             Assessments = await _AssessmentRepository.GetStudentAssessments(Program.user.SchoolYearID, Program.user.SemesterID);
             DisplayAssessments(Assessments.ToList());
             panelLoading.Visible = false;
+        }
+
+        private void dropToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int RegisteredStudentID = Convert.ToInt32(dataGridView1.Rows[SelectedRow].Cells["clmRegisteredStudentID"].Value);
+            int AssessmentID = Convert.ToInt16(dataGridView1.Rows[SelectedRow].Cells["clmAssessmentID"].Value);
+            string StudentName = dataGridView1.Rows[SelectedRow].Cells["clmStudentName"].Value.ToString();
+            string Course = dataGridView1.Rows[SelectedRow].Cells["clmCourseStrand"].Value.ToString();
+            string YearLevel = dataGridView1.Rows[SelectedRow].Cells["clmYearLevel"].Value.ToString();
+            using (frm_assessment_dropping frm = new frm_assessment_dropping(RegisteredStudentID, AssessmentID, StudentName, Course, YearLevel))
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
         }
     }
 }

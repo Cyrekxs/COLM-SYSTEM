@@ -66,9 +66,9 @@
             this.printAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reAssessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dropToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.lblTotalRecords = new System.Windows.Forms.Label();
-            this.dropToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelLoading.SuspendLayout();
@@ -412,7 +412,7 @@
             this.dropToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(192, 164);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(192, 186);
             // 
             // emailStudentToolStripMenuItem
             // 
@@ -450,6 +450,14 @@
             this.removeAssessmentToolStripMenuItem.Text = "Remove Assessment";
             this.removeAssessmentToolStripMenuItem.Click += new System.EventHandler(this.removeAssessmentToolStripMenuItem_Click);
             // 
+            // dropToolStripMenuItem
+            // 
+            this.dropToolStripMenuItem.Image = global::SEMS.Properties.Resources.Data_Delete;
+            this.dropToolStripMenuItem.Name = "dropToolStripMenuItem";
+            this.dropToolStripMenuItem.Size = new System.Drawing.Size(191, 32);
+            this.dropToolStripMenuItem.Text = "Drop";
+            this.dropToolStripMenuItem.Click += new System.EventHandler(this.dropToolStripMenuItem_Click);
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -471,13 +479,6 @@
             this.lblTotalRecords.Text = "The sort function is modified by assessment date then by student name for optimiz" +
     "ation";
             this.lblTotalRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dropToolStripMenuItem
-            // 
-            this.dropToolStripMenuItem.Image = global::SEMS.Properties.Resources.Data_Delete;
-            this.dropToolStripMenuItem.Name = "dropToolStripMenuItem";
-            this.dropToolStripMenuItem.Size = new System.Drawing.Size(191, 32);
-            this.dropToolStripMenuItem.Text = "Drop";
             // 
             // uc_assessment_list
             // 

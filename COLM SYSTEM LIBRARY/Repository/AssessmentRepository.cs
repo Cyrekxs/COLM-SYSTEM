@@ -6,13 +6,14 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using Dapper;
 
 namespace COLM_SYSTEM_LIBRARY.Repository
 {
     public class AssessmentRepository : IAssessmentRepository
     {
 
-        public async Task<IEnumerable<StudentRegistration>> GetNotAssessedStudents(int SchoolYearID, int SemesterID,string EducationLevel = "All",string Search = "")
+        public async Task<IEnumerable<StudentRegistration>> GetNotAssessedStudents(int SchoolYearID, int SemesterID, string EducationLevel = "All", string Search = "")
         {
             List<StudentRegistration> RegisteredStudents = new List<StudentRegistration>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
@@ -27,7 +28,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                     comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
                     comm.Parameters.AddWithValue("@SemesterID", SemesterID);
                     comm.Parameters.AddWithValue("@EducationLevel", EducationLevel);
-                    comm.Parameters.AddWithValue("@StudentName","%" + Search + "%");
+                    comm.Parameters.AddWithValue("@StudentName", "%" + Search + "%");
                     using (SqlDataReader reader = await comm.ExecuteReaderAsync())
                     {
                         while (await reader.ReadAsync())
@@ -285,7 +286,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 return Task.FromResult(false);
         }
 
-        public Task<bool> HasAssessment(int RegistrationID,int SchoolYearID,int SemesterID)
+        public Task<bool> HasAssessment(int RegistrationID, int SchoolYearID, int SemesterID)
         {
             int result = 0;
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
@@ -306,7 +307,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 return Task.FromResult(false);
         }
 
-        public async Task<IEnumerable<AssessmentSummaryEntity>> GetStudentAssessments(int RegisteredID,int SchoolYearID, int SemesterID)
+        public async Task<IEnumerable<AssessmentSummaryEntity>> GetStudentAssessments(int RegisteredID, int SchoolYearID, int SemesterID)
         {
             List<AssessmentSummaryEntity> AssessmentSummaries = new List<AssessmentSummaryEntity>();
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
@@ -365,9 +366,66 @@ namespace COLM_SYSTEM_LIBRARY.Repository
             }
         }
 
-        //public Task<int> DropStudent(int AssessmentID)
-        //{
-        //    using (SqlConnection conn )
-        //}
+        public async Task<int> DropStudent(int RegisteredStudentID, int AssessmentID, int SchoolYearID, int SemesterID, List<AssessmentBreakdown> AssessmentBreakdown)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                await conn.OpenAsync();
+                using (SqlTransaction t = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        string sql_insert_drop = "INSERT INTO assessment.drop_students VALUES (@RegisteredStudentID,@AssessmentID,@SchoolYearID,@SemesterID,GETDATE())";
+                        using (SqlCommand comm = new SqlCommand(sql_insert_drop, conn, t))
+                        {
+                            comm.Parameters.AddWithValue("@RegisteredStudentID", RegisteredStudentID);
+                            comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
+                            comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                            comm.Parameters.AddWithValue("@SemesterID", SemesterID);
+                            await comm.ExecuteNonQueryAsync();
+                        }
+
+                        string sql_update_assessment_summary = "UPDATE assessment.summary SET AssessmentStatus = 'Drop' WHERE AssessmentID = @AssessmentID";
+                        using (SqlCommand comm = new SqlCommand(sql_update_assessment_summary, conn, t))
+                        {
+                            comm.Parameters.AddWithValue("@AssessmentID", AssessmentID);
+                            await comm.ExecuteNonQueryAsync();
+                        }
+
+                        foreach (var item in AssessmentBreakdown)
+                        {
+                            string sql = "UPDATE assessment.breakdown SET Amount = @Amount WHERE AssessmentBreakdownID = @AssessmentBreakDownID";
+                            using (SqlCommand comm = new SqlCommand(sql, conn, t))
+                            {
+                                comm.Parameters.AddWithValue("@AssessmentBreakdownID", item.AssessmentBreakdownID);
+                                comm.Parameters.AddWithValue("@Amount", item.Amount);
+                                await comm.ExecuteNonQueryAsync();
+                            }
+                        }
+
+
+                        t.Commit();
+                        return 1;
+                    }
+                    catch (Exception)
+                    {
+                        t.Rollback();
+                        return 0;
+                    }
+                }
+
+            }
+        }
+
+        public async Task<List<AssessmentBreakdown>> GetAssessmentBreakdowns(int AssessmentID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                string sql = "SELECT * FROM assessment.breakdown WHERE AssessmentID = @AssessmentID ORDER BY AssessmentBreakdownID ASC";
+                var result = await conn.QueryAsync<AssessmentBreakdown>(sql, new { AssessmentID });
+                return result.AsList();
+            }
+        }
     }
 }
