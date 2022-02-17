@@ -103,6 +103,7 @@
             this.miMasterList = new System.Windows.Forms.ToolStripMenuItem();
             this.perSubjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miELReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSGR = new System.Windows.Forms.ToolStripMenuItem();
             this.cLOSEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uPDATESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subjectsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,7 +128,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ApplicationsTimer = new System.Windows.Forms.Timer(this.components);
-            this.sGRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -863,7 +863,7 @@
             this.miCollectionReport,
             this.miMasterList,
             this.miELReport,
-            this.sGRToolStripMenuItem});
+            this.miSGR});
             this.miReports.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miReports.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.miReports.Image = global::SEMS.Properties.Resources.Report;
@@ -902,6 +902,14 @@
             this.miELReport.Size = new System.Drawing.Size(180, 22);
             this.miELReport.Text = "E.L Report";
             this.miELReport.Click += new System.EventHandler(this.eLReportToolStripMenuItem_Click);
+            // 
+            // miSGR
+            // 
+            this.miSGR.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.miSGR.Name = "miSGR";
+            this.miSGR.Size = new System.Drawing.Size(180, 22);
+            this.miSGR.Text = "SGR";
+            this.miSGR.Click += new System.EventHandler(this.sGRToolStripMenuItem_Click);
             // 
             // cLOSEToolStripMenuItem
             // 
@@ -1058,14 +1066,6 @@
             this.ApplicationsTimer.Interval = 60000;
             this.ApplicationsTimer.Tick += new System.EventHandler(this.ApplicationsTimer_Tick);
             // 
-            // sGRToolStripMenuItem
-            // 
-            this.sGRToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sGRToolStripMenuItem.Name = "sGRToolStripMenuItem";
-            this.sGRToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sGRToolStripMenuItem.Text = "SGR";
-            this.sGRToolStripMenuItem.Click += new System.EventHandler(this.sGRToolStripMenuItem_Click);
-            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1201,6 +1201,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.ToolStripMenuItem sGRToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miSGR;
     }
 }

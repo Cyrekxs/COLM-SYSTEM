@@ -19,11 +19,11 @@ namespace COLM_SYSTEM_LIBRARY.model.Student_Folder
             {
                 if (string.IsNullOrEmpty(Middlename))
                 {
-                    return string.Concat(Firstname, " ", Lastname);
+                    return string.Concat(Lastname, " ", Firstname);
                 }
                 else
                 {
-                    return string.Concat(Firstname, " ", Lastname, " ", Middlename);
+                    return string.Concat(Lastname, " ", Firstname, " ", Middlename);
                 }
             } }
     }

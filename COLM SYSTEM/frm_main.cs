@@ -93,6 +93,7 @@ namespace COLM_SYSTEM
                 miCollectionReport.Visible = false;
                 miMasterList.Visible = true;
                 miELReport.Visible = true;
+                miSGR.Visible = true;
             }
 
             else if (role.Equals("cashier"))

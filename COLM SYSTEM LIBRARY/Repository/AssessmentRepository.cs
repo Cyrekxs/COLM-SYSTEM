@@ -364,5 +364,10 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 return AssessmentSummaries;
             }
         }
+
+        //public Task<int> DropStudent(int AssessmentID)
+        //{
+        //    using (SqlConnection conn )
+        //}
     }
 }
