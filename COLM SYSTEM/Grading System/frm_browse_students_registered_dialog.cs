@@ -124,6 +124,7 @@ namespace SEMS.Grading_System
                 SelectedStudentName = dataGridView1.Rows[e.RowIndex].Cells["clmStudentName"].Value.ToString();
                 SelectedEducationLevel = dataGridView1.Rows[e.RowIndex].Cells["clmEducationLevel"].Value.ToString();
                 SelectedCourseStrand = dataGridView1.Rows[e.RowIndex].Cells["clmCourseStrand"].Value.ToString();
+                //SelectedYearLevel = dataGridView1.Rows[e.RowIndex].Cells["clmYearLevel"].Value.ToString();
                 DialogResult = DialogResult.OK;
                 Close();
             }

@@ -45,18 +45,20 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cmbSchoolSemester = new System.Windows.Forms.ComboBox();
-            this.cmbSchoolYear = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.clmStudentGradeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubjCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubjDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubjUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFacultyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubjGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbSchoolSemester = new System.Windows.Forms.ComboBox();
+            this.cmbSchoolYear = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtYearLevel = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,6 +78,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.txtYearLevel);
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txtLRN);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.btnBrowse);
@@ -95,7 +99,7 @@
             this.txtLRN.Location = new System.Drawing.Point(23, 35);
             this.txtLRN.Name = "txtLRN";
             this.txtLRN.ReadOnly = true;
-            this.txtLRN.Size = new System.Drawing.Size(166, 23);
+            this.txtLRN.Size = new System.Drawing.Size(121, 23);
             this.txtLRN.TabIndex = 8;
             // 
             // label8
@@ -120,32 +124,32 @@
             // 
             // txtCourseStrand
             // 
-            this.txtCourseStrand.Location = new System.Drawing.Point(563, 35);
+            this.txtCourseStrand.Location = new System.Drawing.Point(486, 35);
             this.txtCourseStrand.Name = "txtCourseStrand";
             this.txtCourseStrand.ReadOnly = true;
-            this.txtCourseStrand.Size = new System.Drawing.Size(108, 23);
+            this.txtCourseStrand.Size = new System.Drawing.Size(103, 23);
             this.txtCourseStrand.TabIndex = 5;
             // 
             // txtEducationLevel
             // 
-            this.txtEducationLevel.Location = new System.Drawing.Point(449, 35);
+            this.txtEducationLevel.Location = new System.Drawing.Point(377, 35);
             this.txtEducationLevel.Name = "txtEducationLevel";
             this.txtEducationLevel.ReadOnly = true;
-            this.txtEducationLevel.Size = new System.Drawing.Size(108, 23);
+            this.txtEducationLevel.Size = new System.Drawing.Size(103, 23);
             this.txtEducationLevel.TabIndex = 4;
             // 
             // txtStudentName
             // 
-            this.txtStudentName.Location = new System.Drawing.Point(195, 35);
+            this.txtStudentName.Location = new System.Drawing.Point(150, 35);
             this.txtStudentName.Name = "txtStudentName";
             this.txtStudentName.ReadOnly = true;
-            this.txtStudentName.Size = new System.Drawing.Size(248, 23);
+            this.txtStudentName.Size = new System.Drawing.Size(221, 23);
             this.txtStudentName.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(560, 17);
+            this.label4.Location = new System.Drawing.Point(483, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 15);
             this.label4.TabIndex = 2;
@@ -154,7 +158,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(451, 17);
+            this.label3.Location = new System.Drawing.Point(379, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 15);
             this.label3.TabIndex = 1;
@@ -163,7 +167,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(192, 17);
+            this.label2.Location = new System.Drawing.Point(147, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 0;
@@ -229,6 +233,60 @@
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
+            // clmStudentGradeID
+            // 
+            this.clmStudentGradeID.HeaderText = "Student Grade ID";
+            this.clmStudentGradeID.Name = "clmStudentGradeID";
+            this.clmStudentGradeID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clmSubjCode
+            // 
+            this.clmSubjCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmSubjCode.HeaderText = "Subject Code";
+            this.clmSubjCode.Name = "clmSubjCode";
+            this.clmSubjCode.ReadOnly = true;
+            this.clmSubjCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmSubjCode.Width = 85;
+            // 
+            // clmSubjDesc
+            // 
+            this.clmSubjDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmSubjDesc.HeaderText = "Description";
+            this.clmSubjDesc.Name = "clmSubjDesc";
+            this.clmSubjDesc.ReadOnly = true;
+            this.clmSubjDesc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clmSubjUnit
+            // 
+            this.clmSubjUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmSubjUnit.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmSubjUnit.HeaderText = "Units";
+            this.clmSubjUnit.Name = "clmSubjUnit";
+            this.clmSubjUnit.ReadOnly = true;
+            this.clmSubjUnit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmSubjUnit.Width = 52;
+            // 
+            // clmFacultyName
+            // 
+            this.clmFacultyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.clmFacultyName.HeaderText = "Faculty Name";
+            this.clmFacultyName.Name = "clmFacultyName";
+            this.clmFacultyName.ReadOnly = true;
+            this.clmFacultyName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmFacultyName.Width = 88;
+            // 
+            // clmSubjGrade
+            // 
+            this.clmSubjGrade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.clmSubjGrade.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmSubjGrade.HeaderText = "Subject Grade";
+            this.clmSubjGrade.Name = "clmSubjGrade";
+            this.clmSubjGrade.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmSubjGrade.Width = 90;
+            // 
             // cmbSchoolSemester
             // 
             this.cmbSchoolSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -288,59 +346,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // clmStudentGradeID
+            // txtYearLevel
             // 
-            this.clmStudentGradeID.HeaderText = "Student Grade ID";
-            this.clmStudentGradeID.Name = "clmStudentGradeID";
-            this.clmStudentGradeID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.txtYearLevel.Location = new System.Drawing.Point(595, 35);
+            this.txtYearLevel.Name = "txtYearLevel";
+            this.txtYearLevel.ReadOnly = true;
+            this.txtYearLevel.Size = new System.Drawing.Size(103, 23);
+            this.txtYearLevel.TabIndex = 10;
             // 
-            // clmSubjCode
+            // label9
             // 
-            this.clmSubjCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmSubjCode.HeaderText = "Subject Code";
-            this.clmSubjCode.Name = "clmSubjCode";
-            this.clmSubjCode.ReadOnly = true;
-            this.clmSubjCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clmSubjCode.Width = 85;
-            // 
-            // clmSubjDesc
-            // 
-            this.clmSubjDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmSubjDesc.HeaderText = "Description";
-            this.clmSubjDesc.Name = "clmSubjDesc";
-            this.clmSubjDesc.ReadOnly = true;
-            this.clmSubjDesc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // clmSubjUnit
-            // 
-            this.clmSubjUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmSubjUnit.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmSubjUnit.HeaderText = "Units";
-            this.clmSubjUnit.Name = "clmSubjUnit";
-            this.clmSubjUnit.ReadOnly = true;
-            this.clmSubjUnit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clmSubjUnit.Width = 52;
-            // 
-            // clmFacultyName
-            // 
-            this.clmFacultyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmFacultyName.HeaderText = "Faculty Name";
-            this.clmFacultyName.Name = "clmFacultyName";
-            this.clmFacultyName.ReadOnly = true;
-            this.clmFacultyName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clmFacultyName.Width = 88;
-            // 
-            // clmSubjGrade
-            // 
-            this.clmSubjGrade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.clmSubjGrade.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmSubjGrade.HeaderText = "Subject Grade";
-            this.clmSubjGrade.Name = "clmSubjGrade";
-            this.clmSubjGrade.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clmSubjGrade.Width = 90;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(592, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 15);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Year Level";
             // 
             // frm_student_grade
             // 
@@ -398,5 +419,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFacultyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubjGrade;
+        private System.Windows.Forms.TextBox txtYearLevel;
+        private System.Windows.Forms.Label label9;
     }
 }

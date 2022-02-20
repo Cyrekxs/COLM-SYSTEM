@@ -60,35 +60,52 @@ namespace SEMS.Grading_System
 
         private async Task GetStudentGrade()
         {
-
-            if (string.IsNullOrEmpty(cmbSchoolYear.Text) == false && string.IsNullOrEmpty(cmbSchoolSemester.Text) == false)
+            try
             {
-                btnBrowse.Enabled = false;
-                cmbSchoolYear.Enabled = false;
-                cmbSchoolSemester.Enabled = false;
-                dataGridView1.Enabled = false;
-                pictureBox1.Visible = true;
-
-                int SchoolYearID = SchoolYears.First(r => r.Name == cmbSchoolYear.Text).SchoolYearID;
-                int SemesterID = SchoolSemesters.First(r => r.Semester == cmbSchoolSemester.Text).SemesterID;
-
-                var result = await _RegistrationRepository.GetStudentGrades(SchoolYearID, SemesterID, RegisteredStudentID);
-
-                dataGridView1.Rows.Clear();
-                foreach (var item in result)
+                if (string.IsNullOrEmpty(cmbSchoolYear.Text) == false && string.IsNullOrEmpty(cmbSchoolSemester.Text) == false)
                 {
-                    dataGridView1.Rows.Add(item.StudentGradeID ?? 0, item.SubjCode, item.SubjDesc, item.Unit, item.FacultyName, item.Grade);
-                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
-                }
+                    btnBrowse.Enabled = false;
+                    cmbSchoolYear.Enabled = false;
+                    cmbSchoolSemester.Enabled = false;
+                    dataGridView1.Enabled = false;
+                    pictureBox1.Visible = true;
 
+                    int SchoolYearID = SchoolYears.First(r => r.Name == cmbSchoolYear.Text).SchoolYearID;
+                    int SemesterID = SchoolSemesters.First(r => r.Semester == cmbSchoolSemester.Text).SemesterID;
+
+                    var result = await _RegistrationRepository.GetStudentGrades(SchoolYearID, SemesterID, RegisteredStudentID);
+
+                    string YearLevel = result.First().YearLevel;
+                    txtYearLevel.Text = YearLevel;
+
+
+                    dataGridView1.Rows.Clear();
+                    foreach (var item in result)
+                    {
+                        dataGridView1.Rows.Add(item.StudentGradeID ?? 0, item.SubjCode, item.SubjDesc, item.Unit, item.FacultyName, item.Grade);
+                        dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
+                    }
+
+
+                    btnBrowse.Enabled = true;
+                    cmbSchoolYear.Enabled = true;
+                    cmbSchoolSemester.Enabled = true;
+                    dataGridView1.Enabled = true;
+                    pictureBox1.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
+                dataGridView1.Rows.Clear();
+                await Task.Delay(100);
+                MessageBox.Show("Student has no grade yet!");
 
                 btnBrowse.Enabled = true;
                 cmbSchoolYear.Enabled = true;
                 cmbSchoolSemester.Enabled = true;
                 dataGridView1.Enabled = true;
                 pictureBox1.Visible = false;
-            }
-
+            }           
         }
 
         private async void frm_student_grade_Load(object sender, EventArgs e)
@@ -173,6 +190,7 @@ namespace SEMS.Grading_System
             ReportParameter param_LRN = new ReportParameter("LRN", txtLRN.Text);
             ReportParameter param_StudentName = new ReportParameter("studentname", txtStudentName.Text);
             ReportParameter param_CourseStrand = new ReportParameter("coursestrand", txtCourseStrand.Text);
+            ReportParameter param_YearLevel = new ReportParameter("yearlevel", txtYearLevel.Text);
             ReportParameter param_printeddate = new ReportParameter("printeddate", DateTime.Now.ToString("MM-dd-yyyy"));
 
 
@@ -186,6 +204,7 @@ namespace SEMS.Grading_System
             reportParameters.Add(param_LRN);
             reportParameters.Add(param_StudentName);
             reportParameters.Add(param_CourseStrand);
+            reportParameters.Add(param_YearLevel);
             reportParameters.Add(param_printeddate);
 
             ReportDataSource DataTable1 = new ReportDataSource("DataSet1", tbl);
