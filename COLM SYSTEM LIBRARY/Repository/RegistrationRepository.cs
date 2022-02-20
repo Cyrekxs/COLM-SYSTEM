@@ -229,5 +229,22 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 return result;
             }
         }
+
+        public async Task<int> SaveUpdateStudentGrade(int StudentGradeID, int RegisteredStudentID, int CurriculumSubjectID, int SchoolYearID, int SemesterID, int FacultyID, string GradeTerm, string Grade)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string sql = string.Empty;
+                if (StudentGradeID != 0)
+                    sql = "UPDATE student.grades SET Grade = @Grade WHERE StudentGradeID = @StudentGradeID";
+                else if (StudentGradeID == 0)
+                    sql = "INSERT INTO student.grades VALUES (@RegisteredStudentID,@CurriculumSubjectID,@SchoolYearID,@SemesterID,@FacultyID,@GradeTerm,@Grade,0,GETDATE())";
+
+                var result = await conn.ExecuteAsync(sql, new {StudentGradeID, RegisteredStudentID, CurriculumSubjectID, SchoolYearID, SemesterID, FacultyID, GradeTerm, Grade });
+                return result;
+            }
+        }
     }
 }

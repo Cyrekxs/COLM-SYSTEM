@@ -22,5 +22,6 @@ namespace COLM_SYSTEM_LIBRARY.Interfaces
         Task<IEnumerable<CurriculumSubject>> GetCurriculumSubjects(int RegisteredStudentID);
 
         Task<IEnumerable<dynamic>> GetStudentGrades(int SchoolYearID, int SemesterID, int RegisteredStudentID);
+        Task<int> SaveUpdateStudentGrade(int StudentGradeID, int RegisteredStudentID, int CurriculumSubjectID, int SchoolYearID, int SemesterID, int FacultyID, string GradeTerm, string Grade);
     }
 }

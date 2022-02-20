@@ -6,11 +6,8 @@ using Microsoft.Reporting.WinForms;
 using SEMS.Assessment_Folder;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -80,7 +77,8 @@ namespace SEMS.Grading_System
                 dataGridView1.Rows.Clear();
                 foreach (var item in result)
                 {
-                    dataGridView1.Rows.Add(item.SubjCode, item.SubjDesc, item.Unit, item.FacultyName, item.Grade);
+                    dataGridView1.Rows.Add(item.StudentGradeID ?? 0, item.SubjCode, item.SubjDesc, item.Unit, item.FacultyName, item.Grade);
+                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
                 }
 
 
@@ -114,12 +112,12 @@ namespace SEMS.Grading_System
 
         private async void cmbSchoolYear_SelectedIndexChanged(object sender, EventArgs e)
         {
-          await  GetStudentGrade();
+            await GetStudentGrade();
         }
 
         private async void cmbSchoolSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
-          await  GetStudentGrade();
+            await GetStudentGrade();
         }
 
 
@@ -169,10 +167,10 @@ namespace SEMS.Grading_System
             ReportParameter param_SubHeader1 = new ReportParameter("SubHeader1", school.FirstSubHeader);
             ReportParameter param_SubHeader2 = new ReportParameter("SubHeader2", school.SecondSubHeader);
             ReportParameter param_Registrar = new ReportParameter("SchoolRegistrar", school.SchoolRegistrar);
-            ReportParameter param_sysem = new ReportParameter("sysem", string.Concat(cmbSchoolYear.Text," ",cmbSchoolSemester.Text));
+            ReportParameter param_sysem = new ReportParameter("sysem", string.Concat(cmbSchoolYear.Text, " ", cmbSchoolSemester.Text));
 
             //report student properties
-            ReportParameter param_LRN = new ReportParameter("LRN",txtLRN.Text);
+            ReportParameter param_LRN = new ReportParameter("LRN", txtLRN.Text);
             ReportParameter param_StudentName = new ReportParameter("studentname", txtStudentName.Text);
             ReportParameter param_CourseStrand = new ReportParameter("coursestrand", txtCourseStrand.Text);
             ReportParameter param_printeddate = new ReportParameter("printeddate", DateTime.Now.ToString("MM-dd-yyyy"));
@@ -208,6 +206,71 @@ namespace SEMS.Grading_System
         private void button1_Click_1(object sender, EventArgs e)
         {
             PrintGrade();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == clmSubjGrade.Index)
+                {
+                    var taggedGrade = dataGridView1.Rows[e.RowIndex].Tag as dynamic;
+                    int StudentGradeID = taggedGrade.StudentGradeID ?? 0;
+                    int CurriculumSubjectID = taggedGrade.CurriculumSubjectID;
+                    string SubjGrade = dataGridView1.Rows[e.RowIndex].Cells["clmSubjGrade"].Value.ToString();
+                    int SelectedSchoolYearID = SchoolYears.First(r => r.Name == cmbSchoolYear.Text).SchoolYearID;
+                    int SelectedSemesterID = SchoolSemesters.First(r => r.Semester == cmbSchoolSemester.Text).SemesterID;
+
+                    if (SubjGrade != string.Empty)
+                    {
+                        if (SubjGrade != taggedGrade.Grade)
+                        {
+                            if (taggedGrade.FacultyID == 0)
+                            {
+                                MessageBox.Show("You cannot modify this grade because the faculty is not yet setted on this subject please set it first before modifying grades");
+                                dataGridView1.Rows[e.RowIndex].Cells["clmSubjGrade"].Value = taggedGrade.Grade;
+                                return;
+                            }
+
+                            if (MessageBox.Show("Program detected that there has been changes in the grades, are you sure you want to save / update this student grade?", "Save / Update Student Grade?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                if (StudentGradeID == 0)
+                                {
+                                    var result = await _RegistrationRepository.SaveUpdateStudentGrade(StudentGradeID, RegisteredStudentID, CurriculumSubjectID, SelectedSchoolYearID, SelectedSemesterID, taggedGrade.FacultyID, "Final Grade", SubjGrade);
+                                    MessageBox.Show("Grade has been successfully saved!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    await GetStudentGrade();
+                                }
+                                else if (StudentGradeID != 0)
+                                {
+                                    var result = await _RegistrationRepository.SaveUpdateStudentGrade(StudentGradeID, RegisteredStudentID, CurriculumSubjectID, SelectedSchoolYearID, SelectedSemesterID, taggedGrade.FacultyID, "Final Grade", SubjGrade);
+                                    MessageBox.Show("Grade has been successfully updated!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    await GetStudentGrade();
+                                }
+                            }
+                            else
+                            {
+                                dataGridView1.Rows[e.RowIndex].Cells["clmSubjGrade"].Value = taggedGrade.Grade;
+                            }
+                        }
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+           
+        }
+
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+
         }
     }
 }
