@@ -50,11 +50,13 @@
     <Compile Include="Interfaces\IAccountRepository.cs" />
     <Compile Include="Interfaces\IApplicationRepository.cs" />
     <Compile Include="Interfaces\ICurriculumRepository.cs" />
+    <Compile Include="Interfaces\IReportRepository.cs" />
     <Compile Include="Interfaces\ISchoolYearSemesterRepository.cs" />
     <Compile Include="Interfaces\IStudentApplicantRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IPaymentRepository.cs" />
     <Compile Include="Interfaces\IRegistrationRepository.cs" />
+    <Compile Include="model\Reports Folder\DeansListerCandidate.cs" />
     <Compile Include="model\Student Folder\StudentBasicInfoModel.cs" />
     <Compile Include="model\UserAccountModel.cs" />
     <Compile Include="Repository\AccountRepository.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="Repository\CurriculumRepository.cs" />
     <Compile Include="Repository\PaymentRepository.cs" />
     <Compile Include="Repository\RegistrationRepository.cs" />
+    <Compile Include="Repository\ReportRepository.cs" />
     <Compile Include="Repository\SchoolYearSemesterRepository.cs" />
     <Compile Include="Repository\SOARepository.cs" />
     <Compile Include="Interfaces\IStudentRepository.cs" />

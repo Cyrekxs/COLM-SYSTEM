@@ -438,5 +438,12 @@ namespace COLM_SYSTEM
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
         }
+
+        private void deansListerCandidatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_deanslister frm = new frm_deanslister();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

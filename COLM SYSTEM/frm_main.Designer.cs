@@ -128,6 +128,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ApplicationsTimer = new System.Windows.Forms.Timer(this.components);
+            this.deansListerCandidatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -863,7 +864,8 @@
             this.miCollectionReport,
             this.miMasterList,
             this.miELReport,
-            this.miSGR});
+            this.miSGR,
+            this.deansListerCandidatesToolStripMenuItem});
             this.miReports.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miReports.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.miReports.Image = global::SEMS.Properties.Resources.Report;
@@ -875,7 +877,7 @@
             // 
             this.miCollectionReport.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miCollectionReport.Name = "miCollectionReport";
-            this.miCollectionReport.Size = new System.Drawing.Size(180, 22);
+            this.miCollectionReport.Size = new System.Drawing.Size(206, 22);
             this.miCollectionReport.Text = "Collection Report";
             this.miCollectionReport.Click += new System.EventHandler(this.collectionReportToolStripMenuItem_Click_1);
             // 
@@ -885,7 +887,7 @@
             this.perSubjectToolStripMenuItem});
             this.miMasterList.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miMasterList.Name = "miMasterList";
-            this.miMasterList.Size = new System.Drawing.Size(180, 22);
+            this.miMasterList.Size = new System.Drawing.Size(206, 22);
             this.miMasterList.Text = "Master list";
             // 
             // perSubjectToolStripMenuItem
@@ -899,7 +901,7 @@
             // 
             this.miELReport.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miELReport.Name = "miELReport";
-            this.miELReport.Size = new System.Drawing.Size(180, 22);
+            this.miELReport.Size = new System.Drawing.Size(206, 22);
             this.miELReport.Text = "E.L Report";
             this.miELReport.Click += new System.EventHandler(this.eLReportToolStripMenuItem_Click);
             // 
@@ -907,7 +909,7 @@
             // 
             this.miSGR.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miSGR.Name = "miSGR";
-            this.miSGR.Size = new System.Drawing.Size(180, 22);
+            this.miSGR.Size = new System.Drawing.Size(206, 22);
             this.miSGR.Text = "SGR";
             this.miSGR.Click += new System.EventHandler(this.sGRToolStripMenuItem_Click);
             // 
@@ -1066,6 +1068,14 @@
             this.ApplicationsTimer.Interval = 60000;
             this.ApplicationsTimer.Tick += new System.EventHandler(this.ApplicationsTimer_Tick);
             // 
+            // deansListerCandidatesToolStripMenuItem
+            // 
+            this.deansListerCandidatesToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deansListerCandidatesToolStripMenuItem.Name = "deansListerCandidatesToolStripMenuItem";
+            this.deansListerCandidatesToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.deansListerCandidatesToolStripMenuItem.Text = "Deans Lister Candidates";
+            this.deansListerCandidatesToolStripMenuItem.Click += new System.EventHandler(this.deansListerCandidatesToolStripMenuItem_Click);
+            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1202,5 +1212,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ToolStripMenuItem miSGR;
+        private System.Windows.Forms.ToolStripMenuItem deansListerCandidatesToolStripMenuItem;
     }
 }

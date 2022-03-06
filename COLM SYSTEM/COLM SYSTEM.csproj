@@ -324,6 +324,12 @@
     <Compile Include="Grading System\frm_browse_students_registered_dialog.Designer.cs">
       <DependentUpon>frm_browse_students_registered_dialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Grading System\frm_deanslister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grading System\frm_deanslister.Designer.cs">
+      <DependentUpon>frm_deanslister.cs</DependentUpon>
+    </Compile>
     <Compile Include="Grading System\frm_student_grade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -826,6 +832,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Grading System\frm_browse_students_registered_dialog.resx">
       <DependentUpon>frm_browse_students_registered_dialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grading System\frm_deanslister.resx">
+      <DependentUpon>frm_deanslister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Grading System\frm_student_grade.resx">
       <DependentUpon>frm_student_grade.cs</DependentUpon>
