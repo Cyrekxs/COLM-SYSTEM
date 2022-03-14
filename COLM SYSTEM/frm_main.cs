@@ -411,7 +411,9 @@ namespace COLM_SYSTEM
 
         private void eLReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_enrollment_list frm = new frm_enrollment_list();
+            int SchoolYearID = Utilties.GetUserSchoolYearID();
+            int SemesterID = Utilties.GetUserSemesterID();
+            frm_enrollment_list frm = new frm_enrollment_list(SchoolYearID,SemesterID);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

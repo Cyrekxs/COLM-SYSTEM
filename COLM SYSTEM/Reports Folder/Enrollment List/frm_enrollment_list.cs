@@ -17,10 +17,14 @@ namespace SEMS
         IEnrollmentList repository = new EnrollmentList_DS();
         public IEnumerable<EnrollmentList> EnrollmentLists { get; set; }
         DS_EnrollmentLists ds = new DS_EnrollmentLists();
+        private readonly int schoolYearID;
+        private readonly int semesterID;
 
-        public frm_enrollment_list()
+        public frm_enrollment_list(int SchoolYearID, int SemesterID)
         {
             InitializeComponent();
+            schoolYearID = SchoolYearID;
+            semesterID = SemesterID;
         }
 
         private async Task GenerateEnrollmentLists()
@@ -102,10 +106,40 @@ namespace SEMS
                 dr2["Unit5"] = item.Subjects[9].SubjectUnit;
             }
 
+            //for 3rd row
+            DataRow dr3;
+            dr3 = ds.Tables[0].NewRow();
+            if (item.Subjects.Count > 10)
+            {
+                dr3["Subject1"] = item.Subjects[10].SubjCode;
+                dr3["Unit1"] = item.Subjects[10].SubjectUnit;
+            }
+            if (item.Subjects.Count > 11)
+            {
+                dr3["Subject2"] = item.Subjects[11].SubjCode;
+                dr3["Unit2"] = item.Subjects[11].SubjectUnit;
+            }
+            if (item.Subjects.Count > 12)
+            {
+                dr3["Subject3"] = item.Subjects[12].SubjCode;
+                dr3["Unit3"] = item.Subjects[12].SubjectUnit;
+            }
+            if (item.Subjects.Count > 13)
+            {
+                dr3["Subject4"] = item.Subjects[13].SubjCode;
+                dr3["Unit4"] = item.Subjects[13].SubjectUnit;
+            }
+            if (item.Subjects.Count > 14)
+            {
+                dr3["Subject5"] = item.Subjects[14].SubjCode;
+                dr3["Unit5"] = item.Subjects[14].SubjectUnit;
+            }
+
 
 
             ds.Tables[0].Rows.Add(dr1);
             ds.Tables[0].Rows.Add(dr2);
+            ds.Tables[0].Rows.Add(dr3);
 
             var unitresult = await CalculateUnits(item.Subjects);
             ds.Tables[0].Rows[ds.Tables[0].Rows.Count - 1]["AcadUnits"] = unitresult.AcadUnits;
@@ -137,10 +171,7 @@ namespace SEMS
 
         private async void frm_enrollment_list_LoadAsync(object sender, EventArgs e)
         {
-            //Stopwatch watch = new Stopwatch();
-            //watch.Start();
-
-            using (frm_loading_v3 frm = new frm_loading_v3(repository.GetEnrollmentLists()))
+            using (frm_loading_v3 frm = new frm_loading_v3(repository.GetEnrollmentLists(schoolYearID,semesterID)))
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
@@ -149,9 +180,6 @@ namespace SEMS
                     EnrollmentLists = frm.task.Result;
                     await GenerateEnrollmentLists();
 
-                    //watch.Stop();
-                    //TimeSpan ts = watch.Elapsed;
-                    //MessageBox.Show(ts.ToString());
                     DisplayReport();
                     Close();
                     Dispose();

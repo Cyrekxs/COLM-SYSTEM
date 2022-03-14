@@ -82,8 +82,18 @@ namespace SEMS.Grading_System
                     dataGridView1.Rows.Clear();
                     foreach (var item in result)
                     {
-                        dataGridView1.Rows.Add(item.StudentGradeID ?? 0, item.SubjCode, item.SubjDesc, item.Unit, item.FacultyName, item.Grade);
-                        dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
+                        var studentGradeID = item.StudentGradeID ?? 0;
+                        if (studentGradeID == 0)
+                        {
+                            dataGridView1.Rows.Add(0, item.SubjCode, item.SubjDesc, item.Unit, item.FacultyName, item.Grade);
+                            dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
+                        }
+                        else
+                        {                            
+                            dataGridView1.Rows.Add(item.StudentGradeID, item.SubjCode, item.SubjDesc, item.Unit, item.FacultyName, item.Grade, (item.Unit * item.Grade));
+                            dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = item;
+                        }
+
                     }
 
 
