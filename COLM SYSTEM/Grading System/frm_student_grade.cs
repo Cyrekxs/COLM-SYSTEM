@@ -105,7 +105,7 @@ namespace SEMS.Grading_System
                 cmbSchoolSemester.Enabled = true;
                 dataGridView1.Enabled = true;
                 pictureBox1.Visible = false;
-            }           
+            }
         }
 
         private async void frm_student_grade_Load(object sender, EventArgs e)

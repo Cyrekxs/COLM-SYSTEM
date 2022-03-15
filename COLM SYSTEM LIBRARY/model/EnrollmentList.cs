@@ -45,7 +45,7 @@ namespace COLM_SYSTEM_LIBRARY.model
             ConnectionString = Connection.LStringConnection;
         }
 
-        private async Task<List<StudentEnrollmentListInfo>> GetStudents()
+        private async Task<List<StudentEnrollmentListInfo>> GetStudents(int SchoolYearID, int SemesterID)
         {
             List<StudentEnrollmentListInfo> Students = new List<StudentEnrollmentListInfo>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -54,10 +54,12 @@ namespace COLM_SYSTEM_LIBRARY.model
                 string sql =
                     "SELECT AssessmentID,StudentID,LRN,StudentName,Gender,CourseStrand,YearLevel " +
                     "FROM[dbo].[fn_list_student_assessment]() " +
-                    "WHERE EnrollmentStatus = 'Enrolled' AND EducationLevel = 'College' ORDER BY StudentName ASC";
+                    "WHERE EnrollmentStatus = 'Enrolled' AND EducationLevel = 'College' AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID ORDER BY StudentName ASC";
 
                 using (SqlCommand comm = new SqlCommand(sql, conn))
                 {
+                    comm.Parameters.AddWithValue("@SchoolYearID", SchoolYearID);
+                    comm.Parameters.AddWithValue("@SemesterID", SemesterID);
                     var reader = await comm.ExecuteReaderAsync();
                     if (reader.HasRows == true)
                     {
@@ -80,11 +82,11 @@ namespace COLM_SYSTEM_LIBRARY.model
             }
             return Students;
         }
-        public async Task<IEnumerable<EnrollmentList>> GetEnrollmentLists()
+        public async Task<IEnumerable<EnrollmentList>> GetEnrollmentLists(int SchoolYearID,int SemesterID)
         {
             List<EnrollmentList> enrollmentLists = new List<EnrollmentList>();
             //get all student assessment
-            var students = await GetStudents();
+            var students = await GetStudents(SchoolYearID,SemesterID);
 
             //get all subjects in assessment
             IEnumerable<AssessmentSubject> ListofAssessmentSubjects = new List<AssessmentSubject>();
@@ -100,8 +102,8 @@ namespace COLM_SYSTEM_LIBRARY.model
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                string sql = "SELECT * FROM [dbo].[fn_Subjects_Setted_Breakdown]() ORDER BY SubjectPriceID";
-                ListofSettedSubjects = await conn.QueryAsync(sql);
+                string sql = "SELECT * FROM [dbo].[fn_Subjects_Setted_Breakdown]() WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID ORDER BY SubjectPriceID";
+                ListofSettedSubjects = await conn.QueryAsync(sql,new { SchoolYearID, SemesterID });
             }
 
 

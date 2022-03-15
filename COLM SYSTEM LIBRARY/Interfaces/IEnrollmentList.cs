@@ -9,6 +9,6 @@ namespace COLM_SYSTEM_LIBRARY.Interfaces
 {
     public interface IEnrollmentList
     {
-        Task<IEnumerable<EnrollmentList>> GetEnrollmentLists();
+        Task<IEnumerable<EnrollmentList>> GetEnrollmentLists(int SchoolYearID, int SemesterID);
     }
 }

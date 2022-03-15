@@ -44,7 +44,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 using (SqlCommand comm = new SqlCommand("SELECT * FROM settings.school_info", conn))
                 {
                     using (SqlDataReader reader = await comm.ExecuteReaderAsync())
