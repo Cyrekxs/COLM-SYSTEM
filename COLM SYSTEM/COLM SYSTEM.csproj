@@ -521,17 +521,23 @@
     <Compile Include="Reports Folder\frm_enrollees_masterlist.Designer.cs">
       <DependentUpon>frm_enrollees_masterlist.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports Folder\frm_subject_masterlist_2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports Folder\frm_subject_masterlist_2.Designer.cs">
-      <DependentUpon>frm_subject_masterlist_2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports Folder\frm_subject_master_list.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports Folder\frm_subject_master_list.Designer.cs">
       <DependentUpon>frm_subject_master_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports Folder\frm_subject_master_list_v2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports Folder\frm_subject_master_list_v2.Designer.cs">
+      <DependentUpon>frm_subject_master_list_v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports Folder\frm_subject_student_masterlist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports Folder\frm_subject_student_masterlist.Designer.cs">
+      <DependentUpon>frm_subject_student_masterlist.cs</DependentUpon>
     </Compile>
     <Compile Include="Section Folder\frm_browse_unlisted_subjects.cs">
       <SubType>Form</SubType>
@@ -934,11 +940,14 @@
     <EmbeddedResource Include="Reports Folder\frm_enrollees_masterlist.resx">
       <DependentUpon>frm_enrollees_masterlist.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports Folder\frm_subject_masterlist_2.resx">
-      <DependentUpon>frm_subject_masterlist_2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports Folder\frm_subject_master_list.resx">
       <DependentUpon>frm_subject_master_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports Folder\frm_subject_master_list_v2.resx">
+      <DependentUpon>frm_subject_master_list_v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports Folder\frm_subject_student_masterlist.resx">
+      <DependentUpon>frm_subject_student_masterlist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports Folder\rpt_CollectionReport.rdlc" />
     <EmbeddedResource Include="Reports Folder\rpt_enrollmentlists.rdlc" />

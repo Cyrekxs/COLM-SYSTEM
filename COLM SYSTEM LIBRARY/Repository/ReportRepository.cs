@@ -19,5 +19,28 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 return result;
             }
         }
+
+        public async Task<IEnumerable<SubjectScheduleMasterListModel>> GetSubjectMasterList()
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                string sql = "SELECT * FROM fn_list_Section_Schedule()";
+                var result = await conn.QueryAsync<SubjectScheduleMasterListModel>(sql);
+                return result;
+            }
+        }
+
+        public async Task<IEnumerable<SubjectScheduleStudentsListModel>> GetSubjectScheduleStudentLists(int ScheduleID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                string sql = "SELECT * FROM fn_list_student_subjects_masterlist() WHERE ScheduleID = @ScheduleID";
+                var result = await conn.QueryAsync<SubjectScheduleStudentsListModel>(sql, new { ScheduleID });
+                return result;
+            }
+        }
+
     }
 }
