@@ -1107,12 +1107,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\COLM SYSTEM LIBRARY\COLM SYSTEM LIBRARY.csproj">
-      <Project>{18018d8a-2a0d-4600-ba0f-a5cd73410d58}</Project>
-      <Name>COLM SYSTEM LIBRARY</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Reports Folder\DataSet_CollectionReport.xsc">
       <DependentUpon>DataSet_CollectionReport.xsd</DependentUpon>
     </None>
@@ -1229,6 +1223,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COLM SYSTEM LIBRARY\COLM SYSTEM LIBRARY.csproj">
+      <Project>{18018d8a-2a0d-4600-ba0f-a5cd73410d58}</Project>
+      <Name>COLM SYSTEM LIBRARY</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

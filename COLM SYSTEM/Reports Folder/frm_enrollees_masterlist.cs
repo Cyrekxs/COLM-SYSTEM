@@ -20,7 +20,7 @@ namespace COLM_SYSTEM.Reports_Folder
         {
             InitializeComponent();
             summary = Assessment.GetAssessments(EducationLevel);
-
+            summary = summary.Where(r => r.SchoolYearID == Utilties.GetUserSchoolYearID() && r.SemesterID == Utilties.GetUserSemesterID()).ToList();
             summary = summary.Where(r => r.EducationLevel.ToLower() == EducationLevel.ToLower() && r.CourseStrand.ToLower() == CourseStrand.ToLower() && r.YearLevel.ToLower() == YearLevel.ToLower()).OrderBy(r => r.YearLevelID).ToList();
             cmbFilter.Text = "All";
             LoadSummary();
