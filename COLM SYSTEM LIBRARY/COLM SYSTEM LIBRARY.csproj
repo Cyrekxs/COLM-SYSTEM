@@ -56,8 +56,9 @@
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IPaymentRepository.cs" />
     <Compile Include="Interfaces\IRegistrationRepository.cs" />
-    <Compile Include="model\Reports Folder\Grading System\DeansListerCandidate.cs" />
-    <Compile Include="model\Reports Folder\MasterLists\MasterListSummaryModel.cs" />
+    <Compile Include="model\Reports Folder\DeansListerCandidate.cs" />
+    <Compile Include="model\Reports Folder\SubjectScheduleMasterListModel.cs" />
+    <Compile Include="model\Reports Folder\SubjectScheduleStudentsListModel.cs" />
     <Compile Include="model\Student Folder\StudentBasicInfoModel.cs" />
     <Compile Include="model\UserAccountModel.cs" />
     <Compile Include="Repository\AccountRepository.cs" />

@@ -404,7 +404,10 @@ namespace COLM_SYSTEM
 
         private void perSubjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_subject_master_list frm = new frm_subject_master_list();
+            //frm_subject_master_list frm = new frm_subject_master_list();
+            //frm.StartPosition = FormStartPosition.CenterParent;
+            //frm.ShowDialog();
+            frm_subject_master_list_v2 frm = new frm_subject_master_list_v2();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

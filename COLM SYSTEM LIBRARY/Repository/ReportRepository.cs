@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Dapper;
-using COLM_SYSTEM_LIBRARY.model.Reports_Folder.MasterLists;
-
 namespace COLM_SYSTEM_LIBRARY.Repository
 {
     public class ReportRepository : IReportRepository
@@ -22,15 +20,27 @@ namespace COLM_SYSTEM_LIBRARY.Repository
             }
         }
 
-        public async Task<IEnumerable<MasterListSummaryModel>> GetMasterListSummary(int SchoolYearID, int SemesterID)
+        public async Task<IEnumerable<SubjectScheduleMasterListModel>> GetSubjectMasterList()
         {
             using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
             {
                 conn.Open();
-                string sql = "SELECT * FROM fn_list_Section_Schedule() WHERE SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID";
-                var result = await conn.QueryAsync<MasterListSummaryModel>(sql, new { SchoolYearID, SemesterID });
+                string sql = "SELECT * FROM fn_list_Section_Schedule()";
+                var result = await conn.QueryAsync<SubjectScheduleMasterListModel>(sql);
                 return result;
             }
         }
+
+        public async Task<IEnumerable<SubjectScheduleStudentsListModel>> GetSubjectScheduleStudentLists(int ScheduleID)
+        {
+            using (SqlConnection conn = new SqlConnection(Connection.LStringConnection))
+            {
+                conn.Open();
+                string sql = "SELECT * FROM fn_list_student_subjects_masterlist() WHERE ScheduleID = @ScheduleID";
+                var result = await conn.QueryAsync<SubjectScheduleStudentsListModel>(sql, new { ScheduleID });
+                return result;
+            }
+        }
+
     }
 }

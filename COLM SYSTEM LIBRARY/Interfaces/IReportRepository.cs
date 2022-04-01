@@ -10,5 +10,7 @@ namespace COLM_SYSTEM_LIBRARY.Interfaces
     public interface IReportRepository
     {
         Task<IEnumerable<DeansListerCandidate>> GenerateDeansListers(int SchoolYearID,int SemesterID);
+        Task<IEnumerable<SubjectScheduleMasterListModel>> GetSubjectMasterList();
+        Task<IEnumerable<SubjectScheduleStudentsListModel>> GetSubjectScheduleStudentLists(int ScheduleID);
     }
 }
