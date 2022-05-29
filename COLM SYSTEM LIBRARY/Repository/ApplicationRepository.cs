@@ -71,7 +71,7 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 string qry = string.Empty;
 
                 if (IsSetted == true)
-                    qry = "UPDATE settings.school_info SET SchoolID = @SchoolID,SchoolName = @SchoolName, MainHeader = @MainHeader, FirstSubHeader = @FirstSubHeader, SecondSubHeader = @SecondSubHeader,FooterContact = @FooterContact,FooterFacebook = @FooterFacebook,Logo = @Logo, SchoolRegistrar = @SchoolRegistrar,Sign = @Sign,WaterMark = @WaterMark,Policies = @Policies, LoginWallpaper = @LoginWallpaper";
+                    qry = "UPDATE settings.school_info SET SchoolID = @SchoolID, SchoolName = @SchoolName, MainHeader = @MainHeader, FirstSubHeader = @FirstSubHeader, SecondSubHeader = @SecondSubHeader, FooterContact = @FooterContact, FooterFacebook = @FooterFacebook, Logo = @Logo, SchoolRegistrar = @SchoolRegistrar, Sign = @Sign, WaterMark = @WaterMark,Policies = @Policies, LoginWallpaper = @LoginWallpaper";
                 else
                     qry = "INSERT INTO settings.school_info VALUES (@SchoolID,@SchoolName,@MainHeader,@FirstSubHeader,@SecondSubHeader,@FooterContact,@FooterFacebook,@Logo,@SchoolRegistrar,@Sign,@WaterMark,@Policies,@LoginWallpaper)";
                 using (SqlCommand comm = new SqlCommand(qry, conn))
@@ -85,14 +85,51 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                     comm.Parameters.AddWithValue("@FooterFacebook", settings.FooterFacebook);
                     comm.Parameters.AddWithValue("@SchoolRegistrar", settings.SchoolRegistrar);
                     comm.Parameters.AddWithValue("@Policies", settings.Policies);
-                    comm.Parameters.Add("@Logo", SqlDbType.Image);
-                    comm.Parameters["@Logo"].Value = settings.Logo;
-                    comm.Parameters.Add("@Sign", SqlDbType.Image);
-                    comm.Parameters["@Sign"].Value = settings.Sign;
-                    comm.Parameters.Add("@WaterMark", SqlDbType.Image);
-                    comm.Parameters["@WaterMark"].Value = settings.WaterMark;
-                    comm.Parameters.Add("@LoginWallpaper", SqlDbType.Image);
-                    comm.Parameters["@LoginWallpaper"].Value = settings.LoginWallpaper;
+
+                    if (settings.Logo == null)
+                    {
+                        comm.Parameters.Add("@Logo", SqlDbType.Image);
+                        comm.Parameters["@Logo"].Value = null;
+                    }
+                    else
+                    {
+                        comm.Parameters.Add("@Logo", SqlDbType.Image);
+                        comm.Parameters["@Logo"].Value = settings.Logo;
+                    }
+
+                    if (settings.Sign == null)
+                    {
+                        comm.Parameters.Add("@Sign", SqlDbType.Image);
+                        comm.Parameters["@Sign"].Value = DBNull.Value;
+                    }
+                    else
+                    {
+                        comm.Parameters.Add("@Sign", SqlDbType.Image);
+                        comm.Parameters["@Sign"].Value = settings.Sign;
+                    }
+
+
+                    if (settings.WaterMark == null)
+                    {
+                        comm.Parameters.Add("@WaterMark", SqlDbType.Image);
+                        comm.Parameters["@WaterMark"].Value = DBNull.Value;
+                    }
+                    else
+                    {
+                        comm.Parameters.Add("@WaterMark", SqlDbType.Image);
+                        comm.Parameters["@WaterMark"].Value = settings.WaterMark;
+                    }
+
+                    if (settings.LoginWallpaper == null)
+                    {
+                        comm.Parameters.Add("@LoginWallpaper", SqlDbType.Image);
+                        comm.Parameters["@LoginWallpaper"].Value = DBNull.Value;
+                    }
+                    else
+                    {
+                        comm.Parameters.Add("@LoginWallpaper", SqlDbType.Image);
+                        comm.Parameters["@LoginWallpaper"].Value = settings.LoginWallpaper;
+                    }
                     result = comm.ExecuteNonQuery();
                 }
             }

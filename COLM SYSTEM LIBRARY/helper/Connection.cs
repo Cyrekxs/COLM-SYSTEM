@@ -29,7 +29,7 @@
         /// </summary>
 
         ////local connection STDA //ns51.win.hostgator.com
-        public static string LStringConnection { get { return @"Data Source=PCCYREKXS\SQLEXPRESS;Initial Catalog=stda_server_updated;Integrated Security=True"; } }
+        public static string LStringConnection { get { return @"Data Source=.\SQLEXPRESS01;Initial Catalog=stda_server_updated;Integrated Security=True"; } }
         ////online connection STDA
         //public static string OStringConnection { get { return @"Server=ns51.win.hostgator.com;Database=stda_server_registration;User Id=stda_sysadmin;Password=stda.admin2o21;"; } }
         #endregion

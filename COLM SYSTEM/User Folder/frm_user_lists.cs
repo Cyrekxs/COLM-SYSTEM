@@ -60,6 +60,7 @@ namespace COLM_SYSTEM.User_Folder
         private async void frm_user_lists_Load(object sender, EventArgs e)
         {
             Users = await _UserRepository.GetUsers();
+            DisplayUsers(Users.ToList());
         }
     }
 }

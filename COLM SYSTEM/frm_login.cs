@@ -73,6 +73,7 @@ namespace COLM_SYSTEM
                 SystemSettings = await _ApplicationRepository.GetSystemSettings();
                 pictureBox1.Image = Utilties.ConvertByteToImage(SystemSettings.Logo);
                 pictureBox2.Image = Utilties.ConvertByteToImage(SystemSettings.LoginWallpaper);
+                lblLoading.Visible = false;
             }
             else
             {
