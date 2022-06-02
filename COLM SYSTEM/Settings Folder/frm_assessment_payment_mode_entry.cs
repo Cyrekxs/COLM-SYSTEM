@@ -19,6 +19,7 @@ namespace COLM_SYSTEM.Settings_Folder
         {
             InitializeComponent();
             SavingStatus = "ADD";
+            dataGridView1.Rows.Add(0, string.Concat("Installment #", 1), "0", "0", "0", "0.00", "-");
         }
         public frm_assessment_payment_mode_entry(int PaymentModeID)
         {
@@ -51,12 +52,16 @@ namespace COLM_SYSTEM.Settings_Folder
 
         private void txtNumPayments_TextChanged(object sender, EventArgs e)
         {
+            int numOfPayments = Convert.ToInt16(txtNumPayments.Text);
+
+            //percentage value = 100 divided by number of payments
+            double pv = 100 / numOfPayments;
             if (SavingStatus == "ADD")
             {
                 dataGridView1.Rows.Clear();
-                for (int i = 0; i < Convert.ToInt16(txtNumPayments.Text); i++)
+                for (int i = 1; i <= numOfPayments; i++)
                 {
-                    dataGridView1.Rows.Add(0, string.Concat("Installment #", i), "0", "0", "0", "0.00", "-");
+                    dataGridView1.Rows.Add(0, string.Concat("Installment #", i), pv, pv, pv, "0.00", "-");
                 }
             }
         }

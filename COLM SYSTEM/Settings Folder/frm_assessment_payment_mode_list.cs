@@ -35,6 +35,7 @@ namespace COLM_SYSTEM.Settings_Folder
             frm_assessment_payment_mode_entry frm = new frm_assessment_payment_mode_entry();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+            LoadPaymentModes();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

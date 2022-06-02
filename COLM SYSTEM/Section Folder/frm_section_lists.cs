@@ -30,16 +30,23 @@ namespace COLM_SYSTEM.Section_Folder
 
         private void DisplaySections(List<Section> sections, List<YearLevel> yearLevels)
         {
-            dataGridView1.Rows.Clear();
-            List<Curriculum> curriculums = Curriculum.GetCurriculums();
-
-            foreach (var item in sections)
+            try
             {
-                string CurriculumCode = string.Empty;
-                CurriculumCode = curriculums.FirstOrDefault(r => r.CurriculumID == item.CurriculumID).Code;
+                dataGridView1.Rows.Clear();
+                List<Curriculum> curriculums = Curriculum.GetCurriculums();
 
-                YearLevel level = yearLevels.Where(r => r.YearLevelID == item.YearLevelID).FirstOrDefault(); // get year level info to show course or strand
-                dataGridView1.Rows.Add(item.SectionID, item.EducationLevel, CurriculumCode, level.CourseStrand, item.YearLevel, item.SectionName, item.DateCreated.ToString("MM-dd-yyyy"));
+                foreach (var item in sections)
+                {
+                    string CurriculumCode = string.Empty;
+                    CurriculumCode = curriculums.FirstOrDefault(r => r.CurriculumID == item.CurriculumID).Code;
+
+                    YearLevel level = yearLevels.Where(r => r.YearLevelID == item.YearLevelID).FirstOrDefault(); // get year level info to show course or strand
+                    dataGridView1.Rows.Add(item.SectionID, item.EducationLevel, CurriculumCode, level.CourseStrand, item.YearLevel, item.SectionName, item.DateCreated.ToString("MM-dd-yyyy"));
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
 
