@@ -156,9 +156,13 @@ namespace COLM_SYSTEM.registration
                 Close();
                 Dispose();
             }
+            else if (result == 0)
+            {
+                MessageBox.Show("This student is already registered in this curicullum SEMS cannot proceed this!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
-                MessageBox.Show("Error occured while registration!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error occurred while trying to register this student!","", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

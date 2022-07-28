@@ -29,9 +29,9 @@
         /// </summary>
 
         ////local connection STDA //ns51.win.hostgator.com
-        //public static string LStringConnection { get { return @"Data Source=.\SQLEXPRESS01;Initial Catalog=stda_server_updated;Integrated Security=True"; } }
+        //public static string LStringConnection { get { return @"Data Source=CYREKXS\SQLDEV2017;Initial Catalog=stda_server_updated;Integrated Security=True"; } }
         ////online connection STDA
-        public static string LStringConnection { get { return @"Server=ns51.win.hostgator.com;Database=stda_server_updated;User Id=stda_sysadmin;Password=stda.admin2o21;"; } }
+        public static string LStringConnection { get { return @"Server=stdabulacan.edu.ph;Database=stda_server_updated;User Id=stda_admin;Password=Admin.stda2021;"; } }
         #endregion
 
 

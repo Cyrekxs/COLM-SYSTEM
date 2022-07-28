@@ -21,11 +21,12 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                 conn.Open();
 
                 //identify if the student is already registered
-                using (SqlCommand comm_verify = new SqlCommand("SELECT * FROM student.registered WHERE StudentID = @StudentID AND SchoolYearID = @SchoolYearID AND SemesterID = @SemesterID", conn))
+                using (SqlCommand comm_verify = new SqlCommand("SELECT * FROM student.registered WHERE StudentID = @StudentID AND CurriculumID = @CurriculumID", conn))
                 {
                     comm_verify.Parameters.AddWithValue("@StudentID", registration.StudentID);
-                    comm_verify.Parameters.AddWithValue("@SchoolYearID", registration.SchoolYearID);
-                    comm_verify.Parameters.AddWithValue("@SemesterID", registration.SemesterID);
+                    comm_verify.Parameters.AddWithValue("@CurriculumID", registration.CurriculumID);
+                    //comm_verify.Parameters.AddWithValue("@SchoolYearID", registration.SchoolYearID);
+                    //comm_verify.Parameters.AddWithValue("@SemesterID", registration.SemesterID);
                     using (SqlDataReader reader = await comm_verify.ExecuteReaderAsync())
                     {
                         if (reader.HasRows == false)
@@ -51,8 +52,11 @@ namespace COLM_SYSTEM_LIBRARY.Repository
                         return await comm.ExecuteNonQueryAsync();
                     }
                 }
-                else
+                else if (HasRecord == true)
                     return 0;
+                else
+                    return -1;
+
             }
         }
         public async Task<int> UpdateStudentRegistration(StudentRegistration registration)
